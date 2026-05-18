@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | S'Estepa Design | Landscape Architects Mallorca</title>
+    <meta name="description" content="Reach out to S'Estepa Design to discuss your residential landscape or garden design project in Mallorca. Coordinate with Sofia Grimaux.">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Contact Us | S'Estepa Design | Landscape Architects Mallorca">
+    <meta property="og:description" content="Coordinate your luxury Mediterranean garden design consultation with Sofia Grimaux in Mallorca.">
+    <meta property="og:image" content="../PORTFOLIO/sant-llorenc/cover.jpg">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../index.css">
+</head>
+<body>
+
+    
+    <header class="main-header">
+        <div class="header-container">
+            <a href="../index.html" class="logo-link" id="logo">
+                <img src="../images/logo.png" alt="S'Estepa Design" class="logo-img">
+            </a>
+            
+            <button class="mobile-toggle" aria-label="Toggle menu" id="mobileToggle">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-item ">Home</a>
+                <a href="../ABOUT/about.html" class="nav-item ">About Us</a>
+                <a href="../PORTFOLIO/portfolio.html" class="nav-item ">Portfolio</a>
+                <a href="../GALLERY/gallery.html" class="nav-item ">Gallery</a>
+                <a href="../PRESS/press.html" class="nav-item ">Press</a>
+                <a href="../CONTACT/contact.html" class="nav-item btn-contact active">Contact</a>
+            </nav>
+        </div>
+    </header>
+    
+
+    <!-- Subpage Hero -->
+    <section class="project-hero" style="height: 50vh;">
+        <img src="../PORTFOLIO/santa-ponsa/cover.jpg" alt="Contact S'Estepa Design Team" class="project-hero-bg">
+        <div class="project-hero-overlay"></div>
+        <div class="project-hero-container">
+            <span class="project-location-tag">Get in Touch</span>
+            <h1 class="project-main-title">CONTACT</h1>
+        </div>
+    </section>
+
+    <!-- Contact & Map Section -->
+    <section style="background-color: var(--color-white); padding: 6rem 0;">
+        <div class="container">
+            <div class="grid-2">
+                <!-- Contact Details and Map -->
+                <div class="contact-info-block">
+                    <span class="section-tag">Coordinates</span>
+                    <h2 class="contact-cta-heading">Every garden starts with a conversation</h2>
+                    <p class="contact-cta-text" style="margin-bottom: 2rem;">We would love to hear from you. Schedule a studio meeting in Inca or a physical consultation on your residential estate in Mallorca.</p>
+                    
+                    <div class="contact-details" style="margin-bottom: 3rem;">
+                        <p class="contact-detail-line" style="font-size: 1.05rem; margin-bottom: 0.5rem;"><strong>Primary Studio:</strong> Carrer dels Menestrals, 5, 07300 Inca, Mallorca</p>
+                        <p class="contact-detail-line" style="font-size: 1.05rem; margin-bottom: 0.5rem;"><strong>Direct Corporate Email:</strong> <a href="mailto:sofia@sestepa.com" style="text-decoration: underline; color: var(--color-olive);">sofia@sestepa.com</a></p>
+                        <p class="contact-detail-line" style="font-size: 1.05rem; margin-bottom: 0.5rem;"><strong>WhatsApp Coordinate:</strong> <a href="https://wa.me/34681272252" style="text-decoration: underline; color: var(--color-olive);">+34 681 272 252</a></p>
+                    </div>
+
+                    <!-- Embedded Google Maps Frame -->
+                    <div style="width: 100%; height: 300px; border: 1px solid rgba(26,26,26,0.05); overflow: hidden;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3067.896798028731!2d2.909986877028169!3d39.71954277156106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1297b7bbfaf6962f%3A0x6b2cd1cb3e4ee7cf!2sCarrer%20dels%20Menestrals%2C%205%2C%2007300%20Inca%2C%20Illes%20Balears%2C%20Spain!5e0!3m2!1sen!2s!4v1716040000000!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <!-- Active Contact Form Block -->
+                <div class="contact-form-block">
+                    <form id="connectionForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="formName">Name</label>
+                            <input type="text" id="formName" name="name" required placeholder="Your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="formEmail">E-mail</label>
+                            <input type="email" id="formEmail" name="email" required placeholder="Your email address">
+                        </div>
+                        <div class="form-group">
+                            <label for="formSubject">Property Location</label>
+                            <input type="text" id="formSubject" name="subject" required placeholder="e.g. Bunyola, Son Vida, Sant Llorenç">
+                        </div>
+                        <div class="form-group">
+                            <label for="formMessage">Message</label>
+                            <textarea id="formMessage" name="message" rows="6" required placeholder="Describe your property and project scope..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Request</button>
+                        <div id="formResponse" style="display: none;"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand-column">
+                    <a href="../index.html" class="footer-logo-link">
+                        <img src="../images/logo.png" alt="S'Estepa Design" class="footer-logo-img">
+                    </a>
+                    <p class="footer-tagline">Understated Mediterranean Elegance. 27 Years of Landscape Architecture & Sustainable Garden Design Expertise in Mallorca.</p>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h4 class="footer-heading">Pages</h4>
+                    <a href="../index.html" class="footer-link">Home</a>
+                    <a href="../ABOUT/about.html" class="footer-link">About Us</a>
+                    <a href="../PORTFOLIO/portfolio.html" class="footer-link">Portfolio</a>
+                    <a href="../GALLERY/gallery.html" class="footer-link">Gallery</a>
+                    <a href="../PRESS/press.html" class="footer-link">Press</a>
+                    <a href="../CONTACT/contact.html" class="footer-link">Contact</a>
+                </div>
+                
+                <div class="footer-contact-column">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <p class="footer-link"><a href="mailto:sofia@sestepa.com">sofia@sestepa.com</a></p>
+                    <p class="footer-link"><a href="https://wa.me/34681272252">+ 34 681 272 252</a></p>
+                    <p class="footer-link"><a href="https://goo.gl/maps/ekqTmYz5RMYnV8VC8" target="_blank">Carrer dels Menestrals, 5, 07300 Inca, Mallorca</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 S'Estepa Design. All Rights Reserved. | <a href="#" style="text-decoration: underline;">Privacy Policy</a> | <a href="#" style="text-decoration: underline;">Legal Notice</a></p>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script src="../main.js"></script>
+</body>
+</html>
