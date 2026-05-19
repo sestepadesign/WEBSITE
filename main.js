@@ -143,7 +143,7 @@ function initContactForm() {
         formData.forEach((val, key) => { data[key] = val; });
         
         // Execute request against Apps Script Web App endpoint
-        const actionUrl = "https://script.google.com/macros/s/AKfycbz_dY3y47-15V7_7N4p2S68z6w7_GAS/exec";
+        const actionUrl = "https://script.google.com/macros/s/AKfycbwJT0-KBhXPhkBhyFlcMSR6qstmJMOzXsm5syqnQXtq_9CBsrNRGIQ4_DSzQ2VCSb3qOQ/exec";
         
         // Convert to query string for CORS-friendly JSONP/GET fallback
         const queryString = new URLSearchParams(data).toString();
