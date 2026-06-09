@@ -1,0 +1,324 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'es' } },
+    { params: { lang: 'de' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: 'en' | 'es' | 'de' };
+
+const content = {
+  en: {
+    title: "Privacy Policy",
+    tag: "Privacy",
+    description: "Privacy policy and data protection guidelines for S'Estepa Jardinería Integral SLU.",
+    sections: [
+      {
+        type: "p",
+        text: "In accordance with the current and applicable regulations on personal data protection, we inform you that your data will be incorporated into the treatment system owned by S’ESTEPA JARDINERIA INTEGRAL SLU with NIF B07948854 and registered office at C/ FRA FRANCESC PALOU 6, BAJOS LOCAL 2, 07010 PALMA DE MALLORCA (ILLES BALEARS). Below, we provide information on the treatments carried out:"
+      },
+      {
+        type: "h2",
+        text: "Treatments Carried Out"
+      },
+      {
+        type: "p",
+        text: "The personal data collected through forms, emails, or direct contact is processed solely for the purposes of managing client inquiries, executing landscaping and gardening projects, and billing. The legal basis is the execution of a contract or the consent of the data subject. Data is retained for the legally established periods."
+      },
+      {
+        type: "h2",
+        text: "Rights of the Data Subjects"
+      },
+      {
+        type: "p",
+        text: "S’ESTEPA JARDINERIA INTEGRAL SLU informs Users that they may exercise the rights of access, rectification, restriction, deletion, portability, objection to the processing of their personal data, and the right not to be subject to automated decision-making, including profiling, before the Data Controller, as well as the right to withdraw the given consent."
+      },
+      {
+        type: "h3",
+        text: "Your Rights"
+      },
+      {
+        type: "ul",
+        items: [
+          "Right of Access: The right of the user to obtain confirmation of whether their data is being processed and, if so, the specific personal data being processed and the legal information about the processing.",
+          "Right of Rectification: The right of the affected party to have inaccurate or incomplete data corrected. Concerning the website, this only applies to information under the control of S'Estepa (such as removing comments, images, or personal details).",
+          "Right to Restriction of Processing: The right to limit the processing purposes originally intended by the Data Controller under certain circumstances.",
+          "Right of Deletion: The right to delete the user’s personal data, except as provided by the GDPR (freedom of expression, retention obligations, defense of claims).",
+          "Right to Portability: The right to receive the personal data provided in a structured, commonly used, and machine-readable format to transmit it to another controller.",
+          "Right of Objection: The user’s right to object to the processing of their personal data or to stop the processing when based on legitimate interest or direct marketing.",
+          "Right not to be subject to automated decision-making: The right not to be subject to decisions based solely on automated processing, including profiling, producing legal effects.",
+          "Right to withdraw consent: For any processing based on consent, you have the right to withdraw it at any time, free of charge."
+        ]
+      },
+      {
+        type: "h3",
+        text: "How to Exercise Your Rights"
+      },
+      {
+        type: "p",
+        text: "To exercise any of the data protection rights described above, you must follow these instructions:"
+      },
+      {
+        type: "p",
+        text: "Submit a written request to the address C/ FRA FRANCESC PALOU 6, BAJOS LOCAL 2, 07010 PALMA DE MALLORCA (ILLES BALEARS) (attention to S’ESTEPA JARDINERIA INTEGRAL SLU) or via email to administracio@sestepa.com."
+      },
+      {
+        type: "p",
+        text: "The request sent by the personal data holder must consider the following:"
+      },
+      {
+        type: "ul",
+        items: [
+          "It must be duly identified, and if there are doubts about the applicant’s identity, the request will be asked to be rectified (e.g., by requesting the DNI number, a copy of the DNI, the email provided, etc.).",
+          "The request can be made by a legal or voluntary representative when they are duly identified and authorized by the data holder (through an express authorization of the data holder to exercise the personal rights regulated in the personal data protection regulations).",
+          "The request must specify the rights being exercised. If it does not refer to a specific treatment, the general information will be provided."
+        ]
+      }
+    ]
+  },
+  es: {
+    title: "Política de Privacidad",
+    tag: "Privacidad",
+    description: "Política de privacidad y pautas de protección de datos de S'Estepa Jardinería Integral SLU.",
+    sections: [
+      {
+        type: "p",
+        text: "De conformidad con la normativa vigente y aplicable en materia de protección de datos de carácter personal, le informamos que sus datos serán incorporados al sistema de tratamiento titularidad de S’ESTEPA JARDINERIA INTEGRAL SLU con NIF B07948854 y domicilio social en C/ FRA FRANCESC PALOU 6, BAJOS LOCAL 2, 07010 PALMA DE MALLORCA (ILLES BALEARS). A continuación te facilitamos información sobre los tratamientos realizados:"
+      },
+      {
+        type: "h2",
+        text: "Tratamientos Realizados"
+      },
+      {
+        type: "p",
+        text: "Los datos personales recabados a través de formularios, correos electrónicos o contacto directo se tratan únicamente para gestionar las consultas de los clientes, ejecutar proyectos de paisajismo y jardinería, y realizar la facturación. La base jurídica es la ejecución de un contrato o el consentimiento del interesado. Los datos se conservan durante los plazos legalmente establecidos."
+      },
+      {
+        type: "h2",
+        text: "Derechos de los Interesados"
+      },
+      {
+        type: "p",
+        text: "S’ESTEPA JARDINERIA INTEGRAL SLU informa a los Usuarios que pueden ejercitar los derechos de acceso, rectificación, limitación, supresión, portabilidad, oposición al tratamiento de sus datos personales, y el derecho a no ser objeto de decisiones automatizadas, incluida la elaboración de perfiles, ante el Responsable del Tratamiento, así como el derecho a retirar el consentimiento prestado."
+      },
+      {
+        type: "h3",
+        text: "Sus Derechos"
+      },
+      {
+        type: "ul",
+        items: [
+          "Derecho de acceso: Derecho del usuario a obtener confirmación de si se están tratando sus datos y, en caso afirmativo, los datos personales concretos y la información legal sobre el tratamiento.",
+          "Derecho de Rectificación: Derecho del afectado a que se rectifiquen los datos inexactos o incompletos. En relación con la web, esto se limita a la información bajo control de S'Estepa (como eliminar comentarios, imágenes o datos personales).",
+          "Derecho a la limitación del tratamiento: Derecho a limitar los fines del tratamiento inicialmente previstos por el Responsable del Tratamiento bajo ciertas circunstancias.",
+          "Derecho de supresión: Derecho a suprimir los datos personales, salvo lo dispuesto en el propio RGPD (libertad de expresión, conservación, formulación o defensa de reclamaciones).",
+          "Derecho a la portabilidad: Derecho a recibir los datos facilitados en un formato estructurado y de lectura mecánica para transmitirlos a otro Responsable.",
+          "Derecho de oposición: Derecho a oponerse al tratamiento de sus datos o a que cese el tratamiento cuando esté basado en interés legítimo o mercadotecnia directa.",
+          "Derecho a no ser sometido a decisiones automatizadas: Derecho a no ser objeto de una decisión basada únicamente en el tratamiento automatizado, incluida la elaboración de perfiles.",
+          "Derecho a retirar el consentimiento: Para cualquier tratamiento basado en tu consentimiento, tienes derecho a retirarlo en cualquier momento sin coste alguno."
+        ]
+      },
+      {
+        type: "h3",
+        text: "Cómo Ejercer sus Derechos"
+      },
+      {
+        type: "p",
+        text: "Para ejercer cualquiera de los derechos de protección de datos descritos anteriormente, debes seguir estas instrucciones:"
+      },
+      {
+        type: "p",
+        text: "Presenta una solicitud por escrito a la dirección C/ FRA FRANCESC PALOU 6, BAJOS LOCAL 2, 07010 PALMA DE MALLORCA (ILLES BALEARS) (atención a S’ESTEPA JARDINERIA INTEGRAL SLU) o por correo electrónico a administracio@sestepa.com."
+      },
+      {
+        type: "p",
+        text: "La solicitud enviada por el titular de los datos personales (interesado) para ejercer sus derechos debe tener en cuenta lo siguiente:"
+      },
+      {
+        type: "ul",
+        items: [
+          "Debe estar debidamente identificado, y si existen dudas sobre la identidad del solicitante, se pedirá que se rectifique la solicitud (por ejemplo, solicitando el DNI, copia del DNI, correo electrónico, etc.).",
+          "La solicitud podrá ser realizada por el representante legal o voluntario cuando estén debidamente identificados y autorizados por el titular de los datos (mediante autorización expresa).",
+          "La solicitud debe especificar los derechos que se ejercen. Si no se refiere a un tratamiento concreto, se facilitará la información general."
+        ]
+      }
+    ]
+  },
+  de: {
+    title: "Datenschutzerklärung",
+    tag: "Datenschutz",
+    description: "Datenschutzerklärung und Richtlinien zum Schutz personenbezogener Daten für S'Estepa Jardinería Integral SLU.",
+    sections: [
+      {
+        type: "p",
+        text: "Gemäß den geltenden Vorschriften zum Schutz personenbezogener Daten informieren wir Sie darüber, dass Ihre Daten in das Behandlungssystem von S’ESTEPA JARDINERIA INTEGRAL SLU mit der Nummer NIF B07948854 und Sitz in C/ FRA FRANCESC PALOU 6, BAJOS LOCAL 2, 07010 PALMA DE MALLORCA (ILLES BALEARS) aufgenommen werden. Im Folgenden finden Sie Informationen zu den durchgeführten Behandlungen:"
+      },
+      {
+        type: "h2",
+        text: "Durchgeführte Behandlungen"
+      },
+      {
+        type: "p",
+        text: "Die über Formulare, E-Mails oder direkten Kontakt erhobenen personenbezogenen Daten werden ausschließlich zur Bearbeitung von Kundenanfragen, zur Ausführung von Landschafts- und Gartenprojekten sowie zur Abrechnung verarbeitet. Die Rechtsgrundlage ist die Durchführung eines Vertrages oder die Einwilligung der betroffenen Person. Die Daten werden für die gesetzlich festgelegten Zeiträume aufbewahrt."
+      },
+      {
+        type: "h2",
+        text: "Rechte der betroffenen Personen"
+      },
+      {
+        type: "p",
+        text: "S’ESTEPA JARDINERIA INTEGRAL SLU informiert die Nutzer darüber, dass sie gegenüber dem für die Verarbeitung Verantwortlichen das Recht auf Auskunft, Berichtigung, Einschränkung, Löschung, Übertragbarkeit, Widerspruch gegen die Verarbeitung ihrer personenbezogenen Daten und das Recht, keiner automatisierten Entscheidungsfindung, einschließlich Profiling, unterworfen zu werden, sowie das Recht auf Widerruf der erteilten Einwilligung geltend machen können."
+      },
+      {
+        type: "h3",
+        text: "Ihre Rechte"
+      },
+      {
+        type: "ul",
+        items: [
+          "Recht auf Auskunft: Das Recht des Nutzers zu erfahren, ob seine Daten verarbeitet werden, welche Daten verarbeitet werden und die rechtlichen Bedingungen dieser Verarbeitung zu erfragen.",
+          "Recht auf Berichtigung: Das Recht des Betroffenen, unrichtige oder unvollständige Daten berichtigen zu lassen (z. B. das Entfernen von Kommentaren oder persönlichen Daten auf der Website).",
+          "Recht auf Einschränkung der Verarbeitung: Das Recht, die Verarbeitungszwecke unter bestimmten Bedingungen vorübergehend einzuschränken.",
+          "Recht auf Löschung: Das Recht, die Löschung personenbezogener Daten zu verlangen (sofern keine gesetzlichen Aufbewahrungsfristen dem entgegenstehen).",
+          "Recht auf Übertragbarkeit: Das Recht, die bereitgestellten Daten in einem strukturierten, maschinenlesbaren Format zu erhalten und an einen anderen Verantwortlichen zu übermitteln.",
+          "Recht auf Widerspruch: Das Recht, der Verarbeitung der Daten aus berechtigtem Interesse oder für Direktwerbung zu widersprechen.",
+          "Recht, keiner automatisierten Entscheidung unterworfen zu werden: Das Recht, nicht Gegenstand einer ausschließlich auf automatisierter Verarbeitung (einschließlich Profiling) beruhenden Entscheidung zu sein.",
+          "Recht auf Widerruf der Einwilligung: Das Recht, eine erteilte Einwilligung für die Zukunft jederzeit kostenfrei zu widerrufen."
+        ]
+      },
+      {
+        type: "h3",
+        text: "Ausübung der Rechte"
+      },
+      {
+        type: "p",
+        text: "Um eines der oben beschriebenen Datenschutzrechte auszuüben, müssen Sie diese Anweisungen befolgen:"
+      },
+      {
+        type: "p",
+        text: "Senden Sie eine schriftliche Anfrage an die Adresse C/ FRA FRANCESC PALOU 6, BAJOS LOCAL 2, 07010 PALMA DE MALLORCA (ILLES BALEARS) (zu Händen von S’ESTEPA JARDINERIA INTEGRAL SLU) oder per E-Mail an administracio@sestepa.com."
+      },
+      {
+        type: "p",
+        text: "Der Antrag des Dateninhabers, der seine Rechte wahrnehmen möchte, muss Folgendes berücksichtigen:"
+      },
+      {
+        type: "ul",
+        items: [
+          "Er muss eindeutig identifiziert sein. Bei Zweifeln an der Identität wird eine Präzisierung verlangt (z. B. durch Angabe der Personalausweisnummer, einer Kopie des DNI/Personalausweises usw.).",
+          "Der Antrag kann durch einen bevollmächtigten Vertreter gestellt werden, sofern eine ausdrückliche Ermächtigung des Dateninhabers vorliegt.",
+          "Der Antrag muss die konkret auszuübenden Rechte benennen. Wenn sich der Antrag nicht auf eine bestimmte Verarbeitung bezieht, werden allgemeine Informationen erteilt."
+        ]
+      }
+    ]
+  }
+};
+
+const page = content[lang];
+---
+
+<Layout title={`S'Estepa Design | ${page.title}`} description={page.description} lang={lang}>
+  <section class="legal-page section-padding">
+    <div class="container legal-container">
+      <span class="legal-tag">{page.tag}</span>
+      <h1 class="legal-title">{page.title}</h1>
+      <div class="legal-content">
+        {page.sections.map(section => {
+          if (section.type === "p") {
+            return <p>{section.text}</p>;
+          } else if (section.type === "h2") {
+            return <h2>{section.text}</h2>;
+          } else if (section.type === "h3") {
+            return <h3>{section.text}</h3>;
+          } else if (section.type === "ul" && section.items) {
+            return (
+              <ul>
+                {section.items.map(item => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            );
+          }
+          return null;
+        })}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-page {
+    background-color: var(--color-white);
+    padding: 12rem 0 8rem 0;
+  }
+
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .legal-tag {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-olive);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .legal-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--color-charcoal);
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--color-sand-dark);
+    padding-bottom: 2rem;
+  }
+
+  .legal-content h2 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--color-charcoal);
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .legal-content h3 {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--color-olive-dark);
+    margin-top: 2.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .legal-content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-charcoal-light);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+
+  .legal-content ul {
+    margin-bottom: 2.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .legal-content li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-charcoal-light);
+    margin-bottom: 0.8rem;
+    font-weight: 300;
+  }
+</style>

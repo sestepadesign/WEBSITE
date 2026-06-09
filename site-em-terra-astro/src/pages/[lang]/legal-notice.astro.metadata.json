@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_OTHER",
+  "summary":  "Creates the localized Legal Notice page (legal-notice.astro) containing the exact translations in English, Spanish, and German.",
+  "updatedAt":  "2026-05-20T12:48:26.548289200Z"
+}

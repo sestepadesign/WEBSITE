@@ -1,0 +1,89 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: 'en' | 'es' | 'de';
+  /** Path to OG image, e.g. /portfolio/campos/cover.webp */
+  image?: string;
+  /** If set, adds meta refresh after full OG head (root → /en/) */
+  redirectTo?: string;
+}
+
+const { title, description, lang, image = '/portfolio/campos/cover.webp', redirectTo } = Astro.props;
+
+const site = Astro.site!;
+const canonicalPath = redirectTo ?? Astro.url.pathname;
+const canonicalURL = new URL(canonicalPath, site);
+const ogImage = new URL(image, site);
+
+const ogLocales: Record<typeof lang, string> = {
+  en: 'en_US',
+  es: 'es_ES',
+  de: 'de_DE',
+};
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/jpeg" href="/favicon-192x192.jpg" sizes="192x192" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="S'Estepa Design" />
+    <meta property="og:locale" content={ogLocales[lang]} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {redirectTo && <meta http-equiv="refresh" content={`0;url=${redirectTo}`} />}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    {redirectTo ? (
+      <p style="display:none">Redirecting to <a href={redirectTo}>{redirectTo}</a></p>
+    ) : (
+      <div class="site-wrapper">
+        <Header lang={lang} />
+        <main id="main-content">
+          <slot />
+        </main>
+        <Footer lang={lang} />
+      </div>
+    )}
+  </body>
+</html>
+
+<style>
+  .site-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: var(--color-sand-light);
+  }
+
+  main {
+    flex-grow: 1;
+  }
+</style>

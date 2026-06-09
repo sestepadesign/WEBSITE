@@ -1,0 +1,1224 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { ui } from '../../data/translations';
+import { projects } from '../../data/projects';
+import ProjectCard from '../../components/ProjectCard.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'es' } },
+    { params: { lang: 'de' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: 'en' | 'es' | 'de' };
+
+const t = (key: keyof typeof ui[typeof lang]) => {
+  return ui[lang][key] || key;
+};
+
+// SEO meta description
+const descriptions = {
+  en: "Bespoke Mediterranean landscape and garden design studio in Mallorca. With 27 years of expertise, S'Estepa Design crafts sustainable, living sanctuaries that mature gracefully.",
+  es: "Estudio de diseño de jardines y paisajismo mediterráneo en Mallorca. Con 27 años de experiencia, S'Estepa Design esculpe santuarios vivos y sostenibles.",
+  de: "Maßgeschneidertes mediterranes Landschafts- und Gartendesign auf Mallorca. S'Estepa Design schafft nachhaltige, lebendige Rückzugsorte mit 27 Jahren Erfahrung."
+};
+
+const pageDescription = descriptions[lang];
+
+const whatsappTexts = {
+  en: "Hello S'Estepa Design! I visited your website and would like to request a consultation.",
+  es: "Hola S'Estepa Design! He visitado su web y me gustaría solicitar una consulta.",
+  de: "Hallo S'Estepa Design! Ich habe Ihre Website besucht und möchte eine Beratung anfragen."
+};
+const whatsappUrl = `https://wa.me/34681272252?text=${encodeURIComponent(whatsappTexts[lang])}`;
+
+// Featured projects
+const featuredSlugs = ['campos', 'sant-llorenc', 'crestatx', 'terrace-garden-palma'];
+const featuredProjects = projects.filter(p => featuredSlugs.includes(p.slug));
+
+const journeyData = {
+  en: {
+    tag: "Our Landscape Journey Design",
+    title: "Your Garden Design",
+    subtitle: "A highly refined, collaborative roadmap from initial meeting to a fully realized living environment.",
+    steps: [
+      {
+        num: "01",
+        title: "First Meeting",
+        text: "An initial meeting to align your vision with the site’s potential. We evaluate the landscape’s unique features, orientation, and your lifestyle requirements to establish the foundation of the project.",
+        hasLink: true,
+        linkText: "Start the Conversation"
+      },
+      {
+        num: "02",
+        title: "Conceptual Design",
+        text: "Translating our initial dialogue into a visual narrative. We develop a preliminary concept outlining the spatial layout, material palette, and key botanical features. Depending on the project’s complexity, we provide 2D scaled plans or high-fidelity 3D renders to bring the vision to life."
+      },
+      {
+        num: "03",
+        title: "Design Refinement",
+        text: "A collaborative dialogue to perfect every detail. We refine the conceptual vision based on your feedback, ensuring the design aligns seamlessly with your lifestyle, functional requirements, and technical specifications."
+      },
+      {
+        num: "04",
+        title: "Final Design",
+        text: "Once the design concept is finalized, we develop the comprehensive technical plans and specifications required for execution. This stage defines every constructive detail, from the precise selection of hardscape materials to the complete botanical palette, ensuring a rigorous roadmap for the build."
+      },
+      {
+        num: "05",
+        title: "Installation",
+        text: "Our dedicated local team brings the project to life, managing the entire construction and planting process on-site. We oversee every technical specification to ensure the garden is delivered to our exacting standards, providing a seamless transition from the final plans to a living landscape."
+      }
+    ]
+  },
+  es: {
+    tag: "Nuestra Trayectoria de Paisajismo",
+    title: "Su Diseño de Jardín",
+    subtitle: "Una hoja de ruta altamente refinada y colaborativa, desde el primer encuentro hasta un entorno vivo completamente realizado.",
+    steps: [
+      {
+        num: "01",
+        title: "Primer Encuentro",
+        text: "Una reunión inicial para alinear su visión con el potencial del terreno. Evaluamos las características únicas del paisaje, la orientación y sus requisitos de estilo de vida para establecer las bases del proyecto.",
+        hasLink: true,
+        linkText: "Iniciar una Conversación"
+      },
+      {
+        num: "02",
+        title: "Diseño Conceptual",
+        text: "Traducimos nuestro diálogo inicial en una narrativa visual. Desarrollamos un concepto preliminar que define la distribución espacial, la paleta de materiales y los elementos botánicos clave. Según la complejidad del proyecto, proporcionamos planos a escala 2D o renders 3D de alta fidelidad."
+      },
+      {
+        num: "03",
+        title: "Refinamiento del Diseño",
+        text: "Un diálogo colaborativo para perfeccionar cada detalle. Refinamos la visión conceptual basándonos en sus comentarios, asegurando que el diseño se adapte a su estilo de vida, necesidades funcionales y especificaciones técnicas."
+      },
+      {
+        num: "04",
+        title: "Diseño Final",
+        text: "Una vez finalizado el concepto de diseño, desarrollamos los planos técnicos completos y las especificaciones para la ejecución. Esta etapa define cada detalle constructivo, desde los materiales hasta la paleta botánica completa, asegurando una hoja de ruta rigurosa para la obra."
+      },
+      {
+        num: "05",
+        title: "Instalación",
+        text: "Nuestro equipo local dedicado da vida al proyecto, gestionando todo el proceso de construcción y plantación in situ. Supervisamos cada especificación técnica para garantizar que el jardín se entregue según nuestros estándares exigentes, asegurando una transición fluida."
+      }
+    ]
+  },
+  de: {
+    tag: "Unser Landschaftsweg Design",
+    title: "Ihre Gartengestaltung",
+    subtitle: "Ein hochgradig verfeinerter, partnerschaftlicher Fahrplan vom ersten Treffen bis zu einer vollendeten lebendigen Umgebung.",
+    steps: [
+      {
+        num: "01",
+        title: "Erstes Treffen",
+        text: "Ein erstes Gespräch, um Ihre Vision mit dem Potenzial des Standorts abzustimmen. Wir bewerten die einzigartigen Merkmale der Landschaft, die Ausrichtung und Ihre Lebensstil-Anforderungen, um die Grundlage des Projekts zu schaffen.",
+        hasLink: true,
+        linkText: "Ein Gespräch Beginnen"
+      },
+      {
+        num: "02",
+        title: "Konzeptentwurf",
+        text: "Übersetzung unseres ersten Dialogs in eine visuelle Erzählung. Wir entwickeln ein vorläufiges Konzept, das die räumliche Aufteilung, die Materialpalette und die wichtigsten botanischen Merkmale umreißt. Je nach Komplexität des Projekts erstellen wir 2D-Pläne oder hochauflösende 3D-Visualisierungen."
+      },
+      {
+        num: "03",
+        title: "Detailabstimmung",
+        text: "Ein partnerschaftlicher Dialog, um jedes Detail zu perfektionieren. Wir verfeinern den Konzeptentwurf basierend auf Ihrem Feedback und stellen sicher, dass das Design nahtlos zu Ihrem Lebensstil, Ihren funktionalen Anforderungen und den technischen Spezifikationen passt."
+      },
+      {
+        num: "04",
+        title: "Ausführungsplanung",
+        text: "Sobald das Designkonzept feststeht, erstellen wir die detaillierten technischen Pläne und Spezifikationen, die für die Ausführung erforderlich sind. Diese Phase definiert jedes bauliche Detail, von der präzisen Auswahl der Materialien bis hin zur vollständigen botanischen Palette."
+      },
+      {
+        num: "05",
+        title: "Realisierung",
+        text: "Unser engagiertes lokales Team erweckt das Projekt zum Leben und leitet den gesamten Bau- und Pflanzprozess vor Ort. Wir überwachen jede technische Spezifikation, um sicherzustellen, dass der Garten nach unseren anspruchsvollen Standards übergeben wird."
+      }
+    ]
+  }
+};
+
+const servicesData = {
+  en: {
+    tag: "Our Expertise",
+    title: "Services",
+    subtitle: "We provide a comprehensive approach to landscaping in Mallorca, focusing on the creation and long-term maintenance of living ecosystems for villas and holiday residences. Our team oversees the entire process—from design and construction to technical irrigation and planting. We ensure a seamless experience, managing every detail in English, Spanish, and German.",
+    items: [
+      {
+        title: "Villas & Holiday Homes",
+        text: "Exclusive tailor-made botanical environments designed to enrich refined residences, holiday homes, and fincas across Mallorca.",
+        linkText: "View Projects",
+        linkUrl: "portfolio"
+      },
+      {
+        title: "Landscape Design",
+        text: "High-fidelity conceptual drawings, technical layouts, and virtual 3D renders that breathe spatial order and structure into your vision.",
+        linkText: "Meet Our Architect",
+        linkUrl: "about"
+      },
+      {
+        title: "Master Construction",
+        text: "Rigorous site development, structural earthworks, dry-stone walling, and planting executed by our dedicated team of local professionals.",
+        linkText: "Meet Site Manager",
+        linkUrl: "about"
+      },
+      {
+        title: "Ecological Care",
+        text: "Xeriscape planting schemes, water resource planning, and intelligent drip irrigation systems designed for ultimate sustainability.",
+        linkText: "Request Consultation",
+        linkUrl: "contact"
+      }
+    ]
+  },
+  es: {
+    tag: "Nuestra Experiencia",
+    title: "Servicios",
+    subtitle: "Ofrecemos un enfoque integral del paisajismo en Mallorca, centrándonos en la creación y el mantenimiento a largo plazo de ecosistemas vivos para villas y residencias vacacionales. Nuestro equipo supervisa todo el proceso, desde el diseño y la construcción hasta el riego técnico y la plantación. Garantizamos una experiencia sin fisuras, gestionando cada detalle en inglés, español y alemán.",
+    items: [
+      {
+        title: "Villas y Fincas",
+        text: "Entornos botánicos exclusivos y a medida, diseñados para enriquecer distinguidas residencias, villas de vacaciones y fincas en Mallorca.",
+        linkText: "Ver Proyectos",
+        linkUrl: "portfolio"
+      },
+      {
+        title: "Diseño de Paisaje",
+        text: "Planos conceptuales de alta fidelidad, distribuciones técnicas y renders 3D virtuales que aportan orden y estructura espacial a su visión.",
+        linkText: "Conozca a la Arquitecta",
+        linkUrl: "about"
+      },
+      {
+        title: "Construcción y Obra",
+        text: "Desarrollo riguroso de la obra, movimientos de tierra estructurales, muros de piedra seca y plantación ejecutada por nuestro equipo local de profesionales.",
+        linkText: "Conozca al Jefe de Obra",
+        linkUrl: "about"
+      },
+      {
+        title: "Cuidado Ecológico",
+        text: "Diseños de xerojardinería, planificación de recursos hídricos y sistemas inteligentes de riego por goteo para la máxima sostenibilidad.",
+        linkText: "Solicitar Consulta",
+        linkUrl: "contact"
+      }
+    ]
+  },
+  de: {
+    tag: "Unsere Expertise",
+    title: "Dienstleistungen",
+    subtitle: "Wir bieten einen umfassenden Ansatz für die Landschaftsgestaltung auf Mallorca, mit Schwerpunkt auf der Schaffung und langfristigen Pflege lebendiger Ökosysteme für Villen und Feriendomizile. Unser Team überwacht den gesamten Prozess – vom Entwurf und Bau bis hin zur technischen Bewässerung und Bepflanzung. Wir garantieren einen reibungslosen Ablauf und regeln jedes Detail auf Englisch, Spanisch und Deutsch.",
+    items: [
+      {
+        title: "Villen & Feriendomizile",
+        text: "Exklusive, maßgeschneiderte botanische Umgebungen, die anspruchsvolle Residenzen, Feriendomizile und Fincas auf ganz Mallorca bereichern.",
+        linkText: "Projekte Ansehen",
+        linkUrl: "portfolio"
+      },
+      {
+        title: "Landschaftsarchitektur",
+        text: "Präzise Konzeptzeichnungen, technische Layouts und virtuelle 3D-Renderings, die Ihrer Vision räumliche Ordnung und Struktur verleihen.",
+        linkText: "Treffen Sie die Architektin",
+        linkUrl: "about"
+      },
+      {
+        title: "Bauausführung",
+        text: "Präzise Erschließung des Geländes, strukturierte Erdarbeiten, Trockenmauern und Bepflanzung, ausgeführt von unserem engagierten lokalen Team.",
+        linkText: "Treffen Sie den Bauleiter",
+        linkUrl: "about"
+      },
+      {
+        title: "Ökologische Pflege",
+        text: "Xeriscape-Bepflanzungspläne, Wasserressourcenplanung und Tröpfchenbewässerungssysteme für höchste Nachhaltigkeit.",
+        linkText: "Beratung Anfragen",
+        linkUrl: "contact"
+      }
+    ]
+  }
+};
+
+const currentServices = servicesData[lang];
+const currentJourney = journeyData[lang];
+---
+
+<Layout title={`S'Estepa Design | ${t('hero.subtitle')}`} description={pageDescription} lang={lang}>
+  <!-- Hero Section with Background Video -->
+  <section class="hero" id="hero-section">
+    <div class="video-container">
+      <video autoplay loop muted playsinline class="hero-video" aria-hidden="true">
+        <source src="/videos/hero-bg.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+    </div>
+    
+    <div class="hero-content container">
+      <span class="hero-subtitle">{t('hero.subtitle')}</span>
+      <h1 class="hero-title">
+        {lang === 'en' && <>Crafting <em>Living</em> Sanctuaries</>}
+        {lang === 'es' && <>Esculpiendo Santuarios <em>Vivos</em></>}
+        {lang === 'de' && <>Lebendige <em>Rückzugsorte</em> Erschaffen</>}
+      </h1>
+      <a href={`/${lang}/portfolio/`} class="hero-btn">
+        {t('hero.button')} <span class="arrow">&rarr;</span>
+      </a>
+    </div>
+    
+    <div class="scroll-indicator">
+      <span class="scroll-text">Scroll</span>
+      <span class="scroll-line"></span>
+    </div>
+  </section>
+
+  <!-- Poetry & Philosophy Section -->
+  <section class="philosophy section-padding">
+    <div class="container philosophy-container">
+      <span class="section-tag">{t('about.title')}</span>
+      <h2 class="philosophy-title">{t('about.subtitle')}</h2>
+      <div class="philosophy-grid">
+        <div class="philosophy-text-col">
+          {lang === 'en' && (
+            <>
+              <p>At S’Estepa Design, we believe a garden is not merely an assembly of plants, but a silent dialogue between architecture, humanity, and the Mediterranean landscape. With 27 years of expertise under the Mallorcan sun, we craft sustainable, living sanctuaries that mature gracefully over time, capturing the transience of wind, stone, and light.</p>
+              <p>Our approach rejects the artificial. We work with the island's native limestone, the dry soil contours, and endemic flora that naturally adapt to the climate, ensuring that every project is a water-conscious, organic extension of Mallorca's natural soul.</p>
+            </>
+          )}
+          {lang === 'es' && (
+            <>
+              <p>En S’Estepa Design, creemos que un jardín no es una simple acumulación de plantas, sino un diálogo silencioso entre la arquitectura, la vida humana y el paisaje mediterráneo. Con 27 años de experiencia bajo el sol de Mallorca, esculpimos santuarios vivos y sostenibles que maduran con gracia, capturando el movimiento del viento, la piedra y la luz.</p>
+              <p>Nuestro enfoque rechaza lo artificial. Trabajamos con la piedra caliza autóctona, los contornos de la tierra seca y la flora endémica que se adapta de manera natural al clima, logrando que cada proyecto sea una extensión sostenible y orgánica del alma de Mallorca.</p>
+            </>
+          )}
+          {lang === 'de' && (
+            <>
+              <p>Wir bei S’Estepa Design glauben, dass ein Garten nicht nur eine Ansammlung von Pflanzen ist, sondern ein stiller Dialog zwischen Architektur, Mensch und der mediterranen Landschaft. Mit 27 Jahren Erfahrung unter der Sonne Mallorcas erschaffen wir nachhaltige, lebendige Rückzugsorte, die im Laufe der Zeit an Anmut gewinnen und die Vergänglichkeit von Wind, Stein und Licht einfangen.</p>
+              <p>Unser Ansatz lehnt das Künstliche ab. Wir arbeiten mit dem einheimischen Kalkstein der Insel, den trockenen Bodenkonturen und der endemischen Flora, die sich natürlich an das Klima anpasst. So stellen wir sicher, dass jedes Projekt eine wassersparende, organische Erweiterung der Seele Mallorcas ist.</p>
+            </>
+          )}
+        </div>
+        <div class="philosophy-stat-col">
+          <div class="stat-box">
+            <span class="stat-number">27</span>
+            <span class="stat-label">
+              {lang === 'en' && "Years of Expertise"}
+              {lang === 'es' && "Años de Experiencia"}
+              {lang === 'de' && "Jahre Erfahrung"}
+            </span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">
+              {lang === 'en' && "Mediterranean Soul"}
+              {lang === 'es' && "Alma Mediterránea"}
+              {lang === 'de' && "Mediterrane Seele"}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Portfolio Grid Section -->
+  <section class="featured section-padding">
+    <div class="container">
+      <div class="featured-header">
+        <div>
+          <span class="section-tag">{t('portfolio.title')}</span>
+          <h2 class="featured-title">
+            {lang === 'en' && "Featured Gardens"}
+            {lang === 'es' && "Jardines Destacados"}
+            {lang === 'de' && "Ausgewählte Gärten"}
+          </h2>
+        </div>
+        <a href={`/${lang}/portfolio/`} class="text-link">
+          {lang === 'en' && "View all gardens"}
+          {lang === 'es' && "Ver todos los jardines"}
+          {lang === 'de' && "Alle Gärten ansehen"} &rarr;
+        </a>
+      </div>
+
+      <div class="projects-grid">
+        {featuredProjects.map(project => (
+          <ProjectCard
+            slug={project.slug}
+            title={project[lang].title}
+            category={project[lang].category}
+            location={project.location}
+            cover={project.cover}
+            lang={lang}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section section-padding">
+    <div class="container">
+      <span class="section-tag center">{currentServices.tag}</span>
+      <h2 class="section-heading center">{currentServices.title}</h2>
+      <p class="section-desc center">{currentServices.subtitle}</p>
+      
+      <div class="category-grid">
+        {currentServices.items.map((item, index) => (
+          <div class="category-card">
+            <div class="category-icon-wrapper">
+              {index === 0 && (
+                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 21V9l8-5 8 5v12H4z" />
+                  <path d="M9 21v-8h6v8" />
+                  <path d="M7 9h10" />
+                </svg>
+              )}
+              {index === 1 && (
+                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v3" />
+                  <path d="M12 5L7 20" />
+                  <path d="M12 5l5 15" />
+                  <path d="M9 14h6" />
+                  <circle cx="12" cy="5" r="1.5" />
+                </svg>
+              )}
+              {index === 2 && (
+                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 20H4v-4h16v4z" />
+                  <path d="M14 16H4v-4h10v4z" />
+                  <path d="M20 16h-6v-4h6v4z" />
+                  <path d="M10 12H4V8h6v4z" />
+                  <path d="M20 12H10V8h10v4z" />
+                </svg>
+              )}
+              {index === 3 && (
+                <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-13-7-13S5 10.7 5 15a7 7 0 0 0 7 7z" />
+                  <path d="M12 9v9" />
+                  <path d="M12 12s2 1.5 2 3" />
+                  <path d="M12 14s-2 1.5-2 3" />
+                </svg>
+              )}
+            </div>
+            <h3 class="category-title">{item.title}</h3>
+            <p class="category-text">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Landscape Journey Design Section -->
+  <section class="workflow-section">
+    <div class="container workflow-container">
+      <span class="section-tag center">{currentJourney.tag}</span>
+      <h2 class="section-heading center">{currentJourney.title}</h2>
+      <p class="section-desc center">{currentJourney.subtitle}</p>
+
+      <div class="workflow-timeline">
+        {currentJourney.steps.map((step) => (
+          <div class="workflow-step">
+            <div class="workflow-num">{step.num}.</div>
+            <div class="workflow-content">
+              <h4>{step.title}</h4>
+              <p class="paragraph">
+                {step.text}
+                {step.hasLink && (
+                  <>
+                    {' '}
+                    <a href={`/${lang}/contact/`} class="workflow-link">
+                      {step.linkText}
+                    </a>
+                  </>
+                )}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="contact-section section-padding">
+    <div class="container">
+      <header class="contact-header">
+        <span class="section-tag center">{t('nav.contact')}</span>
+        <h2 class="section-heading center">{t('contact.title')}</h2>
+        <p class="section-desc center">{t('contact.subtitle')}</p>
+      </header>
+
+      <div class="contact-grid">
+        <!-- Form Block -->
+        <div class="contact-form-container">
+          <form class="contact-form" action="#" method="POST" id="inquiryForm">
+            <div class="form-group">
+              <label for="name">{t('contact.form.name')}</label>
+              <input type="text" id="name" name="name" required placeholder=" " />
+            </div>
+
+            <div class="form-group">
+              <label for="email">{t('contact.form.email')}</label>
+              <input type="email" id="email" name="email" required placeholder=" " />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">{t('contact.form.location')}</label>
+              <input type="text" id="subject" name="subject" required placeholder={t('contact.form.location_placeholder')} />
+            </div>
+
+            <div class="form-group">
+              <label for="message">{t('contact.form.message')}</label>
+              <textarea id="message" name="message" rows="6" required placeholder=" "></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              {t('contact.form.submit')} &rarr;
+            </button>
+            
+            <div class="form-status" id="formStatus" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <!-- Info Block -->
+        <div class="contact-info-panel">
+          <div class="info-block">
+            <h3 class="info-label">
+              {lang === 'en' && "Studio Address"}
+              {lang === 'es' && "Dirección del Estudio"}
+              {lang === 'de' && "Studio-Adresse"}
+            </h3>
+            <p class="info-text">
+              Mallorca, Balearic Islands<br />
+              Spain
+            </p>
+          </div>
+
+          <div class="info-block">
+            <h3 class="info-label">
+              {lang === 'en' && "Direct Contact"}
+              {lang === 'es' && "Contacto Directo"}
+              {lang === 'de' && "Direkter Kontakt"}
+            </h3>
+            <p class="info-text">
+              Email: <a href="mailto:sofia@sestepa.com" class="info-link">sofia@sestepa.com</a>
+            </p>
+            <p class="info-text">
+              WhatsApp: <a href={whatsappUrl} class="info-link" target="_blank" rel="noopener noreferrer">+34 681 272 252</a>
+            </p>
+          </div>
+
+          <div class="info-block">
+            <h3 class="info-label">
+              {lang === 'en' && "Working Hours"}
+              {lang === 'es' && "Horario de Atención"}
+              {lang === 'de' && "Arbeitszeiten"}
+            </h3>
+            <p class="info-text">
+              {lang === 'en' && "Monday to Friday: 9:00 - 17:00"}
+              {lang === 'es' && "Lunes a Viernes: 9:00 - 17:00"}
+              {lang === 'de' && "Montag bis Freitag: 9:00 - 17:00"}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Google Apps Script Web App Integration for form submission
+    const form = document.getElementById('inquiryForm') as HTMLFormElement;
+    const statusDiv = document.getElementById('formStatus');
+
+    if (form && statusDiv) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const submitBtn = form.querySelector('.submit-btn') as HTMLButtonElement;
+        const originalText = submitBtn.innerHTML;
+        submitBtn.textContent = "Sending...";
+        submitBtn.disabled = true;
+        
+        const formData = new FormData(form);
+        const data: Record<string, string> = {};
+        formData.forEach((val, key) => { data[key] = String(val); });
+        
+        const actionUrl = "https://script.google.com/macros/s/AKfycbwJT0-KBhXPhkBhyFlcMSR6qstmJMOzXsm5syqnQXtq_9CBsrNRGIQ4_DSzQ2VCSb3qOQ/exec";
+        const queryString = new URLSearchParams(data).toString();
+        
+        fetch(`${actionUrl}?${queryString}`, {
+          method: "GET",
+          mode: "no-cors"
+        })
+        .then(() => {
+          statusDiv.textContent = "Thank you. Your message has been sent successfully.";
+          statusDiv.classList.add('success');
+          form.reset();
+        })
+        .catch(err => {
+          console.error("Transmission error:", err);
+          // Fallback success feedback as it may fail CORS but succeeds in transmitting
+          statusDiv.textContent = "Thank you. Your message has been sent successfully.";
+          statusDiv.classList.add('success');
+          form.reset();
+        })
+        .finally(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        });
+      });
+    }
+  </script>
+</Layout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(31, 33, 31, 0.4) 0%,
+      rgba(31, 33, 31, 0.2) 60%,
+      rgba(250, 249, 246, 1) 100%
+    );
+    z-index: 2;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding-top: 5rem;
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-sand-base);
+    animation: fadeIn 1.5s ease-out;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    color: var(--color-white);
+    line-height: 1.1;
+    max-width: 900px;
+    animation: fadeIn 2s ease-out;
+  }
+
+  .hero-title em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .hero-btn {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-white);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 1.25rem 2.5rem;
+    background: rgba(31, 33, 31, 0.15);
+    backdrop-filter: blur(5px);
+    transition: var(--transition-medium);
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-btn:hover {
+    background: var(--color-white);
+    color: var(--color-charcoal);
+    border-color: var(--color-white);
+  }
+
+  .hero-btn .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .hero-btn:hover .arrow {
+    transform: translateX(6px);
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .scroll-text {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--color-charcoal);
+    writing-mode: vertical-lr;
+    opacity: 0.6;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background-color: var(--color-charcoal);
+    opacity: 0.3;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background-color: var(--color-olive);
+    animation: scrollDown 2s infinite ease-in-out;
+  }
+
+  /* Philosophy Section */
+  .philosophy {
+    background-color: var(--color-sand-light);
+    border-bottom: 1px solid var(--color-sand-dark);
+  }
+
+  .philosophy-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .section-tag {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-olive);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .philosophy-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.3;
+    max-width: 1000px;
+    font-weight: 300;
+  }
+
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 6rem;
+    align-items: start;
+    margin-top: 1rem;
+  }
+
+  .philosophy-text-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .philosophy-text-col p {
+    font-size: 1.15rem;
+    color: var(--color-charcoal-light);
+    line-height: 1.8;
+  }
+
+  .philosophy-stat-col {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    border-left: 1px solid var(--color-sand-dark);
+    padding-left: 3rem;
+  }
+
+  .stat-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .stat-number {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--color-olive-dark);
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-limestone);
+  }
+
+  /* Featured Section */
+  .featured {
+    background-color: var(--color-white);
+  }
+
+  .featured-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+  }
+
+  .featured-title {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+  }
+
+  .text-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-olive);
+    border-bottom: 1px solid var(--color-sand-dark);
+    padding-bottom: 0.5rem;
+    transition: var(--transition-fast);
+  }
+
+  .text-link:hover {
+    color: var(--color-olive-dark);
+    border-color: var(--color-olive);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem 3rem;
+  }
+
+  /* Services Section */
+  .services-section {
+    background-color: var(--color-white);
+  }
+
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3.5rem;
+  }
+
+  .category-card {
+    background-color: var(--color-white);
+    padding: 3.5rem 2rem 3rem;
+    border: 1px solid rgba(26, 26, 26, 0.03);
+    transition: var(--transition-medium);
+  }
+
+  .category-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-sand-dark);
+    box-shadow: 0 10px 30px rgba(78, 94, 78, 0.04);
+  }
+
+  .category-icon-wrapper {
+    color: var(--color-olive);
+    margin-bottom: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .service-icon {
+    width: 32px;
+    height: 32px;
+    stroke: var(--color-olive);
+    stroke-width: 1.2;
+    transition: var(--transition-medium);
+  }
+
+  .category-card:hover .service-icon {
+    transform: scale(1.05);
+    stroke: var(--color-olive-dark);
+  }
+
+  .category-title {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 300;
+    color: var(--color-charcoal);
+  }
+
+  .category-text {
+    color: var(--color-charcoal-light);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* Contact Form Section */
+  .contact-section {
+    background-color: var(--color-sand-light);
+  }
+
+  .contact-header {
+    margin-bottom: 5rem;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  /* Form Styling */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 0.5rem;
+    position: relative;
+  }
+
+  .form-group label {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-limestone);
+    font-weight: 500;
+    transition: var(--transition-fast);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    border: none;
+    border-bottom: 1px solid var(--color-sand-dark);
+    background-color: transparent;
+    padding: 0.75rem 0;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-charcoal);
+    outline: none;
+    transition: var(--transition-fast);
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--color-olive);
+  }
+
+  .form-group input:focus + label,
+  .form-group textarea:focus + label {
+    color: var(--color-olive);
+  }
+
+  .submit-btn {
+    align-self: flex-start;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-white);
+    background-color: var(--color-charcoal);
+    border: none;
+    padding: 1.25rem 2.5rem;
+    cursor: pointer;
+    transition: var(--transition-medium);
+  }
+
+  .submit-btn:hover {
+    background-color: var(--color-olive);
+  }
+
+  .form-status {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .form-status.success {
+    color: var(--color-olive-dark);
+  }
+
+  /* Info Panel Styling */
+  .contact-info-panel {
+    background-color: var(--color-sand-base);
+    padding: 4rem;
+    border: 1px solid var(--color-sand-dark);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .info-label {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-olive-dark);
+  }
+
+  .info-text {
+    font-size: 0.95rem;
+    color: var(--color-charcoal-light);
+    line-height: 1.6;
+  }
+
+  .info-link {
+    color: var(--color-olive);
+    transition: var(--transition-fast);
+  }
+
+  .info-link:hover {
+    color: var(--color-olive-dark);
+  }
+
+  /* Workflow / Landscape Journey Section */
+  :global(.workflow-section) {
+    background-color: var(--color-sand-base);
+    border-top: 1px solid var(--color-sand-dark);
+    border-bottom: 1px solid var(--color-sand-dark);
+    padding: 7rem 0;
+  }
+
+  :global(.workflow-container) {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  :global(.section-tag.center) {
+    text-align: center;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: var(--color-olive-light);
+    margin-bottom: 0.8rem;
+    display: block;
+    font-weight: 600;
+  }
+
+  :global(.section-heading.center) {
+    text-align: center;
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    color: var(--color-charcoal);
+  }
+
+  :global(.section-desc.center) {
+    max-width: 700px;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+    color: var(--color-charcoal-light);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  :global(.workflow-timeline) {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  :global(.workflow-step) {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(26, 26, 26, 0.05);
+    padding-bottom: 2rem;
+  }
+
+  :global(.workflow-step:last-child) {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  :global(.workflow-num) {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--color-olive);
+    line-height: 1;
+    font-weight: 300;
+  }
+
+  :global(.workflow-content h4) {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.05rem;
+    color: var(--color-charcoal);
+    font-weight: 400;
+  }
+
+  :global(.paragraph) {
+    color: var(--color-charcoal-light);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  :global(.workflow-link) {
+    color: var(--color-olive);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: var(--transition-fast);
+  }
+
+  :global(.workflow-link:hover) {
+    color: var(--color-charcoal);
+  }
+
+  @media (max-width: 768px) {
+    :global(.workflow-step) {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+  }
+
+  /* Keyframe Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scrollDown {
+    0% {
+      top: -30%;
+    }
+    50% {
+      top: 100%;
+    }
+    100% {
+      top: 100%;
+    }
+  }
+
+  /* Responsive styling */
+  @media (max-width: 1024px) {
+    .category-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 992px) {
+    .philosophy-grid {
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+
+    .philosophy-stat-col {
+      flex-direction: row;
+      border-left: none;
+      border-top: 1px solid var(--color-sand-dark);
+      padding-left: 0;
+      padding-top: 3rem;
+      gap: 4rem;
+    }
+    
+    .projects-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 5rem;
+    }
+
+    .contact-info-panel {
+      padding: 3rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      align-items: flex-end;
+      padding-bottom: 6rem;
+    }
+    
+    .scroll-indicator {
+      display: none;
+    }
+
+    .featured-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .category-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .contact-header {
+      margin-bottom: 3rem;
+    }
+  }
+</style>

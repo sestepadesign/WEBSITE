@@ -1,0 +1,277 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'es' } },
+    { params: { lang: 'de' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: 'en' | 'es' | 'de' };
+
+const content = {
+  en: {
+    title: "Cookie Policy",
+    tag: "Cookies",
+    description: "Cookie policy and settings for S'Estepa Jardinería Integral SLU.",
+    sections: [
+      {
+        type: "p",
+        text: "In accordance with the provisions of Article 22.2 of Law 34/2002, of July 11, on Services of the Information Society and Electronic Commerce (LSSI-CE), S’ESTEPA JARDINERIA INTEGRAL SLU must comply with the obligation to inform about the cookies it uses and their purposes."
+      },
+      {
+        type: "p",
+        text: "This website uses cookies and/or similar technologies that store and retrieve information when you browse. Cookies allow a web page, among other things, to store and retrieve information about a User’s browsing habits or their device and, depending on the information they contain and how they use their device, they can be used to recognize the User."
+      },
+      {
+        type: "p",
+        text: "Cookies are essential for the functioning of the internet, providing countless advantages in the provision of interactive services, facilitating the navigation and usability of our website for the User."
+      },
+      {
+        type: "h2",
+        text: "Types of Cookies Used"
+      },
+      {
+        type: "p",
+        text: "We classify cookies according to the entity that manages them, the duration they remain active, and their purpose:"
+      },
+      {
+        type: "ul",
+        items: [
+          "Technical/Necessary Cookies: Essential for the proper functioning of the site, permitting features like security, language preferences, and layout rendering.",
+          "Analytical Cookies: Permit us to quantify the number of users and perform statistical analysis of how visitors use the website to improve our offerings."
+        ]
+      },
+      {
+        type: "h2",
+        text: "Managing Cookies in Your Browser"
+      },
+      {
+        type: "p",
+        text: "Please note that if you accept third-party cookies, you must delete them from the browser options or through the system provided by the third party. Below we provide links to various browsers, where you can modify your settings on the use of cookies:"
+      },
+      {
+        type: "ul",
+        items: [
+          "Mozilla Firefox",
+          "Google Chrome",
+          "Microsoft Edge / Internet Explorer",
+          "Apple Safari",
+          "Opera"
+        ]
+      },
+      {
+        type: "p",
+        text: "For more information about the processing of personal data, you can consult our Privacy Policy."
+      }
+    ]
+  },
+  es: {
+    title: "Política de Cookies",
+    tag: "Cookies",
+    description: "Política y configuración de cookies de S'Estepa Jardinería Integral SLU.",
+    sections: [
+      {
+        type: "p",
+        text: "De conformidad con lo dispuesto en el artículo 22.2 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSI-CE), S’ESTEPA JARDINERIA INTEGRAL SLU debe cumplir con el deber de informar acerca de las cookies que utiliza y la finalidad de las mismas."
+      },
+      {
+        type: "p",
+        text: "Esta página web utiliza cookies y/o tecnologías similares que almacenan y recuperan información cuando navegas. Las cookies permiten a una página web, entre otras cosas, almacenar y recuperar información sobre los hábitos de navegación de un Usuario o de su dispositivo y, dependiendo de la información que contengan y de cómo utilice su dispositivo, pueden utilizarse para reconocer al Usuario."
+      },
+      {
+        type: "p",
+        text: "Las cookies son esenciales para el funcionamiento de internet, aportando innumerables ventajas en la prestación de servicios interactivos, facilitando la navegación y usabilidad de nuestra web por parte del Usuario."
+      },
+      {
+        type: "h2",
+        text: "Tipos de Cookies Utilizadas"
+      },
+      {
+        type: "p",
+        text: "Clasificamos las cookies según la entidad que las gestione, el tiempo que permanezcan activas y su finalidad:"
+      },
+      {
+        type: "ul",
+        items: [
+          "Cookies técnicas/necesarias: Esenciales para el correcto funcionamiento del sitio, permitiendo funciones como la seguridad, las preferencias de idioma y la renderización del diseño.",
+          "Cookies analíticas: Nos permiten cuantificar el número de usuarios y realizar análisis estadísticos del uso que hacen los visitantes del sitio web para mejorar nuestra oferta."
+        ]
+      },
+      {
+        type: "h2",
+        text: "Gestión de Cookies en su Navegador"
+      },
+      {
+        type: "p",
+        text: "Tenga en cuenta que si acepta cookies de terceros, deberá eliminarlas desde las opciones del navegador o a través del sistema proporcionado por el tercero. A continuación le facilitamos enlaces a los principales navegadores, donde podrá modificar la configuración sobre el uso de cookies:"
+      },
+      {
+        type: "ul",
+        items: [
+          "Mozilla Firefox",
+          "Google Chrome",
+          "Microsoft Edge / Internet Explorer",
+          "Apple Safari",
+          "Opera"
+        ]
+      },
+      {
+        type: "p",
+        text: "Para más información sobre el tratamiento de datos personales, puede consultar nuestra Política de Privacidad."
+      }
+    ]
+  },
+  de: {
+    title: "Cookie-Richtlinie",
+    tag: "Cookies",
+    description: "Cookie-Richtlinie und Einstellungen für S'Estepa Jardinería Integral SLU.",
+    sections: [
+      {
+        type: "p",
+        text: "Gemäß den Bestimmungen von Artikel 22.2 des Gesetzes 34/2002 vom 11. Juli über Dienstleistungen der Informationsgesellschaft und des elektronischen Handels (LSSI-CE) ist S’ESTEPA JARDINERIA INTEGRAL SLU verpflichtet, über die von ihr verwendeten Cookies und deren Zweck zu informieren."
+      },
+      {
+        type: "p",
+        text: "Diese Website verwendet Cookies und/oder ähnliche Technologien, die Informationen speichern und abrufen, wenn Sie surfen. Cookies ermöglichen es einer Webseite unter anderem, Informationen über die Surfgewohnheiten oder das Gerät eines Nutzers zu speichern und abzurufen. Je nachdem, welche Informationen sie enthalten und wie der Nutzer sein Gerät verwendet, können sie dazu verwendet werden, den Nutzer wiederzuerkennen."
+      },
+      {
+        type: "p",
+        text: "Cookies sind für das Funktionieren des Internets unentbehrlich und bieten unzählige Vorteile bei der Bereitstellung interaktiver Dienste, die die Navigation und die Benutzerfreundlichkeit unserer Website für den Benutzer erleichtern."
+      },
+      {
+        type: "h2",
+        text: "Arten von verwendeten Cookies"
+      },
+      {
+        type: "p",
+        text: "Wir klassifizieren Cookies nach der Instanz, die sie verwaltet, der Dauer ihrer Aktivität und ihrem Zweck:"
+      },
+      {
+        type: "ul",
+        items: [
+          "Technische/notwendige Cookies: Unerlässlich für das ordnungsgemäße Funktionieren der Website, da sie Funktionen wie Sicherheit, Spracheinstellungen und Layout-Darstellung ermöglichen.",
+          "Analytische Cookies: Ermöglichen es uns, die Anzahl der Nutzer zu bestimmen und statistische Analysen der Nutzung der Website durch die Besucher durchzuführen, um unser Angebot zu verbessern."
+        ]
+      },
+      {
+        type: "h2",
+        text: "Verwaltung von Cookies in Ihrem Browser"
+      },
+      {
+        type: "p",
+        text: "Bitte beachten Sie, dass Sie, wenn Sie Cookies von Drittanbietern akzeptieren, diese in den Browseroptionen oder über das von dem Drittanbieter bereitgestellte System löschen müssen. Nachstehend finden Sie Links zu verschiedenen Browsern, in denen Sie die Einstellungen zur Verwendung von Cookies ändern können:"
+      },
+      {
+        type: "ul",
+        items: [
+          "Mozilla Firefox",
+          "Google Chrome",
+          "Microsoft Edge / Internet Explorer",
+          "Apple Safari",
+          "Opera"
+        ]
+      },
+      {
+        type: "p",
+        text: "Weitere Informationen über die Verarbeitung personenbezogener Daten finden Sie in unserer Datenschutzerklärung."
+      }
+    ]
+  }
+};
+
+const page = content[lang];
+---
+
+<Layout title={`S'Estepa Design | ${page.title}`} description={page.description} lang={lang}>
+  <section class="legal-page section-padding">
+    <div class="container legal-container">
+      <span class="legal-tag">{page.tag}</span>
+      <h1 class="legal-title">{page.title}</h1>
+      <div class="legal-content">
+        {page.sections.map(section => {
+          if (section.type === "p") {
+            return <p>{section.text}</p>;
+          } else if (section.type === "h2") {
+            return <h2>{section.text}</h2>;
+          } else if (section.type === "ul" && section.items) {
+            return (
+              <ul>
+                {section.items.map(item => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            );
+          }
+          return null;
+        })}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-page {
+    background-color: var(--color-white);
+    padding: 12rem 0 8rem 0;
+  }
+
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .legal-tag {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-olive);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .legal-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--color-charcoal);
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--color-sand-dark);
+    padding-bottom: 2rem;
+  }
+
+  .legal-content h2 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--color-charcoal);
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .legal-content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-charcoal-light);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+
+  .legal-content ul {
+    margin-bottom: 2.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .legal-content li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-charcoal-light);
+    margin-bottom: 0.8rem;
+    font-weight: 300;
+  }
+</style>

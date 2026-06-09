@@ -1,0 +1,270 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { ui } from '../../../data/translations';
+import { projects } from '../../../data/projects';
+import ProjectCard from '../../../components/ProjectCard.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'es' } },
+    { params: { lang: 'de' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: 'en' | 'es' | 'de' };
+
+const t = (key: keyof typeof ui[typeof lang]) => {
+  return ui[lang][key] || key;
+};
+
+// SEO Meta
+const descriptions = {
+  en: "Discover our portfolio of sustainable, refined Mediterranean gardens designed by S'Estepa Design across Mallorca.",
+  es: "Descubra nuestro portafolio de jardines mediterráneos sostenibles y distinguidos diseñados por S'Estepa Design en Mallorca.",
+  de: "Entdecken Sie unser Portfolio an nachhaltigen, anspruchsvollen mediterranen Gärten, entworfen von S'Estepa Design auf Mallorca."
+};
+
+const pageDescription = descriptions[lang];
+
+const projectCategoryMap: Record<string, 'mediterranean' | 'romantic' | 'tropical' | 'dry'> = {
+  'binissalem': 'mediterranean',
+  'bunyola': 'mediterranean',
+  'campanet': 'romantic',
+  'campos': 'romantic',
+  'costadelacalma': 'tropical',
+  'crestatx': 'dry',
+  'hotelcabotlasvelas': 'dry',
+  'llubi': 'romantic',
+  'sant-llorenc': 'mediterranean',
+  'santa-eugenia': 'tropical',
+  'santa-ponsa': 'dry',
+  'son-vida': 'mediterranean',
+  'terrace-garden-palma': 'tropical',
+  'vertical-garden': 'tropical'
+};
+---
+
+<Layout title={`S'Estepa Design | ${t('portfolio.title')}`} description={pageDescription} lang={lang}>
+  <div class="portfolio-page section-padding">
+    <div class="container">
+      <header class="portfolio-header">
+        <span class="section-tag">{t('nav.portfolio')}</span>
+        <h1 class="portfolio-title">{t('portfolio.title')}</h1>
+        <p class="portfolio-subtitle">{t('portfolio.subtitle')}</p>
+      </header>
+
+      <!-- Portfolio Filter Tabs -->
+      <div class="portfolio-filter">
+        <button class="filter-btn active" data-filter="all">{t('portfolio.filter.all')}</button>
+        <button class="filter-btn" data-filter="mediterranean">{t('portfolio.filter.mediterranean')}</button>
+        <button class="filter-btn" data-filter="romantic">{t('portfolio.filter.romantic')}</button>
+        <button class="filter-btn" data-filter="tropical">{t('portfolio.filter.tropical')}</button>
+        <button class="filter-btn" data-filter="dry">{t('portfolio.filter.dry')}</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        {projects.map(project => {
+          const category = projectCategoryMap[project.slug] || 'mediterranean';
+          return (
+            <div class="project-item-wrapper" data-category={category}>
+              <ProjectCard
+                slug={project.slug}
+                title={project[lang].title}
+                category={project[lang].category}
+                location={project.location}
+                cover={project.cover}
+                lang={lang}
+              />
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectItems = document.querySelectorAll('.project-item-wrapper');
+
+  const applyFilter = (filterValue: string) => {
+    projectItems.forEach(item => {
+      const itemCategory = item.getAttribute('data-category');
+      if (filterValue === 'all' || itemCategory === filterValue) {
+        (item as HTMLElement).style.display = 'block';
+        setTimeout(() => {
+          item.classList.remove('fade-out');
+        }, 50);
+      } else {
+        item.classList.add('fade-out');
+        setTimeout(() => {
+          if (item.classList.contains('fade-out')) {
+            (item as HTMLElement).style.display = 'none';
+          }
+        }, 400);
+      }
+    });
+  };
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterButtons.forEach(b => b.classList.remove('active'));
+      // Add active class to clicked button
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter') || 'all';
+      applyFilter(filterValue);
+    });
+  });
+
+  // Check for filter parameter in URL on load
+  window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const filterParam = params.get('filter');
+    if (filterParam) {
+      const targetBtn = document.querySelector(`.filter-btn[data-filter="${filterParam}"]`);
+      if (targetBtn) {
+        (targetBtn as HTMLElement).click();
+      }
+    }
+  });
+</script>
+
+<style>
+  .portfolio-page {
+    background-color: var(--color-sand-light);
+    padding-top: 10rem; /* Space for fixed header */
+  }
+
+  .portfolio-header {
+    margin-bottom: 4rem;
+    max-width: 800px;
+  }
+
+  .section-tag {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-olive);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .portfolio-title {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--color-charcoal);
+    margin-bottom: 1.5rem;
+  }
+
+  .portfolio-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-charcoal-light);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* Portfolio Filter Tabs */
+  .portfolio-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem 3rem;
+    margin-bottom: 5rem;
+    border-bottom: 1px solid var(--color-sand-dark);
+    padding-bottom: 2rem;
+  }
+
+  .filter-btn {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-charcoal-light);
+    background: none;
+    border: none;
+    padding: 0.5rem 0 1.95rem 0; /* Align active line directly on border-bottom line of container */
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition-fast);
+    font-weight: 500;
+  }
+
+  .filter-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; /* Align precisely on the border-bottom */
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-charcoal);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .filter-btn:hover {
+    color: var(--color-charcoal);
+  }
+
+  .filter-btn.active {
+    color: var(--color-charcoal);
+  }
+
+  .filter-btn.active::after {
+    transform: scaleX(1);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem 4rem;
+  }
+
+  .project-item-wrapper {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .project-item-wrapper.fade-out {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  @media (max-width: 992px) {
+    .portfolio-filter {
+      gap: 1rem 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .portfolio-page {
+      padding-top: 8rem;
+    }
+
+    .portfolio-header {
+      margin-bottom: 3rem;
+    }
+
+    .portfolio-filter {
+      justify-content: flex-start;
+      gap: 1rem 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .filter-btn {
+      padding-bottom: 1.45rem;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+</style>

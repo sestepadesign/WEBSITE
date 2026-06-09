@@ -1,0 +1,734 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { ui } from '../../data/translations';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'es' } },
+    { params: { lang: 'de' } },
+  ];
+}
+
+const { lang } = Astro.params as { lang: 'en' | 'es' | 'de' };
+
+const t = (key: keyof typeof ui[typeof lang]) => {
+  return ui[lang][key] || key;
+};
+
+const descriptions = {
+  en: "Explore S'Estepa Design's featured publications, interviews, and media coverage in leading landscape and lifestyle magazines.",
+  es: "Explore las publicaciones de S'Estepa Design, entrevistas y cobertura mediática en las principales revistas de paisajismo y estilo de vida.",
+  de: "Entdecken Sie die Veröffentlichungen, Interviews und Medienberichte von S'Estepa Design in führenden Landschafts- und Lifestyle-Magazinen."
+};
+
+const pageDescription = descriptions[lang];
+
+const pageSubtitle = {
+  en: "Explore S'Estepa Design's press articles, interviews, and project showcases featured in international design and lifestyle press.",
+  es: "Explore los artículos de prensa, entrevistas y muestras de proyectos de S'Estepa Design en los medios internacionales de diseño.",
+  de: "Entdecken Sie die Presseartikel, Interviews und Projektpräsentationen von S'Estepa Design in der internationalen Fach- und Lifestylepresse."
+};
+
+const readMoreText = {
+  en: "Read Issue",
+  es: "Leer Edición",
+  de: "Ausgabe Lesen"
+};
+
+const downloadText = {
+  en: "Download PDF",
+  es: "Descargar PDF",
+  de: "PDF Herunterladen"
+};
+
+const publications = [
+  {
+    magazine: "abcMallorca",
+    title: {
+      en: "PROPERTY SPECIAL 2025",
+      es: "ESPECIAL PROPIEDADES 2025",
+      de: "PROPERTY SPECIAL 2025"
+    },
+    date: {
+      en: "June, 2025",
+      es: "Junio, 2025",
+      de: "Juni, 2025"
+    },
+    excerpt: {
+      en: "A comprehensive special feature highlighting S'Estepa Design's contemporary architectural integration, sustainable botanical choices, and villa landscaping in Mallorca.",
+      es: "Un reportaje especial completo que destaca la integración arquitectónica contemporánea, la selección botánica sostenible y el paisajismo de villas de S'Estepa Design en Mallorca.",
+      de: "Ein umfassendes Special, das die zeitgenössische architektonische Integration, die nachhaltige botanische Auswahl und die Villa-Landschaftsgestaltung von S'Estepa Design auf Mallorca hervorhebt."
+    },
+    link: "https://issuu.com/abc-mallorca.com/docs/issuu_165th_property_special_2025",
+    linkType: "external",
+    images: [
+      "/images/press/PROPERTY-SPECIAL-2025-SESTEPA-DESIGN-RENDER.jpg",
+      "/images/press/PROPERTY-SPECIAL-2025-SESTEPA-DESIGN-RENDER-PAGE-ADD.jpg"
+    ]
+  },
+  {
+    magazine: "abcMallorca",
+    title: {
+      en: "HOME DECOR / HC 2024",
+      es: "DECORACIÓN / HC 2024",
+      de: "HOME DECOR / HC 2024"
+    },
+    date: {
+      en: "September, 2024",
+      es: "Septiembre, 2024",
+      de: "September, 2024"
+    },
+    excerpt: {
+      en: "An editorial showcase detailing Pedro Campaner's design philosophies on traditional dry-stone walling and local flora preservation for upscale holiday villas.",
+      es: "Un dossier editorial que detalla la filosofía de Pedro Campaner sobre los muros de piedra seca tradicionales y la conservación de la flora local para villas vacacionales distinguidas.",
+      de: "Ein redaktioneller Beitrag über Pedro Campaners Designphilosophie zur traditionellen Trockenbauweise und zum Schutz der einheimischen Flora für anspruchsvolle Ferienvillas."
+    },
+    link: "https://issuu.com/abc-mallorca.com/docs/issuu_161st_home_decor_2024",
+    linkType: "external",
+    images: [
+      "/images/press/HOME-DECOR-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1.jpg",
+      "/images/press/HOME-DECOR-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-2.jpg"
+    ]
+  },
+  {
+    magazine: "Spend In",
+    title: {
+      en: "SPEND IN 2024",
+      es: "SPEND IN 2024",
+      de: "SPEND IN 2024"
+    },
+    date: {
+      en: "September 24, 2024",
+      es: "24 de Septiembre, 2024",
+      de: "24. September 2024"
+    },
+    excerpt: {
+      en: "A premium editorial highlighting S'Estepa Design as Mallorca's leading design studio for high-end, zero-ostentation exterior transformations. Text by Michael Wall, photos by S'Estepa.",
+      es: "Un artículo editorial premium que posiciona a S'Estepa Design como el estudio de paisajismo líder en Mallorca para transformaciones exteriores distinguidas y de discreción absoluta. Texto de Michael Wall, fotos de S'Estepa.",
+      de: "Ein erstklassiger Artikel, der S'Estepa Design als Mallorcas führendes Studio für anspruchsvolle, dezente Außenbereichsgestaltungen vorstellt. Text von Michael Wall, Fotos von S'Estepa."
+    },
+    link: "https://drive.google.com/file/d/1DCHP5tGZrXKJkhlc_-gAH4hSy8Ab3EDi/view?usp=sharing",
+    linkType: "download",
+    images: [
+      "/images/press/SPEND-IN-MAGAZINE-SESTEPA-LANDASCAPE-GARDEN-DESGIN-MALLORCA-Portada.jpg",
+      "/images/press/SPEND-IN-MAGAZINE-SESTEPA-LANDASCAPE-GARDEN-DESGIN-MALLORCA-Pagina.jpg"
+    ]
+  },
+  {
+    magazine: "abcMallorca",
+    title: {
+      en: "ONLY THE BEST / HC 2024",
+      es: "ONLY THE BEST / HC 2024",
+      de: "ONLY THE BEST / HC 2024"
+    },
+    date: {
+      en: "Published in 2024",
+      es: "Publicado en 2024",
+      de: "Erschienen 2024"
+    },
+    excerpt: {
+      en: "An expert-guided ranking and review of the island's landscape architecture, honoring S'Estepa Design for its sustainable water management and native species focus.",
+      es: "Una clasificación y reseña de expertos sobre la arquitectura del paisaje de la isla, que premia a S'Estepa Design por su gestión sostenible del agua y enfoque en especies autóctonas.",
+      de: "Eine von Experten geführte Rangliste und Bewertung der Landschaftsarchitektur der Insel, bei der S'Estepa Design für nachhaltiges Wassermanagement und heimische Pflanzenarten ausgezeichnet wird."
+    },
+    link: "https://drive.google.com/file/d/1TRTEJLcIn-nF8I7twdnSHMHDeWhzLN8s/view?usp=sharing",
+    linkType: "download",
+    images: [
+      "/images/press/ABC-MALLORCA-ONLY-THE-BEST-2024-SESTEPA-LANDSCAPE-GARDEN-DESIGN-MALLORCA.jpg-1.jpg",
+      "/images/press/ABC-MALLORCA-ONLY-THE-BEST-2024-SESTEPA-LANDSCAPE-GARDEN-DESIGN-MALLORCA.jpg-2.jpg",
+      "/images/press/ABC-MALLORCA-ONLY-THE-BEST-2024-SESTEPA-LANDSCAPE-GARDEN-DESIGN-MALLORCA.jpg-3.jpg",
+      "/images/press/ABC-MALLORCA-ONLY-THE-BEST-2024-SESTEPA-LANDSCAPE-GARDEN-DESIGN-MALLORCA.jpg-4.jpg",
+      "/images/press/ABC-MALLORCA-ONLY-THE-BEST-2024-SESTEPA-LANDSCAPE-GARDEN-DESIGN-MALLORCA.jpg-5.jpg"
+    ]
+  },
+  {
+    magazine: "abcMallorca",
+    title: {
+      en: "PROPERTY SPECIAL / HC 2024",
+      es: "ESPECIAL PROPIEDADES / HC 2024",
+      de: "PROPERTY SPECIAL / HC 2024"
+    },
+    date: {
+      en: "Published in 2024",
+      es: "Publicado en 2024",
+      de: "Erschienen 2024"
+    },
+    excerpt: {
+      en: "An immersive showcase detailing S'Estepa Design's high-fidelity project drawings, plant layouts, and sustainable exterior planning across Mallorcan estates.",
+      es: "Una muestra detallada de los planos de alta fidelidad, la distribución de plantas y la planificación exterior sostenible de S'Estepa Design en fincas de Mallorca.",
+      de: "Eine detaillierte Präsentation der präzisen Projektzeichnungen, Pflanzpläne und der nachhaltigen Außenbereichsplanung von S'Estepa Design auf mallorquinischen Anwesen."
+    },
+    link: "https://drive.google.com/file/d/1TJE23jJOdnj6a7HBPZjOn0gJ8cTL2HyG/view?usp=sharing",
+    linkType: "download",
+    images: [
+      "/images/press/ABC-MALLORCA-PROPERTY-SPECIAL-2024-SESTEPA-LANDSCAPE-GARDEN-DESIGN-MALLORCA-1.jpg",
+      "/images/press/ABC-MALLORCA-PROPERTY-SPECIAL-2024-SESTEPA-LANDSCAPE-GARDEN-DESIGN-MALLORCA-2.jpg",
+      "/images/press/ABC-MALLORCA-PROPERTY-SPECIAL-2024-SESTEPA-LANDSCAPE-GARDEN-DESIGN-MALLORCA-3.jpg",
+      "/images/press/ABC-MALLORCA-PROPERTY-SPECIAL-2024-SESTEPA-LANDSCAPE-GARDEN-DESIGN-MALLORCA-4.jpg"
+    ]
+  },
+  {
+    magazine: "abcMallorca",
+    title: {
+      en: "SLOW LIVING / HC 2023",
+      es: "SLOW LIVING / HC 2023",
+      de: "SLOW LIVING / HC 2023"
+    },
+    date: {
+      en: "November 24, 2023",
+      es: "24 de Noviembre, 2023",
+      de: "24. November 2023"
+    },
+    excerpt: {
+      en: "An immersive exploration of unhurried, understated refinement, showcasing the Binissalem Tramuntana Frame project and its physical integration with the natural soil rhythm. Text by Fátima Carasol, photos by Jonatan Barzola.",
+      es: "Una inmersión en el refinamiento pausado y discreto, que presenta el proyecto Binissalem Tramuntana Frame y su perfecta integración con el ritmo natural de la tierra. Texto de Fátima Carasol, fotos de Jonatan Barzola.",
+      de: "Eine tiefgehende Erkundung der entschleunigten, dezenten Raffinesse, die das Projekt Binissalem Tramuntana Frame und seine organische Verbindung mit dem Rhythmus der Erde zeigt. Text von Fátima Carasol, Fotos von Jonatan Barzola."
+    },
+    link: "https://www.sestepa.com/wp-content/uploads/ABC-MALLORCA-SESTEPA-DEC-2023.pdf",
+    linkType: "download",
+    images: [
+      "/images/press/slow-living-abc-mallorca-sestepa-landscape-garden-design-2023.jpg",
+      "/images/press/ABC-MALLORCA-SESTEPA-1-e1752008361898.jpg",
+      "/images/press/ABC-MALLORCA-SESTEPA-2.png",
+      "/images/press/ABC-MALLORCA-SESTEPA-3.png",
+      "/images/press/ABC-MALLORCA-SESTEPA-4.png"
+    ]
+  }
+];
+---
+
+<Layout
+  title={`S'Estepa Design | ${t('press.title')}`}
+  description={pageDescription}
+  lang={lang}
+  image="/portfolio/crestatx/cover.webp"
+>
+  <!-- Subpage Header -->
+  <section class="subpage-header">
+    <div class="container header-grid">
+      <div class="header-text">
+        <span class="header-tag">{t('nav.press')}</span>
+        <h1 class="header-title">{t('press.title')}</h1>
+        <p class="header-subtitle">{pageSubtitle[lang]}</p>
+      </div>
+      <div class="header-image-container">
+        <img src="/portfolio/crestatx/cover.webp" alt="S'Estepa Design Press Background" class="header-image" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section -->
+  <section class="press-section section-padding">
+    <div class="container">
+
+      <div class="press-list">
+        {publications.map((pub, index) => (
+          <div class="press-row">
+            <!-- Meta Column -->
+            <div class="press-meta-card">
+              <span class="pub-magazine">{pub.magazine}</span>
+              <h3 class="pub-title">{pub.title[lang]}</h3>
+              <span class="pub-date">{pub.date[lang]}</span>
+              <p class="pub-excerpt">{pub.excerpt[lang]}</p>
+              
+              <a 
+                href={pub.link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="pub-btn"
+              >
+                {pub.linkType === 'external' ? readMoreText[lang] : downloadText[lang]} &rarr;
+              </a>
+            </div>
+
+            <!-- Gallery Column -->
+            <div class="press-gallery">
+              {pub.images.map((img, imgIdx) => (
+                <button 
+                  class="press-img-btn" 
+                  data-src={img} 
+                  data-title={pub.title[lang]}
+                  data-index={`${index}-${imgIdx}`}
+                  aria-label={`View full resolution press layout for ${pub.title[lang]}`}
+                >
+                  <img src={img} alt={`${pub.title[lang]} page spread`} class="press-thumb" />
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+    <div class="lightbox-overlay" id="lightbox-overlay"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close image">&times;</button>
+      <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" aria-label="Previous image">&larr;</button>
+      <img src="" alt="" class="lightbox-img" id="lightbox-img" />
+      <button class="lightbox-arrow lightbox-next" id="lightboxNext" aria-label="Next image">&rarr;</button>
+      <span class="lightbox-caption" id="lightbox-caption"></span>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const buttons = document.querySelectorAll('.press-img-btn') as NodeListOf<HTMLButtonElement>;
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxOverlay = document.getElementById('lightbox-overlay');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+
+  if (lightbox && lightboxImg && lightboxCaption && lightboxClose && lightboxOverlay && lightboxPrev && lightboxNext) {
+    let currentPubIndex = -1;
+    let currentImgIndex = -1;
+    const pubImages: { [key: number]: { src: string; title: string }[] } = {};
+
+    buttons.forEach((btn) => {
+      const idxStr = btn.getAttribute('data-index') || '';
+      const [pubIdx, imgIdx] = idxStr.split('-').map(Number);
+      const src = btn.getAttribute('data-src') || '';
+      const title = btn.getAttribute('data-title') || '';
+
+      if (!pubImages[pubIdx]) {
+        pubImages[pubIdx] = [];
+      }
+      pubImages[pubIdx][imgIdx] = { src, title };
+    });
+
+    const openLightbox = (pubIdx: number, imgIdx: number) => {
+      currentPubIndex = pubIdx;
+      currentImgIndex = imgIdx;
+      updateLightbox();
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      lightboxImg.src = '';
+    };
+
+    const updateLightbox = () => {
+      const images = pubImages[currentPubIndex];
+      if (images && images[currentImgIndex]) {
+        const item = images[currentImgIndex];
+        lightboxImg.src = item.src;
+        lightboxImg.alt = item.title;
+        lightboxCaption.textContent = `${item.title} (${currentImgIndex + 1} / ${images.length})`;
+      }
+    };
+
+    const showPrev = () => {
+      const images = pubImages[currentPubIndex];
+      if (images) {
+        currentImgIndex = (currentImgIndex - 1 + images.length) % images.length;
+        updateLightbox();
+      }
+    };
+
+    const showNext = () => {
+      const images = pubImages[currentPubIndex];
+      if (images) {
+        currentImgIndex = (currentImgIndex + 1) % images.length;
+        updateLightbox();
+      }
+    };
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const idxStr = btn.getAttribute('data-index') || '';
+        const [pubIdx, imgIdx] = idxStr.split('-').map(Number);
+        openLightbox(pubIdx, imgIdx);
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxOverlay.addEventListener('click', closeLightbox);
+    
+    lightboxPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showPrev();
+    });
+    
+    lightboxNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showNext();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.classList.contains('active')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showPrev();
+        if (e.key === 'ArrowRight') showNext();
+      }
+    });
+
+    // Swipe controls for touch screens
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    lightbox.addEventListener('touchstart', (e: TouchEvent) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    lightbox.addEventListener('touchend', (e: TouchEvent) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const swipeThreshold = 50;
+      if (touchEndX < touchStartX - swipeThreshold) {
+        showNext();
+      }
+      if (touchEndX > touchStartX + swipeThreshold) {
+        showPrev();
+      }
+    }, { passive: true });
+  }
+</script>
+
+<style>
+  /* Subpage Header */
+  .subpage-header {
+    background-color: var(--color-sand-light);
+    padding: 12rem 0 6rem 0;
+    border-bottom: 1px solid var(--color-sand-dark);
+  }
+
+  .header-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .header-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .header-tag {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-olive);
+  }
+
+  .header-title {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--color-charcoal);
+  }
+
+  .header-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-charcoal-light);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .header-image-container {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: var(--color-sand-base);
+    border: 1px solid var(--color-sand-dark);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
+  }
+
+  .header-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .header-image-container:hover .header-image {
+    transform: scale(1.03);
+  }
+
+  @media (max-width: 992px) {
+    .subpage-header {
+      padding: 10rem 0 4rem 0;
+    }
+
+    .header-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .header-image-container {
+      aspect-ratio: 16 / 9;
+      max-height: 350px;
+    }
+  }
+
+  /* Editorial Section */
+  .press-section {
+    background-color: var(--color-white);
+  }
+
+  .press-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+
+  .press-row {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 4rem;
+    align-items: start;
+    border-bottom: 1px solid rgba(227, 221, 211, 0.4);
+    padding-bottom: 6rem;
+  }
+
+  .press-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .press-meta-card {
+    background-color: var(--color-sand-light);
+    border: 1px solid rgba(227, 221, 211, 0.4);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: var(--transition-medium);
+  }
+
+  .press-meta-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  }
+
+  .pub-magazine {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--color-olive);
+    text-transform: uppercase;
+  }
+
+  .pub-title {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--color-charcoal);
+    line-height: 1.2;
+  }
+
+  .pub-date {
+    font-size: 0.85rem;
+    color: var(--color-limestone);
+    margin-bottom: 0.5rem;
+  }
+
+  .pub-excerpt {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-charcoal-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .pub-btn {
+    align-self: flex-start;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-white);
+    background-color: var(--color-olive);
+    padding: 0.75rem 1.5rem;
+    transition: var(--transition-fast);
+  }
+
+  .pub-btn:hover {
+    background-color: var(--color-olive-dark);
+  }
+
+  /* Gallery Column */
+  .press-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .press-img-btn {
+    display: block;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: var(--color-sand-base);
+    border: 1px solid rgba(227, 221, 211, 0.4);
+    cursor: pointer;
+    padding: 0;
+    transition: var(--transition-medium);
+  }
+
+  .press-img-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-color: var(--color-olive);
+  }
+
+  .press-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .press-img-btn:hover .press-thumb {
+    transform: scale(1.05);
+  }
+
+  /* Lightbox Modal */
+  .lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .lightbox-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(31, 33, 31, 0.95);
+    backdrop-filter: blur(5px);
+  }
+
+  .lightbox-content {
+    position: relative;
+    z-index: 2010;
+    max-width: 90%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .lightbox-img {
+    max-width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  }
+
+  .lightbox-caption {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--color-sand-light);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: -3.5rem;
+    right: 0;
+    background: none;
+    border: none;
+    color: var(--color-white);
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: opacity 0.2s ease;
+  }
+
+  .lightbox-close:hover {
+    opacity: 0.7;
+  }
+
+  .lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(31, 33, 31, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--color-white);
+    font-size: 1.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    z-index: 2020;
+  }
+
+  .lightbox-arrow:hover {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--color-charcoal);
+    border-color: var(--color-white);
+  }
+
+  .lightbox-prev {
+    left: -6rem;
+  }
+
+  .lightbox-next {
+    right: -6rem;
+  }
+
+  @media (max-width: 1200px) {
+    .lightbox-prev {
+      left: 1rem;
+    }
+    .lightbox-next {
+      right: 1rem;
+    }
+    .lightbox-arrow {
+      width: 3rem;
+      height: 3rem;
+      font-size: 1.25rem;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .press-row {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      padding-bottom: 4rem;
+    }
+
+    .press-gallery {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+  }
+</style>
