@@ -812,5 +812,93 @@ export const projects: Project[] = [
         "Die sorgfältige Pflanzenauswahl sorgt für ein kontinuierliches Gefühl der Frische, warme grün-gelb-rote Töne und einen magischen 'Dschungellicht'-Effekt, wenn das Sonnenlicht durch die Blätter dringt."
       ]
     }
+  },
+  {
+    slug: "finca-garden-inca",
+    location: "Inca, Mallorca",
+    year: "2023",
+    architect: null,
+    video: null,
+    cover: "/portfolio/finca-garden-inca/cover.jpg",
+    images: [
+      "PLANO-DE-JARDIN-INCA-SESTEPA-GARDEN-DESIGN-MALLORCA.jpg"
+    ],
+    en: {
+      title: "Finca Garden Inca",
+      subtitle: "A two-dimensional layout with height perspectives and natural colour",
+      category: "Residential Garden",
+      botanical: "Pittosporum tobira nana, Agapanthus praecox, Rosmarinus officinalis, Euryops, Teucrium, Eremophila, Santolina, Gaura, Jacaranda mimosifolia, Prunus dulcis",
+      description: [
+        "This design presents an interesting two-dimensional layout. The garden is elevated one metre above the level of the house and pool and is divided into two distinct zones: an existing lawn area and a pathway area designed with gravel. Pittosporum tobira nana creates a pleasant visual separation, while the gravel pathway widens in the centre to provide a space for enjoyment.",
+        "Along the pathway, planters offer height perspectives with smaller shrubs in front and larger ones toward the back. In the centre, a small lake flanked by Pittosporum is complemented by Agapanthus. Hardy plants provide green, grey and red tones including rosemary, euryops, teucrium, eremophila, santolina and gaura.",
+        "Two medium-sized semi-evergreen trees provide gentle summer shade, while an almond tree adds a Mallorcan touch. In the relaxation area, a sandglass-shaped design tapering toward the centre maximises the panoramic view across the entire garden."
+      ]
+    },
+    es: {
+      title: "Finca Jardín Inca",
+      subtitle: "Una disposición bidimensional con perspectivas de altura y color natural",
+      category: "Jardín Residencial",
+      botanical: "Pittosporum tobira nana, Agapanthus praecox, Rosmarinus officinalis, Euryops, Teucrium, Eremophila, Santolina, Gaura, Jacaranda mimosifolia, Prunus dulcis",
+      description: [
+        "Este diseño presenta una interesante disposición bidimensional. El jardín se eleva un metro sobre el nivel de la casa y la piscina y se divide en dos zonas: césped existente y camino de grava. El Pittosporum tobira nana crea una agradable separación visual, mientras el camino se ensancha en el centro para ofrecer un espacio de disfrute.",
+        "A lo largo del camino, jardineras ofrecen perspectivas de altura con arbustos pequeños al frente y más grandes al fondo. En el centro, un pequeño lago flanqueado por Pittosporum se complementa con Agapanthus. Plantas resistentes aportan tonos verdes, grises y rojos: romero, euryops, teucrium, eremophila, santolina y gaura.",
+        "Dos árboles semiperennifolios de tamaño medio ofrecen sombra suave en verano, mientras un almendro añade un toque mallorquín. En la zona de descanso, un diseño en forma de reloj de arena maximiza la vista panorámica de todo el jardín."
+      ]
+    },
+    de: {
+      title: "Finca Garten Inca",
+      subtitle: "Ein zweidimensionales Layout mit Höhenperspektiven und natürlicher Farbvielfalt",
+      category: "Wohnbereich Garten",
+      botanical: "Pittosporum tobira nana, Agapanthus praecox, Rosmarinus officinalis, Euryops, Teucrium, Eremophila, Santolina, Gaura, Jacaranda mimosifolia, Prunus dulcis",
+      description: [
+        "Dieser Entwurf bietet ein interessantes zweidimensionales Layout. Der Garten liegt einen Meter über dem Niveau des Hauses und des Pools und ist in zwei Zonen unterteilt: bestehende Rasenfläche und Kiesweg. Pittosporum tobira nana schafft eine angenehme optische Trennung, während sich der Kiesweg in der Mitte verbreitert.",
+        "Entlang des Weges bieten Pflanzgefäße Höhenperspektiven mit kleineren Sträuchern vorne und größeren hinten. In der Mitte flankiert Pittosporum einen kleinen See, ergänzt durch Agapanthus. Winterharte Pflanzen in Grün-, Grau- und Rottönen: Rosmarin, Euryops, Teucrium, Eremophila, Santolina und Gaura.",
+        "Zwei halb-immergrüne Bäume spenden sanften Sommerschatten, ein Mandelbaum verleiht einen mallorquinischen Touch. Im Entspannungsbereich maximiert ein sanduhrförmiges Design den Panoramablick über den gesamten Garten."
+      ]
+    }
+  },
+  {
+    slug: "seaside-house-alcudia",
+    location: "Alcúdia, Mallorca",
+    year: "2023",
+    architect: null,
+    video: null,
+    cover: "/portfolio/seaside-house-alcudia/cover.jpg",
+    images: [
+      "ALCANADA-RENDER-SESTEPA-GARDEN-DESIGN-scaled.jpg"
+    ],
+    en: {
+      title: "Seaside House Alcúdia",
+      subtitle: "Tropical colour contrasts on a sloping plot by the sea",
+      category: "Residential Garden",
+      botanical: "Tropical and coastal-adapted species, frost-tolerant exotics",
+      description: [
+        "On this plot located by the sea and on a sloping area, we found enclosed and defined garden spaces. We ensured colours stood out for their intensity and contrast: intense greens, lilacs, blues, yellows, and whites create colourful lines, especially during summer and spring.",
+        "Most plants were of tropical origin and adapted to the sloping seaside plot, with characteristics allowing them to withstand the few winter frosts that can be detrimental to development.",
+        "This garden design successfully combined visual and functional elements, creating a charming and harmonious space to enjoy by the sea and appreciate the beauty of nature."
+      ]
+    },
+    es: {
+      title: "Casa de Mar Alcúdia",
+      subtitle: "Contrastes tropicales de color en una parcela en pendiente junto al mar",
+      category: "Jardín Residencial",
+      botanical: "Especies tropicales y adaptadas al litoral, exóticas tolerantes a heladas",
+      description: [
+        "En esa parcela situada junto al mar y en una zona en pendiente, encontramos espacios ajardinados cerrados y definidos. Acentuamos verdes intensos, lilas, azules, amarillos y blancos para crear líneas de color, especialmente en verano y primavera.",
+        "La mayoría de las plantas eran de origen tropical y adaptadas a la zona en pendiente junto al mar, con características que les permitían soportar las escasas heladas invernales.",
+        "Este diseño combinó con éxito elementos visuales y funcionales, creando un espacio encantador y armonioso para disfrutar junto al mar."
+      ]
+    },
+    de: {
+      title: "Haus am Meer Alcúdia",
+      subtitle: "Tropische Farbkontraste auf einem Hanggrundstück am Meer",
+      category: "Wohnbereich Garten",
+      botanical: "Tropische und küstenangepasste Arten, frosttolerante Exoten",
+      description: [
+        "Auf diesem am Meer gelegenen Grundstück in Hanglage fanden wir geschlossene und abgegrenzte Gartenbereiche. Intensive Grün-, Flieder-, Blau-, Gelb- und Weißtöne schaffen kontrastreiche Farblinien, besonders im Sommer und Frühjahr.",
+        "Die meisten Pflanzen waren tropischen Ursprungs und an die Hanglage in Meeresnähe angepasst, mit Eigenschaften, die wenige Winterfröste überstehen.",
+        "Die Gestaltung verband visuelle und funktionale Elemente zu einem harmonischen Raum am Meer."
+      ]
+    }
   }
 ];
