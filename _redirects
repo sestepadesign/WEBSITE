@@ -1,1 +1,2 @@
 /PORTFOLIO/*  /portfolio/:splat  301
+/portfolio/*  /PORTFOLIO/:splat  200
