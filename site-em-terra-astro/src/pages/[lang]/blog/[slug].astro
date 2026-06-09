@@ -1,0 +1,109 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+
+  return posts.map((post) => {
+    const slug = post.id.replace(/\.md$/, '').split('/').pop()!;
+    return {
+      params: { lang: post.data.lang, slug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { title, description, pubDate, image } = post.data;
+const lang = post.data.lang;
+---
+
+<Layout
+  title={`${title} | S'Estepa Design`}
+  description={description}
+  lang={lang}
+  image={image ?? '/portfolio/campos/cover.webp'}
+>
+  <article class="blog-post section-padding">
+    <div class="container narrow">
+      <header class="post-header">
+        <a href={`/${lang}/blog/`} class="back-link">
+          {lang === 'en' && '← Back to Blog'}
+          {lang === 'es' && '← Volver al Blog'}
+          {lang === 'de' && '← Zurück zum Blog'}
+        </a>
+        <time datetime={pubDate.toISOString()} class="post-date">
+          {pubDate.toLocaleDateString(lang === 'de' ? 'de-DE' : lang === 'es' ? 'es-ES' : 'en-GB', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </time>
+        <h1 class="post-title">{title}</h1>
+      </header>
+
+      <div class="post-content prose">
+        <Content />
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .narrow {
+    max-width: 760px;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-limestone);
+    margin-bottom: 1.5rem;
+  }
+
+  .post-date {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-limestone);
+    margin-bottom: 1rem;
+  }
+
+  .post-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 2.5rem;
+    color: var(--color-charcoal);
+  }
+
+  .post-content :global(h2) {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+    color: var(--color-olive);
+  }
+
+  .post-content :global(p) {
+    line-height: 1.85;
+    margin-bottom: 1.25rem;
+    color: var(--color-charcoal-light);
+  }
+
+  .post-content :global(a) {
+    color: var(--color-olive);
+    text-decoration: underline;
+  }
+
+  .post-content :global(img) {
+    max-width: 100%;
+    height: auto;
+    margin: 2rem 0;
+  }
+</style>

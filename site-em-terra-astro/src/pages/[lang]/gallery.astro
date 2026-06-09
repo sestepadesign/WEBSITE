@@ -1,0 +1,108 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { ui } from '../../data/translations';
+import { getGalleryImages, galleryMeta } from '../../data/gallery';
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'es' } }, { params: { lang: 'de' } }];
+}
+
+const { lang } = Astro.params as { lang: 'en' | 'es' | 'de' };
+const meta = galleryMeta[lang];
+const images = getGalleryImages(lang);
+
+const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
+const coverImage = images[0]?.src ?? '/portfolio/campos/cover.webp';
+---
+
+<Layout
+  title={`S'Estepa Design | ${meta.title}`}
+  description={meta.description}
+  lang={lang}
+  image={coverImage}
+>
+  <article class="gallery-page section-padding">
+    <div class="container">
+      <header class="page-header">
+        <span class="section-tag">{t('nav.gallery')}</span>
+        <h1 class="page-title">{meta.title}</h1>
+        <p class="page-subtitle">{meta.subtitle}</p>
+        <p class="page-desc">{meta.description}</p>
+      </header>
+
+      <div class="gallery-grid">
+        {images.map((img, idx) => (
+          <a
+            href={`/${lang}/portfolio/${img.projectSlug}/`}
+            class="gallery-item"
+            aria-label={`${img.projectTitle} — ${t('nav.portfolio')}`}
+          >
+            <img src={img.src} alt={img.alt} loading="lazy" decoding="async" class="gallery-img" />
+          </a>
+        ))}
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .page-header {
+    max-width: 780px;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+  }
+
+  .page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    margin: 1rem 0;
+  }
+
+  .page-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-olive);
+    margin-bottom: 1rem;
+  }
+
+  .page-desc {
+    line-height: 1.75;
+    color: var(--color-charcoal-light);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .gallery-item {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--color-sand-base);
+    display: block;
+  }
+
+  .gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .gallery-item:hover .gallery-img {
+    transform: scale(1.04);
+  }
+
+  @media (max-width: 992px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 560px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

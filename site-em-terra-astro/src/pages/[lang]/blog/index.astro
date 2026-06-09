@@ -1,0 +1,156 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { ui } from '../../../data/translations';
+import { getCollection } from 'astro:content';
+
+export function getStaticPaths() {
+  return [{ params: { lang: 'en' } }, { params: { lang: 'es' } }, { params: { lang: 'de' } }];
+}
+
+const { lang } = Astro.params as { lang: 'en' | 'es' | 'de' };
+
+const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
+
+const blogMeta = {
+  en: {
+    title: 'Garden Design Insights',
+    description:
+      'Expert articles on Mediterranean garden design, sustainable landscaping and luxury outdoor living in Mallorca by S\'Estepa Design.',
+  },
+  es: {
+    title: 'Artículos sobre Diseño de Jardines',
+    description:
+      'Artículos expertos sobre diseño de jardines mediterráneos, paisajismo sostenible y vida al aire libre en Mallorca por S\'Estepa Design.',
+  },
+  de: {
+    title: 'Gartendesign & Landschaftsartikel',
+    description:
+      'Fachartikel über mediterranes Gartendesign, nachhaltige Landschaftsgestaltung und Outdoor-Living auf Mallorca von S\'Estepa Design.',
+  },
+};
+
+const meta = blogMeta[lang];
+
+const posts = (await getCollection('blog'))
+  .filter((p) => p.data.lang === lang && !p.data.draft)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+function postSlug(id: string) {
+  return id.replace(/\.md$/, '').split('/').pop() ?? id;
+}
+---
+
+<Layout title={`S'Estepa Design | ${meta.title}`} description={meta.description} lang={lang}>
+  <article class="blog-page section-padding">
+    <div class="container">
+      <header class="page-header">
+        <span class="section-tag">{t('nav.blog')}</span>
+        <h1 class="page-title">{meta.title}</h1>
+        <p class="page-subtitle">{meta.description}</p>
+      </header>
+
+      {posts.length === 0 ? (
+        <p class="empty-state">
+          {lang === 'en' && 'Articles coming soon.'}
+          {lang === 'es' && 'Artículos próximamente.'}
+          {lang === 'de' && 'Artikel folgen in Kürze.'}
+        </p>
+      ) : (
+        <div class="posts-list">
+          {posts.map((post) => {
+            const slug = postSlug(post.id);
+            return (
+              <article class="post-card">
+                <time datetime={post.data.pubDate.toISOString()} class="post-date">
+                  {post.data.pubDate.toLocaleDateString(lang === 'de' ? 'de-DE' : lang === 'es' ? 'es-ES' : 'en-GB', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
+                <h2 class="post-title">
+                  <a href={`/${lang}/blog/${slug}/`}>{post.data.title}</a>
+                </h2>
+                <p class="post-excerpt">{post.data.description}</p>
+                <a href={`/${lang}/blog/${slug}/`} class="read-more">
+                  {lang === 'en' && 'Read article'}
+                  {lang === 'es' && 'Leer artículo'}
+                  {lang === 'de' && 'Artikel lesen'} &rarr;
+                </a>
+              </article>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .page-header {
+    max-width: 760px;
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+
+  .page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    margin: 1rem 0;
+  }
+
+  .page-subtitle {
+    line-height: 1.75;
+    color: var(--color-charcoal-light);
+  }
+
+  .posts-list {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .post-card {
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--color-sand-dark);
+  }
+
+  .post-date {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-limestone);
+  }
+
+  .post-title {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin: 0.75rem 0;
+  }
+
+  .post-title a {
+    color: var(--color-charcoal);
+  }
+
+  .post-excerpt {
+    line-height: 1.75;
+    color: var(--color-charcoal-light);
+    margin-bottom: 1rem;
+  }
+
+  .read-more {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-olive);
+  }
+
+  .empty-state {
+    text-align: center;
+    color: var(--color-charcoal-light);
+  }
+</style>

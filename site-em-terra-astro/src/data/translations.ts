@@ -10,8 +10,10 @@ export const ui = {
   en: {
     'nav.home': 'Home',
     'nav.about': 'Studio',
+    'nav.services': 'Services',
     'nav.portfolio': 'Gardens',
     'nav.gallery': 'Gallery',
+    'nav.blog': 'Blog',
     'nav.press': 'Press',
     'nav.contact': 'Contact',
     
@@ -61,8 +63,10 @@ export const ui = {
   es: {
     'nav.home': 'Inicio',
     'nav.about': 'Estudio',
+    'nav.services': 'Servicios',
     'nav.portfolio': 'Jardines',
     'nav.gallery': 'Galería',
+    'nav.blog': 'Blog',
     'nav.press': 'Prensa',
     'nav.contact': 'Contacto',
     
@@ -112,8 +116,10 @@ export const ui = {
   de: {
     'nav.home': 'Startseite',
     'nav.about': 'Studio',
+    'nav.services': 'Leistungen',
     'nav.portfolio': 'Gärten',
     'nav.gallery': 'Galerie',
+    'nav.blog': 'Blog',
     'nav.press': 'Presse',
     'nav.contact': 'Kontakt',
     
