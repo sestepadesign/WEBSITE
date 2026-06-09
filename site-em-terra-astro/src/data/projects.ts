@@ -132,12 +132,12 @@ export const projects: Project[] = [
     }
   },
   {
-    slug: "campanet",
+    slug: "campanet-garden",
     location: "Campanet, Mallorca",
     year: "2023",
     architect: null,
     video: null,
-    cover: "/portfolio/campanet/cover.jpg",
+    cover: "/portfolio/campanet-garden/cover.jpg",
     images: [
       "garden-design-mallorca-landscape-design-sestepa-campanet-1.jpg",
       "garden-design-mallorca-landscape-design-sestepa-campanet-2.jpg",
@@ -181,12 +181,12 @@ export const projects: Project[] = [
     }
   },
   {
-    slug: "campos",
+    slug: "finca-garden-campos-mallorca",
     location: "Campos, Mallorca",
     year: "2021",
     architect: null,
     video: "https://www.youtube.com/embed/McyZviXDxhc?feature=oembed",
-    cover: "/portfolio/campos/cover.webp",
+    cover: "/portfolio/finca-garden-campos-mallorca/cover.webp",
     images: [
       "GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.jpg",
       "GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-10.jpg",
@@ -291,12 +291,12 @@ export const projects: Project[] = [
     }
   },
   {
-    slug: "crestatx",
+    slug: "crestatx-garden-design",
     location: "Crestatx, Sa Pobla",
     year: "2023",
     architect: null,
     video: "https://www.youtube.com/embed/-xs_kKaUnGA?feature=oembed",
-    cover: "/portfolio/crestatx/cover.webp",
+    cover: "/portfolio/crestatx-garden-design/cover.webp",
     images: [
       "2D_Crestatx_SEstepa_Design_960-2.jpg",
       "2D_Crestatx_SEstepa_Design_960.jpg",
@@ -420,12 +420,12 @@ export const projects: Project[] = [
     }
   },
   {
-    slug: "llubi",
+    slug: "garden-design-llubi-mallorca",
     location: "Llubí, Mallorca",
     year: "2023",
     architect: null,
     video: null,
-    cover: "/portfolio/llubi/cover.webp",
+    cover: "/portfolio/garden-design-llubi-mallorca/cover.webp",
     images: [
       "GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-1.png",
       "GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-3.png",
@@ -547,12 +547,12 @@ export const projects: Project[] = [
     }
   },
   {
-    slug: "santa-eugenia",
+    slug: "terrace-garden-santa-eugenia",
     location: "Santa Eugènia, Mallorca",
     year: "2023",
     architect: null,
     video: null,
-    cover: "/portfolio/santa-eugenia/cover.jpg",
+    cover: "/portfolio/terrace-garden-santa-eugenia/cover.jpg",
     images: [
       "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-1.jpg",
       "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-10.jpg",
@@ -710,12 +710,12 @@ export const projects: Project[] = [
     }
   },
   {
-    slug: "terrace-garden-palma",
+    slug: "terrace-garden-in-palma",
     location: "Palma de Mallorca",
     year: "2023",
     architect: "Contemporary Studio",
     video: "https://www.youtube.com/embed/1q1Qnh2s_mg?feature=oembed",
-    cover: "/portfolio/terrace-garden-palma/cover.jpg",
+    cover: "/portfolio/terrace-garden-in-palma/cover.jpg",
     images: [
       "TERRACE-GARDEN-PALMA-MALLORCA-SESTEPA-DESIGN-1.jpg",
       "TERRACE-GARDEN-PALMA-MALLORCA-SESTEPA-DESIGN-2.jpg",
@@ -759,12 +759,12 @@ export const projects: Project[] = [
     }
   },
   {
-    slug: "vertical-garden",
+    slug: "vertical-gardens-in-mallorca",
     location: "Mallorca",
     year: "2023",
     architect: "Vertical Garden Mallorca",
     video: "https://www.youtube.com/embed/x3W0KQmr-pQ?feature=oembed",
-    cover: "/portfolio/vertical-garden/cover.jpg",
+    cover: "/portfolio/vertical-gardens-in-mallorca/cover.jpg",
     images: [
       "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-1.jpg",
       "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-10.jpg",

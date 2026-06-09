@@ -24,18 +24,18 @@ const { lang } = Astro.params as { lang: 'en' | 'es' | 'de' };
 const projectCategoryMap: Record<string, 'mediterranean' | 'romantic' | 'tropical' | 'dry'> = {
   'binissalem': 'mediterranean',
   'bunyola': 'mediterranean',
-  'campanet': 'romantic',
-  'campos': 'romantic',
+  'campanet-garden': 'romantic',
+  'finca-garden-campos-mallorca': 'romantic',
   'costadelacalma': 'tropical',
-  'crestatx': 'dry',
+  'crestatx-garden-design': 'dry',
   'hotelcabotlasvelas': 'dry',
-  'llubi': 'romantic',
+  'garden-design-llubi-mallorca': 'romantic',
   'sant-llorenc': 'mediterranean',
-  'santa-eugenia': 'tropical',
+  'terrace-garden-santa-eugenia': 'tropical',
   'santa-ponsa': 'dry',
   'son-vida': 'mediterranean',
-  'terrace-garden-palma': 'tropical',
-  'vertical-garden': 'tropical'
+  'terrace-garden-in-palma': 'tropical',
+  'vertical-gardens-in-mallorca': 'tropical'
 };
 
 const categorySlug = projectCategoryMap[project.slug] || 'mediterranean';

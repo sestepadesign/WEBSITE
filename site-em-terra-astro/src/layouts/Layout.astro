@@ -7,13 +7,13 @@ interface Props {
   title: string;
   description: string;
   lang: 'en' | 'es' | 'de';
-  /** Path to OG image, e.g. /portfolio/campos/cover.webp */
+  /** Path to OG image, e.g. /portfolio/finca-garden-campos-mallorca/cover.webp */
   image?: string;
   /** If set, adds meta refresh after full OG head (root → /en/) */
   redirectTo?: string;
 }
 
-const { title, description, lang, image = '/portfolio/campos/cover.webp', redirectTo } = Astro.props;
+const { title, description, lang, image = '/portfolio/finca-garden-campos-mallorca/cover.webp', redirectTo } = Astro.props;
 
 const site = Astro.site!;
 const canonicalPath = redirectTo ?? Astro.url.pathname;
