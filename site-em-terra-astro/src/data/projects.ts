@@ -58,8 +58,8 @@ export const projects: Project[] = [
       description: [
         "This garden frames the Serra de Tramuntana as its true protagonist, blending color, movement, and open spaces to create a serene, contemplative Mediterranean landscape.",
         "The design is structured around two main planting lines that preserve the memory of the former orange grove while maintaining unobstructed views from the residence.",
-        "The Green Line (lower tier), closer to the house, integrates existing Citrus sinensis with Cycas revoluta, Strelitzia augusta, Pittosporum tobira 'Nana', Gaura lindheimeri and Lavandula dentata.",
-        "The Pink Line (upper tier) creates a natural prairie effect with Muhlenbergia capillaris, Nerium oleander, Stipa tenuissima and Pennisetum alopecuroides. At its heart, a rest area is enveloped by grasses and three Yucca elephantipes, framing the distant mountain range."
+        "• The Green Line (Lower Tier): Located closer to the house and contained by a low wall. It integrates existing Citrus sinensis and enhances the structure with:",
+        "• The Pink Line (Upper Tier): Designed for high visual impact and movement, creating a natural prairie effect through:",
       ]
     },
     es: {

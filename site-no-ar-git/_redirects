@@ -1,0 +1,68 @@
+/PORTFOLIO/*  /portfolio/:splat  301
+
+# Legacy WordPress pages → new Astro routes (EN default)
+/gallery/  /en/gallery/  301
+/galeria/  /es/gallery/  301
+/galerie/  /de/gallery/  301
+/blog/  /en/blog/  301
+/about/  /en/about/  301
+/portfolio/  /en/portfolio/  301
+/press/  /en/press/  301
+/contact/  /en/contact/  301
+/garden-design-mallorca-landscape-management-villas-fincas/  /en/services/  301
+/discover-the-art-of-garden-design/  /en/  301
+
+# WordPress portfolio root URLs → canonical slugs (match design.sestepa.com)
+/binissalem/  /en/portfolio/binissalem/  301
+/bunyola/  /en/portfolio/bunyola/  301
+/campanet-garden/  /en/portfolio/campanet-garden/  301
+/finca-garden-campos-mallorca/  /en/portfolio/finca-garden-campos-mallorca/  301
+/finca-garden-campos/  /en/portfolio/finca-garden-campos-mallorca/  301
+/costadelacalma/  /en/portfolio/costadelacalma/  301
+/crestatx-garden-design/  /en/portfolio/crestatx-garden-design/  301
+/hotelcabotlasvelas/  /en/portfolio/hotelcabotlasvelas/  301
+/garden-design-llubi-mallorca/  /en/portfolio/garden-design-llubi-mallorca/  301
+/sant-llorenc/  /en/portfolio/sant-llorenc/  301
+/terrace-garden-santa-eugenia/  /en/portfolio/terrace-garden-santa-eugenia/  301
+/santa-ponsa/  /en/portfolio/santa-ponsa/  301
+/son-vida/  /en/portfolio/son-vida/  301
+/terrace-garden-in-palma/  /en/portfolio/terrace-garden-in-palma/  301
+/vertical-gardens-in-mallorca/  /en/portfolio/vertical-gardens-in-mallorca/  301
+/finca-garden-inca/  /en/portfolio/finca-garden-inca/  301
+/seaside-house-alcudia/  /en/portfolio/seaside-house-alcudia/  301
+
+# Legacy short slugs → official WordPress slugs
+/en/portfolio/campanet/  /en/portfolio/campanet-garden/  301
+/es/portfolio/campanet/  /es/portfolio/campanet-garden/  301
+/de/portfolio/campanet/  /de/portfolio/campanet-garden/  301
+/portfolio/campanet/*  /portfolio/campanet-garden/:splat  301
+
+/en/portfolio/campos/  /en/portfolio/finca-garden-campos-mallorca/  301
+/es/portfolio/campos/  /es/portfolio/finca-garden-campos-mallorca/  301
+/de/portfolio/campos/  /de/portfolio/finca-garden-campos-mallorca/  301
+/portfolio/campos/*  /portfolio/finca-garden-campos-mallorca/:splat  301
+
+/en/portfolio/crestatx/  /en/portfolio/crestatx-garden-design/  301
+/es/portfolio/crestatx/  /es/portfolio/crestatx-garden-design/  301
+/de/portfolio/crestatx/  /de/portfolio/crestatx-garden-design/  301
+/portfolio/crestatx/*  /portfolio/crestatx-garden-design/:splat  301
+
+/en/portfolio/llubi/  /en/portfolio/garden-design-llubi-mallorca/  301
+/es/portfolio/llubi/  /es/portfolio/garden-design-llubi-mallorca/  301
+/de/portfolio/llubi/  /de/portfolio/garden-design-llubi-mallorca/  301
+/portfolio/llubi/*  /portfolio/garden-design-llubi-mallorca/:splat  301
+
+/en/portfolio/santa-eugenia/  /en/portfolio/terrace-garden-santa-eugenia/  301
+/es/portfolio/santa-eugenia/  /es/portfolio/terrace-garden-santa-eugenia/  301
+/de/portfolio/santa-eugenia/  /de/portfolio/terrace-garden-santa-eugenia/  301
+/portfolio/santa-eugenia/*  /portfolio/terrace-garden-santa-eugenia/:splat  301
+
+/en/portfolio/terrace-garden-palma/  /en/portfolio/terrace-garden-in-palma/  301
+/es/portfolio/terrace-garden-palma/  /es/portfolio/terrace-garden-in-palma/  301
+/de/portfolio/terrace-garden-palma/  /de/portfolio/terrace-garden-in-palma/  301
+/portfolio/terrace-garden-palma/*  /portfolio/terrace-garden-in-palma/:splat  301
+
+/en/portfolio/vertical-garden/  /en/portfolio/vertical-gardens-in-mallorca/  301
+/es/portfolio/vertical-garden/  /es/portfolio/vertical-gardens-in-mallorca/  301
+/de/portfolio/vertical-garden/  /de/portfolio/vertical-gardens-in-mallorca/  301
+/portfolio/vertical-garden/*  /portfolio/vertical-gardens-in-mallorca/:splat  301
