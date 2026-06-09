@@ -1,24 +1,20 @@
 /PORTFOLIO/*  /portfolio/:splat  301
 
-# Legacy WordPress pages → new Astro routes (EN default)
-/gallery/  /en/gallery/  301
-/galeria/  /es/gallery/  301
-/galerie/  /de/gallery/  301
-/blog/  /en/blog/  301
-/about/  /en/about/  301
-/portfolio/  /en/portfolio/  301
-/press/  /en/press/  301
-/contact/  /en/contact/  301
-/garden-design-mallorca-landscape-management-villas-fincas/  /en/services/  301
-
-# Portfolio slug redirects (preserve Google rankings)
-/campanet-garden/  /en/portfolio/campanet/  301
-/finca-garden-campos-mallorca/  /en/portfolio/campos/  301
-/finca-garden-campos/  /en/portfolio/campos/  301
-/crestatx-garden-design/  /en/portfolio/crestatx/  301
-/garden-design-llubi-mallorca/  /en/portfolio/llubi/  301
-/terrace-garden-santa-eugenia/  /en/portfolio/santa-eugenia/  301
-/terrace-garden-in-palma/  /en/portfolio/terrace-garden-palma/  301
-/vertical-gardens-in-mallorca/  /en/portfolio/vertical-garden/  301
-/discover-the-art-of-garden-design/  /en/  301
-\n# Legacy WordPress blog posts → EN blog routes\n/beyond-aesthetics-invest-in-an-ecosystem-that-multiplies-the-value-of-your-property-in-mallorca.md/  /en/blog/beyond-aesthetics-invest-in-an-ecosystem-that-multiplies-the-value-of-your-property-in-mallorca/  301\n/beyond-shade-unveiling-the-microclimates-engineered-by-bioclimatic-pergolas-in-mallorca.md/  /en/blog/beyond-shade-unveiling-the-microclimates-engineered-by-bioclimatic-pergolas-in-mallorca/  301\n/crafting-a-singular-mallorca-identity-through-curated-botanical-fusions.md/  /en/blog/crafting-a-singular-mallorca-identity-through-curated-botanical-fusions/  301\n/design2d.md/  /en/blog/design2d/  301\n/design2d3d.md/  /en/blog/design2d/  301\n/forest-garden-on-mallorca.md/  /en/blog/forest-garden-on-mallorca/  301\n/how-do-you-create-a-landscape-design.md/  /en/blog/how-do-you-create-a-landscape-design/  301\n/mallorcan-sea-and-bougainvilleas-make-everything-better-%f0%9f%92%99.md/  /en/blog/mallorcan-sea-and-bougainvilleas-make-everything-better-f09f9299/  301\n/must-have-aromatic-herbs-for-your-mallorcan-garden.md/  /en/blog/must-have-aromatic-herbs-for-your-mallorcan-garden/  301\n/regenerative-landscapes-despite-mallorcas-water-realities.md/  /en/blog/regenerative-landscapes-despite-mallorcas-water-realities/  301\n/the-challenge-of-creating-this-garden.md/  /en/blog/the-challenge-of-creating-this-garden/  301\n/the-finca-reimagined-cultivating-a-private-oasis-of-sensory-abundance-and-ecological-harmony.md/  /en/blog/the-finca-reimagined-cultivating-a-private-oasis-of-sensory-abundance-and-ecological-harmony/  301\n/the-garden-is-not-just-a-mere-collection-of-elements.md/  /en/blog/the-garden-is-not-just-a-mere-collection-of-elements/  301\n/the-unseen-alliance-how-ancient-fincas-embrace-21st-century-water-wisdom.md/  /en/blog/the-unseen-alliance-how-ancient-fincas-embrace-21st-century-water-wisdom/  301\n/the-verdant-paradox-how-modernist-geometry-cultivates-unexpected-mediterranean-biodiversity.md/  /en/blog/the-verdant-paradox-how-modernist-geometry-cultivates-unexpected-mediterranean-biodiversity/  301\n/the-wild-luxury-how-micro-rewilding-is-reshaping-mallorcas-landscapes.md/  /en/blog/the-wild-luxury-how-micro-rewilding-is-reshaping-mallorcas-landscapes/  301\n/where-your-garden-becomes-the-grandest-room-of-your-finca-modern-estate.md/  /en/blog/where-your-garden-becomes-the-grandest-room-of-your-finca-modern-estate/  301\n
+# Legacy WordPress blog posts → EN blog routes
+/beyond-aesthetics-invest-in-an-ecosystem-that-multiplies-the-value-of-your-property-in-mallorca/  /en/blog/beyond-aesthetics-invest-in-an-ecosystem-that-multiplies-the-value-of-your-property-in-mallorca/  301
+/beyond-shade-unveiling-the-microclimates-engineered-by-bioclimatic-pergolas-in-mallorca/  /en/blog/beyond-shade-unveiling-the-microclimates-engineered-by-bioclimatic-pergolas-in-mallorca/  301
+/crafting-a-singular-mallorca-identity-through-curated-botanical-fusions/  /en/blog/crafting-a-singular-mallorca-identity-through-curated-botanical-fusions/  301
+/design2d/  /en/blog/design2d/  301
+/design2d3d/  /en/blog/design2d3d/  301
+/forest-garden-on-mallorca/  /en/blog/forest-garden-on-mallorca/  301
+/how-do-you-create-a-landscape-design/  /en/blog/how-do-you-create-a-landscape-design/  301
+/mallorcan-sea-and-bougainvilleas-make-everything-better-%f0%9f%92%99/  /en/blog/mallorcan-sea-and-bougainvilleas-make-everything-better-f09f9299/  301
+/must-have-aromatic-herbs-for-your-mallorcan-garden/  /en/blog/must-have-aromatic-herbs-for-your-mallorcan-garden/  301
+/regenerative-landscapes-despite-mallorcas-water-realities/  /en/blog/regenerative-landscapes-despite-mallorcas-water-realities/  301
+/the-challenge-of-creating-this-garden/  /en/blog/the-challenge-of-creating-this-garden/  301
+/the-finca-reimagined-cultivating-a-private-oasis-of-sensory-abundance-and-ecological-harmony/  /en/blog/the-finca-reimagined-cultivating-a-private-oasis-of-sensory-abundance-and-ecological-harmony/  301
+/the-garden-is-not-just-a-mere-collection-of-elements/  /en/blog/the-garden-is-not-just-a-mere-collection-of-elements/  301
+/the-unseen-alliance-how-ancient-fincas-embrace-21st-century-water-wisdom/  /en/blog/the-unseen-alliance-how-ancient-fincas-embrace-21st-century-water-wisdom/  301
+/the-verdant-paradox-how-modernist-geometry-cultivates-unexpected-mediterranean-biodiversity/  /en/blog/the-verdant-paradox-how-modernist-geometry-cultivates-unexpected-mediterranean-biodiversity/  301
+/the-wild-luxury-how-micro-rewilding-is-reshaping-mallorcas-landscapes/  /en/blog/the-wild-luxury-how-micro-rewilding-is-reshaping-mallorcas-landscapes/  301
+/where-your-garden-becomes-the-grandest-room-of-your-finca-modern-estate/  /en/blog/where-your-garden-becomes-the-grandest-room-of-your-finca-modern-estate/  301
