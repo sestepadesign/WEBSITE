@@ -499,15 +499,18 @@ export const projects: Project[] = [
     video: "https://www.youtube.com/embed/IdGlxUKjhUQ?feature=oembed",
     cover: "/portfolio/sant-llorenc/cover.jpg",
     images: [
-      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-1-2.jpg",
-      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-2-1.jpg",
-      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-3-1.jpg",
-      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-4-1.jpg",
-      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-5-1.jpg",
-      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-6-1.jpg",
-      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-7-1.jpg",
-      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-8-1.jpg",
-      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-9-1.jpg"
+      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.jpg",
+      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-02.jpg",
+      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-03.jpg",
+      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-04.jpg",
+      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-05.jpg",
+      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-06.jpg",
+      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-07.jpg",
+      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-08.jpg",
+      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-09.jpg",
+      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-10.jpg",
+      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-11.jpg",
+      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-12.jpg"
     ],
     en: {
       title: "Sant Llorenç Estate",
