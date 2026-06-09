@@ -58,7 +58,8 @@ export const projects: Project[] = [
       description: [
         "This garden frames the Serra de Tramuntana as its true protagonist, blending color, movement, and open spaces to create a serene, contemplative Mediterranean landscape.",
         "The design is structured around two main planting lines that preserve the memory of the former orange grove while maintaining unobstructed views from the residence.",
-        "At the heart of the design, a dedicated rest area is enveloped by ornamental grasses and structural Yuccas, creating a perfect space where wind, light, and vegetation converge."
+        "• The Green Line (Lower Tier): Located closer to the house and contained by a low wall. It integrates existing Citrus sinensis and enhances the structure with:",
+        "• The Pink Line (Upper Tier): Designed for high visual impact and movement, creating a natural prairie effect through:",
       ]
     },
     es: {
@@ -103,9 +104,10 @@ export const projects: Project[] = [
       category: "Residential Garden",
       botanical: "Pittosporum tobira nana, Stipa tenuissima, Festuca glauca, Aptenia cordifolia",
       description: [
-        "This garden is structured around a strong articulation of the site’s level changes, achieved through natural stone staircases and retaining walls that define pathways and seating areas.",
-        "The wide, simply traced steps create a main circulation axis that connects the entrance level with the upper terraces, while lateral plinths and raised beds serve a dual purpose: containing the soil and accommodating plantings that soften the transition between planes.",
-        "In the elevated planters flanking the stairs, species adapted to Mallorca’s dry climate prioritizing low water consumption have been combined, adding chromatic dynamism and texture throughout the year."
+        "The garden designed in Bunyola is structured around a strong articulation of the site’s level changes",
+        "Structured around a strong articulation of the site’s level changes, achieved through natural stone staircases and retaining walls that define pathways and seating areas. The wide, simply traced steps create a main circulation axis that connects the entrance level with the upper terraces, while the lateral plinths and raised beds serve a dual purpose: containing the soil and accommodating plantings that soften the transition between planes. This constructive system brings order and hierarchy to the space while lending a Mediterranean character through noble materials and mineral textures.",
+        "In the elevated planters and beds flanking the stairs, species adapted to Mallorca’s dry climate have been combined, prioritizing low water consumption and long-lasting visual impact. Among them stand out the spherical shrubs of Pittosporum tobira nana, which provide perennial structure; ornamental grasses such as Stipa tenuissima and Festuca glauca, which introduce movement and seasonal variation; and flowering groundcovers like Aptenia cordifolia, which gradually colonize the gravel surfaces with a fresh, natural look. The result is a balanced plant palette capable of enhancing the architecture of the house and adding chromatic dynamism to the garden throughout the year.",
+        "The proposal is completed with a warm lighting system of low bollard fixtures that highlights the volume of the walls and the relief of the stairs at night, along with a drip irrigation network divided into sectors to optimize water use.",
       ]
     },
     es: {
@@ -114,9 +116,10 @@ export const projects: Project[] = [
       category: "Jardín Residencial",
       botanical: "Pittosporum tobira nana, Stipa tenuissima, Festuca glauca, Aptenia cordifolia",
       description: [
-        "Este jardín se estructura en torno a una marcada articulación de los desniveles del terreno, mediante escaleras de piedra natural y muros de contención que definen caminos y zonas de estar.",
-        "Los escalones, de trazo amplio y sencillo, crean un eje de circulación principal que conecta el nivel de entrada con las terrazas superiores, mientras que los plintos laterales y bancales elevados cumplen una doble función: contener la tierra y albergar plantas que suavizan la transición entre planos.",
-        "En las jardineras elevadas que flanquean la escalera se combinan especies adaptadas al clima seco de Mallorca que priorizan el bajo consumo de agua, aportando dinamismo cromático y textura durante todo el año."
+        "El jardín diseñado en Bunyola se estructura en torno a una fuerte articulación de los cambios de nivel del lugar",
+        "Se estructuró en torno a una fuerte articulación de los cambios de nivel del emplazamiento, lograda mediante escaleras de piedra natural y muros de contención que definen los caminos y las zonas de asiento. Los anchos escalones, de trazado sencillo, crean un eje principal de circulación que conecta el nivel de entrada con las terrazas superiores, mientras que los zócalos laterales y los bancales elevados cumplen una doble función: contener el suelo y albergar plantaciones que suavizan la transición entre planos. Este sistema constructivo aporta orden y jerarquía al espacio, al tiempo que le confiere un carácter mediterráneo mediante materiales nobles y texturas minerales.",
+        "En las jardineras y parterres elevados que flanquean la escalera, se han combinado especies adaptadas al clima seco de Mallorca, priorizando el bajo consumo de agua y el impacto visual duradero. Entre ellas destacan los arbustos esféricos de Pittosporum tobira nana, que proporcionan estructura perenne; gramíneas ornamentales como Stipa tenuissima y Festuca glauca, que introducen movimiento y variación estacional; y cubresuelos floridos como Aptenia cordifolia, que colonizan gradualmente las superficies de grava con un aspecto fresco y natural. El resultado es una paleta de plantas equilibrada, capaz de realzar la arquitectura de la casa y añadir dinamismo cromático al jardín durante todo el año.",
+        "La propuesta se completa con un sistema de iluminación cálida de luminarias de bolardo bajo que resalta el volumen de los muros y el relieve de las escaleras por la noche, junto con una red de riego por goteo dividida en sectores para optimizar el uso del agua.",
       ]
     },
     de: {
@@ -212,9 +215,10 @@ export const projects: Project[] = [
       category: "Estate Garden",
       botanical: "Lippia nodiflora, Phytolacca dioica (Bellasombra), Gaura lindheimeri, Stipa tenuissima, Agapanthus praecox, Bougainvillea spectabilis",
       description: [
-        "Finca Garden Campos is an expansive 10,000 m² landscape where structured mathematical grids gracefully transition into wild, organic environments.",
-        "The journey begins with symmetrical pathways of low-growing Lippia nodiflora that lead toward a majestic, sculptural Bellasombra tree. Closer to the main house, an elevated gravel garden serves as a vibrant botanical carpet, offering long-distance views across the landscape.",
-        "Further into the estate, a reed-like grass garden featuring Stipa and Gaura sways like a natural meadow, while hidden plant tunnels and dense green buffers provide a sense of discoverable wonder and absolute privacy."
+        "The Finca Garden Campos is an impressive 10.000 m2 space, designed and created by our gardening company, S'Estepa.",
+        "Every corner of this garden has been carefully planned to provide a unique and enjoyable visual experience.",
+        "Upon entering the garden, you are greeted by two central pathways covered in lippia, which act as visual axes.",
+        "At the end of these pathways, a majestic tree known as bellasombra stands out. Along the entrance path to the estate, we have used red lippia and gauras, creating a vibrant and welcoming area.",
       ]
     },
     es: {
@@ -223,9 +227,10 @@ export const projects: Project[] = [
       category: "Jardín de Finca",
       botanical: "Lippia nodiflora, Phytolacca dioica (Bellasombra), Gaura lindheimeri, Stipa tenuissima, Agapanthus praecox, Bougainvillea spectabilis",
       description: [
-        "Finca Jardín Campos es un extenso paisaje de 10.000 m² donde las cuadrículas geométricas estructuradas dan paso a entornos orgánicos y silvestres.",
-        "El recorrido se inicia con senderos simétricos de tapizante Lippia nodiflora que conducen a un majestuoso y escultural árbol de Bellasombra. Junto a la casa principal, un jardín de grava elevado funciona como una alfombra botánica que permite contemplar todo el paisaje.",
-        "Más adentro en la finca, un jardín de gramíneas con Stipa y Gaura oscila como una pradera natural, mientras que túneles vegetales ocultos y densas pantallas verdes aportan una sensación de descubrimiento y absoluta privacidad."
+        "La Finca Garden Campos es un impresionante espacio de 10.000 m2, diseñado y creado por nuestra empresa de jardinería, S'Estepa.",
+        "Cada rincón de este jardín se ha planificado cuidadosamente para proporcionar una experiencia visual única y agradable.",
+        "Al entrar en el jardín, te reciben dos caminos centrales cubiertos de lippia, que actúan como ejes visuales.",
+        "Al final de estos senderos destaca un majestuoso árbol conocido como bellasombra. A lo largo del camino de entrada a la finca, hemos utilizado lippia roja y gauras, creando una zona vibrante y acogedora.",
       ]
     },
     de: {
@@ -262,9 +267,10 @@ export const projects: Project[] = [
       category: "Residential Garden",
       botanical: "Bambusa vulgaris, Strelitzia nicolai, Phormium tenax variegata, Phoenix dactylifera",
       description: [
-        "Located in Costa de la Calma, this garden harmoniously combines tropical-inspired plants and natural elements to achieve a serene, Zen-like atmosphere.",
-        "The design features architectural lines of bamboo along the boundaries, which not only serve an aesthetic purpose but also provide natural acoustic dampening and complete visual privacy from neighboring properties.",
-        "In the central planters, the bold foliage of Strelitzia augusta and variegated Phormiums creates a striking interplay of textures and golden-green tones that complement the mature, preserved palms."
+        "Located in Costa de La Calma, Calvià, this garden harmoniously combines a variety of natural elements and lush plants.",
+        "As you venture into this garden, you will find yourself surrounded by a carefully selected array of plants that create a tropical and Zen atmosphere.",
+        "We have also incorporated a small grassy area and preserved the existing palm trees, adding an authentic touch to this space.",
+        "To achieve a visually captivating design, we have created color lines in the garden, using vibrant tones such as the yellow of the Phormium and the striking green and yellow of the bamboo. These plants intertwine in a play of colors that complement the existing palm trees. The result is a truly beautiful garden that invites relaxation and contemplation.",
       ]
     },
     es: {
@@ -333,9 +339,10 @@ export const projects: Project[] = [
       category: "Sustainable Garden",
       botanical: "Cycas revoluta, Strelitzia reginae, Salvia rosmarinus, Pittosporum tobira, Agapanthus praecox, Ophiopogon japonicus",
       description: [
-        "In the Crestatx garden, we executed a complete environmental transformation by replacing the water-demanding lawn with a sustainable, dry-gravel design structured with river stones.",
-        "The entrance greets visitors with dynamic lines of wild grasses and aromatic salvias. Surrounding the pool area, a lush, tropical-inspired plant palette featuring Cycads, Strelitzias, and Pittosporum creates a fresh oasis.",
-        "In the shaded rear sections, custom corten steel borders frame woodland islands planted with Myrtles, Agapanthus, and Ophiopogon, ensuring a clear division of light and texture."
+        "In the Crestatx garden, we have undergone a significant transformation by replacing the lawn with a carefully planned design. We have opted for mini-sized river stones to facilitate circulation, combined with a selection of strategically placed plants to create a harmonious visual balance.",
+        "At the entrance, grasses and salvias predominate, offering a natural and fresh welcome. Around the pool, we have opted for shrubby species inspired by the tropics, such as Cycads, Bird of Paradise, Ficus, and Pittosporum.",
+        "In the Crestatx garden, we replaced the lawn with a carefully planned design. We chose mini-sized river stones to facilitate circulation. This material combines with strategically placed plants to create a harmonious visual balance.",
+        "Grasses and salvias predominate at the entrance, offering a natural and fresh welcome. Around the pool, we selected shrubby species inspired by the tropics. This palette includes Cycads, Bird of Paradise, Ficus, and Pittosporum.",
       ]
     },
     es: {
@@ -391,9 +398,10 @@ export const projects: Project[] = [
       category: "Commercial Landscape",
       botanical: "Chamaerops humilis, Agave attenuata, Lavandula angustifolia, Rosmarinus prostratus, Stipa tenuissima, Agapanthus praecox, Pistacia lentiscus",
       description: [
-        "In the gardens of Hotel Cabot Las Velas, we completely reimagined the communal space, replacing the old hedges and grass with a clean, low-maintenance layer of rich volcanic gravel.",
-        "To achieve a visual rhythm, we designed strategic clusters of ground-covering plants like lavender, prostrate rosemary, stipa grass, and blue agapanthus, combined with structural dwarf palms (Chamaerops humilis) and exotic Agave attenuata.",
-        "We intentionally restricted the height of the plantings to preserve completely open, unobstructed views of the pool and mountain scenery from any window, transforming a previously cramped environment into a spacious, elegant retreat."
+        "An elegant garden that highlights the beauty of the Mediterranean surroundings for the enjoyment of hotel guests.",
+        "In the garden of Hotel Cabot Las Velas, we have completely transformed the space, replacing the lawn and meadow areas with a captivating layer of volcanic gravel.",
+        "This volcanic gravel provides a backdrop of intense brown color that contrasts with the lush variety of green tones and heights that dominate this garden.",
+        "To achieve this effect, we have created clusters of ground-covering plants in strategic points, composed of lavender, rosemary, stipa grass, and agapanthus. These smaller and compact plants bring a touch of fragrance and beauty while complementing the Mediterranean aesthetics of the garden.",
       ]
     },
     es: {
@@ -463,9 +471,10 @@ export const projects: Project[] = [
       category: "Residential Garden",
       botanical: "Jacaranda mimosifolia, Salvia rosmarinus, Lavandula dentata, Wildflowers",
       description: [
-        "In the Llubí garden, the focus was to build a water-conserving, low-maintenance design that respects the open rural landscape of Mallorca's interior.",
-        "We laid a large gravel expanse stabilized near the house to create seamless outdoor dining zones, breaking the visual plane with five long, narrow islands of rosemary and lavender.",
-        "At the center, a firepit is surrounded by three young Jacaranda trees that will grow to provide a canopy of purple flowers and natural shade. Sown wildflowers colonize the boundaries, reinforcing the wild, natural spirit of the space."
+        "Llubí garden, our landscape design focuses on creating an aesthetic, functional, and sustainable space. First, we prioritized water conservation by avoiding lawns. Instead, we opted for a large gravel area to reduce irrigation needs.",
+        "Next to the house wall, we installed gravel stabilizers to create a solid foundation. As a result, this provides an ideal space for morning coffee or outdoor dining. Additionally, an umbrella sits at the highest point of the garden. This placement offers a panoramic view and allows for full enjoyment of the Mediterranean surroundings.",
+        "To break the monotony of the gravel, we introduced islands of rosemary and lavender. Specifically, we alternated these species across five long, narrow (7m x 2m each) . As these plants mature, they will partially cover the gravel and provide a vibrant color contrast. Furthermore, five islands of wildflowers serve as seasonal focal points throughout the space.",
+        "In the center of the garden, we incorporated a fireplace. This element creates a perfect gathering spot for family and friends. To provide natural shade, we planted three Jacarandas around this central area. Ultimately, the design emphasizes low maintenance and a wild, natural character through a high density of wildflowers.",
       ]
     },
     es: {
@@ -518,9 +527,10 @@ export const projects: Project[] = [
       category: "Estate Garden",
       botanical: "Olea europaea (Centenary), Cupressus sempervirens, Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
       description: [
-        "Situated in a warm, dry region, the Sant Llorenç garden is a model of arid sustainability, utilizing drought-tolerant native plants that preserve Mallorcan identity.",
-        "The design keeps the villa hidden from the main gates, allowing the architecture to appear as a surprise emerging from natural vegetation at the end of the entry path. Centenary olive trees are planted in irregular, asymmetric positions, while vertical cypresses evoke a classic Mediterranean silhouette.",
-        "Around the residence, a grass garden featuring Stipa tenuissima introduces motion, so that looking through the windows, the wind creates a soft, continuous dance across the landscape."
+        "The Sant Llorenç region is defined by a warm, dry climate. We propose a sustainable garden utilizing drought-resistant plants with low water requirements. This design preserves native species while reinforcing Mallorcan identity.",
+        "A key concept is to keep the house hidden from the entrance, so it appears as a surprise at the end of the path, emerging from the vegetation. Centenary olive trees (Olea europaea) are planted in strategic, irregular positions to anchor the landscape. As a complement, irregular cypresses (Cupressus sempervirens) rise above the rest of the vegetation, evoking both a Tuscan and a Mallorcan atmosphere.",
+        "The garden fades gradually into the natural landscape surrounding the house. The outer edges transform into a traditional Mallorcan field, ensuring smooth integration. We begin by pruning existing vegetation and clearing the soil to prepare for new planting.",
+        "A key concept keeps the house hidden from the entrance. It appears as a surprise at the end of the path, emerging from the vegetation.",
       ]
     },
     es: {
@@ -529,9 +539,10 @@ export const projects: Project[] = [
       category: "Jardín de Finca",
       botanical: "Olea europaea (Centenario), Cupressus sempervirens, Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
       description: [
-        "Situado en una región cálida y seca, el jardín de Sant Llorenç es un modelo de sostenibilidad árida, utilizando plantas autóctonas tolerantes a la sequía que preservan la identidad mallorquina.",
-        "El diseño mantiene la villa oculta desde las puertas principales, permitiendo que la arquitectura aparezca como una sorpresa que emerge de la vegetación natural al final del sendero de entrada. Olivos centenarios se plantan en posiciones irregulares y asimétricas, mientras cipreses verticales evocan una silueta mediterránea clásica.",
-        "Alrededor de la residencia, un jardín de gramíneas con Stipa tenuissima introduce movimiento, de modo que al mirar a través de las ventanas, el viento crea una danza suave y continua en el paisaje."
+        "La zona de Sant Llorenç se define por su clima cálido y seco. Por ello, proponemos un jardín más sostenible, basado en plantas resistentes a la sequía y al sol, con bajos requerimientos hídricos. El diseño busca preservar las especies autóctonas al tiempo que refuerza la identidad mediterránea y mallorquina.",
+        "Alrededor de la casa, el jardín se desvanece gradualmente en el paisaje natural. Los bordes exteriores de la propiedad se transforman en un campo tradicional mallorquín, asegurando una suave integración con el entorno. El proceso comienza con la poda de la vegetación existente y la limpieza del suelo, preparándolo para la nueva plantación.",
+        "Un concepto clave es mantener la casa oculta desde la entrada, de modo que aparezca como una sorpresa al final del camino, emergiendo de entre la vegetación. Los olivos centenarios (Olea europaea) se plantan en posiciones estratégicas e irregulares para anclar el paisaje. Como complemento, cipreses irregulares (Cupressus sempervirens) se elevan sobre el resto de la vegetación, evocando un ambiente tanto toscano como mallorquín.",
+        "En los espacios abiertos más grandes, proponemos agrupaciones informales pero generosas de especies tolerantes a la sequía, como: Lavándula, Rosmarinus, Perovskia, Gaura, Leucophyllum, Teucrium fruticans, Pistacia lentiscus y Westringia fruticosa. Estos grupos crearán pasillos naturales dentro del jardín, fomentando los paseos relajados y ofreciendo una experiencia envolvente. Los senderos se integrarán discretamente en el diseño general, manteniendo una atmósfera natural, relajada y armoniosa. En ciertas zonas, la vegetación se abrirá ligeramente para formar pequeños rincones acogedores donde sentarse y disfrutar del entorno.",
       ]
     },
     de: {
@@ -540,9 +551,10 @@ export const projects: Project[] = [
       category: "Landgut Garten",
       botanical: "Olea europaea (Centenary), Cupressus sempervirens, Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
       description: [
-        "In einer warmen, trockenen Region gelegen, ist der Garten von Sant Llorenç ein Modell für Trockenheitsresistenz, bei dem trockenheitstolerante einheimische Pflanzen verwendet werden, die die mallorquinische Identität bewahren.",
-        "Der Entwurf hält die Villa von den Haupttoren aus verborgen, sodass die Architektur am Ende des Eingangspfads wie eine Überraschung aus der natürlichen Vegetation hervortritt. Hundertjährige Olivenbäume sind in unregelmäßigen, asymmetrischen Positionen gepflanzt, während vertikale Zypressen eine klassische mediterrane Silhouette hervorrufen.",
-        "Rund um das Wohnhaus sorgt ein Grasgarten mit Stipa tenuissima für Bewegung, sodass der Wind beim Blick durch die Fenster einen sanften, kontinuierlichen Tanz in der Landschaft erzeugt."
+        "Das Gebiet von Sant Llorenç ist durch sein warmes, trockenes Klima geprägt. Aus diesem Grund schlagen wir einen nachhaltigeren Garten vor, der auf trockenheits- und sonnenresistenten Pflanzen mit geringem Wasserbedarf basiert. Der Entwurf zielt darauf ab, einheimische Arten zu erhalten und gleichzeitig die mediterrane und mallorquinische Identität zu stärken.",
+        "Um das Haus herum geht der Garten allmählich in die natürliche Landschaft über. Die äußeren Ränder des Grundstücks werden in ein traditionelles mallorquinisches Feld verwandelt, das sich nahtlos in die Umgebung einfügt. Der Prozess beginnt mit dem Beschneiden der vorhandenen Vegetation und dem Ausräumen des Bodens, um ihn für die Neupflanzung vorzubereiten.",
+        "Ein Schlüsselkonzept besteht darin, das Haus vor dem Eingang zu verstecken, so dass es am Ende des Weges als Überraschung aus der Vegetation auftaucht. Hundertjährige Olivenbäume (Olea europaea) werden an strategischen, unregelmäßigen Stellen gepflanzt, um die Landschaft zu verankern. Ergänzend dazu erheben sich unregelmäßige Zypressen (Cupressus sempervirens) über den Rest der Vegetation, die sowohl eine toskanische als auch eine mallorquinische Atmosphäre hervorrufen.",
+        "Für die größeren Freiflächen schlagen wir lockere, aber großzügige Gruppierungen trockenheitstoleranter Arten vor, wie z.B.: Lavandula, Rosmarinus, Perovskia, Gaura, Leucophyllum, Teucrium fruticans, Pistacia lentiscus, und Westringia fruticosa. Diese Gruppen werden natürliche Korridore im Garten bilden, die zu entspannten Spaziergängen einladen und ein intensives Erlebnis bieten. Die Wege werden sich diskret in das Gesamtdesign einfügen und eine natürliche, entspannte und harmonische Atmosphäre schaffen. In bestimmten Bereichen wird sich die Vegetation leicht öffnen und kleine, einladende Plätze bilden, an denen man sitzen und die Umgebung genießen kann.",
       ]
     }
   },
@@ -573,9 +585,10 @@ export const projects: Project[] = [
       category: "Terrace Garden",
       botanical: "Climbing Hedera, Trachelospermum jasminoides, Bougainvillea, Groundcovers",
       description: [
-        "In this terrace garden in Santa Eugènia, we designed several interventions to integrate dense vegetation and soften the presence of the villa's predominant concrete architecture.",
-        "We installed custom planters at different heights along the terrace, hosting a variety of ground-covering plants selected to wrap the soil completely and add vibrant green spots.",
-        "For the 35-meter perimeter walls, we custom-built 3-meter tall iron frameworks that support climbing plants like star jasmine. This structures the growth neatly, adding vertical warmth without saturating the clean architectural design."
+        "In the project for this terrace in Santa Eugènia, we have designed several interventions to incorporate vegetation and soften the presence of the predominant concrete. We have installed large planters at different heights along the terrace. These planters contain plants of various shades and blooms, selected for their ground-covering characteristics and their ability to cover the soil completely. The goal is to create green spots that add life and color to the terrace.",
+        "On the stairs, we have left the central staircase free and placed planters on each side at different levels.",
+        "Next to the pool, we have added large flowerbeds that break the monotony of the concrete, creating an island of vegetation that acts as a green lung within the space.",
+        "For the 30-35 meter walls, we have installed rectangular iron structures that are 3 meters high and 50 centimeters wide. These structures support climbing plants that, as they grow, will add vegetation to the wall without completely covering it. This avoids a feeling of saturation and dirtiness, maintaining a clean and orderly design.",
       ]
     },
     es: {
@@ -595,9 +608,10 @@ export const projects: Project[] = [
       category: "Terrassengarten",
       botanical: "Climbing Hedera, Trachelospermum jasminoides, Bougainvillea, Bodendecker",
       description: [
-        "In diesem Terrassengarten in Santa Eugènia haben wir verschiedene Eingriffe entworfen, um dichte Vegetation zu integrieren und die Präsenz der vorherrschenden Betonarchitektur der Villa abzumildern.",
-        "Wir haben maßgeschneiderte Pflanzkübel in verschiedenen Höhen entlang der Terrasse aufgestellt, die eine Vielzahl von bodendeckenden Pflanzen beherbergen, die das Erdreich vollständig bedecken und lebendige grüne Akzente setzen.",
-        "Für die 35 Meter langen Außenmauern haben wir 3 Meter hohe Eisengerüste angefertigt, die Kletterpflanzen wie Sternjasmin stützen. Dies strukturiert das Wachstum sauber und sorgt für vertikale Wärme, ohne das klare architektonische Design zu überladen."
+        "Bei dem Projekt für diese Terrasse in Santa Eugènia haben wir verschiedene Maßnahmen ergriffen, um die Vegetation zu integrieren und die Präsenz des vorherrschenden Betons zu mildern. Wir haben große Pflanzgefäße in verschiedenen Höhen entlang der Terrasse aufgestellt. Diese Pflanzgefäße enthalten Pflanzen in verschiedenen Farbtönen und mit unterschiedlichen Blüten, die aufgrund ihrer bodenbedeckenden Eigenschaften und ihrer Fähigkeit, den Boden vollständig zu bedecken, ausgewählt wurden. Das Ziel ist es, grüne Flecken zu schaffen, die der Terrasse Leben und Farbe verleihen.",
+        "Bei der Treppe haben wir die zentrale Treppe frei gelassen und auf jeder Seite Pflanzgefäße auf verschiedenen Ebenen aufgestellt.",
+        "Neben dem Pool haben wir große Blumenbeete angelegt, die die Monotonie des Betons durchbrechen und eine Insel der Vegetation schaffen, die wie eine grüne Lunge im Raum wirkt.",
+        "Für die 30-35 Meter hohen Mauern haben wir rechteckige Eisenstrukturen installiert, die 3 Meter hoch und 50 Zentimeter breit sind. Diese Strukturen tragen Kletterpflanzen, die, wenn sie wachsen, die Mauer bewachsen, ohne sie vollständig zu bedecken. So wird ein Gefühl der Sättigung und Verschmutzung vermieden und ein sauberes und ordentliches Design beibehalten.",
       ]
     }
   },
@@ -633,9 +647,10 @@ export const projects: Project[] = [
       category: "Residential Garden",
       botanical: "Pistacia lentiscus, Rosmarinus officinalis, Lavandula, Mediterranean Rockeries",
       description: [
-        "This project honors the natural incline of the Mallorca landscape, utilizing its original ravines and slopes as the structural foundation of the garden.",
-        "By rejecting heavy land leveling in favor of stone rockeries and native plant masses, the design achieves a seamless, organic integration with the terrain.",
-        "Stone elements stabilize the soil and mirror the land's contour, allowing Mediterranean vegetation to nestle organically as if it had always been part of the site."
+        "This project honors the natural incline of the Mallorca landscape, utilizing its original ravines and slopes as the structural foundation. By rejecting land leveling in favor of rockeries and plant masses, the design achieves a seamless, organic integration.",
+        "The topography of this garden inherently defined its character. The terrain descends in natural slopes, forming a small ravine that connects the residence with the surrounding Mediterranean landscape. Rather than altering the elevations, the design respects and utilizes them as the foundational structural element.",
+        "The garden was developed along this natural incline using rockeries and plant masses to stabilize the soil and mirror the land's original contour. Stone elements structure the space, allowing vegetation to integrate organically as if it had always been part of the site.",
+        "• Architectural Anchors: Strelitzia nicolai provides verticality and a sculptural presence, while Cycas revoluta introduces an elegant, structural rhythm.",
       ]
     },
     es: {
@@ -730,9 +745,10 @@ export const projects: Project[] = [
       category: "Terrace Garden",
       botanical: "Strelitzia nicolai, Chamaerops humilis, Phoenix roebelenii, Rhapis excelsa, Cycas revoluta, Monstera deliciosa, Columnar Cacti",
       description: [
-        "Located on the top floor of a contemporary building in Palma, this terrace was transformed from a bare concrete deck into a lush, liveable garden.",
-        "The design features custom linear planters that structure the lounging and dining zones without blocking the views of the city and sea. The plant selection prioritizes species resistant to heavy sun and wind, such as Strelitzia nicolai and compact palms, paired with sculptural columnar cacti in custom ceramic pots.",
-        "The integration of light stone porcelain paving and clean-lined furniture completes a contemporary, high-end landscape requiring minimal water and pruning."
+        "The intervention stems from a sensitive reading of the site: solar orientation, wind exposure, sea and city views, and transitions between indoors and outdoors. The goal was to endow the space with a clear vegetative identity, using species adapted to the Mediterranean climate, low-maintenance, and with strong visual presence—capable of dialoguing with the urban landscape and contemporary architecture.",
+        "The design is structured around large-format linear planters that outline the functional zones and house a botanical composition alternating green masses, contrasting textures, and controlled heights. This layout defines without compartmentalizing, creating differentiated areas for lounging, gathering, and contemplation.",
+        "Chamaerops humilis and Phoenix roebelenii: compact, resilient palms suited for elevated, windy environments.",
+        "Rhapis excelsa, Cycas revoluta, and Monstera deliciosa: provide density, texture, and foliage diversity across mid and lower strata.",
       ]
     },
     es: {
@@ -785,9 +801,10 @@ export const projects: Project[] = [
       category: "Vertical Garden",
       botanical: "Tropical and hanging species, climatic-adapted climbers",
       description: [
-        "In collaboration, we designed two vertical living walls (indoor and outdoor) structured as a green lattice along the building's facade.",
-        "The facade system reduces structural temperature by up to 40% and absorbs urban sound, improving acoustics. The dense foliage acts as an active air purifier, trapping dust particles and converting CO2 into oxygen.",
-        "The meticulous plant selection provides a continuous sensation of freshness, warm green-yellow-red tones, and a magical 'jungle light' effect as beams of sun filter through the leaves."
+        "Climbing and hanging plants predominated by green, red, and yellow tones. High capacity to withstand extreme temperatures",
+        "The meticulous selection of tropical plants, based on adaptation, structure, and colors, provided the space with a sensation of freshness, warm colors, and plants suspended in the air",
+        "The project proposal consists of two vertical gardens with different geometric structures, both indoors and outdoors, in combination with the space. Through avant-garde elements, the design aesthetics are focused on a vegetal lattice along the entire exterior facade: beams of light enter the interior space and achieve a jungle light effect.",
+        "&#8211; Sound: this garden has sound absorption and reduces space reverberation, improving sound quality",
       ]
     },
     es: {
@@ -829,9 +846,10 @@ export const projects: Project[] = [
       category: "Residential Garden",
       botanical: "Pittosporum tobira nana, Agapanthus praecox, Rosmarinus officinalis, Euryops, Teucrium, Eremophila, Santolina, Gaura, Jacaranda mimosifolia, Prunus dulcis",
       description: [
-        "This design presents an interesting two-dimensional layout. The garden is elevated one metre above the level of the house and pool and is divided into two distinct zones: an existing lawn area and a pathway area designed with gravel. Pittosporum tobira nana creates a pleasant visual separation, while the gravel pathway widens in the centre to provide a space for enjoyment.",
-        "Along the pathway, planters offer height perspectives with smaller shrubs in front and larger ones toward the back. In the centre, a small lake flanked by Pittosporum is complemented by Agapanthus. Hardy plants provide green, grey and red tones including rosemary, euryops, teucrium, eremophila, santolina and gaura.",
-        "Two medium-sized semi-evergreen trees provide gentle summer shade, while an almond tree adds a Mallorcan touch. In the relaxation area, a sandglass-shaped design tapering toward the centre maximises the panoramic view across the entire garden."
+        "This design presents an interesting two-dimensional layout. The garden is elevated one metre above the level of the house and pool and is divided into two distinct zones: an existing lawn area and a pathway area to be designed with gravel.",
+        "To naturally separate the two zones, Pittosporum tobira nana has been chosen, known for its rounded shape and minimal pruning requirements. These shrubs create a pleasant visual separation between the lawn and gravel pathway.",
+        "The gravel pathway widens in the centre to provide a space for enjoyment. It connects to the lawn area from two different points and spans the entire garden, ending on the other side.",
+        "Along the pathway, a series of planters are created to offer height perspectives, ensuring that the foreground plants do not obstruct the background ones. Smaller shrubs are placed naturally in the front, while larger ones are positioned towards the back. Additionally, small wildflower plants are strategically placed along sections of the pathway, without obstructing the shrubs in the flower beds.",
       ]
     },
     es: {
@@ -840,9 +858,10 @@ export const projects: Project[] = [
       category: "Jardín Residencial",
       botanical: "Pittosporum tobira nana, Agapanthus praecox, Rosmarinus officinalis, Euryops, Teucrium, Eremophila, Santolina, Gaura, Jacaranda mimosifolia, Prunus dulcis",
       description: [
-        "Este diseño presenta una interesante disposición bidimensional. El jardín se eleva un metro sobre el nivel de la casa y la piscina y se divide en dos zonas: césped existente y camino de grava. El Pittosporum tobira nana crea una agradable separación visual, mientras el camino se ensancha en el centro para ofrecer un espacio de disfrute.",
-        "A lo largo del camino, jardineras ofrecen perspectivas de altura con arbustos pequeños al frente y más grandes al fondo. En el centro, un pequeño lago flanqueado por Pittosporum se complementa con Agapanthus. Plantas resistentes aportan tonos verdes, grises y rojos: romero, euryops, teucrium, eremophila, santolina y gaura.",
-        "Dos árboles semiperennifolios de tamaño medio ofrecen sombra suave en verano, mientras un almendro añade un toque mallorquín. En la zona de descanso, un diseño en forma de reloj de arena maximiza la vista panorámica de todo el jardín."
+        "Este diseño presenta una interesante disposición bidimensional. El jardín se eleva un metro sobre el nivel de la casa y la piscina y se divide en dos zonas diferenciadas: una zona de césped existente y una zona de camino que se diseñará con grava.",
+        "Para separar naturalmente las dos zonas, se ha elegido el Pittosporum tobira nana, conocido por su forma redondeada y sus mínimas necesidades de poda. Estos arbustos crean una agradable separación visual entre el césped y el camino de grava.",
+        "El camino de grava se ensancha en el centro para ofrecer un espacio de disfrute. Conecta con la zona de césped desde dos puntos distintos y se extiende por todo el jardín, terminando en el otro lado.",
+        "A lo largo del camino, una serie de jardineras ofrecen perspectivas de altura, asegurando que las plantas del primer plano no obstruyan las del fondo. Los arbustos más pequeños se colocan de forma natural en la parte delantera, mientras que los más grandes se sitúan hacia la parte trasera. Además, se han colocado estratégicamente pequeñas plantas silvestres a lo largo de tramos del sendero, sin obstruir los arbustos de los parterres.",
       ]
     },
     de: {
@@ -873,9 +892,10 @@ export const projects: Project[] = [
       category: "Residential Garden",
       botanical: "Tropical and coastal-adapted species, frost-tolerant exotics",
       description: [
-        "On this plot located by the sea and on a sloping area, we found enclosed and defined garden spaces. We ensured colours stood out for their intensity and contrast: intense greens, lilacs, blues, yellows, and whites create colourful lines, especially during summer and spring.",
-        "Most plants were of tropical origin and adapted to the sloping seaside plot, with characteristics allowing them to withstand the few winter frosts that can be detrimental to development.",
-        "This garden design successfully combined visual and functional elements, creating a charming and harmonious space to enjoy by the sea and appreciate the beauty of nature."
+        "In that plot located by the sea and on a sloping area, we found enclosed and defined garden spaces.",
+        "We made sure that in these spaces the colours stood out for their intensity and contrast: we emphasised intense greens, lilacs, blues, yellows, and whites. This way, the garden became a contrast of colourful lines, especially during the summer and spring seasons.",
+        "Most of the plants were of tropical origin and adapted to the sloping area where the plot was located near the sea; all of them with characteristics that allowed them to withstand the few frosts in the winter seasons, which can be detrimental to the plants' development.",
+        "This garden design successfully combined visual and functional elements, creating a charming and harmonious space to enjoy by the sea and appreciate the beauty of nature in all its past splendour.",
       ]
     },
     es: {
