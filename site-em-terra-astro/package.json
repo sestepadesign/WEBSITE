@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "astro dev",
     "import:blog": "node scripts/import-wp-blog.mjs",
+    "optimize:og": "node scripts/optimize-og-image.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
@@ -15,5 +16,8 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",
     "astro": "^6.3.5"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.2"
   }
 }

@@ -53,7 +53,7 @@ const pageDescription = translation.description[0] || "";
   title={pageTitle} 
   description={pageDescription} 
   lang={lang}
-  image={project.cover}
+  image={project.ogImage ?? project.cover}
 >
   <article class="project-detail-page">
     <!-- Main cover — full width directly below site header -->
