@@ -2,6 +2,12 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import {
+  GTM_ID,
+  SITE_LOCALES,
+  getHreflangAlternates,
+  type SiteLocale,
+} from '../lib/seo';
 
 interface Props {
   title: string;
@@ -11,9 +17,18 @@ interface Props {
   image?: string;
   /** If set, adds meta refresh after full OG head (root → /en/) */
   redirectTo?: string;
+  /** Locales with a real alternate page (default: all). Blog posts EN-only use ['en']. */
+  hreflangLocales?: SiteLocale[];
 }
 
-const { title, description, lang, image = '/portfolio/finca-garden-campos-mallorca/cover.webp', redirectTo } = Astro.props;
+const {
+  title,
+  description,
+  lang,
+  image = '/portfolio/finca-garden-campos-mallorca/cover.webp',
+  redirectTo,
+  hreflangLocales = SITE_LOCALES,
+} = Astro.props;
 
 const site = Astro.site!;
 const canonicalPath = redirectTo ?? Astro.url.pathname;
@@ -25,6 +40,9 @@ const ogLocales: Record<typeof lang, string> = {
   es: 'es_ES',
   de: 'de_DE',
 };
+
+const hreflangLinks = redirectTo ? [] : getHreflangAlternates(canonicalPath, site, hreflangLocales);
+const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogLocales[l]);
 ---
 
 <!DOCTYPE html>
@@ -40,9 +58,16 @@ const ogLocales: Record<typeof lang, string> = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
 
+    {hreflangLinks.map(({ hreflang, href }) => (
+      <link rel="alternate" hreflang={hreflang} href={href} />
+    ))}
+
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="S'Estepa Design" />
     <meta property="og:locale" content={ogLocales[lang]} />
+    {ogLocaleAlternates.map((locale) => (
+      <meta property="og:locale:alternate" content={locale} />
+    ))}
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -58,8 +83,31 @@ const ogLocales: Record<typeof lang, string> = {
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Tag Manager -->
+    <script is:inline define:vars={{ gtmId: GTM_ID }}>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', gtmId);
+    </script>
   </head>
   <body>
+    <noscript>
+      <iframe
+        src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+        title="Google Tag Manager"
+      />
+    </noscript>
     {redirectTo ? (
       <p style="display:none">Redirecting to <a href={redirectTo}>{redirectTo}</a></p>
     ) : (
