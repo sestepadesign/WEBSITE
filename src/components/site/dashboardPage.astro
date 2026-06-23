@@ -757,6 +757,47 @@ const t = {
     color: var(--color-olive);
   }
 
+  :global(.lead-contact-row) {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  :global(.contact-badge) {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: var(--transition-fast);
+    font-weight: 500;
+  }
+
+  :global(.email-badge) {
+    background-color: rgba(60, 64, 67, 0.05);
+    color: var(--color-charcoal);
+    border: 1px solid rgba(60, 64, 67, 0.1);
+  }
+
+  :global(.email-badge:hover) {
+    background-color: rgba(60, 64, 67, 0.1);
+  }
+
+  :global(.phone-badge) {
+    background-color: rgba(37, 211, 102, 0.08);
+    color: #128c7e;
+    border: 1px solid rgba(37, 211, 102, 0.2);
+  }
+
+  :global(.phone-badge.whatsapp-hover:hover) {
+    background-color: #25d366;
+    color: white;
+    border-color: #25d366;
+  }
+
   /* Animations */
   @keyframes fadeInUp {
     from {
@@ -873,8 +914,12 @@ const t = {
         let name = row[0].trim();
         if (name === "9") name = "Test Lead";
         
-        let msg = row[3] ? row[3].trim() : "";
-        if (msg === "9" || msg === "") msg = "Consulta de diseño de jardín.";
+        let rawMsg = row[3] ? row[3].trim() : "";
+        if (rawMsg === "9" || rawMsg === "") rawMsg = "Consulta de diseño de jardín.";
+        
+        let phoneMatch = rawMsg.match(/\[Phone:\s*(.*?)\]/i);
+        let phone = phoneMatch ? phoneMatch[1] : "";
+        let msg = rawMsg.replace(/\[Phone:\s*.*?\]\s*/i, "").trim();
 
         let timestampStr = row[4] ? row[4].trim() : "";
         let parsedDate = parseSheetDate(timestampStr);
@@ -882,6 +927,7 @@ const t = {
         leads.push({
           name: name,
           email: row[1] ? row[1].trim() : "",
+          phone: phone,
           location: location,
           message: msg,
           timestamp: parsedDate,
@@ -981,6 +1027,22 @@ const t = {
 
       subHeader.appendChild(location);
       subHeader.appendChild(status);
+      
+      const contactRow = document.createElement('div');
+      contactRow.className = 'lead-contact-row';
+      
+      let emailLink = "";
+      if (lead.email && lead.email !== "9") {
+        emailLink = `<a href="mailto:${lead.email}" class="contact-badge email-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> ${lead.email}</a>`;
+      }
+
+      let phoneLink = "";
+      if (lead.phone) {
+        let cleanPhone = lead.phone.replace(/[^0-9+]/g, '');
+        phoneLink = `<a href="https://wa.me/${cleanPhone}" target="_blank" class="contact-badge phone-badge whatsapp-hover"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> ${lead.phone}</a>`;
+      }
+      
+      contactRow.innerHTML = emailLink + phoneLink;
 
       const msg = document.createElement('p');
       msg.className = 'lead-message';
@@ -988,6 +1050,9 @@ const t = {
 
       item.appendChild(header);
       item.appendChild(subHeader);
+      if (emailLink || phoneLink) {
+        item.appendChild(contactRow);
+      }
       item.appendChild(msg);
 
       leadsInboxBody.appendChild(item);

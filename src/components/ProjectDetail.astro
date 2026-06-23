@@ -103,6 +103,13 @@ const pageDescription = translation.description[0] || "";
             <span class="meta-value">{project.location}</span>
           </div>
 
+          {project.size && (
+            <div class="meta-item">
+              <span class="meta-label">{t('project.size')}</span>
+              <span class="meta-value">{project.size}</span>
+            </div>
+          )}
+
           <div class="meta-item">
             <span class="meta-label">{t('project.category')}</span>
             <a href={`${getPagePath('portfolio', lang)}?filter=${categorySlug}`} class="meta-value-link">

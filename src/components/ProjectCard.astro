@@ -10,9 +10,10 @@ interface Props {
   cover: string;
   lang: 'en' | 'es' | 'de';
   large?: boolean;
+  size?: string;
 }
 
-const { slug, title, category, location, cover, lang, large = false } = Astro.props;
+const { slug, title, category, location, cover, lang, large = false, size } = Astro.props;
 ---
 
 <a href={getProjectPath(slug, lang)} class:list={['project-card', { 'project-card-large': large }]}>
@@ -31,7 +32,7 @@ const { slug, title, category, location, cover, lang, large = false } = Astro.pr
   <div class="project-info">
     <span class="project-category">{category}</span>
     <h3 class="project-title">{title}</h3>
-    <span class="project-location">{location}</span>
+    <span class="project-location">{location}{size && <span class="project-size"> · {size}</span>}</span>
   </div>
 </a>
 
@@ -138,5 +139,10 @@ const { slug, title, category, location, cover, lang, large = false } = Astro.pr
     font-size: 0.85rem;
     color: var(--color-limestone);
     letter-spacing: 0.02em;
+  }
+
+  .project-size {
+    color: var(--color-olive);
+    font-weight: 500;
   }
 </style>

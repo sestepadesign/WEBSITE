@@ -1,0 +1,447 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { ui } from '../../data/translations';
+import { projects } from '../../data/projects';
+import ProjectCard from '../ProjectCard.astro';
+import { getPagePath, getProjectPath } from '../../lib/urls';
+
+interface Props { lang: 'en' | 'es' | 'de'; }
+const { lang } = Astro.props;
+
+const t = (key: keyof typeof ui[typeof lang]) => ui[lang][key] || key;
+
+const pageDescription = "S'Estepa Design — landscape and garden design studio in Mallorca. 30 years creating Mediterranean gardens for private estates, fincas and villas across the island.";
+
+const whatsappUrl = `https://wa.me/34681272252?text=${encodeURIComponent("Hello S'Estepa Design! I visited your website and would like to request a consultation.")}`;
+
+// Featured: Sant Llorenç (32,000 m² estate) + Campos (10,000 m² estate)
+const santLlorencProject = projects.find((p) => p.slug === 'sant-llorenc');
+const camposProject = projects.find((p) => p.slug === 'finca-garden-campos-mallorca');
+
+// LAB COPY — proposed rewrite (EN). Mashamba-influenced Mallorcan tone.
+const hero = {
+  eyebrow: "Garden Design — Mallorca",
+  titleLine1: "The room you'll",
+  titleLine2: "live in most.",
+  sub: "In Mallorca, life is lived outdoors. For thirty years we've been shaping the gardens where that life unfolds — drawn by the island's light, its slower rhythms, and the way it draws you outside.",
+  ctaPrimary: "Start a conversation",
+  ctaSecondary: "See the gardens",
+};
+
+const philosophy = {
+  tag: "The Studio",
+  lead: "Gardens shaped by the island.\nMade for the life you want here.",
+  p1: "A garden in Mallorca reveals itself slowly — season by season, the way the island does. Our work is to listen to that rhythm, and to design outdoor spaces that feel as if they were always there.",
+  p2: "We work with the island's native limestone, its dry-soil contours, and the endemic flora that has always belonged here. Every garden is a water-conscious, living extension of the Mallorcan landscape — not an imported idea.",
+  stat1n: "30",
+  stat1l: "Years in Mallorca",
+  stat2n: "32,000 m²",
+  stat2l: "Largest estate garden",
+};
+
+const services = {
+  tag: "What We Do",
+  title: "From first conversation to year-round care.",
+  subtitle: "A single studio, a single point of contact, the full life of a garden. We carry every stage — so the experience of making and keeping your garden feels as effortless as living in it.",
+  items: [
+    {
+      title: "Private Estates & Fincas",
+      text: "Gardens for significant properties across Mallorca — from country fincas to coastal estates. Designed to be lived in, and to grow more themselves with each season.",
+    },
+    {
+      title: "Garden Design",
+      text: "Concept design, 2D scaled plans, and immersive 3D walkthroughs. We design the flow, the structure, and the planting so the garden unfolds like a story you want to keep walking through.",
+    },
+    {
+      title: "Construction & Stonework",
+      text: "Earthworks, dry-stone walling, irrigation, and planting — built by our own local team. The people who design your garden are the people who build it.",
+    },
+    {
+      title: "Year-round Care",
+      text: "Seasonal pruning, irrigation management, and planting care — for owners who want their garden kept beautifully, whether they're on the island or away.",
+    },
+  ],
+};
+
+const journey = {
+  tag: "How We Work",
+  title: "Your garden, from first meeting to maturity.",
+  subtitle: "A considered, collaborative path — handled end to end, so the experience is as calm as the result.",
+  steps: [
+    { num: "01", title: "First Conversation", text: "We meet on site, listen to how you want to live outdoors, and read the land — its orientation, soil, wind, and existing character. The garden begins here." },
+    { num: "02", title: "Concept Design", text: "We translate that conversation into a spatial narrative: layout, materials, key plantings, and the sequence of rooms. Depending on the project, 2D scaled plans or 3D renders let you walk through it before a stone is moved." },
+    { num: "03", title: "Refinement", text: "A dialogue to settle every detail — how you'll use the space morning to evening, season to season — until the design feels inevitable." },
+    { num: "04", title: "Final Design", text: "Full technical drawings and specifications: hardscape, irrigation, and the complete botanical palette. A precise roadmap for the build." },
+    { num: "05", title: "Construction & Planting", text: "Our own local team builds it on site, managing every craft and logistical detail. From first sketch to final planting, one studio, one point of contact." },
+    { num: "06", title: "Year-round Care", text: "The garden continues. Through the seasons that follow, we keep it — pruning, adjusting, watching it grow into itself. Especially for second-home owners who want the garden kept beautifully in their absence." },
+  ],
+};
+
+const contact = {
+  tag: "Contact",
+  title: "Every garden begins with a conversation.",
+  subtitle: "If you have a property in Mallorca and are thinking about its garden, we'd love to hear from you. Write to Sofia directly, or send a WhatsApp — whichever is easier.",
+  emailLabel: "Email",
+  emailValue: "sofia@sestepa.com",
+  whatsappLabel: "WhatsApp",
+  whatsappValue: "+34 681 272 252",
+  orLabel: "Or, if you prefer, send a note:",
+  formName: "Your name",
+  formEmail: "Your email",
+  formLocation: "Property location (optional)",
+  formLocationPlaceholder: "e.g. Son Vida, Deià, Campos, Sant Llorenç",
+  formSize: "Garden size (optional)",
+  formSizePlaceholder: "e.g. roughly 2,000 m²",
+  formMessage: "A few words about your project",
+  formSubmit: "Send note",
+};
+
+const estateProjects = [santLlorencProject, camposProject].filter(Boolean);
+---
+
+<Layout title="LAB · Home Preview | S'Estepa Design" description={pageDescription} lang={lang} noindex={true}>
+  <div class="lab-banner">
+    <strong>LAB</strong> — proposed home rewrite. Not indexed. Visit <a href="/">live home →</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="video-container">
+      <video autoplay loop muted playsinline class="hero-video" aria-hidden="true">
+        <source src="/videos/sant_llorenc_hero.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content container">
+      <span class="hero-eyebrow">{hero.eyebrow}</span>
+      <h1 class="hero-title">
+        {hero.titleLine1}<br /><em>{hero.titleLine2}</em>
+      </h1>
+      <p class="hero-sub">{hero.sub}</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">{hero.ctaPrimary} <span class="arrow">&rarr;</span></a>
+        <a href={getPagePath('portfolio', lang)} class="btn-secondary">{hero.ctaSecondary}</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span class="scroll-text">Scroll</span>
+      <span class="scroll-line"></span>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="philosophy section-padding">
+    <div class="container philosophy-container">
+      <span class="section-tag">{philosophy.tag}</span>
+      <h2 class="philosophy-title">{philosophy.lead}</h2>
+      <div class="philosophy-grid">
+        <div class="philosophy-text-col">
+          <p>{philosophy.p1}</p>
+          <p>{philosophy.p2}</p>
+        </div>
+        <div class="philosophy-stat-col">
+          <div class="stat-box">
+            <span class="stat-number">{philosophy.stat1n}</span>
+            <span class="stat-label">{philosophy.stat1l}</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number">{philosophy.stat2n}</span>
+            <span class="stat-label">{philosophy.stat2l}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTATES -->
+  <section class="estates section-padding">
+    <div class="container">
+      <div class="estates-header">
+        <div>
+          <span class="section-tag">Estate Gardens</span>
+          <h2 class="estates-title">Two estate gardens, two scales.</h2>
+        </div>
+        <a href={getPagePath('portfolio', lang)} class="text-link">All gardens &rarr;</a>
+      </div>
+      <div class="estates-grid">
+        {estateProjects.map((p) => p && (
+          <ProjectCard
+            slug={p.slug}
+            title={p[lang].title}
+            category={p[lang].category}
+            location={p.location}
+            cover={p.cover}
+            lang={lang}
+            size={p.size}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services-section section-padding">
+    <div class="container">
+      <span class="section-tag center">{services.tag}</span>
+      <h2 class="section-heading center">{services.title}</h2>
+      <p class="section-desc center">{services.subtitle}</p>
+      <div class="category-grid">
+        {services.items.map((item) => (
+          <div class="category-card">
+            <h3 class="category-title">{item.title}</h3>
+            <p class="category-text">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section class="workflow-section">
+    <div class="container workflow-container">
+      <span class="section-tag center">{journey.tag}</span>
+      <h2 class="section-heading center">{journey.title}</h2>
+      <p class="section-desc center">{journey.subtitle}</p>
+      <div class="workflow-timeline">
+        {journey.steps.map((step) => (
+          <div class="workflow-step">
+            <div class="workflow-num">{step.num}.</div>
+            <div class="workflow-content">
+              <h4>{step.title}</h4>
+              <p class="paragraph">{step.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section section-padding" id="contact">
+    <div class="container">
+      <header class="contact-header">
+        <span class="section-tag center">{contact.tag}</span>
+        <h2 class="section-heading center">{contact.title}</h2>
+        <p class="section-desc center">{contact.subtitle}</p>
+      </header>
+
+      <div class="contact-direct">
+        <a href={`mailto:${contact.emailValue}`} class="direct-card">
+          <span class="direct-label">{contact.emailLabel}</span>
+          <span class="direct-value">{contact.emailValue}</span>
+        </a>
+        <a href={whatsappUrl} class="direct-card" target="_blank" rel="noopener noreferrer">
+          <span class="direct-label">{contact.whatsappLabel}</span>
+          <span class="direct-value">{contact.whatsappValue}</span>
+        </a>
+      </div>
+
+      <p class="contact-or">{contact.orLabel}</p>
+
+      <form class="contact-form" id="labInquiryForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="lab-name">{contact.formName}</label>
+            <input type="text" id="lab-name" name="name" required placeholder=" " />
+          </div>
+          <div class="form-group">
+            <label for="lab-email">{contact.formEmail}</label>
+            <input type="email" id="lab-email" name="email" required placeholder=" " />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="lab-location">{contact.formLocation}</label>
+            <input type="text" id="lab-location" name="subject" placeholder={contact.formLocationPlaceholder} />
+          </div>
+          <div class="form-group">
+            <label for="lab-size">{contact.formSize}</label>
+            <input type="text" id="lab-size" name="size" placeholder={contact.formSizePlaceholder} />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lab-message">{contact.formMessage}</label>
+          <textarea id="lab-message" name="message" rows="5" placeholder=" "></textarea>
+        </div>
+        <button type="submit" class="submit-btn">{contact.formSubmit} &rarr;</button>
+        <div class="form-status" id="labFormStatus" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .lab-banner {
+    background: #1a1a1a;
+    color: #faf9f6;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    position: relative;
+    z-index: 100;
+  }
+  .lab-banner a { color: #c5b89f; text-decoration: underline; }
+  .lab-banner strong { color: #d4a017; letter-spacing: 0.15em; }
+
+  .hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .video-container { position: absolute; inset: 0; z-index: 1; }
+  .hero-video { width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0; z-index: 2;
+    background: linear-gradient(to bottom, rgba(31,33,31,0.45) 0%, rgba(31,33,31,0.2) 55%, rgba(250,249,246,1) 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 3;
+    display: flex; flex-direction: column; align-items: flex-start;
+    gap: 1.5rem; padding-top: 5rem;
+  }
+  .hero-eyebrow {
+    font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.2em;
+    color: var(--color-sand-base); animation: fadeIn 1.5s ease-out;
+  }
+  .hero-title {
+    font-size: clamp(3rem, 8vw, 6rem); font-weight: 300; color: #fff;
+    line-height: 1.05; max-width: 900px; animation: fadeIn 2s ease-out;
+  }
+  .hero-title em { font-family: var(--font-serif); font-style: italic; font-weight: 300; }
+  .hero-sub {
+    color: rgba(255,255,255,0.9); font-size: 1.1rem; line-height: 1.7;
+    max-width: 560px; font-weight: 300;
+  }
+  .hero-ctas { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em;
+    color: #1a1a1a; background: #fff; padding: 1.15rem 2.25rem;
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    transition: var(--transition-medium);
+  }
+  .btn-primary:hover { background: var(--color-olive); color: #fff; }
+  .btn-primary .arrow { transition: transform 0.3s ease; }
+  .btn-primary:hover .arrow { transform: translateX(6px); }
+  .btn-secondary {
+    font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em;
+    color: #fff; border: 1px solid rgba(255,255,255,0.4);
+    padding: 1.15rem 2.25rem; background: rgba(31,33,31,0.15);
+    backdrop-filter: blur(5px); transition: var(--transition-medium);
+  }
+  .btn-secondary:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+  .scroll-indicator {
+    position: absolute; bottom: 3rem; right: 3rem; z-index: 3;
+    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+  }
+  .scroll-text { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.25em; color: var(--color-charcoal); writing-mode: vertical-lr; opacity: 0.6; }
+  .scroll-line { width: 1px; height: 60px; background: var(--color-charcoal); opacity: 0.3; position: relative; overflow: hidden; }
+  .scroll-line::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 30%; background: var(--color-olive); animation: scrollDown 2s infinite ease-in-out; }
+
+  .philosophy { background: var(--color-sand-light); border-bottom: 1px solid var(--color-sand-dark); padding: 11rem 0; }
+  .philosophy-container { display: flex; flex-direction: column; gap: 2.5rem; }
+  .section-tag { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-olive); display: block; margin-bottom: 1rem; }
+  .philosophy-title {
+    font-family: var(--font-serif); font-size: clamp(2.25rem, 3.8vw, 3.25rem);
+    line-height: 1.25; max-width: 920px; font-weight: 300; letter-spacing: -0.01em; white-space: pre-line;
+  }
+  .philosophy-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 6rem; align-items: start; margin-top: 1.25rem; }
+  .philosophy-text-col { display: flex; flex-direction: column; gap: 2rem; }
+  .philosophy-text-col p { font-size: 1.15rem; color: var(--color-charcoal-light); line-height: 1.8; }
+  .philosophy-stat-col { display: flex; flex-direction: column; gap: 3rem; border-left: 1px solid var(--color-sand-dark); padding-left: 3rem; }
+  .stat-box { display: flex; flex-direction: column; gap: 0.5rem; }
+  .stat-number { font-family: var(--font-serif); font-size: 3.5rem; font-weight: 300; line-height: 1; color: var(--color-olive-dark); }
+  .stat-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-limestone); }
+
+  .estates { background: #fff; }
+  .estates-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; }
+  .estates-title { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; }
+  .text-link { font-size: 0.9rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-olive); border-bottom: 1px solid var(--color-sand-dark); padding-bottom: 0.5rem; transition: var(--transition-fast); }
+  .text-link:hover { color: var(--color-olive-dark); border-color: var(--color-olive); }
+  .estates-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4rem 3rem; }
+
+  .services-section { background: #fff; }
+  .category-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3.5rem; }
+  .category-card { background: #fff; padding: 3.5rem 2rem 3rem; border: 1px solid rgba(26,26,26,0.03); transition: var(--transition-medium); }
+  .category-card:hover { transform: translateY(-4px); border-color: var(--color-sand-dark); box-shadow: 0 10px 30px rgba(78,94,78,0.04); }
+  .category-title { font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 1rem; font-weight: 300; color: var(--color-charcoal); }
+  .category-text { color: var(--color-charcoal-light); font-size: 0.95rem; line-height: 1.7; font-weight: 300; }
+
+  .workflow-section { background: var(--color-sand-base); border-top: 1px solid var(--color-sand-dark); border-bottom: 1px solid var(--color-sand-dark); padding: 7rem 0; }
+  .workflow-container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+  .section-tag.center { text-align: center; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2rem; color: var(--color-olive-light); margin-bottom: 0.8rem; display: block; font-weight: 600; }
+  .section-heading.center { text-align: center; font-family: var(--font-serif); font-size: 2.8rem; line-height: 1.2; margin-bottom: 1.5rem; font-weight: 300; color: var(--color-charcoal); }
+  .section-desc.center { max-width: 700px; margin: 0 auto 3.5rem; text-align: center; color: var(--color-charcoal-light); font-size: 1.05rem; line-height: 1.7; font-weight: 300; }
+  .workflow-timeline { margin-top: 4rem; display: flex; flex-direction: column; gap: 3rem; }
+  .workflow-step { display: grid; grid-template-columns: 80px 1fr; gap: 2rem; align-items: flex-start; border-bottom: 1px solid rgba(26,26,26,0.05); padding-bottom: 2rem; }
+  .workflow-step:last-child { border-bottom: none; padding-bottom: 0; }
+  .workflow-num { font-family: var(--font-serif); font-size: 2.5rem; color: var(--color-olive); line-height: 1; font-weight: 300; }
+  .workflow-content h4 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 0.8rem; letter-spacing: 0.05rem; color: var(--color-charcoal); font-weight: 400; }
+  .paragraph { color: var(--color-charcoal-light); font-size: 1.05rem; margin-bottom: 1.5rem; line-height: 1.8; font-weight: 300; }
+
+  .contact-section { background: var(--color-sand-light); }
+  .contact-header { margin-bottom: 3.5rem; }
+  .contact-direct { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; }
+  .direct-card { background: var(--color-sand-base); padding: 2.25rem; border: 1px solid var(--color-sand-dark); display: flex; flex-direction: column; gap: 0.5rem; text-decoration: none; transition: var(--transition-medium); }
+  .direct-card:hover { transform: translateY(-3px); border-color: var(--color-olive); }
+  .direct-label { font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-olive-dark); }
+  .direct-value { font-size: 1.15rem; color: var(--color-charcoal); font-family: var(--font-serif); font-weight: 300; }
+  .contact-or { text-align: center; color: var(--color-limestone); font-size: 0.9rem; margin-bottom: 2.5rem; }
+
+  .contact-form { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .form-group { display: flex; flex-direction: column-reverse; gap: 0.5rem; }
+  .form-group label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-limestone); font-weight: 500; }
+  .form-group input, .form-group textarea {
+    border: none; border-bottom: 1px solid var(--color-sand-dark); background: transparent;
+    padding: 0.75rem 0; font-size: 1rem; color: var(--color-charcoal); outline: none; transition: var(--transition-fast);
+    font-family: var(--font-sans);
+  }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--color-olive); }
+  .form-group input:focus + label, .form-group textarea:focus + label { color: var(--color-olive); }
+  .submit-btn {
+    align-self: flex-start; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em;
+    color: #fff; background: var(--color-charcoal); border: none; padding: 1.25rem 2.5rem;
+    cursor: pointer; transition: var(--transition-medium);
+  }
+  .submit-btn:hover { background: var(--color-olive); }
+  .form-status { font-size: 0.9rem; margin-top: 1rem; }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes scrollDown { 0% { top: -30%; } 50% { top: 100%; } 100% { top: 100%; } }
+
+  @media (max-width: 1024px) { .category-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 992px) {
+    .philosophy-grid { grid-template-columns: 1fr; gap: 4rem; }
+    .philosophy-stat-col { flex-direction: row; border-left: none; border-top: 1px solid var(--color-sand-dark); padding-left: 0; padding-top: 3rem; gap: 4rem; }
+    .estates-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-direct { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .hero { align-items: flex-end; padding-bottom: 6rem; }
+    .scroll-indicator { display: none; }
+    .category-grid { grid-template-columns: 1fr; }
+    .workflow-step { grid-template-columns: 1fr; gap: 0.5rem; }
+  }
+</style>
+
+<script is:inline>
+  // Lab form — preview only, logs to console
+  const labForm = document.getElementById('labInquiryForm');
+  const labStatus = document.getElementById('labFormStatus');
+  if (labForm) {
+    labForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(labForm).entries());
+      console.log('[LAB] inquiry', data);
+      labStatus.textContent = "Thanks — in the live site this would route to Sofia. (Lab preview.)";
+      labStatus.style.color = 'var(--color-olive-dark)';
+      labForm.reset();
+    });
+  }
+</script>

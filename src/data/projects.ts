@@ -18,6 +18,8 @@ export interface Project {
   ogImage?: string;
   /** Hidden from portfolio listing but page still accessible by URL. */
   hidden?: boolean;
+  /** Garden surface in m², shown on cards and detail (e.g. "10,000 m²"). Omit when unknown. */
+  size?: string;
   images: string[];
   en: ProjectTranslation;
   es: ProjectTranslation;
@@ -194,6 +196,7 @@ export const projects: Project[] = [
     location: "Campos, Mallorca",
     year: "2021",
     architect: null,
+    size: "10,000 m²",
     video: "https://www.youtube.com/embed/McyZviXDxhc?feature=oembed",
     cover: "/portfolio/finca-garden-campos-mallorca/cover.webp",
     ogImage: "/portfolio/finca-garden-campos-mallorca/cover.webp",
@@ -547,6 +550,7 @@ export const projects: Project[] = [
     location: "Sant Llorenç, Mallorca",
     year: "2023",
     architect: null,
+    size: "32,000 m²",
     video: "https://www.youtube.com/embed/IdGlxUKjhUQ?feature=oembed",
     cover: "/portfolio/sant-llorenc/images/landscape-garden-malorca-sestepa.png",
     ogImage: "/portfolio/sant-llorenc/images/landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-02.jpg",
