@@ -535,6 +535,11 @@ const currentJourney = journeyData[lang];
             </div>
 
             <div class="form-group">
+              <label for="phone">{t('contact.form.phone')}</label>
+              <input type="tel" id="phone" name="phone" placeholder=" " />
+            </div>
+
+            <div class="form-group">
               <label for="subject">{t('contact.form.location')}</label>
               <input type="text" id="subject" name="subject" required placeholder={t('contact.form.location_placeholder')} />
             </div>
@@ -614,6 +619,10 @@ const currentJourney = journeyData[lang];
         const formData = new FormData(form);
         const data: Record<string, string> = {};
         formData.forEach((val, key) => { data[key] = String(val); });
+        
+        if (data.phone) {
+          data.message = `[Phone: ${data.phone}]\n\n${data.message || ''}`;
+        }
         
         const actionUrl = "https://script.google.com/macros/s/AKfycbwJT0-KBhXPhkBhyFlcMSR6qstmJMOzXsm5syqnQXtq_9CBsrNRGIQ4_DSzQ2VCSb3qOQ/exec";
         const queryString = new URLSearchParams(data).toString();
