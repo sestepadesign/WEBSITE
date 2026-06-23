@@ -1,45 +1,38 @@
 # Visualizador local (sem deploy)
 
-## Um clique — recomendado
+## Caminho canónico
 
-**Duplo-clique em:**
+```
+G:\Meu Drive\1. WEBSITES\sestepa-design\codigo\
+```
 
-`C:\Users\inesg\temp\WEBSITE\VER-SITE-LOCAL.bat`
+## Arrancar preview
 
-Ou na Drive:
-
-`G:\Meu Drive\SESTEPA\ANTIGRAVITY\S'ESTEPA DESIGN\3-WEBSITE\VER-SITE-LOCAL.bat`
-
-O script:
-1. Sincroniza o código do git → pasta de build
-2. Inicia o servidor se ainda não está rodando
-3. Abre o browser em http://127.0.0.1:4321/
-
-Para **parar**: fecha a janela do terminal com o título **S'estepa Preview**.
+```powershell
+cd "G:\Meu Drive\1. WEBSITES\sestepa-design\codigo"
+npm install          # primeira vez nesta máquina
+npm run dev          # http://localhost:4321
+```
 
 ## URLs úteis
 
 | Página | URL |
 |--------|-----|
-| Home EN | http://127.0.0.1:4321/ |
-| Home ES (texto SEO) | http://127.0.0.1:4321/es/ |
-| Studio / equipa | http://127.0.0.1:4321/about/ |
-| Portfolio | http://127.0.0.1:4321/portfolio/ |
+| Home EN | http://localhost:4321/ |
+| Home ES | http://localhost:4321/es/ |
+| Studio / equipa | http://localhost:4321/about/ |
+| Portfolio | http://localhost:4321/portfolio/ |
 
-## Manual (se precisares)
+## Antes de editar
 
-```powershell
-cd C:\Users\inesg\temp\WEBSITE\site-em-terra-astro
-npm run dev -- --host 127.0.0.1 --port 4321
-```
+Seguir `INSTRUCOES.md` na raiz de `1. WEBSITES` — locks, hooks e deploy automático via Cloudflare no push.
 
-Abre http://127.0.0.1:4321/ no browser.
-
-## Onde editar código
+## Onde editar
 
 | Pasta | Uso |
 |-------|-----|
-| `C:\Users\inesg\temp\WEBSITE-git\site-em-terra-astro` | Git → deploy |
-| `G:\...\3-WEBSITE\site-em-terra-astro` | Backup Drive |
+| `codigo\src\` | Páginas, componentes, dados |
+| `codigo\public\portfolio\` | Imagens dos projectos |
+| `codigo\src\data\projects.ts` | Metadados e textos dos projectos |
 
-O visualizador lê sempre de `C:\Users\inesg\temp\WEBSITE\site-em-terra-astro` (com sync automático do git).
+Instruções completas: `..\ONDE-ESTA-TUDO.md` (pasta `sestepa-design`).
