@@ -1,0 +1,162 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+import Schema from '../components/Schema.astro';
+import {
+  SITE_NAME,
+  SITE_LOCALES,
+  getHreflangAlternates,
+  type SiteLocale,
+} from '../lib/seo';
+import { PAGE_OG_IMAGES } from '../data/site-urls';
+import { resolvePageIdFromPath } from '../lib/urls';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: 'en' | 'es' | 'de';
+  /** Path to OG image, e.g. /portfolio/finca-garden-campos-mallorca/cover.webp */
+  image?: string;
+  /** Override canonical path (aliases, homepage). */
+  canonicalPath?: string;
+  /** If set, adds meta refresh after full OG head (legacy). */
+  redirectTo?: string;
+  /** Locales with a real alternate page (default: all). Blog posts EN-only use ['en']. */
+  hreflangLocales?: SiteLocale[];
+  /** Hidden pages (SEO archive) — noindex, not linked in nav */
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  lang,
+  image = '/portfolio/finca-garden-campos-mallorca/cover.webp',
+  canonicalPath: canonicalPathProp,
+  redirectTo,
+  hreflangLocales = SITE_LOCALES,
+  noindex = false,
+} = Astro.props;
+
+const site = Astro.site!;
+const canonicalPath = canonicalPathProp ?? redirectTo ?? Astro.url.pathname;
+const canonicalURL = new URL(canonicalPath, site);
+
+const pageId = resolvePageIdFromPath(canonicalPath);
+const defaultOgImage = pageId ? PAGE_OG_IMAGES[pageId]?.[lang] : undefined;
+const resolvedImage = image !== '/portfolio/finca-garden-campos-mallorca/cover.webp' ? image : (defaultOgImage ?? image);
+const ogImage = new URL(resolvedImage, site);
+
+const ogLocales: Record<typeof lang, string> = {
+  en: 'en_US',
+  es: 'es_ES',
+  de: 'de_DE',
+};
+
+const hreflangLinks = redirectTo ? [] : getHreflangAlternates(canonicalPath, site, hreflangLocales);
+const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogLocales[l]);
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/jpeg" href="/favicon-192x192.jpg" sizes="192x192" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon-192x192.jpg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonicalURL} />
+
+    {hreflangLinks.map(({ hreflang, href }) => (
+      <link rel="alternate" hreflang={hreflang} href={href} />
+    ))}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="S'Estepa Design" />
+    <meta property="og:locale" content={ogLocales[lang]} />
+    {ogLocaleAlternates.map((locale) => (
+      <meta property="og:locale:alternate" content={locale} />
+    ))}
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    {image.endsWith('.jpg') || image.endsWith('.jpeg') ? (
+      <meta property="og:image:type" content="image/jpeg" />
+    ) : image.endsWith('.webp') ? (
+      <meta property="og:image:type" content="image/webp" />
+    ) : null}
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@sestepadesign" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {redirectTo && <meta http-equiv="refresh" content={`0;url=${redirectTo}`} />}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    {!noindex && <Schema canonicalPath={canonicalPath} />}
+  </head>
+  <body>
+    {redirectTo ? (
+      <p style="display:none">Redirecting to <a href={redirectTo}>{redirectTo}</a></p>
+    ) : (
+      <div class="site-wrapper">
+        <Header lang={lang} />
+        <main id="main-content">
+          <slot />
+        </main>
+        <Footer lang={lang} />
+        <CookieConsent lang={lang} />
+      </div>
+    )}
+    {!redirectTo && (
+      <script is:inline>
+        document.addEventListener('DOMContentLoaded', () => {
+          document.body.addEventListener('click', (e) => {
+            const anchor = e.target.closest('a');
+            if (anchor && anchor.href && anchor.href.includes('wa.me')) {
+              const pathname = window.location.pathname;
+              const actionUrl = "https://script.google.com/macros/s/AKfycbwJT0-KBhXPhkBhyFlcMSR6qstmJMOzXsm5syqnQXtq_9CBsrNRGIQ4_DSzQ2VCSb3qOQ/exec";
+              const params = new URLSearchParams({
+                name: "WhatsApp Clic",
+                email: "---",
+                subject: "WhatsApp",
+                message: `Clic en el botón de WhatsApp desde: ${pathname}`
+              });
+              fetch(`${actionUrl}?${params.toString()}`, { 
+                method: "GET", 
+                mode: "no-cors",
+                keepalive: true
+              }).catch(err => console.error("WhatsApp click logging failed:", err));
+            }
+          });
+        });
+      </script>
+    )}
+  </body>
+</html>
+
+<style>
+  .site-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: var(--color-sand-light);
+  }
+
+  main {
+    flex-grow: 1;
+  }
+</style>

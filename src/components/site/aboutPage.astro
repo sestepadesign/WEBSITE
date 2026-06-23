@@ -1,0 +1,534 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { ui } from '../../data/translations';
+import { getPagePath } from '../../lib/urls';
+
+interface Props { lang: 'en' | 'es' | 'de'; }
+const { lang } = Astro.props;
+
+const t = (key: keyof typeof ui[typeof lang]) => {
+  return ui[lang][key] || key;
+};
+
+const descriptions = {
+  en: "S'Estepa Design — landscape architecture and garden design studio in Mallorca. Our team of landscape architects and garden specialists creates bespoke Mediterranean gardens for private estates, villas and fincas across Mallorca and the Balearic Islands.",
+  es: "S'Estepa Design — estudio de arquitectura del paisaje y diseño de jardines en Mallorca. Nuestro equipo de paisajistas y arquitectos crea jardines mediterráneos a medida para fincas, villas y residencias privadas en Mallorca y las Islas Baleares.",
+  de: "S'Estepa Design — Landschaftsarchitektur- und Gartengestaltungsstudio auf Mallorca. Unser Team aus Landschaftsarchitekten und Gartenspezialisten schafft maßgeschneiderte mediterrane Gärten für Fincas, Villen und Privatresidenzen auf Mallorca und den Balearischen Inseln."
+};
+
+const pageDescription = descriptions[lang];
+
+const pageTitles = {
+  en: "Landscape Architecture & Garden Design Studio — Mallorca | S'Estepa Design",
+  es: "Estudio de Arquitectura del Paisaje y Diseño de Jardines — Mallorca | S'Estepa Design",
+  de: "Landschaftsarchitektur & Gartengestaltung Studio — Mallorca | S'Estepa Design",
+};
+
+const ethosTag = {
+  en: 'Our Ethos',
+  es: 'Nuestra filosofía',
+  de: 'Unser Ethos',
+};
+
+const ethosTitleLine1 = {
+  en: 'Gardens shaped by the island.',
+  es: 'Jardines moldeados por la isla.',
+  de: 'Gärten, geformt von der Insel.',
+};
+
+const ethosTitleLine2 = {
+  en: 'Made for the life you want here.',
+  es: 'Hechos para la vida que quiere aquí.',
+  de: 'Gemacht für das Leben, das Sie hier suchen.',
+};
+
+const ethosQuote = {
+  en: 'A garden reveals itself slowly — season by season, the way Mallorca does. Our job is to listen to that rhythm.',
+  es: 'Un jardín se revela lentamente — temporada a temporada, como Mallorca. Nuestra tarea es escuchar ese ritmo.',
+  de: 'Ein Garten offenbart sich langsam — Jahreszeit für Jahreszeit, wie Mallorca. Unsere Aufgabe ist es, diesem Rhythmus zu lauschen.',
+};
+
+const ethosMainText = {
+  en: "S'Estepa designs gardens in Mallorca that feel as if they were always there — whether a sheltered city courtyard, a sweep of country estate, or a terrace above the sea. The S'Estepa Design Studio brings together botanical depth and architectural precision, rooted in the particular stone, light, and wind of the Balearic islands.",
+  es: "S'Estepa diseña jardines en Mallorca que parecen haber estado siempre ahí — ya sea un patio urbano protegido, una extensa finca campestre o una terraza sobre el mar. El estudio S'Estepa Design une profundidad botánica y precisión arquitectónica, arraigado en la piedra, la luz y el viento de las islas Baleares.",
+  de: "S'Estepa gestaltet Gärten auf Mallorca, die wirken, als hätten sie schon immer dort gestanden — ob ein geschützter Stadthof, eine weitläufige Landfinca oder eine Terrasse über dem Meer. Das Studio S'Estepa Design vereint botanische Tiefe und architektonische Präzision, verwurzelt in Stein, Licht und Wind der Balearen.",
+};
+
+const ethosSubText = {
+  en: 'A Balearic garden takes time to become itself. We stay with it until it does.',
+  es: 'Un jardín balear necesita tiempo para convertirse en lo que es. Nosotros permanecemos hasta que lo hace.',
+  de: 'Ein balearischer Garten braucht Zeit, um er selbst zu werden. Wir bleiben, bis er es ist.',
+};
+
+const ethosCtaPrefix = {
+  en: 'Exploring new possibilities for your Mallorca property.',
+  es: 'Explorando nuevas posibilidades para su propiedad en Mallorca.',
+  de: 'Neue Möglichkeiten für Ihre Immobilie auf Mallorca erkunden.',
+};
+
+const ethosCtaLink = {
+  en: 'We invite you to start the conversation',
+  es: 'Le invitamos a iniciar la conversación',
+  de: 'Wir laden Sie ein, das Gespräch zu beginnen',
+};
+
+const headerSubtitle = {
+  en: "Garden design studio focused on high-end townhouse gardens, large estate gardens, and urban roof terraces — authentically from Mallorca, with expertise in soils and plants.",
+  es: "Estudio de diseño de jardines centrado en jardines urbanos de alto nivel, grandes fincas y terrazas en la azotea, con arraigo en Mallorca y experiencia en suelos y plantas.",
+  de: "Gartendesign-Studio für hochwertige Stadthausgärten, weitläufige Landgüter und urbane Dachterrassen — authentisch aus Mallorca, mit Expertise in Böden und Pflanzen."
+};
+
+const teamSectionTitle = {
+  en: "Meet Our Team",
+  es: "Conozca Nuestro Equipo",
+  de: "Unser Team"
+};
+
+const teamSectionSubtitle = {
+  en: "S'Estepa, reflecting the essence of Mallorca. A skilled team dedicated to creating exceptional outdoor spaces, specializing in garden design, luxurious rooftop terraces, and landscapes from concept to completion.",
+  es: "S'Estepa, reflejando la esencia de Mallorca. Un equipo dedicado a crear espacios exteriores excepcionales, especializado en diseño de jardines, terrazas de lujo y paisajes de principio a fin.",
+  de: "S'Estepa — die Essenz Mallorcas. Ein engagiertes Team für außergewöhnliche Außenräume: Gartendesign, luxuriöse Dachterrassen und Landschaften von der Konzeption bis zur Umsetzung."
+};
+
+const team = [
+  {
+    name: "Pedro Campaner",
+    role: {
+      en: "AGRICULTURAL TECHNICIAN & LANDSCAPER",
+      es: "TÉCNICO AGRÍCOLA Y PAISAJISTA",
+      de: "LANDWIRTSCHAFTLICHER TECHNIKER & LANDSCHAFTSGESTALTER"
+    },
+    image: "/images/about/pedro.jpg",
+    bio: {
+      en: "Born and raised in Mallorca, Pedro is the founder of S’Estepa Design and S’Estepa Jardinería Integral. He is a technician in Agricultural Exploitations and specialised in Landscaping. With over 30 years of experience working and designing gardens in Mallorca, Ibiza, and Menorca, he envisions gardening as an extension of the Majorcan landscape, and his unique expertise is reflected in every design he creates. From aesthetic beauty to the perfect adaptation of the garden to its surroundings, Pedro considers sustainability a crucial factor. He takes into account water resources, climate, and terrain characteristics to achieve complete success in every project.",
+      es: "Nacido y criado en Mallorca, Pedro es el fundador de S’Estepa Design y S’Estepa Jardinería Integral. Es técnico en Explotaciones Agrícolas y especialista en Paisajismo. Con más de 30 años de experiencia trabajando y diseñando jardines en Mallorca, Ibiza y Menorca, concibe la jardinería como una extensión del paisaje mallorquín, reflejando su experiencia única en cada diseño. Desde la belleza estética hasta la perfecta adaptación del jardín a su entorno, Pedro considera la sostenibilidad como un factor crucial, optimizando los recursos hídricos, el clima y el terreno para asegurar el éxito de cada proyecto.",
+      de: "Auf Mallorca geboren und aufgewachsen, ist Pedro der Gründer von S'Estepa Design und S'Estepa Jardinería Integral. Er ist Techniker für landwirtschaftliche Betriebe und auf Landschaftsgestaltung spezialisiert. Mit über 30 Jahren Erfahrung in der Gestaltung von Gärten auf Mallorca, Ibiza und Menorca sieht er die Gartenarbeit als eine Erweiterung der mallorquinischen Landschaft an. Seine einzigartige Expertise spiegelt sich in jedem seiner Entwürfe wider. Von der ästhetischen Schönheit bis zur perfekten Anpassung an die Umgebung ist Nachhaltigkeit für Pedro ein entscheidender Faktor, bei dem er Wasserressourcen, Klima und Bodenbeschaffenheit stets einbezieht."
+    }
+  },
+  {
+    name: "Blanca Gonzalez",
+    role: {
+      en: "ADMINISTRATOR",
+      es: "ADMINISTRADORA",
+      de: "VERWALTUNG & FINANZEN"
+    },
+    image: "/images/about/blanca.jpg",
+    bio: {
+      en: "Blanca plays a crucial role as an internal administrative and accounting staff member for over six years. Her dedication focuses on ensuring that the economy of our garden projects is fair, equitable, and viable while guaranteeing the quality and value of each project. Blanca understands the importance of maintaining a fair and equitable economy, ensuring that expenses align with the expected value derived from each project. This allows our clients to achieve high-quality results without compromising their financial viability.",
+      es: "Blanca desempeña un papel crucial en la administración interna y contabilidad desde hace más de seis años. Su dedicación se centra en asegurar que la economía de nuestros proyectos de jardines sea justa, equilibrada y viable, garantizando al mismo tiempo la calidad y el valor de cada obra. Blanca comprende la importancia de mantener una economía equilibrada, asegurando que cada inversión se traduzca en un resultado de alta gama y alta calidad sin comprometer la viabilidad financiera.",
+      de: "Blanca spielt seit über sechs Jahren eine entscheidende Rolle in der internen Verwaltung und Buchhaltung. Ihr Engagement konzentriert sich darauf, sicherzustellen, dass die Wirtschaftlichkeit unserer Gartenprojekte fair, ausgewogen und tragfähig ist, während gleichzeitig die Qualität und der Wert jedes Projekts gewährleistet werden. Sie sorgt dafür, dass die Ausgaben mit dem erwarteten Wert übereinstimmen, was es unseren Kunden ermöglicht, erstklassige Ergebnisse ohne finanzielle Risiken zu erzielen."
+    }
+  },
+  {
+    name: "Sofia Grimaux",
+    role: {
+      en: "PROJECT MANAGER",
+      es: "GESTORA DE PROYECTOS",
+      de: "PROJEKTMANAGERIN"
+    },
+    image: "/images/about/sofia.jpg",
+    bio: {
+      en: "Sofia acts as the bridge between ideas and their realization in the garden. Her role combines rigorous management with creative sensitivity: she organizes teams, coordinates budgets and schedules, while maintaining close contact with each client throughout the entire process. Her international outlook and fluency in several languages allow for clear and natural communication, fostering trust and mutual understanding. With the ability to anticipate needs, solve unforeseen challenges, and preserve the aesthetic coherence of each project, Sofia ensures that working with S'Estepa Design is as smooth as it is rewarding — transforming visions into gardens that exceed expectations and endure over time.",
+      es: "Sofia actúa como puente entre las ideas y su plasmación en el jardín. Su función combina una gestión rigurosa con sensibilidad creativa: organiza equipos, coordina presupuestos y plazos, manteniendo un contacto estrecho con cada cliente durante todo el proceso. Su perfil internacional y dominio de varios idiomas permiten una comunicación clara y natural, generando confianza y entendimiento mutuo. Con la capacidad de anticipar necesidades, resolver imprevistos y preservar la coherencia estética de cada obra, Sofia logra que trabajar con S'Estepa Design sea una experiencia tan fluida como gratificante — transformando visiones en jardines que superan las expectativas y perduran en el tiempo.",
+      de: "Sofia fungiert als Brücke zwischen den Ideen und ihrer Realisierung im Garten. Ihre Rolle verbindet präzises Management mit kreativer Sensibilität: Sie organisiert Teams, koordiniert Budgets und Zeitpläne und hält während des gesamten Prozesses engen Kontakt zu jedem Kunden. Ihre internationale Ausrichtung und Fließendheit in mehreren Sprachen ermöglichen eine klare und natürliche Kommunikation und fördern Vertrauen und gegenseitiges Verständnis. Mit der Fähigkeit, Bedürfnisse vorherzusehen, unvorhergesehene Herausforderungen zu lösen und die ästhetische Kohärenz jedes Projekts zu wahren, sorgt Sofia dafür, dass die Zusammenarbeit mit S'Estepa Design so reibungslos wie lohnend ist — und Visionen in Gärten verwandelt, die Erwartungen übertreffen und über die Zeit bestehen."
+    }
+  },
+  {
+    name: "Iulia Oleg Miron",
+    role: {
+      en: "ARCHITECT",
+      es: "ARQUITECTA",
+      de: "ARCHITEKTIN"
+    },
+    image: "/images/about/iulia.jpg",
+    bio: {
+      en: "Iulia is an architect from The Sapienza University of Rome, has pursued her studies between Rome, Paris, and Moscow, where she won a scholarship for her final project. At S’Estepa Design, she specialises in translating our designs onto paper. With her ability to create 3D and 2D designs, Iulia brings projects to life before they become a reality, allowing our clients to visualise their future garden with great precision.",
+      es: "Iulia es arquitecta por la Universidad Sapienza de Roma y ha cursado sus estudios entre Roma, París y Moscú, donde obtuvo una beca para su proyecto final. En S’Estepa Design, se especializa en plasmar nuestros diseños sobre el papel. Gracias a su destreza en el modelado 3D y planos 2D, Iulia da vida a los proyectos antes de su ejecución, permitiendo a nuestros clientes visualizar su futuro jardín con extraordinaria precisión.",
+      de: "Iulia ist Architektin der Universität Sapienza in Rom und hat ihr Studium zwischen Rom, Paris und Moskau absolviert, wo sie ein Stipendium für ihr Abschlussprojekt erhielt. Bei S'Estepa Design ist sie darauf spezialisiert, unsere Entwürfe auf Papier zu bringen. Mit ihrer Fähigkeit, 3D- und 2D-Designs zu erstellen, erweckt Iulia Projekte zum Leben, noch bevor sie Realität werden, sodass sich unsere Kunden ihr zukünftiges Paradies detailgetreu vorstellen können."
+    }
+  },
+  {
+    name: "Miguel Llabres",
+    role: {
+      en: "SITE MANAGER",
+      es: "JEFE DE OBRA",
+      de: "BAULEITER"
+    },
+    image: "/images/about/miguel.jpg",
+    bio: {
+      en: "Miguel plays an essential role in the management and development of gardens, focusing on their construction and addressing our clients’ concerns on-site. His technical knowledge and skills enable him to make adjustments on the fly and resolve any issues that may arise during the construction process. Being present during construction allows him to interact directly with clients, answer questions, and address any concerns they may have.",
+      es: "Miguel desempeña un papel fundamental en la ejecución y desarrollo de los jardines, centrándose en su construcción física y en atender las necesidades de los clientes sobre el terreno. Sus conocimientos técnicos le permiten realizar ajustes sobre la marcha y resolver cualquier eventualidad en la fase de obra. Su presencia constante en los trabajos facilita la comunicación directa con los clientes, resolviendo dudas y asegurando un proceso sin fisuras.",
+      de: "Miguel spielt eine wesentliche Rolle bei der Umsetzung und Entwicklung der Gärten, wobei sein Schwerpunkt auf dem Bau und der Betreuung vor Ort liegt. Sein technisches Wissen und seine Fähigkeiten ermöglichen es ihm, Anpassungen spontan vorzunehmen und eventuelle Herausforderungen während der Bauphase sofort zu lösen. Seine ständige Präsenz auf der Baustelle ermöglicht den direkten Kontakt mit den Kunden, um Fragen und Wünsche direkt zu klären."
+    }
+  }
+];
+---
+
+<Layout title={pageTitles[lang]} description={pageDescription} lang={lang}>
+  <div class="about-page">
+    <div class="container">
+      <header class="about-header">
+        <span class="section-tag">{t('nav.about')}</span>
+        <h1 class="about-title">{t('about.title')}</h1>
+        <p class="about-subtitle">{headerSubtitle[lang]}</p>
+      </header>
+    </div>
+  </div>
+
+  <!-- Ethos & Vision Section -->
+  <section class="ethos section-padding">
+    <div class="container">
+      <div class="ethos-panel">
+        <header class="ethos-intro">
+          <span class="section-tag">{ethosTag[lang]}</span>
+          <h2 class="ethos-title">
+            <span>{ethosTitleLine1[lang]}</span>
+            <span>{ethosTitleLine2[lang]}</span>
+          </h2>
+        </header>
+
+        <blockquote class="ethos-quote">
+          <p>&ldquo;{ethosQuote[lang]}&rdquo;</p>
+          <cite>&mdash; Pedro Campaner</cite>
+        </blockquote>
+
+        <div class="ethos-content">
+          <p class="ethos-lead">{ethosMainText[lang]}</p>
+          <p class="ethos-accent">{ethosSubText[lang]}</p>
+        </div>
+
+        <aside class="ethos-cta" aria-label={ethosCtaLink[lang]}>
+          <p class="ethos-cta-text">{ethosCtaPrefix[lang]}</p>
+          <a href={getPagePath('contact', lang)} class="ethos-cta-button">
+            {ethosCtaLink[lang]}
+            <span class="ethos-cta-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team section-padding">
+    <div class="container">
+      <span class="section-tag center">The Team</span>
+      <h2 class="team-title center">{teamSectionTitle[lang]}</h2>
+      <p class="team-subtitle center">{teamSectionSubtitle[lang]}</p>
+
+      <div class="team-grid">
+        {team.map(member => (
+          <div class="team-card">
+            <div class="team-img-wrapper">
+              <img src={member.image} alt={`${member.name} - ${member.role[lang]}`} class="team-img" />
+            </div>
+            <div class="team-info">
+              <span class="team-role">{member.role[lang]}</span>
+              <h3 class="team-name">{member.name}</h3>
+              <p class="team-bio">{member.bio[lang]}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about-page {
+    background-color: var(--color-sand-light);
+    padding: 10rem 0 5rem 0;
+    border-bottom: 1px solid var(--color-sand-dark);
+  }
+
+  .about-header {
+    margin-bottom: 0;
+    max-width: 800px;
+  }
+
+  .about-title {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--color-charcoal);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-charcoal-light);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  @media (max-width: 768px) {
+    .about-page {
+      padding: 8rem 0 4rem 0;
+    }
+  }
+
+  .section-tag {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-olive);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Ethos Section */
+  .ethos {
+    background-color: var(--color-sand-light);
+    border-bottom: 1px solid var(--color-sand-dark);
+  }
+
+  .ethos-panel {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: clamp(3rem, 6vw, 5rem);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-sand-dark);
+  }
+
+  .ethos-intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .ethos-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--color-charcoal);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .ethos-quote {
+    margin: 0 0 2.5rem;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--color-sand-dark);
+    border-bottom: 1px solid var(--color-sand-dark);
+    border-left: none;
+    border-right: none;
+  }
+
+  .ethos-quote p {
+    font-family: var(--font-serif);
+    font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+    line-height: 1.75;
+    font-weight: 300;
+    font-style: italic;
+    text-align: center;
+    color: var(--color-charcoal-light);
+    max-width: 34rem;
+    margin: 0 auto;
+  }
+
+  .ethos-quote cite {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-olive);
+    margin-top: 1.25rem;
+    text-align: center;
+    font-style: normal;
+  }
+
+  .ethos-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    max-width: 40rem;
+  }
+
+  .ethos-lead {
+    font-size: 1.08rem;
+    line-height: 1.85;
+    color: var(--color-charcoal-light);
+  }
+
+  .ethos-accent {
+    font-family: var(--font-serif);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    line-height: 1.5;
+    font-weight: 300;
+    color: var(--color-charcoal);
+  }
+
+  .ethos-cta {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--color-sand-dark);
+    text-align: center;
+  }
+
+  .ethos-cta-text {
+    font-family: var(--font-serif);
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+    line-height: 1.5;
+    color: var(--color-charcoal);
+    margin-bottom: 1.5rem;
+    max-width: 28rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ethos-cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.95rem 2rem;
+    border: 1px solid var(--color-olive);
+    color: var(--color-olive);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    transition: var(--transition-fast);
+  }
+
+  .ethos-cta-button:hover {
+    background-color: var(--color-olive);
+    color: var(--color-white);
+  }
+
+  .ethos-cta-arrow {
+    font-size: 1rem;
+    line-height: 1;
+    transition: transform 0.3s ease;
+  }
+
+  .ethos-cta-button:hover .ethos-cta-arrow {
+    transform: translateX(4px);
+  }
+
+  /* Team Section */
+  .team {
+    background-color: var(--color-sand-light);
+    border-top: 1px solid var(--color-sand-dark);
+  }
+
+  .team-title {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  .team-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-charcoal-light);
+    max-width: 700px;
+    line-height: 1.6;
+    margin-bottom: 5rem;
+    font-weight: 300;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem 2rem;
+    align-items: stretch;
+  }
+
+  .team-card {
+    background-color: var(--color-white);
+    border: 1px solid rgba(227, 221, 211, 0.4);
+    transition: var(--transition-medium);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+  }
+
+  .team-img-wrapper {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background-color: var(--color-sand-base);
+    flex-shrink: 0;
+  }
+
+  .team-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 18%;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .team-card:hover .team-img {
+    transform: scale(1.05);
+  }
+
+  .team-info {
+    padding: 2rem 2rem 2.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+  }
+
+  .team-role {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--color-olive);
+    text-transform: uppercase;
+  }
+
+  .team-name {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--color-charcoal);
+  }
+
+  .team-bio {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-charcoal-light);
+  }
+
+  @media (max-width: 1024px) {
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .team-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    
+    .team-img-wrapper {
+      aspect-ratio: 4 / 5;
+    }
+
+    .ethos-panel {
+      padding: 2.5rem 1.75rem;
+    }
+
+    .team-info {
+      padding: 2rem;
+    }
+  }
+</style>

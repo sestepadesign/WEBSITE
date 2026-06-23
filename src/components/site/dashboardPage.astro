@@ -1,0 +1,1048 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+interface Props {
+  lang?: 'en' | 'es' | 'de';
+}
+
+const { lang = 'es' } = Astro.props;
+
+// Localized strings for the dashboard structure
+const t = {
+  es: {
+    title: "Panel de Analítica | S'Estepa Design",
+    description: "Visualización de datos de rendimiento web, conversiones y contactos para S'Estepa Design.",
+    privateTitle: "Acceso Privado",
+    privateDesc: "Por favor, introduzca la contraseña de administración para acceder al panel de control.",
+    passwordPlaceholder: "Contraseña",
+    btnEnter: "Acceder",
+    wrongPassword: "Contraseña incorrecta. Inténtelo de nuevo.",
+    dashboardHeader: "Panel de Analítica",
+    totalLeads: "Mensajes Web",
+    newLeads7d: "Últimos 7 días",
+    whatsappClicks: "Clics en WhatsApp",
+    openSheets: "Abrir Google Sheets",
+    ga4Performance: "Visitas y Rendimiento (Google Analytics 4)",
+    recentLeads: "Últimos Mensajes Recibidos",
+    logout: "Cerrar Sesión"
+  }
+}[lang] || {
+  title: "Analytics Dashboard | S'Estepa Design",
+  description: "Web performance, conversions, and inquiries data visualization for S'Estepa Design.",
+  privateTitle: "Private Access",
+  privateDesc: "Please enter the admin password to access the control panel.",
+  passwordPlaceholder: "Password",
+  btnEnter: "Enter",
+  wrongPassword: "Incorrect password. Please try again.",
+  dashboardHeader: "Analytics Dashboard",
+  totalLeads: "Web Messages",
+  newLeads7d: "Last 7 Days",
+  whatsappClicks: "WhatsApp Clicks",
+  openSheets: "Open Google Sheets",
+  ga4Performance: "Visits & Performance (Google Analytics 4)",
+  recentLeads: "Recent Inquiry Messages",
+  logout: "Logout"
+};
+---
+
+<Layout title={t.title} description={t.description} lang="es" noindex={true}>
+  <!-- Dashboard Page Container -->
+  <div class="dashboard-wrapper">
+    
+    <!-- Elegant Password Overlay Screen -->
+    <div id="password-overlay" class="password-overlay">
+      <div class="password-card">
+        <div class="brand-logo-container">
+          <span class="brand-title">S'ESTEPA DESIGN</span>
+          <span class="brand-subtitle">Landscape Architecture</span>
+        </div>
+        <h2>{t.privateTitle}</h2>
+        <p>{t.privateDesc}</p>
+        
+        <form id="auth-form" class="auth-form">
+          <input 
+            type="password" 
+            id="admin-password" 
+            placeholder={t.passwordPlaceholder} 
+            required 
+            autocomplete="current-password"
+          />
+          <button type="submit">{t.btnEnter}</button>
+        </form>
+        <p id="error-message" class="error-message">{t.wrongPassword}</p>
+      </div>
+    </div>
+
+    <!-- Authenticated Dashboard UI -->
+    <div id="dashboard-content" class="dashboard-content" style="display: none;">
+      <div class="dashboard-container">
+        
+        <!-- Dashboard Header -->
+        <header class="dashboard-header">
+          <div class="header-left">
+            <span class="dashboard-tag">Métricas de Rendimiento & Contactos</span>
+            <h1>{t.dashboardHeader}</h1>
+          </div>
+          <div class="header-right">
+            <button id="btn-logout" class="btn-logout">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+              </svg>
+              {t.logout}
+            </button>
+          </div>
+        </header>
+
+        <!-- Metrics Grid (4 Cards, 100% Real data from Sheet) -->
+        <div class="metrics-grid">
+          <!-- Total Leads Card -->
+          <div class="metric-card">
+            <div class="metric-info">
+              <span class="metric-label">{t.totalLeads}</span>
+              <h2 id="metric-total-leads">...</h2>
+            </div>
+            <div class="metric-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+          </div>
+
+          <!-- New Leads Card -->
+          <div class="metric-card">
+            <div class="metric-info">
+              <span class="metric-label">{t.newLeads7d}</span>
+              <h2 id="metric-new-leads">...</h2>
+            </div>
+            <div class="metric-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            </div>
+          </div>
+
+          <!-- WhatsApp Clicks Card -->
+          <div class="metric-card">
+            <div class="metric-info">
+              <span class="metric-label">{t.whatsappClicks}</span>
+              <h2 id="metric-whatsapp-clicks">...</h2>
+            </div>
+            <div class="metric-icon whatsapp" style="color: #25d366; background-color: rgba(37, 211, 102, 0.08);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </div>
+          </div>
+
+          <!-- Google Sheets Link Card -->
+          <a href="https://docs.google.com/spreadsheets/d/1g7VADJJcuTPJV-stmdXcY9ZCYNriqJT6WyPoep3SPiI/edit?gid=0#gid=0" target="_blank" class="metric-card sheet-link-card" style="text-decoration: none;">
+            <div class="metric-info">
+              <span class="metric-label">Google Sheets</span>
+              <h2 style="font-size: 1.2rem; font-weight: 500; font-family: var(--font-sans); margin-top: 0.5rem; color: var(--color-olive);">{t.openSheets}</h2>
+            </div>
+            <div class="metric-icon" style="color: #0f9d58; background-color: rgba(15, 157, 88, 0.08);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+          </a>
+        </div>
+
+        <!-- Looker Studio Section -->
+        <div class="charts-row" style="grid-template-columns: 1fr; margin-bottom: 2rem;">
+          <div class="chart-box main-chart" style="width: 100%;">
+            <div class="chart-header">
+              <h3>{t.ga4Performance}</h3>
+              <span class="vs-label">Google Analytics 4</span>
+            </div>
+            <div class="chart-container" style="height: 520px; width: 100%;">
+              <iframe 
+                src="https://lookerstudio.google.com/embed/reporting/6e690f87-998f-4b55-bedc-a1cd22513527/page/gRU1F" 
+                width="100%" 
+                height="100%" 
+                style="border:0; background-color: var(--color-white);" 
+                allowfullscreen 
+                sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="tables-row" style="grid-template-columns: 1fr;">
+          <!-- Recent Inquiries (Form Leads) -->
+          <div class="table-box recent-leads" style="width: 100%;">
+            <div class="table-header">
+              <h3>{t.recentLeads}</h3>
+            </div>
+            <div class="leads-inbox" id="leads-inbox-body">
+              <!-- Injected via JavaScript -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</Layout>
+
+<style>
+  /* Base Dashboard Styles */
+  .dashboard-wrapper {
+    min-height: calc(100vh - 120px);
+    background-color: var(--color-sand-light);
+    font-family: var(--font-sans);
+    position: relative;
+    padding: 7rem 0 var(--spacing-lg) 0;
+  }
+
+  /* Password Overlay (Luxury Style) */
+  .password-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-sand-light);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.5s;
+  }
+
+  .password-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-sand-dark);
+    padding: 3rem 2.5rem;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+    border-radius: 4px;
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .brand-logo-container {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .brand-title {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    letter-spacing: 0.15em;
+    color: var(--color-charcoal);
+    font-weight: 300;
+  }
+
+  .brand-subtitle {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--color-olive);
+    margin-top: 0.25rem;
+  }
+
+  .password-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-charcoal);
+  }
+
+  .password-card p {
+    font-size: 0.9rem;
+    color: var(--color-charcoal-light);
+    margin-bottom: 1.75rem;
+    line-height: 1.5;
+  }
+
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .auth-form input[type="password"] {
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--color-sand-dark);
+    background-color: var(--color-sand-light);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    border-radius: 2px;
+    outline: none;
+    transition: var(--transition-fast);
+    text-align: center;
+  }
+
+  .auth-form input[type="password"]:focus {
+    border-color: var(--color-olive);
+    background-color: var(--color-white);
+  }
+
+  .auth-form button {
+    background-color: var(--color-olive);
+    color: var(--color-white);
+    border: none;
+    padding: 0.85rem;
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    border-radius: 2px;
+  }
+
+  .auth-form button:hover {
+    background-color: var(--color-olive-dark);
+  }
+
+  .error-message {
+    color: #b33939;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: var(--transition-fast);
+  }
+
+  .error-message.show {
+    opacity: 1;
+    height: auto;
+    margin-top: 1rem;
+  }
+
+  /* Dashboard Core Layout */
+  .dashboard-content {
+    animation: fadeIn 1s ease;
+  }
+
+  .dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Header */
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid var(--color-sand-dark);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .dashboard-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-olive);
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    display: inline-block;
+  }
+
+  .dashboard-header h1 {
+    font-size: 2.2rem;
+    color: var(--color-charcoal);
+  }
+
+  .btn-logout {
+    background: none;
+    border: 1px solid var(--color-sand-dark);
+    padding: 0.5rem 1rem;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--color-charcoal-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    background-color: var(--color-white);
+  }
+
+  .btn-logout:hover {
+    background-color: var(--color-sand-base);
+    color: var(--color-charcoal);
+    border-color: var(--color-limestone);
+  }
+
+  /* Date Range Tabs */
+  .date-tabs-container {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-sand-base);
+    padding-bottom: 1px;
+  }
+
+  .tab-btn {
+    background: none;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-charcoal-light);
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition-fast);
+  }
+
+  .tab-btn:hover {
+    color: var(--color-olive);
+  }
+
+  .tab-btn.active {
+    color: var(--color-olive-dark);
+    font-weight: 500;
+  }
+
+  .tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-olive);
+  }
+
+  /* Metrics Cards Grid */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 992px) {
+    .metrics-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .metrics-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .metric-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-sand-dark);
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
+    transition: var(--transition-medium);
+    border-radius: 2px;
+  }
+
+  .metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(90, 103, 85, 0.05);
+    border-color: var(--color-olive-light);
+  }
+
+  .metric-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .metric-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-limestone);
+    margin-bottom: 0.5rem;
+  }
+
+  .metric-info h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--color-charcoal);
+    margin-bottom: 0.25rem;
+    font-family: var(--font-serif);
+  }
+
+  .metric-change {
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .metric-change.positive {
+    color: #47824a;
+  }
+
+  .metric-change.negative {
+    color: #b33939;
+  }
+
+  .metric-icon {
+    color: var(--color-limestone);
+    background-color: var(--color-sand-light);
+    padding: 0.6rem;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .metric-icon.whatsapp {
+    color: #25d366;
+    background-color: rgba(37, 211, 102, 0.08);
+  }
+
+  /* Charts Section Layout */
+  .charts-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 992px) {
+    .charts-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .chart-box {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-sand-dark);
+    padding: 1.75rem;
+    border-radius: 2px;
+  }
+
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .chart-header h3 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    color: var(--color-charcoal);
+    font-weight: 400;
+  }
+
+  .vs-label {
+    font-size: 0.75rem;
+    color: var(--color-limestone);
+    background-color: var(--color-sand-base);
+    padding: 0.25rem 0.5rem;
+    border-radius: 2px;
+  }
+
+  .chart-container {
+    height: 220px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .svg-line-chart {
+    overflow: visible;
+  }
+
+  .svg-line-chart path {
+    transition: d 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .chart-axis-labels text {
+    font-size: 9px;
+    fill: var(--color-limestone);
+    text-anchor: middle;
+  }
+
+  /* Traffic Channels */
+  .channels-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    justify-content: center;
+    height: calc(100% - 40px);
+  }
+
+  .channel-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .channel-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+  }
+
+  .channel-name {
+    color: var(--color-charcoal-light);
+  }
+
+  .channel-percent {
+    font-weight: 500;
+    color: var(--color-charcoal);
+  }
+
+  .channel-bar-bg {
+    height: 8px;
+    background-color: var(--color-sand-base);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .channel-bar-fill {
+    height: 100%;
+    background-color: var(--color-olive);
+    border-radius: 4px;
+    transition: width 1s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  /* Tables Section Layout */
+  .tables-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 992px) {
+    .tables-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .table-box {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-sand-dark);
+    padding: 1.75rem;
+    border-radius: 2px;
+  }
+
+  .table-header {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-sand-base);
+    padding-bottom: 0.75rem;
+  }
+
+  .table-header h3 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    color: var(--color-charcoal);
+    font-weight: 400;
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th {
+    text-align: left;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-limestone);
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-sand-base);
+    font-weight: 500;
+  }
+
+  td {
+    padding: 0.85rem 0;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--color-sand-light);
+    color: var(--color-charcoal-light);
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  :global(.num-col) {
+    text-align: right;
+  }
+
+  :global(.page-link-td) {
+    color: var(--color-olive);
+    font-family: monospace;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 280px;
+    display: block;
+  }
+
+  /* Leads Inbox */
+  .leads-inbox {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 320px;
+    overflow-y: auto;
+    padding-right: 0.25rem;
+  }
+
+  :global(.lead-item) {
+    border: 1px solid var(--color-sand-base);
+    padding: 1rem;
+    background-color: var(--color-sand-light);
+    border-radius: 2px;
+    transition: var(--transition-fast);
+  }
+
+  :global(.lead-item:hover) {
+    border-color: var(--color-olive-light);
+    background-color: var(--color-white);
+  }
+
+  :global(.lead-header) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.4rem;
+    gap: 1rem;
+  }
+
+  :global(.lead-client) {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--color-charcoal);
+  }
+
+  :global(.lead-date) {
+    font-size: 0.75rem;
+    color: var(--color-limestone);
+  }
+
+  :global(.lead-location) {
+    font-size: 0.75rem;
+    color: var(--color-olive);
+    background-color: rgba(90, 103, 85, 0.06);
+    padding: 0.15rem 0.4rem;
+    border-radius: 2px;
+    font-weight: 500;
+  }
+
+  :global(.lead-message) {
+    font-size: 0.85rem;
+    color: var(--color-charcoal-light);
+    line-height: 1.4;
+    font-style: italic;
+    margin-top: 0.5rem;
+    border-left: 2px solid var(--color-sand-dark);
+    padding-left: 0.5rem;
+  }
+
+  :global(.lead-status) {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+  
+  :global(.lead-status.new) {
+    color: var(--color-olive);
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Sheet Link Card Hover Styles */
+  :global(.sheet-link-card) {
+    transition: var(--transition-medium);
+  }
+  :global(.sheet-link-card:hover) {
+    border-color: #0f9d58 !important;
+    background-color: rgba(15, 157, 88, 0.02) !important;
+  }
+</style>
+
+<!-- Client Side Scripting -->
+<script is:inline>
+  // Google Spreadsheet CSV URL containing the contact form leads
+  const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1g7VADJJcuTPJV-stmdXcY9ZCYNriqJT6WyPoep3SPiI/export?format=csv';
+
+  // CSV Parser Helper
+  function parseCSV(text) {
+    const lines = [];
+    let row = [""];
+    let insideQuote = false;
+    for (let i = 0; i < text.length; i++) {
+      const char = text[i];
+      const nextChar = text[i+1];
+      if (char === '"') {
+        if (insideQuote && nextChar === '"') {
+          row[row.length - 1] += '"';
+          i++;
+        } else {
+          insideQuote = !insideQuote;
+        }
+      } else if (char === ',' && !insideQuote) {
+        row.push('');
+      } else if ((char === '\r' || char === '\n') && !insideQuote) {
+        if (char === '\r' && nextChar === '\n') i++;
+        lines.push(row);
+        row = [''];
+      } else {
+        row[row.length - 1] += char;
+      }
+    }
+    if (row.length > 1 || row[0] !== '') {
+      lines.push(row);
+    }
+    return lines;
+  }
+
+  // Date Parsing Helpers
+  function parseSheetDate(dateStr) {
+    if (!dateStr) return null;
+    const parts = dateStr.trim().split(' ');
+    const dateParts = parts[0].split('/');
+    if (dateParts.length < 3) return null;
+    const day = parseInt(dateParts[0], 10);
+    const month = parseInt(dateParts[1], 10) - 1;
+    const year = parseInt(dateParts[2], 10);
+    if (parts[1]) {
+      const timeParts = parts[1].split(':');
+      const hour = parseInt(timeParts[0], 10) || 0;
+      const minute = parseInt(timeParts[1], 10) || 0;
+      const second = parseInt(timeParts[2], 10) || 0;
+      return new Date(year, month, day, hour, minute, second);
+    }
+    return new Date(year, month, day);
+  }
+
+  function isWithinDays(date, days) {
+    if (!date) return false;
+    const now = new Date();
+    const diffTime = Math.abs(now - date);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays <= days;
+  }
+
+  // Fetch Real Leads from Google Sheets
+  let realLeads = [];
+  
+  async function loadRealData() {
+    try {
+      const response = await fetch(SHEET_URL);
+      if (!response.ok) throw new Error("Fetch failed");
+      const csvText = await response.text();
+      const rows = parseCSV(csvText);
+      
+      const leads = [];
+      // Columns: NAME (0), E-MAIL (1), SUBJECT (2), MESSAGE (3), TIMESTAMP (4)
+      for (let i = 1; i < rows.length; i++) {
+        const row = rows[i];
+        if (row.length < 4 || !row[0]) continue;
+        
+        let location = row[2] ? row[2].trim() : "Mallorca";
+        if (location === "9" || location === "") location = "Mallorca";
+        
+        let name = row[0].trim();
+        if (name === "9") name = "Test Lead";
+        
+        let msg = row[3] ? row[3].trim() : "";
+        if (msg === "9" || msg === "") msg = "Consulta de diseño de jardín.";
+
+        let timestampStr = row[4] ? row[4].trim() : "";
+        let parsedDate = parseSheetDate(timestampStr);
+        
+        leads.push({
+          name: name,
+          email: row[1] ? row[1].trim() : "",
+          location: location,
+          message: msg,
+          timestamp: parsedDate,
+          date: timestampStr ? timestampStr.split(' ')[0] : "Reciente",
+          status: i === 1 || i === 2 ? "Nuevo" : "Contactado"
+        });
+      }
+      
+      // Sort most recent first
+      leads.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+      realLeads = leads;
+      
+      updateDashboardData();
+    } catch (err) {
+      console.error("Error loading real data:", err);
+    }
+  }
+
+  function updateDashboardData() {
+    // Web Leads (Form only, excluding WhatsApp clicks)
+    const webLeads = realLeads.filter(l => l.location !== 'WhatsApp');
+    document.getElementById('metric-total-leads').textContent = webLeads.length.toString();
+
+    // 7d leads count (Form only)
+    const leads7d = webLeads.filter(l => isWithinDays(l.timestamp, 7));
+    document.getElementById('metric-new-leads').textContent = leads7d.length.toString();
+
+    // WhatsApp Clicks count
+    const whatsappClicksCount = realLeads.filter(l => l.location === 'WhatsApp').length;
+    document.getElementById('metric-whatsapp-clicks').textContent = whatsappClicksCount.toString();
+
+    // Render Recent Leads Inbox
+    const leadsInboxBody = document.getElementById('leads-inbox-body');
+    leadsInboxBody.innerHTML = '';
+    
+    if (realLeads.length === 0) {
+      const noLeadsMsg = document.createElement('div');
+      noLeadsMsg.style.padding = '2rem';
+      noLeadsMsg.style.textAlign = 'center';
+      noLeadsMsg.style.color = 'var(--color-limestone)';
+      noLeadsMsg.textContent = 'No hay mensajes en este periodo.';
+      leadsInboxBody.appendChild(noLeadsMsg);
+      return;
+    }
+
+    realLeads.forEach(lead => {
+      const item = document.createElement('div');
+      item.className = 'lead-item';
+      
+      const isWhatsApp = lead.location === 'WhatsApp';
+      if (isWhatsApp) {
+        item.style.borderColor = 'rgba(37, 211, 102, 0.4)';
+        item.style.backgroundColor = 'rgba(37, 211, 102, 0.03)';
+      }
+
+      const header = document.createElement('div');
+      header.className = 'lead-header';
+
+      const client = document.createElement('span');
+      client.className = 'lead-client';
+      if (isWhatsApp) {
+        client.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:5px; color:#25d366;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>${lead.name}`;
+      } else {
+        client.textContent = lead.name;
+      }
+
+      const date = document.createElement('span');
+      date.className = 'lead-date';
+      date.textContent = lead.date;
+
+      header.appendChild(client);
+      header.appendChild(date);
+
+      const subHeader = document.createElement('div');
+      subHeader.style.display = 'flex';
+      subHeader.style.justifyContent = 'space-between';
+      subHeader.style.alignItems = 'center';
+      subHeader.style.marginTop = '0.25rem';
+
+      const location = document.createElement('span');
+      location.className = 'lead-location';
+      if (isWhatsApp) {
+        location.style.backgroundColor = 'rgba(37, 211, 102, 0.1)';
+        location.style.color = '#128c7e';
+      }
+      location.textContent = lead.location;
+
+      const status = document.createElement('span');
+      if (isWhatsApp) {
+        status.className = 'lead-status';
+        status.style.color = '#128c7e';
+        status.textContent = 'WhatsApp Clic';
+      } else {
+        status.className = `lead-status ${lead.status.toLowerCase()}`;
+        status.textContent = lead.status;
+      }
+
+      subHeader.appendChild(location);
+      subHeader.appendChild(status);
+
+      const msg = document.createElement('p');
+      msg.className = 'lead-message';
+      msg.textContent = `"${lead.message}"`;
+
+      item.appendChild(header);
+      item.appendChild(subHeader);
+      item.appendChild(msg);
+
+      leadsInboxBody.appendChild(item);
+    });
+  }
+
+  // Auth Handling
+  const AUTH_KEY = 'sestepa_dashboard_auth';
+  const PASSWORD_CORRECT = 'sestepa2026';
+
+  const overlay = document.getElementById('password-overlay');
+  const dashboard = document.getElementById('dashboard-content');
+  const authForm = document.getElementById('auth-form');
+  const passwordInput = document.getElementById('admin-password');
+  const errorMessage = document.getElementById('error-message');
+  const logoutBtn = document.getElementById('btn-logout');
+
+  // Check auth on load
+  if (sessionStorage.getItem(AUTH_KEY) === 'true') {
+    showDashboard();
+  }
+
+  // Handle Login
+  authForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (passwordInput.value === PASSWORD_CORRECT) {
+      sessionStorage.setItem(AUTH_KEY, 'true');
+      errorMessage.classList.remove('show');
+      fadeOverlayOut();
+    } else {
+      errorMessage.classList.add('show');
+      passwordInput.value = '';
+      passwordInput.focus();
+    }
+  });
+
+  // Handle Logout
+  logoutBtn.addEventListener('click', () => {
+    sessionStorage.removeItem(AUTH_KEY);
+    window.location.reload();
+  });
+
+  async function showDashboard() {
+    overlay.style.display = 'none';
+    dashboard.style.display = 'block';
+    await loadRealData();
+  }
+
+  async function fadeOverlayOut() {
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none';
+    dashboard.style.display = 'block';
+    await loadRealData();
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 500);
+  }
+</script>

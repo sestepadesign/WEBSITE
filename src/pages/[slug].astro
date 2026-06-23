@@ -1,0 +1,82 @@
+---
+import ProjectDetail from '../components/ProjectDetail.astro';
+import { projects } from '../data/projects';
+import { getProjectStaticPathParams } from '../lib/urls';
+import { getCollection, render } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const projectPaths = getProjectStaticPathParams('en').map(({ params, props }) => {
+    const project = projects.find((p) => p.slug === props.projectSlug)!;
+    return {
+      params,
+      props: {
+        kind: 'project' as const,
+        project,
+        canonicalPath: props.canonicalPath,
+      },
+    };
+  });
+
+  const posts = await getCollection('blog', ({ data }) => data.lang === 'en' && !data.draft);
+  const blogPaths = posts.map((post) => {
+    const slug = post.id.replace(/\.md$/, '').split('/').pop()!;
+    return {
+      params: { slug },
+      props: { kind: 'blog' as const, post },
+    };
+  });
+
+  return [...projectPaths, ...blogPaths];
+}
+
+const props = Astro.props;
+let BlogContent: Awaited<ReturnType<typeof render>>['Content'] | null = null;
+
+if (props.kind === 'blog') {
+  const rendered = await render(props.post);
+  BlogContent = rendered.Content;
+}
+---
+
+{props.kind === 'project' ? (
+  <ProjectDetail
+    project={props.project}
+    lang="en"
+    canonicalPath={props.canonicalPath}
+  />
+) : (
+  <Layout
+    title={`${props.post.data.title} | S'Estepa Design`}
+    description={props.post.data.description}
+    lang="en"
+    image={props.post.data.image ?? '/portfolio/finca-garden-campos-mallorca/cover.webp'}
+    hreflangLocales={['en']}
+    noindex={true}
+  >
+    <article class="container section-padding blog-post">
+      <h1>{props.post.data.title}</h1>
+      <time datetime={props.post.data.pubDate.toISOString()}>
+        {props.post.data.pubDate.toLocaleDateString('en-GB', { dateStyle: 'long' })}
+      </time>
+      <div class="blog-content">
+        {BlogContent && <BlogContent />}
+      </div>
+    </article>
+  </Layout>
+)}
+
+<style>
+  .blog-post.section-padding {
+    padding: 8rem 2rem 4rem;
+  }
+  .blog-post h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 1rem;
+  }
+  .blog-content {
+    margin-top: 2rem;
+    max-width: 800px;
+    line-height: 1.8;
+  }
+</style>

@@ -1,0 +1,408 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+interface Props { lang: 'en' | 'es' | 'de'; }
+const { lang } = Astro.props;
+
+const content = {
+  en: {
+    title: "Legal Notice",
+    tag: "Legal",
+    description: "Legal notice and ownership details for S'Estepa Jardinería Integral SLU.",
+    sections: [
+      {
+        type: "p",
+        text: "In compliance with Law 34/2002, of July 11, on Services of the Information Society and Electronic Commerce (LSSI-CE), S’ESTEPA JARDINERIA INTEGRAL SLU informs that it is the owner of the website. In accordance with the requirement of Article 10 of the aforementioned Law, S’ESTEPA JARDINERIA INTEGRAL SLU provides the following information:"
+      },
+      {
+        type: "h2",
+        text: "User and Liability Regime"
+      },
+      {
+        type: "p",
+        text: "The navigation, access, and use of the website of S’ESTEPA JARDINERIA INTEGRAL SLU confers the condition of user."
+      },
+      {
+        type: "p",
+        text: "The website of S’ESTEPA JARDINERIA INTEGRAL SLU provides a wide range of information, services, and data. The user assumes responsibility for the proper use of the website. This responsibility will extend to:"
+      },
+      {
+        type: "ul",
+        items: [
+          "The veracity and legality of the information provided by the user in the forms issued by S’ESTEPA JARDINERIA INTEGRAL SLU for access to certain content or services offered by the website.",
+          "The use of the information, services, and data offered by S’ESTEPA JARDINERIA INTEGRAL SLU contrary to the provisions of these conditions, the Law, morality, good customs, or public order, or in any other way may involve damage to the rights of third parties or the same operation of the website."
+        ]
+      },
+      {
+        type: "h2",
+        text: "Linking Policy and Liability Exemptions"
+      },
+      {
+        type: "p",
+        text: "S’ESTEPA JARDINERIA INTEGRAL SLU is not responsible for the content of the websites that the user may access through the links established on its website, provided that it has no effective knowledge that the activity or information to which it refers or recommends is illegal or that it damages the goods or rights of a third party subject to compensation, or, if it does have such knowledge, acts diligently to remove or disable the corresponding link."
+      },
+      {
+        type: "p",
+        text: "It will be understood that S’ESTEPA JARDINERIA INTEGRAL SLU has effective knowledge as referred to in the previous paragraph when a competent authority has declared the illegality of the data, ordered its removal, or disabled access to them, or has declared the existence of the injury, and S’ESTEPA JARDINERIA INTEGRAL SLU knew of the corresponding resolution, without prejudice to the procedures for detecting and removing content that S’ESTEPA JARDINERIA INTEGRAL SLU applies by virtue of voluntary agreements and other means of effective knowledge that may be established."
+      },
+      {
+        type: "p",
+        text: "S’ESTEPA JARDINERIA INTEGRAL SLU declares that it has taken all necessary measures to avoid any harm to the users of its website, which may arise from browsing its website. Consequently, S’ESTEPA JARDINERIA INTEGRAL SLU is not responsible, under any circumstances, for any damage that the user may suffer from browsing the Internet. Likewise, it will not guarantee the technical availability, accuracy, truthfulness, validity, or legality of sites outside its property that can be accessed through links."
+      },
+      {
+        type: "h2",
+        text: "Modifications"
+      },
+      {
+        type: "p",
+        text: "S’ESTEPA JARDINERIA INTEGRAL SLU reserves the right to make, at any time and without prior notice, modifications and updates to the information contained on its website or in the configuration and presentation of this. In order to keep the published information updated, the contents of the website may be modified, corrected, deleted, or added at any time, in any way allowed by law."
+      },
+      {
+        type: "h2",
+        text: "Price Indication"
+      },
+      {
+        type: "p",
+        text: "If product and/or service prices are displayed, those shown on the screen will be the current ones at any given time. Prices will be indicated in euros and will include Value Added Tax (VAT). If VAT is not included in the price, it will be expressly indicated, and the user will be allowed to view the final full price."
+      },
+      {
+        type: "p",
+        text: "Likewise, if any other tax is applicable, it will be indicated, including, where applicable, the amount of applicable increases or discounts and the additional costs that may be charged to the consumer or user."
+      },
+      {
+        type: "h2",
+        text: "Intellectual and Industrial Property"
+      },
+      {
+        type: "p",
+        text: "S’ESTEPA JARDINERIA INTEGRAL SLU itself or as an assignee, is the owner of all the intellectual and industrial property rights of its website, as well as the elements contained therein (for example, images, sound, audio, video, software, or texts; trademarks or logos, color combinations, structure and design, selection of materials used, computer programs necessary for its operation, access, and use, etc.), owned by S’ESTEPA JARDINERIA INTEGRAL SLU. They will, therefore, be works protected as intellectual property by the Spanish legal system, and both the Spanish and EU regulations in this field, as well as the international treaties relating to the matter and signed by Spain, will apply."
+      },
+      {
+        type: "p",
+        text: "All rights reserved. Pursuant to the provisions of the Intellectual Property Law, the reproduction, distribution, and public communication, including the method of making available, of all or part of the contents of this web page, for commercial purposes, on any support and by any technical means, without the authorization of S’ESTEPA JARDINERIA INTEGRAL SLU, are expressly prohibited."
+      },
+      {
+        type: "p",
+        text: "The user undertakes to respect the Intellectual and Industrial Property rights owned by S’ESTEPA JARDINERIA INTEGRAL SLU. The user can view the elements of the portal and even print them, copy them, and store them on the hard drive of their computer or on any other physical support as long as it is solely and exclusively for their personal and private use. The user must refrain from deleting, altering, evading, or manipulating any protection device or security system installed on the pages of S’ESTEPA JARDINERIA INTEGRAL SLU."
+      },
+      {
+        type: "h2",
+        text: "Legal Actions, Applicable Legislation, and Jurisdiction"
+      },
+      {
+        type: "p",
+        text: "If the user wishes to file a complaint, they should contact via email at sofia@sestepa.com. S’ESTEPA JARDINERIA INTEGRAL SLU also has official claim forms available to consumers and users."
+      },
+      {
+        type: "p",
+        text: "S’ESTEPA JARDINERIA INTEGRAL SLU reserves the right to file civil or criminal actions it deems appropriate for the improper use of its website and contents, or for the breach of these conditions."
+      },
+      {
+        type: "p",
+        text: "The relationship between the user and the provider will be governed by the current regulations and applicable in the Spanish territory. Should any controversy arise, the parties may submit their conflicts to arbitration or go to ordinary jurisdiction complying with the rules on jurisdiction and competence in this regard."
+      },
+      {
+        type: "p",
+        text: "Last updated: April 1, 2024"
+      }
+    ]
+  },
+  es: {
+    title: "Aviso Legal",
+    tag: "Legal",
+    description: "Aviso legal y datos de propiedad de S'Estepa Jardinería Integral SLU.",
+    sections: [
+      {
+        type: "p",
+        text: "En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSI-CE), S’ESTEPA JARDINERIA INTEGRAL SLU informa que es titular del sitio web. De acuerdo con la exigencia del artículo 10 de la citada Ley, S’ESTEPA JARDINERIA INTEGRAL SLU facilita la siguiente información:"
+      },
+      {
+        type: "h2",
+        text: "Usuario y régimen de responsabilidad"
+      },
+      {
+        type: "p",
+        text: "La navegación, acceso y uso por el sitio web de S’ESTEPA JARDINERIA INTEGRAL SLU confiere la condición de usuario."
+      },
+      {
+        type: "p",
+        text: "El sitio web de S’ESTEPA JARDINERIA INTEGRAL SLU proporciona gran diversidad de información, servicios y datos. El usuario asume su responsabilidad en el uso correcto de la web. Dicha responsabilidad se extenderá a:"
+      },
+      {
+        type: "ul",
+        items: [
+          "La veracidad y licitud de las informaciones aportadas por el usuario en los formularios extendidos por S’ESTEPA JARDINERIA INTEGRAL SLU para el acceso a ciertos contenidos o servicios ofrecidos por el web.",
+          "El uso de la información, servicios y datos ofrecidos por S’ESTEPA JARDINERIA INTEGRAL SLU contrariamente a lo dispuesto por las presentes condiciones, la Ley, la moral, las buenas costumbres o el orden público, o que de cualquier otro modo puedan suponer lesión de los derechos de terceros o del mismo funcionamiento del sitio web."
+        ]
+      },
+      {
+        type: "h2",
+        text: "Vinculación de las Exenciones de Póliza y Responsabilidad"
+      },
+      {
+        type: "p",
+        text: "S’ESTEPA JARDINERIA INTEGRAL SLU no se hace responsable del contenido de los sitios web a los que el usuario pueda acceder a través de los enlaces establecidos en su sitio web, siempre que no tenga conocimiento efectivo de que la actividad o la información a la que remite o recomienda es ilícita o de que lesiona bienes o derechos de un tercero susceptibles de indemnización, o, si la tuviese, actúe con diligencia para suprimir o inutilizar el enlace correspondiente."
+      },
+      {
+        type: "p",
+        text: "Se entenderá que S’ESTEPA JARDINERIA INTEGRAL SLU tiene el conocimiento efectivo a que se refiere el párrafo anterior cuando una autoridad competente haya declarado la ilicitud de los datos, ordenado su retirada, o inutilizado el acceso a los mismos, o haya declarado la existencia de la lesión, y S’ESTEPA JARDINERIA INTEGRAL SLU tuviera conocimiento de la correspondiente resolución, sin perjuicio de los procedimientos de detección y retirada de contenidos que S’ESTEPA JARDINERIA INTEGRAL SLU aplique en virtud de acuerdos voluntarios y otros medios de conocimiento efectivo que puedan establecerse."
+      },
+      {
+        type: "p",
+        text: "S’ESTEPA JARDINERIA INTEGRAL SLU declara haber adoptado todas las medidas necesarias para evitar cualesquiera daños a los usuarios de su sitio web, que pudieran derivarse de la navegación por su sitio web. En consecuencia, S’ESTEPA JARDINERIA INTEGRAL SLU no se hace responsable, en ningún caso, de los eventuales daños que por la navegación por Internet pudiera sufrir el usuario. Asimismo, tampoco garantizará la disponibilidad técnica, exactitud, veracidad, validez o legalidad de sitios ajenos a su propiedad a los que se pueda acceder por medio de los enlaces."
+      },
+      {
+        type: "h2",
+        text: "Modificaciones"
+      },
+      {
+        type: "p",
+        text: "S’ESTEPA JARDINERIA INTEGRAL SLU se reserva la facultad de efectuar, en cualquier momento y sin necesidad de previo aviso, modificaciones y actualizaciones de la información contenida en su web o en la configuración y presentación de ésta. Con el fin de mantener actualizada la información publicada, los contenidos del sitio web podrán ser modificados, corregidos, eliminados o añadidos en cualquier momento, de cualquier forma admisible en derecho."
+      },
+      {
+        type: "h2",
+        text: "Precio Indicación"
+      },
+      {
+        type: "p",
+        text: "Si se muestran precios de productos y/o servicios, los que aparezcan en pantalla serán los vigentes en cada momento. Los precios se indicarán en euros e incluirán el Impuesto sobre el Valor Añadido (IVA). Si el IVA no está incluido en el precio, se indicará expresamente, y se permitirá al usuario ver el precio final completo."
+      },
+      {
+        type: "p",
+        text: "Asimismo, si fuera de aplicación algún otro impuesto, se indicará, incluyendo, en su caso, el importe de los incrementos o descuentos aplicables y los costes adicionales que puedan repercutirse al consumidor o usuario."
+      },
+      {
+        type: "h2",
+        text: "Propiedad Intelectual e Industrial"
+      },
+      {
+        type: "p",
+        text: "S’ESTEPA JARDINERIA INTEGRAL SLU por sí o como cesionaria, es titular de todos los derechos de propiedad intelectual e industrial de su página web, así como de los elementos contenidos en la misma (a título enunciativo, imágenes, sonido, audio, vídeo, software o textos; marcas o logotipos, combinaciones de colores, estructura y diseño, selección de materiales usados, programas de ordenador necesarios para su funcionamiento, acceso y uso, etc.), titularidad de S’ESTEPA JARDINERIA INTEGRAL SLU. Serán, por tanto, obras protegidas como propiedad intelectual por el ordenamiento jurídico español, siendo de aplicación tanto la normativa española y comunitaria en la materia, como los tratados internacionales relativos a la materia y suscritos por España."
+      },
+      {
+        type: "p",
+        text: "Todos los derechos reservados. En virtud de lo dispuesto en la Ley de Propiedad Intelectual, quedan expresamente prohibidas la reproducción, la distribución y la comunicación pública, incluida su modalidad de puesta a disposición, de la totalidad o parte de los contenidos de esta página web, con fines comerciales, en cualquier soporte y por cualquier medio técnico, sin la autorización de S’ESTEPA JARDINERIA INTEGRAL SLU."
+      },
+      {
+        type: "p",
+        text: "El usuario se compromete a respetar los derechos de Propiedad Intelectual e Industrial titularidad de S’ESTEPA JARDINERIA INTEGRAL SLU. El usuario podrá visualizar los elementos del portal e incluso imprimirlos, copiarlos y almacenarlos en el disco duro de su ordenador o en cualquier otro soporte físico siempre y cuando sea, única y exclusivamente, para su uso personal y privado. El usuario deberá abstenerse de suprimir, alterar, eludir o manipular cualquier dispositivo de protección o sistema de seguridad que estuviera instalado en el las páginas de S’ESTEPA JARDINERIA INTEGRAL SLU."
+      },
+      {
+        type: "h2",
+        text: "Acciones legales, legislación aplicable y jurisdicción"
+      },
+      {
+        type: "p",
+        text: "Si el usuario desea presentar una reclamación, debe ponerse en contacto a través del correo electrónico sofia@sestepa.com. S’ESTEPA JARDINERIA INTEGRAL SLU también dispone de hojas oficiales de reclamaciones a disposición de los consumidores y usuarios."
+      },
+      {
+        type: "p",
+        text: "S’ESTEPA JARDINERIA INTEGRAL SLU se reserva la facultad de presentar las acciones civiles o penales que considere oportunas por la utilización indebida de su sitio web y contenidos, o por el incumplimiento de las presentes condiciones."
+      },
+      {
+        type: "p",
+        text: "La relación entre el usuario y el prestador se regirá por la normativa vigente y de aplicación en el territorio español. En caso de controversia, las partes podrán someter sus conflictos a arbitraje o acudir a la jurisdicción ordinaria cumpliendo las normas sobre jurisdicción y competencia al respecto."
+      },
+      {
+        type: "p",
+        text: "Última actualización: 1 de abril de 2024"
+      }
+    ]
+  },
+  de: {
+    title: "Rechtlicher Hinweis",
+    tag: "Rechtliches",
+    description: "Rechtliche Hinweise und Eigentumsverhältnisse für S'Estepa Jardinería Integral SLU.",
+    sections: [
+      {
+        type: "p",
+        text: "In Übereinstimmung mit dem Gesetz 34/2002 vom 11. Juli über Dienstleistungen der Informationsgesellschaft und des elektronischen Handels (LSSI-CE) teilt S’ESTEPA JARDINERIA INTEGRAL SLU mit, dass sie der Eigentümer dieser Website ist. In Übereinstimmung mit Artikel 10 des genannten Gesetzes stellt S’ESTEPA JARDINERIA INTEGRAL SLU die folgenden Informationen zur Verfügung:"
+      },
+      {
+        type: "h2",
+        text: "Benutzer- und Haftungsregime"
+      },
+      {
+        type: "p",
+        text: "Die Navigation, der Zugang und die Nutzung der Website von S’ESTEPA JARDINERIA INTEGRAL SLU verleiht die Bedingung des Benutzers."
+      },
+      {
+        type: "p",
+        text: "Die Website von S’ESTEPA JARDINERIA INTEGRAL SLU bietet eine breite Palette von Informationen, Dienstleistungen und Daten. Der Nutzer übernimmt die Verantwortung für die ordnungsgemäße Nutzung der Website. Diese Verantwortung erstreckt sich auf:"
+      },
+      {
+        type: "ul",
+        items: [
+          "Die Richtigkeit und Rechtmäßigkeit der Angaben, die der Benutzer in den von S’ESTEPA JARDINERIA INTEGRAL SLU ausgestellten Formularen für den Zugang zu bestimmten auf der Website angebotenen Inhalten oder Dienstleistungen macht.",
+          "Die Nutzung der von S’ESTEPA JARDINERIA INTEGRAL SLU angebotenen Informationen, Dienstleistungen und Daten, die gegen die Bestimmungen dieser Bedingungen, das Gesetz, die Moral, die guten Sitten oder die öffentliche Ordnung verstößt oder in sonstiger Weise die Rechte Dritter oder den Betrieb der Website beeinträchtigen kann."
+        ]
+      },
+      {
+        type: "h2",
+        text: "Verknüpfung von Politik und Haftungsfreistellung"
+      },
+      {
+        type: "p",
+        text: "S’ESTEPA JARDINERIA INTEGRAL SLU ist nicht verantwortlich für den Inhalt der Websites, auf die der Nutzer über die auf ihrer Website eingerichteten Links zugreifen kann, sofern sie keine tatsächliche Kenntnis davon hat, dass die Aktivität oder Information, auf die sie verweist oder die sie empfiehlt, rechtswidrig ist oder die Güter oder Rechte eines schadensersatzpflichtigen Dritten verletzt, oder, falls sie solche Kenntnis hat, mit der gebotenen Sorgfalt handelt, um den entsprechenden Link zu entfernen oder zu deaktivieren."
+      },
+      {
+        type: "p",
+        text: "Es wird davon ausgegangen, dass S’ESTEPA JARDINERIA INTEGRAL SLU tatsächliche Kenntnis im Sinne des vorigen Absatzes hat, wenn eine zuständige Behörde die Rechtswidrigkeit der Daten erklärt, ihre Entfernung angeordnet oder den Zugang zu ihnen gesperrt hat oder das Vorliegen einer Verletzung festgestellt hat, und die S’ESTEPA JARDINERIA INTEGRAL SLU von dem entsprechenden Beschluss Kenntnis hatte, unbeschadet der Verfahren zur Aufdeckung und Entfernung von Inhalten, die die S’ESTEPA JARDINERIA INTEGRAL SLU aufgrund freiwilliger Vereinbarungen und anderer Mittel zur effektiven Kenntnisnahme anwendet, die festgelegt werden können."
+      },
+      {
+        type: "p",
+        text: "S’ESTEPA JARDINERIA INTEGRAL SLU erklärt, dass sie alle notwendigen Maßnahmen ergriffen hat, um Schäden zu vermeiden, die den Nutzern ihrer Website durch das Surfen auf ihrer Website entstehen können. Folglich ist S’ESTEPA JARDINERIA INTEGRAL SLU unter keinen Umständen für Schäden verantwortlich, die dem Benutzer durch das Surfen im Internet entstehen können. Ebenso wenig garantiert S’ESTEPA JARDINERIA INTEGRAL SLU für die technische Verfügbarkeit, die Genauigkeit, den Wahrheitsgehalt, die Gültigkeit oder die Rechtmäßigkeit von Websites, die sich nicht in ihrem Besitz befinden und auf die Sie über Links zugreifen können."
+      },
+      {
+        type: "h2",
+        text: "Modifikationen"
+      },
+      {
+        type: "p",
+        text: "S’ESTEPA JARDINERIA INTEGRAL SLU behält sich das Recht vor, jederzeit und ohne Vorankündigung Änderungen und Aktualisierungen an den auf ihrer Website enthaltenen Informationen oder an der Gestaltung und Präsentation derselben vorzunehmen. Um die veröffentlichten Informationen auf dem neuesten Stand zu halten, können die Inhalte der Website jederzeit auf jede gesetzlich zulässige Weise geändert, korrigiert, gelöscht oder ergänzt werden."
+      },
+      {
+        type: "h2",
+        text: "Preisangabe"
+      },
+      {
+        type: "p",
+        text: "Wenn Preise für Produkte und/oder Dienstleistungen angezeigt werden, handelt es sich um die zu einem bestimmten Zeitpunkt gültigen Preise. Die Preise sind in Euro angegeben und enthalten die Mehrwertsteuer (MwSt.). Wenn die Mehrwertsteuer nicht im Preis enthalten ist, wird dies ausdrücklich angegeben, und der Benutzer kann den endgültigen Gesamtpreis einsehen."
+      },
+      {
+        type: "p",
+        text: "Wenn eine andere Steuer anwendbar ist, wird diese ebenfalls angegeben, gegebenenfalls einschließlich des Betrags der anwendbaren Zuschläge oder Rabatte und der zusätzlichen Kosten, die dem Verbraucher oder Nutzer in Rechnung gestellt werden können."
+      },
+      {
+        type: "h2",
+        text: "Geistiges und gewerbliches Eigentum"
+      },
+      {
+        type: "p",
+        text: "S’ESTEPA JARDINERIA INTEGRAL SLU ist selbst oder als Abtretungsempfänger Eigentümerin aller geistigen und gewerblichen Eigentumsrechte ihrer Website sowie der darin enthaltenen Elemente (z.B. Bilder, Ton, Audio, Video, Software oder Texte; Marken oder Logos, Farbkombinationen, Struktur und Design, Auswahl der verwendeten Materialien, Computerprogramme, die für den Betrieb, den Zugang und die Nutzung erforderlich sind, usw.), die Eigentum von S’ESTEPA JARDINERIA INTEGRAL SLU sind. Es handelt sich also um Werke, die als geistiges Eigentum durch das spanische Rechtssystem geschützt sind, und es gelten sowohl die spanischen als auch die EU-Vorschriften in diesem Bereich sowie die von Spanien unterzeichneten internationalen Verträge in diesem Bereich."
+      },
+      {
+        type: "p",
+        text: "Alle Rechte vorbehalten. Gemäß den Bestimmungen des Gesetzes zum Schutz des geistigen Eigentums sind die Vervielfältigung, die Verbreitung und die öffentliche Wiedergabe, einschließlich der Art der Bereitstellung, des gesamten oder eines Teils des Inhalts dieser Webseite zu kommerziellen Zwecken auf jeglichem Träger und mit jeglichen technischen Mitteln ohne die Genehmigung von S’ESTEPA JARDINERIA INTEGRAL SLU ausdrücklich verboten."
+      },
+      {
+        type: "p",
+        text: "Der Benutzer verpflichtet sich, die geistigen und gewerblichen Eigentumsrechte von S’ESTEPA JARDINERIA INTEGRAL SLU zu respektieren. Der Nutzer kann die Elemente des Portals ansehen und sogar ausdrucken, kopieren und auf der Festplatte seines Computers oder auf einem anderen physischen Träger speichern, solange dies einzig und allein für seinen persönlichen und privaten Gebrauch geschieht. Der Nutzer darf die auf den Seiten von S’ESTEPA JARDINERIA INTEGRAL SLU installierten Schutzvorrichtungen oder Sicherheitssysteme nicht löschen, verändern, umgehen oder manipulieren."
+      },
+      {
+        type: "h2",
+        text: "Rechtliche Schritte, geltende Gesetzgebung und Gerichtsbarkeit"
+      },
+      {
+        type: "p",
+        text: "Wenn der Nutzer eine Beschwerde einreichen möchte, sollte er sich per E-Mail an sofia@sestepa.com wenden. S’ESTEPA JARDINERIA INTEGRAL SLU hält auch offizielle Beschwerdeformulare für Verbraucher und Nutzer bereit."
+      },
+      {
+        type: "p",
+        text: "S’ESTEPA JARDINERIA INTEGRAL SLU behält sich das Recht vor, zivil- oder strafrechtliche Schritte einzuleiten, die sie für die missbräuchliche Nutzung ihrer Website und ihrer Inhalte oder für den Verstoß gegen diese Bedingungen für angemessen hält."
+      },
+      {
+        type: "p",
+        text: "Die Beziehung zwischen dem Nutzer und dem Anbieter unterliegt den geltenden Vorschriften, die auf spanischem Gebiet gelten. Sollte es zu Streitigkeiten kommen, können die Parteien ihre Konflikte einem Schiedsgericht vorlegen oder sich an die ordentliche Gerichtsbarkeit wenden, wobei die Vorschriften über die Gerichtsbarkeit und die Zuständigkeit in diesem Bereich zu beachten sind."
+      },
+      {
+        type: "p",
+        text: "Zuletzt aktualisiert: 1. April 2024"
+      }
+    ]
+  }
+};
+
+const page = content[lang];
+---
+
+<Layout title={`S'Estepa Design | ${page.title}`} description={page.description} lang={lang}>
+  <section class="legal-page section-padding">
+    <div class="container legal-container">
+      <span class="legal-tag">{page.tag}</span>
+      <h1 class="legal-title">{page.title}</h1>
+      <div class="legal-content">
+        {page.sections.map(section => {
+          if (section.type === "p") {
+            return <p>{section.text}</p>;
+          } else if (section.type === "h2") {
+            return <h2>{section.text}</h2>;
+          } else if (section.type === "ul" && section.items) {
+            return (
+              <ul>
+                {section.items.map(item => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            );
+          }
+          return null;
+        })}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-page {
+    background-color: var(--color-white);
+    padding: 12rem 0 8rem 0;
+  }
+
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .legal-tag {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-olive);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .legal-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--color-charcoal);
+    margin-bottom: 4rem;
+    border-bottom: 1px solid var(--color-sand-dark);
+    padding-bottom: 2rem;
+  }
+
+  .legal-content h2 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--color-charcoal);
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .legal-content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-charcoal-light);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+
+  .legal-content ul {
+    margin-bottom: 2.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .legal-content li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-charcoal-light);
+    margin-bottom: 0.8rem;
+    font-weight: 300;
+  }
+</style>

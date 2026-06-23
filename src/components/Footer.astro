@@ -1,0 +1,316 @@
+---
+import { ui } from '../data/translations';
+import { getPagePath } from '../lib/urls';
+
+interface Props {
+  lang: 'en' | 'es' | 'de';
+}
+
+const { lang } = Astro.props;
+
+const t = (key: keyof typeof ui[typeof lang]) => {
+  return ui[lang][key] || key;
+};
+
+const currentYear = new Date().getFullYear();
+
+const whatsappTexts = {
+  en: "Hello S'Estepa Design! I visited your website and would like to request a consultation.",
+  es: "Hola S'Estepa Design! He visitado su web y me gustaría solicitar una consulta.",
+  de: "Hallo S'Estepa Design! Ich habe Ihre Website besucht und möchte eine Beratung anfragen."
+};
+const whatsappUrl = `https://wa.me/34681272252?text=${encodeURIComponent(whatsappTexts[lang])}`;
+
+const footerAddress = {
+  en: 'Carrer dels Menestrals, 5, 07300 Inca, Mallorca, Balearic Islands',
+  es: 'Carrer dels Menestrals, 5, 07300 Inca, Mallorca, Islas Baleares',
+  de: 'Carrer dels Menestrals, 5, 07300 Inca, Mallorca, Balearische Inseln',
+};
+---
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href={getPagePath('home', lang)} class="footer-logo" aria-label="S'Estepa Design">
+          <img src="/images/logo.png" alt="S'Estepa Design Logo" class="footer-logo-img" />
+        </a>
+        <p class="footer-tagline">{t('footer.description')}</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/sestepadesign" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="https://www.youtube.com/@sestepadesign" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+          </a>
+          <a href="https://www.pinterest.com/sestepadesign" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Pinterest">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 22c.4-1.9.8-3.9 1.1-5.7.1-.6-.2-1.7-.4-2.4-.6-2.1.2-5.5 2.5-5.5 1 0 1.6.8 1.6 1.9 0 2.2-1.3 4.8-1.3 7 0 1.2 1 2.3 2.2 2.3 3.6 0 5.8-4.5 5.8-8 0-4.3-3.2-7.1-7.8-7.1-5.4 0-8.7 3.8-8.7 8.3 0 1.8.6 3.1 1.6 3.7.3.1.4.1.5-.2.1-.2.2-.7.3-1 .1-.3.1-.4-.1-.6-.7-.9-1.1-2.2-1.1-3.6 0-3.3 2.6-6.6 7.1-6.6 3.9 0 6.6 2.7 6.6 6.1 0 3.9-2.1 6.8-5 6.8-1 0-1.8-.8-1.6-1.8.2-1 .7-2.6.7-3.5 0-.8-.4-1.5-1.3-1.5-1 0-1.8 1-1.8 2.4 0 1 .3 1.7.3 1.7s-1.1 4.7-1.3 5.6C4.8 19.3 5 21.1 5 22"></path></svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-info">
+        <h4 class="footer-heading">{t('footer.contact.heading')}</h4>
+        <p class="footer-greeting">{t('footer.contact.greeting')}</p>
+        <p class="footer-text">
+          <a href="mailto:sofia@sestepa.com" class="footer-email">sofia@sestepa.com</a>
+        </p>
+        <p class="footer-text">
+          <a href={whatsappUrl} class="footer-whatsapp" target="_blank" rel="noopener noreferrer">
+            +34 681 272 252
+          </a>
+        </p>
+        <p class="footer-text footer-address">{footerAddress[lang]}</p>
+      </div>
+
+      <div class="footer-links-col">
+        <h4 class="footer-heading">Menu</h4>
+        <ul class="footer-links">
+          <li><a href={getPagePath('home', lang)}>{t('nav.home')}</a></li>
+          <li><a href={getPagePath('about', lang)}>{t('nav.about')}</a></li>
+          <li><a href={getPagePath('portfolio', lang)}>{t('nav.portfolio')}</a></li>
+          <li><a href={getPagePath('gallery', lang)}>{t('nav.gallery')}</a></li>
+          <li><a href={getPagePath('press', lang)}>{t('nav.press')}</a></li>
+          <li><a href={getPagePath('contact', lang)}>{t('nav.contact')}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-info">
+        <p class="copyright">&copy; {currentYear} S'Estepa Design. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href={getPagePath('legal-notice', lang)}>{t('footer.legal')}</a>
+          <span class="separator">•</span>
+          <a href={getPagePath('privacy-policy', lang)}>{t('footer.privacy')}</a>
+          <span class="separator">•</span>
+          <a href={getPagePath('cookies', lang)}>{t('footer.cookies')}</a>
+        </div>
+      </div>
+      <p class="credit">
+        Mediterranean Soul
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-sand-base);
+    border-top: 1px solid var(--color-sand-dark);
+    padding: 6rem 0 3rem 0;
+    margin-top: auto;
+  }
+
+  .footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid var(--color-sand-dark);
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 0.85rem;
+    margin-top: 0.5rem;
+  }
+
+  .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--color-sand-dark);
+    color: var(--color-charcoal-light);
+    transition: var(--transition-fast);
+  }
+
+  .social-icon svg {
+    width: 16px;
+    height: 16px;
+    max-width: 16px;
+    max-height: 16px;
+    display: block;
+  }
+
+  .social-icon:hover {
+    background-color: var(--color-olive);
+    color: var(--color-white);
+    transform: translateY(-2px);
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-logo-img {
+    width: 280px;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    transition: var(--transition-fast);
+  }
+
+  .footer-logo-img:hover {
+    opacity: 0.8;
+  }
+
+  .footer-tagline {
+    font-size: 0.9rem;
+    color: var(--color-charcoal-light);
+    max-width: 320px;
+    line-height: 1.6;
+  }
+
+  .footer-greeting {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--color-charcoal);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .footer-address {
+    margin-top: 0.25rem;
+    max-width: 260px;
+    line-height: 1.55;
+  }
+
+  .footer-heading {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-olive-dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-text {
+    font-size: 0.85rem;
+    color: var(--color-charcoal-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-email {
+    color: var(--color-olive);
+    transition: var(--transition-fast);
+  }
+
+  .footer-email:hover {
+    color: var(--color-olive-dark);
+  }
+
+  .footer-whatsapp {
+    color: var(--color-olive);
+    font-weight: 500;
+    transition: var(--transition-fast);
+  }
+
+  .footer-whatsapp:hover {
+    color: var(--color-olive-dark);
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-links a {
+    font-size: 0.85rem;
+    color: var(--color-charcoal-light);
+    transition: var(--transition-fast);
+  }
+
+  .footer-links a:hover {
+    color: var(--color-olive);
+    padding-left: 4px;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    font-size: 0.75rem;
+    color: var(--color-limestone);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-bottom-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-legal-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .footer-legal-links a {
+    color: var(--color-charcoal-light);
+    text-decoration: none;
+    transition: var(--transition-fast);
+  }
+
+  .footer-legal-links a:hover {
+    color: var(--color-olive);
+  }
+
+  .separator {
+    color: var(--color-sand-dark);
+    font-size: 0.6rem;
+  }
+
+  .credit {
+    font-style: italic;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      padding: 4rem 0 2rem 0;
+    }
+
+    .footer-top {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .footer-legal-links {
+      flex-wrap: wrap;
+      gap: 0.5rem 0.75rem;
+    }
+  }
+</style>

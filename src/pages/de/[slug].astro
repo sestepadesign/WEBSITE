@@ -1,0 +1,19 @@
+---
+import ProjectDetail from '../../components/ProjectDetail.astro';
+import { projects } from '../../data/projects';
+import { getProjectStaticPathParams } from '../../lib/urls';
+
+export function getStaticPaths() {
+  return getProjectStaticPathParams('de').map(({ params, props }) => {
+    const project = projects.find((p) => p.slug === props.projectSlug)!;
+    return {
+      params,
+      props: { project, canonicalPath: props.canonicalPath },
+    };
+  });
+}
+
+const { project, canonicalPath } = Astro.props;
+---
+
+<ProjectDetail project={project} lang="de" canonicalPath={canonicalPath} />

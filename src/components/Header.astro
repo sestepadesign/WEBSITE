@@ -1,0 +1,307 @@
+---
+import { ui } from '../data/translations';
+import { getAlternatePath, getPagePath } from '../lib/urls';
+
+interface Props {
+  lang: 'en' | 'es' | 'de';
+}
+
+const { lang } = Astro.props;
+const currentUrl = Astro.url;
+
+const t = (key: keyof typeof ui[typeof lang]) => {
+  return ui[lang][key] || key;
+};
+
+function getLocalizedUrl(targetLang: string) {
+  return getAlternatePath(currentUrl.pathname, targetLang as 'en' | 'es' | 'de');
+}
+
+const whatsappTexts = {
+  en: "Hello S'Estepa Design! I visited your website and would like to request a consultation.",
+  es: "Hola S'Estepa Design! He visitado su web y me gustaría solicitar una consulta.",
+  de: "Hallo S'Estepa Design! Ich habe Ihre Website besucht und möchte eine Beratung anfragen."
+};
+const whatsappUrl = `https://wa.me/34681272252?text=${encodeURIComponent(whatsappTexts[lang])}`;
+
+const menuItems = [
+  { href: getPagePath('home', lang), label: t('nav.home'), exact: true },
+  { href: getPagePath('about', lang), label: t('nav.about') },
+  { href: getPagePath('services', lang), label: t('nav.services') },
+  { href: getPagePath('portfolio', lang), label: t('nav.portfolio') },
+  { href: getPagePath('gallery', lang), label: t('nav.gallery') },
+  { href: getPagePath('press', lang), label: t('nav.press') },
+  { href: getPagePath('contact', lang), label: t('nav.contact') },
+];
+---
+
+<header class="header">
+  <div class="header-container">
+    <a href={getPagePath('home', lang)} class="logo" aria-label="S'Estepa Design">
+      <img src="/images/S-ESTEPA-GARDEN-DESIGN-MALLORCA-LOGO-BLACK-344.png" alt="S'Estepa Design" class="logo-img" />
+    </a>
+
+    <button class="nav-toggle" aria-label="Toggle navigationMenu" aria-expanded="false" id="menuToggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav class="nav-menu" id="navMenu">
+      <ul class="nav-links">
+        {menuItems.map(item => {
+          const normalizedCurrent = currentUrl.pathname.endsWith('/') ? currentUrl.pathname : `${currentUrl.pathname}/`;
+          const isActive = item.exact
+            ? normalizedCurrent === item.href
+            : normalizedCurrent.startsWith(item.href) && normalizedCurrent !== getPagePath('home', lang);
+          return (
+            <li>
+              <a href={item.href} class:list={['nav-link', { active: isActive }]}>
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
+        <li>
+          <a 
+            href={whatsappUrl} 
+            class="nav-link whatsapp-link" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            WhatsApp
+          </a>
+        </li>
+      </ul>
+
+      <div class="lang-selector">
+        {['en', 'es', 'de'].map(l => (
+          <a 
+            href={getLocalizedUrl(l)} 
+            class:list={['lang-link', { active: lang === l }]}
+            aria-label={`Switch to ${l.toUpperCase()}`}
+          >
+            {l.toUpperCase()}
+          </a>
+        ))}
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navMenu = document.getElementById('navMenu');
+
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => {
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!expanded));
+      menuToggle.classList.toggle('open');
+      navMenu.classList.toggle('open');
+    });
+  }
+</script>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(250, 249, 246, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(227, 221, 211, 0.35);
+    transition: var(--transition-fast);
+  }
+
+  .header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0.85rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    transition: var(--transition-fast);
+  }
+
+  .logo-img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    transition: var(--transition-fast);
+  }
+
+  .logo-img:hover {
+    opacity: 0.8;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    color: var(--color-charcoal-light);
+    position: relative;
+    padding: 0.5rem 0;
+  }
+
+  .whatsapp-link {
+    color: var(--color-olive) !important;
+    font-weight: 500;
+  }
+
+  .whatsapp-link:hover {
+    color: var(--color-olive-dark) !important;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-olive);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .nav-link:hover {
+    color: var(--color-olive);
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .nav-link.active {
+    color: var(--color-olive);
+  }
+
+  .lang-selector {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    border-left: 1px solid var(--color-sand-dark);
+    padding-left: 1.5rem;
+  }
+
+  .lang-link {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-limestone);
+    letter-spacing: 0.05em;
+    transition: var(--transition-fast);
+  }
+
+  .lang-link:hover {
+    color: var(--color-olive);
+  }
+
+  .lang-link.active {
+    color: var(--color-charcoal);
+    font-weight: 600;
+    position: relative;
+  }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1100;
+  }
+
+  .bar {
+    width: 22px;
+    height: 1.5px;
+    background-color: var(--color-charcoal);
+    transition: var(--transition-fast);
+  }
+
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: flex;
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 320px;
+      height: 100vh;
+      background-color: var(--color-sand-light);
+      box-shadow: -10px 0 30px rgba(0,0,0,0.03);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 8rem 3rem 3rem 3rem;
+      gap: 3rem;
+      transition: right 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .nav-menu.open {
+      right: 0;
+    }
+
+    .nav-links {
+      flex-direction: column;
+      gap: 2rem;
+      width: 100%;
+    }
+
+    .nav-link {
+      font-size: 1.1rem;
+      width: 100%;
+      display: block;
+    }
+
+    .lang-selector {
+      border-left: none;
+      border-top: 1px solid var(--color-sand-dark);
+      padding-left: 0;
+      padding-top: 1.5rem;
+      width: 100%;
+      justify-content: flex-start;
+      gap: 1.5rem;
+    }
+
+    .lang-link {
+      font-size: 0.9rem;
+    }
+
+    .nav-toggle.open .bar:nth-child(1) {
+      transform: translateY(4px) rotate(45deg);
+    }
+    .nav-toggle.open .bar:nth-child(2) {
+      transform: translateY(-4px) rotate(-45deg);
+    }
+  }
+</style>

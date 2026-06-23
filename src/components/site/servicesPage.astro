@@ -1,0 +1,316 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { ui } from '../../data/translations';
+import { servicesContent } from '../../data/services';
+import { getPagePath } from '../../lib/urls';
+import type { SitePageId } from '../../data/site-urls';
+
+interface Props { lang: 'en' | 'es' | 'de'; }
+const { lang } = Astro.props;
+const content = servicesContent[lang];
+
+const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
+---
+
+<Layout
+  title={`S'Estepa Design | ${content.title}`}
+  description={content.metaDescription}
+  lang={lang}
+  image="/portfolio/finca-garden-campos-mallorca/cover.webp"
+>
+  <article class="services-page section-padding">
+    <div class="container">
+      <header class="page-header">
+        <span class="section-tag">{content.tag}</span>
+        <h1 class="page-title">{content.title}</h1>
+        <p class="page-subtitle">{content.subtitle}</p>
+        <p class="page-intro">{content.intro}</p>
+      </header>
+
+      <div class="services-grid">
+        {content.items.map((item) => (
+          <section class="service-card">
+            <h2 class="service-title">{item.title}</h2>
+            <p class="service-text">{item.text}</p>
+            <a href={getPagePath(item.linkUrl as SitePageId, lang)} class="service-link">
+              {item.linkText} &rarr;
+            </a>
+          </section>
+        ))}
+      </div>
+
+      <div class="cta-panel">
+        <p>
+          {lang === 'en' && 'Mediterranean gardens with an authentic Mallorcan DNA.'}
+          {lang === 'es' && 'Jardines mediterráneos con un ADN mallorquín auténtico.'}
+          {lang === 'de' && 'Mediterrane Gärten mit authentischer mallorquinischer DNA.'}
+        </p>
+        <a href={getPagePath('contact', lang)} class="cta-button">
+          {t('contact.form.submit')}
+        </a>
+      </div>
+
+      {lang === 'en' && (
+        <section class="faq-section">
+          <h2 class="faq-heading">Landscape Design & Garden Design in Mallorca — FAQ</h2>
+          <dl class="faq-list">
+            <div class="faq-item">
+              <dt>What landscape design services does S'Estepa Design offer in Mallorca?</dt>
+              <dd>S'Estepa Design provides a full spectrum of landscape design and garden design services in Mallorca: conceptual design, 2D scaled plans, photorealistic 3D renders, full garden construction, dry-stone walling, technical irrigation, and long-term ecological care. Every project is managed end-to-end by our local team across the island.</dd>
+            </div>
+            <div class="faq-item">
+              <dt>Do you work across all areas of Mallorca?</dt>
+              <dd>Yes. Our landscape design and garden design projects span the whole island — from the Sierra de Tramuntana and the inland fincas of Llucmajor and Campos to coastal villas in Santa Ponsa, Andratx, and the Northeast. We are based in Inca, at the geographic centre of Mallorca.</dd>
+            </div>
+            <div class="faq-item">
+              <dt>How does the landscape design process work?</dt>
+              <dd>Every mallorca garden design project starts with a free site visit and consultation. We then develop a conceptual design, refine it collaboratively with you, produce full technical drawings, and manage the installation with our own specialist team. The result is a fully realised Mediterranean garden tailored to your property and lifestyle.</dd>
+            </div>
+            <div class="faq-item">
+              <dt>What makes S'Estepa Design different from other garden designers in Mallorca?</dt>
+              <dd>We have over 30 years of continuous practice in Mallorca. Our landscape design work is rooted in the island's native limestone, endemic flora, and xeriscape principles — not imported templates. Every garden is designed by our in-house architect and built by our own local team, giving you a single point of responsibility from first sketch to final planting.</dd>
+            </div>
+            <div class="faq-item">
+              <dt>Do you offer garden maintenance after the landscape design and construction?</dt>
+              <dd>Yes. We provide ongoing ecological care programmes — including pruning, drip irrigation management, plant health monitoring, and seasonal replanting — to ensure your garden matures exactly as designed over the years.</dd>
+            </div>
+          </dl>
+        </section>
+      )}
+      {lang === 'es' && (
+        <section class="faq-section">
+          <h2 class="faq-heading">Diseño de Jardines y Paisajismo en Mallorca — Preguntas Frecuentes</h2>
+          <dl class="faq-list">
+            <div class="faq-item">
+              <dt>¿Qué servicios de diseño de jardines y paisajismo ofrece S'Estepa Design en Mallorca?</dt>
+              <dd>S'Estepa Design ofrece una gama completa de servicios: diseño conceptual, planos 2D a escala, renders 3D fotorrealistas, construcción completa de jardines, muros de piedra seca, riego técnico y cuidado ecológico a largo plazo. Cada proyecto es gestionado de principio a fin por nuestro equipo local en toda la isla.</dd>
+            </div>
+            <div class="faq-item">
+              <dt>¿Trabajáis en toda Mallorca?</dt>
+              <dd>Sí. Nuestros proyectos de diseño de jardines abarcan toda la isla — desde la Sierra de Tramuntana y las fincas del interior hasta villas costeras en Santa Ponsa, Andratx y el noreste. Tenemos nuestra sede en Inca, en el centro geográfico de Mallorca.</dd>
+            </div>
+            <div class="faq-item">
+              <dt>¿Cómo funciona el proceso de diseño de jardines?</dt>
+              <dd>Todo proyecto comienza con una visita al terreno y una consulta gratuita. Desarrollamos un diseño conceptual, lo refinamos contigo, producimos planos técnicos completos y gestionamos la instalación con nuestro propio equipo especializado.</dd>
+            </div>
+            <div class="faq-item">
+              <dt>¿Ofrecéis mantenimiento del jardín después del diseño y la construcción?</dt>
+              <dd>Sí. Ofrecemos programas de cuidado ecológico continuo — incluyendo poda, gestión del riego por goteo, control fitosanitario y replantación estacional — para que tu jardín madure exactamente como fue diseñado.</dd>
+            </div>
+          </dl>
+        </section>
+      )}
+      {lang === 'de' && (
+        <section class="faq-section">
+          <h2 class="faq-heading">Landschaftsgestaltung & Gartendesign auf Mallorca — FAQ</h2>
+          <dl class="faq-list">
+            <div class="faq-item">
+              <dt>Welche Leistungen bietet S'Estepa Design für Gartengestaltung auf Mallorca an?</dt>
+              <dd>S'Estepa Design bietet das vollständige Spektrum: Konzeptentwurf, 2D-Maßstabspläne, fotorealistische 3D-Visualisierungen, komplette Gartenanlage, Trockensteinmauern, technische Bewässerung und langfristige ökologische Pflege. Jedes Projekt wird von unserem lokalen Team auf der gesamten Insel betreut.</dd>
+            </div>
+            <div class="faq-item">
+              <dt>Arbeiten Sie überall auf Mallorca?</dt>
+              <dd>Ja. Unsere Projekte erstrecken sich über die gesamte Insel — von der Sierra de Tramuntana bis zu Küstenvillen in Santa Ponsa und Andratx. Unser Büro liegt in Inca, im geografischen Zentrum Mallorcas.</dd>
+            </div>
+            <div class="faq-item">
+              <dt>Bieten Sie nach der Gartengestaltung und dem Bau auch Gartenpflege an?</dt>
+              <dd>Ja. Wir bieten kontinuierliche ökologische Pflegeprogramme an — einschließlich Rückschnitt, Tröpfchenbewässerungsmanagement, Pflanzengesundheitsüberwachung und saisonaler Neubepflanzung.</dd>
+            </div>
+          </dl>
+        </section>
+      )}
+    </div>
+  </article>
+
+  {lang === 'en' && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What landscape design services does S'Estepa Design offer in Mallorca?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "S'Estepa Design provides a full spectrum of landscape design and garden design services in Mallorca: conceptual design, 2D scaled plans, photorealistic 3D renders, full garden construction, dry-stone walling, technical irrigation, and long-term ecological care. Every project is managed end-to-end by our local team across the island."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work across all areas of Mallorca?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our landscape design and garden design projects span the whole island — from the Sierra de Tramuntana and the inland fincas of Llucmajor and Campos to coastal villas in Santa Ponsa, Andratx, and the Northeast. We are based in Inca, at the geographic centre of Mallorca."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the landscape design process work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every mallorca garden design project starts with a free site visit and consultation. We then develop a conceptual design, refine it collaboratively with you, produce full technical drawings, and manage the installation with our own specialist team. The result is a fully realised Mediterranean garden tailored to your property and lifestyle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What makes S'Estepa Design different from other garden designers in Mallorca?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We have over 30 years of continuous practice in Mallorca. Our landscape design work is rooted in the island's native limestone, endemic flora, and xeriscape principles — not imported templates. Every garden is designed by our in-house architect and built by our own local team."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer garden maintenance after the landscape design and construction?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We provide ongoing ecological care programmes — including pruning, drip irrigation management, plant health monitoring, and seasonal replanting — to ensure your garden matures exactly as designed over the years."
+          }
+        }
+      ]
+    })} />
+  )}
+</Layout>
+
+<style>
+  .services-page {
+    padding-top: 10rem;
+  }
+
+  @media (max-width: 768px) {
+    .services-page {
+      padding-top: 8rem;
+    }
+  }
+
+  .page-header {
+    max-width: 820px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+
+  .page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    margin: 1rem 0;
+    color: var(--color-charcoal);
+  }
+
+  .page-subtitle,
+  .page-intro {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-charcoal-light);
+  }
+
+  .page-intro {
+    margin-top: 1.5rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .service-card {
+    background: var(--color-white);
+    padding: 2.5rem;
+    border: 1px solid var(--color-sand-dark);
+  }
+
+  .service-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: var(--color-olive);
+  }
+
+  .service-text {
+    line-height: 1.75;
+    color: var(--color-charcoal-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .service-link {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-charcoal);
+    border-bottom: 1px solid var(--color-olive);
+    padding-bottom: 0.2rem;
+  }
+
+  .cta-panel {
+    text-align: center;
+    padding: 3rem;
+    background: var(--color-sand-base);
+  }
+
+  .cta-panel p {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-charcoal);
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: var(--color-olive);
+    color: var(--color-white);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .faq-section {
+    margin-top: 5rem;
+    border-top: 1px solid var(--color-sand-dark);
+    padding-top: 4rem;
+  }
+
+  .faq-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 300;
+    color: var(--color-charcoal);
+    margin-bottom: 3rem;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-sand-dark);
+    padding: 2rem 0;
+  }
+
+  .faq-item dt {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--color-charcoal);
+    margin-bottom: 0.75rem;
+  }
+
+  .faq-item dd {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--color-charcoal-light);
+    max-width: 740px;
+  }
+</style>

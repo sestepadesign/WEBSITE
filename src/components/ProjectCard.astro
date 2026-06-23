@@ -1,0 +1,142 @@
+---
+import { ui } from '../data/translations';
+import { getProjectPath } from '../lib/urls';
+
+interface Props {
+  slug: string;
+  title: string;
+  category: string;
+  location: string;
+  cover: string;
+  lang: 'en' | 'es' | 'de';
+  large?: boolean;
+}
+
+const { slug, title, category, location, cover, lang, large = false } = Astro.props;
+---
+
+<a href={getProjectPath(slug, lang)} class:list={['project-card', { 'project-card-large': large }]}>
+  <div class="image-wrapper">
+    <img 
+      src={cover} 
+      alt={title} 
+      class="project-image" 
+      loading="lazy" 
+      decoding="async"
+    />
+    <div class="overlay">
+      <span class="view-project">Explore &rarr;</span>
+    </div>
+  </div>
+  <div class="project-info">
+    <span class="project-category">{category}</span>
+    <h3 class="project-title">{title}</h3>
+    <span class="project-location">{location}</span>
+  </div>
+</a>
+
+<style>
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    group: hover;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .project-card-large .image-wrapper {
+    aspect-ratio: 21 / 9;
+  }
+
+  .project-card-large .project-title {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+  }
+
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: var(--color-sand-base);
+  }
+
+  .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.8s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(31, 33, 31, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .view-project {
+    color: var(--color-white);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border-bottom: 1px solid var(--color-white);
+    padding-bottom: 0.25rem;
+    transform: translateY(10px);
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  /* Hover interactions */
+  .project-card:hover .project-image {
+    transform: scale(1.06);
+  }
+
+  .project-card:hover .overlay {
+    opacity: 1;
+  }
+
+  .project-card:hover .view-project {
+    transform: translateY(0);
+  }
+
+  /* Info styling */
+  .project-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .project-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-olive);
+    font-weight: 500;
+  }
+
+  .project-title {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-charcoal);
+    line-height: 1.2;
+    transition: color var(--transition-fast);
+  }
+
+  .project-card:hover .project-title {
+    color: var(--color-olive-dark);
+  }
+
+  .project-location {
+    font-size: 0.85rem;
+    color: var(--color-limestone);
+    letter-spacing: 0.02em;
+  }
+</style>

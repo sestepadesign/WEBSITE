@@ -1,0 +1,523 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { ui } from '../../data/translations';
+import { getGalleryImages, galleryMeta } from '../../data/gallery';
+import { getProjectPath } from '../../lib/urls';
+
+interface Props { lang: 'en' | 'es' | 'de'; }
+const { lang } = Astro.props;
+const meta = galleryMeta[lang];
+const images = getGalleryImages(lang).map((img) => ({
+  ...img,
+  projectUrl: getProjectPath(img.projectSlug, lang),
+}));
+
+const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
+const coverImage = images[0]?.src ?? '/portfolio/finca-garden-campos-mallorca/cover.webp';
+
+const viewProjectLabel = {
+  en: 'View project',
+  es: 'Ver proyecto',
+  de: 'Projekt ansehen',
+};
+---
+
+<Layout
+  title={`S'Estepa Design | ${meta.title}`}
+  description={meta.description}
+  lang={lang}
+  image={coverImage}
+>
+  <article class="gallery-page section-padding">
+    <div class="container">
+      <header class="page-header">
+        <span class="section-tag">{t('nav.gallery')}</span>
+        <h1 class="page-title">{meta.title}</h1>
+        <p class="page-subtitle">{meta.subtitle}</p>
+        <p class="page-desc">{meta.description}</p>
+      </header>
+
+      <div class="gallery-grid">
+        {images.map((img, idx) => (
+          <button
+            type="button"
+            class="gallery-item"
+            data-index={idx}
+            data-src={encodeURI(img.src)}
+            data-alt={img.alt}
+            data-project={img.projectTitle}
+            data-project-url={img.projectUrl}
+            aria-label={img.alt}
+          >
+            <img src={encodeURI(img.src)} alt={img.alt} loading="lazy" decoding="async" class="gallery-img" />
+          </button>
+        ))}
+      </div>
+    </div>
+  </article>
+
+  <!-- Luxe Immersive Fullscreen Lightbox -->
+  <div class="luxe-lightbox" id="galleryLightbox" aria-hidden="true" role="dialog" aria-label="Immersive gallery">
+    <div class="luxe-lightbox__overlay" id="galleryLightboxOverlay"></div>
+    <div class="luxe-lightbox__stage">
+      <img src="" alt="" class="luxe-lightbox__img" id="galleryLightboxImg" />
+    </div>
+    <div class="luxe-lightbox__controls" id="galleryLightboxControls">
+      <button class="luxe-lightbox__close" id="galleryLightboxClose" aria-label="Close">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+      </button>
+      <div class="luxe-lightbox__footer">
+        <span class="luxe-lightbox__caption" id="galleryLightboxCaption"></span>
+        <a href="#" class="luxe-lightbox__link" id="galleryLightboxProjectLink">{viewProjectLabel[lang]} &rarr;</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script define:vars={{ images, lang }}>
+  const lightbox = document.getElementById('galleryLightbox');
+  const lightboxImg = document.getElementById('galleryLightboxImg');
+  const lightboxCaption = document.getElementById('galleryLightboxCaption');
+  const lightboxProjectLink = document.getElementById('galleryLightboxProjectLink');
+  const lightboxClose = document.getElementById('galleryLightboxClose');
+  const lightboxOverlay = document.getElementById('galleryLightboxOverlay');
+  const lightboxControls = document.getElementById('galleryLightboxControls');
+  const items = document.querySelectorAll('.gallery-item');
+
+  if (!lightbox || !lightboxImg || !lightboxCaption || !lightboxProjectLink) return;
+
+  let currentIndex = 0;
+  let idleTimer = null;
+  const IDLE_TIMEOUT = 2500;
+
+  const hideControls = () => {
+    if (lightboxControls) lightboxControls.classList.add('hidden');
+    lightbox.classList.add('cursor-hidden');
+  };
+
+  const showControls = () => {
+    if (lightboxControls) lightboxControls.classList.remove('hidden');
+    lightbox.classList.remove('cursor-hidden');
+    resetIdleTimer();
+  };
+
+  const resetIdleTimer = () => {
+    clearTimeout(idleTimer);
+    if (lightbox.classList.contains('active')) {
+      idleTimer = setTimeout(hideControls, IDLE_TIMEOUT);
+    }
+  };
+
+  const showImage = (index, animate) => {
+    const total = images.length;
+    currentIndex = (index + total) % total;
+    const img = images[currentIndex];
+
+    if (animate) {
+      lightboxImg.classList.add('transitioning');
+      setTimeout(() => {
+        lightboxImg.src = encodeURI(img.src);
+        lightboxImg.alt = img.alt;
+        lightboxCaption.textContent = img.projectTitle + '  \u00B7  ' + (currentIndex + 1) + ' / ' + total;
+        lightboxProjectLink.href = img.projectUrl;
+        setTimeout(() => lightboxImg.classList.remove('transitioning'), 40);
+      }, 280);
+    } else {
+      lightboxImg.src = encodeURI(img.src);
+      lightboxImg.alt = img.alt;
+      lightboxCaption.textContent = img.projectTitle + '  \u00B7  ' + (currentIndex + 1) + ' / ' + total;
+      lightboxProjectLink.href = img.projectUrl;
+    }
+  };
+
+  const openLightbox = (index) => {
+    lightboxImg.classList.remove('cover-mode');
+    showImage(index, false);
+    lightbox.classList.add('active');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    resetIdleTimer();
+  };
+
+  const closeLightbox = () => {
+    clearTimeout(idleTimer);
+    lightbox.classList.remove('active', 'cursor-hidden');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+    lightboxImg.classList.remove('cover-mode');
+    if (lightboxControls) lightboxControls.classList.remove('hidden');
+  };
+
+  items.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const idx = Number(btn.getAttribute('data-index') || 0);
+      openLightbox(idx);
+    });
+  });
+
+  lightboxClose?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeLightbox();
+  });
+
+  lightboxOverlay?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeLightbox();
+  });
+
+  /* Click on screen half navigation */
+  lightbox.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.closest('button') || target.closest('a') || target.closest('.luxe-lightbox__footer')) return;
+
+    const width = window.innerWidth;
+    const clickX = e.clientX;
+    if (clickX < width / 2) {
+      showImage(currentIndex - 1, true);
+    } else {
+      showImage(currentIndex + 1, true);
+    }
+    showControls();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') { showImage(currentIndex - 1, true); showControls(); }
+    if (e.key === 'ArrowRight') { showImage(currentIndex + 1, true); showControls(); }
+  });
+
+  /* Idle detection — hide controls after 2.5s of inactivity */
+  lightbox.addEventListener('mousemove', showControls);
+  lightbox.addEventListener('touchstart', showControls, { passive: true });
+
+  /* Touch swipe navigation */
+  let touchStartX = 0;
+  lightbox.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  lightbox.addEventListener('touchend', (e) => {
+    const diff = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(diff) > 50) {
+      diff < 0 ? showImage(currentIndex + 1, true) : showImage(currentIndex - 1, true);
+    }
+  }, { passive: true });
+</script>
+
+<style>
+  .gallery-page {
+    padding-top: 10rem;
+  }
+
+  @media (max-width: 768px) {
+    .gallery-page {
+      padding-top: 8rem;
+    }
+  }
+
+  .page-header {
+    max-width: 780px;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+  }
+
+  .page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    margin: 1rem 0;
+  }
+
+  .page-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-olive);
+    margin-bottom: 1rem;
+  }
+
+  .page-desc {
+    line-height: 1.75;
+    color: var(--color-charcoal-light);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .gallery-item {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--color-sand-base);
+    border: none;
+    padding: 0;
+    cursor: zoom-in;
+    display: block;
+    width: 100%;
+  }
+
+  .gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .gallery-item:hover .gallery-img {
+    transform: scale(1.04);
+  }
+
+  /* ═══════════════════════════════════════════════
+     LUXE IMMERSIVE FULLSCREEN LIGHTBOX
+     ═══════════════════════════════════════════════ */
+  .luxe-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                visibility 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .luxe-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .luxe-lightbox.cursor-hidden {
+    cursor: none;
+  }
+
+  .luxe-lightbox__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, #080a08 0%, #030403 50%, #050705 100%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .luxe-lightbox__stage {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    overflow-y: auto;
+  }
+
+  .luxe-lightbox__img {
+    max-width: 95vw;
+    max-height: 92vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+    border-radius: 2px;
+    margin: auto;
+  }
+
+  .luxe-lightbox__img.cover-mode {
+    max-width: 100%;
+    max-height: none;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0;
+    margin: auto;
+  }
+
+  .luxe-lightbox__img.transitioning {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  /* Controls Layer — auto-hides on idle */
+  .luxe-lightbox__controls {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .luxe-lightbox__controls.hidden {
+    opacity: 0;
+  }
+
+  .luxe-lightbox__controls > * {
+    pointer-events: auto;
+  }
+
+  /* Close Button */
+  .luxe-lightbox__close {
+    position: absolute;
+    top: 1.75rem;
+    right: 1.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.75);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .luxe-lightbox__close:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    transform: rotate(90deg);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Navigation Arrows */
+  .luxe-lightbox__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.6);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .luxe-lightbox__arrow:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-50%) scale(1.06);
+  }
+
+  .luxe-lightbox__prev { left: 2rem; }
+  .luxe-lightbox__next { right: 2rem; }
+
+  /* Zoom / Immersive Toggle */
+  .luxe-lightbox__zoom {
+    position: absolute;
+    top: 1.75rem;
+    right: 5.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.6);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .luxe-lightbox__zoom:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  .luxe-lightbox__zoom.active {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: white;
+  }
+
+  /* Footer with gradient veil */
+  .luxe-lightbox__footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 3.5rem 2rem 2.25rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.12) 65%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .luxe-lightbox__footer > * {
+    pointer-events: auto;
+  }
+
+  .luxe-lightbox__caption {
+    font-family: var(--font-serif, Georgia, 'Times New Roman', serif);
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+  }
+
+  .luxe-lightbox__link {
+    font-family: var(--font-sans, system-ui, sans-serif);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    padding-bottom: 2px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .luxe-lightbox__link:hover {
+    color: rgba(255, 255, 255, 0.85);
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* Responsive */
+  @media (max-width: 992px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .luxe-lightbox__prev { left: 1rem; }
+    .luxe-lightbox__next { right: 1rem; }
+    .luxe-lightbox__arrow { width: 48px; height: 48px; }
+  }
+
+  @media (max-width: 768px) {
+    .luxe-lightbox__stage { padding: 0; }
+    .luxe-lightbox__img {
+      max-width: 100vw;
+      max-height: 85vh;
+      border-radius: 0;
+    }
+    .luxe-lightbox__close { top: 1rem; right: 1rem; width: 42px; height: 42px; }
+    .luxe-lightbox__zoom { top: 1rem; right: 4.25rem; width: 40px; height: 40px; }
+    .luxe-lightbox__arrow { width: 42px; height: 42px; }
+    .luxe-lightbox__prev { left: 0.6rem; }
+    .luxe-lightbox__next { right: 0.6rem; }
+    .luxe-lightbox__footer { padding: 2.5rem 1rem 1.5rem; }
+    .luxe-lightbox__caption { font-size: 0.9rem; }
+  }
+
+  @media (max-width: 560px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

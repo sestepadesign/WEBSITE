@@ -1,0 +1,160 @@
+/PORTFOLIO/*  /portfolio/:splat  301
+
+# Legacy Astro /en/* structure → WordPress-style clean URLs
+/en/  /  301
+/en/about/  /about/  301
+/en/contact/  /contact/  301
+/en/gallery/  /gallery/  301
+/en/press/  /press/  301
+/en/portfolio/  /portfolio/  301
+/en/services/  /garden-design-mallorca-landscape-management-villas-fincas/  301
+/en/blog/  /blog/  301
+/en/blog/*  /:splat  301
+/en/portfolio/*  /:splat  301
+
+# Campos canonical slug (WordPress primary)
+/finca-garden-campos-mallorca/  /finca-garden-campos/  301
+/es/finca-garden-campos-mallorca/  /es/finca-garden-campos/  301
+/de/finca-garten-campos-mallorca/  /de/finca-garten-campos/  301
+
+# Short legacy slugs → WordPress canonical
+/campos/  /finca-garden-campos/  301
+/es/campos/  /es/finca-garden-campos/  301
+/portfolio/campos/*  /finca-garden-campos/  301
+
+/en/portfolio/campos/  /finca-garden-campos/  301
+/es/portfolio/campos/  /es/finca-garden-campos/  301
+/de/portfolio/campos/  /de/finca-garten-campos/  301
+
+/en/portfolio/campanet/  /campanet-garden/  301
+/es/portfolio/campanet/  /es/campanet-garden/  301
+/de/portfolio/campanet/  /de/campanet-garden/  301
+
+/en/portfolio/crestatx/  /crestatx-garden-design/  301
+/es/portfolio/crestatx/  /es/crestatx/  301
+/de/portfolio/crestatx/  /de/crestatx/  301
+
+/en/portfolio/llubi/  /garden-design-llubi-mallorca/  301
+/es/portfolio/llubi/  /es/diseno-de-jardines-llubi-mallorca/  301
+/de/portfolio/llubi/  /de/gartengestaltung-llubi-mallorca/  301
+
+/en/portfolio/santa-eugenia/  /terrace-garden-santa-eugenia/  301
+/es/portfolio/santa-eugenia/  /es/terraza-jardin-santa-eugenia/  301
+/de/portfolio/santa-eugenia/  /de/terrace-garden-santa-eugenia/  301
+
+/en/portfolio/terrace-garden-palma/  /terrace-garden-in-palma/  301
+/es/portfolio/terrace-garden-palma/  /es/terraza-jardin/  301
+/de/portfolio/terrace-garden-palma/  /de/terrassengarten/  301
+
+/en/portfolio/vertical-garden/  /vertical-gardens-in-mallorca/  301
+/es/portfolio/vertical-garden/  /es/jardines-verticales-en-mallorca/  301
+/de/portfolio/vertical-garden/  /de/vertikale-garten-auf-mallorca/  301
+
+# Old homepage slug
+/discover-the-art-of-garden-design/  /  301
+/es/descubra-el-arte-del-diseno-de-jardines/  /es/  301
+/de/entdecken-sie-die-kunst-der-gartengestaltung/  /de/  301
+
+# Alternate services URLs from WordPress sitemap
+/services/  /garden-design-mallorca-landscape-management-villas-fincas/  301
+/es/servicios/  /es/diseno-de-jardines-mallorca/  301
+/de/dienstleistungen/  /de/gartengestaltung-mallorca/  301
+
+# --- project-url-redirects (auto-generated) ---
+# Internal Astro slugs → design.sestepa.com canonical URLs
+/de/finca-garten-campos-mallorca/  /de/finca-garten-campos/  301
+/de/portfolio/binissalem/  /de/benissalem/  301
+/de/portfolio/bunyola/  /de/bunyola-mallorca/  301
+/de/portfolio/campanet-garden/  /de/campanet-garden/  301
+/de/portfolio/costadelacalma/  /de/costa-de-la-calma/  301
+/de/portfolio/crestatx-garden-design/  /de/crestatx/  301
+/de/portfolio/finca-garden-campos-mallorca/  /de/finca-garten-campos/  301
+/de/portfolio/finca-garden-inca/  /de/finca-garten-inca/  301
+/de/portfolio/finca-garten-campos-mallorca/  /de/finca-garten-campos/  301
+/de/portfolio/garden-design-llubi-mallorca/  /de/gartengestaltung-llubi-mallorca/  301
+/de/portfolio/hotelcabotlasvelas/  /de/hotel-cabot-las-velas/  301
+/de/portfolio/sant-llorenc/  /de/sant-llorenc/  301
+/de/portfolio/santa-ponsa/  /de/puig-na-morisca/  301
+/de/portfolio/seaside-house-alcudia/  /de/haus-am-meer-alcudia/  301
+/de/portfolio/son-vida/  /de/son-vida-mallorca/  301
+/de/portfolio/terrace-garden-in-palma/  /de/terrassengarten/  301
+/de/portfolio/terrace-garden-santa-eugenia/  /de/terrace-garden-santa-eugenia/  301
+/de/portfolio/vertical-gardens-in-mallorca/  /de/vertikale-garten-auf-mallorca/  301
+/en/portfolio/binissalem/  /binissalem/  301
+/en/portfolio/bunyola/  /bunyola/  301
+/en/portfolio/campanet-garden/  /campanet-garden/  301
+/en/portfolio/costadelacalma/  /costadelacalma/  301
+/en/portfolio/crestatx-garden-design/  /crestatx-garden-design/  301
+/en/portfolio/finca-garden-campos-mallorca/  /finca-garden-campos/  301
+/en/portfolio/finca-garden-inca/  /finca-garden-inca/  301
+/en/portfolio/garden-design-llubi-mallorca/  /garden-design-llubi-mallorca/  301
+/en/portfolio/hotelcabotlasvelas/  /hotelcabotlasvelas/  301
+/en/portfolio/sant-llorenc/  /sant-llorenc/  301
+/en/portfolio/santa-ponsa/  /santa-ponsa/  301
+/en/portfolio/seaside-house-alcudia/  /seaside-house-alcudia/  301
+/en/portfolio/son-vida/  /son-vida/  301
+/en/portfolio/terrace-garden-in-palma/  /terrace-garden-in-palma/  301
+/en/portfolio/terrace-garden-santa-eugenia/  /terrace-garden-santa-eugenia/  301
+/en/portfolio/vertical-gardens-in-mallorca/  /vertical-gardens-in-mallorca/  301
+/es/finca-garden-campos-mallorca/  /es/finca-garden-campos/  301
+/es/portfolio/binissalem/  /es/benissalem/  301
+/es/portfolio/bunyola/  /es/bunyola/  301
+/es/portfolio/campanet-garden/  /es/campanet-garden/  301
+/es/portfolio/costadelacalma/  /es/costa-de-la-calma/  301
+/es/portfolio/crestatx-garden-design/  /es/crestatx/  301
+/es/portfolio/finca-garden-campos-mallorca/  /es/finca-garden-campos/  301
+/es/portfolio/finca-garden-inca/  /es/finca-garden-inca/  301
+/es/portfolio/garden-design-llubi-mallorca/  /es/diseno-de-jardines-llubi-mallorca/  301
+/es/portfolio/hotelcabotlasvelas/  /es/hotel-cabot-las-velas/  301
+/es/portfolio/sant-llorenc/  /es/sant-llorenc/  301
+/es/portfolio/santa-ponsa/  /es/puig-na-morisca/  301
+/es/portfolio/seaside-house-alcudia/  /es/casa-de-mar-alcudia/  301
+/es/portfolio/son-vida/  /es/son-vida-mallorca/  301
+/es/portfolio/terrace-garden-in-palma/  /es/terraza-jardin/  301
+/es/portfolio/terrace-garden-santa-eugenia/  /es/terraza-jardin-santa-eugenia/  301
+/es/portfolio/vertical-gardens-in-mallorca/  /es/jardines-verticales-en-mallorca/  301
+/finca-garden-campos-mallorca/  /finca-garden-campos/  301
+/portfolio/finca-garden-campos-mallorca/  /finca-garden-campos/  301
+# --- end project-url-redirects ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Removed placeholder images (explicit 404 at edge)
+/portfolio/sant-llorenc/images/sant-llorenc-gallery-artwork.jpg 404
+/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-artwork.jpg 404
+/portfolio/sant-llorenc/images/landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-sculpture.jpg 404
+
+
+
+
+
+
+
