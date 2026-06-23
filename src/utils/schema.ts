@@ -76,6 +76,10 @@ export function getLocalizedSchema(
     "foundingDate": "1999-01-01",
     "numberOfEmployees": { "@type": "QuantitativeValue", "value": 15 },
     "founder": [{ "@type": "Person", "name": "Pedro Campaner", "jobTitle": "CEO & Founder" }],
+    "member": [
+      { "@type": "Person", "name": "Pedro Campaner", "jobTitle": "CEO & Founder" },
+      { "@type": "Person", "name": "Sofia Grimaux", "jobTitle": "Project Manager" }
+    ],
     "employee": [
       { "@type": "Person", "name": "Sofia Grimaux", "jobTitle": "Project Manager" },
       { "@type": "Person", "name": "Blanca Gonzalez", "jobTitle": "Financial Director" }
