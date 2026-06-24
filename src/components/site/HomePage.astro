@@ -14,9 +14,16 @@ const t = (key: keyof typeof ui[typeof lang]) => {
 
 // SEO meta description
 const descriptions = {
-  en: "Bespoke Mediterranean landscape and garden design studio in Mallorca. With 30 years of expertise, S'Estepa Design crafts sustainable, living sanctuaries that mature gracefully.",
-  es: "Estudio de diseño de jardines y paisajismo mediterráneo en Mallorca. Con 30 años de experiencia, S'Estepa Design esculpe santuarios vivos y sostenibles.",
-  de: "Maßgeschneidertes mediterranes Landschafts- und Gartendesign auf Mallorca. S'Estepa Design schafft nachhaltige, lebendige Rückzugsorte mit 30 Jahren Erfahrung."
+  en: "Garden design studio in Mallorca with 30 years of expertise. Bespoke gardens for private villas, fincas and estates. Design, construction and ecological care.",
+  es: "Estudio de paisajismo en Mallorca con 30 años de experiencia. Jardines para fincas privadas y villas. Diseño, construcción y cuidado ecológico mediterráneo.",
+  de: "Gartengestaltung auf Mallorca mit 30 Jahren Erfahrung. Maßgeschneiderte Gärten für private Fincas, Villen und Anwesen. Planung, Bau und ökologische Gartenpflege.",
+};
+
+// SEO page titles — keyword-first, separate from hero.subtitle (visible text unchanged)
+const seoTitles = {
+  en: "Landscape & Garden Design Mallorca | S'Estepa Design",
+  es: "Paisajismo y Diseño de Jardines en Mallorca | S'Estepa Design",
+  de: "Gartengestaltung & Landschaftsarchitektur Mallorca | S'Estepa Design",
 };
 
 const pageDescription = descriptions[lang];
@@ -273,7 +280,7 @@ const currentServices = servicesData[lang];
 const currentJourney = journeyData[lang];
 ---
 
-<Layout title={`S'Estepa Design | ${t('hero.subtitle')}`} description={pageDescription} lang={lang}>
+<Layout title={seoTitles[lang]} description={pageDescription} lang={lang}>
   <!-- Hero Section with Background Video -->
   <section class="hero" id="hero-section">
     <div class="video-container">

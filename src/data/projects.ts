@@ -844,7 +844,7 @@ export const projects: Project[] = [
       category: "Vertical Garden",
       botanical: "Tropical and hanging species, climatic-adapted climbers",
       description: [
-        "Climbing and hanging plants predominated by green, red, and yellow tones. High capacity to withstand extreme temperatures",
+        "Vertical gardens in Mallorca — design and installation of living wall structures for villas and private estates. S'Estepa Design, Mediterranean landscape studio.",
         "The meticulous selection of tropical plants, based on adaptation, structure, and colors, provided the space with a sensation of freshness, warm colors, and plants suspended in the air",
         "The project proposal consists of two vertical gardens with different geometric structures, both indoors and outdoors, in combination with the space. Through avant-garde elements, the design aesthetics are focused on a vegetal lattice along the entire exterior facade: beams of light enter the interior space and achieve a jungle light effect.",
         "The vertical garden reduces facade temperature by up to 40%, absorbs sound to improve acoustic quality, and contributes to air purification by trapping dust and converting CO2 into oxygen."
@@ -856,7 +856,7 @@ export const projects: Project[] = [
       category: "Jardín Vertical",
       botanical: "Especies tropicales y colgantes, trepadoras adaptadas",
       description: [
-        "En las plantas trepadoras y colgantes predominan los tonos verdes, rojos y amarillos, con alta capacidad para soportar temperaturas extremas.",
+        "Jardines verticales en Mallorca: diseño e instalación de estructuras vegetales para fachadas. S'Estepa Design, estudio de paisajismo mediterráneo con 30 años de experiencia.",
         "La meticulosa selección de plantas tropicales, basada en la adaptación, la estructura y los colores, proporcionó al espacio una sensación de frescor, colores cálidos y plantas suspendidas en el aire.",
         "La propuesta consiste en dos jardines verticales con diferentes estructuras geométricas, tanto en el interior como en el exterior. Los haces de luz entran en el espacio interior y consiguen un efecto de luz selvática a lo largo de toda la fachada.",
         "El jardín reduce la temperatura del espacio hasta un 40% en las fachadas, absorbe el sonido y contribuye a la purificación del aire, atrapando polvo en suspensión y convirtiendo CO2 en oxígeno."
@@ -868,7 +868,7 @@ export const projects: Project[] = [
       category: "Vertikaler Garten",
       botanical: "Tropische und hängende Arten, klimaangepasste Kletterpflanzen",
       description: [
-        "Bei Kletter- und Hängepflanzen überwiegen grüne, rote und gelbe Töne mit hoher Widerstandsfähigkeit gegen extreme Temperaturen.",
+        "Vertikale Gärten auf Mallorca: Planung und Installation begrünter Wandstrukturen für Villen und Privatanwesen. S'Estepa Design, mediterranes Landschaftsstudio.",
         "Die sorgfältige Auswahl tropischer Pflanzen, basierend auf Anpassung, Struktur und Farben, verleiht dem Raum ein Gefühl von Frische, warmen Farben und in der Luft schwebenden Pflanzen.",
         "Das Projektvorschlag besteht aus zwei vertikalen Gärten mit unterschiedlichen geometrischen Strukturen, innen und außen. Lichtstrahlen dringen in den Innenraum ein und erzeugen einen Dschungellichteffekt entlang der gesamten Außenfassade.",
         "Der Garten senkt die Raumtemperatur an Fassaden um bis zu 40 %, absorbiert Schall und trägt zur Luftreinigung bei, indem er Staubpartikel einfängt und CO2 in Sauerstoff umwandelt."

@@ -17,11 +17,11 @@ export interface ServicesContent {
 export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
   en: {
     tag: 'Our Expertise',
-    title: 'Landscape Design & Garden Design in Mallorca',
+    title: 'Garden Design & Landscape Architecture in Mallorca',
     subtitle:
       'Specialist landscape design and garden design studio in Mallorca. We create and maintain living Mediterranean ecosystems for private villas, fincas and holiday residences — from concept to completion.',
     metaDescription:
-      'Expert landscape design & garden design in Mallorca. S\'Estepa Design — 30 years crafting bespoke Mediterranean gardens for private villas, fincas and holiday estates.',
+      'Garden design, construction and ecological care for private villas, fincas and estates in Mallorca. S\'Estepa Design — 30 years of Mediterranean landscape architecture.',
     intro:
       'Our team oversees the entire process—from design and construction to technical irrigation and planting. We ensure a seamless experience, managing every detail in English, Spanish, and German.',
     items: [
@@ -53,11 +53,11 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
   },
   es: {
     tag: 'Nuestra Experiencia',
-    title: 'Diseño de Jardines y Servicios de Paisajismo en Mallorca',
+    title: 'Diseño y Creación de Jardines en Mallorca',
     subtitle:
       'Ofrecemos un enfoque integral del paisajismo en Mallorca, centrándonos en la creación y el mantenimiento a largo plazo de ecosistemas vivos para villas y residencias vacacionales.',
     metaDescription:
-      'Diseño de jardines, arquitectura del paisaje, construcción y cuidado ecológico para villas, fincas y casas de vacaciones en Mallorca. S\'Estepa Design — 30 años de experiencia.',
+      'Diseño, creación y mantenimiento de jardines para fincas y villas en Mallorca. S\'Estepa Design: 30 años de paisajismo y arquitectura del jardín mediterráneo.',
     intro:
       'Nuestro equipo supervisa todo el proceso, desde el diseño y la construcción hasta el riego técnico y la plantación. Garantizamos una experiencia sin fisuras, gestionando cada detalle en inglés, español y alemán.',
     items: [
@@ -89,11 +89,11 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
   },
   de: {
     tag: 'Unsere Expertise',
-    title: 'Gartendesign & Landschaftsdienstleistungen auf Mallorca',
+    title: 'Gartengestaltung & Landschaftsarchitektur auf Mallorca',
     subtitle:
       'Wir bieten einen umfassenden Ansatz für die Landschaftsgestaltung auf Mallorca, mit Schwerpunkt auf der Schaffung und langfristigen Pflege lebendiger Ökosysteme für Villen und Feriendomizile.',
     metaDescription:
-      'Landschaftsgestaltung & Gartendesign auf Mallorca und den Balearen. S\'Estepa Design — über 30 Jahre Erfahrung in der Gestaltung mediterraner Gärten für Villen, Fincas und Privatresidenzen.',
+      'Gartengestaltung und Landschaftsarchitektur auf Mallorca für private Fincas und Villen. S\'Estepa Design — 30 Jahre mediterrane Gartenplanung. Planung, Bau und ökologische Pflege.',
     intro:
       'Unser Team überwacht den gesamten Prozess – vom Entwurf und Bau bis hin zur technischen Bewässerung und Bepflanzung. Wir garantieren einen reibungslosen Ablauf und regeln jedes Detail auf Englisch, Spanisch und Deutsch.',
     items: [
