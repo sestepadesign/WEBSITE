@@ -38,8 +38,8 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
         linkUrl: 'about',
       },
       {
-        title: 'Master Construction',
-        text: 'Rigorous site development, structural earthworks, dry-stone walling, and planting executed by our dedicated team of local professionals.',
+        title: 'Full Garden Construction',
+        text: 'Rigorous site development, structural earthworks, and planting executed by our dedicated team of local professionals.',
         linkText: 'Meet Our Team',
         linkUrl: 'about',
       },
@@ -75,7 +75,7 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
       },
       {
         title: 'Construcción y Obra',
-        text: 'Desarrollo riguroso de la obra, movimientos de tierra estructurales, muros de piedra seca y plantación ejecutada por nuestro equipo local de profesionales.',
+        text: 'Desarrollo riguroso de la obra, movimientos de tierra estructurales y plantación ejecutada por nuestro equipo local de profesionales.',
         linkText: 'Conozca al Equipo',
         linkUrl: 'about',
       },
@@ -111,7 +111,7 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
       },
       {
         title: 'Bauausführung',
-        text: 'Präzise Erschließung des Geländes, strukturierte Erdarbeiten, Trockenmauern und Bepflanzung, ausgeführt von unserem engagierten lokalen Team.',
+        text: 'Präzise Erschließung des Geländes, strukturierte Erdarbeiten und Bepflanzung, ausgeführt von unserem engagierten lokalen Team.',
         linkText: 'Team Kennenlernen',
         linkUrl: 'about',
       },

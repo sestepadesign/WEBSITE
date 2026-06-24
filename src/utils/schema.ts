@@ -82,7 +82,7 @@ export function getLocalizedSchema(
     ],
     "employee": [
       { "@type": "Person", "name": "Sofia Grimaux", "jobTitle": "Project Manager" },
-      { "@type": "Person", "name": "Blanca Gonzalez", "jobTitle": "Financial Director" }
+      { "@type": "Person", "name": "Blanca González", "jobTitle": "Financial Director" }
     ],
     "address": {
       "@type": "PostalAddress",

@@ -895,11 +895,18 @@ const t = {
   // Fetch Real Leads from Google Sheets
   let realLeads = [];
   
+  function setMetricsFallback() {
+    document.getElementById('metric-total-leads').textContent = '0';
+    document.getElementById('metric-new-leads').textContent = '0';
+    document.getElementById('metric-whatsapp-clicks').textContent = '0';
+  }
+
   async function loadRealData() {
     try {
       const response = await fetch(SHEET_URL);
       if (!response.ok) throw new Error("Fetch failed");
       const csvText = await response.text();
+      if (csvText.includes('<!DOCTYPE') || csvText.includes('<html')) throw new Error("Sheet not public");
       const rows = parseCSV(csvText);
       
       const leads = [];
@@ -943,6 +950,7 @@ const t = {
       updateDashboardData();
     } catch (err) {
       console.error("Error loading real data:", err);
+      setMetricsFallback();
     }
   }
 
@@ -1098,6 +1106,7 @@ const t = {
   async function showDashboard() {
     overlay.style.display = 'none';
     dashboard.style.display = 'block';
+    setMetricsFallback();
     await loadRealData();
   }
 
@@ -1105,6 +1114,7 @@ const t = {
     overlay.style.opacity = '0';
     overlay.style.pointerEvents = 'none';
     dashboard.style.display = 'block';
+    setMetricsFallback();
     await loadRealData();
     setTimeout(() => {
       overlay.style.display = 'none';
