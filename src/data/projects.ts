@@ -96,7 +96,7 @@ export const projects: Project[] = [
     video: null,
     cover: "/portfolio/bunyola/cover.jpg",
     images: [
-      "BUNYOLA-2D-SESTEPA-DESIGN-MALLORCA.jpg",
+      "BUNYOLA-2D-SESTEPA-DESIGN-MALLORCA.png",
       "BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-1.jpg",
       "BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-2.jpg",
       "BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN.jpg",

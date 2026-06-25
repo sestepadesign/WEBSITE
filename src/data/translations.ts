@@ -80,7 +80,7 @@ Architecture as an extension of the landscape.`,
     'nav.contact': 'Contacto',
     
     'hero.subtitle': 'Estudio de Diseño de Jardines y Paisajismo en Mallorca',
-    'hero.title': 'Esculpiendo Santuarios Vivos',
+    'hero.title': 'Diseño de paisajes con alma mediterránea',
     'hero.button': 'Ver Portafolio',
     
     'about.title': 'El Estudio',
