@@ -281,11 +281,11 @@ export const projects: Project[] = [
   },
   {
     slug: "costadelacalma",
-    location: "Costa de la Calma, Calvià",
+    location: "Costa de la Calma, Calviá",
     year: "2022",
     architect: null,
     video: null,
-    cover: "/portfolio/costadelacalma/cover.jpg",
+    cover: "/portfolio/costadelacalma/LANDSCAPE-GARDEN-DESIGN-MALLORCA-COSTA-DE-LA-CALMA-SESTEPA-DESIGN.webp",
     images: [
       "JARDIN-COSTA-DE-LA-CALMA-FABRICE-SESTEPA-GARDEN-DESIGN-_1_.webp",
       "JARDIN-COSTA-DE-LA-CALMA-FABRICE-SESTEPA-GARDEN-DESIGN-_2_.webp",
