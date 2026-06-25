@@ -54,23 +54,23 @@ const spotlightCopy = {
   en: {
     tag: 'Featured Estate',
     title: 'Finca Garden Campos',
-    text: 'An exceptional 10,000 m² landscape in Campos — one of our largest estate gardens, designed and built by S\'Estepa across mathematical planting, natural meadows, and hidden garden passages.',
+    text: 'An exceptional landscape in Campos — one of our largest estate gardens, designed and built by S\'Estepa across mathematical planting, natural meadows, and hidden garden passages.',
     cta: 'Explore the full project',
-    size: '10,000 m²',
+    size: '',
   },
   es: {
     tag: 'Finca Destacada',
     title: 'Finca Jardín Campos',
-    text: 'Un paisaje excepcional de 10.000 m² en Campos — uno de nuestros jardines de finca más grandes, diseñado y construido por S\'Estepa con plantación matemática, praderas naturales y pasajes ocultos.',
+    text: 'Un paisaje excepcional en Campos — uno de nuestros jardines de finca más grandes, diseñado y construido por S\'Estepa con plantación matemática, praderas naturales y pasajes ocultos.',
     cta: 'Explorar el proyecto completo',
-    size: '10.000 m²',
+    size: '',
   },
   de: {
     tag: 'Ausgewähltes Landgut',
     title: 'Finca Garten Campos',
-    text: 'Eine außergewöhnliche 10.000 m² Landschaft in Campos — einer unserer größten Landgutgärten, entworfen und gebaut von S\'Estepa mit mathematischer Bepflanzung, natürlichen Wiesen und verborgenen Gartenpassagen.',
+    text: 'Eine außergewöhnliche Landschaft in Campos — einer unserer größten Landgutgärten, entworfen und gebaut von S\'Estepa mit mathematischer Bepflanzung, natürlichen Wiesen und verborgenen Gartenpassagen.',
     cta: 'Das vollständige Projekt ansehen',
-    size: '10.000 m²',
+    size: '',
   },
 };
 const spotlight = spotlightCopy[lang];
@@ -426,7 +426,7 @@ const currentJourney = journeyData[lang];
         <div class="spotlight-text">
           <span class="section-tag">{spotlight.tag}</span>
           <h2 class="spotlight-title">{spotlight.title}</h2>
-          <p class="spotlight-size">{spotlight.size}</p>
+          {spotlight.size && <p class="spotlight-size">{spotlight.size}</p>}
           <p class="spotlight-desc">{spotlight.text}</p>
           <a href={getProjectPath('finca-garden-campos-mallorca', lang)} class="text-link">
             {spotlight.cta} &rarr;

@@ -96,7 +96,7 @@ export const projects: Project[] = [
     video: null,
     cover: "/portfolio/bunyola/cover.jpg",
     images: [
-      "BUNYOLA-2D-SESTEPA-DESIGN-MALLORCA.png",
+      "BUNYOLA-2D-SESTEPA-DESIGN-MALLORCA.jpg",
       "BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-1.jpg",
       "BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-2.jpg",
       "BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN.jpg",
@@ -196,7 +196,6 @@ export const projects: Project[] = [
     location: "Campos, Mallorca",
     year: "2021",
     architect: null,
-    size: "10,000 m²",
     video: "https://www.youtube.com/embed/McyZviXDxhc?feature=oembed",
     cover: "/portfolio/finca-garden-campos-mallorca/cover.webp",
     ogImage: "/portfolio/finca-garden-campos-mallorca/cover.webp",
@@ -230,11 +229,11 @@ export const projects: Project[] = [
     ],
     en: {
       title: "Finca Garden Campos",
-      subtitle: "A majestic 10,000 m2 landscape blending geometry and wild nature",
+      subtitle: "A majestic landscape blending geometry and wild nature",
       category: "Estate Garden",
       botanical: "Phyla nodiflora, Phytolacca dioica (Bellasombra), Gaura lindheimeri, Rosmarinus officinalis 'Prostratus', Lantana camara, Lantana montevidensis, Bougainvillea sanderiana, Agapanthus africanus, Stipa tenuissima, Phoenix roebelenii, Cupressus arizonica, Pittosporum tobira 'Nana'",
       description: [
-        "The Campos Garden is an impressive 10,000 m² landscape designed and built by S’Estepa. Every corner of this garden has been carefully planned to provide a unique and enjoyable visual experience.",
+        "The Campos Garden is an impressive landscape designed and built by S’Estepa. Every corner of this garden has been carefully planned to provide a unique and enjoyable visual experience.",
         "Upon entering the garden, visitors are welcomed by two central pathways covered with lippia (<i>Phyla nodiflora</i>), which serve as strong visual axes. At the end of these pathways stands a majestic ombú tree (<i>Phytolacca dioica</i>). Along the entrance road to the property, we used lippia and red-flowering gauras (<i>Gaura lindheimeri</i>), creating a vibrant and welcoming atmosphere.",
         "The pathway leading from the entrance to the house is bordered by creeping rosemary (<i>Rosmarinus officinalis</i> 'Prostratus') and <i>Ficus nitida</i>, providing a fragrant and elegant setting. Decorative lantanas (<i>Lantana camara</i>) arranged in an 'S' shape enhance the arrival experience and add charm to the entrance of the estate.",
         "Adjacent to the house, we created an elevated garden of approximately 300–400 m², covered with gravel and planted with low-growing species. These rustic plants, featuring a variety of colours, form a living carpet that can be appreciated from the house while offering panoramic views of the entire garden.",
@@ -242,16 +241,16 @@ export const projects: Project[] = [
         "In another section of the garden, we opted for a more natural and organic approach. Here, we created a grassland-inspired garden using stipas (<i>Stipa tenuissima</i>) and gauras, which intertwine to resemble a rice field. We also incorporated pygmy date palms (<i>Phoenix roebelenii</i>), which rise above the ornamental grasses and create an attractive visual contrast. This area is dominated by grasses, complemented only by white gauras, combining three types of grasses, gaura and dwarf palms to create a harmonious and appealing environment.",
         "Another garden space is separated by Arizona cypresses (<i>Cupressus arizonica</i>), where we planted dense green shrubs and ground-cover species such as <i>Pittosporum tobira</i> 'Nana' and rosemary. This area evokes an almost tropical atmosphere thanks to its lush vegetation, which functions both as a shrub layer and as ground cover. From here, visitors can enjoy panoramic views of the rest of the garden while relaxing in a peaceful setting.",
         "Finally, there is a special area near the pool that connects to the geometric garden of lantanas, bougainvilleas and agapanthus. Here, we created a tunnel formed by tall shrubs and flowering plants. As visitors leave the lawn and pass through this hidden corridor, they cannot see what lies ahead until they emerge into the garden beyond. This creates a magical and surprising experience, revealing the beauty of the landscape only at the very end of the journey.",
-        "The Campos Garden, designed and built by S’Estepa, is an exceptional 10,000 m² landscape. Its carefully planned spaces offer a unique combination of geometric design, naturalistic planting and visual surprises, creating a harmonious and captivating environment in which to enjoy the beauty of nature."
+        "The Campos Garden, designed and built by S’Estepa, is an exceptional landscape. Its carefully planned spaces offer a unique combination of geometric design, naturalistic planting and visual surprises, creating a harmonious and captivating environment in which to enjoy the beauty of nature."
       ]
     },
     es: {
       title: "Finca Jardín Campos",
-      subtitle: "Un majestuoso paisaje de 10.000 m² que une la geometría y la naturaleza salvaje",
+      subtitle: "Un majestuoso paisaje que une la geometría y la naturaleza salvaje",
       category: "Jardín de Finca",
       botanical: "Phyla nodiflora, Phytolacca dioica (Bellasombra), Gaura lindheimeri, Rosmarinus officinalis 'Prostratus', Lantana camara, Lantana montevidensis, Bougainvillea sanderiana, Agapanthus africanus, Stipa tenuissima, Phoenix roebelenii, Cupressus arizonica, Pittosporum tobira 'Nana'",
       description: [
-        "El Jardín de Campos es un impresionante espacio de 10.000 m² diseñado y montado por S’Estepa. Cada rincón de este jardín ha sido cuidadosamente planificado para ofrecer una experiencia visual única y agradable.",
+        "El Jardín de Campos es un impresionante espacio diseñado y montado por S’Estepa. Cada rincón de este jardín ha sido cuidadosamente planificado para ofrecer una experiencia visual única y agradable.",
         "Al ingresar al jardín, te encuentras con dos pasillos centrales recubiertos de lippia, que actúan como ejes visuales. Al final de estos pasillos, se destaca un majestuoso árbol conocido como bellasombra (<i>Phytolacca dioica</i>). A lo largo del camino de entrada a la finca, hemos utilizado lippias (<i>Phyla nodiflora</i>) y gauras de color rojo (<i>Gaura lindheimeri</i>), creando una zona vibrante y acogedora.",
         "El camino que conduce desde la entrada hasta la casa está bordeado por romeros (<i>Rosmarinus officinalis</i> 'Prostratus') y <i>Ficus nitida</i>, brindando un ambiente fragante y elegante. Además, hemos añadido lantanas (<i>Lantana camara</i>) en forma de 'S' como elementos decorativos, que añaden belleza y encanto a la llegada a la finca.",
         "Justo al lado de la casa, hemos creado un jardín elevado de aproximadamente 300 a 400 m2, cubierto con grava y adornado con plantas bajas. Estas plantas, de diversos colores y de estilo rústico, forman una especie de alfombra de jardinería que permite observar todo el jardín desde la casa.",
@@ -259,16 +258,16 @@ export const projects: Project[] = [
         "Por otro lado, en otra zona del jardín, hemos optado por un enfoque más natural y orgánico. Aquí hemos creado un jardín de juncos utilizando plantas como stipas (<i>Stipa tenuissima</i>) y gauras, que se entrelazan para formar un paisaje similar a un campo de arroz. Además, hemos añadido palmeras robelenis (<i>Phoenix roebelenii</i>) que sobresalen por encima de las gramíneas, brindando un contraste visual interesante. En esta área, predominan las gramíneas, con excepción de la gaura blanca. En resumen, hemos combinado tres tipos de gramíneas, la gaura y las palmeras enanas para crear un ambiente armonioso y atractivo.",
         "Otro espacio del jardín está separado por los cipreses arizonica (<i>Cupressus arizonica</i>), donde hemos colocado arbustos de tonalidades verdes intensas y plantas tapizantes, como los <i>Pittosporum tobira</i> 'Nana' y los romeros. Esta área evoca una sensación amazónica con su vegetación densa, que no solo actúa como arbustos grandes, sino que también cubre el suelo. Desde aquí, podrás disfrutar de una vista panorámica del resto del jardín mientras te encuentras sentado y relajado.",
         "Finalmente, tenemos un espacio especial en la zona de la piscina, que conecta con el jardín cuadriculado de lantanas, bugambilias y agapantos. En esta área, hemos creado un túnel con arbustos altos y diferentes floraciones, para que al salir del césped te sorprendas al atravesar este pasaje oculto antes de llegar a las lantanas y los agapantos. Este espacio te brinda una experiencia mágica, ya que no puedes ver lo que hay al final del túnel hasta que llegas a esa área, donde se revela la belleza del jardín.",
-        "El Jardín de Campos, diseñado y montado por S'Estepa, es un espacio excepcional de 10.000 m². Sus distintas zonas, cuidadosamente planificadas, ofrecen una combinación única de diseño matemático, naturalidad y sorpresas visuales, creando un entorno armonioso y fascinante para disfrutar de la belleza de la naturaleza."
+        "El Jardín de Campos, diseñado y montado por S'Estepa, es un espacio excepcional. Sus distintas zonas, cuidadosamente planificadas, ofrecen una combinación única de diseño matemático, naturalidad y sorpresas visuales, creando un entorno armonioso y fascinante para disfrutar de la belleza de la naturaleza."
       ]
     },
     de: {
       title: "Finca Garten Campos",
-      subtitle: "Eine majestätische 10.000 m² große Landschaft, die Geometrie und wilde Natur vereint",
+      subtitle: "Eine majestätische Landschaft, die Geometrie und wilde Natur vereint",
       category: "Landgut Garten",
       botanical: "Phyla nodiflora, Phytolacca dioica (Bellasombra), Gaura lindheimeri, Rosmarinus officinalis 'Prostratus', Lantana camara, Lantana montevidensis, Bougainvillea sanderiana, Agapanthus africanus, Stipa tenuissima, Phoenix roebelenii, Cupressus arizonica, Pittosporum tobira 'Nana'",
       description: [
-        "Der Garten von Campos ist eine beeindruckende, 10.000 m² große Gartenanlage, die von S’Estepa entworfen und umgesetzt wurde. Jeder Bereich dieses Gartens wurde sorgfältig geplant, um ein einzigartiges und angenehmes visuelles Erlebnis zu schaffen.",
+        "Der Garten von Campos ist eine beeindruckende Gartenanlage, die von S’Estepa entworfen und umgesetzt wurde. Jeder Bereich dieses Gartens wurde sorgfältig geplant, um ein einzigartiges und angenehmes visuelles Erlebnis zu schaffen.",
         "Beim Betreten des Gartens wird man von zwei zentralen Wegen empfangen, die mit Lippia (<i>Phyla nodiflora</i>) bepflanzt sind und als starke Sichtachsen dienen. Am Ende dieser Wege erhebt sich ein majestätischer Ombú-Baum (<i>Phytolacca dioica</i>). Entlang der Zufahrtsstraße zum Anwesen wurden Lippia und rot blühende Prachtkerzen (<i>Gaura lindheimeri</i>) verwendet, wodurch ein lebendiger und einladender Eingangsbereich entsteht.",
         "Der Weg vom Eingang zum Haus wird von kriechendem Rosmarin (<i>Rosmarinus officinalis</i> 'Prostratus') und <i>Ficus nitida</i> gesäumt und verleiht dem Bereich eine elegante und duftende Atmosphäre. Zusätzlich wurden Lantanen (<i>Lantana camara</i>) in einer geschwungenen 'S'-Form als dekorative Elemente integriert, die dem Eingangsbereich besondere Schönheit und Charakter verleihen.",
         "Direkt neben dem Haus entstand ein erhöht angelegter Gartenbereich von etwa 300 bis 400 m², der mit Kies bedeckt und mit niedrig wachsenden Pflanzen gestaltet wurde. Die rustikalen Pflanzen in verschiedenen Farbtönen bilden einen lebendigen Pflanzenteppich, der vom Haus aus einen umfassenden Blick auf den gesamten Garten ermöglicht.",
@@ -276,7 +275,7 @@ export const projects: Project[] = [
         "In einem anderen Teil des Gartens wurde ein natürlicherer und organischerer Ansatz gewählt. Dort entstand ein von Graslandschaften inspirierter Bereich mit Federgräsern (<i>Stipa tenuissima</i>) und Prachtkerzen, die sich miteinander verweben und an ein Reisfeld erinnern. Ergänzt wird dieser Bereich durch Zwergdattelpalmen (<i>Phoenix roebelenii</i>), die über den Gräsern emporragen und einen interessanten Kontrast schaffen. Die Gestaltung basiert hauptsächlich auf Gräsern, ergänzt durch weiße Gaura-Pflanzen und die Zwergpalmen, wodurch eine harmonische und ansprechende Atmosphäre entsteht.",
         "Ein weiterer Gartenraum wird durch Arizona-Zypressen (<i>Cupressus arizonica</i>) abgegrenzt. Hier wurden immergrüne Sträucher und Bodendecker wie <i>Pittosporum tobira</i> 'Nana' und Rosmarin gepflanzt. Die dichte Vegetation erzeugt eine fast tropische Atmosphäre und dient sowohl als strukturgebende Strauchschicht als auch als Bodendecker. Von diesem Bereich aus genießt man einen herrlichen Blick über den restlichen Garten und kann die Umgebung in entspannter Atmosphäre erleben.",
         "Schließlich gibt es einen besonderen Bereich in der Nähe des Pools, der mit dem geometrischen Garten aus Lantanen, Bougainvilleen und Schmucklilien verbunden ist. Hier wurde ein Tunnel aus hohen Sträuchern und blühenden Pflanzen geschaffen. Beim Verlassen der Rasenfläche und Durchqueren dieses verborgenen Durchgangs bleibt das Ziel zunächst verborgen. Erst am Ende des Weges eröffnet sich die Schönheit des dahinterliegenden Gartens. Dies schafft ein überraschendes und beinahe magisches Erlebnis.",
-        "Der Garten von Campos, entworfen und realisiert von S’Estepa, ist eine außergewöhnliche Gartenanlage von 10.000 m². Seine sorgfältig gestalteten Bereiche verbinden geometrische Strukturen, natürliche Pflanzungen und überraschende Blickachsen zu einem harmonischen und faszinierenden Gesamterlebnis, das die Schönheit der Natur eindrucksvoll zur Geltung bringt."
+        "Der Garten von Campos, entworfen und realisiert von S’Estepa, ist eine außergewöhnliche Gartenanlage. Seine sorgfältig gestalteten Bereiche verbinden geometrische Strukturen, natürliche Pflanzungen und überraschende Blickachsen zu einem harmonischen und faszinierenden Gesamterlebnis, das die Schönheit der Natur eindrucksvoll zur Geltung bringt."
       ]
     }
   },
@@ -550,7 +549,6 @@ export const projects: Project[] = [
     location: "Sant Llorenç, Mallorca",
     year: "2023",
     architect: null,
-    size: "32,000 m²",
     video: "https://www.youtube.com/embed/IdGlxUKjhUQ?feature=oembed",
     cover: "/portfolio/sant-llorenc/images/landscape-garden-malorca-sestepa.png",
     ogImage: "/portfolio/sant-llorenc/images/landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-02.jpg",
@@ -614,7 +612,6 @@ export const projects: Project[] = [
     cover: "/portfolio/terrace-garden-santa-eugenia/cover.jpg",
     coverPosition: "center top",
     images: [
-      "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-1.jpg",
       "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-10.jpg",
       "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-11.jpg",
       "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-12.jpg",
@@ -773,12 +770,12 @@ export const projects: Project[] = [
     video: "https://www.youtube.com/embed/1q1Qnh2s_mg?feature=oembed",
     cover: "/portfolio/terrace-garden-in-palma/cover.jpg",
     images: [
-      "TERRACE-GARDEN-PALMA-MALLORCA-SESTEPA-DESIGN-1.jpg",
-      "TERRACE-GARDEN-PALMA-MALLORCA-SESTEPA-DESIGN-2.jpg",
-      "TERRACE-GARDEN-PALMA-MALLORCA-SESTEPA-DESIGN-3.jpg",
-      "TERRACE-GARDEN-PALMA-MALLORCA-SESTEPA-DESIGN-4.jpg",
-      "TERRACE-GARDEN-PALMA-MALLORCA-SESTEPA-DESIGN-5.jpg",
-      "TERRACE-GARDEN-PALMA-MALLORCA-SESTEPA-DESIGN-6.jpg"
+      "landscape-garden-design-terrace-palma-mallorca-sestepa-design-1.jpg",
+      "landscape-garden-design-terrace-palma-mallorca-sestepa-design-2.jpg",
+      "landscape-garden-design-terrace-palma-mallorca-sestepa-design-3.jpg",
+      "landscape-garden-design-terrace-palma-mallorca-sestepa-design-4.jpg",
+      "landscape-garden-design-terrace-palma-mallorca-sestepa-design-5.jpg",
+      "landscape-garden-design-terrace-palma-mallorca-sestepa-design-6.jpg"
     ],
     en: {
       title: "Palma Terrace",
