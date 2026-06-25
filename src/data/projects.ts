@@ -293,7 +293,7 @@ export const projects: Project[] = [
       "JARDIN-COSTA-DE-LA-CALMA-FABRICE-SESTEPA-GARDEN-DESIGN-_4_.webp",
       "JARDIN-COSTA-DE-LA-CALMA-FABRICE-SESTEPA-GARDEN-DESIGN-_5_.webp",
       "JARDIN-COSTA-DE-LA-CALMA-FABRICE-SESTEPA-GARDEN-DESIGN-_6_.webp",
-      "garden-design-costa-de-la-calma-mallorca-landscape-design-sestepa.jpg"
+      "LANDSCAPE-GARDEN-DESIGN-MALLORCA-COSTA-DE-LA-CALMA-SESTEPA-DESIGN.webp"
     ],
     en: {
       title: "Costa de la Calma",
