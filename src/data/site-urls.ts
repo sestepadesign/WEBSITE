@@ -134,7 +134,6 @@ export const PROJECT_PUBLIC_PATHS: Record<string, Record<SiteLocale, string>> = 
   },
 };
 
-/** Extra WordPress URLs → same project (301 in _redirects + optional static alias). */
 export const PROJECT_PATH_ALIASES: Record<SiteLocale, Record<string, string>> = {
   en: {
     'finca-garden-campos-mallorca': '/finca-garden-campos/',
@@ -143,10 +142,13 @@ export const PROJECT_PATH_ALIASES: Record<SiteLocale, Record<string, string>> = 
   es: {
     'finca-garden-campos-mallorca': '/es/finca-garden-campos/',
     'casa-de-mar-alcudia': '/es/alcanada/',
+    'paisajista-fincas-lujo-son-vida': '/es/sant-llorenc/',
   },
   de: {
     'finca-garten-campos-mallorca': '/de/finca-garten-campos/',
     'haus-am-meer-alcudia': '/de/alcanada/',
+    'finca-gartengestaltung-mallorca-campos': '/de/finca-garten-campos/',
+    'luxus-landschaftsarchitektur-mallorca-andratx': '/de/sant-llorenc/',
   },
 };
 

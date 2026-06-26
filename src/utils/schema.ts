@@ -115,6 +115,7 @@ export function getLocalizedSchema(
       },
       { "@type": "City", "name": "Palma de Mallorca" },
       { "@type": "City", "name": "Andratx" },
+      { "@type": "City", "name": "Son Vida" },
       { "@type": "City", "name": "Campos" },
       { "@type": "City", "name": "Llucmajor" },
       { "@type": "City", "name": "Santa Ponsa" },
