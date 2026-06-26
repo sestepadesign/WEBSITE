@@ -539,7 +539,7 @@ export const projects: Project[] = [
     year: "2023",
     architect: null,
     video: "https://www.youtube.com/embed/IdGlxUKjhUQ?feature=oembed",
-    cover: "/portfolio/sant-llorenc/images/landscape-garden-malorca-sestepa.png",
+    cover: "/portfolio/sant-llorenc/images/landscape-garden-malorca-sestepa.webp",
     ogImage: "/portfolio/sant-llorenc/images/landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-02.jpg",
     images: [
       "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-10.jpg",

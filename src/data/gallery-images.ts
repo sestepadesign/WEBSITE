@@ -187,7 +187,7 @@ export const galleryImages: GalleryImageEntry[] = [
   },
   // 3 × Sant Llorenç (aerial · house · pool render)
   {
-    src: '/portfolio/sant-llorenc/images/landscape-garden-malorca-sestepa.png',
+    src: '/portfolio/sant-llorenc/images/landscape-garden-malorca-sestepa.webp',
     alt: 'SANT LLORÉNC ESTATE GARDEN AERIAL MALLORCA SESTEPA DESIGN',
     projectSlug: santLlorenc,
   },
