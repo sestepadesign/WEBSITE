@@ -184,9 +184,14 @@ const pageDescription = translation.description[0] || "";
             {project.images.slice(2).map((img, idx) => {
               const globalIdx = idx + 2;
               const remainingCount = project.images.length - 2;
+              const isFinca = project.slug === 'finca-garden-campos-mallorca';
+              // Finca has first-child as span-2 (takes 2 slots), so its parity is inverted
+              const isLastItem = idx === remainingCount - 1;
+              const isOddSlots = (remainingCount + (isFinca ? 1 : 0)) % 2 !== 0;
+              const shouldSpan = isLastItem && isOddSlots;
               return (
                 <button
-                  class={`gallery-item-btn ${remainingCount % 2 !== 0 && idx === remainingCount - 1 ? 'full-width' : ''}`}
+                  class={`gallery-item-btn ${shouldSpan ? 'full-width' : ''}`}
                   data-src={`/portfolio/${project.slug}/images/${img}`}
                   data-index={globalIdx}
                   aria-label={`View image ${globalIdx + 1} in fullscreen`}
