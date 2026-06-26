@@ -542,8 +542,8 @@ export const projects: Project[] = [
     cover: "/portfolio/sant-llorenc/images/landscape-garden-malorca-sestepa.png",
     ogImage: "/portfolio/sant-llorenc/images/landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-02.jpg",
     images: [
-      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.jpg",
-      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-02.jpg",
+      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-10.jpg",
+      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-12.jpg",
       "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-03.jpg",
       "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-04.jpg",
       "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-05.jpg",
@@ -551,9 +551,9 @@ export const projects: Project[] = [
       "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-07.jpg",
       "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-08.jpg",
       "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-09.jpg",
-      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-10.jpg",
+      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.jpg",
       "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-11.jpg",
-      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-12.jpg"
+      "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-02.jpg"
     ],
     en: {
       title: "Sant Llorenç",
