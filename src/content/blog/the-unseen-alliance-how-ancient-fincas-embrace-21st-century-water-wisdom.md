@@ -1,4 +1,4 @@
----
+﻿---
 title: "The Unseen Alliance: How Ancient Fincas Embrace 21st-Century Water Wisdom"
 description: "The true beauty of integrating smart water wisdom into a historic Finca is that it renders the effort invisible. You are left with the shade of the olive trees, the vibrant purple of the Bougainvillea against honey-colored stone, and the peace of mind that comes from sustainable stewardship. It allo"
 pubDate: 2025-11-19
@@ -28,7 +28,7 @@ Modern evapotranspiration (ET) controllers act as the nervous system of the gard
 
 In high-end xerophytic design, we do not want to see the machinery. We want the scent of Jasmine and the crunch of gravel, not the hiss of a pop-up sprinkler hitting a dry stone wall.
 
-Sub-surface Drip Lines: We bury lines beneath the mulch or gravel. This prevents evaporation and ensures water is delivered directly to the capillary roots, bypassing the calcified top crust.
+Sub-surface Drip Lines: We bury lines beneath the mulch or gravel. This prevents evaporation and ensures water is delivered directly to the capillary roots, bypassing the calcified top crust. In the [Sant Llorenç](/sant-llorenc) estate, subsurface drip combined with a palette of *Lavandula dentata*, *Rosmarinus officinalis* 'Prostratus', and centenary olives achieves a lush, established landscape that runs at a fraction of the irrigation load of a conventional Mallorcan garden.
 
 Smart Fertigation: Given our alkaline soil, smart systems can micro-dose acidifiers and iron chelates directly into the water stream, maintaining the emerald lushness of a tropical garden with the water footprint of a dry steppe.
 
@@ -40,7 +40,7 @@ A smart system deserves a smart selection. We prioritize plants that thrive in h
 
 ### 1. The Structural Backbone
 
-*Olea europaea* (Olivera / Olive Tree): The monarch of the landscape. While drought-tolerant, established specimens benefit immensely from deep, infrequent watering cycles monitored by soil sensors to encourage deep rooting.
+*Olea europaea* (Olivera / Olive Tree): The monarch of the landscape. While drought-tolerant, established specimens benefit immensely from deep, infrequent watering cycles monitored by soil sensors to encourage deep rooting. See how specimen olives anchor the entire spatial composition in our [Finca Garden Campos](/finca-garden-campos-mallorca) project in the south of Mallorca.
 
 ### 2. The Architectural Screen
 

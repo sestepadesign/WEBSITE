@@ -53,11 +53,11 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
   },
   es: {
     tag: 'Nuestra Experiencia',
-    title: 'Diseño y Creación de Jardines en Mallorca',
+    title: 'Diseño y Creación de Jardines en Mallorca — No decoración, sino transformación viva',
     subtitle:
       'Ofrecemos un enfoque integral del paisajismo en Mallorca, centrándonos en la creación y el mantenimiento a largo plazo de ecosistemas vivos para villas y residencias vacacionales.',
     metaDescription:
-      'Diseño, creación y mantenimiento de jardines para fincas y villas en Mallorca. S\'Estepa Design: 30 años de paisajismo y arquitectura del jardín mediterráneo.',
+      'Creación y diseño de jardines en Mallorca para fincas y villas privadas. No decoración — transformación viva. S\'Estepa Design: 30 años de paisajismo mediterráneo.',
     intro:
       'Nuestro equipo supervisa todo el proceso, desde el diseño y la construcción hasta el riego técnico y la plantación. Garantizamos una experiencia sin fisuras, gestionando cada detalle en inglés, español y alemán.',
     items: [

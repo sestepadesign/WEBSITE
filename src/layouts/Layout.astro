@@ -106,6 +106,10 @@ const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogL
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     {!noindex && <Schema canonicalPath={canonicalPath} />}
+
+    {(canonicalPath === '/' || canonicalPath === '' || canonicalPath === '/es' || canonicalPath === '/de') && (
+      <link rel="preload" as="image" href="/videos/sant_llorenc_poster.webp" />
+    )}
   </head>
   <body>
     {redirectTo ? (

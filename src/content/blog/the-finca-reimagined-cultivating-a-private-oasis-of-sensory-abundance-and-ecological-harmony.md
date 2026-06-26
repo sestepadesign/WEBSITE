@@ -22,7 +22,7 @@ A luxury xerophytic approach does not mean a landscape of barren rock and cacti.
 
 The plant palette for a high-end Finca must bridge the gap between the wild beauty of the garrigue and the structural elegance of modern architecture. We select plants not only for their drought tolerance but for their structural integrity and textural contrast.
 
-The Architectural Anchors: The *Olea europaea* (Olivera) and *Ceratonia siliqua* (Garrover) are non-negotiable. Pruned sculpturally, they provide the &#8216;ceiling' of your outdoor room, casting that essential dappled shade.
+The Architectural Anchors: The *Olea europaea* (Olivera) and *Ceratonia siliqua* (Garrover) are non-negotiable. Pruned sculpturally, they provide the &#8216;ceiling' of your outdoor room, casting that essential dappled shade. In our [Finca Garden Campos](/finca-garden-campos-mallorca) project, centenary olive trees anchor the entire landscape composition, creating the defining visual axis of the estate.
 
 The Aromatic Mid-Layer: For volume and scent, we turn to *Rosmarinus officinalis* (Romaní) and the silver-leafed *Teucrium fruticans* (Olivilla). These are resilient against the calcareous soil and can be clipped into precise spheres or hedges for a Bauhaus-meets-Finca aesthetic.
 
@@ -40,7 +40,7 @@ Furthermore, we pay close attention to the soil microbiome. Through the introduc
 
 A Finca is experienced through the senses. The design must be mapped emotionally. Imagine the crunch of local gravilla (gravel) underfoot slowing your pace as you approach the main house. Visualize the play of chiaroscuro—light and shadow—dancing on a stone wall as the sun sets behind the Tramuntana.
 
-We position *Jasminum officinale* (Jazmín) near the evening terraces, ensuring the scent envelops you only when the heat of the day subsides. The sound of water is introduced not through roaring fountains, but through minimalist rills that reduce evaporation while providing a cooling acoustic backdrop. This is a garden that feels established, ancient, and profoundly calming.
+We position *Jasminum officinale* (Jazmín) near the evening terraces, ensuring the scent envelops you only when the heat of the day subsides. This principle of gradual sensory reveal guided our approach in the [Sant Llorenç](/sant-llorenc) estate, where the house itself is kept hidden from the entrance until the visitor has been drawn through a sequence of vegetation and scent. The sound of water is introduced not through roaring fountains, but through minimalist rills that reduce evaporation while providing a cooling acoustic backdrop. This is a garden that feels established, ancient, and profoundly calming.
 
 ## Cultivate Your Legacy
 

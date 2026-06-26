@@ -1,4 +1,4 @@
----
+﻿---
 title: "Beyond the Drought: How S&#8217;Estepa Creates Lush, Regenerative Landscapes Despite Mallorca&#8217;s Water Realities"
 description: "Regenerative Landscaping Mallorca: The S&#8217;Estepa Dry Garden Approach. Discover how S&#8217;Estepa Design masters regenerative landscaping in Mallorca."
 pubDate: 2025-11-20
@@ -26,7 +26,7 @@ Regenerative landscaping begins beneath the surface. A garden cannot sustain its
 
 ### Reviving &#8216;Call Vermell'
 
-Many estates in the central and southern plains of Mallorca sit atop Call Vermell, the island's characteristic iron-rich red clay. While visually striking, it can become compacted and impenetrable during dry spells. Instead of replacing this soil, S'Estepa architects regenerate it. We incorporate organic matter and permeable aggregates to aerate the clay, transforming it into a moisture-retaining sponge that supports deep root systems. This reduces irrigation needs by up to 60% compared to conventional methods.
+Many estates in the central and southern plains of Mallorca sit atop Call Vermell, the island's characteristic iron-rich red clay. While visually striking, it can become compacted and impenetrable during dry spells. Instead of replacing this soil, S'Estepa architects regenerate it. We incorporate organic matter and permeable aggregates to aerate the clay, transforming it into a moisture-retaining sponge that supports deep root systems. This reduces irrigation needs by up to 60% compared to conventional methods. Our [Crestatx](/crestatx-garden-design) project is a direct expression of this soil-first approach: the entire lawn was replaced with a mineral layer over regenerated ground, halving irrigation demand while dramatically increasing biodiversity.
 
 ### Designing for the Tramuntana
 
@@ -40,7 +40,7 @@ Structure: *Olea europaea* (Olive) and *Ceratonia siliqua* (Carob) provide t
 
 Texture: *Phlomis fruticosa* and *Euphorbia* species offer sculptural leaves that resist wilting.
 
-Aromatics: *Rosmarinus officinalis* (Rosemary) and *Lavandula* (Lavender) provide sensory luxury while thriving in arid soil.
+Aromatics: *Rosmarinus officinalis* (Rosemary) and *Lavandula* (Lavender) provide sensory luxury while thriving in arid soil. At the [Hotel Cabot Las Velas](/hotelcabotlasvelas) in Puerto Pollença, this exact palette replaced a thirsty lawn across the entire hotel garden, delivering panoramic views alongside a fraction of the original water budget.
 
 ## The S'Estepa Promise
 

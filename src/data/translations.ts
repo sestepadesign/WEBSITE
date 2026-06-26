@@ -21,11 +21,10 @@ export const ui = {
     'hero.title': 'Crafting Living Sanctuaries',
     'hero.button': 'Explore Portfolio',
     
-    'about.title': 'The Studio',
-    'about.subtitle': `We design spaces shaped by
-the Mediterranean — its light, its rhythms,
-its way of drawing you outdoors.
-Architecture as an extension of the landscape.`,
+    'about.title': 'The Mallorca Studio',
+    'about.subtitle': `30 Years Designing Mallorca's Most Exceptional Gardens —
+shaped by the Mediterranean, its light, its rhythms,
+its way of drawing you outdoors.`,
     
     'portfolio.title': 'Our Gardens',
     'portfolio.subtitle': 'A collection of bespoke outdoor spaces that mature gracefully over time.',
@@ -83,11 +82,10 @@ Architecture as an extension of the landscape.`,
     'hero.title': 'Diseño de paisajes con alma mediterránea',
     'hero.button': 'Ver Portafolio',
     
-    'about.title': 'El Estudio',
-    'about.subtitle': `Diseñamos espacios moldeados por
-el Mediterráneo: su luz, sus ritmos,
-su forma de atraerte al aire libre.
-La arquitectura como extensión del paisaje.`,
+    'about.title': 'El Estudio en Mallorca',
+    'about.subtitle': `30 años diseñando los jardines más excepcionales de Mallorca —
+moldeados por el Mediterráneo, su luz, sus ritmos,
+su forma de atraerte al aire libre.`,
     
     'portfolio.title': 'Nuestros Jardines',
     'portfolio.subtitle': 'Una colección de espacios exteriores a medida que maduran con gracia a lo largo del tiempo.',
@@ -145,11 +143,10 @@ La arquitectura como extensión del paisaje.`,
     'hero.title': 'Lebendige Rückzugsorte Erschaffen',
     'hero.button': 'Portfolio Erkunden',
     
-    'about.title': 'Das Studio',
-    'about.subtitle': `Wir entwerfen Räume, die vom
-Mittelmeer geprägt sind – von seinem Licht, seinen Rhythmen,
-seiner Art, Sie ins Freie zu locken.
-Architektur als Erweiterung der Landschaft.`,
+    'about.title': 'Das Studio auf Mallorca',
+    'about.subtitle': `30 Jahre Gartengestaltung auf Mallorca — außergewöhnliche Gärten,
+geprägt vom Mittelmeer, seinem Licht, seinen Rhythmen,
+seiner Art, Sie ins Freie zu locken.`,
     
     'portfolio.title': 'Unsere Gärten',
     'portfolio.subtitle': 'Eine Sammlung maßgeschneiderter Außenbereiche, die im Laufe der Zeit an Anmut gewinnen.',

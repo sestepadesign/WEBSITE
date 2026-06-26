@@ -78,6 +78,17 @@ const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
         </section>
       )}
       {lang === 'es' && (
+        <section class="proceso-section">
+          <h2 class="proceso-heading">Creación de Jardines en Mallorca — El Proceso</h2>
+          <div class="proceso-content">
+            <p>La creación de un jardín en Mallorca comienza mucho antes de plantar la primera especie. En S'Estepa Design, todo proyecto arranca con una <strong>reunión inicial gratuita</strong> en el propio terreno: escuchamos al cliente, analizamos la orientación solar, el tipo de suelo, la topografía y el microclima de la finca o villa, y definimos juntos la visión del jardín. Este primer encuentro es esencial para entender no sólo qué se quiere, sino qué es posible — y qué soluciones son más duraderas en el contexto específico de Mallorca.</p>
+            <p>A continuación desarrollamos la <strong>fase de diseño</strong>: planos conceptuales en 2D, selección de especies botánicas autóctonas y mediterráneas, propuestas de materiales (piedra caliza local, muros de marès, gravilla autóctona) y, cuando el proyecto lo requiere, renders 3D fotorrealistas que permiten visualizar el resultado final antes de iniciar ninguna obra. Cada decisión está fundamentada en criterios ecológicos y en el respeto por el carácter de la tierra mallorquina.</p>
+            <p>La <strong>fase de construcción</strong> la gestiona íntegramente nuestro propio equipo especializado. Esto incluye movimientos de tierra, construcción de muros de piedra seca, instalación de sistemas de riego tecnificado por goteo, pavimentación, iluminación exterior y plantación. Al trabajar con nuestro equipo propio, garantizamos que el diseño se ejecuta exactamente como fue concebido, sin intermediarios ni pérdidas de información entre estudio y obra.</p>
+            <p>El proceso culmina con un <strong>programa de cuidado ecológico a largo plazo</strong>: podas estacionales, gestión del riego, control fitosanitario y replantaciones. Un jardín mediterráneo en Mallorca alcanza su máximo esplendor con los años; nuestro servicio de mantenimiento asegura que madure con la misma intención con la que fue diseñado.</p>
+          </div>
+        </section>
+      )}
+      {lang === 'es' && (
         <section class="faq-section">
           <h2 class="faq-heading">Diseño de Jardines y Paisajismo en Mallorca — Preguntas Frecuentes</h2>
           <dl class="faq-list">
@@ -90,8 +101,12 @@ const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
               <dd>Sí. Nuestros proyectos de diseño de jardines abarcan toda la isla — desde la Sierra de Tramuntana y las fincas del interior hasta villas costeras en Santa Ponsa, Andratx y el noreste. Tenemos nuestra sede en Inca, en el centro geográfico de Mallorca.</dd>
             </div>
             <div class="faq-item">
-              <dt>¿Cómo funciona el proceso de diseño de jardines?</dt>
-              <dd>Todo proyecto comienza con una visita al terreno y una consulta gratuita. Desarrollamos un diseño conceptual, lo refinamos contigo, producimos planos técnicos completos y gestionamos la instalación con nuestro propio equipo especializado.</dd>
+              <dt>¿Cómo funciona el proceso de creación de jardines en Mallorca?</dt>
+              <dd>La creación de un jardín en Mallorca con S'Estepa Design sigue cuatro etapas: (1) visita al terreno y consulta inicial gratuita para entender el sitio, el clima y los deseos del cliente; (2) diseño conceptual y planos técnicos, con renders 3D si se requieren; (3) construcción integral por nuestro propio equipo especializado —movimiento de tierras, muros de piedra seca, sistemas de riego y plantación—; y (4) un programa de mantenimiento ecológico a largo plazo para que el jardín madure con el tiempo.</dd>
+            </div>
+            <div class="faq-item">
+              <dt>¿Qué incluye el servicio de paisajismo en Mallorca?</dt>
+              <dd>Nuestro servicio de paisajismo en Mallorca abarca todo el proceso: desde el análisis del terreno y la selección de especies autóctonas mediterráneas hasta la construcción completa y el cuidado posterior. Trabajamos tanto en fincas en el interior de la isla como en villas costeras, adaptando cada jardín a las condiciones particulares del suelo y el microclima de Mallorca.</dd>
             </div>
             <div class="faq-item">
               <dt>¿Ofrecéis mantenimiento del jardín después del diseño y la construcción?</dt>
@@ -111,6 +126,14 @@ const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
             <div class="faq-item">
               <dt>Arbeiten Sie überall auf Mallorca?</dt>
               <dd>Ja. Unsere Projekte erstrecken sich über die gesamte Insel — von der Sierra de Tramuntana bis zu Küstenvillen in Santa Ponsa und Andratx. Unser Büro liegt in Inca, im geografischen Zentrum Mallorcas.</dd>
+            </div>
+            <div class="faq-item">
+              <dt>Wie läuft die Gartengestaltung auf Mallorca ab?</dt>
+              <dd>Unser Prozess umfasst vier Phasen: (1) ein kostenloses Erstgespräch und Geländebesichtigung; (2) konzeptionelles Design mit maßstabsgetreuen 2D-Plänen und optionalen 3D-Visualisierungen; (3) vollständige Umsetzung durch unser eigenes Team — Erdarbeiten, Trockensteinmauern, Bewässerungssysteme und Bepflanzung mit einheimischen Arten; und (4) ein langfristiges ökologisches Pflegeprogramm, damit Ihr Garten genau so heranreift, wie er entworfen wurde.</dd>
+            </div>
+            <div class="faq-item">
+              <dt>Welche Gartentypen gestalten Sie auf Mallorca?</dt>
+              <dd>Wir gestalten mediterrane Gärten für private Fincas, Landhäuser, Küstenvillen und städtische Residenzen in ganz Mallorca. Unsere Landschaftsgestaltung setzt auf endemische Pflanzenarten, xerophile Bepflanzung und traditionelle Trockensteinelemente — für einen authentischen mallorquinischen Charakter, der gleichzeitig wassereffizient und pflegeleicht ist.</dd>
             </div>
             <div class="faq-item">
               <dt>Bieten Sie nach der Gartengestaltung und dem Bau auch Gartenpflege an?</dt>
@@ -165,6 +188,94 @@ const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Yes. We provide ongoing ecological care programmes — including pruning, drip irrigation management, plant health monitoring, and seasonal replanting — to ensure your garden matures exactly as designed over the years."
+          }
+        }
+      ]
+    })} />
+  )}
+  {lang === 'es' && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué servicios de diseño de jardines y paisajismo ofrece S'Estepa Design en Mallorca?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "S'Estepa Design ofrece una gama completa de servicios: diseño conceptual, planos 2D a escala, renders 3D fotorrealistas, construcción completa de jardines, riego técnico y cuidado ecológico a largo plazo. Cada proyecto es gestionado de principio a fin por nuestro equipo local en toda la isla."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Trabajáis en toda Mallorca?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Nuestros proyectos de diseño de jardines abarcan toda la isla — desde la Sierra de Tramuntana y las fincas del interior hasta villas costeras en Santa Ponsa, Andratx y el noreste. Tenemos nuestra sede en Inca, en el centro geográfico de Mallorca."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo funciona el proceso de creación de jardines en Mallorca?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La creación de un jardín en Mallorca con S'Estepa Design sigue cuatro etapas: (1) visita al terreno y consulta inicial gratuita; (2) diseño conceptual y planos técnicos con renders 3D opcionales; (3) construcción integral por nuestro propio equipo especializado — movimiento de tierras, muros de piedra seca, sistemas de riego y plantación; y (4) un programa de mantenimiento ecológico a largo plazo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué incluye el servicio de paisajismo en Mallorca?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nuestro servicio de paisajismo en Mallorca abarca todo el proceso: desde el análisis del terreno y la selección de especies autóctonas mediterráneas hasta la construcción completa y el cuidado posterior. Trabajamos tanto en fincas en el interior de la isla como en villas costeras, adaptando cada jardín a las condiciones particulares del suelo y el microclima de Mallorca."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Ofrecéis mantenimiento del jardín después del diseño y la construcción?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Ofrecemos programas de cuidado ecológico continuo — incluyendo poda, gestión del riego por goteo, control fitosanitario y replantación estacional — para que tu jardín madure exactamente como fue diseñado."
+          }
+        }
+      ]
+    })} />
+  )}
+  {lang === 'de' && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Welche Leistungen bietet S'Estepa Design für Gartengestaltung auf Mallorca an?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "S'Estepa Design bietet ein umfassendes Spektrum an Landschafts- und Gartengestaltungsdiensten auf Mallorca: Konzeptionelles Design, maßstabsgetreue 2D-Pläne, fotorealistische 3D-Renderings, kompletter Gartenbau, technische Bewässerung und langfristige ökologische Pflege."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie läuft die Gartengestaltung auf Mallorca ab?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Unser Prozess umfasst vier Phasen: kostenloses Erstgespräch und Geländebesichtigung; konzeptionelles Design mit 2D-Plänen und optionalen 3D-Visualisierungen; vollständige Umsetzung durch unser eigenes Team mit Erdarbeiten, Trockensteinmauern, Bewässerungssystemen und Bepflanzung; und ein langfristiges ökologisches Pflegeprogramm."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche Gartentypen gestalten Sie auf Mallorca?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Wir gestalten mediterrane Gärten für private Fincas, Landhäuser, Küstenvillen und städtische Residenzen in ganz Mallorca. Unsere Landschaftsgestaltung setzt auf endemische Pflanzenarten, xerophile Bepflanzung und traditionelle Trockensteinelemente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bieten Sie nach der Gartengestaltung und dem Bau auch Gartenpflege an?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Wir bieten kontinuierliche ökologische Pflegeprogramme an — einschließlich Rückschnitt, Tröpfchenbewässerungsmanagement, Pflanzengesundheitsüberwachung und saisonaler Neubepflanzung."
           }
         }
       ]
@@ -271,6 +382,39 @@ const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
     .services-grid {
       grid-template-columns: 1fr;
     }
+  }
+
+  .proceso-section {
+    margin-top: 5rem;
+    border-top: 1px solid var(--color-sand-dark);
+    padding-top: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .proceso-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 300;
+    color: var(--color-charcoal);
+    margin-bottom: 2.5rem;
+  }
+
+  .proceso-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 820px;
+  }
+
+  .proceso-content p {
+    font-size: 0.975rem;
+    line-height: 1.85;
+    color: var(--color-charcoal-light);
+  }
+
+  .proceso-content strong {
+    color: var(--color-charcoal);
+    font-weight: 500;
   }
 
   .faq-section {

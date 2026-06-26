@@ -18,7 +18,7 @@ By imposing structure, we actually create the conditions for life to flourish. T
 
 Design Concept Visualization
 
-Consider the traditional piedra en seco (dry stone) walls that terrace the island. In a modernist context, these become sharp, linear retaining structures. However, their function remains deeply ecological.
+Consider the traditional piedra en seco (dry stone) walls that terrace the island. In a modernist context, these become sharp, linear retaining structures. However, their function remains deeply ecological. Our [Bunyola](/bunyola) garden is a precise study of this: natural stone staircases and retaining walls structure a steeply sloping site, and the geometry doesn't fight the ecology — it creates it.
 
 These rigid lines offer shelter. They create shadows that preserve moisture in the terra rossa soil. They act as windbreaks against the salty gusts coming off the Balearic Sea.
 
@@ -50,7 +50,7 @@ In these spaces, wildlife returns. Pollinators flock to the blooms protected by 
 
 ### A Symphony of Textures
 
-*Myrtus communis* (Common Myrtle): Its glossy leaves reflect light, softening the hardness of architectural steel or stone.
+*Myrtus communis* (Common Myrtle): Its glossy leaves reflect light, softening the hardness of architectural steel or stone. In our [Son Vida](/son-vida) garden — Mallorca's most exclusive residential enclave — clean lines of structural green spheres and architectural palms achieve exactly this dialogue of precision and organic texture against white stone facades.
 
 *Stipa tenuissima* (Mexican Feather Grass): Adds necessary movement, blurring the lines between the built environment and the wild horizon.
 

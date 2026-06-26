@@ -43,7 +43,7 @@ const pageDescription = translation.description[0] || "";
     <div class="project-cover-hero">
       <img
         src={project.cover}
-        alt={translation.title}
+        alt={`Garden Design ${project.location} — S'Estepa Design`}
         class="project-cover-img"
         style={project.coverPosition ? `object-position: ${project.coverPosition};` : undefined}
         fetchpriority="high"
@@ -76,7 +76,7 @@ const pageDescription = translation.description[0] || "";
           <div class="editorial-feature-img">
             <img
               src={`/portfolio/${project.slug}/images/${project.images[0]}`}
-              alt={`${translation.title}`}
+              alt={`Garden Design ${project.location} — S'Estepa Design`}
               loading="lazy"
               class="editorial-img"
             />
@@ -149,7 +149,7 @@ const pageDescription = translation.description[0] || "";
           <div class="editorial-mid-img">
             <img
               src={`/portfolio/${project.slug}/images/${project.images[1]}`}
-              alt={`${translation.title}`}
+              alt={`Garden Design ${project.location} — S'Estepa Design`}
               loading="lazy"
               class="editorial-img"
             />
@@ -199,7 +199,7 @@ const pageDescription = translation.description[0] || "";
                   <div class="gallery-item">
                     <img
                       src={`/portfolio/${project.slug}/images/${img}`}
-                      alt={`${translation.title} detail ${globalIdx + 1}`}
+                      alt={`Garden Design ${project.location} — S'Estepa Design`}
                       loading="lazy"
                       class="gallery-img"
                     />
@@ -216,7 +216,7 @@ const pageDescription = translation.description[0] || "";
     <section class="next-project-hero">
       <a href={getProjectPath(nextProject.slug, lang)} class="next-project-link">
         <div class="next-project-bg">
-          <img src={nextProject.cover} alt={nextProjectTranslation.title} loading="lazy" class="next-project-img" />
+          <img src={nextProject.cover} alt={`Garden Design ${nextProject.location} — S'Estepa Design`} loading="lazy" class="next-project-img" />
           <div class="next-project-overlay"></div>
         </div>
         <div class="next-project-content">

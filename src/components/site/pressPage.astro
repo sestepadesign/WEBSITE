@@ -10,17 +10,23 @@ const t = (key: keyof typeof ui[typeof lang]) => {
 };
 
 const descriptions = {
-  en: "Explore S'Estepa Design's featured publications, interviews, and media coverage in leading landscape and lifestyle magazines.",
-  es: "Explore las publicaciones de S'Estepa Design, entrevistas y cobertura mediática en las principales revistas de paisajismo y estilo de vida.",
-  de: "Entdecken Sie die Veröffentlichungen, Interviews und Medienberichte von S'Estepa Design in führenden Landschafts- und Lifestyle-Magazinen."
+  en: "S'Estepa Design, Mallorca garden design studio, featured in leading design publications. Press coverage on our Mediterranean landscape projects, dry-stone walling, and native Mallorcan flora expertise.",
+  es: "S'Estepa Design, estudio de diseño de jardines en Mallorca, destacado en las principales publicaciones de diseño. Cobertura de prensa sobre nuestros proyectos de paisajismo mediterráneo y experiencia en flora autóctona mallorquina.",
+  de: "S'Estepa Design, Mallorcas Gartendesignstudio, in führenden Designpublikationen vorgestellt. Presseberichte über unsere mediterranen Landschaftsprojekte und Expertise in einheimischer mallorquinischer Flora."
 };
 
 const pageDescription = descriptions[lang];
 
+const pressH1 = {
+  en: "Featured in Leading Design Publications",
+  es: "Destacados en las Principales Publicaciones de Diseño",
+  de: "In Führenden Designpublikationen Vorgestellt"
+};
+
 const pageSubtitle = {
-  en: "Explore S'Estepa Design's press articles, interviews, and project showcases featured in international design and lifestyle press.",
-  es: "Explore los artículos de prensa, entrevistas y muestras de proyectos de S'Estepa Design en los medios internacionales de diseño.",
-  de: "Entdecken Sie die Presseartikel, Interviews und Projektpräsentationen von S'Estepa Design in der internationalen Fach- und Lifestylepresse."
+  en: "S'Estepa Design's Mallorca garden design studio press — project showcases, interviews, and editorial features in international design and lifestyle publications.",
+  es: "Prensa del estudio de diseño de jardines S'Estepa Design en Mallorca — reportajes de proyectos, entrevistas y artículos editoriales en publicaciones internacionales de diseño y estilo de vida.",
+  de: "Presse des S'Estepa Design Gartendesignstudios auf Mallorca — Projektpräsentationen, Interviews und redaktionelle Beiträge in internationalen Design- und Lifestyle-Publikationen."
 };
 
 const readMoreText = {
@@ -34,6 +40,16 @@ const downloadText = {
   es: "Descargar PDF",
   de: "PDF Herunterladen"
 };
+
+// Map date strings to ISO 8601 for Schema.org
+const publicationDates = [
+  "2025-06-01",
+  "2024-09-01",
+  "2024-09-24",
+  "2024-01-01",
+  "2024-01-01",
+  "2023-11-24"
+];
 
 const publications = [
   {
@@ -202,7 +218,7 @@ const publications = [
     <div class="container header-grid">
       <div class="header-text">
         <span class="header-tag">{t('nav.press')}</span>
-        <h1 class="header-title">{t('press.title')}</h1>
+        <h1 class="header-title">{pressH1[lang]}</h1>
         <p class="header-subtitle">{pageSubtitle[lang]}</p>
       </div>
       <div class="header-image-container">
@@ -267,6 +283,35 @@ const publications = [
     </div>
   </div>
 </Layout>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": publications.map((pub, i) => ({
+    "@type": "NewsArticle",
+    "headline": pub.title['en'],
+    "name": pub.title[lang],
+    "description": pub.excerpt[lang],
+    "datePublished": publicationDates[i],
+    "publisher": {
+      "@type": "Organization",
+      "name": pub.magazine,
+      "sameAs": pub.magazine === "abcMallorca"
+        ? "https://www.abc-mallorca.com"
+        : "https://www.spendinmagazine.com"
+    },
+    "about": {
+      "@type": "LocalBusiness",
+      "@id": "https://design.sestepa.com/#business",
+      "name": "S'Estepa Design",
+      "description": "Garden design and landscape architecture studio in Mallorca, specialising in Mediterranean gardens for fincas and villas.",
+      "url": "https://design.sestepa.com"
+    },
+    "url": pub.link,
+    "image": pub.images[0]
+      ? `https://design.sestepa.com${pub.images[0]}`
+      : undefined
+  }))
+})} />
 
 <script>
   const buttons = document.querySelectorAll('.press-img-btn') as NodeListOf<HTMLButtonElement>;

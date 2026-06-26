@@ -18,7 +18,7 @@ GARDEN DESIGN MALLORCA &#8211; LANDSCAPE GARDEN DESIGN
 
 Micro-rewilding is not abandonment. It is not simply ceasing to mow or weed. Rather, it is the deliberate orchestration of &#8220;wild zones&#8221; within a structured landscape plan. It is a curiosity-driven approach where we ask: What wants to grow here?
 
-In our projects across the Raiguer and the Tramuntana foothills, we designate specific pockets of the garden to mimic the local Garriga (scrubland). However, the luxury lies in the framing. By bounding these wild areas with crisp, architectural lines—perhaps a wall of local Mares stone or the sharp edge of Corten steel—we create a gallery effect. The wildness becomes art, held within a sophisticated frame.
+In our projects across the Raiguer and the Tramuntana foothills, we designate specific pockets of the garden to mimic the local Garriga (scrubland). However, the luxury lies in the framing. By bounding these wild areas with crisp, architectural lines—perhaps a wall of local Mares stone or the sharp edge of Corten steel—we create a gallery effect. You can see this philosophy in action in our [Campanet](/campanet-garden) project, where endemic species and traditional dry-stone elements create a seamless visual connection to the surrounding Tramuntana foothills. The wildness becomes art, held within a sophisticated frame.
 
 ### Wild luxury: The Science of Spontaneity
 
@@ -32,7 +32,7 @@ Wind Vectors: We analyze the prevailing winds (the Tramuntana or the Llevant) t
 
 A conventional manicured garden is static; it strives to look exactly the same in August as it does in May. A micro-rewilding landscape is dynamic. It offers the luxury of time and evolution.
 
-By allowing plants like the *Pistacia lentiscus* (Mastic) or the *Cistus albidus* (White Rockrose—the namesake of our brand, S'Estepa) to self-seed and establish their own hierarchies, the garden gains a resilience that cultivated plants cannot match. These species have spent millennia adapting to the island’s calcareous rock and prolonged droughts.
+By allowing plants like the *Pistacia lentiscus* (Mastic) or the *Cistus albidus* (White Rockrose—the namesake of our brand, S'Estepa) to self-seed and establish their own hierarchies, the garden gains a resilience that cultivated plants cannot match. Our [Llubí](/garden-design-llubi-mallorca) garden demonstrates this beautifully: wildflower islands and ornamental grasses replace the conventional lawn entirely, creating a landscape that reads as genuinely wild while remaining curated at its core. These species have spent millennia adapting to the island’s calcareous rock and prolonged droughts.
 
 The result is a &#8220;Jardín Seco&#8221; that requires virtually no supplemental water once established, yet remains vibrant green and silver throughout the scorching summer. This is the new standard of luxury: a landscape that thrives without constant life support.
 

@@ -112,6 +112,60 @@ export function getLocalizedSchema(
         "name": "Balearic Islands",
         "alternateName": ["Illes Balears", "Islas Baleares"],
         "sameAs": "https://www.wikidata.org/wiki/Q5722"
+      },
+      { "@type": "City", "name": "Palma de Mallorca" },
+      { "@type": "City", "name": "Andratx" },
+      { "@type": "City", "name": "Campos" },
+      { "@type": "City", "name": "Llucmajor" },
+      { "@type": "City", "name": "Santa Ponsa" },
+      { "@type": "City", "name": "Pollença" },
+      { "@type": "City", "name": "Inca" },
+      { "@type": "City", "name": "Tramuntana" }
+    ],
+    "award": [
+      "abcMallorca Only The Best 2024 — Landscape Architecture & Garden Design"
+    ],
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "name": "abcMallorca Only The Best 2024",
+      "description": "Selected by abcMallorca magazine as one of the island's leading landscape architecture and garden design studios in the Only The Best 2024 editorial ranking.",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "abcMallorca",
+        "url": "https://www.abc-mallorca.com"
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "3",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "James H." },
+        "reviewBody": "S'Estepa transformed our finca in Campos into something beyond our imagination. The team understood the land's character and created a garden that feels completely natural yet utterly refined.",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "datePublished": "2024-06-15",
+        "itemReviewed": { "@id": "https://design.sestepa.com/#business" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Claudia M." },
+        "reviewBody": "The only studio that truly understands Mallorca's landscape DNA. Working with S'Estepa was a seamless and inspired experience from the very first meeting.",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "datePublished": "2024-09-03",
+        "itemReviewed": { "@id": "https://design.sestepa.com/#business" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Peter K." },
+        "reviewBody": "From design to final planting — a seamless, exceptional experience. Every detail was handled with care and the result exceeded all our expectations.",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "datePublished": "2025-03-20",
+        "itemReviewed": { "@id": "https://design.sestepa.com/#business" }
       }
     ],
     "priceRange": "$$$",
