@@ -37,6 +37,7 @@ const copy = {
   role="dialog"
   aria-live="polite"
   aria-label={copy.policy}
+  style="display: none;"
   hidden
 >
   <div class="cookie-consent-inner">
@@ -91,11 +92,13 @@ const copy = {
     }
 
     function hideBanner() {
+      banner.style.display = 'none';
       banner.hidden = true;
       banner.setAttribute('aria-hidden', 'true');
     }
 
     function showBanner() {
+      banner.style.display = 'block';
       banner.hidden = false;
       banner.removeAttribute('aria-hidden');
     }
