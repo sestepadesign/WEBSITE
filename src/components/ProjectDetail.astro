@@ -1,10 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { ui } from '../data/translations';
-import { type Project } from '../data/projects';
+import { type Project, projects } from '../data/projects';
 import { getProjectCategory } from '../data/portfolio-categories';
 import { pedroQuote } from '../lib/quotes';
-import { getPagePath } from '../lib/urls';
+import { getPagePath, getProjectPath } from '../lib/urls';
 
 interface Props {
   project: Project;
@@ -13,6 +13,11 @@ interface Props {
 }
 
 const { project, lang, canonicalPath } = Astro.props;
+
+const visibleProjects = projects.filter(p => !p.hidden);
+const currentIndex = visibleProjects.findIndex(p => p.slug === project.slug);
+const nextProject = visibleProjects[(currentIndex + 1) % visibleProjects.length];
+const nextProjectTranslation = nextProject[lang];
 
 const categorySlug = getProjectCategory(project.slug);
 const showPedroQuote = categorySlug === 'estate';
@@ -201,6 +206,29 @@ const pageDescription = translation.description[0] || "";
         </section>
       )}
     </div>
+
+    <!-- Next Project Hero Banner -->
+    <section class="next-project-hero">
+      <a href={getProjectPath(nextProject.slug, lang)} class="next-project-link">
+        <div class="next-project-bg">
+          <img src={nextProject.cover} alt={nextProjectTranslation.title} loading="lazy" class="next-project-img" />
+          <div class="next-project-overlay"></div>
+        </div>
+        <div class="next-project-content">
+          <span class="next-project-label">
+            {lang === 'en' && "Next Project"}
+            {lang === 'es' && "Siguiente Proyecto"}
+            {lang === 'de' && "Nächstes Projekt"}
+          </span>
+          <h2 class="next-project-title">{nextProjectTranslation.title}</h2>
+          <span class="next-project-cta">
+            {lang === 'en' && "Discover →"}
+            {lang === 'es' && "Descubrir →"}
+            {lang === 'de' && "Entdecken →"}
+          </span>
+        </div>
+      </a>
+    </section>
   </article>
 
   <!-- Luxe Immersive Fullscreen Lightbox -->
@@ -970,5 +998,118 @@ const pageDescription = translation.description[0] || "";
     .luxe-lightbox__next { right: 0.6rem; }
     .luxe-lightbox__footer { padding: 2.5rem 1rem 1.5rem; }
     .luxe-lightbox__caption { font-size: 0.9rem; }
+  }
+
+  /* ═══════════════════════════════════════════════
+     NEXT PROJECT HERO BANNER
+     ═══════════════════════════════════════════════ */
+  .next-project-hero {
+    width: 100%;
+    height: 45vh;
+    min-height: 350px;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-charcoal);
+    margin-top: 4rem;
+  }
+
+  .next-project-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+  }
+
+  .next-project-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .next-project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1.8s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .next-project-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.6) 100%);
+    transition: background var(--transition-normal);
+  }
+
+  .next-project-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: var(--spacing-md);
+    z-index: 2;
+  }
+
+  .next-project-label {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.25rem;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .next-project-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    color: white;
+    line-height: 1.2;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .next-project-cta {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    padding-bottom: 0.4rem;
+    transition: border-color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  /* Hover states */
+  .next-project-link:hover .next-project-img {
+    transform: scale(1.04);
+  }
+
+  .next-project-link:hover .next-project-overlay {
+    background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
+  }
+
+  .next-project-link:hover .next-project-title {
+    transform: translateY(-4px);
+  }
+
+  .next-project-link:hover .next-project-cta {
+    border-color: white;
+  }
+
+  @media (max-width: 768px) {
+    .next-project-hero {
+      height: 35vh;
+      min-height: 280px;
+      margin-top: 2rem;
+    }
   }
 </style>
