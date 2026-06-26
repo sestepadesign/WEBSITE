@@ -647,24 +647,32 @@ const pageDescription = translation.description[0] || "";
   }
 
   .gallery-grid {
-    column-count: 2;
-    column-gap: 3rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
   }
 
   .gallery-item {
+    position: relative;
     overflow: hidden;
     background-color: var(--color-sand-base);
+    aspect-ratio: 3 / 2;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.8s ease;
   }
 
   .gallery-img {
     width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .gallery-item:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   }
 
   .gallery-item:hover .gallery-img {
-    transform: scale(1.04);
+    transform: scale(1.03);
   }
 
   @media (max-width: 992px) {
@@ -674,7 +682,8 @@ const pageDescription = translation.description[0] || "";
     }
 
     .gallery-grid {
-      column-count: 1;
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
   }
 
@@ -711,29 +720,23 @@ const pageDescription = translation.description[0] || "";
     }
 
     .gallery-grid {
-      column-gap: 1.5rem;
-    }
-    
-    .gallery-item-btn {
-      margin-bottom: 1.5rem;
+      gap: 1.5rem;
     }
   }
 
   /* Lightbox Modal CSS */
   .gallery-item-btn {
-    display: inline-block;
+    display: block;
     width: 100%;
     background: none;
     border: none;
     padding: 0;
     cursor: zoom-in;
     text-align: left;
-    break-inside: avoid;
-    margin-bottom: 3rem;
   }
 
   .gallery-item-btn.full-width {
-    column-span: all;
+    grid-column: span 2;
   }
 
   .gallery-item-btn.full-width .gallery-item {
@@ -741,7 +744,7 @@ const pageDescription = translation.description[0] || "";
   }
 
   .finca-garden-campos-mallorca .gallery-item-btn:first-child {
-    column-span: all;
+    grid-column: span 2;
   }
 
   .finca-garden-campos-mallorca .gallery-item-btn:first-child .gallery-item {
