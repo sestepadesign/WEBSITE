@@ -757,7 +757,7 @@ export const projects: Project[] = [
     year: "2023",
     architect: "Contemporary Studio",
     video: "https://www.youtube.com/embed/1q1Qnh2s_mg?feature=oembed",
-    cover: "/portfolio/terrace-garden-in-palma/cover.jpg",
+    cover: "/portfolio/terrace-garden-in-palma/cover.webp",
     images: [
       "landscape-garden-design-terrace-palma-mallorca-sestepa-design-1.jpg",
       "landscape-garden-design-terrace-palma-mallorca-sestepa-design-2.jpg",
