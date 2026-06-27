@@ -17,9 +17,9 @@ const t = (key: keyof typeof ui[typeof lang]) => {
 };
 
 const descriptions = {
-  en: "Discover our portfolio of sustainable, refined Mediterranean gardens designed by S'Estepa Design across Mallorca.",
-  es: "Descubra nuestro portafolio de jardines mediterráneos sostenibles y distinguidos diseñados por S'Estepa Design en Mallorca.",
-  de: "Entdecken Sie unser Portfolio an nachhaltigen, anspruchsvollen mediterranen Gärten, entworfen von S'Estepa Design auf Mallorca."
+  en: "Discover our portfolio of premium landscape design projects in Mallorca, featuring high-end finca gardens, bespoke villas, and refined terraces.",
+  es: "Descubra nuestro portafolio de proyectos de paisajismo exclusivo en Mallorca, incluyendo jardines de fincas de alto nivel, villas y terrazas a medida.",
+  de: "Entdecken Sie unser Portfolio exklusiver Landschaftsgestaltungsprojekte auf Mallorca, darunter hochwertige Finca-Gärten, Villen und maßgeschneiderte Terrassen."
 };
 
 const categoryOrder: Record<PortfolioFilterCategory, number> = {
@@ -65,7 +65,7 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
 };
 ---
 
-<Layout title={`S'Estepa Design | ${t('portfolio.title')}`} description={pageDescription} lang={lang}>
+<Layout title={lang === 'en' ? "Premium Landscape Portfolio Mallorca | Fincas & Villas" : lang === 'es' ? "Portafolio de Paisajismo Exclusivo Mallorca | Fincas y Villas" : "Exklusives Landschaftsportfolio Mallorca | Fincas & Villen"} description={pageDescription} lang={lang}>
   <div class="portfolio-page section-padding">
     <div class="container">
       <header class="portfolio-header">

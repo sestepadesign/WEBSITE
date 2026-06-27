@@ -10,9 +10,9 @@ const t = (key: keyof typeof ui[typeof lang]) => {
 };
 
 const descriptions = {
-  en: "Get in touch with S'Estepa Design to bring your vision of refined Mediterranean outdoor living and landscape architecture to life.",
-  es: "Póngase en contacto con S'Estepa Design para hacer realidad su visión de paisajismo y refinados espacios mediterráneos al aire libre.",
-  de: "Kontaktieren Sie S'Estepa Design, um Ihre Vision von anspruchsvollem mediterranen Leben im Freien und Landschaftsarchitektur zu verwirklichen."
+  en: "Contact S'Estepa Design to bring your vision of refined Mediterranean outdoor living and premium landscape architecture to life in Mallorca.",
+  es: "Contacte con S'Estepa Design para hacer realidad su visión de paisajismo exclusivo y refinados espacios mediterráneos al aire libre en Mallorca.",
+  de: "Kontaktieren Sie S'Estepa Design, um Ihre Vision von anspruchsvollem mediterranen Leben im Freien und exklusiver Landschaftsarchitektur auf Mallorca zu verwirklichen."
 };
 
 const pageDescription = descriptions[lang];
@@ -69,7 +69,7 @@ const contactAside = {
 const aside = contactAside[lang];
 ---
 
-<Layout title={`S'Estepa Design | ${t('contact.title')}`} description={pageDescription} lang={lang}>
+<Layout title={lang === 'en' ? "Contact S'Estepa Design | Premium Landscaping in Mallorca" : lang === 'es' ? "Contacto S'Estepa Design | Paisajismo Exclusivo en Mallorca" : "Kontakt S'Estepa Design | Exklusive Gartengestaltung Mallorca"} description={pageDescription} lang={lang}>
   <div class="contact-page section-padding">
     <div class="container">
       <header class="contact-header">

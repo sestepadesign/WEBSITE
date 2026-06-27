@@ -14,16 +14,16 @@ const t = (key: keyof typeof ui[typeof lang]) => {
 
 // SEO meta description
 const descriptions = {
-  en: "Garden design studio in Mallorca with 30 years of expertise. Bespoke gardens for private villas, fincas and estates. Design, construction and ecological care.",
-  es: "Estudio de paisajismo en Mallorca con 30 años de experiencia. Jardines para fincas privadas y villas. Diseño, construcción y cuidado ecológico mediterráneo.",
-  de: "Gartengestaltung auf Mallorca mit 30 Jahren Erfahrung. Maßgeschneiderte Gärten für private Fincas, Villen und Anwesen. Planung, Bau und ökologische Gartenpflege.",
+  en: "S'Estepa Design is a boutique landscape architecture studio in Mallorca. We craft bespoke Mediterranean gardens for private fincas and villas.",
+  es: "S'Estepa Design es un estudio boutique de paisajismo en Mallorca. Diseñamos jardines mediterráneos exclusivos para villas y fincas privadas.",
+  de: "S'Estepa Design ist ein exklusives Studio für Landschaftsarchitektur auf Mallorca. Wir erschaffen maßgeschneiderte mediterrane Gärten für Villen und Fincas.",
 };
 
 // SEO page titles — keyword-first, separate from hero.subtitle (visible text unchanged)
 const seoTitles = {
-  en: "Landscape & Garden Design Mallorca | S'Estepa Design",
-  es: "Paisajismo y Diseño de Jardines en Mallorca | S'Estepa Design",
-  de: "Gartengestaltung & Landschaftsarchitektur Mallorca | S'Estepa Design",
+  en: "Bespoke Garden Design Mallorca | Fincas & Villas Landscape Architecture",
+  es: "Diseño de Jardines Exclusivos Mallorca | Arquitectura del Paisaje",
+  de: "Maßgeschneiderte Gartengestaltung Mallorca | Finca & Villen Landschaften",
 };
 
 const pageDescription = descriptions[lang];
@@ -644,6 +644,10 @@ const currentJourney = journeyData[lang];
         .then(() => {
           statusDiv.textContent = "Thank you. Your message has been sent successfully.";
           statusDiv.classList.add('success');
+          // Dispara a conversão no Google Ads (mesma tag do contactPage)
+          if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+            window.gtag('event', 'conversion', {'send_to': 'AW-795871100/xxxxxx'}); // Substitua xxxxxx pelo rótulo real se houver
+          }
           form.reset();
         })
         .catch(err => {
@@ -651,6 +655,10 @@ const currentJourney = journeyData[lang];
           // Fallback success feedback as it may fail CORS but succeeds in transmitting
           statusDiv.textContent = "Thank you. Your message has been sent successfully.";
           statusDiv.classList.add('success');
+          // Dispara a conversão também no fallback
+          if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+            window.gtag('event', 'conversion', {'send_to': 'AW-795871100/xxxxxx'});
+          }
           form.reset();
         })
         .finally(() => {
