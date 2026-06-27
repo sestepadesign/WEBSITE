@@ -198,6 +198,16 @@ const aside = contactAside[lang];
       .then(() => {
         statusDiv.textContent = "Thank you. Your message has been sent successfully.";
         statusDiv.classList.add('success');
+        
+        // Dispara a conversão no Google Ads
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'conversion', {
+            'send_to': 'AW-795871100/contact_form_lead',
+            'value': 1.0,
+            'currency': 'EUR'
+          });
+        }
+        
         form.reset();
       })
       .catch(err => {
@@ -205,6 +215,16 @@ const aside = contactAside[lang];
         // Fallback success feedback as it may fail CORS but succeeds in transmitting
         statusDiv.textContent = "Thank you. Your message has been sent successfully.";
         statusDiv.classList.add('success');
+        
+        // Dispara a conversão no Google Ads (fallback)
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'conversion', {
+            'send_to': 'AW-795871100/contact_form_lead',
+            'value': 1.0,
+            'currency': 'EUR'
+          });
+        }
+        
         form.reset();
       })
       .finally(() => {
