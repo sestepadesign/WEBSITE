@@ -1,4 +1,4 @@
----
+﻿---
 import Layout from '../../layouts/Layout.astro';
 import { ui } from '../../data/translations';
 import { getGalleryImages, galleryMeta } from '../../data/gallery';
@@ -13,7 +13,7 @@ const images = getGalleryImages(lang).map((img) => ({
 }));
 
 const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
-const coverImage = images[0]?.src ?? '/portfolio/finca-garden-campos-mallorca/cover.webp';
+const coverImage = images[0]?.src ?? '/portfolio/finca-garden-campos-mallorca/sestepa-garden-design-mallorca-finca-garden-campos-mallorca.webp';
 
 const viewProjectLabel = {
   en: 'View project',
@@ -188,7 +188,7 @@ const viewProjectLabel = {
     if (e.key === 'ArrowRight') { showImage(currentIndex + 1, true); showControls(); }
   });
 
-  /* Idle detection — hide controls after 2.5s of inactivity */
+  /* Idle detection â€” hide controls after 2.5s of inactivity */
   lightbox.addEventListener('mousemove', showControls);
   lightbox.addEventListener('touchstart', showControls, { passive: true });
 
@@ -268,9 +268,9 @@ const viewProjectLabel = {
     transform: scale(1.04);
   }
 
-  /* ═══════════════════════════════════════════════
+  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
      LUXE IMMERSIVE FULLSCREEN LIGHTBOX
-     ═══════════════════════════════════════════════ */
+     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
   .luxe-lightbox {
     position: fixed;
     inset: 0;
@@ -338,7 +338,7 @@ const viewProjectLabel = {
     transform: scale(0.97);
   }
 
-  /* Controls Layer — auto-hides on idle */
+  /* Controls Layer â€” auto-hides on idle */
   .luxe-lightbox__controls {
     position: absolute;
     inset: 0;
@@ -521,3 +521,4 @@ const viewProjectLabel = {
     }
   }
 </style>
+

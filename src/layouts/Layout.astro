@@ -1,4 +1,4 @@
----
+﻿---
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -17,7 +17,7 @@ interface Props {
   title: string;
   description: string;
   lang: 'en' | 'es' | 'de';
-  /** Path to OG image, e.g. /portfolio/finca-garden-campos-mallorca/cover.webp */
+  /** Path to OG image, e.g. /portfolio/finca-garden-campos-mallorca/sestepa-garden-design-mallorca-finca-garden-campos-mallorca.webp */
   image?: string;
   /** Override canonical path (aliases, homepage). */
   canonicalPath?: string;
@@ -25,7 +25,7 @@ interface Props {
   redirectTo?: string;
   /** Locales with a real alternate page (default: all). Blog posts EN-only use ['en']. */
   hreflangLocales?: SiteLocale[];
-  /** Hidden pages (SEO archive) — noindex, not linked in nav */
+  /** Hidden pages (SEO archive) â€” noindex, not linked in nav */
   noindex?: boolean;
 }
 
@@ -33,7 +33,7 @@ const {
   title,
   description,
   lang,
-  image = '/portfolio/finca-garden-campos-mallorca/cover.webp',
+  image = '/portfolio/finca-garden-campos-mallorca/sestepa-garden-design-mallorca-finca-garden-campos-mallorca.webp',
   canonicalPath: canonicalPathProp,
   redirectTo,
   hreflangLocales = SITE_LOCALES,
@@ -46,7 +46,7 @@ const canonicalURL = new URL(canonicalPath, site);
 
 const pageId = resolvePageIdFromPath(canonicalPath);
 const defaultOgImage = pageId ? PAGE_OG_IMAGES[pageId]?.[lang] : undefined;
-const resolvedImage = image !== '/portfolio/finca-garden-campos-mallorca/cover.webp' ? image : (defaultOgImage ?? image);
+const resolvedImage = image !== '/portfolio/finca-garden-campos-mallorca/sestepa-garden-design-mallorca-finca-garden-campos-mallorca.webp' ? image : (defaultOgImage ?? image);
 const ogImage = new URL(resolvedImage, site);
 
 const ogLocales: Record<typeof lang, string> = {
@@ -139,7 +139,7 @@ const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogL
                 name: "WA Click",
                 email: "---",
                 subject: "WhatsApp",
-                message: `Clic en el botón de WhatsApp desde: ${pathname}`
+                message: `Clic en el botÃ³n de WhatsApp desde: ${pathname}`
               });
               fetch(`${actionUrl}?${params.toString()}`, { 
                 method: "GET", 
@@ -167,3 +167,4 @@ const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogL
     flex-grow: 1;
   }
 </style>
+

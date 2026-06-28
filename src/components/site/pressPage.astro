@@ -1,4 +1,4 @@
----
+﻿---
 import Layout from '../../layouts/Layout.astro';
 import { ui } from '../../data/translations';
 
@@ -11,27 +11,27 @@ const t = (key: keyof typeof ui[typeof lang]) => {
 
 const descriptions = {
   en: "S'Estepa Design, Mallorca garden design studio, featured in leading design publications. Press coverage on our Mediterranean landscape projects, dry-stone walling, and native Mallorcan flora expertise.",
-  es: "S'Estepa Design, estudio de diseño de jardines en Mallorca, destacado en las principales publicaciones de diseño. Cobertura de prensa sobre nuestros proyectos de paisajismo mediterráneo y experiencia en flora autóctona mallorquina.",
-  de: "S'Estepa Design, Mallorcas Gartendesignstudio, in führenden Designpublikationen vorgestellt. Presseberichte über unsere mediterranen Landschaftsprojekte und Expertise in einheimischer mallorquinischer Flora."
+  es: "S'Estepa Design, estudio de diseÃ±o de jardines en Mallorca, destacado en las principales publicaciones de diseÃ±o. Cobertura de prensa sobre nuestros proyectos de paisajismo mediterrÃ¡neo y experiencia en flora autÃ³ctona mallorquina.",
+  de: "S'Estepa Design, Mallorcas Gartendesignstudio, in fÃ¼hrenden Designpublikationen vorgestellt. Presseberichte Ã¼ber unsere mediterranen Landschaftsprojekte und Expertise in einheimischer mallorquinischer Flora."
 };
 
 const pageDescription = descriptions[lang];
 
 const pressH1 = {
   en: "Featured in Leading Design Publications",
-  es: "Destacados en las Principales Publicaciones de Diseño",
-  de: "In Führenden Designpublikationen Vorgestellt"
+  es: "Destacados en las Principales Publicaciones de DiseÃ±o",
+  de: "In FÃ¼hrenden Designpublikationen Vorgestellt"
 };
 
 const pageSubtitle = {
-  en: "S'Estepa Design's Mallorca garden design studio press — project showcases, interviews, and editorial features in international design and lifestyle publications.",
-  es: "Prensa del estudio de diseño de jardines S'Estepa Design en Mallorca — reportajes de proyectos, entrevistas y artículos editoriales en publicaciones internacionales de diseño y estilo de vida.",
-  de: "Presse des S'Estepa Design Gartendesignstudios auf Mallorca — Projektpräsentationen, Interviews und redaktionelle Beiträge in internationalen Design- und Lifestyle-Publikationen."
+  en: "S'Estepa Design's Mallorca garden design studio press â€” project showcases, interviews, and editorial features in international design and lifestyle publications.",
+  es: "Prensa del estudio de diseÃ±o de jardines S'Estepa Design en Mallorca â€” reportajes de proyectos, entrevistas y artÃ­culos editoriales en publicaciones internacionales de diseÃ±o y estilo de vida.",
+  de: "Presse des S'Estepa Design Gartendesignstudios auf Mallorca â€” ProjektprÃ¤sentationen, Interviews und redaktionelle BeitrÃ¤ge in internationalen Design- und Lifestyle-Publikationen."
 };
 
 const readMoreText = {
   en: "Read Issue",
-  es: "Leer Edición",
+  es: "Leer EdiciÃ³n",
   de: "Ausgabe Lesen"
 };
 
@@ -66,8 +66,8 @@ const publications = [
     },
     excerpt: {
       en: "A comprehensive special feature highlighting S'Estepa Design's contemporary architectural integration, sustainable botanical choices, and villa landscaping in Mallorca.",
-      es: "Un reportaje especial completo que destaca la integración arquitectónica contemporánea, la selección botánica sostenible y el paisajismo de villas de S'Estepa Design en Mallorca.",
-      de: "Ein umfassendes Special, das die zeitgenössische architektonische Integration, die nachhaltige botanische Auswahl und die Villa-Landschaftsgestaltung von S'Estepa Design auf Mallorca hervorhebt."
+      es: "Un reportaje especial completo que destaca la integraciÃ³n arquitectÃ³nica contemporÃ¡nea, la selecciÃ³n botÃ¡nica sostenible y el paisajismo de villas de S'Estepa Design en Mallorca.",
+      de: "Ein umfassendes Special, das die zeitgenÃ¶ssische architektonische Integration, die nachhaltige botanische Auswahl und die Villa-Landschaftsgestaltung von S'Estepa Design auf Mallorca hervorhebt."
     },
     link: "https://issuu.com/abc-mallorca.com/docs/issuu_165th_property_special_2025",
     linkType: "external",
@@ -80,7 +80,7 @@ const publications = [
     magazine: "abcMallorca",
     title: {
       en: "HOME DECOR / HC 2024",
-      es: "DECORACIÓN / HC 2024",
+      es: "DECORACIÃ“N / HC 2024",
       de: "HOME DECOR / HC 2024"
     },
     date: {
@@ -90,8 +90,8 @@ const publications = [
     },
     excerpt: {
       en: "An editorial showcase detailing Pedro Campaner's design philosophies on traditional dry-stone walling and local flora preservation for upscale holiday villas.",
-      es: "Un dossier editorial que detalla la filosofía de Pedro Campaner sobre los muros de piedra seca tradicionales y la conservación de la flora local para villas vacacionales distinguidas.",
-      de: "Ein redaktioneller Beitrag über Pedro Campaners Designphilosophie zur traditionellen Trockenbauweise und zum Schutz der einheimischen Flora für anspruchsvolle Ferienvillas."
+      es: "Un dossier editorial que detalla la filosofÃ­a de Pedro Campaner sobre los muros de piedra seca tradicionales y la conservaciÃ³n de la flora local para villas vacacionales distinguidas.",
+      de: "Ein redaktioneller Beitrag Ã¼ber Pedro Campaners Designphilosophie zur traditionellen Trockenbauweise und zum Schutz der einheimischen Flora fÃ¼r anspruchsvolle Ferienvillas."
     },
     link: "https://issuu.com/abc-mallorca.com/docs/issuu_161st_home_decor_2024",
     linkType: "external",
@@ -114,8 +114,8 @@ const publications = [
     },
     excerpt: {
       en: "A premium editorial highlighting S'Estepa Design as Mallorca's leading design studio for high-end, zero-ostentation exterior transformations. Text by Michael Wall, photos by S'Estepa.",
-      es: "Un artículo editorial premium que posiciona a S'Estepa Design como el estudio de paisajismo líder en Mallorca para transformaciones exteriores distinguidas y de discreción absoluta. Texto de Michael Wall, fotos de S'Estepa.",
-      de: "Ein erstklassiger Artikel, der S'Estepa Design als Mallorcas führendes Studio für anspruchsvolle, dezente Außenbereichsgestaltungen vorstellt. Text von Michael Wall, Fotos von S'Estepa."
+      es: "Un artÃ­culo editorial premium que posiciona a S'Estepa Design como el estudio de paisajismo lÃ­der en Mallorca para transformaciones exteriores distinguidas y de discreciÃ³n absoluta. Texto de Michael Wall, fotos de S'Estepa.",
+      de: "Ein erstklassiger Artikel, der S'Estepa Design als Mallorcas fÃ¼hrendes Studio fÃ¼r anspruchsvolle, dezente AuÃŸenbereichsgestaltungen vorstellt. Text von Michael Wall, Fotos von S'Estepa."
     },
     link: "https://drive.google.com/file/d/1DCHP5tGZrXKJkhlc_-gAH4hSy8Ab3EDi/view?usp=sharing",
     linkType: "download",
@@ -138,8 +138,8 @@ const publications = [
     },
     excerpt: {
       en: "An expert-guided ranking and review of the island's landscape architecture, honoring S'Estepa Design for its sustainable water management and native species focus.",
-      es: "Una clasificación y reseña de expertos sobre la arquitectura del paisaje de la isla, que premia a S'Estepa Design por su gestión sostenible del agua y enfoque en especies autóctonas.",
-      de: "Eine von Experten geführte Rangliste und Bewertung der Landschaftsarchitektur der Insel, bei der S'Estepa Design für nachhaltiges Wassermanagement und heimische Pflanzenarten ausgezeichnet wird."
+      es: "Una clasificaciÃ³n y reseÃ±a de expertos sobre la arquitectura del paisaje de la isla, que premia a S'Estepa Design por su gestiÃ³n sostenible del agua y enfoque en especies autÃ³ctonas.",
+      de: "Eine von Experten gefÃ¼hrte Rangliste und Bewertung der Landschaftsarchitektur der Insel, bei der S'Estepa Design fÃ¼r nachhaltiges Wassermanagement und heimische Pflanzenarten ausgezeichnet wird."
     },
     link: "https://drive.google.com/file/d/1TRTEJLcIn-nF8I7twdnSHMHDeWhzLN8s/view?usp=sharing",
     linkType: "download",
@@ -165,8 +165,8 @@ const publications = [
     },
     excerpt: {
       en: "An immersive showcase detailing S'Estepa Design's high-fidelity project drawings, plant layouts, and sustainable exterior planning across Mallorcan estates.",
-      es: "Una muestra detallada de los planos de alta fidelidad, la distribución de plantas y la planificación exterior sostenible de S'Estepa Design en fincas de Mallorca.",
-      de: "Eine detaillierte Präsentation der präzisen Projektzeichnungen, Pflanzpläne und der nachhaltigen Außenbereichsplanung von S'Estepa Design auf mallorquinischen Anwesen."
+      es: "Una muestra detallada de los planos de alta fidelidad, la distribuciÃ³n de plantas y la planificaciÃ³n exterior sostenible de S'Estepa Design en fincas de Mallorca.",
+      de: "Eine detaillierte PrÃ¤sentation der prÃ¤zisen Projektzeichnungen, PflanzplÃ¤ne und der nachhaltigen AuÃŸenbereichsplanung von S'Estepa Design auf mallorquinischen Anwesen."
     },
     link: "https://drive.google.com/file/d/1TJE23jJOdnj6a7HBPZjOn0gJ8cTL2HyG/view?usp=sharing",
     linkType: "download",
@@ -190,9 +190,9 @@ const publications = [
       de: "24. November 2023"
     },
     excerpt: {
-      en: "An immersive exploration of unhurried, understated refinement, showcasing the Binissalem Tramuntana Frame project and its physical integration with the natural soil rhythm. Text by Fátima Carasol, photos by Jonatan Barzola.",
-      es: "Una inmersión en el refinamiento pausado y discreto, que presenta el proyecto Binissalem Tramuntana Frame y su perfecta integración con el ritmo natural de la tierra. Texto de Fátima Carasol, fotos de Jonatan Barzola.",
-      de: "Eine tiefgehende Erkundung der entschleunigten, dezenten Raffinesse, die das Projekt Binissalem Tramuntana Frame und seine organische Verbindung mit dem Rhythmus der Erde zeigt. Text von Fátima Carasol, Fotos von Jonatan Barzola."
+      en: "An immersive exploration of unhurried, understated refinement, showcasing the Binissalem Tramuntana Frame project and its physical integration with the natural soil rhythm. Text by FÃ¡tima Carasol, photos by Jonatan Barzola.",
+      es: "Una inmersiÃ³n en el refinamiento pausado y discreto, que presenta el proyecto Binissalem Tramuntana Frame y su perfecta integraciÃ³n con el ritmo natural de la tierra. Texto de FÃ¡tima Carasol, fotos de Jonatan Barzola.",
+      de: "Eine tiefgehende Erkundung der entschleunigten, dezenten Raffinesse, die das Projekt Binissalem Tramuntana Frame und seine organische Verbindung mit dem Rhythmus der Erde zeigt. Text von FÃ¡tima Carasol, Fotos von Jonatan Barzola."
     },
     link: "https://www.sestepa.com/wp-content/uploads/ABC-MALLORCA-SESTEPA-DEC-2023.pdf",
     linkType: "download",
@@ -211,7 +211,7 @@ const publications = [
   title={`S'Estepa Design | ${t('press.title')}`}
   description={pageDescription}
   lang={lang}
-  image="/portfolio/crestatx-garden-design/cover.webp"
+  image="/portfolio/crestatx-garden-design/sestepa-garden-design-mallorca-crestatx-garden-design.webp"
 >
   <!-- Subpage Header -->
   <section class="subpage-header">
@@ -222,7 +222,7 @@ const publications = [
         <p class="header-subtitle">{pageSubtitle[lang]}</p>
       </div>
       <div class="header-image-container">
-        <img src="/portfolio/crestatx-garden-design/cover.webp" alt="S'Estepa Design Press Background" class="header-image" />
+        <img src="/portfolio/crestatx-garden-design/sestepa-garden-design-mallorca-crestatx-garden-design.webp" alt="S'Estepa Design Press Background" class="header-image" />
       </div>
     </div>
   </section>
@@ -770,3 +770,4 @@ const publications = [
     }
   }
 </style>
+
