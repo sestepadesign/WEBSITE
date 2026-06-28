@@ -33,7 +33,7 @@ export const projects: Project[] = [
     year: "2023",
     architect: null,
     video: null,
-    cover: "/portfolio/binissalem/sestepa-garden-design-mallorca-binissalem.jpg",
+    cover: "/portfolio/binissalem/garden-design-mallorca-binissalem-sestepa.jpg",
     images: [
         "BINISSALEM-MALLORCA-SESTEPA-DESIGN-6.jpg",
         "BINISSALEM-MALLORCA-SESTEPA-DESIGN-8.jpg",
@@ -94,7 +94,7 @@ export const projects: Project[] = [
     year: "2022",
     architect: null,
     video: null,
-    cover: "/portfolio/bunyola/sestepa-garden-design-mallorca-bunyola.jpg",
+    cover: "/portfolio/bunyola/garden-design-mallorca-bunyola-sestepa.jpg",
     images: [
       "BUNYOLA-2D-SESTEPA-DESIGN-MALLORCA.png",
       "BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-1.jpg",
@@ -148,7 +148,7 @@ export const projects: Project[] = [
     year: "2023",
     architect: null,
     video: null,
-    cover: "/portfolio/campanet-garden/sestepa-garden-design-mallorca-campanet-garden.jpg",
+    cover: "/portfolio/campanet-garden/garden-design-mallorca-campanet-garden-sestepa.jpg",
     images: [
       "garden-design-mallorca-landscape-design-sestepa-campanet-1.jpg",
       "garden-design-mallorca-landscape-design-sestepa-campanet-2.jpg",
@@ -197,8 +197,8 @@ export const projects: Project[] = [
     year: "2021",
     architect: null,
     video: "https://www.youtube.com/embed/McyZviXDxhc?feature=oembed",
-    cover: "/portfolio/finca-garden-campos-mallorca/sestepa-garden-design-mallorca-finca-garden-campos-mallorca.webp",
-    ogImage: "/portfolio/finca-garden-campos-mallorca/sestepa-garden-design-mallorca-finca-garden-campos-mallorca.webp",
+    cover: "/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp",
+    ogImage: "/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp",
     images: [
       "GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.jpg",
       "GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-13.jpg",
@@ -337,7 +337,7 @@ export const projects: Project[] = [
     year: "2023",
     architect: null,
     video: "https://www.youtube.com/embed/-xs_kKaUnGA?feature=oembed",
-    cover: "/portfolio/crestatx-garden-design/sestepa-garden-design-mallorca-crestatx-garden-design.webp",
+    cover: "/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp",
     images: [
       "landscape design render mallorca crestatx sestepa design (1).png",
       "landscape design render mallorca crestatx sestepa design (2).png",
@@ -413,7 +413,7 @@ export const projects: Project[] = [
     year: "2022",
     architect: null,
     video: null,
-    cover: "/portfolio/hotelcabotlasvelas/sestepa-garden-design-mallorca-hotelcabotlasvelas.webp",
+    cover: "/portfolio/hotelcabotlasvelas/garden-design-mallorca-hotelcabotlasvelas-sestepa.webp",
     images: [
       "CABOT-LAS-VELAS-HOTEL-SESTEPA-DESIGN-MALLORCA-1.webp",
       "CABOT-LAS-VELAS-HOTEL-SESTEPA-DESIGN-MALLORCA-2.webp",
@@ -474,7 +474,7 @@ export const projects: Project[] = [
     year: "2023",
     architect: null,
     video: null,
-    cover: "/portfolio/garden-design-llubi-mallorca/sestepa-garden-design-mallorca-garden-design-llubi-mallorca.webp",
+    cover: "/portfolio/garden-design-llubi-mallorca/garden-design-mallorca-garden-design-llubi-mallorca-sestepa.webp",
     images: [
       "LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-13.webp",
       "GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-3.png",
@@ -598,7 +598,7 @@ export const projects: Project[] = [
     year: "2023",
     architect: null,
     video: null,
-    cover: "/portfolio/terrace-garden-santa-eugenia/sestepa-garden-design-mallorca-terrace-garden-santa-eugenia.jpg",
+    cover: "/portfolio/terrace-garden-santa-eugenia/garden-design-mallorca-terrace-garden-santa-eugenia-sestepa.jpg",
     coverPosition: "center top",
     images: [
       "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-10.jpg",
@@ -707,7 +707,7 @@ export const projects: Project[] = [
     year: "2022",
     architect: null,
     video: null,
-    cover: "/portfolio/son-vida/sestepa-garden-design-mallorca-son-vida.jpg",
+    cover: "/portfolio/son-vida/garden-design-mallorca-son-vida-sestepa.jpg",
     images: [
       "garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-1.jpg",
       "garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-2.jpg",
@@ -757,7 +757,7 @@ export const projects: Project[] = [
     year: "2023",
     architect: "Contemporary Studio",
     video: "https://www.youtube.com/embed/1q1Qnh2s_mg?feature=oembed",
-    cover: "/portfolio/terrace-garden-in-palma/sestepa-garden-design-mallorca-terrace-garden-in-palma.webp",
+    cover: "/portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp",
     images: [
       "landscape-garden-design-terrace-palma-mallorca-sestepa-design-1.jpg",
       "landscape-garden-design-terrace-palma-mallorca-sestepa-design-2.jpg",
@@ -809,7 +809,7 @@ export const projects: Project[] = [
     year: "2023",
     architect: "Vertical Garden Mallorca",
     video: "https://www.youtube.com/embed/x3W0KQmr-pQ?feature=oembed",
-    cover: "/portfolio/vertical-gardens-in-mallorca/sestepa-garden-design-mallorca-vertical-gardens-in-mallorca.jpg",
+    cover: "/portfolio/vertical-gardens-in-mallorca/garden-design-mallorca-vertical-gardens-in-mallorca-sestepa.jpg",
     images: [
       "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-1.jpg",
       "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-10.jpg",
@@ -868,7 +868,7 @@ export const projects: Project[] = [
     architect: null,
     video: null,
     hidden: true,
-    cover: "/portfolio/finca-garden-inca/sestepa-garden-design-mallorca-finca-garden-inca.jpg",
+    cover: "/portfolio/finca-garden-inca/garden-design-mallorca-finca-garden-inca-sestepa.jpg",
     images: [
       "PLANO-DE-JARDIN-INCA-SESTEPA-GARDEN-DESIGN-MALLORCA.jpg"
     ],
@@ -1023,4 +1023,5 @@ export const projects: Project[] = [
     }
   }
 ];
+
 

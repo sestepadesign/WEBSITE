@@ -17,7 +17,7 @@ interface Props {
   title: string;
   description: string;
   lang: 'en' | 'es' | 'de';
-  /** Path to OG image, e.g. /portfolio/finca-garden-campos-mallorca/sestepa-garden-design-mallorca-finca-garden-campos-mallorca.webp */
+  /** Path to OG image, e.g. /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp */
   image?: string;
   /** Override canonical path (aliases, homepage). */
   canonicalPath?: string;
@@ -33,7 +33,7 @@ const {
   title,
   description,
   lang,
-  image = '/portfolio/finca-garden-campos-mallorca/sestepa-garden-design-mallorca-finca-garden-campos-mallorca.webp',
+  image = '/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp',
   canonicalPath: canonicalPathProp,
   redirectTo,
   hreflangLocales = SITE_LOCALES,
@@ -46,7 +46,7 @@ const canonicalURL = new URL(canonicalPath, site);
 
 const pageId = resolvePageIdFromPath(canonicalPath);
 const defaultOgImage = pageId ? PAGE_OG_IMAGES[pageId]?.[lang] : undefined;
-const resolvedImage = image !== '/portfolio/finca-garden-campos-mallorca/sestepa-garden-design-mallorca-finca-garden-campos-mallorca.webp' ? image : (defaultOgImage ?? image);
+const resolvedImage = image !== '/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp' ? image : (defaultOgImage ?? image);
 const ogImage = new URL(resolvedImage, site);
 
 const ogLocales: Record<typeof lang, string> = {
@@ -167,4 +167,5 @@ const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogL
     flex-grow: 1;
   }
 </style>
+
 

@@ -155,9 +155,9 @@ export const PROJECT_PATH_ALIASES: Record<SiteLocale, Record<string, string>> = 
 /** Default OG images per page (local assets). */
 export const PAGE_OG_IMAGES: Partial<Record<SitePageId, Record<SiteLocale, string>>> = {
   home: {
-    en: '/portfolio/finca-garden-campos-mallorca/sestepa-garden-design-mallorca-finca-garden-campos-mallorca.webp',
-    es: '/portfolio/finca-garden-campos-mallorca/sestepa-garden-design-mallorca-finca-garden-campos-mallorca.webp',
-    de: '/portfolio/finca-garden-campos-mallorca/sestepa-garden-design-mallorca-finca-garden-campos-mallorca.webp',
+    en: '/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp',
+    es: '/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp',
+    de: '/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp',
   },
   about: {
     en: '/portfolio/bunyola/cover.jpg',
@@ -180,9 +180,9 @@ export const PAGE_OG_IMAGES: Partial<Record<SitePageId, Record<SiteLocale, strin
     de: '/portfolio/sant-llorenc/images/landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-02.jpg',
   },
   services: {
-    en: '/portfolio/finca-garden-campos-mallorca/sestepa-garden-design-mallorca-finca-garden-campos-mallorca.webp',
-    es: '/portfolio/finca-garden-campos-mallorca/sestepa-garden-design-mallorca-finca-garden-campos-mallorca.webp',
-    de: '/portfolio/finca-garden-campos-mallorca/sestepa-garden-design-mallorca-finca-garden-campos-mallorca.webp',
+    en: '/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp',
+    es: '/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp',
+    de: '/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp',
   },
   press: {
     en: '/portfolio/santa-ponsa/cover.jpg',
@@ -190,9 +190,10 @@ export const PAGE_OG_IMAGES: Partial<Record<SitePageId, Record<SiteLocale, strin
     de: '/portfolio/santa-ponsa/cover.jpg',
   },
   blog: {
-    en: '/portfolio/finca-garden-campos-mallorca/sestepa-garden-design-mallorca-finca-garden-campos-mallorca.webp',
-    es: '/portfolio/finca-garden-campos-mallorca/sestepa-garden-design-mallorca-finca-garden-campos-mallorca.webp',
-    de: '/portfolio/finca-garden-campos-mallorca/sestepa-garden-design-mallorca-finca-garden-campos-mallorca.webp',
+    en: '/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp',
+    es: '/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp',
+    de: '/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp',
   },
 };
+
 
