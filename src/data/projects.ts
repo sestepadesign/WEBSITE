@@ -1,4 +1,4 @@
-�export interface ProjectTranslation {
+export interface ProjectTranslation {
   title: string;
   subtitle: string;
   category: string;

@@ -63,7 +63,9 @@
 # --- project-url-redirects (auto-generated) ---
 # Internal Astro slugs → design.sestepa.com canonical URLs
 /de/finca-garten-campos-mallorca/  /de/finca-garten-campos/  301
+/de/finca-gartengestaltung-mallorca-campos/  /de/finca-garten-campos/  301
 /de/haus-am-meer-alcudia/  /de/alcanada/  301
+/de/luxus-landschaftsarchitektur-mallorca-andratx/  /de/sant-llorenc/  301
 /de/portfolio/binissalem/  /de/benissalem/  301
 /de/portfolio/bunyola/  /de/bunyola-mallorca/  301
 /de/portfolio/campanet-garden/  /de/campanet-garden/  301
@@ -72,9 +74,11 @@
 /de/portfolio/finca-garden-campos-mallorca/  /de/finca-garten-campos/  301
 /de/portfolio/finca-garden-inca/  /de/finca-garten-inca/  301
 /de/portfolio/finca-garten-campos-mallorca/  /de/finca-garten-campos/  301
+/de/portfolio/finca-gartengestaltung-mallorca-campos/  /de/finca-garten-campos/  301
 /de/portfolio/garden-design-llubi-mallorca/  /de/gartengestaltung-llubi-mallorca/  301
 /de/portfolio/haus-am-meer-alcudia/  /de/alcanada/  301
 /de/portfolio/hotelcabotlasvelas/  /de/hotel-cabot-las-velas/  301
+/de/portfolio/luxus-landschaftsarchitektur-mallorca-andratx/  /de/sant-llorenc/  301
 /de/portfolio/sacabaneta/  /de/sacabaneta/  301
 /de/portfolio/sant-llorenc/  /de/sant-llorenc/  301
 /de/portfolio/santa-ponsa/  /de/puig-na-morisca/  301
@@ -102,6 +106,7 @@
 /en/portfolio/vertical-gardens-in-mallorca/  /vertical-gardens-in-mallorca/  301
 /es/casa-de-mar-alcudia/  /es/alcanada/  301
 /es/finca-garden-campos-mallorca/  /es/finca-garden-campos/  301
+/es/paisajista-fincas-lujo-son-vida/  /es/sant-llorenc/  301
 /es/portfolio/binissalem/  /es/benissalem/  301
 /es/portfolio/bunyola/  /es/bunyola/  301
 /es/portfolio/campanet-garden/  /es/campanet-garden/  301
@@ -112,6 +117,7 @@
 /es/portfolio/finca-garden-inca/  /es/finca-garden-inca/  301
 /es/portfolio/garden-design-llubi-mallorca/  /es/diseno-de-jardines-llubi-mallorca/  301
 /es/portfolio/hotelcabotlasvelas/  /es/hotel-cabot-las-velas/  301
+/es/portfolio/paisajista-fincas-lujo-son-vida/  /es/sant-llorenc/  301
 /es/portfolio/sacabaneta/  /es/sacabaneta/  301
 /es/portfolio/sant-llorenc/  /es/sant-llorenc/  301
 /es/portfolio/santa-ponsa/  /es/puig-na-morisca/  301
@@ -125,6 +131,7 @@
 /portfolio/seaside-house-alcudia/  /alcanada/  301
 /seaside-house-alcudia/  /alcanada/  301
 # --- end project-url-redirects ---
+
 
 
 
