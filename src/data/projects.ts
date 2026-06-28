@@ -760,11 +760,10 @@ export const projects: Project[] = [
     cover: "/portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp",
     images: [
       "landscape-garden-design-terrace-palma-mallorca-sestepa-design-1.jpg",
-      "landscape-garden-design-terrace-palma-mallorca-sestepa-design-2.jpg",
+      "landscape-garden-design-terrace-palma-mallorca-sestepa-design-6.jpg",
       "landscape-garden-design-terrace-palma-mallorca-sestepa-design-3.jpg",
       "landscape-garden-design-terrace-palma-mallorca-sestepa-design-4.jpg",
-      "landscape-garden-design-terrace-palma-mallorca-sestepa-design-5.jpg",
-      "landscape-garden-design-terrace-palma-mallorca-sestepa-design-6.jpg"
+      "landscape-garden-design-terrace-palma-mallorca-sestepa-design-5.jpg"
     ],
     en: {
       title: "Palma Terrace",
