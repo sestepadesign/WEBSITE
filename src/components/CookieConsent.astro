@@ -1,5 +1,5 @@
 ---
-import { GTM_ID, GOOGLE_ADS_ID, GTAG_ID, METRICOOL_HASH } from '../lib/seo';
+import { GTM_ID, GOOGLE_ADS_ID, GTAG_ID } from '../lib/seo';
 import { getPagePath } from '../lib/urls';
 
 interface Props {
@@ -11,19 +11,19 @@ const cookiesUrl = getPagePath('cookies', lang);
 
 const copy = {
   en: {
-    text: 'We use essential cookies for site operation. With your consent, we also use analytics cookies to understand how visitors use our website (Google Analytics, Google Ads, Metricool). You can accept or reject non-essential cookies.',
+    text: 'We use essential cookies for site operation. With your consent, we also use analytics cookies to understand how visitors use our website (Google Analytics, Google Ads). You can accept or reject non-essential cookies.',
     accept: 'Accept',
     reject: 'Reject',
     policy: 'Cookie policy',
   },
   es: {
-    text: 'Utilizamos cookies esenciales para el funcionamiento del sitio. Con su consentimiento, también usamos cookies analíticas para entender cómo los visitantes utilizan nuestra web (Google Analytics, Google Ads, Metricool). Puede aceptar o rechazar las cookies no esenciales.',
+    text: 'Utilizamos cookies esenciales para el funcionamiento del sitio. Con su consentimiento, también usamos cookies analíticas para entender cómo los visitantes utilizan nuestra web (Google Analytics, Google Ads). Puede aceptar o rechazar las cookies no esenciales.',
     accept: 'Aceptar',
     reject: 'Rechazar',
     policy: 'Política de cookies',
   },
   de: {
-    text: 'Wir verwenden essentielle Cookies für den Betrieb der Website. Mit Ihrer Zustimmung nutzen wir zusätzlich Analyse-Cookies, um zu verstehen, wie Besucher unsere Website nutzen (Google Analytics, Google Ads, Metricool). Sie können nicht essentielle Cookies akzeptieren oder ablehnen.',
+    text: 'Wir verwenden essentielle Cookies für den Betrieb der Website. Mit Ihrer Zustimmung nutzen wir zusätzlich Analyse-Cookies, um zu verstehen, wie Besucher unsere Website nutzen (Google Analytics, Google Ads). Sie können nicht essentielle Cookies akzeptieren oder ablehnen.',
     accept: 'Akzeptieren',
     reject: 'Ablehnen',
     policy: 'Cookie-Richtlinie',
@@ -62,7 +62,6 @@ const copy = {
     gtmId: GTM_ID,
     gtagId: GTAG_ID,
     adsId: GOOGLE_ADS_ID,
-    metricoolHash: METRICOOL_HASH,
     consentKey: 'sestepa-cookie-consent',
   }}
 >
@@ -132,25 +131,9 @@ const copy = {
       document.head.appendChild(s);
     }
 
-    function loadMetricool() {
-      if (window.__sestepaMetricoolLoaded) return;
-      window.__sestepaMetricoolLoaded = true;
-      var head = document.getElementsByTagName('head')[0];
-      var script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = 'https://tracker.metricool.com/app/resources/be.js';
-      script.onload = function () {
-        if (window.beTracker) {
-          window.beTracker.t({ hash: metricoolHash });
-        }
-      };
-      head.appendChild(script);
-    }
-
     function loadAnalytics() {
       loadGtm();
       loadGtag();
-      loadMetricool();
     }
 
     function acceptCookies() {
