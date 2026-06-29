@@ -14,16 +14,16 @@ const t = (key: keyof typeof ui[typeof lang]) => {
 
 // SEO meta description
 const descriptions = {
-  en: "S'Estepa Design — boutique garden design and landscape architecture studio in Mallorca. Bespoke Mediterranean gardens for private fincas and villas.",
-  es: "S'Estepa Design — estudio boutique de diseño de jardines y arquitectura del paisaje en Mallorca. Jardines mediterráneos exclusivos para fincas y villas.",
-  de: "S'Estepa Design — exklusives Gartendesign und Landschaftsarchitektur Studio auf Mallorca. Maßgeschneiderte mediterrane Gärten für Fincas und Villen.",
+  en: "S'Estepa Design &mdash; boutique garden design and landscape architecture studio in Mallorca. Bespoke Mediterranean gardens for private fincas and villas.",
+  es: "S'Estepa Design &mdash; estudio boutique de diseño de jardines y arquitectura del paisaje en Mallorca. Jardines mediterráneos exclusivos para fincas y villas.",
+  de: "S'Estepa Design &mdash; exklusives Gartendesign und Landschaftsarchitektur Studio auf Mallorca. Maßgeschneiderte mediterrane Gärten für Fincas und Villen.",
 };
 
-// SEO page titles — keyword-first, separate from hero.subtitle (visible text unchanged)
+// SEO page titles &mdash; keyword-first, separate from hero.subtitle (visible text unchanged)
 const seoTitles = {
-  en: "Bespoke Garden Design Mallorca | S'Estepa Design — Fincas & Villas",
-  es: "Diseño de Jardines Exclusivos en Mallorca | S'Estepa Design — Fincas y Villas",
-  de: "Gartengestaltung Mallorca | S'Estepa Design — Fincas & Villen",
+  en: "Bespoke Garden Design Mallorca | S'Estepa Design &mdash; Fincas & Villas",
+  es: "Diseño de Jardines Exclusivos en Mallorca | S'Estepa Design &mdash; Fincas y Villas",
+  de: "Gartengestaltung Mallorca | S'Estepa Design &mdash; Fincas & Villen",
 };
 
 const pageDescription = descriptions[lang];
@@ -35,7 +35,7 @@ const whatsappTexts = {
 };
 const whatsappUrl = `https://wa.me/34681272252?text=${encodeURIComponent(whatsappTexts[lang])}`;
 
-// Featured projects — 2×2 grid: Crestatx + Llubí, Terrace Palma + Sa Ponsa
+// Featured projects &mdash; 2×2 grid: Crestatx + Llubí, Terrace Palma + Sa Ponsa
 const featuredSlugs = [
   'crestatx-garden-design',
   'garden-design-llubi-mallorca',
@@ -54,21 +54,21 @@ const spotlightCopy = {
   en: {
     tag: 'Featured Estate',
     title: 'Finca Garden Campos',
-    text: 'An exceptional landscape in Campos — one of our largest estate gardens, designed and built by S\'Estepa across mathematical planting, natural meadows, and hidden garden passages.',
+    text: 'An exceptional landscape in Campos &mdash; one of our largest estate gardens, designed and built by S\'Estepa across mathematical planting, natural meadows, and hidden garden passages.',
     cta: 'Explore the full project',
     size: '',
   },
   es: {
     tag: 'Finca Destacada',
     title: 'Finca Jardín Campos',
-    text: 'Un paisaje excepcional en Campos — uno de nuestros jardines de finca más grandes, diseñado y construido por S\'Estepa con plantación matemática, praderas naturales y pasajes ocultos.',
+    text: 'Un paisaje excepcional en Campos &mdash; uno de nuestros jardines de finca más grandes, diseñado y construido por S\'Estepa con plantación matemática, praderas naturales y pasajes ocultos.',
     cta: 'Explorar el proyecto completo',
     size: '',
   },
   de: {
     tag: 'Ausgewähltes Landgut',
     title: 'Finca Garten Campos',
-    text: 'Eine außergewöhnliche Landschaft in Campos — einer unserer größten Landgutgärten, entworfen und gebaut von S\'Estepa mit mathematischer Bepflanzung, natürlichen Wiesen und verborgenen Gartenpassagen.',
+    text: 'Eine außergewöhnliche Landschaft in Campos &mdash; einer unserer größten Landgutgärten, entworfen und gebaut von S\'Estepa mit mathematischer Bepflanzung, natürlichen Wiesen und verborgenen Gartenpassagen.',
     cta: 'Das vollständige Projekt ansehen',
     size: '',
   },
@@ -184,7 +184,7 @@ const servicesData = {
   en: {
     tag: "Our Expertise",
     title: "Services",
-    subtitle: "We provide a comprehensive approach to landscaping in Mallorca, focusing on the creation and long-term maintenance of living ecosystems for villas and holiday residences. Our team oversees the entire process—from design and construction to technical irrigation and planting. We ensure a seamless experience, managing every detail in English, Spanish, and German.",
+    subtitle: "We provide a comprehensive approach to landscaping in Mallorca, focusing on the creation and long-term maintenance of living ecosystems for villas and holiday residences. Our team oversees the entire process&mdash;from design and construction to technical irrigation and planting. We ensure a seamless experience, managing every detail in English, Spanish, and German.",
     items: [
       {
         title: "Villas & Holiday Homes",
@@ -317,7 +317,7 @@ const currentJourney = journeyData[lang];
         <div class="philosophy-text-col">
           {lang === 'es' && (
             <p class="philosophy-seo-lead">
-              Paisajismo Mallorca — creando jardines mediterráneos atemporales que combinan belleza natural, materiales locales y diseño sostenible.
+              Paisajismo Mallorca &mdash; creando jardines mediterráneos atemporales que combinan belleza natural, materiales locales y diseño sostenible.
             </p>
           )}
           {lang === 'en' && (
@@ -335,7 +335,7 @@ const currentJourney = journeyData[lang];
           {lang === 'de' && (
             <>
               <p>Studio für Gartengestaltung und mediterrane Landschaftsarchitektur auf Mallorca. Mit 30 Jahren Erfahrung kreiert S'Estepa Design nachhaltige mediterrane Gärten.</p>
-              <p>Inspiriert von der authentischen Schönheit und dem Geist Mallorcas. Wir arbeiten mit dem einheimischen Kalkstein, den Konturen des trockenen Bodens und endemischer Flora — so wird jedes Projekt eine organische Erweiterung der natürlichen Seele Mallorcas.</p>
+              <p>Inspiriert von der authentischen Schönheit und dem Geist Mallorcas. Wir arbeiten mit dem einheimischen Kalkstein, den Konturen des trockenen Bodens und endemischer Flora &mdash; so wird jedes Projekt eine organische Erweiterung der natürlichen Seele Mallorcas.</p>
             </>
           )}
         </div>
@@ -420,8 +420,8 @@ const currentJourney = journeyData[lang];
             src={camposSpotlightImage}
             alt={camposProject[lang].title}
             class="spotlight-image"
-            loading="eager"
-            fetchpriority="high"
+            loading="lazy"
+            decoding="async"
           />
         </a>
         <div class="spotlight-text">
