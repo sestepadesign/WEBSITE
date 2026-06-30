@@ -13,7 +13,7 @@ const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
 ---
 
 <Layout
-  title={`S'Estepa Design | ${content.title}`}
+  title={content.seoTitle || `S'Estepa Design | ${content.title}`}
   description={content.metaDescription}
   lang={lang}
   image="/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp"

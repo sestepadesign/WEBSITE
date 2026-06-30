@@ -7,6 +7,7 @@ export interface ServiceItem {
 
 export interface ServicesContent {
   tag: string;
+  seoTitle?: string;
   title: string;
   subtitle: string;
   metaDescription: string;
@@ -17,6 +18,7 @@ export interface ServicesContent {
 export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
   en: {
     tag: 'Our Expertise',
+    seoTitle: "LANDSCAPE GARDEN DESIGN MALLORCA | S'ESTEPA DESIGN",
     title: 'Garden Design & Landscape Architecture in Mallorca',
     subtitle:
       'Specialist landscape design and garden design studio in Mallorca. We create and maintain living Mediterranean ecosystems for private villas, fincas and holiday residences — from concept to completion.',
@@ -53,6 +55,7 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
   },
   es: {
     tag: 'Nuestra Experiencia',
+    seoTitle: "DISEÑO DE JARDINES Y PAISAJISMO MALLORCA | S'ESTEPA DESIGN",
     title: 'Diseño y Creación de Jardines en Mallorca — No decoración, sino transformación viva',
     subtitle:
       'Ofrecemos un enfoque integral del paisajismo en Mallorca, centrándonos en la creación y el mantenimiento a largo plazo de ecosistemas vivos para villas y residencias vacacionales.',
@@ -89,6 +92,7 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
   },
   de: {
     tag: 'Unsere Expertise',
+    seoTitle: "LANDSCHAFTSARCHITEKTUR & GARTENGESTALTUNG MALLORCA | S'ESTEPA DESIGN",
     title: 'Gartengestaltung & Landschaftsarchitektur auf Mallorca',
     subtitle:
       'Wir bieten einen umfassenden Ansatz für die Landschaftsgestaltung auf Mallorca, mit Schwerpunkt auf der Schaffung und langfristigen Pflege lebendiger Ökosysteme für Villen und Feriendomizile.',

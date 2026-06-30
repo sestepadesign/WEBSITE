@@ -134,12 +134,12 @@ const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogL
             const anchor = e.target.closest('a');
             if (anchor && anchor.href && anchor.href.includes('wa.me')) {
               const pathname = window.location.pathname;
-              const actionUrl = "https://script.google.com/macros/s/AKfycbwJT0-KBhXPhkBhyFlcMSR6qstmJMOzXsm5syqnQXtq_9CBsrNRGIQ4_DSzQ2VCSb3qOQ/exec";
+              const actionUrl = "https://script.google.com/macros/s/AKfycbzR8Kdmb5xfZv1___-qDOmeWgYuSOfwWlqQb00_6x37EACe4xKpgnlU5ZHRJuCPoZIszQ/exec";
               const params = new URLSearchParams({
-                name: "WA Click",
+                name: "WhatsApp Click",
                 email: "---",
                 subject: "WhatsApp",
-                message: `Clic en el botón de WhatsApp desde: ${pathname}`
+                message: `Click en el botón de WhatsApp desde: ${pathname}`
               });
               fetch(`${actionUrl}?${params.toString()}`, { 
                 method: "GET", 

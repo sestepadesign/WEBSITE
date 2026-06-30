@@ -831,8 +831,8 @@ const t = {
 
 <!-- Client Side Scripting -->
 <script is:inline>
-  // Google Spreadsheet CSV URL containing the contact form leads
-  const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1g7VADJJcuTPJV-stmdXcY9ZCYNriqJT6WyPoep3SPiI/export?format=csv';
+  // Google Apps Script Web App URL to securely fetch leads from the Restricted Sheet
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzR8Kdmb5xfZv1___-qDOmeWgYuSOfwWlqQb00_6x37EACe4xKpgnlU5ZHRJuCPoZIszQ/exec?action=getLeads&token=sestepa_secure_2026';
 
   // CSV Parser Helper
   function parseCSV(text) {
