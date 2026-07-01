@@ -1,5 +1,9 @@
 /PORTFOLIO/*  /portfolio/:splat  301
 
+# Resolvendo rotas antigas/fantasmas em espanhol (SEO)
+/es/inicio/  /es/  301
+/es/paisajismo-y-diseno-de-jardines-en-mallorca-desde-terrazas-hasta-fincas/  /es/diseno-de-jardines-mallorca/  301
+
 # Legacy Astro /en/* structure → WordPress-style clean URLs
 /en/  /  301
 /en/about/  /about/  301
