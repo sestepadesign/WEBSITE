@@ -284,11 +284,21 @@ const currentJourney = journeyData[lang];
   <!-- Hero Section with Background Video -->
   <section class="hero" id="hero-section">
     <div class="video-container">
-      <video autoplay loop muted playsinline class="hero-video" poster="/videos/sant_llorenc_poster.webp" aria-hidden="true">
-        <source media="(min-width: 768px)" src="/videos/sant_llorenc_hero.mp4" type="video/mp4" />
+      <video autoplay loop muted playsinline class="hero-video" poster="/videos/sant_llorenc_poster.webp" aria-hidden="true" id="heroVideo" data-src="/videos/sant_llorenc_hero.mp4">
       </video>
       <div class="hero-overlay"></div>
     </div>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.innerWidth >= 768) {
+          var video = document.getElementById('heroVideo');
+          var source = document.createElement('source');
+          source.src = video.getAttribute('data-src');
+          source.type = 'video/mp4';
+          video.appendChild(source);
+        }
+      });
+    </script>
     
     <div class="hero-content container">
       <span class="hero-subtitle">{t('hero.subtitle')}</span>
