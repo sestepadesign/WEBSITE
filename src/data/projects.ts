@@ -12,6 +12,8 @@ export interface Project {
   year: string;
   architect: string | null;
   video: string | null;
+  heroVideo?: string;
+  heroPoster?: string;
   cover: string;
   coverPosition?: string;
   /** Social preview image (JPG, ≤1MB). Falls back to cover when omitted. */
@@ -535,13 +537,16 @@ export const projects: Project[] = [
   },
   {
     slug: "sant-llorenc",
-    location: "Sant Llorenç, Mallorca",
-    year: "2023",
+    location: "Sant Llorenç des Cardassar",
+    year: "2024",
     architect: null,
-    video: "https://www.youtube.com/embed/IdGlxUKjhUQ?feature=oembed",
+    video: "https://www.youtube.com/embed/5U9T4-zH19E?feature=oembed",
+    heroVideo: "/videos/sant_llorenc_hero.mp4",
+    heroPoster: "/videos/sant_llorenc_poster.webp",
     cover: "/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp",
     ogImage: "/portfolio/sant-llorenc/images/landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-02.jpg",
     images: [
+      "garden-design-mallorca-sant-llorenc-sestepa.webp",
       "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-10.jpg",
       "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-12.jpg",
       "landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-03.jpg",

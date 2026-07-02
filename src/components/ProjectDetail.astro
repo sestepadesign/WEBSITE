@@ -41,13 +41,33 @@ const pageDescription = translation.description[0] || "";
   <article class={`project-detail-page ${project.slug}`}>
     <!-- Main cover — full width directly below site header -->
     <div class="project-cover-hero">
-      <img
-        src={project.cover}
-        alt={`${translation.title} — Garden Design ${project.location}, Mallorca`}
-        class="project-cover-img"
-        style={project.coverPosition ? `object-position: ${project.coverPosition};` : undefined}
-        fetchpriority="high"
-      />
+      {project.heroVideo ? (
+        <div class="video-container" style="width: 100%; height: 100%; position: relative;">
+          <video autoplay loop muted playsinline class="hero-video" poster={project.heroPoster} aria-hidden="true" id={`heroVideo-${project.slug}`} data-src={project.heroVideo} style="width: 100%; height: 100%; object-fit: cover;"></video>
+          <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(31, 33, 31, 0.4) 0%, rgba(31, 33, 31, 0.2) 60%, rgba(250, 249, 246, 1) 100%); pointer-events: none; z-index: 2;"></div>
+          <script is:inline define:vars={{ slug: project.slug }}>
+            document.addEventListener('DOMContentLoaded', function() {
+              if (window.innerWidth >= 768) {
+                var video = document.getElementById('heroVideo-' + slug);
+                if (video) {
+                  var source = document.createElement('source');
+                  source.src = video.getAttribute('data-src');
+                  source.type = 'video/mp4';
+                  video.appendChild(source);
+                }
+              }
+            });
+          </script>
+        </div>
+      ) : (
+        <img
+          src={project.cover}
+          alt={`${translation.title} — Garden Design ${project.location}, Mallorca`}
+          class="project-cover-img"
+          style={project.coverPosition ? `object-position: ${project.coverPosition};` : undefined}
+          fetchpriority="high"
+        />
+      )}
     </div>
 
     <div class="project-content">
