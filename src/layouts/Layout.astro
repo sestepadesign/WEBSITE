@@ -162,7 +162,8 @@ const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogL
                 name: "WhatsApp Click",
                 email: "---",
                 subject: "WhatsApp",
-                message: `Click en el botón de WhatsApp desde: ${pathname}`
+                message: `Click en el botón de WhatsApp desde: ${pathname}`,
+                token: "sestepa_secure_2026"
               });
               fetch(`${actionUrl}?${params.toString()}`, { 
                 method: "GET", 

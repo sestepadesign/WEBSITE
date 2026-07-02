@@ -644,7 +644,10 @@ const currentJourney = journeyData[lang];
           data.message = `[Phone: ${data.phone}]\n\n${data.message || ''}`;
         }
         
-        const actionUrl = "https://script.google.com/macros/s/AKfycbwJT0-KBhXPhkBhyFlcMSR6qstmJMOzXsm5syqnQXtq_9CBsrNRGIQ4_DSzQ2VCSb3qOQ/exec";
+        data.token = "sestepa_secure_2026";
+        data.lang = document.documentElement.lang || "en";
+        
+        const actionUrl = "https://script.google.com/macros/s/AKfycbzR8Kdmb5xfZv1___-qDOmeWgYuSOfwWlqQb00_6x37EACe4xKpgnlU5ZHRJuCPoZIszQ/exec";
         const queryString = new URLSearchParams(data).toString();
         
         fetch(`${actionUrl}?${queryString}`, {
@@ -656,7 +659,7 @@ const currentJourney = journeyData[lang];
           statusDiv.classList.add('success');
           // Dispara a conversão no Google Ads (mesma tag do contactPage)
           if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-            window.gtag('event', 'conversion', {'send_to': 'AW-795871100/xxxxxx'}); // Substitua xxxxxx pelo rótulo real se houver
+            window.gtag('event', 'conversion', {'send_to': 'AW-795871100/contact_form_lead'});
           }
           form.reset();
         })
@@ -667,7 +670,7 @@ const currentJourney = journeyData[lang];
           statusDiv.classList.add('success');
           // Dispara a conversão também no fallback
           if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-            window.gtag('event', 'conversion', {'send_to': 'AW-795871100/xxxxxx'});
+            window.gtag('event', 'conversion', {'send_to': 'AW-795871100/contact_form_lead'});
           }
           form.reset();
         })
