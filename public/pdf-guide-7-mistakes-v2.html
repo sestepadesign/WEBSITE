@@ -115,7 +115,7 @@
 
       /* INTERIOR */
       .interior {
-        padding: 80px;
+        padding: 60px; /* Reduced from 80px to fix overflow */
         display: flex;
         flex-direction: column;
       }
@@ -124,8 +124,8 @@
         justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid rgba(0,0,0,0.1);
-        padding-bottom: 20px;
-        margin-bottom: 50px;
+        padding-bottom: 15px;
+        margin-bottom: 30px; /* Reduced from 50px */
       }
       .header-title {
         font-size: 0.9rem;
@@ -135,7 +135,7 @@
       }
       .content-split {
         display: flex;
-        gap: 50px;
+        gap: 40px; /* Reduced from 50px */
         flex-grow: 1;
       }
       .text-col {
@@ -152,26 +152,26 @@
       }
       .mistake-num {
         font-family: 'Cormorant Garamond', serif;
-        font-size: 8rem;
+        font-size: 7rem; /* Reduced from 8rem */
         line-height: 1;
         color: rgba(108, 122, 83, 0.15);
-        margin-bottom: -30px;
+        margin-bottom: -20px; /* Reduced from -30px */
       }
       .mistake-title {
-        font-size: 3rem;
+        font-size: 2.5rem; /* Reduced from 3rem */
         line-height: 1.1;
-        margin-bottom: 30px;
+        margin-bottom: 25px; /* Reduced from 30px */
         color: var(--c-dark);
       }
       .mistake-text {
-        font-size: 1.2rem;
+        font-size: 1.15rem; /* Reduced from 1.2rem */
         line-height: 1.6;
         color: #333;
-        margin-bottom: 40px;
+        margin-bottom: 30px; /* Reduced from 40px */
       }
       .solution-box {
         background: white;
-        padding: 30px;
+        padding: 25px; /* Reduced from 30px */
         border-left: 4px solid var(--c-accent);
         box-shadow: 0 5px 15px rgba(0,0,0,0.03);
       }
@@ -179,13 +179,13 @@
         color: var(--c-accent);
         font-family: 'Jost', sans-serif;
         text-transform: uppercase;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         letter-spacing: 1.5px;
-        margin-bottom: 15px;
+        margin-bottom: 10px; /* Reduced from 15px */
         font-weight: 500;
       }
       .solution-box p {
-        font-size: 1.1rem;
+        font-size: 1.05rem; /* Reduced from 1.1rem */
         line-height: 1.6;
         margin: 0;
         color: #444;
@@ -239,7 +239,7 @@
     <div class="page interior">
       <div class="header">
         <span class="header-title">S'Estepa Design Studio</span>
-        <span class="header-title">01 / 04</span>
+        <span class="header-title">01 / 08</span>
       </div>
       <div class="content-split">
         <div class="text-col">
@@ -261,7 +261,7 @@
     <div class="page interior">
       <div class="header">
         <span class="header-title">S'Estepa Design Studio</span>
-        <span class="header-title">02 / 04</span>
+        <span class="header-title">02 / 08</span>
       </div>
       <div class="content-split">
         <div class="img-col" style="background-image: url('/portfolio/sant-llorenc/images/sant-llorenc-gallery-pool.jpg')"></div>
@@ -283,7 +283,7 @@
     <div class="page interior">
       <div class="header">
         <span class="header-title">S'Estepa Design Studio</span>
-        <span class="header-title">03 / 04</span>
+        <span class="header-title">03 / 08</span>
       </div>
       <div class="content-split">
         <div class="text-col">
@@ -301,7 +301,95 @@
       </div>
     </div>
 
-    <!-- PAGE 5: CTA -->
+    <!-- PAGE 5: MISTAKE 4 -->
+    <div class="page interior">
+      <div class="header">
+        <span class="header-title">S'Estepa Design Studio</span>
+        <span class="header-title">04 / 08</span>
+      </div>
+      <div class="content-split">
+        <div class="img-col" style="background-image: url('/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa-terrace-2.webp')"></div>
+        <div class="text-col">
+          <div class="mistake-num">04</div>
+          <h2 class="mistake-title">Overlooking Soil Quality and Preparation</h2>
+          <div class="mistake-text">
+            <p>Mallorca's soil is notoriously rocky, highly alkaline, and often lacks organic matter. Many homeowners invest thousands in premium plants, only to dig them straight into unprepared limestone soil, resulting in stunted growth or plant failure within the first year.</p>
+          </div>
+          <div class="solution-box">
+            <h4>The S'Estepa Solution</h4>
+            <p>We believe the secret to a thriving garden lies underground. We conduct rigorous soil amendment, integrating high-quality organic compost and selecting plant varieties specifically adapted to alkaline, rocky conditions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 6: MISTAKE 5 -->
+    <div class="page interior">
+      <div class="header">
+        <span class="header-title">S'Estepa Design Studio</span>
+        <span class="header-title">05 / 08</span>
+      </div>
+      <div class="content-split">
+        <div class="text-col">
+          <div class="mistake-num">05</div>
+          <h2 class="mistake-title">Planting at the Wrong Time of Year</h2>
+          <div class="mistake-text">
+            <p>Enthusiasm often leads to planting in late spring or summer. In Mallorca, this is a fatal error. Young roots cannot establish themselves in the scorching summer heat, leading to inevitable heat stress and high mortality rates, no matter how much you water them.</p>
+          </div>
+          <div class="solution-box">
+            <h4>The S'Estepa Solution</h4>
+            <p>We strictly schedule major plantings for Autumn. The warm soil and upcoming winter rains provide the perfect conditions for root systems to establish deeply, ensuring plants are robust enough to survive their first summer.</p>
+          </div>
+        </div>
+        <div class="img-col" style="background-image: url('/portfolio/hotel-cabot-las-velas-puerto-pollensa-mallorca/images/hotel-cabot-las-velas-puerto-pollensa-sestepa-design-landscaper-mallorca-16.jpg')"></div>
+      </div>
+    </div>
+
+    <!-- PAGE 7: MISTAKE 6 -->
+    <div class="page interior">
+      <div class="header">
+        <span class="header-title">S'Estepa Design Studio</span>
+        <span class="header-title">06 / 08</span>
+      </div>
+      <div class="content-split">
+        <div class="img-col" style="background-image: url('/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-34.jpg')"></div>
+        <div class="text-col">
+          <div class="mistake-num">06</div>
+          <h2 class="mistake-title">Failing to Plan for the Tramuntana Winds</h2>
+          <div class="mistake-text">
+            <p>Mallorca experiences strong, often salt-laden winds, particularly the cold Tramuntana from the north. Exposed terraces and hillside villas without natural windbreaks will see their delicate ornamentals scorched, shredded, or uprooted during winter storms.</p>
+          </div>
+          <div class="solution-box">
+            <h4>The S'Estepa Solution</h4>
+            <p>We incorporate strategic windbreaks using resilient native hedges (like Cypress or Oleander) and use robust, wind-tolerant species in exposed areas, protecting the microclimate of your main living spaces.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 8: MISTAKE 7 -->
+    <div class="page interior">
+      <div class="header">
+        <span class="header-title">S'Estepa Design Studio</span>
+        <span class="header-title">07 / 08</span>
+      </div>
+      <div class="content-split">
+        <div class="text-col">
+          <div class="mistake-num">07</div>
+          <h2 class="mistake-title">Poor Irrigation System Design</h2>
+          <div class="mistake-text">
+            <p>Relying on outdated sprinkler systems or manual watering for expansive grounds is inefficient. Sprinklers lose massive amounts of water to evaporation and wind, and often water the foliage (encouraging disease) rather than the deep roots.</p>
+          </div>
+          <div class="solution-box">
+            <h4>The S'Estepa Solution</h4>
+            <p>We design and install precision subterranean drip-irrigation systems. Controlled by smart timers, these systems deliver water directly to the root zone at night, minimizing waste and maximizing plant health effortlessly.</p>
+          </div>
+        </div>
+        <div class="img-col" style="background-image: url('/portfolio/sant-llorenc/images/sant-llorenc-gallery-3.jpg')"></div>
+      </div>
+    </div>
+
+    <!-- PAGE 9: CTA -->
     <div class="page cta-page">
       <img src="/images/S-ESTEPA-GARDEN-DESIGN-MALLORCA-LOGO-BLACK-344.webp" alt="S'Estepa Design" style="width:150px; margin-bottom: 50px; filter: brightness(0) invert(1);" />
       <h2>Transform Your Mallorcan Property</h2>
@@ -311,3 +399,4 @@
 
   </body>
 </html>
+
