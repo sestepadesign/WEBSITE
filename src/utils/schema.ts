@@ -41,6 +41,34 @@ const translations = {
   }
 };
 
+export interface VideoSchemaInput {
+  name: string;
+  description: string;
+  thumbnailUrl: string;
+  uploadDate: string;
+  contentUrl?: string;
+  embedUrl?: string;
+}
+
+/**
+ * Generates a schema.org VideoObject JSON-LD block.
+ * Purely additive — does not touch Organization/WebSite/Service schemas below.
+ * Use `contentUrl` for self-hosted video files, `embedUrl` for third-party
+ * embeds (YouTube, Vimeo). Provide at least one.
+ */
+export function getVideoObjectSchema(video: VideoSchemaInput) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": video.name,
+    "description": video.description,
+    "thumbnailUrl": [video.thumbnailUrl],
+    "uploadDate": video.uploadDate,
+    ...(video.contentUrl ? { contentUrl: video.contentUrl } : {}),
+    ...(video.embedUrl ? { embedUrl: video.embedUrl } : {}),
+  };
+}
+
 export function getLocalizedSchema(
   locale: 'es' | 'en' | 'de',
   currentUrl: string,
