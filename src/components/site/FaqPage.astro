@@ -1,0 +1,262 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const pageTitle = "Frequently asked questions";
+const pageSubtitle = "Everything you need to know before starting your garden — pricing, timelines, remote management, sustainability, and who's behind the studio.";
+
+const faqs = [
+  {
+    question: "How is a project priced?",
+    answer: "Every project is quoted individually after an initial site visit and consultation. We provide a fully transparent budget that breaks down each phase — design, materials, construction, and planting — with no hidden fees and no surcharge for international clients. Our pricing reflects the standard of execution, not where you're calling from."
+  },
+  {
+    question: "How long does a project take, from first meeting to finished garden?",
+    answer: "Timelines depend on the scale and complexity of the project, but every client receives a clear schedule once the design is finalized, during the Design Refinement stage. Your project has a dedicated point of contact overseeing execution, which allows us to hold to agreed deadlines even on large or technically complex gardens."
+  },
+  {
+    question: "I don't live in Mallorca year-round — how do I manage the project remotely?",
+    answer: "Most of our international clients manage their project remotely. You'll have one dedicated point of contact throughout construction, with regular photo and video updates and video calls whenever needed. Physical presence in Mallorca isn't required to stay fully informed and in control of decisions."
+  },
+  {
+    question: "How do you approach water use and sustainability, given Mallorca's water scarcity?",
+    answer: "Our Ecological Care approach is built specifically for the Mediterranean climate: xeriscape planting schemes, smart drip irrigation, and a plant palette selected for the island's limestone soil and dry conditions. This comes from 30 years of working directly with Mallorcan terrain and understanding what actually thrives here with minimal water."
+  },
+  {
+    question: "Who is behind S'Estepa Design?",
+    answer: "S'Estepa was founded by Pedro Campaner, a Mallorcan Agricultural Technician and Landscaper, who started designing gardens on the island at just 18 years old. Thirty years later, the studio has grown into a team of experienced local professionals working alongside Sofia Grimaux, project manager for every client — your single point of contact from first sketch to finished garden. Our team works with a flat, collaborative structure, which keeps projects agile without losing accountability."
+  },
+  {
+    question: "Why the name \"S'Estepa\"?",
+    answer: "Estepa (rockrose) is a hardy Mediterranean shrub that blooms wild across Mallorca's forests, known for thriving in poor, dry soil where little else survives. The name reflects our design philosophy: work with the island's natural resilience, not against it."
+  },
+  {
+    question: "What kind of properties do you work on?",
+    answer: "We specialize in private villas, fincas, and estates across Mallorca — from contemporary terraces to large rural properties. Many of our clients are international owners of second homes on the island, as well as architects and estate agents who bring us in on behalf of their clients."
+  },
+  {
+    question: "What languages does your team work in?",
+    answer: "Our team manages every stage of the process in English, Spanish, and German, so international clients are never navigating the project through a third party or translation."
+  },
+  {
+    question: "Do you only design, or do you also build and maintain the garden?",
+    answer: "We manage the full process end-to-end: conceptual design, technical planning, full garden construction, and ongoing ecological care and maintenance. You work with a single studio from first sketch to the finished, living garden."
+  }
+];
+---
+
+<Layout
+  title="Frequently Asked Questions | S'Estepa Design"
+  description="Answers to common questions about pricing, timelines, remote project management, sustainability, and the studio behind S'Estepa Design."
+  lang="en"
+  hreflangLocales={['en']}
+>
+  <section class="faq-section section-padding">
+    <div class="container faq-container">
+      <header class="page-header">
+        <h1 class="page-title">{pageTitle}</h1>
+        <p class="page-subtitle">{pageSubtitle}</p>
+      </header>
+
+      <div class="faq-list">
+        {faqs.map((item, i) => (
+          <div class="faq-item">
+            <h2 class="faq-heading">
+              <button
+                class="faq-question"
+                aria-expanded="false"
+                aria-controls={`faq-answer-${i}`}
+                id={`faq-question-${i}`}
+              >
+                <span>{item.question}</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h2>
+            <div
+              class="faq-answer"
+              id={`faq-answer-${i}`}
+              role="region"
+              aria-labelledby={`faq-question-${i}`}
+            >
+              <div class="faq-answer-inner">
+                <p>{item.answer}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const items = document.querySelectorAll<HTMLElement>('.faq-item');
+
+  items.forEach((item) => {
+    const button = item.querySelector<HTMLButtonElement>('.faq-question');
+    if (!button) return;
+
+    button.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+
+      items.forEach((other) => {
+        other.classList.remove('open');
+        other.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        item.classList.add('open');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+
+<style>
+  .faq-section {
+    background-color: var(--color-white);
+  }
+
+  .faq-container {
+    max-width: 900px;
+  }
+
+  .page-header {
+    max-width: 700px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+
+  .page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--color-charcoal);
+    margin: 0 0 1.25rem;
+  }
+
+  .page-subtitle {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-charcoal-light);
+    font-weight: 300;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-sand-dark);
+  }
+
+  .faq-item:first-child {
+    border-top: 1px solid var(--color-sand-dark);
+  }
+
+  .faq-heading {
+    margin: 0;
+  }
+
+  .faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    padding: 1.75rem 0;
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--color-charcoal);
+    transition: var(--transition-fast);
+  }
+
+  .faq-question:hover {
+    color: var(--color-olive);
+  }
+
+  .faq-icon {
+    position: relative;
+    flex-shrink: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  .faq-icon::before,
+  .faq-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: var(--color-olive);
+    transition: var(--transition-fast);
+  }
+
+  .faq-icon::before {
+    width: 100%;
+    height: 1px;
+    transform: translate(-50%, -50%);
+  }
+
+  .faq-icon::after {
+    width: 1px;
+    height: 100%;
+    transform: translate(-50%, -50%);
+  }
+
+  .faq-item.open .faq-icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+    opacity: 0;
+  }
+
+  .faq-item.open .faq-question {
+    color: var(--color-olive);
+  }
+
+  .faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .faq-item.open .faq-answer {
+    grid-template-rows: 1fr;
+  }
+
+  .faq-answer-inner {
+    overflow: hidden;
+  }
+
+  .faq-answer-inner p {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-charcoal-light);
+    font-weight: 300;
+    margin: 0 0 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .page-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .faq-question {
+      font-size: 1.1rem;
+      padding: 1.25rem 0;
+      gap: 1rem;
+    }
+
+    .faq-answer-inner p {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+</style>
