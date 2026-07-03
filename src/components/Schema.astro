@@ -1,6 +1,8 @@
 ---
-import { getLocalizedSchema } from '../utils/schema';
+import { getLocalizedSchema, getVideoObjectSchema } from '../utils/schema';
 import { resolvePageIdFromPath, resolveProjectSlugFromPath } from '../lib/urls';
+import { projects } from '../data/projects';
+import { SITE_URL_PRODUCTION } from '../lib/locale';
 
 interface Props {
   canonicalPath?: string;
@@ -22,6 +24,47 @@ const isServiceOrPortfolio =
   projectSlug !== null;
 
 const schemas = getLocalizedSchema(currentLocale, currentUrl, isHome, isServiceOrPortfolio);
+
+// VideoObject — additive only, does not alter the Organization/WebSite/Service
+// schemas generated above. Fixes GSC "Video Indexing" failures for home (self-hosted
+// hero video) and project pages that embed a YouTube video.
+const heroVideoCopy = {
+  es: {
+    name: "S'Estepa Design — Arquitectura del Paisaje en Mallorca",
+    description: "Estudio de arquitectura del paisaje y diseño de jardines en Mallorca con más de 30 años de experiencia.",
+  },
+  en: {
+    name: "S'Estepa Design — Landscape Architecture in Mallorca",
+    description: "Landscape architecture and garden design studio in Mallorca with over 30 years of experience.",
+  },
+  de: {
+    name: "S'Estepa Design — Landschaftsarchitektur auf Mallorca",
+    description: "Landschaftsarchitektur- und Gartengestaltungsstudio auf Mallorca mit über 30 Jahren Erfahrung.",
+  },
+} as const;
+
+if (isHome) {
+  const heroT = heroVideoCopy[currentLocale] ?? heroVideoCopy.en;
+  schemas.push(getVideoObjectSchema({
+    name: heroT.name,
+    description: heroT.description,
+    thumbnailUrl: `${SITE_URL_PRODUCTION}/videos/sant_llorenc_poster.webp`,
+    uploadDate: "2023-06-01",
+    contentUrl: `${SITE_URL_PRODUCTION}/videos/sant_llorenc_hero.mp4`,
+  }));
+}
+
+const project = projectSlug ? projects.find((p) => p.slug === projectSlug) : null;
+if (project?.video) {
+  const translation = project[currentLocale] ?? project.en;
+  schemas.push(getVideoObjectSchema({
+    name: translation.title,
+    description: translation.subtitle,
+    thumbnailUrl: `${SITE_URL_PRODUCTION}${project.cover}`,
+    uploadDate: `${project.year}-01-01`,
+    embedUrl: project.video,
+  }));
+}
 ---
 
 <!-- Inject Schema Blocks dynamically without Astro escaping characters -->
