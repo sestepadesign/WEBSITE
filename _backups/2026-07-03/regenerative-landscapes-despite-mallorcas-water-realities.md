@@ -1,10 +1,9 @@
-﻿---
+---
 title: "Beyond the Drought: How S&#8217;Estepa Creates Lush, Regenerative Landscapes Despite Mallorca&#8217;s Water Realities"
 description: "Regenerative Landscaping Mallorca: The S&#8217;Estepa Dry Garden Approach. Discover how S&#8217;Estepa Design masters regenerative landscaping in Mallorca."
 pubDate: 2025-11-20
 lang: en
 draft: false
-noindex: false
 ---
 
 Beyond the Drought: How S'Estepa Creates Lush, Regenerative Landscapes Despite Mallorca's Water Realities
@@ -14,6 +13,8 @@ In the Balearic Islands, water is not merely a resource; it is a currency of lux
 As the climate shifts and aquifers strain, the future of luxury landscaping lies in Regenerative Design. By embracing our signature &#8216;Jardín Seco' (Dry Garden) philosophy, we create outdoor sanctuaries that are visually arresting, deeply rooted in the Tramuntana landscape, and practically immune to drought constraints.
 
 ## The &#8216;Jardín Seco' Philosophy: Redefining Opulence
+
+S'Estepa Design Concept
 
 There is a misconception that a dry garden means gravel and cactus. This could not be further from the truth. A S'Estepa dry garden is a tapestry of texture, movement, and depth. It is about choosing the right abundance.
 
@@ -35,11 +36,11 @@ Water is not the only element we curate; we also design for the wind. The strong
 
 We utilize a curated palette of native and Mediterranean-adapted flora that offers year-round interest without the water tax. Our planting plans are architectural, focusing on form and contrast:
 
-Structure: *Olea europaea* (Olive) and *Ceratonia siliqua* (Carob) provide the architectural backbone and shade canopy.
+Structure: *Olea europaea* (Olive) and *Ceratonia siliqua* (Carob) provide the architectural backbone and shade canopy.
 
-Texture: *Phlomis fruticosa* and *Euphorbia* species offer sculptural leaves that resist wilting.
+Texture: *Phlomis fruticosa* and *Euphorbia* species offer sculptural leaves that resist wilting.
 
-Aromatics: *Rosmarinus officinalis* (Rosemary) and *Lavandula* (Lavender) provide sensory luxury while thriving in arid soil. At the [Hotel Cabot Las Velas](/hotelcabotlasvelas) in Puerto Pollença, this exact palette replaced a thirsty lawn across the entire hotel garden, delivering panoramic views alongside a fraction of the original water budget.
+Aromatics: *Rosmarinus officinalis* (Rosemary) and *Lavandula* (Lavender) provide sensory luxury while thriving in arid soil. At the [Hotel Cabot Las Velas](/hotelcabotlasvelas) in Puerto Pollença, this exact palette replaced a thirsty lawn across the entire hotel garden, delivering panoramic views alongside a fraction of the original water budget.
 
 ## The S'Estepa Promise
 

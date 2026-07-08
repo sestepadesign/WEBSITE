@@ -4,16 +4,17 @@ description: "Wild Luxury: A design philosophy that shapes the perfect integrati
 pubDate: 2025-12-15
 lang: en
 draft: false
-noindex: false
 ---
 
 The Wild Luxury: How Micro-Rewilding is Reshaping Mallorca's Landscapes
 
-Wild luxury: A design philosophy that seamlessly integrates the island's wild beauty into curated luxury spaces. For decades, the definition of a luxury garden in the Mediterranean has been synonymous with total control: manicured lawns, clipped hedges, and irrigation systems fighting a perpetual war against the summer sun. But at S'Estepa Design, we pose a different question: Can a truly wild garden be truly luxurious?
+Wild luxury: A design philosophy that seamlessly integrates the island's wild beauty into curated luxury spaces. For decades, the definition of a luxury garden in the Mediterranean has been synonymous with total control: manicured lawns, clipped hedges, and irrigation systems fighting a perpetual war against the summer sun. But at S'Estepa Design, we pose a different question: Can a truly wild garden be truly luxurious?
 
 We believe the answer lies in a radical shift in perspective. True exclusivity is no longer about imposing an alien order upon the land; it is about curating an intimate relationship with the indigenous spirit of Mallorca. This is the essence of micro-rewilding—a design philosophy that invites the island’s untamed beauty into the heart of high-end architecture.
 
 ## The Architecture of the &#8220;Uncontrolled&#8221;
+
+GARDEN DESIGN MALLORCA &#8211; LANDSCAPE GARDEN DESIGN
 
 Micro-rewilding is not abandonment. It is not simply ceasing to mow or weed. Rather, it is the deliberate orchestration of &#8220;wild zones&#8221; within a structured landscape plan. It is a curiosity-driven approach where we ask: What wants to grow here?
 
@@ -23,9 +24,9 @@ In our projects across the Raiguer and the Tramuntana foothills, we designate sp
 
 Why do we encourage this? Because nature is the ultimate designer. When we prepare the ground for micro-rewilding, we aren't just planting; we are inviting colonization.
 
-Soil Memory: We work extensively with Mallorca’s Call vermell (red clay soils). Instead of replacing it with imported topsoil, we amend it minimally to support the dormant seed banks already present in the earth.
+Soil Memory: We work extensively with Mallorca’s Call vermell (red clay soils). Instead of replacing it with imported topsoil, we amend it minimally to support the dormant seed banks already present in the earth.
 
-Wind Vectors: We analyze the prevailing winds (the Tramuntana or the Llevant) to predict how seeds will travel across the property, positioning our rewilding zones to catch specific endemic flora.
+Wind Vectors: We analyze the prevailing winds (the Tramuntana or the Llevant) to predict how seeds will travel across the property, positioning our rewilding zones to catch specific endemic flora.
 
 ## Beyond the Static Garden
 

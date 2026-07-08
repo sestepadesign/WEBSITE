@@ -4,12 +4,6 @@
 /es/inicio/  /es/  301
 /es/paisajismo-y-diseno-de-jardines-en-mallorca-desde-terrazas-hasta-fincas/  /es/diseno-de-jardines-mallorca/  301
 
-# URLs huérfanas detectadas en Search Console con tráfico real (auditoría 2026-07-03)
-/garden-design-mallorca/  /garden-design-mallorca-landscape-management-villas-fincas/  301
-/garden-design-mallorca-in-mediterranean-style-from-terrace-to-fincas-in-mallorca/  /garden-design-mallorca-landscape-management-villas-fincas/  301
-/landscapingmallorca/  /blog/  301
-/category/portfolio/  /portfolio/  301
-
 # Legacy Astro /en/* structure → WordPress-style clean URLs
 /en/  /  301
 /en/about/  /about/  301
@@ -142,60 +136,7 @@
 /seaside-house-alcudia/  /alcanada/  301
 # --- end project-url-redirects ---
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Removed placeholder images (explicit 404 at edge)
 /portfolio/sant-llorenc/images/sant-llorenc-gallery-artwork.jpg 404
 /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-artwork.jpg 404
 /portfolio/sant-llorenc/images/landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-sculpture.jpg 404
-
-
-
-
-
-
-

@@ -4,7 +4,6 @@ description: "A garden in Mallorca should not be a static backdrop, but a biolog
 pubDate: 2025-11-19
 lang: en
 draft: false
-noindex: false
 ---
 
 Beyond Aesthetics: Invest in an Ecosystem that Multiplies the Value of Your Property in Mallorca
@@ -14,6 +13,8 @@ In Mallorca’s exclusive real estate market—where a historic Finca in Santany
 “A garden in Mallorca should not be a static backdrop, but a biological entity that increases its patrimonial value with every growing season.”
 
 ## The Mallorcan Context: Mastering Calcareous Edaphology
+
+GARDEN DESIGN MALLORCA &#8211; LANDSCAPE GARDEN DESIGN
 
 For the discerning investor, understanding the terroir is essential. Mallorca’s geology presents us with a fascinating challenge: calcareous soil. With an alkaline pH often exceeding 8.0, this substrate tends to block the absorption of iron and manganese, causing the dreaded chlorosis in non-adapted species.
 

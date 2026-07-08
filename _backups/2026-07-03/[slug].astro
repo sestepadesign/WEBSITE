@@ -52,7 +52,7 @@ if (props.kind === 'blog') {
     lang="en"
     image={props.post.data.image ?? '/portfolio/finca-garden-campos-mallorca/cover.webp'}
     hreflangLocales={['en']}
-    noindex={props.post.data.noindex}
+    noindex={true}
   >
     <article class="container section-padding blog-post">
       <h1>{props.post.data.title}</h1>

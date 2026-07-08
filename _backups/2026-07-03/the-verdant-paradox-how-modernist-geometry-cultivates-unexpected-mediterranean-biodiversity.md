@@ -4,7 +4,6 @@ description: "Modernism is often misunderstood as sterile. Clean lines and raw c
 pubDate: 2025-11-20
 lang: en
 draft: false
-noindex: false
 ---
 
 The Verdant Paradox: How Modernist Geometry Cultivates Unexpected Mediterranean Biodiversity
@@ -16,6 +15,8 @@ True architectural landscape design harnesses geometry to frame nature, not supp
 By imposing structure, we actually create the conditions for life to flourish. This is the essence of the regenerative landscape.
 
 ## The Architecture of Life: Beyond the Concrete Line
+
+Design Concept Visualization
 
 Consider the traditional piedra en seco (dry stone) walls that terrace the island. In a modernist context, these become sharp, linear retaining structures. However, their function remains deeply ecological. Our [Bunyola](/bunyola) garden is a precise study of this: natural stone staircases and retaining walls structure a steeply sloping site, and the geometry doesn't fight the ecology — it creates it.
 
