@@ -538,7 +538,7 @@ export const projects: Project[] = [
     location: "Sant Llorenç des Cardassar",
     year: "2024",
     architect: null,
-    video: "https://www.youtube.com/embed/5U9T4-zH19E?feature=oembed",
+    video: "https://www.youtube.com/embed/IdGlxUKjhUQ?feature=oembed",
     heroVideo: "/videos/sant_llorenc_hero.mp4",
     heroPoster: "/videos/sant_llorenc_poster.webp",
     cover: "/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp",
