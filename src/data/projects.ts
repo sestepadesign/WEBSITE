@@ -476,7 +476,7 @@ export const projects: Project[] = [
     year: "2023",
     architect: null,
     video: null,
-    cover: "/portfolio/garden-design-llubi-mallorca/garden-design-mallorca-garden-design-llubi-mallorca-sestepa.webp",
+    cover: "/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design (1).webp",
     images: [
       "LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-13.webp",
       "GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-3.png",
@@ -493,7 +493,6 @@ export const projects: Project[] = [
       "landscape-architecture-mallorca-llubi-sestepa-design (5).webp",
       "landscape-architecture-mallorca-llubi-sestepa-design (6).webp",
       "landscape-architecture-mallorca-llubi-sestepa-design (7).webp",
-      "landscape-architecture-mallorca-llubi-sestepa-design (8).webp",
       "landscape-architecture-mallorca-llubi-sestepa-design (9).webp"
     ],
     en: {
