@@ -22,9 +22,7 @@ export const ui = {
     'hero.button': 'Explore Portfolio',
     
     'about.title': 'The Mallorca Studio',
-    'about.subtitle': `30 Years Designing Mallorca's Most Exceptional Gardens —
-shaped by the Mediterranean, its light, its rhythms,
-its way of drawing you outdoors.`,
+    'about.subtitle': 'Boutique garden design and landscape architecture studio in Mallorca. 30 years creating exclusive fincas and Mediterranean gardens.',
     
     'portfolio.title': 'Our Gardens',
     'portfolio.subtitle': 'A collection of bespoke outdoor spaces that mature gracefully over time.',
@@ -83,9 +81,7 @@ its way of drawing you outdoors.`,
     'hero.button': 'Ver Portafolio',
     
     'about.title': 'El Estudio en Mallorca',
-    'about.subtitle': `30 años diseñando los jardines más excepcionales de Mallorca —
-moldeados por el Mediterráneo, su luz, sus ritmos,
-su forma de atraerte al aire libre.`,
+    'about.subtitle': 'Estudio boutique de diseño de jardines y paisajismo en Mallorca. 30 años creando exclusivas fincas y jardines mediterráneos.',
     
     'portfolio.title': 'Nuestros Jardines',
     'portfolio.subtitle': 'Una colección de espacios exteriores a medida que maduran con gracia a lo largo del tiempo.',
@@ -144,9 +140,7 @@ su forma de atraerte al aire libre.`,
     'hero.button': 'Portfolio Erkunden',
     
     'about.title': 'Das Studio auf Mallorca',
-    'about.subtitle': `30 Jahre Gartengestaltung auf Mallorca — außergewöhnliche Gärten,
-geprägt vom Mittelmeer, seinem Licht, seinen Rhythmen,
-seiner Art, Sie ins Freie zu locken.`,
+    'about.subtitle': 'Boutique-Studio für Gartengestaltung und Landschaftsarchitektur auf Mallorca. 30 Jahre Erfahrung in der Schaffung exklusiver Fincas und mediterraner Gärten.',
     
     'portfolio.title': 'Unsere Gärten',
     'portfolio.subtitle': 'Eine Sammlung maßgeschneiderter Außenbereiche, die im Laufe der Zeit an Anmut gewinnen.',
