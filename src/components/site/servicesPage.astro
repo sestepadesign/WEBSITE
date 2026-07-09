@@ -77,15 +77,7 @@ const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
           </dl>
         </section>
       )}
-      {lang === 'es' && (
-          <div class="proceso-content">
-            <p>La creación de un jardín en Mallorca comienza mucho antes de plantar la primera especie. En S'Estepa Design, todo proyecto arranca con una <strong>reunión inicial gratuita</strong> en el propio terreno: escuchamos al cliente, analizamos la orientación solar, el tipo de suelo, la topografía y el microclima de la finca o villa, y definimos juntos la visión del jardín. Este primer encuentro es esencial para entender no sólo qué se quiere, sino qué es posible &mdash; y qué soluciones son más duraderas en el contexto específico de Mallorca.</p>
-            <p>A continuación desarrollamos la <strong>fase de diseño</strong>: planos conceptuales en 2D, selección de especies botánicas autóctonas y mediterráneas, propuestas de materiales (piedra caliza local, muros de marès, gravilla autóctona) y, cuando el proyecto lo requiere, renders 3D fotorrealistas que permiten visualizar el resultado final antes de iniciar ninguna obra. Cada decisión está fundamentada en criterios ecológicos y en el respeto por el carácter de la tierra mallorquina.</p>
-            <p>La <strong>fase de construcción</strong> la gestiona íntegramente nuestro propio equipo especializado. Esto incluye movimientos de tierra, construcción de muros de piedra seca, instalación de sistemas de riego tecnificado por goteo, pavimentación, iluminación exterior y plantación. Al trabajar con nuestro equipo propio, garantizamos que el diseño se ejecuta exactamente como fue concebido, sin intermediarios ni pérdidas de información entre estudio y obra.</p>
-            <p>El proceso culmina con un <strong>programa de cuidado ecológico a largo plazo</strong>: podas estacionales, gestión del riego, control fitosanitario y replantaciones. Un jardín mediterráneo en Mallorca alcanza su máximo esplendor con los años; nuestro servicio de mantenimiento asegura que madure con la misma intención con la que fue diseñado.</p>
-          </div>
-        </section>
-      )}
+
       {lang === 'es' && (
         <section class="faq-section">
           <h2 class="faq-heading">Diseño de Jardines y Paisajismo en Mallorca &mdash; Preguntas Frecuentes</h2>
@@ -380,39 +372,6 @@ const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
     .services-grid {
       grid-template-columns: 1fr;
     }
-  }
-
-  .proceso-section {
-    margin-top: 5rem;
-    border-top: 1px solid var(--color-sand-dark);
-    padding-top: 4rem;
-    margin-bottom: 4rem;
-  }
-
-  .proceso-heading {
-    font-family: var(--font-serif);
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-    font-weight: 300;
-    color: var(--color-charcoal);
-    margin-bottom: 2.5rem;
-  }
-
-  .proceso-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    max-width: 820px;
-  }
-
-  .proceso-content p {
-    font-size: 0.975rem;
-    line-height: 1.85;
-    color: var(--color-charcoal-light);
-  }
-
-  .proceso-content strong {
-    color: var(--color-charcoal);
-    font-weight: 500;
   }
 
   .faq-section {
