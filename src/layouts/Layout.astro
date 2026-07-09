@@ -8,6 +8,11 @@ import {
   SITE_LOCALES,
   getHreflangAlternates,
   type SiteLocale,
+  GTM_ID,
+  GTAG_ID,
+  GOOGLE_ADS_ID,
+  GA4_ID,
+  COOKIEYES_CLIENT_ID
 } from '../lib/seo';
 import { PAGE_OG_IMAGES } from '../data/site-urls';
 import { resolvePageIdFromPath } from '../lib/urls';
@@ -63,25 +68,26 @@ const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogL
   <head>
     <meta charset="utf-8" />
     <!-- Start cookieyes banner -->
-    <script id="cookieyes" type="text/partytown" src="https://cdn-cookieyes.com/client_data/f292b5d0baace10a4365b956/script.js"></script>
+    <script id="cookieyes" type="text/partytown" src={`https://cdn-cookieyes.com/client_data/${COOKIEYES_CLIENT_ID}/script.js`}></script>
     <!-- End cookieyes banner -->
     <!-- Google Tag Manager -->
-    <script type="text/partytown">
+    <script type="text/partytown" define:vars={{ GTM_ID }}>
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-K6MSRJX9');
+      })(window,document,'script','dataLayer',GTM_ID);
     </script>
     <!-- End Google Tag Manager -->
     <!-- Google tag (gtag.js) -->
-    <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=GT-WKTZS5C"></script>
-    <script type="text/partytown">
+    <script type="text/partytown" src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}></script>
+    <script type="text/partytown" define:vars={{ GTAG_ID, GOOGLE_ADS_ID, GA4_ID }}>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'GT-WKTZS5C');
-      gtag('config', 'AW-795871100');
+      gtag('config', GTAG_ID);
+      gtag('config', GOOGLE_ADS_ID);
+      gtag('config', GA4_ID);
     </script>
 
     <link rel="preload" as="font" href="/fonts/jost-400.woff2" type="font/woff2" crossorigin="anonymous" />
@@ -136,7 +142,7 @@ const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogL
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K6MSRJX9"
+    <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     {redirectTo ? (
