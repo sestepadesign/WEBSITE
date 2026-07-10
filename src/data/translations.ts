@@ -22,7 +22,7 @@ export const ui = {
     'hero.button': 'Explore Portfolio',
     
     'about.title': 'The Mallorca Studio',
-    'about.subtitle': 'Boutique garden design and landscape architecture studio in Mallorca. Three decades devoted to crafting exclusive fincas and Mediterranean landscapes.',
+    'about.subtitle': 'Boutique garden design and landscape architecture studio in Mallorca. Three decades devoted to designing exclusive fincas and Mediterranean landscapes.',
     
     'portfolio.title': 'Our Gardens',
     'portfolio.subtitle': 'A collection of bespoke outdoor spaces that mature gracefully over time.',
