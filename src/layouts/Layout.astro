@@ -68,7 +68,7 @@ const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogL
   <head>
     <meta charset="utf-8" />
     <!-- Start cookieyes banner -->
-    <script id="cookieyes" type="text/partytown" src={`https://cdn-cookieyes.com/client_data/${COOKIEYES_CLIENT_ID}/script.js`}></script>
+    <script id="cookieyes" is:inline src={`https://cdn-cookieyes.com/client_data/${COOKIEYES_CLIENT_ID}/script.js`}></script>
     <!-- End cookieyes banner -->
     <!-- Google Tag Manager -->
     <script type="text/partytown" define:vars={{ GTM_ID }}>
