@@ -1,0 +1,256 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Arquitectura Paisajística: Método y Desarrollo | S'Estepa Design"
+  description="Metodología para la concepción y ejecución de proyectos de exterior en Mallorca por S'Estepa Design. Rigor técnico, topográfico y botánico."
+  lang="es"
+  image="/images/metodo_sestepa_hero.jpg"
+>
+  <article class="process-page section-padding">
+    <div class="container">
+      <header class="page-header">
+        <span class="section-tag">Metodología</span>
+        <h1 class="page-title">Arquitectura Paisajística:<br/>Método y Desarrollo</h1>
+        <p class="page-subtitle">Metodología para la concepción y ejecución de proyectos de exterior.</p>
+        <div class="hero-media">
+          <img 
+            src="/images/metodo_sestepa_hero.jpg" 
+            alt="Plano topográfico superpuesto sobre terreno mediterráneo" 
+            width="1200" 
+            height="800" 
+            decoding="async" 
+            loading="lazy"
+            class="hero-image"
+          />
+        </div>
+        <p class="page-intro">
+          El método de trabajo de S'Estepa Design se estructura sobre el análisis del entorno, la ingeniería topográfica y la botánica mediterránea. Cada intervención se planifica para responder a las exigencias técnicas del terreno y a la viabilidad a largo plazo.
+        </p>
+      </header>
+
+      <div class="phases-timeline">
+        
+        <section class="phase-card">
+          <div class="phase-number">Fase I</div>
+          <div class="phase-content">
+            <h2 class="phase-title">Análisis del Entorno y Topografía</h2>
+            <p class="phase-desc">Estudio inicial de la propiedad. Analizamos la composición edafológica, la topografía, la exposición solar y las dinámicas hídricas del terreno.</p>
+            <div class="phase-deliverables">
+              <strong>Entregables:</strong> Levantamiento topográfico, análisis edafológico e informe de viabilidad técnica.
+            </div>
+          </div>
+        </section>
+
+        <section class="phase-card">
+          <div class="phase-number">Fase II</div>
+          <div class="phase-content">
+            <h2 class="phase-title">Diseño Preliminar y Zonificación</h2>
+            <p class="phase-desc">Definición espacial del proyecto. Establecemos los ejes de circulación, la nivelación del terreno y la selección inicial de especies vegetales adaptadas a las condiciones edafoclimáticas locales.</p>
+            <div class="phase-deliverables">
+              <strong>Entregables:</strong> Esquemas de distribución, secciones preliminares y listado botánico inicial.
+            </div>
+          </div>
+        </section>
+
+        <section class="phase-card">
+          <div class="phase-number">Fase III</div>
+          <div class="phase-content">
+            <h2 class="phase-title">Proyecto de Ejecución</h2>
+            <p class="phase-desc">Redacción de la documentación constructiva. Se calculan e integran las redes de riego, el drenaje de aguas pluviales y el sistema de iluminación.</p>
+            <div class="phase-deliverables">
+              <strong>Entregables:</strong> Planos.
+            </div>
+          </div>
+        </section>
+
+        <section class="phase-card">
+          <div class="phase-number">Fase IV</div>
+          <div class="phase-content">
+            <h2 class="phase-title">Dirección de Obra</h2>
+            <p class="phase-desc">Supervisión técnica de la ejecución. Controlamos el movimiento de tierras, la estabilización de taludes, la ejecución de infraestructuras y la fase final de plantación, asegurando la correspondencia exacta con los planos.</p>
+            <div class="phase-deliverables">
+              <strong>Entregables:</strong> Certificaciones de obra y actas de replanteo.
+            </div>
+          </div>
+        </section>
+
+        <section class="phase-card">
+          <div class="phase-number">Fase V</div>
+          <div class="phase-content">
+            <h2 class="phase-title">Gestión Post-Obra y Consolidación</h2>
+            <p class="phase-desc">Dirección técnica del arraigo botánico. Ejecución de podas formativas, calibración del sistema de irrigación y control fitosanitario preventivo para garantizar que el desarrollo vegetal se ajuste a las directrices del proyecto original.</p>
+            <div class="phase-deliverables">
+              <strong>Entregables:</strong> Plan de mantenimiento técnico.
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="cta-panel">
+        <p>Solicite una consulta técnica para su propiedad.</p>
+        <a href="/es/contacto" class="cta-button">Contactar con el Estudio</a>
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .process-page {
+    padding-top: 10rem;
+  }
+
+  @media (max-width: 768px) {
+    .process-page {
+      padding-top: 8rem;
+    }
+  }
+
+  .page-header {
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+
+  .page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    margin: 1rem 0;
+    color: var(--color-charcoal);
+    line-height: 1.2;
+  }
+
+  .page-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-charcoal-light);
+    margin-bottom: 3rem;
+  }
+
+  .hero-media {
+    margin: 3rem 0;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border: 1px solid var(--color-sand-dark);
+  }
+
+  .page-intro {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--color-charcoal);
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-sand-dark);
+  }
+
+  .phases-timeline {
+    max-width: 800px;
+    margin: 0 auto 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .phase-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-sand-dark);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .phase-number {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-olive);
+    font-weight: 500;
+    border-bottom: 1px solid var(--color-sand-dark);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+    align-self: flex-start;
+  }
+
+  .phase-title {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    font-weight: 300;
+    color: var(--color-charcoal);
+    margin: 0;
+  }
+
+  .phase-desc {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-charcoal-light);
+    margin: 0;
+  }
+
+  .phase-deliverables {
+    background: var(--color-sand-base);
+    padding: 1.5rem;
+    font-size: 0.95rem;
+    color: var(--color-charcoal);
+    border-left: 2px solid var(--color-olive);
+  }
+
+  .phase-deliverables strong {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--color-olive);
+    margin-right: 0.5rem;
+  }
+
+  .cta-panel {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--color-sand-base);
+    max-width: 800px;
+    margin: 0 auto 5rem;
+    border: 1px solid var(--color-sand-dark);
+  }
+
+  .cta-panel p {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-charcoal);
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--color-olive);
+    color: var(--color-white);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: var(--color-charcoal);
+  }
+
+  @media (max-width: 768px) {
+    .phase-card {
+      padding: 2rem;
+    }
+  }
+</style>
