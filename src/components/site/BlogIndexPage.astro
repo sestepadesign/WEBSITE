@@ -87,13 +87,18 @@ function postUrl(slug: string) {
             const slug = postSlug(post.id);
             return (
               <article class="post-card">
-                <time datetime={post.data.pubDate.toISOString()} class="post-date">
-                  {post.data.pubDate.toLocaleDateString(lang === 'de' ? 'de-DE' : lang === 'es' ? 'es-ES' : 'en-GB', {
-                     year: 'numeric',
-                     month: 'long',
-                     day: 'numeric',
-                   })}
-                </time>
+                <div class="post-ux-meta">
+                  {(() => {
+                    const wordCount = post.body ? post.body.split(/\s+/).length : 0;
+                    const readingTime = Math.max(1, Math.ceil(wordCount / 200));
+                    return (
+                      <>
+                        <span class="brand">S'ESTEPA STUDIO</span>
+                        <span class="read-time">{readingTime} MIN READ</span>
+                      </>
+                    );
+                  })()}
+                </div>
                 <div class="post-content">
                   <h2 class="post-title">
                     <a href={postUrl(slug)}>{post.data.title}</a>
@@ -226,14 +231,26 @@ function postUrl(slug: string) {
     box-shadow: 0 15px 50px rgba(0,0,0,0.06);
   }
 
-  .post-date {
-    font-size: 0.8rem;
+  .post-ux-meta {
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: var(--color-olive);
+    color: var(--color-charcoal-light);
     padding-top: 0.5rem;
     border-top: 1px solid var(--color-sand-dark);
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .post-ux-meta .brand {
+    font-weight: 600;
+    color: var(--color-charcoal);
+  }
+
+  .post-ux-meta .read-time {
+    color: var(--color-olive);
+    font-weight: 400;
   }
 
   .post-title {
@@ -304,7 +321,7 @@ function postUrl(slug: string) {
       gap: 1rem;
     }
     
-    .post-date {
+    .post-ux-meta {
       border-top: none;
       padding-top: 0;
       border-left: 2px solid var(--color-olive);
