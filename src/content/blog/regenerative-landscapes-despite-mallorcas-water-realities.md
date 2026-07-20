@@ -1,6 +1,6 @@
-﻿---
-title: "Beyond the Drought: How S&#8217;Estepa Creates Lush, Regenerative Landscapes Despite Mallorca&#8217;s Water Realities"
-description: "Regenerative Landscaping Mallorca: The S&#8217;Estepa Dry Garden Approach. Discover how S&#8217;Estepa Design masters regenerative landscaping in Mallorca."
+---
+title: "Beyond the Drought: How S'Estepa Creates Lush, Regenerative Landscapes Despite Mallorca's Water Realities"
+description: "Regenerative Landscaping Mallorca: The S'Estepa Dry Garden Approach. Discover how S'Estepa Design masters regenerative landscaping in Mallorca."
 pubDate: 2025-11-20
 lang: en
 draft: false

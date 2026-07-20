@@ -12,16 +12,19 @@ const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
 const blogMeta = {
   en: {
     title: 'Garden Design Insights',
+    subtitle: 'Cultivating knowledge',
     description:
       'Expert articles on Mediterranean garden design, sustainable landscaping and luxury outdoor living in Mallorca by S\'Estepa Design.',
   },
   es: {
     title: 'Artículos sobre Diseño de Jardines',
+    subtitle: 'Cultivando conocimiento',
     description:
       'Artículos expertos sobre diseño de jardines mediterráneos, paisajismo sostenible y vida al aire libre en Mallorca por S\'Estepa Design.',
   },
   de: {
     title: 'Gartendesign & Landschaftsartikel',
+    subtitle: 'Wissen kultivieren',
     description:
       'Fachartikel über mediterranes Gartendesign, nachhaltige Landschaftsgestaltung und Outdoor-Living auf Mallorca von S\'Estepa Design.',
   },
@@ -44,14 +47,34 @@ function postUrl(slug: string) {
 ---
 
 <Layout title={`S'Estepa Design | ${meta.title}`} description={meta.description} lang={lang} noindex={true}>
+  <!-- Hero Section with Background Video -->
+  <section class="hero" id="blog-hero">
+    <div class="video-container">
+      <video autoplay loop muted playsinline class="hero-video" aria-hidden="true" id="blogHeroVideo" data-src="/videos/hero-bg.mp4">
+      </video>
+      <div class="hero-overlay"></div>
+    </div>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.innerWidth >= 768) {
+          var video = document.getElementById('blogHeroVideo');
+          var source = document.createElement('source');
+          source.src = video.getAttribute('data-src');
+          source.type = 'video/mp4';
+          video.appendChild(source);
+        }
+      });
+    </script>
+    
+    <div class="hero-content container">
+      <span class="hero-subtitle">{meta.subtitle}</span>
+      <h1 class="hero-title">{meta.title}</h1>
+      <p class="hero-desc">{meta.description}</p>
+    </div>
+  </section>
+
   <article class="blog-page section-padding">
     <div class="container">
-      <header class="page-header">
-        <span class="section-tag">{t('nav.blog')}</span>
-        <h1 class="page-title">{meta.title}</h1>
-        <p class="page-subtitle">{meta.description}</p>
-      </header>
-
       {posts.length === 0 ? (
         <p class="empty-state">
           {lang === 'en' && 'Articles coming soon.'}
@@ -66,20 +89,22 @@ function postUrl(slug: string) {
               <article class="post-card">
                 <time datetime={post.data.pubDate.toISOString()} class="post-date">
                   {post.data.pubDate.toLocaleDateString(lang === 'de' ? 'de-DE' : lang === 'es' ? 'es-ES' : 'en-GB', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
+                     year: 'numeric',
+                     month: 'long',
+                     day: 'numeric',
+                   })}
                 </time>
-                <h2 class="post-title">
-                  <a href={postUrl(slug)}>{post.data.title}</a>
-                </h2>
-                <p class="post-excerpt">{post.data.description}</p>
-                <a href={postUrl(slug)} class="read-more">
-                  {lang === 'en' && 'Read article'}
-                  {lang === 'es' && 'Leer artículo'}
-                  {lang === 'de' && 'Artikel lesen'} &rarr;
-                </a>
+                <div class="post-content">
+                  <h2 class="post-title">
+                    <a href={postUrl(slug)}>{post.data.title}</a>
+                  </h2>
+                  <p class="post-excerpt">{post.data.description}</p>
+                  <a href={postUrl(slug)} class="read-more">
+                    {lang === 'en' && 'Read article'}
+                    {lang === 'es' && 'Leer artículo'}
+                    {lang === 'de' && 'Artikel lesen'} <span class="arrow">&rarr;</span>
+                  </a>
+                </div>
               </article>
             );
           })}
@@ -90,70 +115,204 @@ function postUrl(slug: string) {
 </Layout>
 
 <style>
-  .page-header {
-    max-width: 760px;
-    margin: 0 auto 3rem;
-    text-align: center;
+  /* Hero Section */
+  .hero {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: var(--color-charcoal);
   }
 
-  .page-title {
+  .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(31, 33, 31, 0.5) 0%,
+      rgba(31, 33, 31, 0.3) 60%,
+      rgba(250, 249, 246, 1) 100%
+    );
+    z-index: 2;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-top: 5rem;
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-sand-base);
+    animation: fadeIn 1s ease-out;
+  }
+
+  .hero-title {
     font-family: var(--font-serif);
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 300;
-    margin: 1rem 0;
+    color: var(--color-white);
+    line-height: 1.1;
+    max-width: 800px;
+    animation: fadeIn 1.5s ease-out;
   }
 
-  .page-subtitle {
-    line-height: 1.75;
-    color: var(--color-charcoal-light);
+  .hero-desc {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    max-width: 600px;
+    line-height: 1.6;
+    animation: fadeIn 2s ease-out;
+  }
+
+  /* Blog List */
+  .blog-page {
+    background-color: var(--color-sand-light);
   }
 
   .posts-list {
-    max-width: 820px;
-    margin: 0 auto;
+    max-width: 900px;
+    margin: -4rem auto 0;
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 3rem;
+    position: relative;
+    z-index: 4;
   }
 
   .post-card {
-    padding-bottom: 2.5rem;
-    border-bottom: 1px solid var(--color-sand-dark);
+    background: var(--color-white);
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 2rem;
+    border: 1px solid rgba(0,0,0,0.04);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  }
+
+  .post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.06);
   }
 
   .post-date {
     font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-limestone);
+    letter-spacing: 0.15em;
+    color: var(--color-olive);
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--color-sand-dark);
+    display: inline-block;
   }
 
   .post-title {
     font-family: var(--font-serif);
-    font-size: 1.75rem;
-    font-weight: 400;
-    margin: 0.75rem 0;
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
   }
 
   .post-title a {
     color: var(--color-charcoal);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .post-title a:hover {
+    color: var(--color-olive);
   }
 
   .post-excerpt {
-    line-height: 1.75;
+    line-height: 1.7;
     color: var(--color-charcoal-light);
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
   }
 
   .read-more {
     font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
+    color: var(--color-charcoal);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .read-more .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .read-more:hover {
     color: var(--color-olive);
+  }
+
+  .read-more:hover .arrow {
+    transform: translateX(4px);
   }
 
   .empty-state {
     text-align: center;
     color: var(--color-charcoal-light);
+    font-size: 1.2rem;
+    padding: 4rem 0;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    .post-card {
+      grid-template-columns: 1fr;
+      padding: 2rem;
+      gap: 1rem;
+    }
+    
+    .post-date {
+      border-top: none;
+      padding-top: 0;
+      border-left: 2px solid var(--color-olive);
+      padding-left: 1rem;
+    }
+    
+    .hero {
+      height: 60vh;
+    }
   }
 </style>

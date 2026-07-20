@@ -47,19 +47,30 @@ if (props.kind === 'blog') {
   />
 ) : (
   <Layout
-    title={`${props.post.data.title} | S'Estepa Design`}
+    title={props.post.data.title.replace(/&#038;/g, '&').replace(/&#8217;/g, "'") + " | S'Estepa Design"}
     description={props.post.data.description}
     lang="en"
     image={props.post.data.image ?? '/portfolio/finca-garden-campos-mallorca/cover.webp'}
     hreflangLocales={['en']}
     noindex={props.post.data.noindex}
   >
-    <article class="container section-padding blog-post">
-      <h1>{props.post.data.title}</h1>
-      <time datetime={props.post.data.pubDate.toISOString()}>
-        {props.post.data.pubDate.toLocaleDateString('en-GB', { dateStyle: 'long' })}
-      </time>
-      <div class="blog-content">
+    <section class="blog-hero">
+      <div class="video-container" aria-hidden="true">
+        <video autoplay loop muted playsinline aria-label="Decorative background video">
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        </video>
+        <div class="overlay"></div>
+      </div>
+      <div class="hero-content">
+        <h1 set:html={props.post.data.title} />
+        <time datetime={props.post.data.pubDate.toISOString()}>
+          {props.post.data.pubDate.toLocaleDateString('en-GB', { dateStyle: 'long', month: 'long', year: 'numeric', day: 'numeric' })}
+        </time>
+      </div>
+    </section>
+
+    <article class="container section-padding blog-post" id="blog-content">
+      <div class="blog-content" set:html={BlogContent ? '' : ''}>
         {BlogContent && <BlogContent />}
       </div>
     </article>
@@ -67,16 +78,84 @@ if (props.kind === 'blog') {
 )}
 
 <style>
-  .blog-post.section-padding {
-    padding: 8rem 2rem 4rem;
+  .blog-hero {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
   }
-  .blog-post h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    margin-bottom: 1rem;
+  .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  .video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    padding: 2rem;
+  }
+  .hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+  .hero-content time {
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  .blog-post.section-padding {
+    padding: 6rem 2rem;
+    display: flex;
+    justify-content: center;
   }
   .blog-content {
-    margin-top: 2rem;
+    width: 100%;
     max-width: 800px;
     line-height: 1.8;
+    font-family: 'Jost', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-color, #333);
+  }
+  .blog-content h2, .blog-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+  .blog-content h2 {
+    font-size: 2.2rem;
+  }
+  .blog-content h3 {
+    font-size: 1.8rem;
+  }
+  .blog-content p {
+    margin-bottom: 1.5rem;
   }
 </style>

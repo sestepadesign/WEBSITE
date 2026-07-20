@@ -1,6 +1,6 @@
 ---
-title: "The S&#8217;Estepa Essential Collection: Must-Have Aromatic Herbs for Your Mallorcan Garden"
-description: "The S&#8217;Estepa Essential Plant Guide Curate a sensory sanctuary with S&#8217;Estepa&#8217;s essential guide to drought-tolerant aromatic herbs for Mallorca."
+title: "The S'Estepa Essential Collection: Must-Have Aromatic Herbs for Your Mallorcan Garden"
+description: "The S'Estepa Essential Plant Guide Curate a sensory sanctuary with S'Estepa's essential guide to drought-tolerant aromatic herbs for Mallorca."
 pubDate: 2025-11-20
 lang: en
 draft: false

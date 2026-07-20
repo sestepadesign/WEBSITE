@@ -10,8 +10,7 @@ G:\Meu Drive\1. WEBSITES\sestepa-design\codigo\
 
 ```powershell
 cd "G:\Meu Drive\1. WEBSITES\sestepa-design\codigo"
-npm install          # primeira vez nesta máquina
-npm run dev          # http://localhost:4321
+python ..\..\scripts\preview_local.py
 ```
 
 ## URLs úteis
