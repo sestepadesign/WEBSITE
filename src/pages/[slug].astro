@@ -37,6 +37,9 @@ if (props.kind === 'blog') {
   const rendered = await render(props.post);
   BlogContent = rendered.Content;
 }
+
+const wordCount = props.kind === 'blog' ? props.post.body.split(/\s+/).length : 0;
+const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 ---
 
 {props.kind === 'project' ? (
@@ -63,9 +66,11 @@ if (props.kind === 'blog') {
       </div>
       <div class="hero-content">
         <h1 set:html={props.post.data.title} />
-        <time datetime={props.post.data.pubDate.toISOString()}>
-          {props.post.data.pubDate.toLocaleDateString('en-GB', { dateStyle: 'long', month: 'long', year: 'numeric', day: 'numeric' })}
-        </time>
+        {props.kind === 'blog' && (
+          <span class="ux-meta">
+            S'ESTEPA STUDIO &nbsp;&middot;&nbsp; {readingTime} MIN READ
+          </span>
+        )}
       </div>
     </section>
 
@@ -123,12 +128,16 @@ if (props.kind === 'blog') {
     margin-bottom: 1.5rem;
     font-weight: 400;
   }
-  .hero-content time {
+  .hero-content .ux-meta {
     font-family: 'Jost', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: 0.9rem;
-    opacity: 0.8;
+    letter-spacing: 0.15em;
+    font-size: 0.85rem;
+    opacity: 0.9;
+    display: inline-block;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 1rem;
+    margin-top: 0.5rem;
   }
   .blog-post.section-padding {
     padding: 6rem 2rem;
