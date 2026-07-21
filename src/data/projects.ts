@@ -604,6 +604,13 @@ export const projects: Project[] = [
     images: [
       "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-10.jpg",
       "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-11.jpg",
+      "garden-design-mallorca-santa-eugenia-sestepa-landscape-design-1.jpg",
+      "garden-design-mallorca-santa-eugenia-sestepa-landscape-design-3.jpg",
+      "garden-design-mallorca-santa-eugenia-sestepa-landscape-design-4.jpg",
+      "garden-design-mallorca-santa-eugenia-sestepa-landscape-design-5.jpg",
+      "garden-design-mallorca-santa-eugenia-sestepa-landscape-design-7.jpg",
+      "garden-design-mallorca-santa-eugenia-sestepa-landscape-design-8.jpg",
+      "garden-design-mallorca-santa-eugenia-sestepa-landscape-design-9.jpg",
       "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-12.jpg",
       "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-2.jpg",
       "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-4.jpg",
