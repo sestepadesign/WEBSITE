@@ -23,7 +23,7 @@ G:\Meu Drive\1. WEBSITES\sestepa-design\codigo\
 
 ```
 EDITAR → src\
-DEV    → npm run dev     (preview local em http://localhost:4321)
+DEV    → python ..\..\scripts\preview_local.py  (ambiente efémero isolado do Google Drive)
 BUILD  → Cloudflare faz automaticamente ao fazer push (npm run build → dist\)
 PUSH   → git push origin master → Cloudflare deploys automaticamente (~2 min)
 ```
@@ -52,8 +52,7 @@ python "G:\Meu Drive\1. WEBSITES\scripts\lock_manager.py" release sestepa-design
 
 ```powershell
 cd "G:\Meu Drive\1. WEBSITES\sestepa-design\codigo"
-npm install
-npm run dev
+python ..\..\scripts\preview_local.py
 python "G:\Meu Drive\1. WEBSITES\scripts\install_hooks.py"
 ```
 
