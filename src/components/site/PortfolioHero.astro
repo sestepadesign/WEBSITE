@@ -1,0 +1,382 @@
+---
+import { ui } from '../../data/translations';
+import { projects } from '../../data/projects';
+import { getProjectPath } from '../../lib/urls';
+
+interface Props { lang: 'en' | 'es' | 'de'; }
+const { lang } = Astro.props;
+
+const t = (key: keyof typeof ui[typeof lang]) => {
+  return ui[lang][key] || key;
+};
+
+// Filter out hidden projects and ones without covers
+const heroProjects = projects.filter(p => !p.hidden && p.cover);
+
+---
+
+<section class="portfolio-hero" id="portfolio-hero">
+  <div class="hero-slider">
+    {heroProjects.map((project, index) => (
+      <div class={`hero-slide ${index === 0 ? 'active' : ''}`} data-index={index}>
+        <div class="slide-bg">
+          <img 
+            src={project.cover} 
+            alt={project[lang].title} 
+            class="hero-image"
+            loading={index === 0 ? "eager" : "lazy"}
+            decoding="async"
+          />
+          <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="hero-content container">
+          <span class="hero-subtitle">{project[lang].category}</span>
+          <h2 class="hero-title">{project[lang].title}</h2>
+          <a href={getProjectPath(project.slug, lang)} class="hero-btn">
+            {lang === 'en' && "View Project"}
+            {lang === 'es' && "Ver Proyecto"}
+            {lang === 'de' && "Projekt Ansehen"} <span class="arrow">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="slider-controls">
+    <button class="slider-btn prev-btn" aria-label="Previous slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <div class="slider-dots">
+      {heroProjects.map((_, index) => (
+        <button class={`slider-dot ${index === 0 ? 'active' : ''}`} data-index={index} aria-label={`Go to slide ${index + 1}`}></button>
+      ))}
+    </div>
+    <button class="slider-btn next-btn" aria-label="Next slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <div class="scroll-indicator">
+    <span class="scroll-text">Scroll</span>
+    <span class="scroll-line"></span>
+  </div>
+</section>
+
+<style>
+  .portfolio-hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--color-charcoal);
+  }
+
+  .hero-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+  }
+
+  .slide-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.05);
+    transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .hero-slide.active .hero-image {
+    transform: scale(1);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(30, 32, 29, 0.3) 0%, rgba(30, 32, 29, 0.6) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    padding-top: 80px; /* offset for header */
+    color: var(--color-sand);
+    max-width: 800px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease 0.4s, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.4s;
+  }
+
+  .hero-slide.active .hero-content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 1.5rem;
+    display: block;
+    color: rgba(246, 244, 238, 0.8);
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    color: #d1d1cc !important;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
+
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #d1d1cc !important;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    text-decoration: none;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(209, 209, 204, 0.5);
+    transition: var(--transition-fast);
+  }
+
+  .hero-btn:hover {
+    border-bottom-color: #d1d1cc;
+    color: #f5f5f5 !important;
+  }
+
+  .hero-btn .arrow {
+    margin-left: 0.75rem;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .hero-btn:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  /* Slider Controls */
+  .slider-controls {
+    position: absolute;
+    bottom: 3rem;
+    right: 5%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .slider-btn {
+    background: transparent;
+    border: 1px solid rgba(209, 209, 204, 0.5);
+    color: #d1d1cc !important;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  .slider-btn:hover {
+    background: rgba(246, 244, 238, 0.1);
+    border-color: #ffffff;
+    color: #ffffff !important;
+  }
+
+  .slider-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .slider-dots {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1.5px solid rgba(209, 209, 204, 0.8);
+    cursor: pointer;
+    padding: 0;
+    transition: var(--transition-fast);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+
+  .slider-dot.active {
+    background: #d1d1cc !important;
+    border-color: #d1d1cc !important;
+    transform: scale(1.2);
+  }
+
+  /* Scroll Indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .scroll-text {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-sand);
+    writing-mode: vertical-rl;
+    margin-bottom: 1rem;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background: rgba(246, 244, 238, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: var(--color-sand);
+    animation: scroll-down 2s ease-in-out infinite;
+  }
+
+  @keyframes scroll-down {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(200%); }
+  }
+
+  @media (max-width: 768px) {
+    .slider-controls {
+      right: 50%;
+      transform: translateX(50%);
+      bottom: 2rem;
+    }
+    .scroll-indicator {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    let autoplayInterval: number;
+    const AUTOPLAY_DELAY = 6000;
+
+    const goToSlide = (index: number) => {
+      slides[currentIndex].classList.remove('active');
+      dots[currentIndex].classList.remove('active');
+      
+      currentIndex = index;
+      
+      if (currentIndex < 0) currentIndex = totalSlides - 1;
+      if (currentIndex >= totalSlides) currentIndex = 0;
+      
+      slides[currentIndex].classList.add('active');
+      dots[currentIndex].classList.add('active');
+    };
+
+    const nextSlide = () => goToSlide(currentIndex + 1);
+    const prevSlide = () => goToSlide(currentIndex - 1);
+
+    const startAutoplay = () => {
+      autoplayInterval = window.setInterval(nextSlide, AUTOPLAY_DELAY);
+    };
+
+    const stopAutoplay = () => {
+      if (autoplayInterval) clearInterval(autoplayInterval);
+    };
+
+    const resetAutoplay = () => {
+      stopAutoplay();
+      startAutoplay();
+    };
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetAutoplay();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetAutoplay();
+      });
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        goToSlide(index);
+        resetAutoplay();
+      });
+    });
+
+    // Start autoplay
+    startAutoplay();
+  });
+</script>

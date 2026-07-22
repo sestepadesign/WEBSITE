@@ -8,6 +8,7 @@ import {
   type PortfolioFilterCategory,
 } from '../../data/portfolio-categories';
 import ProjectCard from '../ProjectCard.astro';
+import PortfolioHero from './PortfolioHero.astro';
 
 interface Props { lang: 'en' | 'es' | 'de'; }
 const { lang } = Astro.props;
@@ -66,6 +67,7 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
 ---
 
 <Layout title={lang === 'en' ? "Premium Landscape Portfolio Mallorca | Fincas & Villas" : lang === 'es' ? "Portafolio de Paisajismo Exclusivo Mallorca | Fincas y Villas" : "Exklusives Landschaftsportfolio Mallorca | Fincas & Villen"} description={pageDescription} lang={lang}>
+  <PortfolioHero lang={lang} />
   <div class="portfolio-page section-padding">
     <div class="container">
       <header class="portfolio-header">
@@ -152,7 +154,7 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
 <style>
   .portfolio-page {
     background-color: var(--color-sand-light);
-    padding-top: 10rem;
+    padding-top: 5rem;
   }
 
   .portfolio-header {
@@ -265,7 +267,7 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
 
   @media (max-width: 768px) {
     .portfolio-page {
-      padding-top: 8rem;
+      padding-top: 4rem;
     }
 
     .portfolio-header {
