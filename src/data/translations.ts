@@ -16,9 +16,8 @@ export const ui = {
     'nav.blog': 'Blog',
     'nav.press': 'Press',
     'nav.contact': 'Contact',
-    
     'hero.subtitle': 'Landscape Design & Garden Design — Mallorca',
-    'hero.title': 'Crafting Living Sanctuaries',
+    'hero.title': 'Sustainable Mediterranean Gardens',
     'hero.button': 'Explore Portfolio',
     
     'about.title': 'The Mallorca Studio',
@@ -75,9 +74,8 @@ export const ui = {
     'nav.blog': 'Blog',
     'nav.press': 'Prensa',
     'nav.contact': 'Contacto',
-    
     'hero.subtitle': 'Estudio de Diseño de Jardines y Paisajismo en Mallorca',
-    'hero.title': 'Diseño de paisajes con alma mediterránea',
+    'hero.title': 'Jardines Mediterráneos Sostenibles',
     'hero.button': 'Ver Portafolio',
     
     'about.title': 'El Estudio en Mallorca',
@@ -134,9 +132,8 @@ export const ui = {
     'nav.blog': 'Blog',
     'nav.press': 'Presse',
     'nav.contact': 'Kontakt',
-    
     'hero.subtitle': 'Landschafts- und Gartengestaltungsstudio auf Mallorca',
-    'hero.title': 'Lebendige Rückzugsorte Erschaffen',
+    'hero.title': 'Nachhaltige Mediterrane Gärten',
     'hero.button': 'Portfolio Erkunden',
     
     'about.title': 'Das Studio auf Mallorca',

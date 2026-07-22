@@ -1,6 +1,7 @@
 ---
 import { ui } from '../../data/translations';
 import { projects } from '../../data/projects';
+import { PORTFOLIO_PROJECT_ORDER } from '../../data/portfolio-categories';
 import { getProjectPath } from '../../lib/urls';
 
 interface Props { lang: 'en' | 'es' | 'de'; }
@@ -11,7 +12,14 @@ const t = (key: keyof typeof ui[typeof lang]) => {
 };
 
 // Filter out hidden projects and ones without covers
-const heroProjects = projects.filter(p => !p.hidden && p.cover);
+const heroProjects = [...projects].filter(p => !p.hidden && p.cover).sort((a, b) => {
+  const idxA = PORTFOLIO_PROJECT_ORDER.indexOf(a.slug);
+  const idxB = PORTFOLIO_PROJECT_ORDER.indexOf(b.slug);
+  if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+  if (idxA !== -1) return -1;
+  if (idxB !== -1) return 1;
+  return 0;
+});
 
 ---
 

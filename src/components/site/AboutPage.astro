@@ -31,33 +31,39 @@ const ethosTag = {
 };
 
 const ethosTitleLine1 = {
-  en: 'Gardens shaped by the island.',
-  es: 'Jardines moldeados por la isla.',
-  de: 'Gärten, geformt von der Insel.',
+  en: 'A living architecture for every environment.',
+  es: 'Arquitectura viva para cada entorno.',
+  de: 'Lebendige Architektur für jede Umgebung.',
 };
 
 const ethosTitleLine2 = {
-  en: 'Made for the life you want here.',
-  es: 'Hechos para la vida que quiere aquí.',
-  de: 'Gemacht für das Leben, das Sie hier suchen.',
+  en: '',
+  es: '',
+  de: '',
 };
 
 const ethosQuote = {
   en: 'A garden reveals itself slowly — season by season, the way Mallorca does. Our job is to listen to that rhythm.',
-  es: 'Un jardín se revela lentamente — temporada a temporada, como Mallorca. Nuestra tarea es escuchar ese ritmo.',
-  de: 'Ein Garten offenbart sich langsam — Jahreszeit für Jahreszeit, wie Mallorca. Unsere Aufgabe ist es, diesem Rhythmus zu lauschen.',
+  es: 'Un jardín se revela lentamente — estación tras estación, tal como lo hace Mallorca. Nuestro trabajo es escuchar ese ritmo.',
+  de: 'Ein Garten offenbart sich langsam — Jahreszeit für Jahreszeit, genau wie Mallorca. Unsere Aufgabe ist es, auf diesen Rhythmus zu hören.',
+};
+
+const sofiaQuote = {
+  en: "We care for every detail so you can simply enjoy the beauty of your garden in complete peace of mind.",
+  es: "Cuidamos cada detalle para que usted pueda simplemente disfrutar de la belleza de su jardín con total tranquilidad.",
+  de: "Wir kümmern uns um jedes Detail, damit Sie die Schönheit Ihres Gartens in vollkommener Ruhe genießen können."
 };
 
 const ethosMainText = {
-  en: "With 30 years of experience designing gardens across Mallorca, S'Estepa creates outdoor spaces that feel as if they were always there — whether a sheltered city courtyard, a sweep of country estate, or a terrace above the sea. Based in Inca, at the heart of Mallorca, we work across the entire island. The S'Estepa Design Studio brings together botanical depth and architectural precision, rooted in the particular stone, light, and wind of the Balearic islands.",
-  es: "Con 30 años de experiencia diseñando jardines en toda Mallorca, S'Estepa crea espacios exteriores que parecen haber estado siempre ahí — ya sea un patio urbano protegido, una extensa finca campestre o una terraza sobre el mar. Con sede en Inca, en el corazón de Mallorca, trabajamos en toda la isla. El estudio S'Estepa Design une profundidad botánica y precisión arquitectónica, arraigado en la piedra, la luz y el viento de las islas Baleares.",
-  de: "Mit 30 Jahren Erfahrung in der Gartengestaltung auf Mallorca schafft S'Estepa Außenräume, die wirken, als hätten sie schon immer dort gestanden — ob ein geschützter Stadthof, eine weitläufige Landfinca oder eine Terrasse über dem Meer. Mit Sitz in Inca, im Herzen Mallorcas, arbeiten wir auf der gesamten Insel. Das Studio S'Estepa Design vereint botanische Tiefe und architektonische Präzision, verwurzelt in Stein, Licht und Wind der Balearen.",
+  en: "We understand garden design as a natural extension of its environment: stimulating, habitable, and ecologically sustainable. Our philosophy maintains that balance is born from botanical diversity, the contrast of textures, and respect for the biological rhythm of each species. From a deep Mediterranean DNA, we develop projects that transition between multiple design languages, always dictated by nature and the demands of the terrain itself.",
+  es: "Nuestro diseño de jardín, lo entendemos como una extensión natural de su entorno: estimulante, habitable y ecológicamente sostenible. Nuestra filosofía sostiene que el equilibrio nace de la diversidad botánica, el contraste de texturas y el respeto al ritmo biológico de cada especie. Desde un profundo ADN mediterráneo, desarrollamos proyectos que transitan entre múltiples lenguajes de diseño, dictados siempre por la naturaleza y exigencias del propio terreno.",
+  de: "Wir verstehen die Gartengestaltung als natürliche Erweiterung ihrer Umgebung: anregend, bewohnbar und ökologisch nachhaltig. Unsere Philosophie besagt, dass das Gleichgewicht aus botanischer Vielfalt, dem Kontrast von Texturen und dem Respekt vor dem biologischen Rhythmus jeder Art entsteht. Aus einer tief mediterranen DNA entwickeln wir Projekte, die zwischen verschiedenen Designsprachen wechseln, immer diktiert von der Natur und den Anforderungen des Geländes selbst.",
 };
 
 const ethosSubText = {
-  en: 'A Balearic garden takes time to become itself. We stay with it until it does.',
-  es: 'Un jardín balear necesita tiempo para convertirse en lo que es. Nosotros permanecemos hasta que lo hace.',
-  de: 'Ein balearischer Garten braucht Zeit, um er selbst zu werden. Wir bleiben, bis er es ist.',
+  en: '',
+  es: '',
+  de: '',
 };
 
 const ethosCtaPrefix = {
@@ -180,22 +186,30 @@ const team = [
     <div class="container">
       <div class="ethos-panel">
         <header class="ethos-intro">
-          <span class="section-tag">{ethosTag[lang]}</span>
           <h2 class="ethos-title">
             <span>{ethosTitleLine1[lang]}</span>
-            <span>{ethosTitleLine2[lang]}</span>
           </h2>
         </header>
 
         <blockquote class="ethos-quote">
           <p>&ldquo;{ethosQuote[lang]}&rdquo;</p>
-          <cite>&mdash; Pedro Campaner</cite>
+          <div class="quote-author">
+            <cite>&mdash; Pedro Campaner</cite>
+            <span class="quote-role">CEO S'Estepa Design, Landscaper & Agricultural Technician</span>
+          </div>
         </blockquote>
 
         <div class="ethos-content">
           <p class="ethos-lead">{ethosMainText[lang]}</p>
-          <p class="ethos-accent">{ethosSubText[lang]}</p>
         </div>
+
+        <blockquote class="ethos-quote sofia-quote">
+          <p>&ldquo;{sofiaQuote[lang]}&rdquo;</p>
+          <div class="quote-author">
+            <cite>&mdash; Sofia Grimaux</cite>
+            <span class="quote-role">Project Manager</span>
+          </div>
+        </blockquote>
 
         <aside class="ethos-cta" aria-label={ethosCtaLink[lang]}>
           <p class="ethos-cta-text">{ethosCtaPrefix[lang]}</p>
@@ -208,29 +222,7 @@ const team = [
     </div>
   </section>
 
-  <!-- Team Section -->
-  <section class="team section-padding">
-    <div class="container">
-      <span class="section-tag center">The Team</span>
-      <h2 class="team-title center">{teamSectionTitle[lang]}</h2>
-      <p class="team-subtitle center">{teamSectionSubtitle[lang]}</p>
 
-      <div class="team-grid">
-        {team.map(member => (
-          <div class="team-card">
-            <div class="team-img-wrapper">
-              <img src={member.image} alt={`${member.name} - ${member.role[lang]}`} class="team-img" />
-            </div>
-            <div class="team-info">
-              <span class="team-role">{member.role[lang]}</span>
-              <h3 class="team-name">{member.name}</h3>
-              <p class="team-bio">{member.bio[lang]}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
 </Layout>
 
 <style>
@@ -290,15 +282,15 @@ const team = [
   }
 
   .ethos-panel {
-    max-width: 920px;
+    width: 100%;
     margin: 0 auto;
-    padding: clamp(3rem, 6vw, 5rem);
+    padding: clamp(2rem, 4vw, 4rem);
     background-color: var(--color-white);
     border: 1px solid var(--color-sand-dark);
   }
 
   .ethos-intro {
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .ethos-title {
@@ -314,7 +306,7 @@ const team = [
 
   .ethos-quote {
     margin: 0 0 2.5rem;
-    padding: 2.5rem 0;
+    padding: 1.5rem 0;
     border-top: 1px solid var(--color-sand-dark);
     border-bottom: 1px solid var(--color-sand-dark);
     border-left: none;
@@ -329,7 +321,7 @@ const team = [
     font-style: italic;
     text-align: center;
     color: var(--color-charcoal-light);
-    max-width: 34rem;
+    max-width: 48rem;
     margin: 0 auto;
   }
 
@@ -346,11 +338,34 @@ const team = [
     font-style: normal;
   }
 
+  .quote-author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .quote-role {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--color-charcoal-light);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .sofia-quote {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 3rem;
+  }
+
   .ethos-content {
     display: flex;
     flex-direction: column;
     gap: 1.75rem;
-    max-width: 40rem;
+    max-width: 100%;
   }
 
   .ethos-lead {

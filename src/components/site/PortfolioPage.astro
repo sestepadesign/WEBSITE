@@ -5,6 +5,7 @@ import { projects } from '../../data/projects';
 import {
   PORTFOLIO_FILTER_ORDER,
   getProjectCategory,
+  PORTFOLIO_PROJECT_ORDER,
   type PortfolioFilterCategory,
 } from '../../data/portfolio-categories';
 import ProjectCard from '../ProjectCard.astro';
@@ -31,27 +32,12 @@ const categoryOrder: Record<PortfolioFilterCategory, number> = {
   vertical: 4,
 };
 
-const GRID_LAST_SLUGS = ['seaside-house-alcudia'] as const;
-
 const portfolioProjects = [...projects].filter((p) => !p.hidden).sort((a, b) => {
-  const aLast = GRID_LAST_SLUGS.indexOf(a.slug as typeof GRID_LAST_SLUGS[number]);
-  const bLast = GRID_LAST_SLUGS.indexOf(b.slug as typeof GRID_LAST_SLUGS[number]);
-  if (aLast !== -1 || bLast !== -1) {
-    if (aLast !== -1 && bLast !== -1) return aLast - bLast;
-    if (aLast !== -1) return 1;
-    return -1;
-  }
-
-  const catA = getProjectCategory(a.slug);
-  const catB = getProjectCategory(b.slug);
-  const catDiff = categoryOrder[catA] - categoryOrder[catB];
-  if (catDiff !== 0) return catDiff;
-  if (catA === 'estate') {
-    if (a.slug === 'sant-llorenc') return -1;
-    if (b.slug === 'sant-llorenc') return 1;
-    if (a.slug === 'finca-garden-campos-mallorca') return 1;
-    if (b.slug === 'finca-garden-campos-mallorca') return -1;
-  }
+  const idxA = PORTFOLIO_PROJECT_ORDER.indexOf(a.slug);
+  const idxB = PORTFOLIO_PROJECT_ORDER.indexOf(b.slug);
+  if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+  if (idxA !== -1) return -1;
+  if (idxB !== -1) return 1;
   return 0;
 });
 
@@ -255,10 +241,6 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
     transform: scale(0.96);
   }
 
-  .project-featured {
-    grid-column: 1 / -1;
-  }
-
   @media (max-width: 992px) {
     .portfolio-filter {
       gap: 1rem 2rem;
@@ -287,10 +269,6 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
     .projects-grid {
       grid-template-columns: 1fr;
       gap: 3rem;
-    }
-
-    .project-featured {
-      grid-column: auto;
     }
   }
 </style>
