@@ -340,6 +340,8 @@ export const projects: Project[] = [
     year: "2023",
     architect: null,
     video: "https://www.youtube.com/embed/-xs_kKaUnGA?feature=oembed",
+    heroVideo: "/videos/crestatx_hero.mp4",
+    heroPoster: "/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp",
     cover: "/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp",
     images: [
       "landscape design render mallorca crestatx sestepa design (1).png",
