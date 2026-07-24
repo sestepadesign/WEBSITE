@@ -52,17 +52,11 @@ const heroProjects = [...projects].filter(p => !p.hidden && p.cover).sort((a, b)
   </div>
 
   <div class="slider-controls">
-    <button class="slider-btn prev-btn" aria-label="Previous slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 19l-7-7 7-7"/></svg>
-    </button>
     <div class="slider-dots">
       {heroProjects.map((_, index) => (
         <button class={`slider-dot ${index === 0 ? 'active' : ''}`} data-index={index} aria-label={`Go to slide ${index + 1}`}></button>
       ))}
     </div>
-    <button class="slider-btn next-btn" aria-label="Next slide">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg>
-    </button>
   </div>
 
   <div class="scroll-indicator">
@@ -214,31 +208,6 @@ const heroProjects = [...projects].filter(p => !p.hidden && p.cover).sort((a, b)
     gap: 1.5rem;
   }
 
-  .slider-btn {
-    background: transparent;
-    border: 1px solid rgba(209, 209, 204, 0.5);
-    color: #d1d1cc !important;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: var(--transition-fast);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  }
-
-  .slider-btn:hover {
-    background: rgba(246, 244, 238, 0.1);
-    border-color: #ffffff;
-    color: #ffffff !important;
-  }
-
-  .slider-btn svg {
-    width: 20px;
-    height: 20px;
-  }
 
   .slider-dots {
     display: flex;
@@ -324,8 +293,7 @@ const heroProjects = [...projects].filter(p => !p.hidden && p.cover).sort((a, b)
   document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.hero-slide');
     const dots = document.querySelectorAll('.slider-dot');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
+    const heroSection = document.querySelector('.portfolio-hero');
     
     if (!slides.length) return;
 
@@ -363,17 +331,46 @@ const heroProjects = [...projects].filter(p => !p.hidden && p.cover).sort((a, b)
       startAutoplay();
     };
 
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
-        nextSlide();
+    if (heroSection) {
+      // Click navigation (left/right halves)
+      heroSection.addEventListener('click', (e) => {
+        const target = e.target;
+        // Don't trigger if clicking on a button or link
+        if (target.closest('a') || target.closest('button')) return;
+        
+        const rect = heroSection.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        if (clickX < rect.width / 2) {
+          prevSlide();
+        } else {
+          nextSlide();
+        }
         resetAutoplay();
       });
-    }
 
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
-        prevSlide();
-        resetAutoplay();
+      // Touch navigation (swipe)
+      let touchStartX = 0;
+      heroSection.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      heroSection.addEventListener('touchend', (e) => {
+        const diff = e.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(diff) > 50) {
+          diff < 0 ? nextSlide() : prevSlide();
+          resetAutoplay();
+        }
+      }, { passive: true });
+
+      // Keyboard navigation (left/right arrows)
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          prevSlide();
+          resetAutoplay();
+        } else if (e.key === 'ArrowRight') {
+          nextSlide();
+          resetAutoplay();
+        }
       });
     }
 
