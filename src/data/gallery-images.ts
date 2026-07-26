@@ -26,6 +26,22 @@ function galleryPath(filename: string): string {
 }
 
 export const galleryImages: GalleryImageEntry[] = [
+  // 3 × Sant Llorenç (aerial · house · pool render)
+  {
+    src: '/portfolio/sant-llorenc/images/landscape-garden-malorca-sestepa.png',
+    alt: 'SANT LLORÉNC ESTATE GARDEN AERIAL MALLORCA SESTEPA DESIGN',
+    projectSlug: santLlorenc,
+  },
+  {
+    src: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-6-1.jpg',
+    alt: 'SANT LLORÉNC ESTATE GARDEN HOUSE MALLORCA SESTEPA DESIGN',
+    projectSlug: santLlorenc,
+  },
+  {
+    src: '/portfolio/sant-llorenc/images/landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-10.jpg',
+    alt: 'SANT LLORÉNC ESTATE GARDEN POOL MALLORCA SESTEPA DESIGN',
+    projectSlug: santLlorenc,
+  },
   // 6 × Binissalem
   {
     src: galleryPath('1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (1).avif'),
@@ -185,22 +201,7 @@ export const galleryImages: GalleryImageEntry[] = [
     alt: 'GARDEN LANDSCAPE DESIGN LLUBÍ MALLORCA SESTEPA DESIGN',
     projectSlug: llubi,
   },
-  // 3 × Sant Llorenç (aerial · house · pool render)
-  {
-    src: '/portfolio/sant-llorenc/images/landscape-garden-malorca-sestepa.webp',
-    alt: 'SANT LLORÉNC ESTATE GARDEN AERIAL MALLORCA SESTEPA DESIGN',
-    projectSlug: santLlorenc,
-  },
-  {
-    src: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-6-1.jpg',
-    alt: 'SANT LLORÉNC ESTATE GARDEN HOUSE MALLORCA SESTEPA DESIGN',
-    projectSlug: santLlorenc,
-  },
-  {
-    src: '/portfolio/sant-llorenc/images/landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-10.jpg',
-    alt: 'SANT LLORÉNC ESTATE GARDEN POOL MALLORCA SESTEPA DESIGN',
-    projectSlug: santLlorenc,
-  },
+
   // 3 × Vertical Gardens
   {
     src: galleryPath('VERTICAL GARDEN MALLORCA-SESTEPA-DESIGN (1).webp'),
