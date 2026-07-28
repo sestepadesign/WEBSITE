@@ -540,8 +540,6 @@ export const projects: Project[] = [
     year: "2024",
     architect: null,
     video: null,
-    heroVideo: "/videos/sant_llorenc_hero.mp4",
-    heroPoster: "/videos/sant_llorenc_poster.webp",
     cover: "/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp",
     ogImage: "/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp",
     images: [
