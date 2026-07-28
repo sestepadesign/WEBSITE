@@ -540,8 +540,6 @@ export const projects: Project[] = [
     year: "2024",
     architect: null,
     video: null,
-    heroVideo: "/videos/sant_llorenc_hero.mp4",
-    heroPoster: "/videos/sant_llorenc_poster.webp",
     cover: "/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp",
     ogImage: "/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp",
     images: [
@@ -630,38 +628,38 @@ export const projects: Project[] = [
     ],
     en: {
       title: "Mediterranean Garden",
-      subtitle: "A sustainable landscape designed as a gradual reveal",
+      subtitle: "The Mediterranean garden, reimagined for how we live now",
       category: "Estate Garden",
       botanical: "Olea europaea (Centenary), Cupressus sempervirens, Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
       description: [
-        "This Sant Llorenç region is defined by a warm, dry climate. We propose a sustainable garden utilizing drought-resistant plants with low water requirements. This design preserves native species while reinforcing Mallorcan identity.",
-        "A key concept is to keep the house hidden from the entrance, so it appears as a surprise at the end of the path, emerging from the vegetation. Centenary olive trees (<i>Olea europaea</i>) are planted in strategic, irregular positions to anchor the landscape. As a complement, irregular cypresses (<i>Cupressus sempervirens</i>) rise above the rest of the vegetation, evoking both a Tuscan and a Mallorcan atmosphere.",
-        "The garden fades gradually into the natural landscape surrounding the house. The outer edges transform into a traditional Mallorcan field, ensuring smooth integration. We begin by pruning existing vegetation and clearing the soil to prepare for new planting.",
-        "For the larger open spaces, we propose informal but generous groupings of drought-tolerant species — <i>Lavandula dentata</i>, <i>Rosmarinus officinalis</i> 'Prostratus', <i>Perovskia atriplicifolia</i>, <i>Gaura lindheimeri</i>, <i>Teucrium fruticans</i>, <i>Pistacia lentiscus</i> and <i>Westringia fruticosa</i> — creating natural corridors for relaxed walks through the garden."
+        "The Mediterranean garden is having something of a moment — not as a passing look, but as an answer to how the region actually lives now: drier summers, more time outdoors, and a growing appetite for landscapes that feel effortless rather than manicured. At its core, it's built on plants that already belong here — <i>Olea europaea</i>, <i>Cupressus sempervirens</i>, and a palette of silver-leafed, drought-resistant shrubs that ask for almost nothing once established.",
+        "What sets it apart from a generic dry garden is structure. Centenary olive trees and irregular cypresses anchor the space the way architecture would, creating depth and shade without a single blade of lawn to maintain. Beneath them, informal drifts of <i>Lavandula</i>, <i>Rosmarinus</i>, <i>Perovskia</i> and <i>Stipa tenuissima</i> move with the wind, giving the garden a sense of life that a static, symmetrical layout never quite achieves.",
+        "This is also, increasingly, a question of water. Mallorca's summers leave little room for thirsty planting schemes, and a well-designed Mediterranean garden can thrive on a fraction of the irrigation a traditional lawn demands — without ever looking sparse or apologetic. It reads as luxury and restraint at the same time, which is exactly why it keeps showing up in the gardens our international clients are asking for.",
+        "For us, thirty years of designing across Mallorca has meant learning which combinations actually hold up on limestone soil, in full sun, through drought — not just which ones photograph well. This concept reflects that: a garden designed to look like it has always been there, asking little, and giving back a great deal."
       ]
     },
     es: {
       title: "Jardín Mediterráneo",
-      subtitle: "Un paisaje sostenible diseñado como una revelación gradual",
+      subtitle: "El jardín mediterráneo, reinventado para cómo vivimos hoy",
       category: "Jardín de Finca",
       botanical: "Olea europaea (Centenario), Cupressus sempervirens, Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
       description: [
-        "Esta zona de Sant Llorenç se define por su clima cálido y seco. Por ello, proponemos un jardín más sostenible, basado en plantas resistentes a la sequía y al sol, con bajos requerimientos hídricos. El diseño busca preservar las especies autóctonas al tiempo que refuerza la identidad mediterránea y mallorquina.",
-        "Alrededor de la casa, el jardín se desvanece gradualmente en el paisaje natural. Los bordes exteriores de la propiedad se transforman en un campo tradicional mallorquín, asegurando una suave integración con el entorno. El proceso comienza con la poda de la vegetación existente y la limpieza del suelo, preparándolo para la nueva plantación.",
-        "Un concepto clave es mantener la casa oculta desde la entrada, de modo que aparezca como una sorpresa al final del camino, emergiendo de entre la vegetación. Los olivos centenarios (<i>Olea europaea</i>) se plantan en posiciones estratégicas e irregulares para anclar el paisaje. Como complemento, cipreses irregulares (<i>Cupressus sempervirens</i>) se elevan sobre el resto de la vegetación, evocando un ambiente tanto toscano como mallorquín.",
-        "En los espacios abiertos más grandes, proponemos agrupaciones informales pero generosas de especies tolerantes a la sequía, como: <i>Lavandula dentata</i>, <i>Rosmarinus officinalis</i> 'Prostratus', <i>Perovskia atriplicifolia</i>, <i>Gaura lindheimeri</i>, <i>Leucophyllum</i>, <i>Teucrium fruticans</i>, <i>Pistacia lentiscus</i> y <i>Westringia fruticosa</i>. Estos grupos crearán pasillos naturales dentro del jardín, fomentando los paseos relajados y ofreciendo una experiencia envolvente. Los senderos se integrarán discretamente en el diseño general, manteniendo una atmósfera natural, relajada y armoniosa. En ciertas zonas, la vegetación se abrirá ligeramente para formar pequeños rincones acogedores donde sentarse y disfrutar del entorno.",
+        "El jardín mediterráneo vive un momento especial — no como una moda pasajera, sino como una respuesta a cómo se vive hoy en la región: veranos más secos, más tiempo al aire libre y un interés creciente por paisajes que se sientan naturales, no artificiales. En esencia, se construye con plantas que ya pertenecen a este lugar — <i>Olea europaea</i>, <i>Cupressus sempervirens</i>, y una paleta de arbustos plateados y resistentes a la sequía que apenas piden nada una vez establecidos.",
+        "Lo que lo distingue de un jardín seco genérico es la estructura. Los olivos centenarios y los cipreses irregulares anclan el espacio como lo haría la arquitectura, creando profundidad y sombra sin necesidad de césped. Bajo ellos, agrupaciones informales de <i>Lavandula</i>, <i>Rosmarinus</i>, <i>Perovskia</i> y <i>Stipa tenuissima</i> se mueven con el viento, dando al jardín una sensación de vida que un diseño estático y simétrico nunca consigue del todo.",
+        "Cada vez más, también es una cuestión de agua. Los veranos de Mallorca dejan poco margen para plantaciones sedientas, y un jardín mediterráneo bien diseñado puede prosperar con una fracción del riego que exige un césped tradicional — sin parecer nunca escaso ni forzado. Es un estilo que transmite lujo y contención al mismo tiempo, y por eso aparece cada vez más entre lo que piden nuestros clientes internacionales.",
+        "Para nosotros, treinta años diseñando en Mallorca nos han enseñado qué combinaciones realmente funcionan en suelo calcáreo, a pleno sol y ante la sequía — no solo cuáles quedan bien en una fotografía. Este concepto refleja eso: un jardín pensado para parecer que siempre estuvo ahí, que pide poco y da mucho a cambio."
       ]
     },
     de: {
       title: "Mediterraner Garten",
-      subtitle: "Eine nachhaltige Landschaft, konzipiert als allmähliche Enthüllung",
+      subtitle: "Der mediterrane Garten, neu gedacht für das heutige Leben",
       category: "Landgut Garten",
       botanical: "Olea europaea (Centenary), Cupressus sempervirens, Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
       description: [
-        "Dieses Gebiet von Sant Llorenç ist durch sein warmes, trockenes Klima geprägt. Aus diesem Grund schlagen wir einen nachhaltigeren Garten vor, der auf trockenheits- und sonnenresistenten Pflanzen mit geringem Wasserbedarf basiert. Der Entwurf zielt darauf ab, einheimische Arten zu erhalten und gleichzeitig die mediterrane und mallorquinische Identität zu stärken.",
-        "Um das Haus herum geht der Garten allmählich in die natürliche Landschaft über. Die äußeren Ränder des Grundstücks werden in ein traditionelles mallorquinisches Feld verwandelt, das sich nahtlos in die Umgebung einfügt. Der Prozess beginnt mit dem Beschneiden der vorhandenen Vegetation und dem Ausräumen des Bodens, um ihn für die Neupflanzung vorzubereiten.",
-        "Ein Schlüsselkonzept besteht darin, das Haus vor dem Eingang zu verstecken, so dass es am Ende des Weges als Überraschung aus der Vegetation auftaucht. Hundertjährige Olivenbäume (<i>Olea europaea</i>) werden an strategischen, unregelmäßigen Stellen gepflanzt, um die Landschaft zu verankern. Ergänzend dazu erheben sich unregelmäßige Zypressen (<i>Cupressus sempervirens</i>) über den Rest der Vegetation, die sowohl eine toskanische als auch eine mallorquinische Atmosphäre hervorrufen.",
-        "Für die größeren Freiflächen schlagen wir lockere, aber großzügige Gruppierungen trockenheitstoleranter Arten vor, wie z.B.: <i>Lavandula dentata</i>, <i>Rosmarinus officinalis</i> 'Prostratus', <i>Perovskia atriplicifolia</i>, <i>Gaura lindheimeri</i>, <i>Leucophyllum</i>, <i>Teucrium fruticans</i>, <i>Pistacia lentiscus</i>, und <i>Westringia fruticosa</i>. Diese Gruppen werden natürliche Korridore im Garten bilden, die zu entspannten Spaziergängen einladen und ein intensives Erlebnis bieten. Die Wege werden sich diskret in das Gesamtdesign einfügen und eine natürliche, entspannte und harmonische Atmosphäre schaffen. In bestimmten Bereichen wird sich die Vegetation leicht öffnen und kleine, einladende Plätze bilden, an denen man sitzen und die Umgebung genießen kann.",
+        "Der mediterrane Garten erlebt gerade seinen Moment — nicht als vorübergehender Trend, sondern als Antwort darauf, wie hier heute tatsächlich gelebt wird: trockenere Sommer, mehr Zeit im Freien und ein wachsendes Interesse an Landschaften, die mühelos wirken statt gepflegt. Im Kern besteht er aus Pflanzen, die längst hierher gehören — <i>Olea europaea</i>, <i>Cupressus sempervirens</i> und eine Palette silbriger, trockenheitsresistenter Sträucher, die nach der Etablierung kaum noch Pflege brauchen.",
+        "Was ihn von einem gewöhnlichen Trockengarten unterscheidet, ist die Struktur. Hundertjährige Olivenbäume und unregelmäßige Zypressen verankern den Raum wie Architektur, schaffen Tiefe und Schatten, ohne dass ein einziger Rasenhalm gepflegt werden müsste. Darunter bewegen sich lockere Gruppen aus <i>Lavandula</i>, <i>Rosmarinus</i>, <i>Perovskia</i> und <i>Stipa tenuissima</i> im Wind und verleihen dem Garten eine Lebendigkeit, die ein starres, symmetrisches Layout nie ganz erreicht.",
+        "Zunehmend ist es auch eine Frage des Wassers. Mallorcas Sommer lassen kaum Raum für durstige Pflanzschemata, und ein gut geplanter mediterraner Garten kommt mit einem Bruchteil der Bewässerung aus, die ein klassischer Rasen verlangt — ohne je karg oder unfertig zu wirken. Es ist ein Stil, der gleichzeitig Luxus und Zurückhaltung ausstrahlt, weshalb er bei unseren internationalen Kunden immer häufiger gewünscht wird.",
+        "Für uns bedeuten dreißig Jahre Gartengestaltung auf Mallorca vor allem eines: zu wissen, welche Kombinationen auf Kalksteinböden, in praller Sonne und bei Trockenheit wirklich bestehen — nicht nur, welche gut fotografieren. Dieses Konzept spiegelt genau das wider: ein Garten, der wirkt, als sei er schon immer dort gewesen, der wenig verlangt und viel zurückgibt."
       ]
     }
   },
