@@ -95,7 +95,18 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
 
 <script>
   const filterButtons = document.querySelectorAll('.filter-btn');
-  const projectItems = document.querySelectorAll('.project-item-wrapper');
+  const projectItems = document.querySelectorAll<HTMLElement>('.project-item-wrapper');
+
+  const updateSoloLast = (filterValue: string) => {
+    const matching = Array.from(projectItems).filter(item => {
+      const itemCategory = item.getAttribute('data-category');
+      return filterValue === 'all' || itemCategory === filterValue;
+    });
+    projectItems.forEach(item => item.classList.remove('solo-last'));
+    if (matching.length % 2 === 1) {
+      matching[matching.length - 1].classList.add('solo-last');
+    }
+  };
 
   const applyFilter = (filterValue: string) => {
     projectItems.forEach(item => {
@@ -114,6 +125,7 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
         }, 400);
       }
     });
+    updateSoloLast(filterValue);
   };
 
   filterButtons.forEach(btn => {
@@ -132,8 +144,10 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
       const targetBtn = document.querySelector(`.filter-btn[data-filter="${filterParam}"]`);
       if (targetBtn) {
         (targetBtn as HTMLElement).click();
+        return;
       }
     }
+    updateSoloLast('all');
   });
 </script>
 
@@ -241,6 +255,12 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
     transform: scale(0.96);
   }
 
+  .project-item-wrapper.solo-last {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 2rem);
+    margin: 0 auto;
+  }
+
   @media (max-width: 992px) {
     .portfolio-filter {
       gap: 1rem 2rem;
@@ -269,6 +289,10 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
     .projects-grid {
       grid-template-columns: 1fr;
       gap: 3rem;
+    }
+
+    .project-item-wrapper.solo-last {
+      max-width: none;
     }
   }
 </style>
