@@ -111,6 +111,9 @@ const pageDescription = translation.description[0] || "";
           {translation.description.map(paragraph => (
             <p set:html={paragraph}></p>
           ))}
+          {translation.developmentNote && (
+            <p class="development-note">{translation.developmentNote}</p>
+          )}
           {showPedroQuote && (
             <blockquote class="project-quote">
               "{pedroQuote[lang].text}"
@@ -538,6 +541,14 @@ const pageDescription = translation.description[0] || "";
     font-size: 1.15rem;
     color: var(--color-charcoal-light);
     line-height: 1.8;
+  }
+
+  .development-note {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1rem !important;
+    color: var(--color-limestone) !important;
+    line-height: 1.7 !important;
   }
 
   .project-quote {
