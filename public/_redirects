@@ -88,6 +88,7 @@
 /de/portfolio/garden-design-llubi-mallorca/  /de/gartengestaltung-llubi-mallorca/  301
 /de/portfolio/haus-am-meer-alcudia/  /de/alcanada/  301
 /de/portfolio/hotelcabotlasvelas/  /de/hotel-cabot-las-velas/  301
+/de/portfolio/jardin-mediterraneo/  /de/mediterraner-garten/  301
 /de/portfolio/luxus-landschaftsarchitektur-mallorca-andratx/  /de/sant-llorenc/  301
 /de/portfolio/sacabaneta/  /de/sacabaneta/  301
 /de/portfolio/sant-llorenc/  /de/sant-llorenc/  301
@@ -106,6 +107,7 @@
 /en/portfolio/finca-garden-inca/  /finca-garden-inca/  301
 /en/portfolio/garden-design-llubi-mallorca/  /garden-design-llubi-mallorca/  301
 /en/portfolio/hotelcabotlasvelas/  /hotelcabotlasvelas/  301
+/en/portfolio/jardin-mediterraneo/  /mediterranean-garden/  301
 /en/portfolio/sacabaneta/  /sacabaneta/  301
 /en/portfolio/sant-llorenc/  /sant-llorenc/  301
 /en/portfolio/santa-ponsa/  /santa-ponsa/  301
@@ -127,6 +129,7 @@
 /es/portfolio/finca-garden-inca/  /es/finca-garden-inca/  301
 /es/portfolio/garden-design-llubi-mallorca/  /es/diseno-de-jardines-llubi-mallorca/  301
 /es/portfolio/hotelcabotlasvelas/  /es/hotel-cabot-las-velas/  301
+/es/portfolio/jardin-mediterraneo/  /es/jardin-mediterraneo/  301
 /es/portfolio/paisajista-fincas-lujo-son-vida/  /es/sant-llorenc/  301
 /es/portfolio/sacabaneta/  /es/sacabaneta/  301
 /es/portfolio/sant-llorenc/  /es/sant-llorenc/  301
@@ -141,6 +144,9 @@
 /portfolio/seaside-house-alcudia/  /alcanada/  301
 /seaside-house-alcudia/  /alcanada/  301
 # --- end project-url-redirects ---
+
+
+
 
 
 

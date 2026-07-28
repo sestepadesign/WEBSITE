@@ -28,6 +28,7 @@ export const projectCategoryMap: Record<string, PortfolioFilterCategory> = {
   'sacabaneta': 'residential',
   'finca-garden-campos-mallorca': 'estate',
   'sant-llorenc': 'estate',
+  'jardin-mediterraneo': 'estate',
   'terrace-garden-in-palma': 'terrace',
   'terrace-garden-santa-eugenia': 'residential',
   hotelcabotlasvelas: 'commercial',
@@ -41,6 +42,7 @@ export function getProjectCategory(slug: string): PortfolioFilterCategory {
 export const PORTFOLIO_PROJECT_ORDER: string[] = [
   'sant-llorenc',
   'finca-garden-campos-mallorca',
+  'jardin-mediterraneo',
   'binissalem',
   'terrace-garden-santa-eugenia',
   'garden-design-llubi-mallorca',
