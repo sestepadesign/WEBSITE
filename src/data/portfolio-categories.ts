@@ -41,8 +41,8 @@ export function getProjectCategory(slug: string): PortfolioFilterCategory {
 
 export const PORTFOLIO_PROJECT_ORDER: string[] = [
   'sant-llorenc',
-  'jardin-mediterraneo',
   'finca-garden-campos-mallorca',
+  'jardin-mediterraneo',
   'binissalem',
   'terrace-garden-santa-eugenia',
   'garden-design-llubi-mallorca',
