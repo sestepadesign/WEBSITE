@@ -1,6 +1,6 @@
 /**
  * Curated gallery — 36 SEO images from 3-WEBSITE/gallery/ on Drive.
- * 6 Binissalem + 3 per project (Sant Llorenç after Llubí, away from Santa Eugènia).
+ * Sant Llorenç + Jardín Mediterráneo lead (flagship pair), then 6 Binissalem + 3 per project.
  */
 export interface GalleryImageEntry {
   /** Public URL path under /gallery/ */
@@ -27,6 +27,38 @@ function galleryPath(filename: string): string {
 }
 
 export const galleryImages: GalleryImageEntry[] = [
+  // 3 × Sant Llorenç (real garden photos)
+  {
+    src: '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp',
+    alt: 'SANT LLORÉNC ESTATE GARDEN MALLORCA SESTEPA DESIGN',
+    projectSlug: santLlorenc,
+  },
+  {
+    src: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp',
+    alt: 'SANT LLORÉNC ESTATE GARDEN MALLORCA SESTEPA DESIGN',
+    projectSlug: santLlorenc,
+  },
+  {
+    src: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
+    alt: 'SANT LLORÉNC ESTATE GARDEN MALLORCA SESTEPA DESIGN',
+    projectSlug: santLlorenc,
+  },
+  // 3 × Jardín Mediterráneo (aerial · house · pool render)
+  {
+    src: '/portfolio/jardin-mediterraneo/images/landscape-garden-malorca-jardin-mediterraneo-sestepa.webp',
+    alt: 'MEDITERRANEAN GARDEN ESTATE AERIAL MALLORCA SESTEPA DESIGN',
+    projectSlug: jardinMediterraneo,
+  },
+  {
+    src: '/portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-6-1.jpg',
+    alt: 'MEDITERRANEAN GARDEN ESTATE HOUSE MALLORCA SESTEPA DESIGN',
+    projectSlug: jardinMediterraneo,
+  },
+  {
+    src: '/portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-10.jpg',
+    alt: 'MEDITERRANEAN GARDEN ESTATE POOL MALLORCA SESTEPA DESIGN',
+    projectSlug: jardinMediterraneo,
+  },
   // 6 × Binissalem
   {
     src: galleryPath('1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (1).avif'),
@@ -185,38 +217,6 @@ export const galleryImages: GalleryImageEntry[] = [
     src: galleryPath('GARDEN DESIGN LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA (3).avif'),
     alt: 'GARDEN LANDSCAPE DESIGN LLUBÍ MALLORCA SESTEPA DESIGN',
     projectSlug: llubi,
-  },
-  // 3 × Sant Llorenç (real garden photos)
-  {
-    src: '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp',
-    alt: 'SANT LLORÉNC ESTATE GARDEN MALLORCA SESTEPA DESIGN',
-    projectSlug: santLlorenc,
-  },
-  {
-    src: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp',
-    alt: 'SANT LLORÉNC ESTATE GARDEN MALLORCA SESTEPA DESIGN',
-    projectSlug: santLlorenc,
-  },
-  {
-    src: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-02.webp',
-    alt: 'SANT LLORÉNC ESTATE GARDEN MALLORCA SESTEPA DESIGN',
-    projectSlug: santLlorenc,
-  },
-  // 3 × Jardín Mediterráneo (aerial · house · pool render)
-  {
-    src: '/portfolio/jardin-mediterraneo/images/landscape-garden-malorca-jardin-mediterraneo-sestepa.webp',
-    alt: 'MEDITERRANEAN GARDEN ESTATE AERIAL MALLORCA SESTEPA DESIGN',
-    projectSlug: jardinMediterraneo,
-  },
-  {
-    src: '/portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-6-1.jpg',
-    alt: 'MEDITERRANEAN GARDEN ESTATE HOUSE MALLORCA SESTEPA DESIGN',
-    projectSlug: jardinMediterraneo,
-  },
-  {
-    src: '/portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-10.jpg',
-    alt: 'MEDITERRANEAN GARDEN ESTATE POOL MALLORCA SESTEPA DESIGN',
-    projectSlug: jardinMediterraneo,
   },
   // 3 × Vertical Gardens
   {
