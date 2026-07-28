@@ -1,9 +1,10 @@
-﻿---
-title: "Beyond the Drought: How S&#8217;Estepa Creates Lush, Regenerative Landscapes Despite Mallorca&#8217;s Water Realities"
-description: "Regenerative Landscaping Mallorca: The S&#8217;Estepa Dry Garden Approach. Discover how S&#8217;Estepa Design masters regenerative landscaping in Mallorca."
+---
+title: "Beyond the Drought: How S'Estepa Creates Lush, Regenerative Landscapes Despite Mallorca's Water Realities"
+description: "Regenerative Landscaping Mallorca: The S'Estepa Dry Garden Approach. Discover how S'Estepa Design masters regenerative landscaping in Mallorca."
 pubDate: 2025-11-20
 lang: en
 draft: false
+noindex: false
 ---
 
 Beyond the Drought: How S'Estepa Creates Lush, Regenerative Landscapes Despite Mallorca's Water Realities
@@ -13,8 +14,6 @@ In the Balearic Islands, water is not merely a resource; it is a currency of lux
 As the climate shifts and aquifers strain, the future of luxury landscaping lies in Regenerative Design. By embracing our signature &#8216;Jardín Seco' (Dry Garden) philosophy, we create outdoor sanctuaries that are visually arresting, deeply rooted in the Tramuntana landscape, and practically immune to drought constraints.
 
 ## The &#8216;Jardín Seco' Philosophy: Redefining Opulence
-
-S'Estepa Design Concept
 
 There is a misconception that a dry garden means gravel and cactus. This could not be further from the truth. A S'Estepa dry garden is a tapestry of texture, movement, and depth. It is about choosing the right abundance.
 

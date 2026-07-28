@@ -4,6 +4,7 @@ description: "Wild Luxury: A design philosophy that shapes the perfect integrati
 pubDate: 2025-12-15
 lang: en
 draft: false
+noindex: false
 ---
 
 The Wild Luxury: How Micro-Rewilding is Reshaping Mallorca's Landscapes
@@ -13,8 +14,6 @@ Wild luxury: A design philosophy that seamlessly integrates the island's wild be
 We believe the answer lies in a radical shift in perspective. True exclusivity is no longer about imposing an alien order upon the land; it is about curating an intimate relationship with the indigenous spirit of Mallorca. This is the essence of micro-rewilding—a design philosophy that invites the island’s untamed beauty into the heart of high-end architecture.
 
 ## The Architecture of the &#8220;Uncontrolled&#8221;
-
-GARDEN DESIGN MALLORCA &#8211; LANDSCAPE GARDEN DESIGN
 
 Micro-rewilding is not abandonment. It is not simply ceasing to mow or weed. Rather, it is the deliberate orchestration of &#8220;wild zones&#8221; within a structured landscape plan. It is a curiosity-driven approach where we ask: What wants to grow here?
 

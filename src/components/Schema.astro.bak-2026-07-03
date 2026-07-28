@@ -1,0 +1,30 @@
+---
+import { getLocalizedSchema } from '../utils/schema';
+import { resolvePageIdFromPath, resolveProjectSlugFromPath } from '../lib/urls';
+
+interface Props {
+  canonicalPath?: string;
+}
+
+const { canonicalPath } = Astro.props;
+const currentLocale = (Astro.currentLocale || 'es') as 'es' | 'en' | 'de';
+const path = canonicalPath ?? Astro.url.pathname;
+const currentUrl = new URL(path, Astro.url.origin).href;
+
+const pageId = resolvePageIdFromPath(path);
+const projectSlug = resolveProjectSlugFromPath(path);
+
+const isHome = pageId === 'home';
+const isServiceOrPortfolio =
+  pageId === 'portfolio' ||
+  pageId === 'services' ||
+  pageId === 'about' ||
+  projectSlug !== null;
+
+const schemas = getLocalizedSchema(currentLocale, currentUrl, isHome, isServiceOrPortfolio);
+---
+
+<!-- Inject Schema Blocks dynamically without Astro escaping characters -->
+{schemas.map((schema) => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}

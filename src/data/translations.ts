@@ -16,15 +16,12 @@ export const ui = {
     'nav.blog': 'Blog',
     'nav.press': 'Press',
     'nav.contact': 'Contact',
-    
     'hero.subtitle': 'Landscape Design & Garden Design — Mallorca',
-    'hero.title': 'Crafting Living Sanctuaries',
+    'hero.title': 'Sustainable Mediterranean Gardens',
     'hero.button': 'Explore Portfolio',
     
     'about.title': 'The Mallorca Studio',
-    'about.subtitle': `30 Years Designing Mallorca's Most Exceptional Gardens —
-shaped by the Mediterranean, its light, its rhythms,
-its way of drawing you outdoors.`,
+    'about.subtitle': "Garden and landscape design studio in Mallorca, working across townhouse gardens, private estates, and roof terraces.",
     
     'portfolio.title': 'Our Gardens',
     'portfolio.subtitle': 'A collection of bespoke outdoor spaces that mature gracefully over time.',
@@ -77,15 +74,12 @@ its way of drawing you outdoors.`,
     'nav.blog': 'Blog',
     'nav.press': 'Prensa',
     'nav.contact': 'Contacto',
-    
     'hero.subtitle': 'Estudio de Diseño de Jardines y Paisajismo en Mallorca',
-    'hero.title': 'Diseño de paisajes con alma mediterránea',
+    'hero.title': 'Jardines Mediterráneos Sostenibles',
     'hero.button': 'Ver Portafolio',
     
     'about.title': 'El Estudio en Mallorca',
-    'about.subtitle': `30 años diseñando los jardines más excepcionales de Mallorca —
-moldeados por el Mediterráneo, su luz, sus ritmos,
-su forma de atraerte al aire libre.`,
+    'about.subtitle': 'Estudio de diseño de jardines y paisajismo en Mallorca, trabajando en jardines urbanos, fincas privadas y terrazas.',
     
     'portfolio.title': 'Nuestros Jardines',
     'portfolio.subtitle': 'Una colección de espacios exteriores a medida que maduran con gracia a lo largo del tiempo.',
@@ -138,15 +132,12 @@ su forma de atraerte al aire libre.`,
     'nav.blog': 'Blog',
     'nav.press': 'Presse',
     'nav.contact': 'Kontakt',
-    
     'hero.subtitle': 'Landschafts- und Gartengestaltungsstudio auf Mallorca',
-    'hero.title': 'Lebendige Rückzugsorte Erschaffen',
+    'hero.title': 'Nachhaltige Mediterrane Gärten',
     'hero.button': 'Portfolio Erkunden',
     
     'about.title': 'Das Studio auf Mallorca',
-    'about.subtitle': `30 Jahre Gartengestaltung auf Mallorca — außergewöhnliche Gärten,
-geprägt vom Mittelmeer, seinem Licht, seinen Rhythmen,
-seiner Art, Sie ins Freie zu locken.`,
+    'about.subtitle': 'Garten- und Landschaftsdesign-Studio auf Mallorca, tätig für Stadthausgärten, private Landgüter und Dachterrassen.',
     
     'portfolio.title': 'Unsere Gärten',
     'portfolio.subtitle': 'Eine Sammlung maßgeschneiderter Außenbereiche, die im Laufe der Zeit an Anmut gewinnen.',

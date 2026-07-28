@@ -12,6 +12,7 @@ export interface Project {
   year: string;
   architect: string | null;
   video: string | null;
+  secondaryVideo?: string;
   heroVideo?: string;
   heroPoster?: string;
   cover: string;
@@ -339,6 +340,8 @@ export const projects: Project[] = [
     year: "2023",
     architect: null,
     video: "https://www.youtube.com/embed/-xs_kKaUnGA?feature=oembed",
+    heroVideo: "/videos/crestatx_hero.mp4",
+    heroPoster: "/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp",
     cover: "/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp",
     images: [
       "landscape design render mallorca crestatx sestepa design (1).png",
@@ -476,27 +479,23 @@ export const projects: Project[] = [
     year: "2023",
     architect: null,
     video: null,
-    cover: "/portfolio/garden-design-llubi-mallorca/garden-design-mallorca-garden-design-llubi-mallorca-sestepa.webp",
+    cover: "/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design (1).webp",
     images: [
       "LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-13.webp",
-      "GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-3.png",
+      "landscape-architecture-mallorca-llubi-sestepa-design (4).webp",
       "GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-5.png",
-      "GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-6.png",
       "GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-8.png",
       "LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-10.webp",
-      "LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-16.webp",
-      "LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-17.webp",
-      "LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-2.webp",
-      "LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-3.webp",
-      "LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-4.webp",
       "LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-5.webp",
       "LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-8.webp",
       "LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-9.webp",
-      "LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-_19_.webp",
-      "LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-_20_.webp",
-      "LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-_22_.webp",
-      "LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-_23_.webp",
-      "LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-_24_.webp"
+      "landscape-architecture-mallorca-llubi-sestepa-design (1).webp",
+      "landscape-architecture-mallorca-llubi-sestepa-design (2).webp",
+      "landscape-architecture-mallorca-llubi-sestepa-design (3).webp",
+      "landscape-architecture-mallorca-llubi-sestepa-design (5).webp",
+      "landscape-architecture-mallorca-llubi-sestepa-design (6).webp",
+      "landscape-architecture-mallorca-llubi-sestepa-design (7).webp",
+      "landscape-architecture-mallorca-llubi-sestepa-design (9).webp"
     ],
     en: {
       title: "Llubí",
@@ -610,7 +609,8 @@ export const projects: Project[] = [
     location: "Sant Llorenç des Cardassar",
     year: "2024",
     architect: null,
-    video: "https://www.youtube.com/embed/IdGlxUKjhUQ?feature=oembed",
+    video: "https://www.youtube.com/embed/Aynezzlact0?feature=oembed",
+    secondaryVideo: "https://www.youtube.com/embed/IdGlxUKjhUQ?feature=oembed",
     cover: "/portfolio/jardin-mediterraneo/images/garden-design-mallorca-jardin-mediterraneo-sestepa.webp",
     ogImage: "/portfolio/jardin-mediterraneo/images/garden-design-mallorca-jardin-mediterraneo-sestepa.webp",
     images: [
@@ -671,11 +671,16 @@ export const projects: Project[] = [
     year: "2023",
     architect: null,
     video: null,
-    cover: "/portfolio/terrace-garden-santa-eugenia/garden-design-mallorca-terrace-garden-santa-eugenia-sestepa.jpg",
+    cover: "/portfolio/terrace-garden-santa-eugenia/images/1. garden design mallorca santa eugenia sestepa landscape design (5).jpg",
     coverPosition: "center top",
     images: [
+      "garden design mallorca santa eugenia sestepa landscape design (1).jpg",
+      "garden design mallorca santa eugenia sestepa landscape design (3).jpg",
+      "garden design mallorca santa eugenia sestepa landscape design (2).jpg",
+      "garden design mallorca santa eugenia sestepa landscape design (4).jpg",
+      "garden design mallorca santa eugenia sestepa landscape design (6).jpg",
+      "garden design mallorca santa eugenia sestepa landscape design (7).jpg",
       "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-10.jpg",
-      "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-11.jpg",
       "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-12.jpg",
       "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-2.jpg",
       "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-4.jpg",

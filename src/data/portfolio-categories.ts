@@ -30,7 +30,7 @@ export const projectCategoryMap: Record<string, PortfolioFilterCategory> = {
   'sant-llorenc': 'estate',
   'jardin-mediterraneo': 'estate',
   'terrace-garden-in-palma': 'terrace',
-  'terrace-garden-santa-eugenia': 'terrace',
+  'terrace-garden-santa-eugenia': 'residential',
   hotelcabotlasvelas: 'commercial',
   'vertical-gardens-in-mallorca': 'vertical',
 };
@@ -38,3 +38,24 @@ export const projectCategoryMap: Record<string, PortfolioFilterCategory> = {
 export function getProjectCategory(slug: string): PortfolioFilterCategory {
   return projectCategoryMap[slug] ?? 'residential';
 }
+
+export const PORTFOLIO_PROJECT_ORDER: string[] = [
+  'sant-llorenc',
+  'jardin-mediterraneo',
+  'finca-garden-campos-mallorca',
+  'binissalem',
+  'terrace-garden-santa-eugenia',
+  'garden-design-llubi-mallorca',
+  'santa-ponsa',
+  'crestatx-garden-design',
+  'bunyola',
+  'son-vida',
+  'terrace-garden-in-palma',
+  'campanet-garden',
+  'costadelacalma',
+  'finca-garden-inca',
+  'hotelcabotlasvelas',
+  'vertical-gardens-in-mallorca',
+  'sacabaneta',
+  'seaside-house-alcudia'
+];

@@ -4,6 +4,7 @@ description: "At S’Estepa Design, we see the neglected corners of a sprawling 
 pubDate: 2025-11-20
 lang: en
 draft: false
+noindex: false
 ---
 
 Transforming Ruin to Riches: Your Private Edible Forest Garden on Mallorca
@@ -13,8 +14,6 @@ There is a profound silence to be found in the hinterlands of the Raiguer or the
 Imagine a landscape where aesthetics and utility converge—a space that rivals the architectural beauty of a structured villa garden but offers the visceral pleasure of harvesting heritage fruits warm from the sun. This is the art of the productive sanctuary.
 
 ## The Architecture of Abundance
-
-S'Estepa Design Concept
 
 A forest garden is not a farm. It is a carefully orchestrated design that mimics the structure of a natural woodland, yet substitutes wild species for fruit, nut, and medicinal varieties. In the context of Mallorca, this approach allows us to create lush, multi-layered greenery that thrives with minimal intervention, respecting the Jardín Seco (Dry Garden) philosophy.
 

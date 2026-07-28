@@ -230,6 +230,21 @@ const pageDescription = translation.description[0] || "";
           </div>
         </section>
       )}
+
+      <!-- Secondary Video Section (If present) -->
+      {project.secondaryVideo && (
+        <section class="project-video-section" style="padding-top: 4rem; border-top: none; margin-top: 2rem; margin-bottom: 6rem;">
+          <div class="video-aspect-ratio">
+            <iframe
+              src={project.secondaryVideo}
+              title={`${translation.title} secondary video`}
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>
+      )}
     </div>
 
     <!-- Next Project Hero Banner -->

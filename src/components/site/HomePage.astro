@@ -14,16 +14,16 @@ const t = (key: keyof typeof ui[typeof lang]) => {
 
 // SEO meta description
 const descriptions = {
-  en: "S'Estepa Design &mdash; boutique garden design and landscape architecture studio in Mallorca. Bespoke Mediterranean gardens for private fincas and villas.",
-  es: "S'Estepa Design &mdash; estudio boutique de diseño de jardines y arquitectura del paisaje en Mallorca. Jardines mediterráneos exclusivos para fincas y villas.",
-  de: "S'Estepa Design &mdash; exklusives Gartendesign und Landschaftsarchitektur Studio auf Mallorca. Maßgeschneiderte mediterrane Gärten für Fincas und Villen.",
+  en: "S'Estepa Design &mdash; boutique garden design and landscape architecture studio in Mallorca. Where the outdoors becomes your favourite room in the house.",
+  es: "S'Estepa Design &mdash; estudio boutique de diseño de jardines y arquitectura del paisaje en Mallorca. Donde el exterior se convierte en su espacio favorito.",
+  de: "S'Estepa Design &mdash; exklusives Gartendesign und Landschaftsarchitektur Studio auf Mallorca. Wo der Außenbereich zu Ihrem Lieblingsraum wird.",
 };
 
 // SEO page titles &mdash; keyword-first, separate from hero.subtitle (visible text unchanged)
 const seoTitles = {
-  en: "GARDEN DESIGN MALLORCA | S'ESTEPA DESIGN — Fincas & Villas",
-  es: "Diseño de Jardines Exclusivos en Mallorca | S'Estepa Design — Fincas y Villas",
-  de: "GARTENGESTALTUNG MALLORCA | S'ESTEPA DESIGN — Fincas & Villen",
+  en: "S'Estepa Design: Garden & Landscape Design in Mallorca",
+  es: "S'Estepa Design: Diseño de Jardines y Paisajismo en Mallorca",
+  de: "S'Estepa Design: Gartengestaltung & Landschaftsarchitektur Mallorca",
 };
 
 const pageDescription = descriptions[lang];
@@ -303,9 +303,9 @@ const currentJourney = journeyData[lang];
     <div class="hero-content container">
       <span class="hero-subtitle">{t('hero.subtitle')}</span>
       <h1 class="hero-title">
-        {lang === 'en' && <>Crafting <em>Living</em> Sanctuaries</>}
-        {lang === 'es' && <>Diseño de paisajes con <em>alma mediterránea</em></>}
-        {lang === 'de' && <>Lebendige <em>Rückzugsorte</em> Erschaffen</>}
+        {lang === 'en' && <>Sustainable Mediterranean Gardens</>}
+        {lang === 'es' && <>Jardines Mediterráneos Sostenibles</>}
+        {lang === 'de' && <>Nachhaltige Mediterrane Gärten</>}
       </h1>
       <a href={getPagePath('portfolio', lang)} class="hero-btn">
         {t('hero.button')} <span class="arrow">&rarr;</span>
@@ -325,27 +325,22 @@ const currentJourney = journeyData[lang];
       <h2 class="philosophy-title">{t('about.subtitle')}</h2>
       <div class="philosophy-grid">
         <div class="philosophy-text-col">
-          {lang === 'es' && (
-            <p class="philosophy-seo-lead">
-              Paisajismo Mallorca &mdash; creando jardines mediterráneos atemporales que combinan belleza natural, materiales locales y diseño sostenible.
-            </p>
-          )}
           {lang === 'en' && (
             <>
-              <p>Garden design and Mediterranean landscaping studio in Mallorca. With 30 years of experience, S'Estepa Design creates sustainable Mediterranean gardens.</p>
-              <p>Inspired by the authentic beauty and spirit of Mallorca. We work with the island's native limestone, dry soil contours, and endemic flora to ensure every project is an organic extension of Mallorca's natural soul.</p>
+              <p>S'Estepa Design projects sustainable ecosystems through a profound understanding of local soils, climate, and endemic flora.</p>
+              <p>Inspired by the authentic beauty of the island, we ensure every architectural intervention is an organic extension of Mallorca's natural soul.</p>
             </>
           )}
           {lang === 'es' && (
             <>
-              <p>Estudio de diseño de jardines y paisajismo mediterráneo en Mallorca. Con 30 años de experiencia, S'Estepa Design crea jardines mediterráneos sostenibles.</p>
-              <p>Inspirados por la belleza auténtica y el espíritu de Mallorca. Trabajamos con la piedra caliza nativa de la isla, los contornos del suelo seco y la flora endémica, asegurando que cada proyecto sea una extensión orgánica del alma natural de Mallorca.</p>
+              <p>S'Estepa Design proyecta ecosistemas sostenibles a través de un profundo conocimiento de los suelos locales, el clima y la flora endémica.</p>
+              <p>Inspirados por la belleza auténtica de la isla, aseguramos que cada intervención arquitectónica sea una extensión orgánica del alma natural de Mallorca.</p>
             </>
           )}
           {lang === 'de' && (
             <>
-              <p>Studio für Gartengestaltung und mediterrane Landschaftsarchitektur auf Mallorca. Mit 30 Jahren Erfahrung kreiert S'Estepa Design nachhaltige mediterrane Gärten.</p>
-              <p>Inspiriert von der authentischen Schönheit und dem Geist Mallorcas. Wir arbeiten mit dem einheimischen Kalkstein, den Konturen des trockenen Bodens und endemischer Flora &mdash; so wird jedes Projekt eine organische Erweiterung der natürlichen Seele Mallorcas.</p>
+              <p>S'Estepa Design entwirft nachhaltige Ökosysteme durch ein tiefes Verständnis der lokalen Böden, des Klimas und der endemischen Flora.</p>
+              <p>Inspiriert von der authentischen Schönheit der Insel stellen wir sicher, dass jeder architektonische Eingriff eine organische Erweiterung der natürlichen Seele Mallorcas ist.</p>
             </>
           )}
         </div>

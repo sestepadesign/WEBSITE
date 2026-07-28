@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>7 Landscaping Mistakes - S'Estepa Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" />
+    <style>
+      :root {
+        --c-dark: #1F211F;
+        --c-light: #F7F5F0;
+        --c-accent: #6C7A53;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--c-light);
+        color: var(--c-dark);
+        font-family: 'Jost', sans-serif;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      h1, h2, h3, h4 {
+        font-family: 'Cormorant Garamond', serif;
+        font-weight: 400;
+        margin: 0;
+      }
+      
+      /* A4 Page Setup */
+      .page {
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto;
+        position: relative;
+        background: var(--c-light);
+        overflow: hidden;
+        page-break-after: always;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+      }
+      
+      /* Print Overrides */
+      @media print {
+        body {
+          background-color: white;
+        }
+        .page {
+          margin: 0;
+          box-shadow: none;
+          page-break-after: always;
+        }
+        @page {
+          size: A4 portrait;
+          margin: 0; /* Full bleed */
+        }
+      }
+
+      /* Screen Preview styling */
+      @media screen {
+        body {
+          background-color: #e0e0e0;
+          padding: 2rem;
+        }
+        .page {
+          box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+          margin-bottom: 2rem;
+        }
+      }
+
+      /* COVER */
+      .cover {
+        background-image: url('/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        justify-content: flex-end;
+        padding: 80px;
+      }
+      .cover::before {
+        content: '';
+        position: absolute;
+        top:0; left:0; right:0; bottom:0;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8));
+        z-index: 1;
+      }
+      .cover-content {
+        position: relative;
+        z-index: 2;
+      }
+      .cover h1 {
+        font-size: 4.2rem;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+      }
+      .cover p {
+        font-size: 1.2rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        color: #ddd;
+      }
+      .logo {
+        position: absolute;
+        top: 60px;
+        left: 60px;
+        z-index: 2;
+        width: 180px;
+        filter: brightness(0) invert(1);
+      }
+
+      /* INTERIOR */
+      .interior {
+        padding: 60px; 
+        display: flex;
+        flex-direction: column;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        padding-bottom: 15px;
+        margin-bottom: 30px; 
+      }
+      .header-title {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--c-accent);
+      }
+      .content-split {
+        display: flex;
+        gap: 40px; 
+        flex-grow: 1;
+      }
+      .text-col {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .img-col {
+        flex: 1;
+        background-size: cover;
+        background-position: center;
+        border-radius: 4px;
+      }
+      .mistake-num {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 7rem; 
+        line-height: 1;
+        color: rgba(108, 122, 83, 0.15);
+        margin-bottom: -20px; 
+      }
+      .mistake-title {
+        font-size: 2.5rem; 
+        line-height: 1.1;
+        margin-bottom: 25px; 
+        color: var(--c-dark);
+      }
+      .mistake-text {
+        font-size: 1.15rem; 
+        line-height: 1.6;
+        color: #333;
+        margin-bottom: 30px; 
+      }
+      .solution-box {
+        background: white;
+        padding: 25px; 
+        border-left: 4px solid var(--c-accent);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+      }
+      .solution-box h4 {
+        color: var(--c-accent);
+        font-family: 'Jost', sans-serif;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 10px; 
+        font-weight: 500;
+      }
+      .solution-box p {
+        font-size: 1.05rem; 
+        line-height: 1.6;
+        margin: 0;
+        color: #444;
+      }
+      
+      /* CTA PAGE */
+      .cta-page {
+        background-color: var(--c-dark);
+        color: white;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 80px;
+      }
+      .cta-page h2 {
+        font-size: 3.5rem;
+        margin-bottom: 30px;
+      }
+      .cta-page p {
+        font-size: 1.4rem;
+        max-width: 600px;
+        margin-bottom: 50px;
+        line-height: 1.5;
+        color: #ccc;
+      }
+      .btn {
+        display: inline-block;
+        padding: 20px 50px;
+        background: var(--c-accent);
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 1rem;
+        border: 1px solid var(--c-accent);
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- PAGE 1: COVER -->
+    <div class="page cover">
+      <img src="/images/S-ESTEPA-GARDEN-DESIGN-MALLORCA-LOGO-BLACK-344.webp" alt="S'Estepa Design" class="logo" />
+      <div class="cover-content">
+        <p>The Ultimate Guide for Holiday Villa Owners</p>
+        <h1>7 Expensive Landscaping Mistakes<br/>to Avoid in Mallorca</h1>
+      </div>
+    </div>
+
+    <!-- PAGE 2: MISTAKE 1 -->
+    <div class="page interior">
+      <div class="header">
+        <span class="header-title">S'Estepa Design Studio</span>
+        <span class="header-title">01 / 08</span>
+      </div>
+      <div class="content-split">
+        <div class="text-col">
+          <div class="mistake-num">01</div>
+          <h2 class="mistake-title">The "English Lawn" Fallacy</h2>
+          <div class="mistake-text">
+            <p>Imposing vast expanses of traditional turf in Mallorca's climate is a fundamental design error. It requires exorbitant volumes of water, constant chemical fertilization, and daily maintenance, resulting in an artificial landscape constantly battling its environment.</p>
+          </div>
+          <div class="solution-box">
+            <h4>THE S'ESTEPA SOLUTION</h4>
+            <p>We replace generic lawns with endemic groundcovers (like Lippia nodiflora) or design sweeping architectural gravel and natural stone hardscaping, interspersed with wild Mediterranean vegetation.</p>
+          </div>
+        </div>
+        <div class="img-col" style="background-image: url('/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-31.jpg')"></div>
+      </div>
+    </div>
+
+    <!-- PAGE 3: MISTAKE 2 -->
+    <div class="page interior">
+      <div class="header">
+        <span class="header-title">S'Estepa Design Studio</span>
+        <span class="header-title">02 / 08</span>
+      </div>
+      <div class="content-split">
+        <div class="img-col" style="background-image: url('/portfolio/sant-llorenc/images/sant-llorenc-gallery-pool.jpg')"></div>
+        <div class="text-col">
+          <div class="mistake-num">02</div>
+          <h2 class="mistake-title">Ignoring Island Microclimates</h2>
+          <div class="mistake-text">
+            <p>Assuming the entire island shares the same conditions is negligent. A project in the Tramuntana mountains faces saline winds, winter frosts, and rocky soils—conditions drastically different from the protected, arid interior.</p>
+          </div>
+          <div class="solution-box">
+            <h4>THE S'ESTEPA SOLUTION</h4>
+            <p>We conduct hyper-local botanical analysis prior to design. We select species that don't just survive, but naturally thrive in the exact coordinates of your estate, guaranteeing a mature and resilient landscape.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 4: MISTAKE 3 -->
+    <div class="page interior">
+      <div class="header">
+        <span class="header-title">S'Estepa Design Studio</span>
+        <span class="header-title">03 / 08</span>
+      </div>
+      <div class="content-split">
+        <div class="text-col">
+          <div class="mistake-num">03</div>
+          <h2 class="mistake-title">Disregarding Soil Architecture</h2>
+          <div class="mistake-text">
+            <p>Planting high-value flora in poor or poorly drained substrate is a guaranteed loss of investment. The heavy clay or excessively calcareous soil found in certain areas of Mallorca will quickly suffocate the roots of unadapted species.</p>
+          </div>
+          <div class="solution-box">
+            <h4>THE S'ESTEPA SOLUTION</h4>
+            <p>Advanced soil engineering. Before any planting occurs, we structure the terrain to ensure perfect drainage and amend the earth with specific organic matter, replicating the optimal conditions of the Mediterranean forest.</p>
+          </div>
+        </div>
+        <div class="img-col" style="background-image: url('/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-35.jpg')"></div>
+      </div>
+    </div>
+
+    <!-- PAGE 5: MISTAKE 4 -->
+    <div class="page interior">
+      <div class="header">
+        <span class="header-title">S'Estepa Design Studio</span>
+        <span class="header-title">04 / 08</span>
+      </div>
+      <div class="content-split">
+        <div class="img-col" style="background-image: url('/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa-terrace-2.webp')"></div>
+        <div class="text-col">
+          <div class="mistake-num">04</div>
+          <h2 class="mistake-title">Overlooking Vertical Integration</h2>
+          <div class="mistake-text">
+            <p>In luxury commercial projects or terraced hillside villas, treating retaining walls as dead space is a wasted opportunity. Leaving them bare increases structural temperature and breaks visual immersion.</p>
+          </div>
+          <div class="solution-box">
+            <h4>THE S'ESTEPA SOLUTION</h4>
+            <p>Implementation of advanced engineering Vertical Gardens and fluid terrace design. We transform concrete barriers into living canvases that improve acoustics, thermal regulation, and offer a cutting-edge aesthetic.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 6: MISTAKE 5 -->
+    <div class="page interior">
+      <div class="header">
+        <span class="header-title">S'Estepa Design Studio</span>
+        <span class="header-title">05 / 08</span>
+      </div>
+      <div class="content-split">
+        <div class="text-col">
+          <div class="mistake-num">05</div>
+          <h2 class="mistake-title">Planting Non-Native Species</h2>
+          <div class="mistake-text">
+            <p>Importing exotic species from tropical climates exposes them to local plagues, such as the infamous Red Palm Weevil or Xylella fastidiosa. This is not only an aesthetic risk, but a biological liability for the property.</p>
+          </div>
+          <div class="solution-box">
+            <h4>THE S'ESTEPA SOLUTION</h4>
+            <p>A curated catalog of endemic and adapted species (ancient Olive trees, Pistacia lentiscus, Rosmarinus prostratus). These species possess natural immunity to local pests and require a fraction of the water.</p>
+          </div>
+        </div>
+        <div class="img-col" style="background-image: url('/portfolio/hotel-cabot-las-velas-puerto-pollensa-mallorca/images/hotel-cabot-las-velas-puerto-pollensa-sestepa-design-landscaper-mallorca-16.jpg')"></div>
+      </div>
+    </div>
+
+    <!-- PAGE 7: MISTAKE 6 -->
+    <div class="page interior">
+      <div class="header">
+        <span class="header-title">S'Estepa Design Studio</span>
+        <span class="header-title">06 / 08</span>
+      </div>
+      <div class="content-split">
+        <div class="img-col" style="background-image: url('/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-34.jpg')"></div>
+        <div class="text-col">
+          <div class="mistake-num">06</div>
+          <h2 class="mistake-title">The "Summer-Only" Aesthetic</h2>
+          <div class="mistake-text">
+            <p>Designing a garden that only reaches its visual peak during July and August. When autumn or winter arrives, the property is stripped of color, texture, and structure, looking desolate and neglected.</p>
+          </div>
+          <div class="solution-box">
+            <h4>THE S'ESTEPA SOLUTION</h4>
+            <p>Strategic seasonal design (Four-Season Architecture). We select a botanical matrix that guarantees continuous visual interest: silver evergreen foliage for winter, early spring blooms, and textured barks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 8: MISTAKE 7 -->
+    <div class="page interior">
+      <div class="header">
+        <span class="header-title">S'Estepa Design Studio</span>
+        <span class="header-title">07 / 08</span>
+      </div>
+      <div class="content-split">
+        <div class="text-col">
+          <div class="mistake-num">07</div>
+          <h2 class="mistake-title">Cheapening Hardscape Materials</h2>
+          <div class="mistake-text">
+            <p>Using generic treated woods, low-quality porous tiles, or inconsistent gravels that degrade, discolor, or accumulate mold under Mallorca's sun and humidity. Inferior materials immediately ruin the perception of luxury.</p>
+          </div>
+          <div class="solution-box">
+            <h4>THE S'ESTEPA SOLUTION</h4>
+            <p>Uncompromising selection of noble materials. We utilize traditional Mallorcan dry stone, premium travertine, corten steel, and certified tropical woods that age with dignity and acquire an elegant patina.</p>
+          </div>
+        </div>
+        <div class="img-col" style="background-image: url('/portfolio/sant-llorenc/images/sant-llorenc-gallery-3.jpg')"></div>
+      </div>
+    </div>
+
+    <!-- PAGE 9: CTA -->
+    <div class="page cta-page">
+      <img src="/images/S-ESTEPA-GARDEN-DESIGN-MALLORCA-LOGO-BLACK-344.webp" alt="S'Estepa Design" style="width:150px; margin-bottom: 50px; filter: brightness(0) invert(1);" />
+      <h2>Transform Your Property in Mallorca</h2>
+      <p>Stop leaving your luxury property to chance. S'Estepa Design Studio creates exclusive, low-maintenance Mediterranean landscapes tailored for high-end villas and estates.</p>
+      <a href="https://design.sestepa.com/contact" class="btn">Request a Property Audit</a>
+    </div>
+
+  </body>
+</html>

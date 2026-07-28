@@ -10,6 +10,8 @@ const blog = defineCollection({
     lang: z.enum(['en', 'es', 'de']),
     image: z.string().optional(),
     draft: z.boolean().default(false),
+    /** Indexable by search engines. Defaults to hidden (noindex) until reviewed & approved. */
+    noindex: z.boolean().default(true),
   }),
 });
 
