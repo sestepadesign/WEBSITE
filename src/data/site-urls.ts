@@ -92,6 +92,11 @@ export const PROJECT_PUBLIC_PATHS: Record<string, Record<SiteLocale, string>> = 
     es: '/es/sant-llorenc/',
     de: '/de/sant-llorenc/',
   },
+  'jardin-mediterraneo': {
+    en: '/mediterranean-garden/',
+    es: '/es/jardin-mediterraneo/',
+    de: '/de/mediterraner-garten/',
+  },
   'terrace-garden-santa-eugenia': {
     en: '/terrace-garden-santa-eugenia/',
     es: '/es/terraza-jardin-santa-eugenia/',
@@ -175,9 +180,9 @@ export const PAGE_OG_IMAGES: Partial<Record<SitePageId, Record<SiteLocale, strin
     de: '/portfolio/binissalem/cover.jpg',
   },
   portfolio: {
-    en: '/portfolio/sant-llorenc/images/landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-02.jpg',
-    es: '/portfolio/sant-llorenc/images/landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-02.jpg',
-    de: '/portfolio/sant-llorenc/images/landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-02.jpg',
+    en: '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp',
+    es: '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp',
+    de: '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp',
   },
   services: {
     en: '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp',
