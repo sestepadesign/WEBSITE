@@ -65,6 +65,21 @@ if (project?.video) {
     embedUrl: project.video,
   }));
 }
+
+if (project) {
+  const translation = project[currentLocale] ?? project.en;
+  schemas.push({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "mainEntity": {
+      "@type": "ImageGallery",
+      "name": translation.title,
+      "description": translation.subtitle,
+      "url": currentUrl,
+      "image": project.images.map(img => `${SITE_URL_PRODUCTION}/portfolio/${project.slug}/images/${img}`)
+    }
+  });
+}
 ---
 
 <!-- Inject Schema Blocks dynamically without Astro escaping characters -->

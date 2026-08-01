@@ -86,12 +86,12 @@ export function getLocalizedSchema(
     "legalName": "S'Estepa Jardineria Integral SL",
     "alternateName": ["S'Estepa Design", "S'Estepa Garden Design Mallorca"],
     "description": trans.description,
-    "image": {
-      "@type": "ImageObject",
-      "url": "https://design.sestepa.com/portfolio/campos/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.jpg",
-      "width": 1200,
-      "height": 800
-    },
+    "image": [
+      "https://design.sestepa.com/portfolio/campos/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.jpg",
+      "https://design.sestepa.com/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp",
+      "https://design.sestepa.com/portfolio/binissalem/images/landscape-garden-design-mallorca-sestepa-landscape-design-binissalem-05.jpg",
+      "https://design.sestepa.com/portfolio/hotelcabotlasvelas/images/PORTFOLIO-1.jpg"
+    ],
     "logo": {
       "@type": "ImageObject",
       "url": "https://design.sestepa.com/images/S-ESTEPA-GARDEN-DESIGN-MALLORCA-LOGO-BLACK-344.png",
