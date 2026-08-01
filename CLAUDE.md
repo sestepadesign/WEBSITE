@@ -2,6 +2,12 @@
 
 Astro static site for design.sestepa.com (landscape architecture studio, Mallorca). Multi-locale (en/es/de), deployed to Cloudflare Pages.
 
+## ABSOLUTE HANDOFF RULE (STATUS.md)
+
+Before modifying any code, **you MUST read `STATUS.md`** in the root directory. 
+- You must verify that the local codebase is up-to-date with the checksum in `STATUS.md`. If it is outdated, `git pull` first.
+- When finishing your session, you **MUST write your session log** at the top of the "HISTÓRICO DE SESSÕES" section in `STATUS.md`, including your branch/commit hash, to preserve state for the next agent. This is non-negotiable.
+
 ## Commands
 
 ```
