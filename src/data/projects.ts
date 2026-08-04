@@ -546,7 +546,7 @@ export const projects: Project[] = [
     ogImage: "/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp",
     images: [
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp",
-      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp",
+      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-02.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-03.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-04.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-05.webp",
@@ -562,7 +562,7 @@ export const projects: Project[] = [
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-16.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-17.webp",
-      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-02.webp",
+      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-19.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-20.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-21.webp"
