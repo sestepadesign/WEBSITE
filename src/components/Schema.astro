@@ -55,15 +55,38 @@ if (isHome) {
 }
 
 const project = projectSlug ? projects.find((p) => p.slug === projectSlug) : null;
-if (project?.video) {
+if (project) {
   const translation = project[currentLocale] ?? project.en;
-  schemas.push(getVideoObjectSchema({
-    name: translation.title,
-    description: translation.subtitle,
-    thumbnailUrl: `${SITE_URL_PRODUCTION}${project.cover}`,
-    uploadDate: `${project.year}-01-01T08:00:00+01:00`,
-    embedUrl: project.video,
-  }));
+  
+  if (project.video) {
+    schemas.push(getVideoObjectSchema({
+      name: `${translation.title} — Garden Experience`,
+      description: translation.subtitle,
+      thumbnailUrl: `${SITE_URL_PRODUCTION}${project.cover}`,
+      uploadDate: `${project.year}-01-01T08:00:00+01:00`,
+      embedUrl: project.video,
+    }));
+  }
+
+  if (project.heroVideo) {
+    schemas.push(getVideoObjectSchema({
+      name: `${translation.title} — Landscape Architecture`,
+      description: translation.subtitle,
+      thumbnailUrl: project.heroPoster ? `${SITE_URL_PRODUCTION}${project.heroPoster}` : `${SITE_URL_PRODUCTION}${project.cover}`,
+      uploadDate: `${project.year}-01-01T08:00:00+01:00`,
+      contentUrl: `${SITE_URL_PRODUCTION}${project.heroVideo}`,
+    }));
+  }
+
+  if (project.secondaryVideo) {
+    schemas.push(getVideoObjectSchema({
+      name: `${translation.title} — Technical Detail`,
+      description: translation.subtitle,
+      thumbnailUrl: `${SITE_URL_PRODUCTION}${project.cover}`,
+      uploadDate: `${project.year}-01-01T08:00:00+01:00`,
+      embedUrl: project.secondaryVideo,
+    }));
+  }
 }
 
 if (project) {

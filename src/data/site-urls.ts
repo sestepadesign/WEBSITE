@@ -1,4 +1,4 @@
-﻿import type { SiteLocale } from '../lib/locale';
+import type { SiteLocale } from '../lib/locale';
 
 /** Logical page keys â€” not URL paths. */
 export type SitePageId =
@@ -12,7 +12,8 @@ export type SitePageId =
   | 'legal-notice'
   | 'privacy-policy'
   | 'cookies'
-  | 'blog';
+  | 'blog'
+  | 'faq';
 
 /** Canonical paths matching design.sestepa.com (WordPress + WPML). */
 export const SITE_PAGES: Record<SitePageId, Record<SiteLocale, string>> = {
@@ -39,6 +40,7 @@ export const SITE_PAGES: Record<SitePageId, Record<SiteLocale, string>> = {
   },
   cookies: { en: '/cookies/', es: '/es/cookies/', de: '/de/cookies/' },
   blog: { en: '/blog/', es: '/es/blog/', de: '/de/blog/' },
+  faq: { en: '/faq/', es: '/faq/', de: '/faq/' },
 };
 
 /**

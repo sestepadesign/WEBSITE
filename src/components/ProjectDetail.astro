@@ -29,6 +29,9 @@ const t = (key: keyof typeof ui[typeof lang]) => {
 const translation = project[lang];
 const pageTitle = `${translation.title} | S'Estepa Design`;
 const pageDescription = translation.description[0] || "";
+const formattedLocation = project.location.toLowerCase().includes('mallorca')
+  ? project.location
+  : `${project.location}, Mallorca`;
 ---
 
 <Layout 
@@ -96,7 +99,7 @@ const pageDescription = translation.description[0] || "";
           <div class="editorial-feature-img">
             <img
               src={`/portfolio/${project.slug}/images/${project.images[0]}`}
-              alt={`${translation.title} — Garden Design Detail, ${project.location} Mallorca`}
+              alt={`${translation.title} — Garden Design Detail, ${formattedLocation}`}
               loading="lazy"
               class="editorial-img"
             />
@@ -172,7 +175,7 @@ const pageDescription = translation.description[0] || "";
           <div class="editorial-mid-img">
             <img
               src={`/portfolio/${project.slug}/images/${project.images[1]}`}
-              alt={`${translation.title} — Garden Design ${project.location}, S'Estepa Design Mallorca`}
+              alt={`${translation.title} — Garden Design ${formattedLocation}, S'Estepa Design`}
               loading="lazy"
               class="editorial-img"
             />
@@ -222,7 +225,7 @@ const pageDescription = translation.description[0] || "";
                   <div class="gallery-item">
                     <img
                       src={`/portfolio/${project.slug}/images/${img}`}
-                      alt={`${translation.title} — Garden Design ${project.location} Mallorca, Image ${globalIdx + 1}`}
+                      alt={`${translation.title} — Garden Design ${formattedLocation}, Image ${globalIdx + 1}`}
                       loading="lazy"
                       class="gallery-img"
                     />
