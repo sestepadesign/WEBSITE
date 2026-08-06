@@ -19,11 +19,27 @@ export async function getStaticPaths() {
   });
 
   const posts = await getCollection('blog', ({ data }) => data.lang === 'en' && !data.draft);
-  const blogPaths = posts.map((post) => {
+  posts.sort((a, b) => new Date(a.data.pubDate).getTime() - new Date(b.data.pubDate).getTime());
+
+  const blogPaths = posts.map((post, index) => {
     const slug = post.id.replace(/\.md$/, '').split('/').pop()!;
+    const prevPost = index > 0 ? posts[index - 1] : null;
+    const nextPost = index < posts.length - 1 ? posts[index + 1] : null;
+
     return {
       params: { slug },
-      props: { kind: 'blog' as const, post },
+      props: {
+        kind: 'blog' as const,
+        post,
+        prevPost: prevPost ? {
+          slug: prevPost.id.replace(/\.md$/, '').split('/').pop()!,
+          title: prevPost.data.title
+        } : null,
+        nextPost: nextPost ? {
+          slug: nextPost.id.replace(/\.md$/, '').split('/').pop()!,
+          title: nextPost.data.title
+        } : null,
+      },
     };
   });
 
@@ -31,6 +47,7 @@ export async function getStaticPaths() {
 }
 
 const props = Astro.props;
+const { prevPost, nextPost } = props;
 let BlogContent: Awaited<ReturnType<typeof render>>['Content'] | null = null;
 
 if (props.kind === 'blog') {
@@ -65,6 +82,29 @@ const readingTime = Math.max(1, Math.ceil(wordCount / 200));
         <div class="overlay"></div>
       </div>
       <div class="hero-content">
+        {props.kind === 'blog' && (
+          <div class="blog-nav-premium">
+            {prevPost ? (
+              <a href={`/${prevPost.slug}/`} class="nav-arrow prev" title={prevPost.title}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                <span>PREVIOUS</span>
+              </a>
+            ) : (
+              <span class="nav-arrow-disabled"></span>
+            )}
+            <a href="/blog/" class="nav-blog-link">
+              JOURNAL
+            </a>
+            {nextPost ? (
+              <a href={`/${nextPost.slug}/`} class="nav-arrow next" title={nextPost.title}>
+                <span>NEXT</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            ) : (
+              <span class="nav-arrow-disabled"></span>
+            )}
+          </div>
+        )}
         <h1 set:html={props.post.data.title} />
         {props.kind === 'blog' && (
           <span class="ux-meta">
@@ -81,4 +121,78 @@ const readingTime = Math.max(1, Math.ceil(wordCount / 200));
     </article>
   </Layout>
 )}
+
+<style>
+  .blog-nav-premium {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto 2.5rem auto;
+    padding: 0.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+  
+  .blog-nav-premium a {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.3s ease, opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .blog-nav-premium a:hover {
+    color: #ffffff;
+  }
+  
+  .blog-nav-premium .nav-blog-link {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    padding-left: 0.25em;
+  }
+
+  .blog-nav-premium .nav-arrow {
+    display: flex;
+    align-items: center;
+  }
+
+  .blog-nav-premium .nav-arrow span {
+    font-size: 0.65rem;
+    font-weight: 400;
+    opacity: 0.8;
+  }
+
+  .blog-nav-premium .nav-arrow.prev svg {
+    margin-right: -0.1em;
+  }
+
+  .blog-nav-premium .nav-arrow.next svg {
+    margin-left: -0.1em;
+  }
+
+  .blog-nav-premium .nav-arrow-disabled {
+    width: 80px;
+  }
+
+  @media (max-width: 768px) {
+    .blog-nav-premium {
+      max-width: 280px;
+      margin-bottom: 2rem;
+    }
+    .blog-nav-premium .nav-arrow span {
+      display: none;
+    }
+    .blog-nav-premium .nav-arrow-disabled {
+      width: 20px;
+    }
+  }
+</style>
+
 
