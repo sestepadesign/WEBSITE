@@ -556,8 +556,8 @@ export const projects: Project[] = [
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-07.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-05.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-04.webp",
-      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-09.webp",
-      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-11.webp",
+      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-22.webp",
+      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-20.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-12.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-02.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-14.webp",
@@ -567,9 +567,9 @@ export const projects: Project[] = [
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-13.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-19.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-08.webp",
-      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-20.webp",
+      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-11.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-21.webp",
-      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-22.webp"
+      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-09.webp"
     ],
     en: {
       title: "Sant Llorenç",
@@ -594,20 +594,20 @@ export const projects: Project[] = [
         "Stately cypress trees rising above soft ornamental grasses and native ground covers",
         "Close-up of Olea europaea centenary foliage against the warm Mediterranean summer sky",
         "Symmetric Cypress line and mixed lavender beds framing the pathway of the Mallorca estate",
-        "Outdoor relaxation area surrounded by drought-tolerant ornamental plants in Sant Llorenç",
-        "Detail of traditional dry stone masonry handcrafted by local artisans in Mallorca",
-        "Vibrant Perovskia atriplicifolia and lavender blossoms attracting pollinators in the garden",
+        "Estate garden design in Mallorca with native drought-resistant flora and dry stone masonry",
+        "Detail of Gaura lindheimeri delicate pink-white flowers blooming in summer",
         "Overview of the estate garden transitions blending seamlessly into the natural landscape",
         "Sustainable Mediterranean garden with lavender and cypress trees near the country house",
         "Finca landscape design featuring low-maintenance xeriscape garden beds in Mallorca",
         "Earthy pathways lined with local gravel and bordered by robust Mediterranean plants",
+        "Warm sunlight filtering through olive tree branches onto a natural wild meadow",
         "Cottage-style country villa pathway lined with rosemary and wild lavender in Mallorca",
         "Warm sunlight filtering through olive tree branches onto a natural wild meadow",
         "Traditional dry stone wall pathway with newly planted Mediterranean vegetation in Sant Llorenç",
         "Grouping of Rosmarinus officinalis and Teucrium fruticans in dry soil conditions",
-        "Detail of Gaura lindheimeri delicate pink-white flowers blooming in summer",
+        "Vibrant Perovskia atriplicifolia and lavender blossoms attracting pollinators in the garden",
         "Sustainable drip irrigation line feeding young cypress plants in Mallorca estate",
-        "Estate garden design in Mallorca with native drought-resistant flora and dry stone masonry"
+        "Outdoor relaxation area surrounded by drought-tolerant ornamental plants in Sant Llorenç"
       ]
     },
     es: {
@@ -633,20 +633,20 @@ export const projects: Project[] = [
         "Cipreses que se elevan sobre gramíneas ornamentales y tapizantes autóctonos",
         "Detalle del follaje de un olivo centenario frente al cálido cielo de Mallorca",
         "Línea simétrica de cipreses y parterres de lavanda bordeando el camino de la finca",
-        "Zona de relajación al aire libre rodeada de plantas ornamentales resistentes a la sequía",
-        "Detalle de la mampostería tradicional de piedra seca construida a mano en Mallorca",
-        "Flores de Perovskia y lavanda atrayendo polinizadores en el jardín mediterráneo",
+        "Diseño de jardín de finca en Mallorca con vegetación autóctona de secano y muros de piedra",
+        "Detalle de flores de Gaura lindheimeri de color rosa y blanco floreciendo en verano",
         "Perspectiva de la transición del jardín fundiéndose con el paisaje natural de la finca",
         "Jardín mediterráneo sostenible con plantación de lavanda y cipreses frente a la casa de campo",
         "Diseño paisajístico de finca con parterres de bajo mantenimiento en Mallorca",
         "Caminos de tierra con grava local bordeados por plantas mediterráneas robustas",
+        "Luz solar cálida filtrándose a través de las ramas de un olivo sobre una pradera silvestre",
         "Sendero de villa de campo bordeado de romero y lavanda silvestre en Mallorca",
         "Luz solar cálida filtrándose a través de las ramas de un olivo sobre una pradera silvestre",
         "Muro tradicional de piedra seca y vegetación mediterránea recién plantada en Sant Llorenç",
         "Agrupación de Rosmarinus officinalis y Teucrium fruticans adaptados a suelos secos",
-        "Detalle de flores de Gaura lindheimeri de color rosa y blanco floreciendo en verano",
+        "Flores de Perovskia y lavanda atrayendo polinizadores en el jardín mediterráneo",
         "Línea de riego por goteo eficiente alimentando cipreses jóvenes en la finca",
-        "Diseño de jardín de finca en Mallorca con vegetación autóctona de secano y muros de piedra"
+        "Zona de relajación al aire libre rodeada de plantas ornamentales resistentes a la sequía"
       ]
     },
     de: {
@@ -672,20 +672,20 @@ export const projects: Project[] = [
         "Zypressen, die sich über Ziergräsern und einheimischen Bodendeckern erheben",
         "Nahaufnahme der Blätter eines hundertjährigen Olivenbaums vor dem warmen Sommerhimmel",
         "Symmetrische Zypressenreihe und Lavendelbeete entlang des Weges des Landguts auf Mallorca",
-        "Entspannungsbereich im Freien umgeben von trockenheitsresistenten Zierpflanzen in Sant Llorenç",
-        "Detail des traditionellen mallorquinischen Trockenmauerwerks von lokalen Handwerkern",
-        "Blühende Perovskia und Lavendel, die Bestäuber im mediterranen Garten anziehen",
+        "Gartengestaltung auf Mallorca mit einheimischer trockenheitsresistenter Flora und Naturstein",
+        "Detail von zartrosa-weißen Blüten der Gaura lindheimeri im Sommer",
         "Übersicht über die Gartenübergänge des Landguts, die nahtlos in die Natur übergehen",
         "Nachhaltiger mediterraner Garten mit Lavendel- und Zypressenpflanzung vor dem Landhaus",
         "Landschaftsgestaltung mit pflegeleichten Xeriscape-Gartenbeeten auf Mallorca",
         "Kieswege gesäumt von robusten mediterranen Pflanzen auf dem Landgut",
+        "Warmes Sonnenlicht, das durch die Zweige eines Olivenbaums auf eine Wildwiese fällt",
         "Weg einer Landvilla gesäumt von Rosmarin und wildem Lavendel auf Mallorca",
         "Warmes Sonnenlicht, das durch die Zweige eines Olivenbaums auf eine Wildwiese fällt",
         "Traditionelle Trockenmauer und neu gepflanzte mediterrane Vegetation in Sant Llorenç",
         "Gruppe von Rosmarinus officinalis und Teucrium fruticans in trockenem Boden",
-        "Detail von zartrosa-weißen Blüten der Gaura lindheimeri im Sommer",
+        "Blühende Perovskia und Lavendel, die Bestäuber im mediterranen Garten anziehen",
         "Effizientes Tröpfchenbewässerungssystem zur Versorgung junger Zypressen auf dem Landgut",
-        "Gartengestaltung auf Mallorca mit einheimischer trockenheitsresistenter Flora und Naturstein"
+        "Entspannungsbereich im Freien umgeben von trockenheitsresistenten Zierpflanzen in Sant Llorenç"
       ]
     }
   },
