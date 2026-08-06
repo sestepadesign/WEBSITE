@@ -99,7 +99,7 @@ const formattedLocation = project.location.toLowerCase().includes('mallorca')
           <div class="editorial-feature-img">
             <img
               src={`/portfolio/${project.slug}/images/${project.images[0]}`}
-              alt={`${translation.title} — Garden Design Detail, ${formattedLocation}`}
+              alt={translation.imageAlts?.[0] ?? `${translation.title} — Garden Design Detail, ${formattedLocation}`}
               loading="lazy"
               class="editorial-img"
             />
@@ -175,7 +175,7 @@ const formattedLocation = project.location.toLowerCase().includes('mallorca')
           <div class="editorial-mid-img">
             <img
               src={`/portfolio/${project.slug}/images/${project.images[1]}`}
-              alt={`${translation.title} — Garden Design ${formattedLocation}, S'Estepa Design`}
+              alt={translation.imageAlts?.[1] ?? `${translation.title} — Garden Design ${formattedLocation}, S'Estepa Design`}
               loading="lazy"
               class="editorial-img"
             />
@@ -225,7 +225,7 @@ const formattedLocation = project.location.toLowerCase().includes('mallorca')
                   <div class="gallery-item">
                     <img
                       src={`/portfolio/${project.slug}/images/${img}`}
-                      alt={`${translation.title} — Garden Design ${formattedLocation}, Image ${globalIdx + 1}`}
+                      alt={translation.imageAlts?.[globalIdx] ?? `${translation.title} — Garden Design ${formattedLocation}, Image ${globalIdx + 1}`}
                       loading="lazy"
                       class="gallery-img"
                     />

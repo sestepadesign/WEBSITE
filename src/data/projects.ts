@@ -6,6 +6,7 @@ export interface ProjectTranslation {
   botanical: string;
   /** Short editorial note shown after the description (e.g. "photographed N months after planting"). */
   developmentNote?: string;
+  imageAlts?: string[];
 }
 
 export interface Project {
@@ -581,7 +582,33 @@ export const projects: Project[] = [
         "The garden fades gradually into the natural landscape surrounding the house. The outer edges transform into a traditional Mallorcan field, ensuring smooth integration. We begin by pruning existing vegetation and clearing the soil to prepare for new planting.",
         "For the larger open spaces, we propose informal but generous groupings of drought-tolerant species — <i>Lavandula dentata</i>, <i>Rosmarinus officinalis</i> 'Prostratus', <i>Perovskia atriplicifolia</i>, <i>Gaura lindheimeri</i>, <i>Teucrium fruticans</i>, <i>Pistacia lentiscus</i> and <i>Westringia fruticosa</i> — creating natural corridors for relaxed walks through the garden."
       ],
-      developmentNote: "These photographs were taken two months after planting — a garden still finding its shape, which will continue to fill in and mature over the coming seasons."
+      developmentNote: "These photographs were taken two months after planting — a garden still finding its shape, which will continue to fill in and mature over the coming seasons.",
+      imageAlts: [
+        "Integrated swimming pool in Sant Llorenç with timber decking and centenary olive trees",
+        "Sustainable Mediterranean garden with lavender and cypress trees near the country house",
+        "Estate garden design in Mallorca with native drought-resistant flora and dry stone masonry",
+        "Informal groups of Stipa tenuissima and young olive trees in a private estate of Mallorca",
+        "Traditional dry stone walls integrated with Mediterranean grasses and shrubs in Sant Llorenç",
+        "Symmetric Cypress line and mixed lavender beds framing the pathway of the Mallorca estate",
+        "Close-up of Olea europaea centenary foliage against the warm Mediterranean summer sky",
+        "Cottage-style country villa pathway lined with rosemary and wild lavender in Mallorca",
+        "Stately cypress trees rising above soft ornamental grasses and native ground covers",
+        "Outdoor relaxation area surrounded by drought-tolerant ornamental plants in Sant Llorenç",
+        "Detail of traditional dry stone masonry handcrafted by local artisans in Mallorca",
+        "Vibrant Perovskia atriplicifolia and lavender blossoms attracting pollinators in the garden",
+        "Overview of the estate garden transitions blending seamlessly into the natural landscape",
+        "Stipa tenuissima waves creating movement and texture along the garden paths",
+        "Finca landscape design featuring low-maintenance xeriscape garden beds in Mallorca",
+        "Earthy pathways lined with local gravel and bordered by robust Mediterranean plants",
+        "Warm sunlight filtering through olive tree branches onto a natural wild meadow",
+        "Traditional clay roof tiles of the villa framed by structural green cypress treetops",
+        "Scenic vista of the Mallorcan countryside hills integrated with the garden borders",
+        "Grouping of Rosmarinus officinalis and Teucrium fruticans in dry soil conditions",
+        "Elegantly pruned olive tree acting as a sculptural focus point in the landscape design",
+        "Detail of Gaura lindheimeri delicate pink-white flowers blooming in summer",
+        "Sustainable drip irrigation line feeding young cypress plants in Mallorca estate",
+        "Dusk view of the swimming pool reflecting the architectural lines and green landscape"
+      ]
     },
     es: {
       title: "Sant Llorenç",
@@ -594,8 +621,27 @@ export const projects: Project[] = [
         "Un concepto clave es mantener la casa oculta desde la entrada, de modo que aparezca como una sorpresa al final del camino, emergiendo de entre la vegetación. Los olivos centenarios (<i>Olea europaea</i>) se plantan en posiciones estratégicas e irregulares para anclar el paisaje. Como complemento, cipreses irregulares (<i>Cupressus sempervirens</i>) se elevan sobre el resto de la vegetación, evocando un ambiente tanto toscano como mallorquín.",
         "En los espacios abiertos más grandes, proponemos agrupaciones informales pero generosas de especies tolerantes a la sequía, como: <i>Lavandula dentata</i>, <i>Rosmarinus officinalis</i> 'Prostratus', <i>Perovskia atriplicifolia</i>, <i>Gaura lindheimeri</i>, <i>Leucophyllum</i>, <i>Teucrium fruticans</i>, <i>Pistacia lentiscus</i> y <i>Westringia fruticosa</i>. Estos grupos crearán pasillos naturales dentro del jardín, fomentando los paseos relajados y ofreciendo una experiencia envolvente. Los senderos se integrarán discretamente en el diseño general, manteniendo una atmósfera natural, relajada y armoniosa. En ciertas zonas, la vegetación se abrirá ligeramente para formar pequeños rincones acogedores donde sentarse y disfrutar del entorno.",
       ],
-      developmentNote: "Estas fotografías fueron tomadas dos meses después de la plantación — un jardín que aún está tomando forma y que continuará densificándose y madurando en las próximas estaciones."
-    },
+      developmentNote: "Estas fotografías fueron tomadas dos meses después de la plantación — un jardín que aún está tomando forma y que continuará densificándose y madurando en las próximas estaciones.",
+      imageAlts: [
+        "Piscina integrada en el paisaje de Sant Llorenç con tarima de madera y olivos centenarios",
+        "Jardín mediterráneo sostenible con plantación de lavanda y cipreses frente a la casa de campo",
+        "Diseño de jardín de finca en Mallorca con vegetación autóctona de secano y muros de piedra",
+        "Agrupaciones de gramíneas Stipa tenuissima y olivos jóvenes en una finca privada de Mallorca",
+        "Muros de piedra seca tradicionales integrados con gramíneas y arbustos en Sant Llorenç",
+        "Línea simétrica de cipreses y parterres de lavanda bordeando el camino de la finca",
+        "Detalle del follaje de un olivo centenario frente al cálido cielo de Mallorca",
+        "Sendero de villa de campo bordeado de romero y lavanda silvestre en Mallorca",
+        "Cipreses que se elevan sobre gramíneas ornamentales y tapizantes autóctonos",
+        "Zona de relajación al aire libre rodeada de plantas ornamentales resistentes a la sequía",
+        "Detalle de la mampostería tradicional de piedra seca construida a mano en Mallorca",
+        "Flores de Perovskia y lavanda atrayendo polinizadores en el jardín mediterráneo",
+        "Perspectiva de la transición del jardín fundiéndose con el paisaje natural de la finca",
+        "Hojas de Stipa tenuissima aportando movimiento y textura a lo largo de los senderos",
+        "Diseño paisajístico de finca con parterres de bajo mantenimiento en Mallorca",
+        "Caminos de tierra con grava local bordeados por plantas mediterráneas robustas",
+        "Luz solar cálida filtrándose a través de las ramas de un olivo sobre una pradera silvestre",
+        "Tejas de arcilla tradicionales de la villa enmarcadas por cipreses estructurales",
+        "Vista panorámica del campo mallorquín integrada con los límites del jardín",
     de: {
       title: "Sant Llorenç",
       subtitle: "Eine nachhaltige Landschaft, konzipiert als allmähliche Enthüllung",
@@ -606,6 +652,33 @@ export const projects: Project[] = [
         "Um das Haus herum geht der Garten allmählich in die natürliche Landschaft über. Die äußeren Ränder des Grundstücks werden in ein traditionelles mallorquinisches Feld verwandelt, das sich nahtlos in die Umgebung einfügt. Der Prozess beginnt mit dem Beschneiden der vorhandenen Vegetation und dem Ausräumen des Bodens, um ihn für die Neupflanzung vorzubereiten.",
         "Ein Schlüsselkonzept besteht darin, das Haus vor dem Eingang zu verstecken, so dass es am Ende des Weges als Überraschung aus der Vegetation auftaucht. Hundertjährige Olivenbäume (<i>Olea europaea</i>) werden an strategischen, unregelmäßigen Stellen gepflanzt, um die Landschaft zu verankern. Ergänzend dazu erheben sich unregelmäßige Zypressen (<i>Cupressus sempervirens</i>) über den Rest der Vegetation, die sowohl eine toskanische als auch eine mallorquinische Atmosphäre hervorrufen.",
         "Für die größeren Freiflächen schlagen wir lockere, aber großzügige Gruppierungen trockenheitstoleranter Arten vor, wie z.B.: <i>Lavandula dentata</i>, <i>Rosmarinus officinalis</i> 'Prostratus', <i>Perovskia atriplicifolia</i>, <i>Gaura lindheimeri</i>, <i>Leucophyllum</i>, <i>Teucrium fruticans</i>, <i>Pistacia lentiscus</i>, und <i>Westringia fruticosa</i>. Diese Gruppen werden natürliche Korridore im Garten bilden, die zu entspannten Spaziergängen einladen und ein intensives Erlebnis bieten. Die Wege werden sich diskret in das Gesamtdesign einfügen und eine natürliche, entspannte und harmonische Atmosphäre schaffen. In bestimmten Bereichen wird sich die Vegetation leicht öffnen und kleine, einladende Plätze bilden, an denen man sitzen und die Umgebung genießen kann.",
+      ],
+      developmentNote: "Diese Aufnahmen entstanden zwei Monate nach der Pflanzung — ein Garten, der noch seine Form findet und sich in den kommenden Jahreszeiten weiter verdichten und entwickeln wird.",
+      imageAlts: [
+        "Integriertes Schwimmbad in Sant Llorenç mit Holzdeck und jahrhundertealten Olivenbäumen",
+        "Nachhaltiger mediterraner Garten mit Lavendel- und Zypressenpflanzung vor dem Landhaus",
+        "Gartengestaltung auf Mallorca mit einheimischer trockenheitsresistenter Flora und Naturstein",
+        "Informelle Gruppen von Stipa tenuissima und jungen Olivenbäumen auf einem privaten Landgut",
+        "Traditionelle Trockenmauern integriert mit mediterranen Gräsern und Sträuchern in Sant Llorenç",
+        "Symmetrische Zypressenreihe und Lavendelbeete entlang des Weges des Landguts auf Mallorca",
+        "Nahaufnahme der Blätter eines hundertjährigen Olivenbaums vor dem warmen Sommerhimmel",
+        "Weg einer Landvilla gesäumt von Rosmarin und wildem Lavendel auf Mallorca",
+        "Zypressen, die sich über Ziergräsern und einheimischen Bodendeckern erheben",
+        "Entspannungsbereich im Freien umgeben von trockenheitsresistenten Zierpflanzen in Sant Llorenç",
+        "Detail des traditionellen mallorquinischen Trockenmauerwerks von lokalen Handwerkern",
+        "Blühende Perovskia und Lavendel, die Bestäuber im mediterranen Garten anziehen",
+        "Übersicht über die Gartenübergänge des Landguts, die nahtlos in die Natur übergehen",
+        "Stipa tenuissima-Wellen sorgen für Bewegung und Textur entlang der Gartenwege",
+        "Landschaftsgestaltung mit pflegeleichten Xeriscape-Gartenbeeten auf Mallorca",
+        "Kieswege gesäumt von robusten mediterranen Pflanzen auf dem Landgut",
+        "Warmes Sonnenlicht, das durch die Zweige eines Olivenbaums auf eine Wildwiese fällt",
+        "Traditionelle Tondachziegel der Villa umrahmt von Zypressengipfeln",
+        "Panoramablick auf die mallorquinische Landschaft integriert mit den Gartenrändern",
+        "Gruppe von Rosmarinus officinalis und Teucrium fruticans in trockenem Boden",
+        "Elegant geschnittener Olivenbaum als skulpturaler Mittelpunkt der Landschaftsgestaltung",
+        "Detail von zartrosa-weißen Blüten der Gaura lindheimeri im Sommer",
+        "Effizientes Tröpfchenbewässerungssystem zur Versorgung junger Zypressen auf dem Landgut",
+        "Dämmerungsblick auf den Pool, der die Steinarchitektur und die grüne Landschaft reflektiert"
       ],
       developmentNote: "Diese Aufnahmen entstanden zwei Monate nach der Pflanzung — ein Garten, der noch seine Form findet und sich in den kommenden Jahreszeiten weiter verdichten und entwickeln wird."
     }
