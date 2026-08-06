@@ -74,40 +74,44 @@ const readingTime = Math.max(1, Math.ceil(wordCount / 200));
     hreflangLocales={['en']}
     noindex={props.post.data.noindex}
   >
-    <section class="blog-hero">
-      <div class="video-container" aria-hidden="true">
-        <video autoplay loop muted playsinline aria-label="Decorative background video">
+    <section class="blog-hero" style="position: relative; height: 75vh; min-height: 550px; display: flex; align-items: center; justify-content: center; text-align: center; color: white; overflow: hidden; padding-top: 140px;">
+      <div class="video-container" aria-hidden="true" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
+        <video autoplay loop muted playsinline aria-label="Decorative background video" style="width: 100%; height: 100%; object-fit: cover;">
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
         </video>
-        <div class="overlay"></div>
+        <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 2;"></div>
       </div>
+      
       {props.kind === 'blog' && (
-        <div class="blog-nav-premium">
+        <div class="blog-navigation-v3" style="position: absolute; top: 140px; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; align-items: center; justify-content: space-between; width: 90%; max-width: 450px; padding: 0.6rem 0; border-top: 1px solid rgba(255, 255, 255, 0.2); border-bottom: 1px solid rgba(255, 255, 255, 0.2); font-family: 'Jost', sans-serif; font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase;">
           {prevPost ? (
-            <a href={`/${prevPost.slug}/`} class="nav-arrow prev" title={prevPost.title}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-              <span>PREVIOUS</span>
+            <a href={`/${prevPost.slug}/`} class="nav-arrow prev" title={prevPost.title} style="color: rgba(255, 255, 255, 0.65); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.3s ease;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: -0.1em;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+              <span class="nav-text-desktop" style="font-size: 0.65rem; font-weight: 400; opacity: 0.8;">PREVIOUS</span>
             </a>
           ) : (
-            <span class="nav-arrow-disabled"></span>
+            <span class="nav-arrow-disabled" style="width: 80px; display: inline-block;"></span>
           )}
-          <a href="/blog/" class="nav-blog-link">
+          
+          <a href="/blog/" class="nav-blog-link" style="color: rgba(255, 255, 255, 0.95); text-decoration: none; font-weight: 500; padding-left: 0.25em; transition: color 0.3s ease;">
             JOURNAL
           </a>
+          
           {nextPost ? (
-            <a href={`/${nextPost.slug}/`} class="nav-arrow next" title={nextPost.title}>
-              <span>NEXT</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <a href={`/${nextPost.slug}/`} class="nav-arrow next" title={nextPost.title} style="color: rgba(255, 255, 255, 0.65); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.3s ease;">
+              <span class="nav-text-desktop" style="font-size: 0.65rem; font-weight: 400; opacity: 0.8;">NEXT</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: -0.1em;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           ) : (
-            <span class="nav-arrow-disabled"></span>
+            <span class="nav-arrow-disabled" style="width: 80px; display: inline-block;"></span>
           )}
         </div>
       )}
-      <div class="hero-content">
-        <h1 set:html={props.post.data.title} />
+      
+      <div class="hero-content" style="position: relative; z-index: 3; max-width: 900px; padding: 2rem; padding-top: 100px;">
+        <h1 set:html={props.post.data.title} style="font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; font-weight: 400; color: white;" />
         {props.kind === 'blog' && (
-          <span class="ux-meta">
+          <span class="ux-meta" style="font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.85rem; opacity: 0.9; display: inline-block; border-top: 1px solid rgba(255, 255, 255, 0.3); padding-top: 1rem; margin-top: 0.5rem; color: white;">
             S'ESTEPA STUDIO &nbsp;&middot;&nbsp; {readingTime} MIN READ
           </span>
         )}
@@ -122,91 +126,23 @@ const readingTime = Math.max(1, Math.ceil(wordCount / 200));
   </Layout>
 )}
 
-<style>
-  .hero-content {
-    padding-top: 120px;
-  }
-
+<style is:global>
   @media (max-width: 768px) {
-    .hero-content {
-      padding-top: 90px;
+    .blog-navigation-v3 {
+      top: 110px !important;
+      max-width: 280px !important;
+    }
+    .blog-navigation-v3 .nav-text-desktop {
+      display: none !important;
+    }
+    .blog-navigation-v3 .nav-arrow-disabled {
+      width: 20px !important;
     }
   }
-
-  .blog-nav-premium {
-    position: absolute;
-    top: 140px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    max-width: 450px;
-    padding: 0.5rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    font-family: 'Jost', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-  }
-  
-  .blog-nav-premium a {
-    color: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    transition: color 0.3s ease, opacity 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .blog-nav-premium a:hover {
-    color: #ffffff;
-  }
-  
-  .blog-nav-premium .nav-blog-link {
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.85);
-    padding-left: 0.25em;
-  }
-
-  .blog-nav-premium .nav-arrow {
-    display: flex;
-    align-items: center;
-  }
-
-  .blog-nav-premium .nav-arrow span {
-    font-size: 0.65rem;
-    font-weight: 400;
-    opacity: 0.8;
-  }
-
-  .blog-nav-premium .nav-arrow.prev svg {
-    margin-right: -0.1em;
-  }
-
-  .blog-nav-premium .nav-arrow.next svg {
-    margin-left: -0.1em;
-  }
-
-  .blog-nav-premium .nav-arrow-disabled {
-    width: 80px;
-  }
-
-  @media (max-width: 768px) {
-    .blog-nav-premium {
-      top: 110px;
-      max-width: 280px;
-    }
-    .blog-nav-premium .nav-arrow span {
-      display: none;
-    }
-    .blog-nav-premium .nav-arrow-disabled {
-      width: 20px;
-    }
+  .blog-navigation-v3 a:hover {
+    color: #ffffff !important;
   }
 </style>
+
 
 
