@@ -642,6 +642,13 @@ export const projects: Project[] = [
         "Luz solar cálida filtrándose a través de las ramas de un olivo sobre una pradera silvestre",
         "Tejas de arcilla tradicionales de la villa enmarcadas por cipreses estructurales",
         "Vista panorámica del campo mallorquín integrada con los límites del jardín",
+        "Agrupación de Rosmarinus officinalis y Teucrium fruticans adaptados a suelos secos",
+        "Olivo podado con elegancia actuando como punto focal escultórico en el paisaje",
+        "Detalle de flores de Gaura lindheimeri de color rosa y blanco floreciendo en verano",
+        "Línea de riego por goteo eficiente alimentando cipreses jóvenes en la finca",
+        "Vista crepuscular de la piscina reflejando la arquitectura de piedra y la vegetación"
+      ]
+    },
     de: {
       title: "Sant Llorenç",
       subtitle: "Eine nachhaltige Landschaft, konzipiert als allmähliche Enthüllung",
