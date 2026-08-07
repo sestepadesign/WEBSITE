@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { ui } from '../../data/translations';
-import { projects } from '../../data/projects';
+import { projects, getProjectLocation } from '../../data/projects';
 import {
   PORTFOLIO_FILTER_ORDER,
   getProjectCategory,
@@ -80,7 +80,7 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
                 slug={project.slug}
                 title={project[lang].title}
                 category={project[lang].category}
-                location={project.location}
+                location={getProjectLocation(project, lang)}
                 cover={project.cover}
                 lang={lang}
                 size={project.size}

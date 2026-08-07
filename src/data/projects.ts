@@ -577,10 +577,10 @@ export const projects: Project[] = [
       category: "Estate Garden",
       botanical: "Olea europaea var. sylvestris (Ullastre), Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
       description: [
-        "Before a garden reaches its full splendor, there's a stage just as beautiful: watching it grow.",
-        "This Sant Llorenç garden is just two months into planting, so it's still very much in development. The plants are establishing themselves, growing, and settling into their space naturally. With each passing season, it will gain more volume, texture, and color.",
-        "For this project, we wanted to preserve the existing wild olive trees (ullastres) — hardy trees representative of the Mallorcan garrigue — using them as the foundation of the design. Around them, we created a landscape with a wild character, composed of naturally flowering, low-maintenance species able to coexist and bring color and movement for much of the year.",
-        "It's a garden designed to evolve over time, where nature is the true protagonist."
+        "Before a garden reaches its full potential, there is an equally beautiful stage: watching it grow.",
+        "This garden in Sant Llorenç was planted just two months ago, so it is still very much in the early stages of development. The plants are establishing themselves, growing and naturally filling out their space. As the seasons pass, the garden will gradually gain more volume, texture and colour.",
+        "For this project, we wanted to preserve the existing wild olive trees (ullastres), hardy trees that are characteristic of Mallorca's native garriga landscape, using them as the foundation of the design. Around them, we created a natural, wild-inspired landscape composed of low-maintenance flowering species that can thrive together while bringing colour and movement to the garden throughout much of the year.",
+        "This is a garden designed to evolve over time, with nature as the true protagonist."
       ],
       imageAlts: [
         "Integrated swimming pool in Sant Llorenç with timber decking and centenary olive trees",
@@ -1182,3 +1182,15 @@ export const projects: Project[] = [
     }
   }
 ];
+
+export const LOCATION_OVERRIDES: Partial<Record<string, Record<'en' | 'es' | 'de', string>>> = {
+  'jardin-mediterraneo': {
+    en: 'Mallorca, Balearic Islands',
+    es: 'Mallorca, Islas Baleares',
+    de: 'Mallorca, Balearische Inseln',
+  },
+};
+
+export function getProjectLocation(project: Project, lang: 'en' | 'es' | 'de'): string {
+  return LOCATION_OVERRIDES[project.slug]?.[lang] ?? project.location;
+}
