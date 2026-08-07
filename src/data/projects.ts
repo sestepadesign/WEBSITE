@@ -577,12 +577,11 @@ export const projects: Project[] = [
       category: "Estate Garden",
       botanical: "Olea europaea (Centenary), Cupressus sempervirens, Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
       description: [
-        "The Sant Llorenç region is defined by a warm, dry climate. We propose a sustainable garden utilizing drought-resistant plants with low water requirements. This design preserves native species while reinforcing Mallorcan identity.",
-        "A key concept is to keep the house hidden from the entrance, so it appears as a surprise at the end of the path, emerging from the vegetation. Centenary olive trees (<i>Olea europaea</i>) are planted in strategic, irregular positions to anchor the landscape. As a complement, irregular cypresses (<i>Cupressus sempervirens</i>) rise above the rest of the vegetation, evoking both a Tuscan and a Mallorcan atmosphere.",
-        "The garden fades gradually into the natural landscape surrounding the house. The outer edges transform into a traditional Mallorcan field, ensuring smooth integration. We begin by pruning existing vegetation and clearing the soil to prepare for new planting.",
-        "For the larger open spaces, we propose informal but generous groupings of drought-tolerant species — <i>Lavandula dentata</i>, <i>Rosmarinus officinalis</i> 'Prostratus', <i>Perovskia atriplicifolia</i>, <i>Gaura lindheimeri</i>, <i>Teucrium fruticans</i>, <i>Pistacia lentiscus</i> and <i>Westringia fruticosa</i> — creating natural corridors for relaxed walks through the garden."
+        "Before a garden reaches its full splendor, there's a stage just as beautiful: watching it grow.",
+        "This Sant Llorenç garden is just two months into planting, so it's still very much in development. The plants are establishing themselves, growing, and settling into their space naturally. With each passing season, it will gain more volume, texture, and color.",
+        "For this project, we wanted to preserve the existing wild olive trees (ullastres) — hardy trees representative of the Mallorcan garrigue — using them as the foundation of the design. Around them, we created a landscape with a wild character, composed of naturally flowering, low-maintenance species able to coexist and bring color and movement for much of the year.",
+        "It's a garden designed to evolve over time, where nature is the true protagonist."
       ],
-      developmentNote: "These photographs were taken two months after planting — a garden still finding its shape, which will continue to fill in and mature over the coming seasons.",
       imageAlts: [
         "Integrated swimming pool in Sant Llorenç with timber decking and centenary olive trees",
         "Dusk view of the swimming pool reflecting the architectural lines and green landscape",
@@ -616,12 +615,11 @@ export const projects: Project[] = [
       category: "Jardín de Finca",
       botanical: "Olea europaea (Centenario), Cupressus sempervirens, Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
       description: [
-        "La zona de Sant Llorenç se define por su clima cálido y seco. Por ello, proponemos un jardín más sostenible, basado en plantas resistentes a la sequía y al sol, con bajos requerimientos hídricos. El diseño busca preservar las especies autóctonas al tiempo que refuerza la identidad mediterránea y mallorquina.",
-        "Alrededor de la casa, el jardín se desvanece gradualmente en el paisaje natural. Los bordes exteriores de la propiedad se transforman en un campo tradicional mallorquín, asegurando una suave integración con el entorno. El proceso comienza con la poda de la vegetación existente y la limpieza del suelo, preparándolo para la nueva plantación.",
-        "Un concepto clave es mantener la casa oculta desde la entrada, de modo que aparezca como una sorpresa al final del camino, emergiendo de entre la vegetación. Los olivos centenarios (<i>Olea europaea</i>) se plantan en posiciones estratégicas e irregulares para anclar el paisaje. Como complemento, cipreses irregulares (<i>Cupressus sempervirens</i>) se elevan sobre el resto de la vegetación, evocando un ambiente tanto toscano como mallorquín.",
-        "En los espacios abiertos más grandes, proponemos agrupaciones informales pero generosas de especies tolerantes a la sequía, como: <i>Lavandula dentata</i>, <i>Rosmarinus officinalis</i> 'Prostratus', <i>Perovskia atriplicifolia</i>, <i>Gaura lindheimeri</i>, <i>Leucophyllum</i>, <i>Teucrium fruticans</i>, <i>Pistacia lentiscus</i> y <i>Westringia fruticosa</i>. Estos grupos crearán pasillos naturales dentro del jardín, fomentando los paseos relajados y ofreciendo una experiencia envolvente. Los senderos se integrarán discretamente en el diseño general, manteniendo una atmósfera natural, relajada y armoniosa. En ciertas zonas, la vegetación se abrirá ligeramente para formar pequeños rincones acogedores donde sentarse y disfrutar del entorno.",
+        "Antes de que un jardín alcance su máximo esplendor, hay una etapa igual de bonita: verlo crecer.",
+        "Este jardín de Sant Llorenç tiene apenas dos meses desde su plantación, por lo que se encuentra en pleno proceso de desarrollo. Las plantas aún están estableciéndose, creciendo y ocupando su espacio de forma natural. Con el paso de las estaciones irá adquiriendo cada vez más volumen, textura y color.",
+        "En este proyecto quisimos conservar los acebuches (ullastres) existentes, árboles resistentes y representativos de la garriga mallorquina, utilizándolos como base del diseño. A su alrededor creamos un paisaje de carácter silvestre, compuesto por especies de floración natural y bajo mantenimiento, capaces de convivir entre sí y aportar color y movimiento durante gran parte del año.",
+        "Es un jardín pensado para evolucionar con el tiempo, donde la naturaleza es la verdadera protagonista."
       ],
-      developmentNote: "Estas fotografías fueron tomadas dos meses después de la plantación — un jardín que aún está tomando forma y que continuará densificándose y madurando en las próximas estaciones.",
       imageAlts: [
         "Piscina integrada en el paisaje de Sant Llorenç con tarima de madera y olivos centenarios",
         "Vista crepuscular de la piscina reflejando la arquitectura de piedra y la vegetación",
@@ -655,12 +653,11 @@ export const projects: Project[] = [
       category: "Landgut Garten",
       botanical: "Olea europaea (Centenary), Cupressus sempervirens, Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
       description: [
-        "Das Gebiet von Sant Llorenç ist durch sein warmes, trockenes Klima geprägt. Aus diesem Grund schlagen wir einen nachhaltigeren Garten vor, der auf trockenheits- und sonnenresistenten Pflanzen mit geringem Wasserbedarf basiert. Der Entwurf zielt darauf ab, einheimische Arten zu erhalten und gleichzeitig die mediterrane und mallorquinische Identität zu stärken.",
-        "Um das Haus herum geht der Garten allmählich in die natürliche Landschaft über. Die äußeren Ränder des Grundstücks werden in ein traditionelles mallorquinisches Feld verwandelt, das sich nahtlos in die Umgebung einfügt. Der Prozess beginnt mit dem Beschneiden der vorhandenen Vegetation und dem Ausräumen des Bodens, um ihn für die Neupflanzung vorzubereiten.",
-        "Ein Schlüsselkonzept besteht darin, das Haus vor dem Eingang zu verstecken, so dass es am Ende des Weges als Überraschung aus der Vegetation auftaucht. Hundertjährige Olivenbäume (<i>Olea europaea</i>) werden an strategischen, unregelmäßigen Stellen gepflanzt, um die Landschaft zu verankern. Ergänzend dazu erheben sich unregelmäßige Zypressen (<i>Cupressus sempervirens</i>) über den Rest der Vegetation, die sowohl eine toskanische als auch eine mallorquinische Atmosphäre hervorrufen.",
-        "Für die größeren Freiflächen schlagen wir lockere, aber großzügige Gruppierungen trockenheitstoleranter Arten vor, wie z.B.: <i>Lavandula dentata</i>, <i>Rosmarinus officinalis</i> 'Prostratus', <i>Perovskia atriplicifolia</i>, <i>Gaura lindheimeri</i>, <i>Leucophyllum</i>, <i>Teucrium fruticans</i>, <i>Pistacia lentiscus</i>, und <i>Westringia fruticosa</i>. Diese Gruppen werden natürliche Korridore im Garten bilden, die zu entspannten Spaziergängen einladen und ein intensives Erlebnis bieten. Die Wege werden sich diskret in das Gesamtdesign einfügen und eine natürliche, entspannte und harmonische Atmosphäre schaffen. In bestimmten Bereichen wird sich die Vegetation leicht öffnen und kleine, einladende Plätze bilden, an denen man sitzen und die Umgebung genießen kann.",
+        "Bevor ein Garten seine volle Pracht erreicht, gibt es eine ebenso schöne Phase: ihm beim Wachsen zuzusehen.",
+        "Dieser Garten in Sant Llorenç ist erst zwei Monate nach der Pflanzung alt und befindet sich somit noch mitten in der Entwicklung. Die Pflanzen etablieren sich, wachsen und nehmen auf natürliche Weise ihren Raum ein. Mit jeder Jahreszeit wird er zunehmend an Volumen, Textur und Farbe gewinnen.",
+        "Bei diesem Projekt wollten wir die vorhandenen wilden Olivenbäume (Ullastres) erhalten — robuste Bäume, die typisch für die mallorquinische Garriga sind — und sie als Grundlage des Entwurfs nutzen. Darum herum haben wir eine Landschaft mit wildem Charakter geschaffen, bestehend aus natürlich blühenden, pflegeleichten Arten, die miteinander harmonieren und einen Großteil des Jahres über Farbe und Bewegung bringen.",
+        "Es ist ein Garten, der dafür gedacht ist, sich mit der Zeit zu entwickeln — die Natur ist der wahre Protagonist."
       ],
-      developmentNote: "Diese Aufnahmen entstanden zwei Monate nach der Pflanzung — ein Garten, der noch seine Form findet und sich in den kommenden Jahreszeiten weiter verdichten und entwickeln wird.",
       imageAlts: [
         "Integriertes Schwimmbad in Sant Llorenç mit Holzdeck und jahrhundertealten Olivenbäumen",
         "Dämmerungsblick auf den Pool, der die Steinarchitektur und die grüne Landschaft reflektiert",
@@ -691,7 +688,7 @@ export const projects: Project[] = [
   },
   {
     slug: "jardin-mediterraneo",
-    location: "Sant Llorenç des Cardassar",
+    location: "Mallorca",
     year: "2024",
     architect: null,
     video: "https://www.youtube.com/embed/Aynezzlact0?feature=oembed",
