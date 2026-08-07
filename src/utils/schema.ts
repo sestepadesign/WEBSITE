@@ -208,8 +208,8 @@ export function getLocalizedSchema(
           "https://schema.org/Thursday",
           "https://schema.org/Friday"
         ],
-        "opens": "09:00",
-        "closes": "17:00"
+        "opens": "08:00",
+        "closes": "16:00"
       }
     ],
     "knowsAbout": [
