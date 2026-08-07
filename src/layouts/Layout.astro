@@ -70,24 +70,51 @@ const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogL
     <!-- Start cookieyes banner -->
     <script id="cookieyes" is:inline src={`https://cdn-cookieyes.com/client_data/${COOKIEYES_CLIENT_ID}/script.js`}></script>
     <!-- End cookieyes banner -->
-    <!-- Google Tag Manager -->
-    <script type="text/partytown" define:vars={{ GTM_ID }}>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer',GTM_ID);
-    </script>
-    <!-- End Google Tag Manager -->
-    <!-- Google tag (gtag.js) -->
-    <script type="text/partytown" src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}></script>
-    <script type="text/partytown" define:vars={{ GTAG_ID, GOOGLE_ADS_ID, GA4_ID }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', GTAG_ID);
-      gtag('config', GOOGLE_ADS_ID);
-      gtag('config', GA4_ID);
+    <!-- Google Tag Manager & Google Ads (Carregamento Tardio na Thread Principal) -->
+    <script is:inline define:vars={{ GTM_ID, GTAG_ID, GOOGLE_ADS_ID, GA4_ID }}>
+      (function() {
+        let trackingLoaded = false;
+
+        function loadTracking() {
+          if (trackingLoaded) return;
+          trackingLoaded = true;
+
+          // 1. Inicialização do dataLayer e gtag
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function() { window.dataLayer.push(arguments); };
+          window.gtag('js', new Date());
+          window.gtag('config', GTAG_ID);
+          window.gtag('config', GOOGLE_ADS_ID);
+          window.gtag('config', GA4_ID);
+
+          // 2. Injeção do script da biblioteca global gtag.js
+          const gtagScript = document.createElement('script');
+          gtagScript.async = true;
+          gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`;
+          document.head.appendChild(gtagScript);
+
+          // 3. Injeção e inicialização do Google Tag Manager
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';var scr=d.createElement(s);
+          scr.async=true;scr.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+          f.parentNode.insertBefore(scr,f);
+          })(window,document,'script','dataLayer',GTM_ID);
+        }
+
+        // Gatilhos de ativação baseados em interação física
+        const interactionEvents = ['scroll', 'mousemove', 'touchstart'];
+        function triggerTracking() {
+          loadTracking();
+          interactionEvents.forEach(event => window.removeEventListener(event, triggerTracking));
+        }
+
+        // Registrar ouvintes de evento
+        interactionEvents.forEach(event => window.addEventListener(event, triggerTracking, { passive: true }));
+
+        // Fallback de segurança de 3,5 segundos
+        setTimeout(loadTracking, 3500);
+      })();
     </script>
 
     <link rel="preload" as="font" href="/fonts/jost-400.woff2" type="font/woff2" crossorigin="anonymous" />
