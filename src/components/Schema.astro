@@ -91,6 +91,8 @@ if (project) {
 
 if (project) {
   const translation = project[currentLocale] ?? project.en;
+  
+  // Existing ImageGallery schema
   schemas.push({
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -102,6 +104,37 @@ if (project) {
       "image": project.images.map(img => `${SITE_URL_PRODUCTION}/portfolio/${project.slug}/images/${img}`)
     }
   });
+
+  // Additive LandscapingProject schema for enhanced entity signaling
+  const projectSchema: any = {
+    "@context": "https://schema.org",
+    "@type": "LandscapingProject",
+    "@id": `${currentUrl}#project`,
+    "name": translation.title,
+    "description": translation.subtitle,
+    "url": currentUrl,
+    "creator": {
+      "@id": "https://design.sestepa.com/#business"
+    }
+  };
+
+  if (project.wikidataLocation) {
+    projectSchema.locationCreated = {
+      "@type": "Place",
+      "name": project.location,
+      "sameAs": project.wikidataLocation
+    };
+  }
+
+  if (project.client) {
+    projectSchema.sponsor = {
+      "@type": project.client.type,
+      "name": project.client.name,
+      ...(project.client.sameAs ? { "sameAs": project.client.sameAs } : {})
+    };
+  }
+
+  schemas.push(projectSchema);
 }
 ---
 
