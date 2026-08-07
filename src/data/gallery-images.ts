@@ -50,12 +50,12 @@ export const galleryImages: GalleryImageEntry[] = [
     projectSlug: jardinMediterraneo,
   },
   {
-    src: '/portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-6-1.jpg',
+    src: '/portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-6-1.webp',
     alt: 'MEDITERRANEAN GARDEN ESTATE HOUSE MALLORCA SESTEPA DESIGN',
     projectSlug: jardinMediterraneo,
   },
   {
-    src: '/portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-10.jpg',
+    src: '/portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-10.webp',
     alt: 'MEDITERRANEAN GARDEN ESTATE POOL MALLORCA SESTEPA DESIGN',
     projectSlug: jardinMediterraneo,
   },
