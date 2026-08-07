@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { ui } from '../../data/translations';
-import { projects } from '../../data/projects';
+import { projects, getProjectLocation } from '../../data/projects';
 import ProjectCard from '../ProjectCard.astro';
 import { getPagePath, getProjectPath } from '../../lib/urls';
 
@@ -392,7 +392,7 @@ const currentJourney = journeyData[lang];
               slug={santLlorencProject.slug}
               title={santLlorencProject[lang].title}
               category={santLlorencProject[lang].category}
-              location={santLlorencProject.location}
+              location={getProjectLocation(santLlorencProject, lang)}
               cover={santLlorencProject.cover}
               lang={lang}
               large={true}
@@ -406,7 +406,7 @@ const currentJourney = journeyData[lang];
               slug={project.slug}
               title={project[lang].title}
               category={project[lang].category}
-              location={project.location}
+              location={getProjectLocation(project, lang)}
               cover={project.cover}
               lang={lang}
               size={project.size}

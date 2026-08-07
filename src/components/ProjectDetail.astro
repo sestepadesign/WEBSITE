@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { ui } from '../data/translations';
-import { type Project, projects } from '../data/projects';
+import { type Project, projects, getProjectLocation } from '../data/projects';
 import { getProjectCategory } from '../data/portfolio-categories';
 import { pedroQuote } from '../lib/quotes';
 import { getPagePath, getProjectPath } from '../lib/urls';
@@ -29,9 +29,11 @@ const t = (key: keyof typeof ui[typeof lang]) => {
 const translation = project[lang];
 const pageTitle = `${translation.title} | S'Estepa Design`;
 const pageDescription = translation.description[0] || "";
-const formattedLocation = project.location.toLowerCase().includes('mallorca')
-  ? project.location
-  : `${project.location}, Mallorca`;
+const projectLocation = getProjectLocation(project, lang);
+const nextProjectLocation = getProjectLocation(nextProject, lang);
+const formattedLocation = projectLocation.toLowerCase().includes('mallorca')
+  ? projectLocation
+  : `${projectLocation}, Mallorca`;
 ---
 
 <Layout 
@@ -65,7 +67,7 @@ const formattedLocation = project.location.toLowerCase().includes('mallorca')
       ) : (
         <img
           src={project.cover}
-          alt={`${translation.title} — Garden Design ${project.location}, Mallorca`}
+          alt={`${translation.title} — Garden Design ${formattedLocation}`}
           class="project-cover-img"
           style={project.coverPosition ? `object-position: ${project.coverPosition};` : undefined}
           fetchpriority="high"
@@ -131,7 +133,7 @@ const formattedLocation = project.location.toLowerCase().includes('mallorca')
 
           <div class="meta-item">
             <span class="meta-label">{t('project.location')}</span>
-            <span class="meta-value">{project.location}</span>
+            <span class="meta-value">{projectLocation}</span>
           </div>
 
           {project.size && (
@@ -257,7 +259,7 @@ const formattedLocation = project.location.toLowerCase().includes('mallorca')
     <section class="next-project-hero">
       <a href={getProjectPath(nextProject.slug, lang)} class="next-project-link">
         <div class="next-project-bg">
-          <img src={nextProject.cover} alt={`${nextProjectTranslation.title} — Garden Design ${nextProject.location}, Mallorca`} loading="lazy" class="next-project-img" />
+          <img src={nextProject.cover} alt={`${nextProjectTranslation.title} — Garden Design ${nextProjectLocation.toLowerCase().includes('mallorca') ? nextProjectLocation : `${nextProjectLocation}, Mallorca`}`} loading="lazy" class="next-project-img" />
           <div class="next-project-overlay"></div>
         </div>
         <div class="next-project-content">

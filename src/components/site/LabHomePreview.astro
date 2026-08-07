@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { ui } from '../../data/translations';
-import { projects } from '../../data/projects';
+import { projects, getProjectLocation } from '../../data/projects';
 import ProjectCard from '../ProjectCard.astro';
 import { getPagePath, getProjectPath } from '../../lib/urls';
 
@@ -169,7 +169,7 @@ const estateProjects = [santLlorencProject, camposProject].filter(Boolean);
             slug={p.slug}
             title={p[lang].title}
             category={p[lang].category}
-            location={p.location}
+            location={getProjectLocation(p, lang)}
             cover={p.cover}
             lang={lang}
             size={p.size}
