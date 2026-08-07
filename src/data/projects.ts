@@ -575,7 +575,7 @@ export const projects: Project[] = [
       title: "Sant Llorenç",
       subtitle: "A sustainable landscape designed as a gradual reveal",
       category: "Estate Garden",
-      botanical: "Olea europaea (Centenary), Cupressus sempervirens, Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
+      botanical: "Olea europaea var. sylvestris (Ullastre), Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
       description: [
         "Before a garden reaches its full splendor, there's a stage just as beautiful: watching it grow.",
         "This Sant Llorenç garden is just two months into planting, so it's still very much in development. The plants are establishing themselves, growing, and settling into their space naturally. With each passing season, it will gain more volume, texture, and color.",
@@ -613,7 +613,7 @@ export const projects: Project[] = [
       title: "Sant Llorenç",
       subtitle: "Un paisaje sostenible diseñado como una revelación gradual",
       category: "Jardín de Finca",
-      botanical: "Olea europaea (Centenario), Cupressus sempervirens, Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
+      botanical: "Olea europaea var. sylvestris (Ullastre), Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
       description: [
         "Antes de que un jardín alcance su máximo esplendor, hay una etapa igual de bonita: verlo crecer.",
         "Este jardín de Sant Llorenç tiene apenas dos meses desde su plantación, por lo que se encuentra en pleno proceso de desarrollo. Las plantas aún están estableciéndose, creciendo y ocupando su espacio de forma natural. Con el paso de las estaciones irá adquiriendo cada vez más volumen, textura y color.",
@@ -651,7 +651,7 @@ export const projects: Project[] = [
       title: "Sant Llorenç",
       subtitle: "Eine nachhaltige Landschaft, konzipiert als allmähliche Enthüllung",
       category: "Landgut Garten",
-      botanical: "Olea europaea (Centenary), Cupressus sempervirens, Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
+      botanical: "Olea europaea var. sylvestris (Ullastre), Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
       description: [
         "Bevor ein Garten seine volle Pracht erreicht, gibt es eine ebenso schöne Phase: ihm beim Wachsen zuzusehen.",
         "Dieser Garten in Sant Llorenç ist erst zwei Monate nach der Pflanzung alt und befindet sich somit noch mitten in der Entwicklung. Die Pflanzen etablieren sich, wachsen und nehmen auf natürliche Weise ihren Raum ein. Mit jeder Jahreszeit wird er zunehmend an Volumen, Textur und Farbe gewinnen.",
