@@ -7,6 +7,16 @@ Astro static site for design.sestepa.com (landscape architecture studio, Mallorc
 Before modifying any code, **you MUST read `STATUS.md`** in the root directory. 
 - You must verify that the local codebase is up-to-date with the checksum in `STATUS.md`. If it is outdated, `git pull` first.
 - When finishing your session, you **MUST write your session log** at the top of the "HISTÓRICO DE SESSÕES" section in `STATUS.md`, including your branch/commit hash, to preserve state for the next agent. This is non-negotiable.
+- **`STATUS.md` does not exist yet in this repo as of 2026-08-07** (checked full `git log --all -- STATUS.md`: never committed, by anyone). It's being bootstrapped separately — don't treat its absence as an error, and don't invent its contents from scratch without checking with the user first.
+
+## Wider team context (S'Estepa / "1. WEBSITES")
+
+This repo is one of several sites (`sestepa-design`, `ines-grimaux`, `grimaux-net`, `castro-alves`) managed by a small team through a shared Google Drive folder (`G:\Meu Drive\1. WEBSITES\`), edited by multiple people and AI tools (Cursor, Antigravity, Claude Code — listed there as `Claude-Code`). Full protocol: `docs/equipa/INSTRUCOES.md`, `docs/EQUIPA.md`, `docs/ONDE-ESTA-TUDO.md`.
+
+- **The real coordination mechanism is a Drive-only lock file** (`TRABALHANDO.json` per project + `lock_manager.py` / `set_lock_agent.py` scripts living in the Drive folder), not this `STATUS.md` rule above — those appear to be two different, not-fully-reconciled handoff schemes.
+- **A GitHub-only clone (no Drive mount) cannot participate in that lock system at all** — confirmed by `docs/equipa/PARA-CLONE-SEM-DRIVE.md`, which documents this exact scenario. A Claude Code session running in a cloud sandbox (like this one, no `G:\` access) can read/edit code and push, but cannot acquire/release the project lock, see other agents' current activity, or know if someone else is mid-edit on the Drive side.
+- **Branch policy conflict**: the team's documented protocol (`INSTRUCOES.md`) says work happens *directly on `master`*, no feature branches. This file's own "Git branch hygiene" section below says the opposite (short-lived branch → merge). Not reconciled as of 2026-08-07 — ask the user before assuming either one silently changes.
+- Local builds on the Drive/Windows side are known to be unreliable (`.agents/AGENTS.md`: Google Drive sync can silently corrupt `node_modules/astro/bin/astro.mjs`) — doesn't affect a clean Linux sandbox clone like this one.
 
 ## Commands
 
@@ -39,3 +49,9 @@ Cloudflare Pages is connected to this GitHub repo and auto-deploys on every push
 - `src/components/site/*Page.astro` — one component per page; thin route files in `src/pages/` just import and render them.
 - Every project's images live under `public/portfolio/<slug>/images/`. Convert new photos to `.webp` before adding them — the site's Lighthouse scores (currently ~98/100/96/100) depend on image weight staying low.
 - `sant-llorenc` is the flagship project: it's pinned first in the portfolio grid (`PortfolioPage.astro`), and its images are the sitewide default OG image (`Layout.astro`, `servicesPage.astro`). Its hero background video (`/videos/sant_llorenc_hero.mp4` + poster) is also reused directly on the home page — treat that file as shared, not project-specific.
+
+## Session Log (Claude Code)
+
+Newest entry first. Each entry: date, commit hash on `master` at end of session, short summary. This is separate from (and doesn't replace) the team's Drive-side `TRABALHANDO.json` lock — see "Wider team context" above.
+
+- **2026-08-07** — commit `c9712641` (parent of this doc update). Working hours 9–17 → 8–16 (Home contact block + `schema.ts` `openingHoursSpecification`, kept in sync). Services list: removed "and lighting systems" from the irrigation bullet, replaced "Proposal for outdoor materials and elements" with "Sustainability and water-efficiency assessment of the garden" (checked against the full bullet list for duplicates first). Fixed 2 broken `/gallery/` images for Jardín Mediterráneo (stale `.jpg` references left over from a site-wide JPG/PNG→WebP conversion done by the Antigravity agents). Also audited the full `docs/equipa/*` + `.agents/AGENTS.md` team documentation set — findings folded into "Wider team context" above.
