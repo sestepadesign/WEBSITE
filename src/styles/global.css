@@ -234,3 +234,13 @@ img, video {
   }
 }
 
+/* CookieYes third-party override: their default "Cookie Policy" link
+   ships inline-styled at #CFD0CE on #F5F0EE (~1.36:1) — confirmed via
+   axe-core as the actual failing node behind PageSpeed's persistent
+   "insufficient contrast" flag (only visible pre-consent, i.e. exactly
+   the fresh-session state Lighthouse tests). !important needed to beat
+   their inline style attribute. */
+.cky-policy {
+  color: var(--color-limestone) !important;
+}
+
