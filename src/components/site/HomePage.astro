@@ -12,18 +12,18 @@ const t = (key: keyof typeof ui[typeof lang]) => {
   return ui[lang][key] || key;
 };
 
-// SEO meta description
+// SEO meta description &mdash; leads with the exact target phrase, kept concise (~120 chars)
 const descriptions = {
-  en: "S'Estepa Design &mdash; boutique garden design and landscape architecture studio in Mallorca. Where the outdoors becomes your favourite room in the house.",
-  es: "S'Estepa Design &mdash; estudio boutique de diseño de jardines y arquitectura del paisaje en Mallorca. Donde el exterior se convierte en su espacio favorito.",
-  de: "S'Estepa Design &mdash; exklusives Gartendesign und Landschaftsarchitektur Studio auf Mallorca. Wo der Außenbereich zu Ihrem Lieblingsraum wird.",
+  en: "S'Estepa Design &mdash; Garden Design Mallorca. Boutique landscape studio for fincas, villas and terraces across the island.",
+  es: "S'Estepa Design &mdash; Diseño de Jardines Mallorca. Estudio boutique de paisajismo para fincas, villas y terrazas en la isla.",
+  de: "S'Estepa Design &mdash; Gartendesign Mallorca. Boutique-Landschaftsstudio für Fincas, Villen und Terrassen auf der Insel.",
 };
 
-// SEO page titles &mdash; keyword-first, separate from hero.subtitle (visible text unchanged)
+// SEO page titles &mdash; exact keyword phrase leads, matching the pattern used by ranking competitors
 const seoTitles = {
-  en: "S'Estepa Design: Garden & Landscape Design in Mallorca",
-  es: "S'Estepa Design: Diseño de Jardines y Paisajismo en Mallorca",
-  de: "S'Estepa Design: Gartengestaltung & Landschaftsarchitektur Mallorca",
+  en: "Garden Design Mallorca | S'Estepa Design",
+  es: "Diseño de Jardines Mallorca | S'Estepa Design",
+  de: "Gartendesign Mallorca | S'Estepa Design",
 };
 
 const pageDescription = descriptions[lang];
@@ -301,8 +301,8 @@ const currentJourney = journeyData[lang];
     </script>
     
     <div class="hero-content container">
-      <span class="hero-subtitle">{t('hero.subtitle')}</span>
       <h1 class="hero-title">
+        <span class="hero-eyebrow">{t('hero.subtitle')}</span>
         {lang === 'en' && <>Sustainable Mediterranean Gardens</>}
         {lang === 'es' && <>Jardines Mediterráneos Sostenibles</>}
         {lang === 'de' && <>Nachhaltige Mediterrane Gärten</>}
@@ -729,15 +729,6 @@ const currentJourney = journeyData[lang];
     padding-top: 5rem;
   }
 
-  .hero-subtitle {
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--color-sand-base);
-    animation: fadeIn 1.5s ease-out;
-  }
-
   .hero-title {
     font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 300;
@@ -745,6 +736,18 @@ const currentJourney = journeyData[lang];
     line-height: 1.1;
     max-width: 900px;
     animation: fadeIn 2s ease-out;
+  }
+
+  .hero-eyebrow {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-sand-base);
+    margin-bottom: 1.5rem;
+    animation: fadeIn 1.5s ease-out;
   }
 
   .hero-title em {

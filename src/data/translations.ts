@@ -17,7 +17,7 @@ export const ui = {
     'nav.faq': 'FAQ',
     'nav.press': 'Press',
     'nav.contact': 'Contact',
-    'hero.subtitle': 'Landscape Design & Garden Design — Mallorca',
+    'hero.subtitle': 'Garden Design Mallorca',
     'hero.title': 'Sustainable Mediterranean Gardens',
     'hero.button': 'Explore Portfolio',
     
@@ -76,7 +76,7 @@ export const ui = {
     'nav.faq': 'Preguntas Frecuentes',
     'nav.press': 'Prensa',
     'nav.contact': 'Contacto',
-    'hero.subtitle': 'Estudio de Diseño de Jardines y Paisajismo en Mallorca',
+    'hero.subtitle': 'Diseño de Jardines Mallorca',
     'hero.title': 'Jardines Mediterráneos Sostenibles',
     'hero.button': 'Ver Portafolio',
     
@@ -135,7 +135,7 @@ export const ui = {
     'nav.faq': 'Häufig Gestellte Fragen',
     'nav.press': 'Presse',
     'nav.contact': 'Kontakt',
-    'hero.subtitle': 'Landschafts- und Gartengestaltungsstudio auf Mallorca',
+    'hero.subtitle': 'Gartendesign Mallorca',
     'hero.title': 'Nachhaltige Mediterrane Gärten',
     'hero.button': 'Portfolio Erkunden',
     

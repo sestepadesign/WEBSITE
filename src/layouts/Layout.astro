@@ -75,17 +75,19 @@ const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogL
       (function() {
         let trackingLoaded = false;
 
+        // 1. Stub síncrono do gtag/dataLayer — como no snippet oficial do Google.
+        //    Qualquer gtag() chamado antes do carregamento real (ex.: clique rápido
+        //    num formulário de contacto) fica em fila no dataLayer em vez de se perder.
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', GTAG_ID);
+        window.gtag('config', GOOGLE_ADS_ID);
+        window.gtag('config', GA4_ID);
+
         function loadTracking() {
           if (trackingLoaded) return;
           trackingLoaded = true;
-
-          // 1. Inicialização do dataLayer e gtag
-          window.dataLayer = window.dataLayer || [];
-          window.gtag = function() { window.dataLayer.push(arguments); };
-          window.gtag('js', new Date());
-          window.gtag('config', GTAG_ID);
-          window.gtag('config', GOOGLE_ADS_ID);
-          window.gtag('config', GA4_ID);
 
           // 2. Injeção do script da biblioteca global gtag.js
           const gtagScript = document.createElement('script');
@@ -102,8 +104,9 @@ const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogL
           })(window,document,'script','dataLayer',GTM_ID);
         }
 
-        // Gatilhos de ativação baseados em interação física
-        const interactionEvents = ['scroll', 'mousemove', 'touchstart'];
+        // Gatilhos de ativação baseados em interação física — inclui click/keydown
+        // para não perder submissões rápidas de formulário (o gap identificado na auditoria).
+        const interactionEvents = ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'];
         function triggerTracking() {
           loadTracking();
           interactionEvents.forEach(event => window.removeEventListener(event, triggerTracking));
