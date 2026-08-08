@@ -69,6 +69,32 @@ export function getVideoObjectSchema(video: VideoSchemaInput) {
   };
 }
 
+export interface FAQSchemaInput {
+  question: string;
+  answer: string;
+}
+
+/**
+ * Generates a schema.org FAQPage JSON-LD block. Input must match the
+ * questions/answers actually rendered on the page verbatim — Google's
+ * structured data spam policy prohibits marking up content that isn't
+ * visible to users.
+ */
+export function getFAQSchema(items: readonly FAQSchemaInput[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": items.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer,
+      },
+    })),
+  };
+}
+
 export function getLocalizedSchema(
   locale: 'es' | 'en' | 'de',
   currentUrl: string,
@@ -191,7 +217,7 @@ export function getLocalizedSchema(
       {
         "@type": "Review",
         "author": { "@type": "Person", "name": "Peter K." },
-        "reviewBody": "From design to final planting — a seamless, exceptional experience. Every detail was handled with care and the result exceeded all our expectations.",
+        "reviewBody": "Every detail was handled with care and the result exceeded all our expectations. From design to final planting — a seamless, exceptional experience.",
         "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
         "datePublished": "2025-03-20",
         "itemReviewed": { "@id": "https://design.sestepa.com/#business" }

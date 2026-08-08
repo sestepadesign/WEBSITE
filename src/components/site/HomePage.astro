@@ -278,6 +278,32 @@ const servicesData = {
 
 const currentServices = servicesData[lang];
 const currentJourney = journeyData[lang];
+
+// Client testimonials — text must match schema.ts Review/AggregateRating markup
+// verbatim (Google spam policy: structured data must reflect visible page content).
+// Attribution uses first name + surname initial only, per client privacy preference
+// for this ultra-exclusive clientele.
+const testimonialsCopy = {
+  en: { tag: 'Client Voices', title: 'What Our Clients Say' },
+  es: { tag: 'Voces de Clientes', title: 'Lo Que Dicen Nuestros Clientes' },
+  de: { tag: 'Stimmen Unserer Kunden', title: 'Was Unsere Kunden Sagen' },
+};
+const currentTestimonials = testimonialsCopy[lang];
+
+const testimonials = [
+  {
+    quote: "S'Estepa transformed our finca in Campos into something beyond our imagination. The team understood the land's character and created a garden that feels completely natural yet utterly refined.",
+    author: 'James H.',
+  },
+  {
+    quote: "The only studio that truly understands Mallorca's landscape DNA. Working with S'Estepa was a seamless and inspired experience from the very first meeting.",
+    author: 'Claudia M.',
+  },
+  {
+    quote: 'Every detail was handled with care and the result exceeded all our expectations. From design to final planting — a seamless, exceptional experience.',
+    author: 'Peter K.',
+  },
+];
 ---
 
 <Layout title={seoTitles[lang]} description={pageDescription} lang={lang}>
@@ -521,6 +547,24 @@ const currentJourney = journeyData[lang];
               </p>
             </div>
           </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section section-padding">
+    <div class="container">
+      <span class="section-tag center">{currentTestimonials.tag}</span>
+      <h2 class="section-heading center">{currentTestimonials.title}</h2>
+
+      <div class="testimonials-grid">
+        {testimonials.map((item) => (
+          <blockquote class="testimonial-card">
+            <div class="testimonial-stars" aria-hidden="true">★★★★★</div>
+            <p class="testimonial-quote">&ldquo;{item.quote}&rdquo;</p>
+            <footer class="testimonial-author">— {item.author}</footer>
+          </blockquote>
         ))}
       </div>
     </div>
@@ -1083,6 +1127,57 @@ const currentJourney = journeyData[lang];
     margin-bottom: 0;
     line-height: 1.7;
     font-weight: 300;
+  }
+
+  /* Testimonials Section */
+  .testimonials-section {
+    background-color: var(--color-sand-base);
+    border-top: 1px solid var(--color-sand-dark);
+    border-bottom: 1px solid var(--color-sand-dark);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 3.5rem;
+  }
+
+  .testimonial-card {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .testimonial-stars {
+    color: var(--color-olive);
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+  }
+
+  .testimonial-quote {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--color-charcoal);
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-limestone);
+  }
+
+  @media (max-width: 992px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
   }
 
   /* Contact Form Section */
