@@ -59,7 +59,7 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
     title: 'Estudio de Paisajismo y Diseño de Jardines en Mallorca',
     subtitle: '',
     metaDescription:
-      'Estudio boutique de paisajismo y diseño de jardines en Mallorca. 30 años transformando fincas y villas de lujo con auténtica alma mediterránea.',
+      'Estudio boutique de paisajismo y diseño de jardines en Mallorca — de Palma a fincas y villas de la isla. 30 años de alma mediterránea auténtica.',
     intro:
       'Nuestro equipo supervisa todo el proceso, desde el diseño y la construcción hasta el riego técnico y la plantación. Garantizamos una experiencia sin fisuras, gestionando cada detalle en inglés, español y alemán.',
     items: [
