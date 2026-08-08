@@ -27,7 +27,9 @@ const t = (key: keyof typeof ui[typeof lang]) => {
 };
 
 const translation = project[lang];
-const pageTitle = `${translation.title} | S'Estepa Design`;
+const pageTitle = translation.title.includes('Mallorca')
+  ? `${translation.title} | S'Estepa Design`
+  : `${translation.title}, Mallorca | S'Estepa Design`;
 const pageDescription = translation.description[0] || "";
 const projectLocation = getProjectLocation(project, lang);
 const nextProjectLocation = getProjectLocation(nextProject, lang);
