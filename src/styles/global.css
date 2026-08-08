@@ -51,7 +51,7 @@
   --color-olive: #5A6755;
   --color-olive-dark: #3C4539;
   --color-olive-light: #8E9C88;
-  --color-limestone: #726E67;
+  --color-limestone: #625E57; /* darkened from #726E67 — was ~4.4:1 on sand-base, under WCAG AA's 4.5:1 for normal text */
   --color-charcoal: #1F211F;
   --color-charcoal-light: #3D3D3D;
   --color-white: #FFFFFF;
