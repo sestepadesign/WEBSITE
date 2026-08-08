@@ -1,7 +1,8 @@
 ---
-import { getLocalizedSchema, getVideoObjectSchema } from '../utils/schema';
+import { getLocalizedSchema, getVideoObjectSchema, getFAQSchema } from '../utils/schema';
 import { resolvePageIdFromPath, resolveProjectSlugFromPath } from '../lib/urls';
 import { projects } from '../data/projects';
+import { faqs } from '../data/faq';
 import { SITE_URL_PRODUCTION } from '../lib/locale';
 
 interface Props {
@@ -42,6 +43,10 @@ const heroVideoCopy = {
     description: "Landschaftsarchitektur- und Gartengestaltungsstudio auf Mallorca mit über 30 Jahren Erfahrung.",
   },
 } as const;
+
+if (pageId === 'faq') {
+  schemas.push(getFAQSchema(faqs));
+}
 
 if (isHome) {
   const heroT = heroVideoCopy[currentLocale] ?? heroVideoCopy.en;
