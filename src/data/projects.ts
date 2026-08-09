@@ -603,6 +603,7 @@ export const projects: Project[] = [
         "For this project, we wanted to preserve the existing wild olive trees (ullastres), hardy trees that are characteristic of Mallorca's native garriga landscape, using them as the foundation of the design. Around them, we created a natural, wild-inspired landscape composed of low-maintenance flowering species that can thrive together while bringing colour and movement to the garden throughout much of the year.",
         "This is a garden designed to evolve over time, with nature as the true protagonist."
       ],
+      developmentNote: "These photographs were taken two months after planting — a garden still finding its shape, which will continue to fill in and mature over the coming seasons.",
       imageAlts: [
         "Integrated swimming pool in Sant Llorenç with timber decking and centenary olive trees",
         "Dusk view of the swimming pool reflecting the architectural lines and green landscape",
@@ -641,6 +642,7 @@ export const projects: Project[] = [
         "En este proyecto quisimos conservar los acebuches (ullastres) existentes, árboles resistentes y representativos de la garriga mallorquina, utilizándolos como base del diseño. A su alrededor creamos un paisaje de carácter silvestre, compuesto por especies de floración natural y bajo mantenimiento, capaces de convivir entre sí y aportar color y movimiento durante gran parte del año.",
         "Es un jardín pensado para evolucionar con el tiempo, donde la naturaleza es la verdadera protagonista."
       ],
+      developmentNote: "Estas fotografías fueron tomadas dos meses después de la plantación — un jardín que aún está tomando forma y que continuará densificándose y madurando en las próximas estaciones.",
       imageAlts: [
         "Piscina integrada en el paisaje de Sant Llorenç con tarima de madera y olivos centenarios",
         "Vista crepuscular de la piscina reflejando la arquitectura de piedra y la vegetación",
@@ -679,6 +681,7 @@ export const projects: Project[] = [
         "Bei diesem Projekt wollten wir die vorhandenen wilden Olivenbäume (Ullastres) erhalten — robuste Bäume, die typisch für die mallorquinische Garriga sind — und sie als Grundlage des Entwurfs nutzen. Darum herum haben wir eine Landschaft mit wildem Charakter geschaffen, bestehend aus natürlich blühenden, pflegeleichten Arten, die miteinander harmonieren und einen Großteil des Jahres über Farbe und Bewegung bringen.",
         "Es ist ein Garten, der dafür gedacht ist, sich mit der Zeit zu entwickeln — die Natur ist der wahre Protagonist."
       ],
+      developmentNote: "Diese Aufnahmen entstanden zwei Monate nach der Pflanzung — ein Garten, der noch seine Form findet und sich in den kommenden Jahreszeiten weiter verdichten und entwickeln wird.",
       imageAlts: [
         "Integriertes Schwimmbad in Sant Llorenç mit Holzdeck und jahrhundertealten Olivenbäumen",
         "Dämmerungsblick auf den Pool, der die Steinarchitektur und die grüne Landschaft reflektiert",
