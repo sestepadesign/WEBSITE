@@ -39,7 +39,7 @@ const BOARDS = {
   DETAILS: "Garden Design Details",
   MALLORCA: "Mallorca Gardens",
   PLANTING: "Mediterranean Planting",
-  LANDSCAPE: "Landscape Design Mallorca",
+  LANDSCAPE: "Garden Design Mallorca",
   TERRACE: "Terrace Garden Design",
   POOL: "Pool Garden Design",
   FINCA: "Mallorca Finca Gardens",
@@ -216,12 +216,12 @@ for (const p of projects) {
     );
   }
 
-  // 5. BOARD: Landscape Design Mallorca
+  // 5. BOARD: Garden Design Mallorca
   // Uses img 7 (or render layout)
   addPin(
     BOARDS.LANDSCAPE,
-    `Landscape Design Mallorca - Architecture Layout for ${tEN.title}`,
-    `Visualizing level changes, dry-stone retaining walls, and circulation axes in ${location}. Landscape planning by S'Estepa Design. #landscapedesignmallorca #landscapearchitecture #gardendesign #3drender`,
+    `Garden Design Mallorca - Architecture Layout for ${tEN.title}`,
+    `Visualizing level changes, dry-stone retaining walls, and circulation axes in ${location}. Landscape planning by S'Estepa Design. #gardendesignmallorca #landscapearchitecture #gardendesign #3drender`,
     linkEN,
     getNextImage()
   );
