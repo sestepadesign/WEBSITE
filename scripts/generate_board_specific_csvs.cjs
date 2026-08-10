@@ -96,6 +96,11 @@ function writeCsv(filename, boardName, pinsArray) {
   console.log(`Successfully compiled ${pinsArray.length} Pins for '${boardName}' -> ${fileFullPath}`);
 }
 
+// Ensure docs/pinterest folder exists
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir, { recursive: true });
+}
+
 // ----------------------------------------------------
 // 1. TERRACE GARDEN DESIGN
 // ----------------------------------------------------
@@ -117,12 +122,6 @@ for (const slug of terraceSlugs) {
       title: `Bespoke Terrace Garden Design Video - ${p.en.title}`,
       media_url: `${BASE_URL}${p.cover}`, // Video cover/poster
       description: `Watch the video showcasing the design and execution of the terrace garden project ${p.en.title} in ${p.location} by S'Estepa Design. #terracegarden #exteriorarchitecture #landscaping`,
-      link: videoUrl
-    });
-    terracePins.push({
-      title: `Video de Diseño de Terraza y Ático - Proyecto ${p.es.title}`,
-      media_url: `${BASE_URL}${p.cover}`,
-      description: `Video completo del diseño y paisajismo de la terraza y ático ${p.es.title} en ${p.location} por S'Estepa Design. #terraza #jardin #paisajismoexterior`,
       link: videoUrl
     });
   }
@@ -171,12 +170,6 @@ if (crestatx) {
       title: `Bespoke Pool & Garden Design Video: Crestatx | Mallorca`,
       media_url: `${BASE_URL}${crestatx.cover}`,
       description: `Watch the full project render video showcasing the pool integration and mineral layers of Crestatx in Sa Pobla by S'Estepa Design. #poollandscape #gardendesign #landscapevideo`,
-      link: videoUrl
-    });
-    poolPins.push({
-      title: `Video de Paisajismo de Piscina y Jardín: Crestatx | Sa Pobla`,
-      media_url: `${BASE_URL}${crestatx.cover}`,
-      description: `Video del render constructivo del proyecto de piscina y jardín Crestatx en Sa Pobla. Diseño por S'Estepa Design. #jardinconpiscina #paisajismo #renders3d`,
       link: videoUrl
     });
   }
@@ -314,3 +307,100 @@ for (const slug of estateSlugs) {
   }
 }
 writeCsv('finca_garden_pins.csv', 'Mallorca Finca Gardens', fincaPins);
+
+
+// ----------------------------------------------------
+// 4. MEDITERRANEAN PLANTING
+// ----------------------------------------------------
+const plantingPins = [];
+
+for (const p of projects) {
+  if (p.hidden) continue;
+  
+  const slug = p.slug;
+  const location = p.location;
+  const paths = PROJECT_PUBLIC_PATHS[slug];
+  if (!paths) continue;
+  
+  const linkEN = `${BASE_URL}${paths.en}`;
+  const linkES = `${BASE_URL}${paths.es}`;
+  
+  const tEN = p.en;
+  const tES = p.es;
+  const plants = tEN.botanical || '';
+  
+  if (plants) {
+    // Select up to 4 images from the gallery (starting from index 4 for detail close-ups if available, or first 3)
+    const galleryOffset = p.images.length >= 7 ? 4 : 0;
+    const selectedImages = p.images.slice(galleryOffset, galleryOffset + 4);
+    
+    selectedImages.forEach((img, idx) => {
+      const imageUrl = `${BASE_URL}/portfolio/${slug}/images/${img}`;
+      const isEven = idx % 2 === 0;
+      
+      if (isEven) {
+        plantingPins.push({
+          title: `Mediterranean Garden Plants | ${tEN.title} Botanical Palette`,
+          media_url: imageUrl,
+          description: `Curated selection of drought-resistant, low-water plants for gardens in Mallorca. Botanical species: ${plants}. Landscape design by S'Estepa. #mediterraneanplanting #xeriscape #drygarden #botany`,
+          link: linkEN
+        });
+      } else {
+        plantingPins.push({
+          title: `Plantas y Especies para Jardín Mediterráneo | ${tES.title}`,
+          media_url: imageUrl,
+          description: `Selección de especies autóctonas y sostenibles adaptadas al clima de Mallorca. Especies empleadas: ${plants}. Diseño de plantación por S'Estepa. #plantasmediterraneas #botanica #jardinsostenible`,
+          link: linkES
+        });
+      }
+    });
+  }
+}
+writeCsv('mediterranean_planting_pins.csv', 'Mediterranean Planting', plantingPins);
+
+
+// ----------------------------------------------------
+// 5. GARDEN DESIGN MALLORCA
+// ----------------------------------------------------
+const flagshipPins = [];
+
+for (const p of projects) {
+  if (p.hidden) continue;
+  
+  const slug = p.slug;
+  const location = p.location;
+  const paths = PROJECT_PUBLIC_PATHS[slug];
+  if (!paths) continue;
+  
+  const linkEN = `${BASE_URL}${paths.en}`;
+  const linkES = `${BASE_URL}${paths.es}`;
+  
+  const tEN = p.en;
+  const tES = p.es;
+  
+  // Flagship pins use cover and the first 2 gallery images
+  const selectedImages = [p.cover, ...p.images.slice(0, 2)];
+  
+  selectedImages.forEach((img, idx) => {
+    // Cover might already be absolute or relative
+    const imageUrl = img.startsWith('http') ? img : `${BASE_URL}${img.startsWith('/portfolio/') ? '' : '/portfolio/' + slug + '/images/'}${img}`;
+    const isEven = idx % 2 === 0;
+    
+    if (isEven) {
+      flagshipPins.push({
+        title: `Garden Design Mallorca | Premium Project - ${tEN.title}`,
+        media_url: imageUrl,
+        description: `Bespoke garden design and landscape architecture studio in Mallorca. Transforming residential villas and estate gardens into luxury outdoor sanctuaries. #gardendesignmallorca #landscapearchitecture #sestepadesign`,
+        link: linkEN
+      });
+    } else {
+      flagshipPins.push({
+        title: `Diseño de Jardines Mallorca | Proyecto Exclusivo - ${tES.title}`,
+        media_url: imageUrl,
+        description: `Estudio de paisajismo y diseño de exteriores de alta gama en Mallorca. Proyectos residenciales, terrazas y fincas exclusivas. #diseñodejardinesmallorca #paisajismomallorca #arquitecturaexterior`,
+        link: linkES
+      });
+    }
+  });
+}
+writeCsv('garden_design_mallorca_pins.csv', 'Garden Design Mallorca', flagshipPins);
