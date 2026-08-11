@@ -1,6 +1,6 @@
 ---
 title: "The Verdant Paradox: How Modernist Geometry Cultivates Unexpected Mediterranean Biodiversity"
-description: "Modernism is often misunderstood as sterile. Clean lines and raw concrete are viewed by some as enemies of the wild. Yet, in the sophisticated terrain of Mallorca, this is far from the truth."
+description: "Modernism is often misunderstood as sterile. Clean lines and raw concrete are viewed by some as enemies of the wild. In the sophisticated terrain of Mallorca, the opposite proves true."
 pubDate: 2025-11-20
 lang: en
 draft: false
@@ -9,7 +9,7 @@ noindex: false
 
 The Verdant Paradox: How Modernist Geometry Cultivates Unexpected Mediterranean Biodiversity
 
-Modernism is often misunderstood as sterile. Clean lines and raw concrete are viewed by some as enemies of the wild. Yet, in the sophisticated terrain of Mallorca, this is far from the truth.
+Modernism is often misunderstood as sterile. Clean lines and raw concrete are viewed by some as enemies of the wild. Yet in the sophisticated terrain of Mallorca, the opposite proves true.
 
 True architectural landscape design harnesses geometry to frame nature, not suppress it. It is a collaboration between human precision and the unruly beauty of the Tramuntana.
 
@@ -21,7 +21,7 @@ Consider the traditional piedra en seco (dry stone) walls that terrace the islan
 
 These rigid lines offer shelter. They create shadows that preserve moisture in the terra rossa soil. They act as windbreaks against the salty gusts coming off the Balearic Sea.
 
-Sestepa's &#8216;Mediterranean minimal' approach teaches us that the wall is not a barrier, but a spine. It supports a complex nervous system of flora that would perish in an open field.
+Sestepa's &#8216;Mediterranean minimal' approach teaches us that the wall acts as a spine, not a barrier. It supports a complex nervous system of flora that would perish in an open field.
 
 ### Key Structural Plants for Geometric Zones
 
@@ -61,4 +61,4 @@ The paradox is resolved when we stop seeing architecture and nature as opposites
 
 We invite you to look closer at the sharp lines of modern design. You will find that within them, the Mediterranean soul flourishes with unexpected lushness.
 
-Consider how the boundaries of your own garden might be reimagined not just as walls, but as horizons for new life.
+Consider how the boundaries of your own garden might be reimagined as horizons for new life, not simply as walls.

@@ -1,6 +1,6 @@
 ---
 title: "Transforming Ruin to Riches: Your Private Edible Forest Garden on Mallorca"
-description: "At S’Estepa Design, we see the neglected corners of a sprawling estate not as ruins, but as the foundation for a luxurious, self-sustaining ecosystem: the edible forest garden."
+description: "At S'Estepa Design, we see the neglected corners of a sprawling estate as the foundation for a luxurious, self-sustaining ecosystem: the edible forest garden."
 pubDate: 2025-11-20
 lang: en
 draft: false
@@ -9,7 +9,7 @@ noindex: false
 
 Transforming Ruin to Riches: Your Private Edible Forest Garden on Mallorca
 
-There is a profound silence to be found in the hinterlands of the Raiguer or the terraced slopes of the Tramuntana. It is a silence composed of the wind rustling through ancient olive leaves and the heat radiating off dry stone walls. For the discerning landowner, this silence is not emptiness; it is a canvas. At S’Estepa Design, we see as the foundation for a luxurious, self-sustaining ecosystem: the edible forest garden.
+There is a profound silence to be found in the hinterlands of the Raiguer or the terraced slopes of the Tramuntana. It is a silence composed of the wind rustling through ancient olive leaves and the heat radiating off dry stone walls. For the discerning landowner, this silence is a canvas. At S’Estepa Design, we see the neglected corners of a sprawling estate as the foundation for a luxurious, self-sustaining ecosystem: the edible forest garden.
 
 Imagine a landscape where aesthetics and utility converge—a space that rivals the architectural beauty of a structured villa garden but offers the visceral pleasure of harvesting heritage fruits warm from the sun. This is the art of the productive sanctuary.
 
@@ -49,7 +49,7 @@ Imagine a sleek Corten steel walkway cutting through a wild thyme meadow, leadin
 
 ## A Legacy for the Senses
 
-Owning a S'Estepa forest garden is an invitation to a slower, more intentional lifestyle. It is the luxury of walking out to your garden at dawn to pick a ripe apricot for breakfast. It is the scent of sun-baked soil and blooming citrus. It is the knowledge that your land is not just surviving the Mallorcan climate, but regenerating it.
+Owning a S'Estepa forest garden is an invitation to a slower, more intentional lifestyle. It is the luxury of walking out to your garden at dawn to pick a ripe apricot for breakfast. It is the scent of sun-baked soil and blooming citrus. It is the knowledge that your land is regenerating the Mallorcan climate, season after season — not merely surviving it.
 
 From the wind-swept cliffs of Deià to the quiet plains of the interior, we transform potential into paradise. Let us help you cultivate your legacy.
 

@@ -9,7 +9,7 @@ noindex: false
 
 # The Ultimate Guide to High-End Garden Design and Landscaping in Mallorca
 
-For international owners of private estates, villas, and holiday fincas in Mallorca, the outdoor space is not merely an addition to the house—it is the grandest room of the property. Designing a garden in the Balearic Islands requires a delicate balance between high-end architectural aesthetics, local craftsmanship, and the botanical constraints of the dry Mediterranean climate.
+For international owners of private estates, villas, and holiday fincas in Mallorca, the outdoor space is the grandest room of the property, not merely an addition to the house. Designing a garden in the Balearic Islands requires a delicate balance between high-end architectural aesthetics, local craftsmanship, and the botanical constraints of the dry Mediterranean climate.
 
 This guide outlines the essential steps and technical considerations for planning and executing a premium landscape design project that matures gracefully and enhances the long-term value of your property.
 
@@ -42,6 +42,6 @@ Given the scarcity of water on the island, a sustainable landscape design is no 
 
 ## 4. Generational Expertise and Biological Success
 
-The transition from a conceptual drawing to a thriving, mature garden depends entirely on botanical experience. pedro Campaner, head of S'Estepa Design, brings 30 years of agricultural and horticultural expertise to the team. This generational knowledge ensures that plants are not only selected for their visual form, but are biologically suited to the specific terrain and soil chemistry of Mallorca.
+The transition from a conceptual drawing to a thriving, mature garden depends entirely on botanical experience. Pedro Campaner, head of S'Estepa Design, brings 30 years of agricultural and horticultural expertise to the team. This generational knowledge ensures that plants are biologically suited to the specific terrain and soil chemistry of Mallorca, not just selected for their visual form.
 
 By choosing species that are native to the Balearic Islands and adapting traditional techniques to contemporary architecture, S'Estepa Design creates gardens that are resilient, sustainable, and visually exceptional.

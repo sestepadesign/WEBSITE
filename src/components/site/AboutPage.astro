@@ -79,15 +79,21 @@ const ethosCtaLink = {
 };
 
 const headerSubtitle = {
-  en: "Boutique garden design and landscape architecture studio in Mallorca. Three decades devoted to crafting exclusive fincas and Mediterranean landscapes.",
-  es: "Estudio boutique de diseño de jardines y paisajismo en Mallorca. Tres décadas dedicadas a la creación de fincas exclusivas y paisajes mediterráneos.",
-  de: "Boutique-Studio für Gartengestaltung und Landschaftsarchitektur auf Mallorca. Drei Jahrzehnte der Gestaltung exklusiver Fincas und mediterraner Landschaften gewidmet."
+  en: "Boutique garden design and landscape architecture studio in Mallorca.\nThree decades devoted to crafting exclusive fincas and Mediterranean landscapes.",
+  es: "Estudio boutique de diseño de jardines y paisajismo en Mallorca.\nTres décadas dedicadas a la creación de fincas exclusivas y paisajes mediterráneos.",
+  de: "Boutique-Studio für Gartengestaltung und Landschaftsarchitektur auf Mallorca.\nDrei Jahrzehnte der Gestaltung exklusiver Fincas und mediterraner Landschaften gewidmet."
 };
 
 const teamSectionTitle = {
   en: "Meet Our Team",
   es: "Conozca Nuestro Equipo",
   de: "Unser Team"
+};
+
+const founderTag = {
+  en: 'The Founder',
+  es: 'El Fundador',
+  de: 'Der Gründer',
 };
 
 const teamSectionSubtitle = {
@@ -250,6 +256,7 @@ const team = [
     color: var(--color-charcoal-light);
     line-height: 1.7;
     font-weight: 300;
+    white-space: pre-line;
   }
 
   @media (max-width: 768px) {
@@ -427,6 +434,62 @@ const team = [
 
   .ethos-cta-button:hover .ethos-cta-arrow {
     transform: translateX(4px);
+  }
+
+  /* Founder Section */
+  .founder {
+    background-color: var(--color-white);
+  }
+
+  .founder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .founder-image-wrapper {
+    overflow: hidden;
+  }
+
+  .founder-image {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center 18%;
+    display: block;
+  }
+
+  .founder-name {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 300;
+    color: var(--color-charcoal);
+    margin: 0 0 0.5rem;
+  }
+
+  .founder-role {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-olive);
+    margin-bottom: 1.75rem;
+  }
+
+  .founder-bio {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--color-charcoal-light);
+    font-weight: 300;
+  }
+
+  @media (max-width: 900px) {
+    .founder-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
   }
 
   /* Team Section */

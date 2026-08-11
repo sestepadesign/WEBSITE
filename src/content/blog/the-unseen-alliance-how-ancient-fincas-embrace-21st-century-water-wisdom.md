@@ -9,11 +9,11 @@ noindex: false
 
 The Unseen Alliance: How Ancient Fincas Embrace 21st-Century Water Wisdom
 
-There is a peculiar silence in a properly designed Mallorcan garden. It is not the absence of sound, but the absence of stress. It is the quiet confidence of an *Olea europaea* that knows, despite the scorching July sun, it will not thirst. For decades, I have walked the grounds of historic estates from Artà to Andratx, and the most successful landscapes are those where the tension between heritage and technology dissolves completely.
+There is a peculiar silence in a properly designed Mallorcan garden. It is the absence of stress, not the absence of sound. It is the quiet confidence of an *Olea europaea* that knows, despite the scorching July sun, it will not thirst. For decades, I have walked the grounds of historic estates from Artà to Andratx, and the most successful landscapes are those where the tension between heritage and technology dissolves completely.
 
 &#8220;What if the very stones of your Mallorcan finca held secrets to water preservation, now unlocked by modern intelligence?&#8221;
 
-We often mistake &#8216;authenticity' for adherence to the archaic. However, true stewardship of a Finca implies preserving its legacy for the next century. Today, we explore the unexpected harmony between the timeless architecture of historic fincas and cutting-edge smart irrigation systems. Far from being anachronistic, these intelligent technologies echo the ingenious water management techniques of Mallorca's Moorish past—the séquies and cisterns—revealing a deep-rooted connection to sustainability.
+We often mistake &#8216;authenticity' for adherence to the archaic. However, true stewardship of a Finca implies preserving its legacy for the next century. Today, we explore the unexpected harmony between the timeless architecture of historic fincas and cutting-edge smart irrigation systems. These intelligent technologies are anything but anachronistic — they echo the ingenious water management techniques of Mallorca's Moorish past—the séquies and cisterns—revealing a deep-rooted connection to sustainability.
 
 ## The Mallorca Context: Calcareous Reality and The Tramuntana
 
@@ -21,7 +21,7 @@ To design in the Balearics is to negotiate with a formidable host: the geology i
 
 In the foothills of the Serra de Tramuntana, the wind acts as a desiccant, stripping moisture from the soil surface faster than gravity can pull it to the roots. A conventional timer-based irrigation system is blind to this. It waters because it is 8:00 AM, not because the plant requires it. This is where the luxury of intelligence comes in.
 
-Modern evapotranspiration (ET) controllers act as the nervous system of the garden. By analyzing local weather data—humidity, wind speed, and solar radiation—these systems adjust output daily. In a land where water is liquid gold, delivering the precise milliliter required is not just agronomy; it is an act of respect towards the island.
+Modern evapotranspiration (ET) controllers act as the nervous system of the garden. By analyzing local weather data—humidity, wind speed, and solar radiation—these systems adjust output daily. In a land where water is liquid gold, delivering the precise milliliter required is an act of respect towards the island, well beyond agronomy.
 
 ## The Unseen Technology: Precision as Luxury
 
@@ -31,7 +31,7 @@ Sub-surface Drip Lines: We bury lines beneath the mulch or gravel. This prevent
 
 Smart Fertigation: Given our alkaline soil, smart systems can micro-dose acidifiers and iron chelates directly into the water stream, maintaining the emerald lushness of a tropical garden with the water footprint of a dry steppe.
 
-Hydro-Zoning: We group plants not just by aesthetics, but by thirst. The intense water needs of a lawn (if one must exist) are strictly segregated from the drought-tolerant perimeter.
+Hydro-Zoning: We group plants by aesthetics and by thirst. The intense water needs of a lawn (if one must exist) are strictly segregated from the drought-tolerant perimeter.
 
 ## Curating the Palette: Botanical Suggestions
 

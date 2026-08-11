@@ -1,7 +1,7 @@
 // Define translations for dynamic text fields
 const translations = {
   es: {
-    description: "Estudio de arquitectura del paisaje, diseño de jardines y paisajismo en Mallorca y las Islas Baleares con más de 30 años de experiencia. Paisajistas especialistas en jardines mediterráneos auténticos para fincas privadas, villas y residencias.",
+    description: "Estudio boutique de arquitectura del paisaje, diseño de jardines y paisajismo en Mallorca y las Islas Baleares con más de 30 años de experiencia. Paisajistas especialistas en jardines mediterráneos auténticos para fincas privadas, villas y residencias.",
     siteName: "S'Estepa Design | Arquitectura del Paisaje y Diseño de Jardines en Mallorca",
     catalogName: "Servicios de Diseño de Jardines",
     services: [
@@ -14,7 +14,7 @@ const translations = {
     ]
   },
   en: {
-    description: "Landscape architecture, garden design and landscaping studio in Mallorca and the Balearic Islands with over 30 years of experience. Specialist landscape architects creating authentic Mediterranean gardens for private estates, villas, and fincas.",
+    description: "Boutique landscape architecture, garden design and landscaping studio in Mallorca and the Balearic Islands with over 30 years of experience. Specialist landscape architects creating authentic Mediterranean gardens for private estates, villas, and fincas.",
     siteName: "S'Estepa Design | Landscape Architecture & Garden Design Mallorca",
     catalogName: "Garden Design Services",
     services: [
@@ -27,7 +27,7 @@ const translations = {
     ]
   },
   de: {
-    description: "Landschaftsarchitektur-, Gartengestaltungs- und Landschaftsbau-Studio auf Mallorca und den Balearen mit über 30 Jahren Erfahrung. Landschaftsarchitekten spezialisiert auf authentische mediterrane Gärten für private Fincas, Villen und Residenzen.",
+    description: "Boutique-Landschaftsarchitektur-, Gartengestaltungs- und Landschaftsbau-Studio auf Mallorca und den Balearen mit über 30 Jahren Erfahrung. Landschaftsarchitekten spezialisiert auf authentische mediterrane Gärten für private Fincas, Villen und Residenzen.",
     siteName: "S'Estepa Design | Landschaftsarchitektur & Gartengestaltung Mallorca",
     catalogName: "Gartengestaltung Dienstleistungen",
     services: [

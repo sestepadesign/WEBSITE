@@ -1,0 +1,396 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getPagePath, getProjectPath } from '../../lib/urls';
+
+interface Props { lang: 'en' | 'es' | 'de'; }
+const { lang } = Astro.props;
+
+const pageTitles = {
+  en: "Large-Scale Landscape Projects in Mallorca | S'Estepa Design",
+  es: "Proyectos de Paisajismo a Gran Escala en Mallorca | S'Estepa Design",
+  de: "Großprojekte der Landschaftsarchitektur auf Mallorca | S'Estepa Design",
+};
+
+const pageDescriptions = {
+  en: "Estate-scale garden design and construction in Mallorca: multi-zone private fincas and villas designed, built and planted end-to-end by S'Estepa Design.",
+  es: "Diseño y construcción de jardines a escala de finca en Mallorca: fincas y villas privadas de varias zonas, diseñadas, construidas y plantadas de principio a fin por S'Estepa Design.",
+  de: "Gartengestaltung und -bau im Anwesensmaßstab auf Mallorca: private Fincas und Villen mit mehreren Zonen, von S'Estepa Design vollständig entworfen, gebaut und bepflanzt.",
+};
+
+const sectionTag = { en: 'Estate-Scale Work', es: 'Proyectos a Escala de Finca', de: 'Arbeiten im Anwesensmaßstab' };
+
+const pageTitle = {
+  en: "Large-Scale Landscape Design & Construction in Mallorca",
+  es: "Diseño y Construcción de Paisajismo a Gran Escala en Mallorca",
+  de: "Großflächige Landschaftsgestaltung & -bau auf Mallorca",
+};
+
+const pageSubtitle = {
+  en: "Design, construction and ecological care for private estates and fincas across the island — handled end-to-end by a single Mallorcan studio.",
+  es: "Diseño, construcción y cuidado ecológico para fincas y propiedades privadas en toda la isla — gestionado de principio a fin por un único estudio mallorquín.",
+  de: "Entwurf, Bau und ökologische Pflege für private Anwesen und Fincas auf der ganzen Insel — von einem einzigen mallorquinischen Studio vollständig betreut.",
+};
+
+const introText = {
+  en: "Some gardens are a single terrace; others are a working estate. For projects at this scale, S'Estepa manages the entire process in-house — conceptual design, terrain and soil preparation, dry-stone construction, irrigation engineering and planting — with one Mallorcan team and one point of contact from first meeting to finished landscape. Below are three of our estate-scale projects, with the real detail behind each.",
+  es: "Algunos jardines son una simple terraza; otros son una finca en pleno funcionamiento. Para proyectos de esta escala, S'Estepa gestiona todo el proceso internamente — diseño conceptual, preparación del terreno y del suelo, construcción en piedra seca, ingeniería de riego y plantación — con un único equipo mallorquín y un único punto de contacto desde la primera reunión hasta el jardín terminado. A continuación, tres de nuestros proyectos a escala de finca, con el detalle real de cada uno.",
+  de: "Manche Gärten sind eine einzelne Terrasse; andere ein funktionierendes Anwesen. Bei Projekten dieser Größenordnung übernimmt S'Estepa den gesamten Prozess im eigenen Haus — Konzeptentwurf, Gelände- und Bodenvorbereitung, Trockenmauerbau, Bewässerungstechnik und Bepflanzung — mit einem mallorquinischen Team und einer Ansprechperson vom ersten Treffen bis zur fertigen Landschaft. Im Folgenden drei unserer Projekte im Anwesensmaßstab, mit den realen Details zu jedem.",
+};
+
+const estates = {
+  en: [
+    {
+      slug: 'sant-llorenc',
+      title: 'Sant Llorenç',
+      subtitle: 'A sustainable landscape designed as a gradual reveal',
+      locationLabel: 'Sant Llorenç des Cardassar, Mallorca',
+      year: '2024',
+      botanical: 'Olea europaea var. sylvestris (Ullastre), Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis',
+      notes: [
+        'Existing wild olive trees (ullastres) preserved and used as the foundation of the design',
+        'Sub-surface drip irrigation across the planted estate',
+        'Traditional dry-stone walling integrated with the planting scheme',
+      ],
+    },
+    {
+      slug: 'finca-garden-campos-mallorca',
+      title: 'Finca Garden Campos',
+      subtitle: 'A majestic landscape blending geometry and wild nature',
+      locationLabel: 'Campos, Mallorca',
+      year: '2021',
+      botanical: "Phytolacca dioica (Bellasombra), Rosmarinus officinalis 'Prostratus', Bougainvillea sanderiana, Stipa tenuissima, Cupressus arizonica",
+      notes: [
+        'Multiple distinct garden zones across one estate — geometric planting, natural grassland-inspired areas, and a pool garden',
+        'An elevated garden area of approximately 300–400 m² planted as a mineral-and-groundcover carpet',
+        'Full design, construction and planting by S’Estepa',
+      ],
+    },
+    {
+      slug: 'jardin-mediterraneo',
+      title: 'Mediterranean Garden',
+      subtitle: 'The Mediterranean garden, reimagined for how we live now',
+      locationLabel: 'Mallorca',
+      year: '2024',
+      botanical: 'Olea europaea (Centenary), Cupressus sempervirens, Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia',
+      notes: [
+        'Centenary olive trees and irregular cypresses used as structural anchors instead of lawn',
+        'Planting scheme built for Mallorca’s calcareous soil and dry summers, requiring a fraction of conventional irrigation',
+      ],
+    },
+  ],
+  es: [
+    {
+      slug: 'sant-llorenc',
+      title: 'Sant Llorenç',
+      subtitle: 'Un paisaje sostenible diseñado como una revelación gradual',
+      locationLabel: 'Sant Llorenç des Cardassar, Mallorca',
+      year: '2024',
+      botanical: 'Olea europaea var. sylvestris (Ullastre), Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis',
+      notes: [
+        'Olivos silvestres (ullastres) existentes, preservados como base del diseño',
+        'Riego por goteo subterráneo en toda la finca plantada',
+        'Muros tradicionales de piedra seca integrados en el esquema de plantación',
+      ],
+    },
+    {
+      slug: 'finca-garden-campos-mallorca',
+      title: 'Finca Jardín Campos',
+      subtitle: 'Un majestuoso paisaje que une la geometría y la naturaleza salvaje',
+      locationLabel: 'Campos, Mallorca',
+      year: '2021',
+      botanical: "Phytolacca dioica (Bellasombra), Rosmarinus officinalis 'Prostratus', Bougainvillea sanderiana, Stipa tenuissima, Cupressus arizonica",
+      notes: [
+        'Varias zonas de jardín diferenciadas en una misma finca — plantación geométrica, áreas de inspiración pratense y jardín de piscina',
+        'Un jardín elevado de aproximadamente 300–400 m² plantado como una alfombra mineral y tapizante',
+        'Diseño, construcción y plantación íntegros a cargo de S’Estepa',
+      ],
+    },
+    {
+      slug: 'jardin-mediterraneo',
+      title: 'Jardín Mediterráneo',
+      subtitle: 'El jardín mediterráneo, reinventado para cómo vivimos hoy',
+      locationLabel: 'Mallorca',
+      year: '2024',
+      botanical: 'Olea europaea (Centenario), Cupressus sempervirens, Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia',
+      notes: [
+        'Olivos centenarios y cipreses irregulares usados como anclas estructurales en lugar de césped',
+        'Esquema de plantación pensado para el suelo calcáreo y los veranos secos de Mallorca, con una fracción del riego convencional',
+      ],
+    },
+  ],
+  de: [
+    {
+      slug: 'sant-llorenc',
+      title: 'Sant Llorenç',
+      subtitle: 'Eine nachhaltige Landschaft, gestaltet als allmähliche Enthüllung',
+      locationLabel: 'Sant Llorenç des Cardassar, Mallorca',
+      year: '2024',
+      botanical: 'Olea europaea var. sylvestris (Ullastre), Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis',
+      notes: [
+        'Bestehende wilde Olivenbäume (Ullastres) erhalten und als Grundlage des Entwurfs genutzt',
+        'Unterirdische Tropfbewässerung über das gesamte bepflanzte Anwesen',
+        'Traditioneller Trockenmauerbau in das Pflanzkonzept integriert',
+      ],
+    },
+    {
+      slug: 'finca-garden-campos-mallorca',
+      title: 'Finca Garten Campos',
+      subtitle: 'Eine majestätische Landschaft, die Geometrie und wilde Natur vereint',
+      locationLabel: 'Campos, Mallorca',
+      year: '2021',
+      botanical: "Phytolacca dioica (Bellasombra), Rosmarinus officinalis 'Prostratus', Bougainvillea sanderiana, Stipa tenuissima, Cupressus arizonica",
+      notes: [
+        'Mehrere eigenständige Gartenzonen auf einem Anwesen — geometrische Bepflanzung, wiesenartige Bereiche und ein Poolgarten',
+        'Ein erhöhter Gartenbereich von etwa 300–400 m², bepflanzt als mineralischer Bodendecker-Teppich',
+        'Vollständiger Entwurf, Bau und Bepflanzung durch S’Estepa',
+      ],
+    },
+    {
+      slug: 'jardin-mediterraneo',
+      title: 'Mediterraner Garten',
+      subtitle: 'Der mediterrane Garten, neu gedacht für das heutige Leben',
+      locationLabel: 'Mallorca',
+      year: '2024',
+      botanical: 'Olea europaea (Centenary), Cupressus sempervirens, Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia',
+      notes: [
+        'Jahrhundertealte Olivenbäume und unregelmäßige Zypressen als strukturelle Anker anstelle von Rasen',
+        'Pflanzkonzept für Mallorcas kalkhaltigen Boden und trockene Sommer, mit einem Bruchteil der üblichen Bewässerung',
+      ],
+    },
+  ],
+};
+
+const viewProjectLabel = { en: 'View full project', es: 'Ver proyecto completo', de: 'Vollständiges Projekt ansehen' };
+const botanicalLabel = { en: 'Botanical palette', es: 'Paleta botánica', de: 'Botanische Palette' };
+const ctaText = { en: 'Planning a landscape at estate scale?', es: '¿Estás planeando un paisaje a escala de finca?', de: 'Planen Sie eine Landschaft im Anwesensmaßstab?' };
+const ctaButton = { en: 'Start the conversation', es: 'Inicie la conversación', de: 'Gespräch beginnen' };
+---
+
+<Layout
+  title={pageTitles[lang]}
+  description={pageDescriptions[lang]}
+  lang={lang}
+>
+  <section class="hub-section section-padding">
+    <div class="container hub-container">
+      <header class="page-header">
+        <span class="section-tag">{sectionTag[lang]}</span>
+        <h1 class="page-title">{pageTitle[lang]}</h1>
+        <p class="page-subtitle">{pageSubtitle[lang]}</p>
+      </header>
+
+      <div class="intro-block">
+        <p>{introText[lang]}</p>
+      </div>
+
+      <div class="estate-list">
+        {estates[lang].map((estate) => (
+          <article class="estate-card">
+            <div class="estate-card-header">
+              <h2><a href={getProjectPath(estate.slug, lang)}>{estate.title}</a></h2>
+              <p class="estate-subtitle">{estate.subtitle}</p>
+              <div class="estate-meta">
+                <span>{estate.locationLabel}</span>
+                <span class="meta-dot" aria-hidden="true">&middot;</span>
+                <span>{estate.year}</span>
+              </div>
+            </div>
+            <ul class="estate-notes">
+              {estate.notes.map((note) => <li>{note}</li>)}
+            </ul>
+            <p class="estate-botanical"><strong>{botanicalLabel[lang]}:</strong> {estate.botanical}</p>
+            <a href={getProjectPath(estate.slug, lang)} class="estate-link">{viewProjectLabel[lang]}<span aria-hidden="true"> &rarr;</span></a>
+          </article>
+        ))}
+      </div>
+
+      <aside class="hub-cta">
+        <p class="cta-text">{ctaText[lang]}</p>
+        <a href={getPagePath('contact', lang)} class="cta-button">{ctaButton[lang]}<span aria-hidden="true"> &rarr;</span></a>
+      </aside>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hub-section {
+    background-color: var(--color-white);
+    padding-top: 10rem;
+  }
+
+  @media (max-width: 768px) {
+    .hub-section {
+      padding-top: 8rem;
+    }
+  }
+
+  .hub-container {
+    max-width: 900px;
+  }
+
+  .section-tag {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-olive);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--color-charcoal);
+    margin-bottom: 1.5rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-charcoal-light);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 640px;
+  }
+
+  .page-header {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--color-sand-dark);
+  }
+
+  .intro-block p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-weight: 300;
+    color: var(--color-charcoal-light);
+    margin-bottom: 3.5rem;
+    max-width: 700px;
+  }
+
+  .estate-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .estate-card {
+    padding: 2.5rem;
+    background-color: var(--color-sand-light);
+    border: 1px solid rgba(227, 221, 211, 0.4);
+  }
+
+  .estate-card-header h2 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  .estate-card-header h2 a {
+    color: var(--color-charcoal);
+    text-decoration: none;
+  }
+
+  .estate-card-header h2 a:hover {
+    color: var(--color-olive);
+  }
+
+  .estate-subtitle {
+    font-size: 1rem;
+    color: var(--color-charcoal-light);
+    font-style: italic;
+    margin-bottom: 0.75rem;
+  }
+
+  .estate-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-olive);
+    margin-bottom: 1.5rem;
+  }
+
+  .estate-notes {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .estate-notes li {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-charcoal-light);
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .estate-notes li::before {
+    content: '\2014';
+    position: absolute;
+    left: 0;
+    color: var(--color-olive);
+  }
+
+  .estate-botanical {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-charcoal-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .estate-link {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-olive);
+  }
+
+  .hub-cta {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--color-sand-dark);
+    text-align: center;
+  }
+
+  .cta-text {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--color-charcoal);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.95rem 2rem;
+    border: 1px solid var(--color-olive);
+    color: var(--color-olive);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    transition: var(--transition-fast);
+  }
+
+  .cta-button:hover {
+    background-color: var(--color-olive);
+    color: var(--color-white);
+  }
+</style>

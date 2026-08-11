@@ -9,9 +9,9 @@ noindex: false
 
 Where Your Garden Becomes the Grandest Room
 
-In the rarefied world of Mallorquin estate design, the boundary between the built environment and the raw beauty of the Balearic landscape is not just blurred; it is deliberately dissolved. Imagine stepping directly from your sleek Bauhaus interior—cool micro-cement underfoot—into a fragrant, drought-tolerant paradise that feels like an outdoor extension of your most intimate living spaces.
+In the rarefied world of Mallorquin estate design, the boundary between the built environment and the raw beauty of the Balearic landscape is deliberately dissolved, not simply blurred. Imagine stepping directly from your sleek Bauhaus interior—cool micro-cement underfoot—into a fragrant, drought-tolerant paradise that feels like an outdoor extension of your most intimate living spaces.
 
-For the Finca-Modern estate, the garden is not merely scenery. It is architecture without a ceiling.
+For the Finca-Modern estate, the garden is architecture without a ceiling, not merely scenery.
 
 ## The Mallorca Context: Designing for the Terroir
 
@@ -23,7 +23,7 @@ Furthermore, we must account for the Tramuntana winds in the north and the high 
 
 ## Zoning: The Architecture of Open-Air Living
 
-True luxury is seamless flow. Your outdoor space must function as a series of &#8216;rooms' defined not by walls, but by texture, light, and biological structure.
+True luxury is seamless flow. Your outdoor space must function as a series of &#8216;rooms' defined by texture, light, and biological structure, not walls.
 
 The Dining Terrace: Positioned to catch the Embat (thermal breeze) during lunch, shaded by the architectural canopy of pruned Mulberry trees (*Morus alba*).
 
@@ -43,7 +43,7 @@ Aromatic Groundcover: *Rosmarinus officinalis* &#8216;Prostratus' (Romero Rastre
 
 The &#8216;Bauhaus' Shrub: *Westringia fruticosa* (Romero Australiano). Though not native, it thrives in calcareous soil and withstands salt winds, perfect for pruning into precise geometric spheres that echo modern architectural lines.
 
-Vertical Accents: *Cupressus sempervirens* (Ciprés). Used sparingly to frame views, not just to block them.
+Vertical Accents: *Cupressus sempervirens* (Ciprés). Used sparingly to frame views rather than block them.
 
 ## Sensory Luxury: Beyond the Visual
 

@@ -13,7 +13,9 @@ export type SitePageId =
   | 'privacy-policy'
   | 'cookies'
   | 'blog'
-  | 'faq';
+  | 'faq'
+  | 'botanical-expertise'
+  | 'large-scale-projects';
 
 /** Canonical paths matching design.sestepa.com (WordPress + WPML). */
 export const SITE_PAGES: Record<SitePageId, Record<SiteLocale, string>> = {
@@ -41,6 +43,16 @@ export const SITE_PAGES: Record<SitePageId, Record<SiteLocale, string>> = {
   cookies: { en: '/cookies/', es: '/es/cookies/', de: '/de/cookies/' },
   blog: { en: '/blog/', es: '/es/blog/', de: '/de/blog/' },
   faq: { en: '/faq/', es: '/faq/', de: '/faq/' },
+  'botanical-expertise': {
+    en: '/mediterranean-plants-soil-mallorca/',
+    es: '/es/plantas-y-suelo-mallorca/',
+    de: '/de/pflanzen-und-boden-mallorca/',
+  },
+  'large-scale-projects': {
+    en: '/large-scale-landscape-projects-mallorca/',
+    es: '/es/proyectos-paisajismo-gran-escala-mallorca/',
+    de: '/de/grossprojekte-landschaftsarchitektur-mallorca/',
+  },
 };
 
 /**

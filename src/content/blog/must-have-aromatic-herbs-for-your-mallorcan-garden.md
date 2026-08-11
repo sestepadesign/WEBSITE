@@ -9,7 +9,7 @@ noindex: false
 
 Must-Have Aromatic Herbs for Your Mallorcan Garden
 
-At S'Estepa Design, we view the garden not merely as a visual tableau, but as an immersive sensory architecture. In the harsh, beautiful climate of Mallorca, a garden must engage the olfactory sense as powerfully as it does the visual. The scent of sun-baked earth combined with resinous foliage creates the true signature of the Mediterranean landscape.
+At S'Estepa Design, we treat the garden as an immersive sensory architecture, well beyond a visual tableau. In the harsh, beautiful climate of Mallorca, a garden must engage the olfactory sense as powerfully as it does the visual. The scent of sun-baked earth combined with resinous foliage creates the true signature of the Mediterranean landscape.
 
 Our philosophy of the Jardín Seco (Dry Garden) dictates that aesthetic beauty and ecological resilience are inseparable. The plants that survive our scorching summers and alkaline soils are often those that produce the most profound essential oils. This guide outlines the definitive S'Estepa collection of aromatic structural plants—species chosen for their architectural form, drought resistance, and ability to define the atmosphere of a luxury Mallorcan sanctuary.
 
@@ -21,7 +21,7 @@ When we design at S'Estepa, we utilize this mechanism. We do not fight the clima
 
 ## The Definitive S'Estepa Aromatic Profile
 
-We have curated five essential botanicals that form the backbone of our sensory planting schemes. These are not merely fillers; they are architectural elements.
+We have curated five essential botanicals that form the backbone of our sensory planting schemes. They function as architectural elements within the planting scheme, not decorative filler.
 
 ### 1. The Structural Anchor: *Olea europaea* (Olive)
 
@@ -71,7 +71,7 @@ The Scent Trap: In enclosed courtyards or patios protected from the prevailing 
 
 The Heat Reflector: Aromatics release the most scent when heated. We plant Lavender and Rosemary near south-facing Mares stone walls, which absorb heat during the day and radiate it at dusk, extending the sensory experience into the evening.
 
-Hydro-Zoning: We group these plants not just by scent, but by water dominance. All species listed above require minimal irrigation, adhering to our regenerative commitment to water wisdom.
+Hydro-Zoning: We group these plants by scent and by water dominance. All species listed above require minimal irrigation, adhering to our regenerative commitment to water wisdom.
 
 Elevate Your Landscape with S'Estepa
 
