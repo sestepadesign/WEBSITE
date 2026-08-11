@@ -23,7 +23,7 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
     subtitle:
       'Specialist landscape design and garden design studio in Mallorca. We create and maintain living Mediterranean ecosystems for private villas, fincas and holiday residences — from concept to completion.',
     metaDescription:
-      'Garden design, construction and ecological care for private villas, fincas and estates in Mallorca. S\'Estepa Design — 30 years of Mediterranean landscape architecture.',
+      'Boutique garden design, construction and ecological care for private villas, fincas and estates in Mallorca. S\'Estepa Design — 30 years of Mediterranean landscape architecture.',
     intro:
       'Our team oversees the entire process—from design and construction to technical irrigation and planting. We ensure a seamless experience, managing every detail in English, Spanish, and German.',
     items: [
@@ -96,7 +96,7 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
     subtitle:
       'Wir bieten einen umfassenden Ansatz für die Landschaftsgestaltung auf Mallorca, mit Schwerpunkt auf der Schaffung und langfristigen Pflege lebendiger Ökosysteme für Villen und Feriendomizile.',
     metaDescription:
-      'Gartengestaltung und Landschaftsarchitektur auf Mallorca für private Fincas und Villen. S\'Estepa Design — 30 Jahre mediterrane Gartenplanung. Planung, Bau und ökologische Pflege.',
+      'Boutique-Gartengestaltung und Landschaftsarchitektur auf Mallorca für private Fincas und Villen. S\'Estepa Design — 30 Jahre mediterrane Gartenplanung. Planung, Bau und ökologische Pflege.',
     intro:
       'Unser Team überwacht den gesamten Prozess – vom Entwurf und Bau bis hin zur technischen Bewässerung und Bepflanzung. Wir garantieren einen reibungslosen Ablauf und regeln jedes Detail auf Englisch, Spanisch und Deutsch.',
     items: [
