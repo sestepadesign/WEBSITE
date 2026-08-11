@@ -1,0 +1,373 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getPagePath, getProjectPath } from '../../lib/urls';
+
+interface Props { lang: 'en' | 'es' | 'de'; }
+const { lang } = Astro.props;
+
+const pageTitles = {
+  en: "Mediterranean Plants & Soil Expertise in Mallorca | S'Estepa Design",
+  es: "Suelo y Plantas Mediterráneas en Mallorca | S'Estepa Design",
+  de: "Mediterrane Pflanzen & Bodenexpertise auf Mallorca | S'Estepa Design",
+};
+
+const pageDescriptions = {
+  en: "Native flora, calcareous soil, Tramuntana wind and water-wise irrigation: how S'Estepa Design's 30 years of hands-on knowledge of Mallorca's terrain shapes every garden.",
+  es: "Flora autóctona, suelo calcáreo, viento de Tramuntana y riego eficiente: cómo 30 años de conocimiento directo del terreno de Mallorca dan forma a cada jardín de S'Estepa Design.",
+  de: "Einheimische Flora, kalkhaltiger Boden, Tramuntana-Wind und wassersparende Bewässerung: wie 30 Jahre direktes Wissen über den Boden Mallorcas jeden Garten von S'Estepa Design prägen.",
+};
+
+const sectionTag = { en: 'Studio Expertise', es: 'Especialización del Estudio', de: 'Studio-Expertise' };
+
+const pageTitle = {
+  en: "Mediterranean Plants & Soil Expertise in Mallorca",
+  es: "Suelo y Plantas Mediterráneas en Mallorca",
+  de: "Mediterrane Pflanzen & Bodenexpertise auf Mallorca",
+};
+
+const pageSubtitle = {
+  en: "How thirty years of working Mallorca's own ground — its limestone, its clay, its wind — shapes every garden S'Estepa designs and builds.",
+  es: "Cómo treinta años trabajando el propio terreno de Mallorca — su piedra caliza, su arcilla, su viento — dan forma a cada jardín que S'Estepa diseña y construye.",
+  de: "Wie dreißig Jahre Arbeit mit Mallorcas eigenem Boden — seinem Kalkstein, seinem Lehm, seinem Wind — jeden Garten prägen, den S'Estepa entwirft und baut.",
+};
+
+const intro = {
+  en: "Every S'Estepa project starts from the same place: the ground itself. Founder <strong>Pedro Campaner</strong>, a Mallorca-born Agricultural Technician specialised in landscaping, has spent over 30 years working the island's soil, wind and native flora directly — knowledge that shapes every project the studio undertakes, from a single terrace to a multi-hectare estate.",
+  es: "Cada proyecto de S'Estepa empieza en el mismo sitio: el propio terreno. El fundador <strong>Pedro Campaner</strong>, técnico agrícola nacido en Mallorca y especializado en paisajismo, lleva más de 30 años trabajando directamente el suelo, el viento y la flora autóctona de la isla — un conocimiento que da forma a cada proyecto del estudio, desde una simple terraza hasta una finca de varias hectáreas.",
+  de: "Jedes S'Estepa-Projekt beginnt am selben Punkt: dem Boden selbst. Gründer <strong>Pedro Campaner</strong>, ein auf Mallorca geborener Agrartechniker mit Spezialisierung auf Landschaftsgestaltung, arbeitet seit über 30 Jahren direkt mit dem Boden, dem Wind und der einheimischen Flora der Insel — ein Wissen, das jedes Projekt des Studios prägt, von einer einzelnen Terrasse bis zu einem mehrere Hektar großen Anwesen.",
+};
+
+const soilH2 = { en: "Mallorca's Soil: Calcareous Ground and Call Vermell Clay", es: "El Suelo de Mallorca: Terreno Calcáreo y Arcilla Call Vermell", de: "Mallorcas Boden: Kalkhaltiger Grund und Call-Vermell-Lehm" };
+const soilP1 = {
+  en: "Designing in the Balearics means negotiating with the geology itself. Much of the island sits on <strong>predominantly calcareous, high-pH soil</strong> — alkaline ground that can lock away essential nutrients like iron in non-native species, causing chlorosis (yellowing leaves) if the wrong plants are chosen.",
+  es: "Diseñar en las Baleares significa negociar con la propia geología. Gran parte de la isla se asienta sobre <strong>suelo predominantemente calcáreo y de pH elevado</strong> — un terreno alcalino que puede bloquear nutrientes esenciales como el hierro en especies no adaptadas, causando clorosis (hojas amarillentas) si se eligen las plantas equivocadas.",
+  de: "Auf den Balearen zu gestalten bedeutet, mit der Geologie selbst zu verhandeln. Ein Großteil der Insel liegt auf <strong>überwiegend kalkhaltigem Boden mit hohem pH-Wert</strong> — alkalischer Grund, der bei nicht angepassten Arten essenzielle Nährstoffe wie Eisen blockieren kann und bei falscher Pflanzenwahl zu Chlorose (Vergilben der Blätter) führt.",
+};
+const soilP2 = {
+  en: 'Many estates across the central and southern plains, including around Campos, sit on <strong>Call Vermell</strong>, the island\'s characteristic iron-rich red clay. Visually striking but prone to compacting hard during dry spells, it can become impenetrable to roots if left untreated. Rather than replacing it, S\'Estepa regenerates it — incorporating organic matter and permeable aggregates to aerate the clay and turn it into a moisture-retaining base that supports deep root systems. At our <a href="{{crestatx}}">Crestatx</a> project, this soil-first approach replaced the lawn entirely with a mineral layer over regenerated ground, cutting irrigation demand while increasing biodiversity across the garden.',
+  es: 'Muchas fincas de las llanuras del centro y del sur, incluida la zona de Campos, se asientan sobre <strong>Call Vermell</strong>, la característica arcilla roja rica en hierro de la isla. Visualmente llamativa pero propensa a compactarse en época seca, puede volverse impenetrable para las raíces si no se trata. En lugar de sustituirla, S\'Estepa la regenera — incorporando materia orgánica y áridos permeables para airear la arcilla y convertirla en una base que retiene humedad y favorece raíces profundas. En nuestro proyecto de <a href="{{crestatx}}">Crestatx</a>, este enfoque centrado en el suelo sustituyó por completo el césped por una capa mineral sobre terreno regenerado, reduciendo la demanda de riego y aumentando la biodiversidad del jardín.',
+  de: 'Viele Anwesen in den zentralen und südlichen Ebenen, auch rund um Campos, liegen auf <strong>Call Vermell</strong>, dem für die Insel typischen eisenreichen roten Lehm. Optisch auffällig, neigt er in Trockenperioden jedoch stark zur Verdichtung und kann für Wurzeln undurchdringlich werden, wenn er unbehandelt bleibt. Statt ihn zu ersetzen, regeneriert S\'Estepa ihn — durch Einarbeitung von organischem Material und durchlässigen Zuschlagstoffen, die den Lehm auflockern und in eine feuchtigkeitsspeichernde Basis für tiefe Wurzelsysteme verwandeln. Bei unserem Projekt in <a href="{{crestatx}}">Crestatx</a> ersetzte dieser bodenorientierte Ansatz den Rasen vollständig durch eine mineralische Schicht über regeneriertem Grund — das senkte den Bewässerungsbedarf und steigerte gleichzeitig die Biodiversität im Garten.',
+};
+
+const windH2 = { en: "Designing for the Tramuntana Wind", es: "Diseñar para el Viento de Tramuntana", de: "Gestalten für den Tramuntana-Wind" };
+const windP1 = {
+  en: "Water is only half the equation — wind is the other. The Tramuntana can dehydrate a garden faster than the sun, and near the coast it carries salt that stresses delicate foliage. S'Estepa uses structural, wind-tolerant planting — dense hedging of <em>Pistacia lentiscus</em> (mastic) and <em>Cupressus sempervirens</em> — to build living windbreaks that create sheltered microclimates for the more delicate species growing behind them, reducing evaporation without any artificial intervention.",
+  es: "El agua es solo la mitad de la ecuación — el viento es la otra. La Tramuntana puede deshidratar un jardín más rápido que el propio sol, y cerca de la costa arrastra sal que castiga el follaje delicado. S'Estepa utiliza plantaciones estructurales y tolerantes al viento — setos densos de <em>Pistacia lentiscus</em> (mata) y <em>Cupressus sempervirens</em> — para crear barreras vivas que generan microclimas protegidos para las especies más delicadas que crecen tras ellas, reduciendo la evaporación sin ninguna intervención artificial.",
+  de: "Wasser ist nur die halbe Gleichung — Wind die andere. Die Tramuntana kann einen Garten schneller austrocknen als die Sonne, und nahe der Küste trägt sie Salz, das empfindliches Laub belastet. S'Estepa setzt auf strukturelle, windtolerante Bepflanzung — dichte Hecken aus <em>Pistacia lentiscus</em> (Mastixstrauch) und <em>Cupressus sempervirens</em> —, um lebendige Windschutzstreifen zu schaffen, die geschützte Mikroklimazonen für die empfindlicheren Arten dahinter bilden und die Verdunstung ganz ohne künstliche Eingriffe verringern.",
+};
+
+const waterH2 = { en: "Water: Xeriscaping, Hydro-Zoning and Smart Irrigation", es: "Agua: Xerojardinería, Hidro-Zonificación y Riego Inteligente", de: "Wasser: Xeriscaping, Hydro-Zonierung und intelligente Bewässerung" };
+const waterP1 = {
+  en: 'Our Ecological Care approach groups plants by water need (hydro-zoning) and favours sub-surface drip lines over surface sprinklers, delivering water directly to the root zone instead of losing it to evaporation off gravel and stone. At <a href="{{santllorenc}}">Sant Llorenç</a>, sub-surface drip combined with a Mediterranean palette of <em>Lavandula dentata</em>, <em>Rosmarinus officinalis</em> \'Prostratus\' and the estate\'s preserved centenary olive trees keeps the garden lush on a fraction of the water a conventional Mallorcan garden would demand.',
+  es: 'Nuestro enfoque Ecological Care agrupa las plantas según su necesidad de agua (hidro-zonificación) y prioriza el riego por goteo subterráneo frente a los aspersores de superficie, llevando el agua directamente a la zona radicular en lugar de perderla por evaporación sobre grava y piedra. En <a href="{{santllorenc}}">Sant Llorenç</a>, el goteo subterráneo combinado con una paleta mediterránea de <em>Lavandula dentata</em>, <em>Rosmarinus officinalis</em> \'Prostratus\' y los olivos centenarios preservados de la finca mantienen el jardín exuberante con una fracción del agua que exigiría un jardín mallorquín convencional.',
+  de: 'Unser Ecological-Care-Ansatz gruppiert Pflanzen nach Wasserbedarf (Hydro-Zonierung) und bevorzugt unterirdische Tropfleitungen gegenüber Oberflächensprinklern — das Wasser gelangt direkt zur Wurzelzone, statt über Kies und Stein zu verdunsten. Bei <a href="{{santllorenc}}">Sant Llorenç</a> hält unterirdische Tropfbewässerung in Kombination mit einer mediterranen Palette aus <em>Lavandula dentata</em>, <em>Rosmarinus officinalis</em> \'Prostratus\' und den erhaltenen jahrhundertealten Olivenbäumen des Anwesens den Garten mit einem Bruchteil des Wassers üppig, das ein konventioneller mallorquinischer Garten benötigen würde.',
+};
+
+const paletteH2 = { en: "The Palette: Native and Mediterranean-Adapted Flora", es: "La Paleta: Flora Autóctona y Adaptada al Mediterráneo", de: "Die Palette: Einheimische und mediterran angepasste Flora" };
+const paletteIntro = {
+  en: "We work almost exclusively with species that already belong to this island, chosen for structure, texture and resilience in Mallorca's specific climate:",
+  es: "Trabajamos casi exclusivamente con especies que ya pertenecen a esta isla, elegidas por su estructura, textura y resistencia en el clima específico de Mallorca:",
+  de: "Wir arbeiten fast ausschließlich mit Arten, die bereits zu dieser Insel gehören, ausgewählt nach Struktur, Textur und Widerstandsfähigkeit im spezifischen Klima Mallorcas:",
+};
+const paletteItems = {
+  en: [
+    { label: 'Structure & shade', text: '<em>Olea europaea</em> (olive, including centenary specimens), <em>Ceratonia siliqua</em> (carob), <em>Cupressus sempervirens</em>' },
+    { label: 'Windbreaks & screening', text: '<em>Pistacia lentiscus</em> (mastic), <em>Chamaerops humilis</em>' },
+    { label: 'Texture & movement', text: '<em>Stipa tenuissima</em>, <em>Perovskia atriplicifolia</em>, <em>Gaura lindheimeri</em>' },
+    { label: 'Aromatics & ground cover', text: '<em>Rosmarinus officinalis</em>, <em>Lavandula dentata</em>, <em>Teucrium fruticans</em>' },
+  ],
+  es: [
+    { label: 'Estructura y sombra', text: '<em>Olea europaea</em> (olivo, incluidos ejemplares centenarios), <em>Ceratonia siliqua</em> (algarrobo), <em>Cupressus sempervirens</em>' },
+    { label: 'Cortavientos y pantallas', text: '<em>Pistacia lentiscus</em> (mata), <em>Chamaerops humilis</em>' },
+    { label: 'Textura y movimiento', text: '<em>Stipa tenuissima</em>, <em>Perovskia atriplicifolia</em>, <em>Gaura lindheimeri</em>' },
+    { label: 'Aromáticas y tapizantes', text: '<em>Rosmarinus officinalis</em>, <em>Lavandula dentata</em>, <em>Teucrium fruticans</em>' },
+  ],
+  de: [
+    { label: 'Struktur & Schatten', text: '<em>Olea europaea</em> (Olive, auch jahrhundertealte Exemplare), <em>Ceratonia siliqua</em> (Johannisbrotbaum), <em>Cupressus sempervirens</em>' },
+    { label: 'Windschutz & Sichtschutz', text: '<em>Pistacia lentiscus</em> (Mastixstrauch), <em>Chamaerops humilis</em>' },
+    { label: 'Textur & Bewegung', text: '<em>Stipa tenuissima</em>, <em>Perovskia atriplicifolia</em>, <em>Gaura lindheimeri</em>' },
+    { label: 'Duftpflanzen & Bodendecker', text: '<em>Rosmarinus officinalis</em>, <em>Lavandula dentata</em>, <em>Teucrium fruticans</em>' },
+  ],
+};
+const paletteNote = {
+  en: "<em>Lavandula dentata</em> — French lavender, native to Mediterranean limestone rather than the English variety more commonly sold — blooms nearly year-round on the island and demands the excellent drainage our soil preparation is built to provide.",
+  es: "<em>Lavandula dentata</em> — lavanda dentada, autóctona de la piedra caliza mediterránea, a diferencia de la variedad inglesa más comúnmente vendida — florece casi todo el año en la isla y exige el excelente drenaje que nuestra preparación del suelo está pensada para ofrecer.",
+  de: "<em>Lavandula dentata</em> — die im Mittelmeerkalk heimische Zahnblättrige Lavendel-Art, im Gegensatz zur häufiger verkauften englischen Sorte — blüht auf der Insel fast ganzjährig und braucht die hervorragende Drainage, die unsere Bodenvorbereitung gezielt schafft.",
+};
+
+const proofH2 = { en: "Where This Knowledge Shows Up", es: "Dónde se Ve Este Conocimiento", de: "Wo sich dieses Wissen zeigt" };
+const proofIntro = {
+  en: "This isn't theory — it's the working method behind projects across the island:",
+  es: "Esto no es teoría — es el método de trabajo detrás de proyectos en toda la isla:",
+  de: "Das ist keine Theorie — es ist die Arbeitsweise hinter Projekten auf der ganzen Insel:",
+};
+const proofItems = {
+  en: [
+    { slug: 'crestatx-garden-design', label: 'Crestatx', text: 'soil regeneration and mineral-layer lawn replacement' },
+    { slug: 'sant-llorenc', label: 'Sant Llorenç', text: 'preserved wild olive trees (ullastres) and sub-surface drip irrigation' },
+    { slug: 'finca-garden-campos-mallorca', label: 'Finca Garden Campos', text: 'large-scale planting across calcareous ground in the south of the island' },
+    { slug: 'hotelcabotlasvelas', label: 'Hotel Cabot Las Velas', text: ', Puerto Pollença — drought-tolerant aromatic palette replacing a thirsty lawn across a full hotel garden' },
+  ],
+  es: [
+    { slug: 'crestatx-garden-design', label: 'Crestatx', text: 'regeneración del suelo y sustitución del césped por una capa mineral' },
+    { slug: 'sant-llorenc', label: 'Sant Llorenç', text: 'olivos silvestres (ullastres) preservados y riego por goteo subterráneo' },
+    { slug: 'finca-garden-campos-mallorca', label: 'Finca Garden Campos', text: 'plantación a gran escala sobre terreno calcáreo en el sur de la isla' },
+    { slug: 'hotelcabotlasvelas', label: 'Hotel Cabot Las Velas', text: ', Puerto Pollença — paleta aromática resistente a la sequía que sustituyó un césped sediento en todo el jardín del hotel' },
+  ],
+  de: [
+    { slug: 'crestatx-garden-design', label: 'Crestatx', text: 'Bodenregeneration und Ersatz des Rasens durch eine mineralische Schicht' },
+    { slug: 'sant-llorenc', label: 'Sant Llorenç', text: 'erhaltene wilde Olivenbäume (Ullastres) und unterirdische Tropfbewässerung' },
+    { slug: 'finca-garden-campos-mallorca', label: 'Finca Garden Campos', text: 'großflächige Bepflanzung auf kalkhaltigem Boden im Süden der Insel' },
+    { slug: 'hotelcabotlasvelas', label: 'Hotel Cabot Las Velas', text: ', Puerto Pollença — trockenheitsresistente Duftpflanzenpalette anstelle eines durstigen Rasens im gesamten Hotelgarten' },
+  ],
+};
+
+const furtherReading = {
+  en: 'Further reading on the studio\'s Journal: <a href="/regenerative-landscapes-despite-mallorcas-water-realities/">regenerative dry-garden design</a>, <a href="/the-unseen-alliance-how-ancient-fincas-embrace-21st-century-water-wisdom/">smart irrigation for historic fincas</a>, and <a href="/beyond-shade-unveiling-the-microclimates-engineered-by-bioclimatic-pergolas-in-mallorca/">engineering microclimates with bioclimatic pergolas</a>.',
+  es: 'Más lecturas en el Journal del estudio (en inglés): <a href="/regenerative-landscapes-despite-mallorcas-water-realities/">diseño de jardín seco regenerativo</a>, <a href="/the-unseen-alliance-how-ancient-fincas-embrace-21st-century-water-wisdom/">riego inteligente para fincas históricas</a>, y <a href="/beyond-shade-unveiling-the-microclimates-engineered-by-bioclimatic-pergolas-in-mallorca/">microclimas con pérgolas bioclimáticas</a>.',
+  de: 'Weiterführende Artikel im Journal des Studios (auf Englisch): <a href="/regenerative-landscapes-despite-mallorcas-water-realities/">regeneratives Trockengarten-Design</a>, <a href="/the-unseen-alliance-how-ancient-fincas-embrace-21st-century-water-wisdom/">intelligente Bewässerung für historische Fincas</a>, und <a href="/beyond-shade-unveiling-the-microclimates-engineered-by-bioclimatic-pergolas-in-mallorca/">Mikroklimas mit bioklimatischen Pergolen</a>.',
+};
+
+const ctaText = {
+  en: "Planning a garden that has to work with Mallorca's soil and climate, not against it?",
+  es: "¿Estás planeando un jardín que trabaje con el suelo y el clima de Mallorca, no en su contra?",
+  de: "Planen Sie einen Garten, der mit Mallorcas Boden und Klima arbeitet, nicht gegen ihn?",
+};
+
+const ctaButton = { en: 'Start the conversation', es: 'Inicie la conversación', de: 'Gespräch beginnen' };
+
+const crestatxHref = getProjectPath('crestatx-garden-design', lang);
+const santLlorencHref = getProjectPath('sant-llorenc', lang);
+
+const soilP2Html = soilP2[lang].replace('{{crestatx}}', crestatxHref);
+const waterP1Html = waterP1[lang].replace('{{santllorenc}}', santLlorencHref);
+---
+
+<Layout
+  title={pageTitles[lang]}
+  description={pageDescriptions[lang]}
+  lang={lang}
+>
+  <section class="expertise-section section-padding">
+    <div class="container expertise-container">
+      <header class="page-header">
+        <span class="section-tag">{sectionTag[lang]}</span>
+        <h1 class="page-title">{pageTitle[lang]}</h1>
+        <p class="page-subtitle">{pageSubtitle[lang]}</p>
+      </header>
+
+      <div class="intro-block">
+        <p set:html={intro[lang]} />
+      </div>
+
+      <article class="expertise-block">
+        <h2>{soilH2[lang]}</h2>
+        <p set:html={soilP1[lang]} />
+        <p set:html={soilP2Html} />
+      </article>
+
+      <article class="expertise-block">
+        <h2>{windH2[lang]}</h2>
+        <p set:html={windP1[lang]} />
+      </article>
+
+      <article class="expertise-block">
+        <h2>{waterH2[lang]}</h2>
+        <p set:html={waterP1Html} />
+      </article>
+
+      <article class="expertise-block">
+        <h2>{paletteH2[lang]}</h2>
+        <p>{paletteIntro[lang]}</p>
+        <ul class="palette-list">
+          {paletteItems[lang].map((item) => (
+            <li><strong>{item.label}</strong> — <span set:html={item.text} /></li>
+          ))}
+        </ul>
+        <p set:html={paletteNote[lang]} />
+      </article>
+
+      <article class="expertise-block proof-block">
+        <h2>{proofH2[lang]}</h2>
+        <p>{proofIntro[lang]}</p>
+        <ul class="proof-list">
+          {proofItems[lang].map((item) => (
+            <li><a href={getProjectPath(item.slug, lang)}>{item.label}</a>{item.text.startsWith(',') ? '' : ' — '}{item.text}</li>
+          ))}
+        </ul>
+        <p class="further-reading" set:html={furtherReading[lang]} />
+      </article>
+
+      <aside class="expertise-cta">
+        <p class="cta-text">{ctaText[lang]}</p>
+        <a href={getPagePath('contact', lang)} class="cta-button">{ctaButton[lang]}<span aria-hidden="true"> &rarr;</span></a>
+      </aside>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .expertise-section {
+    background-color: var(--color-white);
+    padding-top: 10rem;
+  }
+
+  @media (max-width: 768px) {
+    .expertise-section {
+      padding-top: 8rem;
+    }
+  }
+
+  .expertise-container {
+    max-width: 780px;
+  }
+
+  .section-tag {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-olive);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--color-charcoal);
+    margin-bottom: 1.5rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-charcoal-light);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 640px;
+  }
+
+  .page-header {
+    margin-bottom: 3.5rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--color-sand-dark);
+  }
+
+  .intro-block p {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    line-height: 1.7;
+    font-weight: 300;
+    color: var(--color-charcoal);
+    margin-bottom: 3.5rem;
+  }
+
+  .expertise-block {
+    margin-bottom: 3rem;
+  }
+
+  .expertise-block h2 {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--color-charcoal);
+    margin-bottom: 1.25rem;
+  }
+
+  .expertise-block p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-charcoal-light);
+    margin-bottom: 1rem;
+  }
+
+  .expertise-block :global(a) {
+    color: var(--color-olive);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .palette-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .palette-list li {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-charcoal-light);
+    padding: 0.9rem 1.25rem;
+    background-color: var(--color-sand-light);
+    border: 1px solid rgba(227, 221, 211, 0.4);
+  }
+
+  .proof-block {
+    padding: 2.5rem;
+    background-color: var(--color-sand-light);
+    border: 1px solid rgba(227, 221, 211, 0.4);
+  }
+
+  .proof-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .proof-list li {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-charcoal-light);
+  }
+
+  .further-reading {
+    font-size: 0.9rem;
+    margin-bottom: 0 !important;
+  }
+
+  .expertise-cta {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--color-sand-dark);
+    text-align: center;
+  }
+
+  .cta-text {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--color-charcoal);
+    margin-bottom: 1.5rem;
+    max-width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.95rem 2rem;
+    border: 1px solid var(--color-olive);
+    color: var(--color-olive);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    transition: var(--transition-fast);
+  }
+
+  .cta-button:hover {
+    background-color: var(--color-olive);
+    color: var(--color-white);
+  }
+</style>
