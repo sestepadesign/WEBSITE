@@ -9,7 +9,7 @@ noindex: false
 
 Beyond Shade: Unveiling the Microclimates Engineered by Bioclimatic Pergolas in Mallorca
 
-In the realm of high-end landscape architecture here in the Balearics, we often speak of &#8220;fighting&#8221; the elements. We build windbreaks against the Tramuntana; we amend the stubborn, alkaline suelo calcáreo to lower pH levels; we irrigate to combat the searing July drought. But true mastery of the Mallorcan garden lies not in resistance, but in modulation.
+In the realm of high-end landscape architecture here in the Balearics, we often speak of &#8220;fighting&#8221; the elements. We build windbreaks against the Tramuntana; we amend the stubborn, alkaline suelo calcáreo to lower pH levels; we irrigate to combat the searing July drought. But true mastery of the Mallorcan garden lies in modulation, not resistance.
 
 What if your garden could actively mitigate Mallorca's intense summer heat and unpredictable winds, rather than merely enduring them? Enter the bioclimatic pergola. Far removed from the static wooden structures of the past, these are sophisticated architectural instruments designed to engineer precise microclimates. They are the nexus where Bauhaus precision meets the organic soul of a Mediterranean Finca.
 
@@ -19,7 +19,7 @@ What if your garden could actively mitigate Mallorca's intense summer heat and u
 
 To understand the necessity of bioclimatic engineering, one must first respect the unique atmospheric pressures of our island. We face a specific triad of challenges:
 
-The UV Index: The solar gain in July and August is not just hot; it is oppressive. Static shade covers trap heat underneath, creating a stifling &#8220;oven effect.&#8221;
+The UV Index: The solar gain in July and August is oppressive, not simply hot. Static shade covers trap heat underneath, creating a stifling &#8220;oven effect.&#8221;
 
 The Tramuntana: The northern winds can decimate delicate foliage and make outdoor dining impossible. A fixed structure risks structural fatigue, whereas a retractable awning often requires retraction exactly when you need protection most.
 

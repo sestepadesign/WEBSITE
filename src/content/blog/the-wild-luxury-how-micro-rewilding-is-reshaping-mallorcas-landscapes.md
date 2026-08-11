@@ -17,7 +17,7 @@ We believe the answer lies in a radical shift in perspective. True exclusivity i
 
 ## The Architecture of the &#8220;Uncontrolled&#8221;
 
-Micro-rewilding is not abandonment. It is not simply ceasing to mow or weed. Rather, it is the deliberate orchestration of &#8220;wild zones&#8221; within a structured landscape plan. It is a curiosity-driven approach where we ask: What wants to grow here?
+Micro-rewilding goes well beyond simply ceasing to mow or weed — it is the deliberate orchestration of &#8220;wild zones&#8221; within a structured landscape plan. It is a curiosity-driven approach where we ask: What wants to grow here?
 
 In our projects across the Raiguer and the Tramuntana foothills, we designate specific pockets of the garden to mimic the local Garriga (scrubland). However, the luxury lies in the framing. By bounding these wild areas with crisp, architectural lines—perhaps a wall of local Mares stone or the sharp edge of Corten steel—we create a gallery effect. You can see this philosophy in action in our [Campanet](/campanet-garden) project, where endemic species and traditional dry-stone elements create a seamless visual connection to the surrounding Tramuntana foothills. The wildness becomes art, held within a sophisticated frame.
 

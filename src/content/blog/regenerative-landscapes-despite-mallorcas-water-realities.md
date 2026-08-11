@@ -9,7 +9,7 @@ noindex: false
 
 Beyond the Drought: How S'Estepa Creates Lush, Regenerative Landscapes Despite Mallorca's Water Realities
 
-In the Balearic Islands, water is not merely a resource; it is a currency of luxury. For decades, the definition of a high-end garden in Mallorca relied on thirsty lawns and tropical imports that fought against the Mediterranean reality. At S'Estepa Design, we reject the notion that lushness requires excess. We believe that true architectural beauty is born from resilience.
+In the Balearic Islands, water is a currency of luxury, not just a resource. For decades, the definition of a high-end garden in Mallorca relied on thirsty lawns and tropical imports that fought against the Mediterranean reality. At S'Estepa Design, we reject the notion that lushness requires excess. We believe that true architectural beauty is born from resilience.
 
 As the climate shifts and aquifers strain, the future of luxury landscaping lies in Regenerative Design. By embracing our signature &#8216;Jardín Seco' (Dry Garden) philosophy, we create outdoor sanctuaries that are visually arresting, deeply rooted in the Tramuntana landscape, and practically immune to drought constraints.
 

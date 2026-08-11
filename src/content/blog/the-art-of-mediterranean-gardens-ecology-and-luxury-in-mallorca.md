@@ -29,7 +29,7 @@ Traditional, non-native plants fail in these conditions because they cannot hand
 
 Water scarcity is one of the most critical factors in modern Mallorcan landscaping. A luxury dry garden (*Jardín Seco*) is designed to minimize irrigation by relying on architectural earthworks, local mineral layers, and drought-tolerant planting palettes.
 
-Replacing water-thirsty grass lawns with layers of local river gravel, crushed limestone, and volcanic rocks not only decreases water use but also adds a sophisticated textural element to the property. 
+Replacing water-thirsty grass lawns with layers of local river gravel, crushed limestone, and volcanic rocks decreases water use and adds a sophisticated textural element to the property. 
 
 ![Sustainable landscape design with mineral layers in Crestatx, Mallorca](/images/journal/high-end-landscape-design-mallorca-crestatx.jpg)
 

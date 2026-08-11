@@ -11,7 +11,7 @@ Crafting a Singular Mallorca Identity Through Curated Botanical Fusions
 
 In the high-stakes realm of Mallorcan real estate, architecture often takes the lead. Whether it is the rustic solidity of a restored 17th-century Finca or the sharp, glass-fronted geometry of a Son Vida Bauhaus villa, the structure demands attention.
 
-However, a property truly transcends into a legacy estate only when it engages in a profound dialogue with its land. A garden here is not merely an amenity; it is the curator of microclimates and the anchor of identity.
+However, a property truly transcends into a legacy estate only when it engages in a profound dialogue with its land. A garden here is the curator of microclimates and the anchor of identity, far more than a simple amenity.
 
 To achieve this, we move beyond simple planting. We curate botanical fusions—a sophisticated blending of endemic resilience and exotic structuralism that defines the new standard of Mallorca landscape design.
 
@@ -58,6 +58,6 @@ For shade, we steer away from heavy pergolas and instead train *Morus alba* &#82
 
 A garden of this caliber is not installed; it is orchestrated. It requires a deep understanding of how salt air patinas corten steel and how the angle of the October sun hits the terrace.
 
-By fusing the native soul of Mallorca with curated global elements, we create spaces that are not just viewed, but lived. This is the ultimate expression of refined island living.
+By fusing the native soul of Mallorca with curated global elements, we create spaces built for living, not simply viewing. This is the ultimate expression of refined island living.
 
 Let us curate your legacy.

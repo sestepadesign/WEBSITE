@@ -1,12 +1,12 @@
 ---
 title: "The garden, a poetic and harmonious expression"
-description: "The garden is not just a mere collection of elements, but a poetic and harmonious expression that emanates from the landscape itself. Every detail, from delicate flowers to solid rocks, is carefully chosen to reflect the serenity and beauty of the surrounding nature. The eternal dance of lights and "
+description: "The garden is a poetic and harmonious expression that emanates from the landscape itself. Every detail, from delicate flowers to solid rocks, is carefully chosen to reflect the serenity and beauty of the surrounding nature. The eternal dance of lights and "
 pubDate: 2023-07-31
 lang: en
 draft: false
 ---
 
-The garden is not just a mere collection of elements, but a poetic and harmonious expression that emanates from the landscape itself. 
+The garden is a poetic and harmonious expression that emanates from the landscape itself. 
 
 Every detail, from delicate flowers to solid rocks, is carefully chosen to reflect the serenity and beauty of the surrounding nature. 
 
