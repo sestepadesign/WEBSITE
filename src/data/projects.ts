@@ -561,7 +561,7 @@ export const projects: Project[] = [
     slug: "sant-llorenc",
     location: "Sant Llorenç des Cardassar",
     wikidataLocation: "https://www.wikidata.org/wiki/Q983627",
-    year: "2024",
+    year: "2026",
     architect: null,
     video: null,
     cover: "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp",
