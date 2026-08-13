@@ -1,3 +1,5 @@
+import { testimonials, googleRating, googleReviewCount } from '../data/testimonials';
+
 // Define translations for dynamic text fields
 const translations = {
   es: {
@@ -192,37 +194,18 @@ export function getLocalizedSchema(
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "3",
+      "ratingValue": String(googleRating),
+      "reviewCount": String(googleReviewCount),
       "bestRating": "5",
       "worstRating": "1"
     },
-    "review": [
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "James H." },
-        "reviewBody": "S'Estepa transformed our finca in Campos into something beyond our imagination. The team understood the land's character and created a garden that feels completely natural yet utterly refined.",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "datePublished": "2024-06-15",
-        "itemReviewed": { "@id": "https://design.sestepa.com/#business" }
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Claudia M." },
-        "reviewBody": "The only studio that truly understands Mallorca's landscape DNA. Working with S'Estepa was a seamless and inspired experience from the very first meeting.",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "datePublished": "2024-09-03",
-        "itemReviewed": { "@id": "https://design.sestepa.com/#business" }
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Peter K." },
-        "reviewBody": "Every detail was handled with care and the result exceeded all our expectations. From design to final planting — a seamless, exceptional experience.",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "datePublished": "2025-03-20",
-        "itemReviewed": { "@id": "https://design.sestepa.com/#business" }
-      }
-    ],
+    "review": testimonials.map((item) => ({
+      "@type": "Review",
+      "author": { "@type": "Person", "name": item.author },
+      "reviewBody": item.quote[locale] ?? item.quote.en,
+      "reviewRating": { "@type": "Rating", "ratingValue": String(item.rating), "bestRating": "5" },
+      "itemReviewed": { "@id": "https://design.sestepa.com/#business" }
+    })),
     "priceRange": "$$$",
     "openingHoursSpecification": [
       {
