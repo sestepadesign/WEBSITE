@@ -71,55 +71,29 @@ const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogL
     <!-- Start cookieyes banner -->
     <script id="cookieyes" is:inline defer src={`https://cdn-cookieyes.com/client_data/${COOKIEYES_CLIENT_ID}/script.js`}></script>
     <!-- End cookieyes banner -->
-    <!-- Google Tag Manager & Google Ads (Carregamento Tardio na Thread Principal) -->
-    <script is:inline define:vars={{ GTM_ID, GTAG_ID, GOOGLE_ADS_ID, GA4_ID }}>
-      (function() {
-        let trackingLoaded = false;
 
-        // 1. Stub síncrono do gtag/dataLayer — como no snippet oficial do Google.
-        //    Qualquer gtag() chamado antes do carregamento real (ex.: clique rápido
-        //    num formulário de contacto) fica em fila no dataLayer em vez de se perder.
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
-        window.gtag('js', new Date());
-        window.gtag('config', GTAG_ID);
-        window.gtag('config', GOOGLE_ADS_ID);
-        window.gtag('config', GA4_ID);
+    <!-- Google tag (gtag.js) -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}></script>
+    <script is:inline define:vars={{ GTAG_ID, GOOGLE_ADS_ID, GA4_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function(){window.dataLayer.push(arguments);}
+      window.gtag('js', new Date());
 
-        function loadTracking() {
-          if (trackingLoaded) return;
-          trackingLoaded = true;
-
-          // 2. Injeção do script da biblioteca global gtag.js
-          const gtagScript = document.createElement('script');
-          gtagScript.async = true;
-          gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`;
-          document.head.appendChild(gtagScript);
-
-          // 3. Injeção e inicialização do Google Tag Manager
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';var scr=d.createElement(s);
-          scr.async=true;scr.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-          f.parentNode.insertBefore(scr,f);
-          })(window,document,'script','dataLayer',GTM_ID);
-        }
-
-        // Gatilhos de ativação baseados em interação física — inclui click/keydown
-        // para não perder submissões rápidas de formulário (o gap identificado na auditoria).
-        const interactionEvents = ['scroll', 'mousemove', 'touchstart', 'click', 'keydown'];
-        function triggerTracking() {
-          loadTracking();
-          interactionEvents.forEach(event => window.removeEventListener(event, triggerTracking));
-        }
-
-        // Registrar ouvintes de evento
-        interactionEvents.forEach(event => window.addEventListener(event, triggerTracking, { passive: true }));
-
-        // Fallback de segurança de 3,5 segundos
-        setTimeout(loadTracking, 3500);
-      })();
+      window.gtag('config', GTAG_ID);
+      window.gtag('config', GOOGLE_ADS_ID);
+      window.gtag('config', GA4_ID);
     </script>
+
+    <!-- Google Tag Manager -->
+    <script is:inline define:vars={{ GTM_ID }}>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';var scr=d.createElement(s);
+      scr.async=true;scr.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(scr,f);
+      })(window,document,'script','dataLayer',GTM_ID);
+    </script>
+    <!-- End Google Tag Manager -->
 
     <link rel="preload" as="font" href="/fonts/jost-400.woff2" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" as="font" href="/fonts/cormorant-garamond-400.woff2" type="font/woff2" crossorigin="anonymous" />
@@ -167,7 +141,7 @@ const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogL
 
     {!noindex && <Schema canonicalPath={canonicalPath} />}
 
-    {(canonicalPath === '/' || canonicalPath === '' || canonicalPath === '/es' || canonicalPath === '/de') && (
+    {pageId === 'home' && (
       <link rel="preload" as="image" href="/videos/sant_llorenc_poster.webp" fetchpriority="high" />
     )}
   </head>
