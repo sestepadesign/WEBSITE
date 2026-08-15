@@ -11,25 +11,49 @@ interface Props {
   lang: 'en' | 'es' | 'de';
   large?: boolean;
   size?: string;
+  extraImages?: string[];
 }
 
-const { slug, title, category, location, cover, lang, large = false, size } = Astro.props;
+const { slug, title, category, location, cover, lang, large = false, size, extraImages } = Astro.props;
 ---
 
 <a href={getProjectPath(slug, lang)} class:list={['project-card', { 'project-card-large': large }]}>
-  <div class="image-wrapper">
-    <img 
-      src={cover} 
-      alt={`Garden Design ${location} — S'Estepa Design`}
-      class="project-image" 
-      loading="lazy" 
-      decoding="async"
-      width="800"
-      height="600"
-    />
-    <div class="overlay">
-      <span class="view-project">Explore &rarr;</span>
+  <div class="image-wrapper-container">
+    <div class="image-wrapper main-image-wrapper">
+      <img 
+        src={cover} 
+        alt={`Garden Design ${location} — S'Estepa Design`}
+        class="project-image" 
+        loading="lazy" 
+        decoding="async"
+        width="800"
+        height="600"
+      />
+      <div class="overlay">
+        <span class="view-project">{ui[lang]['nav.portfolio'] || 'Explore'} &rarr;</span>
+      </div>
     </div>
+
+    {large && extraImages && extraImages.length >= 2 && (
+      <div class="extra-images-column">
+        {extraImages.slice(0, 2).map((img) => (
+          <div class="image-wrapper extra-image-wrapper">
+            <img 
+              src={img} 
+              alt={`Garden Detail ${location} — S'Estepa Design`}
+              class="project-image" 
+              loading="lazy" 
+              decoding="async"
+              width="400"
+              height="300"
+            />
+            <div class="overlay">
+              <span class="view-project">{ui[lang]['nav.portfolio'] || 'Explore'} &rarr;</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
   </div>
   <div class="project-info">
     <span class="project-category">{category}</span>
@@ -48,12 +72,42 @@ const { slug, title, category, location, cover, lang, large = false, size } = As
     color: inherit;
   }
 
-  .project-card-large .image-wrapper {
+  .image-wrapper-container {
+    display: flex;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .main-image-wrapper {
+    flex: 2.15;
+  }
+
+  .extra-images-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .extra-image-wrapper {
+    flex: 1;
+  }
+
+  .project-card-large .image-wrapper-container {
     aspect-ratio: 21 / 9;
   }
 
   .project-card-large .project-title {
     font-size: clamp(1.75rem, 3vw, 2.25rem);
+  }
+
+  @media (max-width: 768px) {
+    .extra-images-column {
+      display: none;
+    }
+    .project-card-large .image-wrapper-container {
+      aspect-ratio: 4 / 3;
+    }
   }
 
   .image-wrapper {
