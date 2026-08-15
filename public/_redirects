@@ -9,6 +9,11 @@
 /garden-design-mallorca-in-mediterranean-style-from-terrace-to-fincas-in-mallorca/  /garden-design-mallorca-landscape-management-villas-fincas/  301
 /landscapingmallorca/  /blog/  301
 /category/portfolio/  /portfolio/  301
+/category/portfolio  /portfolio/  301
+/es/category/portfolio/  /es/portfolio/  301
+/es/category/portfolio  /es/portfolio/  301
+/de/category/portfolio/  /de/portfolio/  301
+/de/category/portfolio  /de/portfolio/  301
 
 # Legacy Astro /en/* structure → WordPress-style clean URLs
 /en/  /  301
