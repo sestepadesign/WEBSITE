@@ -115,10 +115,11 @@ export function getLocalizedSchema(
     "alternateName": ["S'Estepa Design", "S'Estepa Garden Design Mallorca"],
     "description": trans.description,
     "image": [
-      "https://design.sestepa.com/portfolio/campos/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.jpg",
-      "https://design.sestepa.com/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp",
-      "https://design.sestepa.com/portfolio/binissalem/images/landscape-garden-design-mallorca-sestepa-landscape-design-binissalem-05.jpg",
-      "https://design.sestepa.com/portfolio/hotelcabotlasvelas/images/PORTFOLIO-1.jpg"
+      "https://design.sestepa.com/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp",
+      "https://design.sestepa.com/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15.webp",
+      "https://design.sestepa.com/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp",
+      "https://design.sestepa.com/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(1).webp",
+      "https://design.sestepa.com/portfolio/jardin-mediterraneo/images/garden-design-mallorca-jardin-mediterraneo-sestepa.webp"
     ],
     "logo": {
       "@type": "ImageObject",
