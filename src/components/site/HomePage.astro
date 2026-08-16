@@ -1567,13 +1567,16 @@ const currentTestimonials = testimonialsCopy[lang];
   }
 
   /* Keyframe Animations */
+  /* Only animates transform (not opacity) on the hero title/eyebrow: this is
+     the LCP-critical text on mobile (hero video is display:none there, so
+     it's the largest painted element alongside the poster image). An
+     opacity: 0 starting frame makes it unpainted at first paint, which is
+     the likely cause of PageSpeed's NO_LCP on this page. */
   @keyframes fadeIn {
     from {
-      opacity: 0;
       transform: translateY(20px);
     }
     to {
-      opacity: 1;
       transform: translateY(0);
     }
   }
