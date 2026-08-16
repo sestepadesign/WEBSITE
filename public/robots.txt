@@ -21,3 +21,4 @@ User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://design.sestepa.com/sitemap-index.xml
+Sitemap: https://design.sestepa.com/sitemap-images.xml
