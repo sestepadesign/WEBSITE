@@ -298,6 +298,7 @@ const currentTestimonials = testimonialsCopy[lang];
   <!-- Hero Section with Background Video -->
   <section class="hero" id="hero-section">
     <div class="video-container">
+      <img src="/videos/sant_llorenc_poster.webp" class="hero-poster-img" fetchpriority="high" alt="S'Estepa Design" />
       <video autoplay loop muted playsinline fetchpriority="high" class="hero-video" poster="/videos/sant_llorenc_poster.webp" aria-hidden="true" id="heroVideo" data-src="/videos/sant_llorenc_hero.mp4">
       </video>
       <div class="hero-overlay"></div>
@@ -771,10 +772,24 @@ const currentTestimonials = testimonialsCopy[lang];
     z-index: 1;
   }
 
-  .hero-video {
+  .hero-poster-img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    z-index: 1;
+  }
+
+  .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
   }
 
   .hero-overlay {
@@ -789,7 +804,7 @@ const currentTestimonials = testimonialsCopy[lang];
       rgba(31, 33, 31, 0.2) 60%,
       rgba(250, 249, 246, 1) 100%
     );
-    z-index: 2;
+    z-index: 3;
   }
 
   .hero-content {
@@ -1623,6 +1638,10 @@ const currentTestimonials = testimonialsCopy[lang];
       padding-bottom: 6rem;
     }
     
+    .hero-video {
+      display: none;
+    }
+
     .scroll-indicator {
       display: none;
     }
