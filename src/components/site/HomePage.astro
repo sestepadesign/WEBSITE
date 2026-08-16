@@ -46,6 +46,22 @@ const featuredSlugs = [
 const featuredProjects = featuredSlugs
   .map((slug) => projects.find((p) => p.slug === slug))
   .filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+// Pre-generated "-card" variants for covers that PageSpeed flagged as oversized
+// for this grid's actual display size (~680px CSS). Crestatx/Terrace-Palma
+// variants are the same pixel dimensions as their source (already ≤1100px) —
+// just re-compressed — so there's only one candidate: nothing to "switch"
+// between, srcset here just replaces what gets fetched. Llubí's source is
+// 1517px wide, so it gets a real 1100w/1517w resolution pair. No variant
+// exists for slugs not in this map, so those cards keep their original cover.
+const featuredCoverSrcset: Record<string, string> = {
+  'crestatx-garden-design':
+    '/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa-card.webp 800w',
+  'garden-design-llubi-mallorca':
+    '/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(1)-card.webp 1100w, /portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(1).webp 1517w',
+  'terrace-garden-in-palma':
+    '/portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa-card.webp 800w',
+};
 const camposProject = projects.find((p) => p.slug === 'finca-garden-campos-mallorca');
 const santLlorencProject = projects.find((p) => p.slug === 'sant-llorenc');
 
@@ -409,7 +425,7 @@ const currentTestimonials = testimonialsCopy[lang];
               category={santLlorencProject[lang].category}
               location={getProjectLocation(santLlorencProject, lang)}
               cover={santLlorencProject.cover}
-              coverSrcset="/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18-card.webp 700w, /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp 1264w"
+              coverSrcset="/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18-card.webp 1100w, /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp 1264w"
               lang={lang}
               large={true}
               size={santLlorencProject.size}
@@ -418,8 +434,8 @@ const currentTestimonials = testimonialsCopy[lang];
                 "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp"
               ]}
               extraImagesSrcset={[
-                "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15-card.webp 700w, /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15.webp 1264w",
-                "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01-card.webp 700w, /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp 1920w"
+                "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15-card.webp 1100w, /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15.webp 1264w",
+                "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01-card.webp 1100w, /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp 1920w"
               ]}
             />
           </div>
@@ -432,6 +448,7 @@ const currentTestimonials = testimonialsCopy[lang];
               category={project[lang].category}
               location={getProjectLocation(project, lang)}
               cover={project.cover}
+              coverSrcset={featuredCoverSrcset[project.slug]}
               lang={lang}
               size={project.size}
             />
@@ -447,8 +464,7 @@ const currentTestimonials = testimonialsCopy[lang];
         <a href={getProjectPath('finca-garden-campos-mallorca', lang)} class="spotlight-image-link">
           <img
             src={camposSpotlightImage}
-            srcset={`/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa-card.webp 700w, ${camposSpotlightImage} 800w`}
-            sizes="(max-width: 767px) 100vw, 55vw"
+            srcset="/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa-card.webp 800w"
             alt={camposProject[lang].title}
             class="spotlight-image"
             loading="lazy"
