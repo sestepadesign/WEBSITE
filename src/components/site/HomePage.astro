@@ -305,7 +305,7 @@ const currentTestimonials = testimonialsCopy[lang];
     </div>
     <script is:inline>
       document.addEventListener('DOMContentLoaded', function() {
-        if (window.matchMedia('(min-width: 768px)').matches) {
+        if (window.innerWidth >= 768) {
           var video = document.getElementById('heroVideo');
           var source = document.createElement('source');
           source.src = video.getAttribute('data-src');
