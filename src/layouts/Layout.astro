@@ -163,30 +163,7 @@ const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogL
 
     <!-- Tracking scripts deferred to end of body to avoid render-blocking -->
     <!-- Start cookieyes banner -->
-    <!--
-      Loaded after first paint (window 'load' + double rAF) instead of a plain
-      `defer` tag: CookieYes builds a fairly large banner DOM + does layout
-      reads right when it initializes, which was landing squarely in the
-      window Lighthouse uses to settle on an LCP candidate under throttled
-      mobile conditions — sometimes registering fine, sometimes tipping the
-      run into NO_LCP. Consent banner still shows immediately after paint,
-      just not competing with it. No behavior change beyond that timing.
-    -->
-    <script id="cookieyes-loader" is:inline define:vars={{ cookieyesClientId: COOKIEYES_CLIENT_ID }}>
-      function loadCookieYes() {
-        var s = document.createElement('script');
-        s.id = 'cookieyes';
-        s.src = 'https://cdn-cookieyes.com/client_data/' + cookieyesClientId + '/script.js';
-        document.body.appendChild(s);
-      }
-      if (document.readyState === 'complete') {
-        requestAnimationFrame(function () { requestAnimationFrame(loadCookieYes); });
-      } else {
-        window.addEventListener('load', function () {
-          requestAnimationFrame(function () { requestAnimationFrame(loadCookieYes); });
-        });
-      }
-    </script>
+    <script id="cookieyes" is:inline defer src={`https://cdn-cookieyes.com/client_data/${COOKIEYES_CLIENT_ID}/script.js`}></script>
     <!-- End cookieyes banner -->
 
     <!-- Google tag (gtag.js) -->
