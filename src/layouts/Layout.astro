@@ -169,23 +169,27 @@ const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogL
     <!-- Google tag (gtag.js) -->
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}></script>
     <script is:inline define:vars={{ GTAG_ID, GOOGLE_ADS_ID, GA4_ID }}>
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = window.gtag || function(){window.dataLayer.push(arguments);}
-      window.gtag('js', new Date());
+      (window.requestIdleCallback || function(cb) { setTimeout(cb, 200); })(function() {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function(){window.dataLayer.push(arguments);}
+        window.gtag('js', new Date());
 
-      window.gtag('config', GTAG_ID);
-      window.gtag('config', GOOGLE_ADS_ID);
-      window.gtag('config', GA4_ID);
+        window.gtag('config', GTAG_ID);
+        window.gtag('config', GOOGLE_ADS_ID);
+        window.gtag('config', GA4_ID);
+      });
     </script>
 
     <!-- Google Tag Manager -->
     <script is:inline define:vars={{ GTM_ID }}>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';var scr=d.createElement(s);
-      scr.async=true;scr.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(scr,f);
-      })(window,document,'script','dataLayer',GTM_ID);
+      (window.requestIdleCallback || function(cb) { setTimeout(cb, 200); })(function() {
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';var scr=d.createElement(s);
+        scr.async=true;scr.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+        f.parentNode.insertBefore(scr,f);
+        })(window,document,'script','dataLayer',GTM_ID);
+      });
     </script>
     <!-- End Google Tag Manager -->
   </body>
