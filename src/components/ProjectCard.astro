@@ -12,37 +12,19 @@ interface Props {
   large?: boolean;
   size?: string;
   extraImages?: string[];
-  /** Optional smaller pre-generated variant for `cover`, used at this card's actual render size instead of the (often much larger) source file. */
-  coverSrcset?: string;
-  /** Same idea as `coverSrcset`, one entry per `extraImages` item, same order. */
-  extraImagesSrcset?: string[];
 }
 
-const {
-  slug,
-  title,
-  category,
-  location,
-  cover,
-  lang,
-  large = false,
-  size,
-  extraImages,
-  coverSrcset,
-  extraImagesSrcset,
-} = Astro.props;
+const { slug, title, category, location, cover, lang, large = false, size, extraImages } = Astro.props;
 ---
 
 <a href={getProjectPath(slug, lang)} class:list={['project-card', { 'project-card-large': large }]}>
   <div class="image-wrapper-container">
     <div class="image-wrapper main-image-wrapper">
-      <img
-        src={cover}
-        srcset={coverSrcset}
-        sizes={coverSrcset ? '(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 700px' : undefined}
+      <img 
+        src={cover} 
         alt={`Garden Design ${location} — S'Estepa Design`}
-        class="project-image"
-        loading="lazy"
+        class="project-image" 
+        loading="lazy" 
         decoding="async"
         width="800"
         height="600"
@@ -54,15 +36,13 @@ const {
 
     {large && extraImages && extraImages.length >= 2 && (
       <div class="extra-images-column">
-        {extraImages.slice(0, 2).map((img, i) => (
+        {extraImages.slice(0, 2).map((img) => (
           <div class="image-wrapper extra-image-wrapper">
-            <img
-              src={img}
-              srcset={extraImagesSrcset?.[i]}
-              sizes={extraImagesSrcset?.[i] ? '(max-width: 767px) 50vw, 350px' : undefined}
+            <img 
+              src={img} 
               alt={`Garden Detail ${location} — S'Estepa Design`}
-              class="project-image"
-              loading="lazy"
+              class="project-image" 
+              loading="lazy" 
               decoding="async"
               width="400"
               height="300"

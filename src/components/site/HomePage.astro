@@ -299,7 +299,7 @@ const currentTestimonials = testimonialsCopy[lang];
   <section class="hero" id="hero-section">
     <div class="video-container">
       <img src="/videos/sant_llorenc_poster.webp" class="hero-poster-img" fetchpriority="high" alt="S'Estepa Design" />
-      <video autoplay loop muted playsinline class="hero-video" aria-hidden="true" id="heroVideo" data-src="/videos/sant_llorenc_hero.mp4">
+      <video autoplay loop muted playsinline fetchpriority="high" class="hero-video" poster="/videos/sant_llorenc_poster.webp" aria-hidden="true" id="heroVideo" data-src="/videos/sant_llorenc_hero.mp4">
       </video>
       <div class="hero-overlay"></div>
     </div>
@@ -409,17 +409,12 @@ const currentTestimonials = testimonialsCopy[lang];
               category={santLlorencProject[lang].category}
               location={getProjectLocation(santLlorencProject, lang)}
               cover={santLlorencProject.cover}
-              coverSrcset="/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18-card.webp 700w, /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp 1264w"
               lang={lang}
               large={true}
               size={santLlorencProject.size}
               extraImages={[
                 "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15.webp",
                 "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp"
-              ]}
-              extraImagesSrcset={[
-                "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15-card.webp 700w, /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15.webp 1264w",
-                "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01-card.webp 700w, /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp 1920w"
               ]}
             />
           </div>
@@ -447,8 +442,6 @@ const currentTestimonials = testimonialsCopy[lang];
         <a href={getProjectPath('finca-garden-campos-mallorca', lang)} class="spotlight-image-link">
           <img
             src={camposSpotlightImage}
-            srcset={`/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa-card.webp 700w, ${camposSpotlightImage} 800w`}
-            sizes="(max-width: 767px) 100vw, 55vw"
             alt={camposProject[lang].title}
             class="spotlight-image"
             loading="lazy"
