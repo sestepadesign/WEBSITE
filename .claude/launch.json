@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "sestepa-astro",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["../../scripts/preview_local.py"],
       "port": 4321
     }
   ]
