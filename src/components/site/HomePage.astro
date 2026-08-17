@@ -409,7 +409,7 @@ const currentTestimonials = testimonialsCopy[lang];
               category={santLlorencProject[lang].category}
               location={getProjectLocation(santLlorencProject, lang)}
               cover={santLlorencProject.cover}
-              coverSrcset="/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18-card.webp 700w, /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp 1128w"
+              coverSrcset="/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18-card.webp"
               lang={lang}
               large={true}
               size={santLlorencProject.size}
@@ -418,8 +418,8 @@ const currentTestimonials = testimonialsCopy[lang];
                 "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp"
               ]}
               extraImagesSrcset={[
-                "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15-card.webp 700w, /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15.webp 1264w",
-                "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01-card.webp 700w, /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp 1920w"
+                "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15-card.webp",
+                "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01-card.webp"
               ]}
             />
           </div>
@@ -427,13 +427,13 @@ const currentTestimonials = testimonialsCopy[lang];
         {featuredProjects.map((project) => {
           let coverSrcset = undefined;
           if (project.slug === 'crestatx-garden-design') {
-            coverSrcset = "/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa-card.webp 700w, /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp 710w";
+            coverSrcset = "/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa-card.webp";
           } else if (project.slug === 'garden-design-llubi-mallorca') {
-            coverSrcset = "/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design (1)-card.webp 700w, /portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design (1).webp 1382w";
+            coverSrcset = "/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(1)-card.webp";
           } else if (project.slug === 'terrace-garden-in-palma') {
-            coverSrcset = "/portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa-card.webp 700w, /portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp 800w";
+            coverSrcset = "/portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa-card.webp";
           } else if (project.slug === 'santa-ponsa') {
-            coverSrcset = "/portfolio/santa-ponsa/images/GARDEN-DESIGN-MALLORCA-SANTA-PONSA-SESTEPA-1-card.webp 700w, /portfolio/santa-ponsa/images/GARDEN-DESIGN-MALLORCA-SANTA-PONSA-SESTEPA-1.jpg 1920w";
+            coverSrcset = "/portfolio/santa-ponsa/images/GARDEN-DESIGN-MALLORCA-SANTA-PONSA-SESTEPA-1-card.webp";
           }
 
           return (
@@ -459,15 +459,16 @@ const currentTestimonials = testimonialsCopy[lang];
     <section class="campos-spotlight section-padding">
       <div class="container spotlight-grid">
         <a href={getProjectPath('finca-garden-campos-mallorca', lang)} class="spotlight-image-link">
-          <img
-            src={camposSpotlightImage}
-            srcset="/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa-card.webp 700w, /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp 800w"
-            sizes="(max-width: 767px) 100vw, 55vw"
-            alt={camposProject[lang].title}
-            class="spotlight-image"
-            loading="lazy"
-            decoding="async"
-          />
+          <picture>
+            <source media="(max-width: 768px)" srcset="/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa-card.webp" />
+            <img
+              src={camposSpotlightImage}
+              alt={camposProject[lang].title}
+              class="spotlight-image"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </a>
         <div class="spotlight-text">
           <span class="section-tag">{spotlight.tag}</span>

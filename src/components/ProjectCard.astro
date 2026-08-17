@@ -36,17 +36,30 @@ const {
 <a href={getProjectPath(slug, lang)} class:list={['project-card', { 'project-card-large': large }]}>
   <div class="image-wrapper-container">
     <div class="image-wrapper main-image-wrapper">
-      <img 
-        src={cover} 
-        srcset={coverSrcset}
-        sizes={coverSrcset ? '(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 700px' : undefined}
-        alt={`Garden Design ${location} — S'Estepa Design`}
-        class="project-image" 
-        loading="lazy" 
-        decoding="async"
-        width="800"
-        height="600"
-      />
+      {coverSrcset ? (
+        <picture>
+          <source media="(max-width: 768px)" srcset={coverSrcset} />
+          <img 
+            src={cover} 
+            alt={`Garden Design ${location} — S'Estepa Design`}
+            class="project-image" 
+            loading="lazy" 
+            decoding="async"
+            width="800"
+            height="600"
+          />
+        </picture>
+      ) : (
+        <img 
+          src={cover} 
+          alt={`Garden Design ${location} — S'Estepa Design`}
+          class="project-image" 
+          loading="lazy" 
+          decoding="async"
+          width="800"
+          height="600"
+        />
+      )}
       <div class="overlay">
         <span class="view-project">{ui[lang]['nav.portfolio'] || 'Explore'} &rarr;</span>
       </div>
@@ -56,17 +69,30 @@ const {
       <div class="extra-images-column">
         {extraImages.slice(0, 2).map((img, i) => (
           <div class="image-wrapper extra-image-wrapper">
-            <img 
-              src={img} 
-              srcset={extraImagesSrcset?.[i]}
-              sizes={extraImagesSrcset?.[i] ? '(max-width: 767px) 50vw, 350px' : undefined}
-              alt={`Garden Detail ${location} — S'Estepa Design`}
-              class="project-image" 
-              loading="lazy" 
-              decoding="async"
-              width="400"
-              height="300"
-            />
+            {extraImagesSrcset?.[i] ? (
+              <picture>
+                <source media="(max-width: 768px)" srcset={extraImagesSrcset[i]} />
+                <img 
+                  src={img} 
+                  alt={`Garden Detail ${location} — S'Estepa Design`}
+                  class="project-image" 
+                  loading="lazy" 
+                  decoding="async"
+                  width="400"
+                  height="300"
+                />
+              </picture>
+            ) : (
+              <img 
+                src={img} 
+                alt={`Garden Detail ${location} — S'Estepa Design`}
+                class="project-image" 
+                loading="lazy" 
+                decoding="async"
+                width="400"
+                height="300"
+              />
+            )}
             <div class="overlay">
               <span class="view-project">{ui[lang]['nav.portfolio'] || 'Explore'} &rarr;</span>
             </div>
