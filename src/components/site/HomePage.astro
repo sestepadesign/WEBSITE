@@ -778,7 +778,7 @@ const currentTestimonials = testimonialsCopy[lang];
   /* Hero Section */
   .hero {
     position: relative;
-    height: 100vh;
+    height: calc(100vh - 4px);
     width: 100%;
     display: flex;
     align-items: center;
@@ -1661,6 +1661,15 @@ const currentTestimonials = testimonialsCopy[lang];
     .hero {
       align-items: flex-end;
       padding-bottom: 6rem;
+      height: calc(100vh - 4px);
+    }
+
+    .hero-title {
+      animation: none;
+    }
+
+    .hero-eyebrow {
+      animation: none;
     }
     
     .hero-video {
