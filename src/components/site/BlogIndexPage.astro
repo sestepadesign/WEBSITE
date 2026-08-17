@@ -56,7 +56,7 @@ function postUrl(slug: string) {
     </div>
     <script is:inline>
       document.addEventListener('DOMContentLoaded', function() {
-        if (window.innerWidth >= 768) {
+        if (window.matchMedia('(min-width: 768px)').matches) {
           var video = document.getElementById('blogHeroVideo');
           var source = document.createElement('source');
           source.src = video.getAttribute('data-src');
