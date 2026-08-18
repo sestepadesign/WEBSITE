@@ -155,12 +155,12 @@ export function getLocalizedSchema(
         "@type": "AdministrativeArea",
         "name": "Mallorca",
         "alternateName": ["Majorca", "Mallorca island"],
-        "sameAs": "https://www.wikidata.org/wiki/Q8818",
+        "sameAs": "https://www.wikidata.org/wiki/Q8828",
         "containedInPlace": {
           "@type": "AdministrativeArea",
           "name": "Illes Balears",
           "alternateName": ["Balearic Islands", "Islas Baleares"],
-          "sameAs": "https://www.wikidata.org/wiki/Q5722",
+          "sameAs": "https://www.wikidata.org/wiki/Q5765",
           "containedInPlace": { "@type": "Country", "name": "España", "sameAs": "https://www.wikidata.org/wiki/Q29" }
         }
       },
@@ -168,7 +168,7 @@ export function getLocalizedSchema(
         "@type": "AdministrativeArea",
         "name": "Balearic Islands",
         "alternateName": ["Illes Balears", "Islas Baleares"],
-        "sameAs": "https://www.wikidata.org/wiki/Q5722"
+        "sameAs": "https://www.wikidata.org/wiki/Q5765"
       },
       { "@type": "City", "name": "Palma de Mallorca" },
       { "@type": "City", "name": "Andratx" },
@@ -277,7 +277,7 @@ export function getLocalizedSchema(
     "name": trans.catalogName,
     "serviceType": "Landscape Architecture & Garden Design",
     "provider": { "@id": "https://design.sestepa.com/#business" },
-    "areaServed": { "@type": "AdministrativeArea", "name": "Mallorca", "sameAs": "https://www.wikidata.org/wiki/Q8818" },
+    "areaServed": { "@type": "AdministrativeArea", "name": "Mallorca", "sameAs": "https://www.wikidata.org/wiki/Q8828" },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": trans.catalogName,

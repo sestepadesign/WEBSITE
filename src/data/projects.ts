@@ -44,7 +44,7 @@ export const projects: Project[] = [
   {
     slug: "binissalem",
     location: "Binissalem, Mallorca",
-    wikidataLocation: "https://www.wikidata.org/wiki/Q881958",
+    wikidataLocation: "https://www.wikidata.org/wiki/Q837121",
     year: "2023",
     architect: null,
     video: null,
@@ -106,7 +106,7 @@ export const projects: Project[] = [
   {
     slug: "bunyola",
     location: "Bunyola, Mallorca",
-    wikidataLocation: "https://www.wikidata.org/wiki/Q984289",
+    wikidataLocation: "https://www.wikidata.org/wiki/Q837125",
     year: "2022",
     architect: null,
     video: null,
@@ -161,7 +161,7 @@ export const projects: Project[] = [
   {
     slug: "campanet-garden",
     location: "Campanet, Mallorca",
-    wikidataLocation: "https://www.wikidata.org/wiki/Q984294",
+    wikidataLocation: "https://www.wikidata.org/wiki/Q850989",
     year: "2023",
     architect: null,
     video: null,
@@ -211,7 +211,7 @@ export const projects: Project[] = [
   {
     slug: "finca-garden-campos-mallorca",
     location: "Campos, Mallorca",
-    wikidataLocation: "https://www.wikidata.org/wiki/Q882855",
+    wikidataLocation: "https://www.wikidata.org/wiki/Q743716",
     year: "2021",
     architect: null,
     video: "https://www.youtube.com/embed/McyZviXDxhc?feature=oembed",
@@ -300,7 +300,7 @@ export const projects: Project[] = [
   {
     slug: "costadelacalma",
     location: "Costa de la Calma, Calviá",
-    wikidataLocation: "https://www.wikidata.org/wiki/Q830154",
+    wikidataLocation: "https://www.wikidata.org/wiki/Q491786",
     year: "2022",
     architect: null,
     video: null,
@@ -353,7 +353,7 @@ export const projects: Project[] = [
   {
     slug: "crestatx-garden-design",
     location: "Crestatx, Sa Pobla",
-    wikidataLocation: "https://www.wikidata.org/wiki/Q935515",
+    wikidataLocation: "https://www.wikidata.org/wiki/Q984493",
     year: "2023",
     architect: null,
     video: "https://www.youtube.com/embed/-xs_kKaUnGA?feature=oembed",
@@ -432,7 +432,7 @@ export const projects: Project[] = [
   {
     slug: "hotelcabotlasvelas",
     location: "Puerto Pollença, Mallorca",
-    wikidataLocation: "https://www.wikidata.org/wiki/Q833804",
+    wikidataLocation: "https://www.wikidata.org/wiki/Q601112",
     client: {
       name: "Hotel Cabot Las Velas",
       type: "Hotel",
@@ -560,7 +560,7 @@ export const projects: Project[] = [
   {
     slug: "sant-llorenc",
     location: "Sant Llorenç des Cardassar",
-    wikidataLocation: "https://www.wikidata.org/wiki/Q983627",
+    wikidataLocation: "https://www.wikidata.org/wiki/Q983463",
     year: "2026",
     architect: null,
     video: null,
@@ -713,7 +713,7 @@ export const projects: Project[] = [
   {
     slug: "jardin-mediterraneo",
     location: "Mallorca",
-    wikidataLocation: "https://www.wikidata.org/wiki/Q8818",
+    wikidataLocation: "https://www.wikidata.org/wiki/Q8828",
     year: "2024",
     architect: null,
     video: "https://www.youtube.com/embed/Aynezzlact0?feature=oembed",
