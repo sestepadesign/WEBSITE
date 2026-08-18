@@ -2,7 +2,7 @@
 
 > Landscape architecture and garden design studio in Mallorca, Spain. Founded in 1999 by Pedro Campaner (CEO & Founder), led by Pedro Campaner and Sofia Grimaux (Project Manager). Over 30 years creating Mediterranean gardens for private estates, fincas, and villas across Mallorca, Ibiza, and Menorca.
 
-S'Estepa Design (legal name: S'Estepa Jardineria Integral SLU) is a full-service landscape studio based in Inca, Mallorca. The studio carries the complete project lifecycle: concept design, 2D scaled plans, 3D renders, garden construction, dry-stone walling, technical irrigation, planting, and year-round care. The studio is known for its work on large-scale private estate gardens across Mallorca, including a 10,000 m² finca in Campos and a 20,000 m² estate in Sant Llorenç. Services are delivered in English, Spanish, and German.
+S'Estepa Design (legal name: S'Estepa Jardineria Integral SLU) is a full-service landscape studio based in Inca, Mallorca. The studio carries the complete project lifecycle: concept design, 2D scaled plans, 3D renders, garden construction, dry-stone walling, technical irrigation, planting, and year-round care. The studio is known for its work on large-scale private estate gardens across Mallorca, including a 14,000 m² finca in Campos and an 18,000 m² estate in Sant Llorenç. Services are delivered in English, Spanish, and German.
 
 ## Company structure
 
@@ -35,8 +35,8 @@ S'Estepa Design does not publish fixed prices or project value ranges. Every pro
 
 ## Featured projects
 
-- [Finca Garden Campos](https://design.sestepa.com/finca-garden-campos/): 10,000 m² finca estate garden — flagship project
-- [Sant Llorenç Estate](https://design.sestepa.com/sant-llorenc/): 20,000 m² private estate with pool landscape
+- [Finca Garden Campos](https://design.sestepa.com/finca-garden-campos/): 14,000 m² finca estate garden — flagship project
+- [Sant Llorenç Estate](https://design.sestepa.com/sant-llorenc/): 18,000 m² private estate with pool landscape
 - [Crestatx Sustainable Garden](https://design.sestepa.com/crestatx-garden-design/): Native species, zero-irrigation design
 - [Palma Terrace Garden](https://design.sestepa.com/terrace-garden-in-palma/): Urban rooftop garden design
 
