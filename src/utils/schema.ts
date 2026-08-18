@@ -138,7 +138,7 @@ export function getLocalizedSchema(
       { "@type": "Person", "name": "Sofia Grimaux", "jobTitle": "Project Manager" }
     ],
     "employee": [
-      { "@type": "Person", "name": "Sofia Grimaux", "jobTitle": "Project Manager" },
+      { "@type": "Person", "name": "Sofia Grimaux", "jobTitle": "Project Manager", "sameAs": "https://www.linkedin.com/in/sofiagrimaux/" },
       { "@type": "Person", "name": "Blanca González", "jobTitle": "Financial Director" }
     ],
     "address": {
