@@ -43,15 +43,40 @@ const downloadText = {
 
 // Map date strings to ISO 8601 for Schema.org
 const publicationDates = [
+  "2026-04-13",
   "2025-06-01",
   "2024-09-01",
   "2024-09-24",
   "2024-01-01",
   "2024-01-01",
-  "2023-11-24"
+  "2023-11-24",
+  "2023-11-09"
 ];
 
 const publications = [
+  {
+    magazine: "Helen Cummins",
+    title: {
+      en: "TOP LANDSCAPE & GARDEN DESIGNERS IN MALLORCA",
+      es: "LOS MEJORES PAISAJISTAS Y DISEÑADORES DE JARDINES DE MALLORCA",
+      de: "DIE BESTEN LANDSCHAFTS- UND GARTENDESIGNER MALLORCAS"
+    },
+    date: {
+      en: "April 13, 2026",
+      es: "13 de Abril, 2026",
+      de: "13. April 2026"
+    },
+    excerpt: {
+      en: "S'Estepa is named among Mallorca's top landscape and garden designers, recognised for founder Pedro Campaner's work protecting the Mallorcan landscape through indigenous plant integration in elegant garden design.",
+      es: "S'Estepa aparece entre los principales paisajistas y diseñadores de jardines de Mallorca, reconocida por el trabajo del fundador Pedro Campaner en la protección del paisaje mallorquín mediante la integración de plantas autóctonas en un diseño elegante.",
+      de: "S'Estepa wird zu den führenden Landschafts- und Gartendesignern Mallorcas gezählt, gewürdigt für die Arbeit von Gründer Pedro Campaner zum Schutz der mallorquinischen Landschaft durch die Integration einheimischer Pflanzen in ein elegantes Gartendesign."
+    },
+    link: "https://www.helencummins.com/mediterranean-garden/",
+    linkType: "external",
+    images: [
+      "/images/press/HELEN-CUMMINS-TOP-LANDSCAPE-GARDEN-DESIGNERS-MALLORCA-1.jpg"
+    ]
+  },
   {
     magazine: "abcMallorca",
     title: {
@@ -203,6 +228,30 @@ const publications = [
       "/images/press/ABC-MALLORCA-SESTEPA-3.png",
       "/images/press/ABC-MALLORCA-SESTEPA-4.png"
     ]
+  },
+  {
+    magazine: "Helen Cummins",
+    title: {
+      en: "S'ESTEPA, DESIGNING GARDENS WITH SOUL",
+      es: "S'ESTEPA, DISEÑANDO JARDINES CON ALMA",
+      de: "S'ESTEPA, GÄRTEN MIT SEELE GESTALTEN"
+    },
+    date: {
+      en: "November 9, 2023",
+      es: "9 de Noviembre, 2023",
+      de: "9. November 2023"
+    },
+    excerpt: {
+      en: "A profile of Pedro Campaner and how S'Estepa grew from a solo gardening venture into a team of 15+, combining technical expertise with landscape design and a focus on endemic Mediterranean species. Text by Veronica Lorenzo.",
+      es: "Un perfil de Pedro Campaner y de cómo S'Estepa creció de un proyecto de jardinería individual a un equipo de más de 15 personas, combinando experiencia técnica con diseño de paisaje y un enfoque en especies mediterráneas endémicas. Texto de Veronica Lorenzo.",
+      de: "Ein Porträt von Pedro Campaner und wie S'Estepa von einem Einzelunternehmen zu einem Team von über 15 Personen wuchs, das technisches Fachwissen mit Landschaftsdesign und einem Fokus auf einheimische mediterrane Arten verbindet. Text von Veronica Lorenzo."
+    },
+    link: "https://www.helencummins.com/sestepa-garden-designers-mallorca/",
+    linkType: "external",
+    images: [
+      "/images/press/HELEN-CUMMINS-SESTEPA-DESIGNING-GARDENS-WITH-SOUL-1.jpg",
+      "/images/press/HELEN-CUMMINS-SESTEPA-DESIGNING-GARDENS-WITH-SOUL-2.jpg"
+    ]
   }
 ];
 ---
@@ -294,6 +343,8 @@ const publications = [
       "name": pub.magazine,
       "sameAs": pub.magazine === "abcMallorca"
         ? "https://www.abc-mallorca.com"
+        : pub.magazine === "Helen Cummins"
+        ? "https://www.helencummins.com"
         : "https://www.spendinmagazine.com"
     },
     "about": {

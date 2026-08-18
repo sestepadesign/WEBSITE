@@ -111,7 +111,7 @@ export function getLocalizedSchema(
     "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
     "@id": "https://design.sestepa.com/#business",
     "name": "S'Estepa Design — Landscape & Garden Design",
-    "legalName": "S'Estepa Jardineria Integral SL",
+    "legalName": "S'Estepa Jardineria Integral SLU",
     "alternateName": ["S'Estepa Design", "S'Estepa Garden Design Mallorca"],
     "description": trans.description,
     "image": [

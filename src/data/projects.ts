@@ -251,7 +251,7 @@ export const projects: Project[] = [
       category: "Estate Garden",
       botanical: "Phyla nodiflora, Phytolacca dioica (Bellasombra), Gaura lindheimeri, Rosmarinus officinalis 'Prostratus', Lantana camara, Lantana montevidensis, Bougainvillea sanderiana, Agapanthus africanus, Stipa tenuissima, Phoenix roebelenii, Cupressus arizonica, Pittosporum tobira 'Nana'",
       description: [
-        "The Campos Garden is an impressive landscape designed and built by S’Estepa. Every corner of this garden has been carefully planned to provide a unique and enjoyable visual experience.",
+        "The Campos Garden is an impressive 10,000 m² landscape designed and built by S’Estepa. Every corner of this garden has been carefully planned to provide a unique and enjoyable visual experience.",
         "Upon entering the garden, visitors are welcomed by two central pathways covered with lippia (<i>Phyla nodiflora</i>), which serve as strong visual axes. At the end of these pathways stands a majestic ombú tree (<i>Phytolacca dioica</i>). Along the entrance road to the property, we used lippia and red-flowering gauras (<i>Gaura lindheimeri</i>), creating a vibrant and welcoming atmosphere.",
         "The pathway leading from the entrance to the house is bordered by creeping rosemary (<i>Rosmarinus officinalis</i> 'Prostratus') and <i>Ficus nitida</i>, providing a fragrant and elegant setting. Decorative lantanas (<i>Lantana camara</i>) arranged in an 'S' shape enhance the arrival experience and add charm to the entrance of the estate.",
         "Adjacent to the house, we created an elevated garden of approximately 300–400 m², covered with gravel and planted with low-growing species. These rustic plants, featuring a variety of colours, form a living carpet that can be appreciated from the house while offering panoramic views of the entire garden.",
@@ -268,7 +268,7 @@ export const projects: Project[] = [
       category: "Jardín de Finca",
       botanical: "Phyla nodiflora, Phytolacca dioica (Bellasombra), Gaura lindheimeri, Rosmarinus officinalis 'Prostratus', Lantana camara, Lantana montevidensis, Bougainvillea sanderiana, Agapanthus africanus, Stipa tenuissima, Phoenix roebelenii, Cupressus arizonica, Pittosporum tobira 'Nana'",
       description: [
-        "El Jardín de Campos es un impresionante espacio diseñado y montado por S’Estepa. Cada rincón de este jardín ha sido cuidadosamente planificado para ofrecer una experiencia visual única y agradable.",
+        "El Jardín de Campos es un impresionante espacio de aproximadamente 10.000 m², diseñado y montado por S’Estepa. Cada rincón de este jardín ha sido cuidadosamente planificado para ofrecer una experiencia visual única y agradable.",
         "Al ingresar al jardín, te encuentras con dos pasillos centrales recubiertos de lippia, que actúan como ejes visuales. Al final de estos pasillos, se destaca un majestuoso árbol conocido como bellasombra (<i>Phytolacca dioica</i>). A lo largo del camino de entrada a la finca, hemos utilizado lippias (<i>Phyla nodiflora</i>) y gauras de color rojo (<i>Gaura lindheimeri</i>), creando una zona vibrante y acogedora.",
         "El camino que conduce desde la entrada hasta la casa está bordeado por romeros (<i>Rosmarinus officinalis</i> 'Prostratus') y <i>Ficus nitida</i>, brindando un ambiente fragante y elegante. Además, hemos añadido lantanas (<i>Lantana camara</i>) en forma de 'S' como elementos decorativos, que añaden belleza y encanto a la llegada a la finca.",
         "Justo al lado de la casa, hemos creado un jardín elevado de aproximadamente 300 a 400 m2, cubierto con grava y adornado con plantas bajas. Estas plantas, de diversos colores y de estilo rústico, forman una especie de alfombra de jardinería que permite observar todo el jardín desde la casa.",
@@ -285,7 +285,7 @@ export const projects: Project[] = [
       category: "Landgut Garten",
       botanical: "Phyla nodiflora, Phytolacca dioica (Bellasombra), Gaura lindheimeri, Rosmarinus officinalis 'Prostratus', Lantana camara, Lantana montevidensis, Bougainvillea sanderiana, Agapanthus africanus, Stipa tenuissima, Phoenix roebelenii, Cupressus arizonica, Pittosporum tobira 'Nana'",
       description: [
-        "Der Garten von Campos ist eine beeindruckende Gartenanlage, die von S’Estepa entworfen und umgesetzt wurde. Jeder Bereich dieses Gartens wurde sorgfältig geplant, um ein einzigartiges und angenehmes visuelles Erlebnis zu schaffen.",
+        "Der Garten von Campos ist eine beeindruckende, rund 10.000 m² große Gartenanlage, die von S’Estepa entworfen und umgesetzt wurde. Jeder Bereich dieses Gartens wurde sorgfältig geplant, um ein einzigartiges und angenehmes visuelles Erlebnis zu schaffen.",
         "Beim Betreten des Gartens wird man von zwei zentralen Wegen empfangen, die mit Lippia (<i>Phyla nodiflora</i>) bepflanzt sind und als starke Sichtachsen dienen. Am Ende dieser Wege erhebt sich ein majestätischer Ombú-Baum (<i>Phytolacca dioica</i>). Entlang der Zufahrtsstraße zum Anwesen wurden Lippia und rot blühende Prachtkerzen (<i>Gaura lindheimeri</i>) verwendet, wodurch ein lebendiger und einladender Eingangsbereich entsteht.",
         "Der Weg vom Eingang zum Haus wird von kriechendem Rosmarin (<i>Rosmarinus officinalis</i> 'Prostratus') und <i>Ficus nitida</i> gesäumt und verleiht dem Bereich eine elegante und duftende Atmosphäre. Zusätzlich wurden Lantanen (<i>Lantana camara</i>) in einer geschwungenen 'S'-Form als dekorative Elemente integriert, die dem Eingangsbereich besondere Schönheit und Charakter verleihen.",
         "Direkt neben dem Haus entstand ein erhöht angelegter Gartenbereich von etwa 300 bis 400 m², der mit Kies bedeckt und mit niedrig wachsenden Pflanzen gestaltet wurde. Die rustikalen Pflanzen in verschiedenen Farbtönen bilden einen lebendigen Pflanzenteppich, der vom Haus aus einen umfassenden Blick auf den gesamten Garten ermöglicht.",
@@ -599,7 +599,7 @@ export const projects: Project[] = [
       botanical: "Olea europaea var. sylvestris (Ullastre), Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
       description: [
         "Before a garden reaches its full potential, there is an equally beautiful stage: watching it grow.",
-        "This garden in Sant Llorenç was planted just two months ago, so it is still very much in the early stages of development. The plants are establishing themselves, growing and naturally filling out their space. As the seasons pass, the garden will gradually gain more volume, texture and colour.",
+        "This 20,000 m² garden in Sant Llorenç was planted just two months ago, so it is still very much in the early stages of development. The plants are establishing themselves, growing and naturally filling out their space. As the seasons pass, the garden will gradually gain more volume, texture and colour.",
         "For this project, we wanted to preserve the existing wild olive trees (ullastres), hardy trees that are characteristic of Mallorca's native garriga landscape, using them as the foundation of the design. Around them, we created a natural, wild-inspired landscape composed of low-maintenance flowering species that can thrive together while bringing colour and movement to the garden throughout much of the year.",
         "This is a garden designed to evolve over time, with nature as the true protagonist."
       ],
@@ -638,7 +638,7 @@ export const projects: Project[] = [
       botanical: "Olea europaea var. sylvestris (Ullastre), Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
       description: [
         "Antes de que un jardín alcance su máximo esplendor, hay una etapa igual de bonita: verlo crecer.",
-        "Este jardín de Sant Llorenç tiene apenas dos meses desde su plantación, por lo que se encuentra en pleno proceso de desarrollo. Las plantas aún están estableciéndose, creciendo y ocupando su espacio de forma natural. Con el paso de las estaciones irá adquiriendo cada vez más volumen, textura y color.",
+        "Este jardín de aproximadamente 20.000 m² en Sant Llorenç tiene apenas dos meses desde su plantación, por lo que se encuentra en pleno proceso de desarrollo. Las plantas aún están estableciéndose, creciendo y ocupando su espacio de forma natural. Con el paso de las estaciones irá adquiriendo cada vez más volumen, textura y color.",
         "En este proyecto quisimos conservar los acebuches (ullastres) existentes, árboles resistentes y representativos de la garriga mallorquina, utilizándolos como base del diseño. A su alrededor creamos un paisaje de carácter silvestre, compuesto por especies de floración natural y bajo mantenimiento, capaces de convivir entre sí y aportar color y movimiento durante gran parte del año.",
         "Es un jardín pensado para evolucionar con el tiempo, donde la naturaleza es la verdadera protagonista."
       ],
@@ -677,7 +677,7 @@ export const projects: Project[] = [
       botanical: "Olea europaea var. sylvestris (Ullastre), Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
       description: [
         "Bevor ein Garten seine volle Pracht erreicht, gibt es eine ebenso schöne Phase: ihm beim Wachsen zuzusehen.",
-        "Dieser Garten in Sant Llorenç ist erst zwei Monate nach der Pflanzung alt und befindet sich somit noch mitten in der Entwicklung. Die Pflanzen etablieren sich, wachsen und nehmen auf natürliche Weise ihren Raum ein. Mit jeder Jahreszeit wird er zunehmend an Volumen, Textur und Farbe gewinnen.",
+        "Dieser rund 20.000 m² große Garten in Sant Llorenç ist erst zwei Monate nach der Pflanzung alt und befindet sich somit noch mitten in der Entwicklung. Die Pflanzen etablieren sich, wachsen und nehmen auf natürliche Weise ihren Raum ein. Mit jeder Jahreszeit wird er zunehmend an Volumen, Textur und Farbe gewinnen.",
         "Bei diesem Projekt wollten wir die vorhandenen wilden Olivenbäume (Ullastres) erhalten — robuste Bäume, die typisch für die mallorquinische Garriga sind — und sie als Grundlage des Entwurfs nutzen. Darum herum haben wir eine Landschaft mit wildem Charakter geschaffen, bestehend aus natürlich blühenden, pflegeleichten Arten, die miteinander harmonieren und einen Großteil des Jahres über Farbe und Bewegung bringen.",
         "Es ist ein Garten, der dafür gedacht ist, sich mit der Zeit zu entwickeln — die Natur ist der wahre Protagonist."
       ],
