@@ -74,6 +74,11 @@ const viewOnMapsText = {
   es: 'Ver en Google Maps',
   de: 'Auf Google Maps ansehen',
 };
+const findUsText = {
+  en: 'Find Us',
+  es: 'Cómo Llegar',
+  de: 'So Finden Sie Uns',
+};
 ---
 
 <Layout title={lang === 'en' ? "Contact S'Estepa Design | Premium Landscaping in Mallorca" : lang === 'es' ? "Contacto S'Estepa Design | Paisajismo Exclusivo en Mallorca" : "Kontakt S'Estepa Design | Exklusive Gartengestaltung Mallorca"} description={pageDescription} lang={lang}>
@@ -163,25 +168,26 @@ const viewOnMapsText = {
               </a>
             </p>
             <p class="aside-detail aside-address">{aside.address}</p>
-            <p class="aside-detail">
-              <a href={mapsUrl} class="aside-link" target="_blank" rel="noopener noreferrer">
-                {viewOnMapsText[lang]} &rarr;
-              </a>
-            </p>
           </div>
         </aside>
       </div>
 
-      <div class="contact-map">
-        <iframe
-          src={`${mapsUrl}&output=embed`}
-          width="100%"
-          height="400"
-          style="border:0;"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="S'Estepa Design location on Google Maps"
-        ></iframe>
+      <div class="contact-map-section">
+        <span class="section-tag">{findUsText[lang]}</span>
+        <div class="contact-map-frame">
+          <iframe
+            src={`${mapsUrl}&output=embed`}
+            width="100%"
+            height="420"
+            style="border:0;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="S'Estepa Design location on Google Maps"
+          ></iframe>
+        </div>
+        <a href={mapsUrl} class="map-cta-btn" target="_blank" rel="noopener noreferrer">
+          {viewOnMapsText[lang]} &rarr;
+        </a>
       </div>
     </div>
   </div>
@@ -488,14 +494,47 @@ const viewOnMapsText = {
     margin-top: 0.25rem;
   }
 
-  .contact-map {
+  .contact-map-section {
     margin-top: 6rem;
-    border: 1px solid var(--color-sand-dark);
-    line-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.75rem;
   }
 
-  .contact-map iframe {
+  .contact-map-frame {
+    width: 100%;
+    border: 1px solid var(--color-sand-dark);
+    line-height: 0;
+    overflow: hidden;
+  }
+
+  .contact-map-frame iframe {
     display: block;
+    filter: grayscale(45%) sepia(18%) saturate(85%) brightness(97%) contrast(96%);
+    transition: filter var(--transition-medium);
+  }
+
+  .contact-map-frame:hover iframe {
+    filter: grayscale(15%) sepia(10%) saturate(95%) brightness(99%);
+  }
+
+  .map-cta-btn {
+    align-self: flex-start;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-white);
+    background-color: var(--color-charcoal);
+    border: none;
+    padding: 1.1rem 2.25rem;
+    cursor: pointer;
+    transition: var(--transition-medium);
+  }
+
+  .map-cta-btn:hover {
+    background-color: var(--color-olive);
   }
 
   @media (max-width: 992px) {
@@ -504,7 +543,7 @@ const viewOnMapsText = {
       gap: 5rem;
     }
 
-    .contact-map {
+    .contact-map-section {
       margin-top: 4rem;
     }
 
