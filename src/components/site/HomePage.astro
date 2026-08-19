@@ -48,8 +48,10 @@ const featuredProjects = featuredSlugs
   .filter((p): p is NonNullable<typeof p> => Boolean(p));
 const camposProject = projects.find((p) => p.slug === 'finca-garden-campos-mallorca');
 const santLlorencProject = projects.find((p) => p.slug === 'sant-llorenc');
+const verticalGardenProject = projects.find((p) => p.slug === 'vertical-gardens-in-mallorca');
 
 const camposSpotlightImage = camposProject?.cover ?? '';
+const verticalGardenSpotlightImage = verticalGardenProject?.cover ?? '';
 
 const spotlightCopy = {
   en: {
@@ -75,6 +77,31 @@ const spotlightCopy = {
   },
 };
 const spotlight = spotlightCopy[lang];
+
+const collabCopy = {
+  en: {
+    tag: 'Corporate Collaboration',
+    title: 'Vertical Garden for OK Mobility',
+    text: "A living wall of tropical planting, designed by Vertical Garden Mallorca in collaboration with S'Estepa, for their client OK Mobility's Mallorca offices.",
+    creditLabel: 'In collaboration with',
+    cta: 'Explore the full project',
+  },
+  es: {
+    tag: 'Colaboración Corporativa',
+    title: 'Jardín Vertical para OK Mobility',
+    text: 'Un muro vivo de plantación tropical, diseñado por Vertical Garden Mallorca en colaboración con S\'Estepa, para las oficinas de su cliente OK Mobility en Mallorca.',
+    creditLabel: 'En colaboración con',
+    cta: 'Explorar el proyecto completo',
+  },
+  de: {
+    tag: 'Unternehmenskooperation',
+    title: 'Vertikaler Garten für OK Mobility',
+    text: 'Eine lebendige Wand aus tropischer Bepflanzung, entworfen von Vertical Garden Mallorca in Zusammenarbeit mit S\'Estepa, für die Büros von deren Kunden OK Mobility auf Mallorca.',
+    creditLabel: 'In Zusammenarbeit mit',
+    cta: 'Das vollständige Projekt ansehen',
+  },
+};
+const collab = collabCopy[lang];
 
 const journeyData = {
   en: {
@@ -479,6 +506,33 @@ const currentTestimonials = testimonialsCopy[lang];
             {spotlight.cta} &rarr;
           </a>
         </div>
+      </div>
+    </section>
+  )}
+
+  {verticalGardenProject && (
+    <section class="collab-spotlight section-padding">
+      <div class="container spotlight-grid collab-grid">
+        <div class="spotlight-text">
+          <span class="section-tag">{collab.tag}</span>
+          <h2 class="spotlight-title">{collab.title}</h2>
+          <p class="spotlight-desc">{collab.text}</p>
+          <p class="collab-credit">
+            {collab.creditLabel} <a href="https://verticalgardenmallorca.com" target="_blank" rel="noopener noreferrer" class="collab-link">Vertical Garden Mallorca</a>
+          </p>
+          <a href={getProjectPath('vertical-gardens-in-mallorca', lang)} class="text-link">
+            {collab.cta} &rarr;
+          </a>
+        </div>
+        <a href={getProjectPath('vertical-gardens-in-mallorca', lang)} class="spotlight-image-link">
+          <img
+            src={verticalGardenSpotlightImage}
+            alt={verticalGardenProject[lang].title}
+            class="spotlight-image"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
       </div>
     </section>
   )}
@@ -1088,6 +1142,41 @@ const currentTestimonials = testimonialsCopy[lang];
   .campos-spotlight .text-link {
     color: var(--color-white);
     border-bottom-color: rgba(255, 255, 255, 0.35);
+  }
+
+  /* Collaboration spotlight (Vertical Garden × OK Mobility) */
+  .collab-spotlight {
+    background-color: var(--color-sand-light);
+    border-top: 1px solid var(--color-sand-dark);
+    border-bottom: 1px solid var(--color-sand-dark);
+  }
+
+  .collab-grid {
+    grid-template-columns: 1fr 1.2fr;
+  }
+
+  .collab-spotlight .spotlight-title {
+    color: var(--color-charcoal);
+  }
+
+  .collab-spotlight .spotlight-desc {
+    color: var(--color-charcoal-light);
+  }
+
+  .collab-credit {
+    font-size: 0.85rem;
+    color: var(--color-charcoal-light);
+    margin: -0.75rem 0 1.75rem;
+  }
+
+  .collab-link {
+    color: var(--color-olive-dark);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .collab-link:hover {
+    color: var(--color-olive);
   }
 
   /* Featured Section */
