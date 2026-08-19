@@ -525,13 +525,16 @@ const currentTestimonials = testimonialsCopy[lang];
           </a>
         </div>
         <a href={getProjectPath('vertical-gardens-in-mallorca', lang)} class="spotlight-image-link">
-          <img
-            src={verticalGardenSpotlightImage}
-            alt={verticalGardenProject[lang].title}
-            class="spotlight-image"
-            loading="lazy"
-            decoding="async"
-          />
+          <picture>
+            <source media="(max-width: 768px)" srcset="/portfolio/vertical-gardens-in-mallorca/garden-design-mallorca-vertical-gardens-in-mallorca-sestepa-card.webp" />
+            <img
+              src={verticalGardenSpotlightImage}
+              alt={verticalGardenProject[lang].title}
+              class="spotlight-image"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </a>
       </div>
     </section>
