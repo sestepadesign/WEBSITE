@@ -67,6 +67,13 @@ const contactAside = {
 };
 
 const aside = contactAside[lang];
+
+const mapsUrl = 'https://www.google.com/maps?cid=8724534370482378500';
+const viewOnMapsText = {
+  en: 'View on Google Maps',
+  es: 'Ver en Google Maps',
+  de: 'Auf Google Maps ansehen',
+};
 ---
 
 <Layout title={lang === 'en' ? "Contact S'Estepa Design | Premium Landscaping in Mallorca" : lang === 'es' ? "Contacto S'Estepa Design | Paisajismo Exclusivo en Mallorca" : "Kontakt S'Estepa Design | Exklusive Gartengestaltung Mallorca"} description={pageDescription} lang={lang}>
@@ -156,8 +163,25 @@ const aside = contactAside[lang];
               </a>
             </p>
             <p class="aside-detail aside-address">{aside.address}</p>
+            <p class="aside-detail">
+              <a href={mapsUrl} class="aside-link" target="_blank" rel="noopener noreferrer">
+                {viewOnMapsText[lang]} &rarr;
+              </a>
+            </p>
           </div>
         </aside>
+      </div>
+
+      <div class="contact-map">
+        <iframe
+          src={`${mapsUrl}&output=embed`}
+          width="100%"
+          height="400"
+          style="border:0;"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="S'Estepa Design location on Google Maps"
+        ></iframe>
       </div>
     </div>
   </div>
@@ -464,10 +488,24 @@ const aside = contactAside[lang];
     margin-top: 0.25rem;
   }
 
+  .contact-map {
+    margin-top: 6rem;
+    border: 1px solid var(--color-sand-dark);
+    line-height: 0;
+  }
+
+  .contact-map iframe {
+    display: block;
+  }
+
   @media (max-width: 992px) {
     .contact-grid {
       grid-template-columns: 1fr;
       gap: 5rem;
+    }
+
+    .contact-map {
+      margin-top: 4rem;
     }
 
     .contact-aside {
