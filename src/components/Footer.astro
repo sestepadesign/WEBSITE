@@ -26,6 +26,12 @@ const footerAddress = {
   es: 'Carrer dels Menestrals, 5, 07300 Inca, Mallorca, Islas Baleares',
   de: 'Carrer dels Menestrals, 5, 07300 Inca, Mallorca, Balearische Inseln',
 };
+
+const groupCreditBefore = {
+  en: 'S’Estepa Design, a project by',
+  es: 'S’Estepa Design, un proyecto de',
+  de: 'S’Estepa Design, ein Projekt von',
+};
 ---
 
 <footer class="footer">
@@ -83,6 +89,11 @@ const footerAddress = {
     <div class="footer-bottom">
       <div class="footer-bottom-info">
         <p class="copyright">&copy; {currentYear} S'Estepa Design. All rights reserved.</p>
+        <p class="group-credit">
+          {groupCreditBefore[lang]}
+          {' '}
+          <a href="https://www.sestepa.com" target="_blank" rel="noopener noreferrer" class="group-credit-link">S'Estepa</a>
+        </p>
         <div class="footer-legal-links">
           <a href={getPagePath('legal-notice', lang)}>{t('footer.legal')}</a>
           <span class="separator" aria-hidden="true">•</span>
@@ -268,6 +279,21 @@ const footerAddress = {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  .group-credit {
+    color: #6b6760;
+  }
+
+  .group-credit-link {
+    color: #6b6760;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: var(--transition-fast);
+  }
+
+  .group-credit-link:hover {
+    color: var(--color-olive);
   }
 
   .footer-legal-links {
