@@ -998,7 +998,7 @@ export const projects: Project[] = [
     year: "2023",
     architect: "Vertical Garden Mallorca",
     video: "https://www.youtube.com/embed/x3W0KQmr-pQ?feature=oembed",
-    cover: "/portfolio/vertical-gardens-in-mallorca/garden-design-mallorca-vertical-gardens-in-mallorca-sestepa.jpg",
+    cover: "/portfolio/vertical-gardens-in-mallorca/garden-design-mallorca-vertical-gardens-in-mallorca-sestepa.webp",
     images: [
       "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-1.jpg",
       "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-10.jpg",

@@ -525,13 +525,16 @@ const currentTestimonials = testimonialsCopy[lang];
           </a>
         </div>
         <a href={getProjectPath('vertical-gardens-in-mallorca', lang)} class="spotlight-image-link">
-          <img
-            src={verticalGardenSpotlightImage}
-            alt={verticalGardenProject[lang].title}
-            class="spotlight-image"
-            loading="lazy"
-            decoding="async"
-          />
+          <picture>
+            <source media="(max-width: 768px)" srcset="/portfolio/vertical-gardens-in-mallorca/garden-design-mallorca-vertical-gardens-in-mallorca-sestepa-card.webp" />
+            <img
+              src={verticalGardenSpotlightImage}
+              alt={verticalGardenProject[lang].title}
+              class="spotlight-image"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </a>
       </div>
     </section>
@@ -899,7 +902,6 @@ const currentTestimonials = testimonialsCopy[lang];
     color: var(--color-white);
     line-height: 1.1;
     max-width: 900px;
-    animation: fadeIn 2s ease-out;
   }
 
   .hero-eyebrow {
@@ -911,7 +913,6 @@ const currentTestimonials = testimonialsCopy[lang];
     letter-spacing: 0.2em;
     color: var(--color-sand-base);
     margin-bottom: 1.5rem;
-    animation: fadeIn 1.5s ease-out;
   }
 
   .hero-title em {

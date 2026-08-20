@@ -111,7 +111,8 @@ const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogL
 
     {redirectTo && <meta http-equiv="refresh" content={`0;url=${redirectTo}`} />}
 
-    <link rel="preload" as="image" href="/images/S-ESTEPA-GARDEN-DESIGN-MALLORCA-LOGO-BLACK-344.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/S-ESTEPA-GARDEN-DESIGN-MALLORCA-LOGO-BLACK-344-mobile.webp" media="(max-width: 768px)" />
+    <link rel="preload" as="image" href="/images/S-ESTEPA-GARDEN-DESIGN-MALLORCA-LOGO-BLACK-344.webp" media="(min-width: 769px)" />
 
     {!noindex && <Schema canonicalPath={canonicalPath} />}
 
@@ -161,9 +162,25 @@ const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogL
       </script>
     )}
 
-    <!-- Tracking scripts deferred to end of body to avoid render-blocking -->
+    <!-- Google Consent Mode v2 Default State -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'personalization_storage': 'denied',
+        'functionality_storage': 'denied',
+        'security_storage': 'granted',
+        'wait_for_update': 500
+      });
+      gtag('set', 'ads_data_redaction', true);
+    </script>
+
     <!-- Start cookieyes banner -->
-    <script id="cookieyes" is:inline defer src={`https://cdn-cookieyes.com/client_data/${COOKIEYES_CLIENT_ID}/script.js`}></script>
+    <script id="cookieyes" is:inline async src={`https://cdn-cookieyes.com/client_data/${COOKIEYES_CLIENT_ID}/script.js`}></script>
     <!-- End cookieyes banner -->
 
     <!-- Google tag (gtag.js) -->
