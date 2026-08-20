@@ -75,8 +75,39 @@ function xmlEscape(s) {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+const HOMEPAGE_PATHS = {
+  en: '/',
+  es: '/es/',
+  de: '/de/',
+};
+
+const HOMEPAGE_FEATURED_IMAGES = [
+  '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
+  '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15.webp',
+  '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp',
+  '/portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp',
+  '/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp',
+  '/portfolio/jardin-mediterraneo/images/garden-design-mallorca-jardin-mediterraneo-sestepa.webp',
+  '/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp',
+  '/portfolio/santa-ponsa/images/GARDEN-DESIGN-MALLORCA-SANTA-PONSA-SESTEPA-1.webp',
+];
+
 function buildSitemapXml(projectPaths, projectImages) {
   const urlEntries = [];
+
+  // Homepage entries in all locales
+  for (const locale of LOCALES) {
+    const loc = `${SITE_URL}${HOMEPAGE_PATHS[locale]}`;
+    const images = HOMEPAGE_FEATURED_IMAGES
+      .map(
+        (imgPath) =>
+          `    <image:image>\n      <image:loc>${xmlEscape(
+            `${SITE_URL}${imgPath}`,
+          )}</image:loc>\n    </image:image>`,
+      )
+      .join('\n');
+    urlEntries.push(`  <url>\n    <loc>${xmlEscape(loc)}</loc>\n${images}\n  </url>`);
+  }
 
   for (const [slug, filenames] of Object.entries(projectImages)) {
     const paths = projectPaths[slug];
@@ -88,8 +119,8 @@ function buildSitemapXml(projectPaths, projectImages) {
         .map(
           (filename) =>
             `    <image:image>\n      <image:loc>${xmlEscape(
-              `${SITE_URL}/portfolio/${slug}/images/${filename}`,
-            )}</image:loc>\n    </image:image>`,
+            `${SITE_URL}/portfolio/${slug}/images/${filename}`,
+          )}</image:loc>\n    </image:image>`,
         )
         .join('\n');
       urlEntries.push(`  <url>\n    <loc>${xmlEscape(loc)}</loc>\n${images}\n  </url>`);

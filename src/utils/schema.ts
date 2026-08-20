@@ -118,8 +118,11 @@ export function getLocalizedSchema(
       "https://design.sestepa.com/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp",
       "https://design.sestepa.com/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15.webp",
       "https://design.sestepa.com/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp",
-      "https://design.sestepa.com/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(1).webp",
-      "https://design.sestepa.com/portfolio/jardin-mediterraneo/images/garden-design-mallorca-jardin-mediterraneo-sestepa.webp"
+      "https://design.sestepa.com/portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp",
+      "https://design.sestepa.com/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp",
+      "https://design.sestepa.com/portfolio/jardin-mediterraneo/images/garden-design-mallorca-jardin-mediterraneo-sestepa.webp",
+      "https://design.sestepa.com/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp",
+      "https://design.sestepa.com/portfolio/santa-ponsa/images/GARDEN-DESIGN-MALLORCA-SANTA-PONSA-SESTEPA-1.webp"
     ],
     "logo": {
       "@type": "ImageObject",
@@ -297,9 +300,41 @@ export function getLocalizedSchema(
     "publisher": { "@id": "https://design.sestepa.com/#business" }
   };
 
+  // 4. WebPage Schema (Homepage Enhanced Visual Metadata)
+  const homeWebPage = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${currentUrl}#webpage`,
+    "url": currentUrl,
+    "name": trans.siteName,
+    "description": trans.description,
+    "inLanguage": [locale],
+    "isPartOf": { "@id": "https://design.sestepa.com/#website" },
+    "about": { "@id": "https://design.sestepa.com/#business" },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "https://design.sestepa.com/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp",
+      "caption": trans.siteName
+    },
+    "mainEntity": {
+      "@type": "ImageGallery",
+      "name": `${trans.siteName} — Portfolio Highlights`,
+      "description": trans.description,
+      "image": [
+        "https://design.sestepa.com/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp",
+        "https://design.sestepa.com/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15.webp",
+        "https://design.sestepa.com/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp",
+        "https://design.sestepa.com/portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp",
+        "https://design.sestepa.com/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp",
+        "https://design.sestepa.com/portfolio/jardin-mediterraneo/images/garden-design-mallorca-jardin-mediterraneo-sestepa.webp"
+      ]
+    }
+  };
+
   const schemas: any[] = [organization];
   if (isHome) {
     schemas.push(website);
+    schemas.push(homeWebPage);
   }
   if (isServiceOrPortfolio) {
     schemas.push(services);
