@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from '../../layouts/Layout.astro';
 import { ui } from '../../data/translations';
 import { getGalleryImages, galleryMeta } from '../../data/gallery';
@@ -13,7 +13,7 @@ const images = getGalleryImages(lang).map((img) => ({
 }));
 
 const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
-const coverImage = images[0]?.src ?? '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp';
+const coverImage = images[0]?.src ?? '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp';
 
 const viewProjectLabel = {
   en: 'View project',
