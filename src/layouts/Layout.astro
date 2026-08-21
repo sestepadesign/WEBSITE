@@ -101,11 +101,12 @@ const ogLocaleAlternates = SITE_LOCALES.filter((l) => l !== lang).map((l) => ogL
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:secure_url" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    {image.endsWith('.jpg') || image.endsWith('.jpeg') ? (
+    {resolvedImage.endsWith('.jpg') || resolvedImage.endsWith('.jpeg') ? (
       <meta property="og:image:type" content="image/jpeg" />
-    ) : image.endsWith('.webp') ? (
+    ) : resolvedImage.endsWith('.webp') ? (
       <meta property="og:image:type" content="image/webp" />
     ) : null}
 
