@@ -179,19 +179,19 @@ export const PAGE_OG_IMAGES: Partial<Record<SitePageId, Record<SiteLocale, strin
     de: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
   },
   about: {
-    en: '/portfolio/bunyola/cover.jpg',
-    es: '/portfolio/bunyola/cover.jpg',
-    de: '/portfolio/bunyola/cover.jpg',
+    en: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
+    es: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
+    de: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
   },
   contact: {
-    en: '/portfolio/costadelacalma/cover.jpg',
-    es: '/portfolio/costadelacalma/cover.jpg',
-    de: '/portfolio/costadelacalma/cover.jpg',
+    en: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
+    es: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
+    de: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
   },
   gallery: {
-    en: '/portfolio/binissalem/cover.jpg',
-    es: '/portfolio/binissalem/cover.jpg',
-    de: '/portfolio/binissalem/cover.jpg',
+    en: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
+    es: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
+    de: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
   },
   portfolio: {
     en: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
@@ -204,9 +204,9 @@ export const PAGE_OG_IMAGES: Partial<Record<SitePageId, Record<SiteLocale, strin
     de: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
   },
   press: {
-    en: '/portfolio/santa-ponsa/cover.jpg',
-    es: '/portfolio/santa-ponsa/cover.jpg',
-    de: '/portfolio/santa-ponsa/cover.jpg',
+    en: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
+    es: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
+    de: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
   },
   blog: {
     en: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
