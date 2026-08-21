@@ -17,11 +17,13 @@ import {
 import { PAGE_OG_IMAGES } from '../data/site-urls';
 import { resolvePageIdFromPath } from '../lib/urls';
 
+const DEFAULT_SITE_OG_IMAGE = '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp';
+
 interface Props {
   title: string;
   description: string;
   lang: 'en' | 'es' | 'de';
-  /** Path to OG image, e.g. /portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp */
+  /** Path to OG image, e.g. /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp */
   image?: string;
   /** Override canonical path (aliases, homepage). */
   canonicalPath?: string;
@@ -29,7 +31,7 @@ interface Props {
   redirectTo?: string;
   /** Locales with a real alternate page (default: all). Blog posts EN-only use ['en']. */
   hreflangLocales?: SiteLocale[];
-  /** Hidden pages (SEO archive) â€” noindex, not linked in nav */
+  /** Hidden pages (SEO archive) — noindex, not linked in nav */
   noindex?: boolean;
 }
 
@@ -37,7 +39,7 @@ const {
   title,
   description,
   lang,
-  image = '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp',
+  image = DEFAULT_SITE_OG_IMAGE,
   canonicalPath: canonicalPathProp,
   redirectTo,
   hreflangLocales = SITE_LOCALES,
@@ -50,7 +52,7 @@ const canonicalURL = new URL(canonicalPath, site);
 
 const pageId = resolvePageIdFromPath(canonicalPath);
 const defaultOgImage = pageId ? PAGE_OG_IMAGES[pageId]?.[lang] : undefined;
-const resolvedImage = image !== '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp' ? image : (defaultOgImage ?? image);
+const resolvedImage = image !== DEFAULT_SITE_OG_IMAGE ? image : (defaultOgImage ?? image);
 const ogImage = new URL(resolvedImage, site);
 
 const ogLocales: Record<typeof lang, string> = {
