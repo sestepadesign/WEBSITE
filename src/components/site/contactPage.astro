@@ -94,6 +94,12 @@ const findUsText = {
         <!-- Form Block -->
         <div class="contact-form-container">
           <form class="contact-form" action="#" method="POST" id="inquiryForm">
+            <!-- Anti-bot honeypot trap field (hidden from human visitors & assistive technologies) -->
+            <div class="ohnohoney" aria-hidden="true">
+              <label for="company_website">Please leave this field empty</label>
+              <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="new-password" value="" />
+            </div>
+
             <div class="form-group">
               <label for="name">{t('contact.form.name')}</label>
               <input type="text" id="name" name="name" required placeholder=" " />
@@ -194,11 +200,27 @@ const findUsText = {
 </Layout>
 
 <script>
-  // Google Apps Script Web App Integration for form submission
+  // Google Apps Script Web App Integration with Multi-Layer Anti-Bot Protection
   const form = document.getElementById('inquiryForm') as HTMLFormElement;
   const statusDiv = document.getElementById('formStatus');
 
   if (form && statusDiv) {
+    const pageRenderTime = Date.now();
+    let hasUserInteracted = false;
+    let firstInteractionTime = 0;
+
+    // Track genuine human interaction events
+    const markInteraction = () => {
+      if (!hasUserInteracted) {
+        hasUserInteracted = true;
+        firstInteractionTime = Date.now();
+      }
+    };
+
+    ['focusin', 'input', 'keydown', 'pointerdown', 'touchstart'].forEach((evt) => {
+      form.addEventListener(evt, markInteraction, { passive: true });
+    });
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       
@@ -210,6 +232,42 @@ const findUsText = {
       const formData = new FormData(form);
       const data: Record<string, string> = {};
       formData.forEach((val, key) => { data[key] = String(val); });
+
+      const now = Date.now();
+      const elapsedTotal = now - pageRenderTime;
+      const elapsedInteraction = firstInteractionTime > 0 ? (now - firstInteractionTime) : 0;
+
+      // 1. Honeypot check: Automated bots blindly fill invisible/hidden fields
+      const honeypotVal = (data.company_website || '').trim();
+      const isHoneypotTriggered = honeypotVal.length > 0;
+
+      // 2. Timing check: Automated bots submit immediately (< 2.5s total or < 1.2s since focus)
+      const isTooFast = elapsedTotal < 2500 || (hasUserInteracted && elapsedInteraction < 1200);
+
+      // 3. Behavioral check: Form submitted without registering human input events
+      const isUnnaturalInteraction = !hasUserInteracted;
+
+      // 4. Semantic spam check: Mass outbound cold-marketing pitches
+      const textToScan = `${data.name || ''} ${data.email || ''} ${data.subject || ''} ${data.message || ''}`.toLowerCase();
+      const spamRegex = /\b(internet marketing company|seo service|seo services|backlinks|guest post|increase your sales ranking|online business ranking|whatsapp marketing)\b/i;
+      const isSpamContent = spamRegex.test(textToScan);
+
+      const isBot = isHoneypotTriggered || isTooFast || isUnnaturalInteraction || isSpamContent;
+
+      if (isBot) {
+        // SILENT DROP: Simulate successful response to deceive the bot, but NEVER invoke Google Apps Script or Google Ads conversion
+        setTimeout(() => {
+          statusDiv.textContent = "Thank you. Your message has been sent successfully.";
+          statusDiv.classList.add('success');
+          form.reset();
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 800);
+        return;
+      }
+
+      // Legitimate human submission
+      delete data.company_website;
 
       if (data.phone) {
         data.message = `[Phone: ${data.phone}]\n\n${data.message || ''}`;
@@ -229,7 +287,7 @@ const findUsText = {
         statusDiv.textContent = "Thank you. Your message has been sent successfully.";
         statusDiv.classList.add('success');
         
-        // Dispara a conversão no Google Ads
+        // Dispara a conversão no Google Ads apenas para leads humanos reais
         if (typeof window !== 'undefined' && (window as any).gtag) {
           (window as any).gtag('event', 'conversion', {
             'send_to': 'AW-795871100/contact_form_lead',
@@ -246,7 +304,7 @@ const findUsText = {
         statusDiv.textContent = "Thank you. Your message has been sent successfully.";
         statusDiv.classList.add('success');
         
-        // Dispara a conversão no Google Ads (fallback)
+        // Dispara a conversão no Google Ads (fallback) apenas para leads humanos reais
         if (typeof window !== 'undefined' && (window as any).gtag) {
           (window as any).gtag('event', 'conversion', {
             'send_to': 'AW-795871100/contact_form_lead',
@@ -316,6 +374,20 @@ const findUsText = {
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
+    position: relative;
+  }
+
+  /* Anti-bot Honeypot Trap (Zero Reflow / Zero CLS / Invisible) */
+  .ohnohoney {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
   }
 
   .form-group {
