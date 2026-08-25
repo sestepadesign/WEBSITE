@@ -6,24 +6,29 @@
 import { htmlToMarkdown, estimateTokens } from './_lib/html-to-markdown.js';
 
 export const onRequest = async (context) => {
-  const accept = context.request.headers.get('Accept') || '';
-  const wantsMarkdown = accept.includes('text/markdown');
-
-  if (!wantsMarkdown || context.request.method !== 'GET') {
-    // Mark every HTML response as Accept-dependent so Cloudflare's edge
-    // cache keys it separately from the markdown variant below — without
-    // this, a cached HTML response could get served to a markdown request
-    // (or vice versa) regardless of what Accept header was actually sent.
-    const response = await context.next();
-    const headers = new Headers(response.headers);
-    headers.append('Vary', 'Accept');
-    return new Response(response.body, { status: response.status, headers });
+  if (context.request.method !== 'GET') {
+    return context.next();
   }
 
   const response = await context.next();
   const contentType = response.headers.get('Content-Type') || '';
   if (!contentType.includes('text/html')) {
+    // Images, video, fonts, JSON, etc. never vary by Accept — pass through
+    // completely untouched so they're unaffected by this Function existing.
     return response;
+  }
+
+  const accept = context.request.headers.get('Accept') || '';
+  const wantsMarkdown = accept.includes('text/markdown');
+
+  if (!wantsMarkdown) {
+    // Mark the HTML response as Accept-dependent so Cloudflare's edge cache
+    // keys it separately from the markdown variant below — without this, a
+    // cached HTML response could get served to a markdown request (or vice
+    // versa) regardless of what Accept header was actually sent.
+    const headers = new Headers(response.headers);
+    headers.append('Vary', 'Accept');
+    return new Response(response.body, { status: response.status, headers });
   }
 
   const html = await response.text();
