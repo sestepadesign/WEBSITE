@@ -1,0 +1,10 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://design.sestepa.com/api/projects.json",
+      "service-doc": [
+        { "href": "https://design.sestepa.com/api/docs.html", "type": "text/html" }
+      ]
+    }
+  ]
+}

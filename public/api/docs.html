@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>S'Estepa Design — Projects API</title>
+<meta name="robots" content="noindex, follow">
+</head>
+<body>
+<h1>Projects API</h1>
+<p><code>GET /api/projects.json</code> returns the current portfolio as JSON, regenerated on every site build.</p>
+<pre>{
+  "generatedAt": "2026-01-01T00:00:00.000Z",
+  "count": 20,
+  "projects": [
+    {
+      "slug": "sant-llorenc",
+      "url": "https://design.sestepa.com/sant-llorenc/",
+      "year": "2023",
+      "size": "10,000 m²" | null,
+      "translations": {
+        "en": { "title": "...", "subtitle": "...", "category": "...", "location": "...", "botanical": "...", "url": "..." },
+        "es": { ... },
+        "de": { ... }
+      },
+      "coverImage": "https://design.sestepa.com/portfolio/sant-llorenc/..."
+    }
+  ]
+}</pre>
+<p>Read-only, no authentication, no rate limit beyond normal site traffic. Hidden/unpublished projects are excluded.</p>
+</body>
+</html>

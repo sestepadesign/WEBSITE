@@ -27,3 +27,7 @@
 # that actually exist on this static site, nothing fabricated.
 /
   Link: </llms.txt>; rel="alternate"; type="text/markdown", </sitemap-index.xml>; rel="sitemap"
+
+# API catalog (RFC 9727) — real, generated read-only projects endpoint.
+/.well-known/api-catalog
+  Content-Type: application/linkset+json; charset=utf-8
