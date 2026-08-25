@@ -22,3 +22,8 @@
 
 /favicon*
   Cache-Control: public, max-age=2592000, must-revalidate
+
+# Link headers for agent discovery (RFC 8288) — point agents at resources
+# that actually exist on this static site, nothing fabricated.
+/
+  Link: </llms.txt>; rel="alternate"; type="text/markdown", </sitemap-index.xml>; rel="sitemap"
