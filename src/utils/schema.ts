@@ -262,6 +262,8 @@ export function getLocalizedSchema(
     "knowsLanguage": ["es", "en", "de"],
     "sameAs": [
       "https://www.sestepa.com",
+      "https://www.wikidata.org/wiki/Q141124582",
+      "https://www.google.com/maps?cid=8724534370482378500",
       "https://www.instagram.com/sestepadesign",
       "https://www.facebook.com/sestepadesign",
       "https://www.pinterest.com/sestepadesign",
