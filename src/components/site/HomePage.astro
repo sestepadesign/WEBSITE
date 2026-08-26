@@ -36,10 +36,12 @@ const whatsappTexts = {
 };
 const whatsappUrl = `https://wa.me/34681272252?text=${encodeURIComponent(whatsappTexts[lang])}`;
 
-// Featured projects &mdash; 2×2 grid: Crestatx + Llubí, Terrace Palma + Sa Ponsa
+// Featured projects &mdash; 2×3 grid: Llubí, Santa Eugènia, Crestatx, Binissalem, Terrace Palma, Santa Ponsa
 const featuredSlugs = [
-  'crestatx-garden-design',
   'garden-design-llubi-mallorca',
+  'terrace-garden-santa-eugenia',
+  'crestatx-garden-design',
+  'binissalem',
   'terrace-garden-in-palma',
   'santa-ponsa',
 ];
@@ -461,6 +463,10 @@ const currentTestimonials = testimonialsCopy[lang];
             coverSrcset = "/portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa-card.webp";
           } else if (project.slug === 'santa-ponsa') {
             coverSrcset = "/portfolio/santa-ponsa/images/GARDEN-DESIGN-MALLORCA-SANTA-PONSA-SESTEPA-1-card.webp";
+          } else if (project.slug === 'binissalem') {
+            coverSrcset = "/portfolio/binissalem/garden-design-mallorca-binissalem-sestepa-card.webp";
+          } else if (project.slug === 'terrace-garden-santa-eugenia') {
+            coverSrcset = "/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-card.webp";
           }
 
           return (
