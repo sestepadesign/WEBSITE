@@ -1,13 +1,11 @@
 ---
-title: "Mastering Slopes and Rocky Terrains: Landscape Architecture in Santa Ponsa"
+title: "Landscape Architecture for Slopes in Santa Ponsa"
 description: "Engineering natural slopes and Mediterranean rockeries for private villas in Santa Ponsa and Calvi?, preserving geological contours and endemic botany."
 pubDate: 2026-08-21
 lang: en
 draft: false
 noindex: false
 ---
-
-# Mastering Slopes and Rocky Terrains: Landscape Architecture in Santa Ponsa
 
 Building an enduring landscape across the rugged, limestone-rich topography of Southwestern Mallorca demands an architectural philosophy grounded in restraint and geology. In coastal enclaves like Santa Ponsa, Nova Santa Ponsa, and the surrounding slopes of Calvi?, residential parcels often feature steep gradients, natural ravines, and exposed rock formations.
 

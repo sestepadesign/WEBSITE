@@ -29,7 +29,13 @@ const pageSubtitle = {
   de: "Projektpräsentationen, Interviews und redaktionelle Beiträge in der regionalen Presse und internationalen Lifestyle-Publikationen."
 };
 
-const readMoreText = {
+const readArticleText = {
+  en: "Read Article",
+  es: "Leer Artículo",
+  de: "Artikel Lesen"
+};
+
+const readIssueText = {
   en: "Read Issue",
   es: "Leer Edición",
   de: "Ausgabe Lesen"
@@ -72,7 +78,7 @@ const publications = [
       de: "S'Estepa wird zu den führenden Landschafts- und Gartendesignern Mallorcas gezählt, gewürdigt für die Arbeit von Gründer Pedro Campaner zum Schutz der mallorquinischen Landschaft durch die Integration einheimischer Pflanzen in ein elegantes Gartendesign."
     },
     link: "https://www.helencummins.com/mediterranean-garden/",
-    linkType: "external",
+    linkType: "article",
     images: [
       "/images/press/HELEN-CUMMINS-TOP-LANDSCAPE-GARDEN-DESIGNERS-MALLORCA-1.jpg",
       "/images/press/HELEN-CUMMINS-TOP-LANDSCAPE-GARDEN-DESIGNERS-MALLORCA-2.jpg"
@@ -96,7 +102,7 @@ const publications = [
       de: "Ein umfassendes Special, das die zeitgenössische architektonische Integration, die nachhaltige botanische Auswahl und die Villa-Landschaftsgestaltung von S'Estepa Design auf Mallorca hervorhebt."
     },
     link: "https://issuu.com/abc-mallorca.com/docs/issuu_165th_property_special_2025",
-    linkType: "external",
+    linkType: "issue",
     images: [
       "/images/press/PROPERTY-SPECIAL-2025-SESTEPA-DESIGN-RENDER.jpg",
       "/images/press/PROPERTY-SPECIAL-2025-SESTEPA-DESIGN-RENDER-PAGE-ADD.jpg"
@@ -120,7 +126,7 @@ const publications = [
       de: "Ein redaktioneller Beitrag über Pedro Campaners Designphilosophie zur traditionellen Trockenbauweise und zum Schutz der einheimischen Flora für anspruchsvolle Ferienvillas."
     },
     link: "https://issuu.com/abc-mallorca.com/docs/issuu_161st_home_decor_2024",
-    linkType: "external",
+    linkType: "issue",
     images: [
       "/images/press/HOME-DECOR-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1.jpg",
       "/images/press/HOME-DECOR-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-2.jpg"
@@ -143,8 +149,8 @@ const publications = [
       es: "Un artículo editorial premium que posiciona a S'Estepa Design como el estudio de paisajismo líder en Mallorca para transformaciones exteriores distinguidas y de discreción absoluta. Texto de Michael Wall, fotos de S'Estepa.",
       de: "Ein erstklassiger Artikel, der S'Estepa Design als Mallorcas führendes Studio für anspruchsvolle, dezente Außenbereichsgestaltungen vorstellt. Text von Michael Wall, Fotos von S'Estepa."
     },
-    link: "/press/SPEND-IN-2024-SESTEPA-LANDSCAPE-GARDEN-DESIGN-MALLORCA.pdf",
-    linkType: "download",
+    link: "/s-estepa-design-mallorca-spend-in-magazine-feature/",
+    linkType: "article",
     images: [
       "/images/press/SPEND-IN-MAGAZINE-SESTEPA-LANDASCAPE-GARDEN-DESGIN-MALLORCA-Portada.jpg",
       "/images/press/SPEND-IN-MAGAZINE-SESTEPA-LANDASCAPE-GARDEN-DESGIN-MALLORCA-Pagina.jpg"
@@ -163,12 +169,12 @@ const publications = [
       de: "Erschienen 2024"
     },
     excerpt: {
-      en: "An expert-guided ranking and review of the island's landscape architecture, honoring S'Estepa Design for its sustainable water management and native species focus.",
-      es: "Una clasificación y reseña de expertos sobre la arquitectura del paisaje de la isla, que premia a S'Estepa Design por su gestión sostenible del agua y enfoque en especies autóctonas.",
-      de: "Eine von Experten geführte Rangliste und Bewertung der Landschaftsarchitektur der Insel, bei der S'Estepa Design für nachhaltiges Wassermanagement und heimische Pflanzenarten ausgezeichnet wird."
+      en: "abcMallorca's annual guide to the island's best. Founder Pedro Campaner joins six Mallorca professionals in hospitality, architecture and design, reflecting on the future of sustainable tourism and protecting the island's landscapes.",
+      es: "La guía anual de abcMallorca sobre lo mejor de la isla. El fundador Pedro Campaner participa junto a seis profesionales de Mallorca de la hostelería, la arquitectura y el diseño, reflexionando sobre el futuro del turismo sostenible y la protección del paisaje de la isla.",
+      de: "abcMallorcas jährlicher Guide zu den besten Adressen der Insel. Gründer Pedro Campaner denkt gemeinsam mit sechs mallorquinischen Fachleuten aus Hotellerie, Architektur und Design über die Zukunft des nachhaltigen Tourismus und den Schutz der Landschaft nach."
     },
-    link: "/press/ABC-MALLORCA-ONLY-THE-BEST-2024-SESTEPA-LANDSCAPE-GARDEN-DESIGN-MALLORCA.pdf",
-    linkType: "download",
+    link: "/pedro-campaner-future-of-tourism-mallorca/",
+    linkType: "article",
     images: [
       "/images/press/ABC-MALLORCA-ONLY-THE-BEST-2024-SESTEPA-LANDSCAPE-GARDEN-DESIGN-MALLORCA.jpg-1.jpg",
       "/images/press/ABC-MALLORCA-ONLY-THE-BEST-2024-SESTEPA-LANDSCAPE-GARDEN-DESIGN-MALLORCA.jpg-2.jpg",
@@ -248,7 +254,7 @@ const publications = [
       de: "Ein Porträt von Pedro Campaner und wie S'Estepa von einem Einzelunternehmen zu einem Team von über 15 Personen wuchs, das technisches Fachwissen mit Landschaftsdesign und einem Fokus auf einheimische mediterrane Arten verbindet. Text von Veronica Lorenzo."
     },
     link: "https://www.helencummins.com/sestepa-garden-designers-mallorca/",
-    linkType: "external",
+    linkType: "article",
     images: [
       "/images/press/HELEN-CUMMINS-SESTEPA-DESIGNING-GARDENS-WITH-SOUL-1.jpg",
       "/images/press/HELEN-CUMMINS-SESTEPA-DESIGNING-GARDENS-WITH-SOUL-2.jpg",
@@ -288,13 +294,17 @@ const publications = [
               <span class="pub-date">{pub.date[lang]}</span>
               <p class="pub-excerpt">{pub.excerpt[lang]}</p>
               
-              <a 
-                href={pub.link} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={pub.link}
+                target={pub.link.startsWith('http') ? '_blank' : '_self'}
+                rel="noopener noreferrer"
                 class="pub-btn"
               >
-                {pub.linkType === 'external' ? readMoreText[lang] : downloadText[lang]} &rarr;
+                {pub.linkType === 'download'
+                  ? downloadText[lang]
+                  : pub.linkType === 'issue'
+                  ? readIssueText[lang]
+                  : readArticleText[lang]} &rarr;
               </a>
             </div>
 
@@ -355,7 +365,7 @@ const publications = [
       "description": "Garden design and landscape architecture studio in Mallorca, specialising in Mediterranean gardens for fincas and villas.",
       "url": "https://design.sestepa.com"
     },
-    "url": pub.link,
+    "url": pub.link.startsWith('http') ? pub.link : `https://design.sestepa.com${pub.link}`,
     "image": pub.images[0]
       ? `https://design.sestepa.com${pub.images[0]}`
       : undefined

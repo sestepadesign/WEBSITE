@@ -1,13 +1,11 @@
 ---
-title: "Where Your Garden Becomes the Grandest Room of Your Finca-Modern Estate"
+title: "The Garden as the Grandest Room of the Finca"
 description: "To design a high-end garden in Mallorca is to engage in a respectful dialogue with the island&#8217;s formidable geology and climate."
 pubDate: 2025-11-20
 lang: en
 draft: false
 noindex: false
 ---
-
-Where Your Garden Becomes the Grandest Room
 
 In the rarefied world of Mallorquin estate design, the boundary between the built environment and the raw beauty of the Balearic landscape is deliberately dissolved, not simply blurred. Imagine stepping directly from your sleek Bauhaus interior—cool micro-cement underfoot—into a fragrant, drought-tolerant paradise that feels like an outdoor extension of your most intimate living spaces.
 

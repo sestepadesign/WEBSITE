@@ -8,8 +8,6 @@ noindex: false
 image: "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15.webp"
 ---
 
-# Beautiful Gardens: The Keys to Exterior Design in Mallorca
-
 In residential architecture, the interior often takes centre stage — yet increasingly, the true defining value of a property is found outdoors. A well-conceived garden is an extension of the home, not simply an addition to it: an environment that invites you to inhabit nature from a place of comfort. Garden design has evolved toward concepts that blend aesthetics and functionality, creating settings that engage in dialogue with both the residence and the surrounding landscape.
 
 At S'Estepa Design, beautiful gardens are never just about botanical richness or well-chosen furnishings. They are about how a space integrates with daily life, offering an outdoor retreat where every detail — a pathway, a shaded corner, the sound of water — contributes to a lived experience. Across thirty years of working on Mallorca, we have learned that this philosophy takes a different shape depending on the site: an estate, a terrace, a coastline, a finca. Four of our own projects illustrate it.

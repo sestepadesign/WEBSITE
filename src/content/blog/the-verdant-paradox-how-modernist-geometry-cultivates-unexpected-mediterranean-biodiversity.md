@@ -1,13 +1,11 @@
 ---
-title: "The Verdant Paradox: How Modernist Geometry Cultivates Unexpected Mediterranean Biodiversity"
+title: "The Verdant Paradox: Geometry Meets Wild Biodiversity"
 description: "Modernism is often misunderstood as sterile. Clean lines and raw concrete are viewed by some as enemies of the wild. In the sophisticated terrain of Mallorca, the opposite proves true."
 pubDate: 2025-11-20
 lang: en
 draft: false
 noindex: false
 ---
-
-The Verdant Paradox: How Modernist Geometry Cultivates Unexpected Mediterranean Biodiversity
 
 Modernism is often misunderstood as sterile. Clean lines and raw concrete are viewed by some as enemies of the wild. Yet in the sophisticated terrain of Mallorca, the opposite proves true.
 

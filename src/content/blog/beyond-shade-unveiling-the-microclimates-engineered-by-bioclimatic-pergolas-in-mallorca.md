@@ -1,13 +1,11 @@
 ---
-title: "Beyond Shade: Unveiling the Microclimates Engineered by Bioclimatic Pergolas in Mallorca"
+title: "Beyond Shade: The Microclimates of Bioclimatic Pergolas"
 description: "Microclimates Engineered by Bioclimatic Pergolas in Mallorca functions like a respiratory system for your garden. The core magic lies in the adjustable aerofoil louvers."
 pubDate: 2025-11-19
 lang: en
 draft: false
 noindex: false
 ---
-
-Beyond Shade: Unveiling the Microclimates Engineered by Bioclimatic Pergolas in Mallorca
 
 In the realm of high-end landscape architecture here in the Balearics, we often speak of &#8220;fighting&#8221; the elements. We build windbreaks against the Tramuntana; we amend the stubborn, alkaline suelo calcáreo to lower pH levels; we irrigate to combat the searing July drought. But true mastery of the Mallorcan garden lies in modulation, not resistance.
 
