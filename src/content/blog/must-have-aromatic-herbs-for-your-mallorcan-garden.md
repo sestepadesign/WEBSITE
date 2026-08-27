@@ -1,13 +1,11 @@
 ---
-title: "The S'Estepa Essential Collection: Must-Have Aromatic Herbs for Your Mallorcan Garden"
+title: "Essential Aromatic Herbs for a Mallorcan Garden"
 description: "The S'Estepa Essential Plant Guide Curate a sensory sanctuary with S'Estepa's essential guide to drought-tolerant aromatic herbs for Mallorca."
 pubDate: 2025-11-20
 lang: en
 draft: false
 noindex: false
 ---
-
-Must-Have Aromatic Herbs for Your Mallorcan Garden
 
 At S'Estepa Design, we treat the garden as an immersive sensory architecture, well beyond a visual tableau. In the harsh, beautiful climate of Mallorca, a garden must engage the olfactory sense as powerfully as it does the visual. The scent of sun-baked earth combined with resinous foliage creates the true signature of the Mediterranean landscape.
 

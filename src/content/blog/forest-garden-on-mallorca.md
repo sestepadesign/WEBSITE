@@ -1,13 +1,11 @@
 ---
-title: "Transforming Ruin to Riches: Your Private Edible Forest Garden on Mallorca"
+title: "The Edible Forest Garden: From Ruin to Abundance"
 description: "At S'Estepa Design, we see the neglected corners of a sprawling estate as the foundation for a luxurious, self-sustaining ecosystem: the edible forest garden."
 pubDate: 2025-11-20
 lang: en
 draft: false
 noindex: false
 ---
-
-Transforming Ruin to Riches: Your Private Edible Forest Garden on Mallorca
 
 There is a profound silence to be found in the hinterlands of the Raiguer or the terraced slopes of the Tramuntana. It is a silence composed of the wind rustling through ancient olive leaves and the heat radiating off dry stone walls. For the discerning landowner, this silence is a canvas. At S’Estepa Design, we see the neglected corners of a sprawling estate as the foundation for a luxurious, self-sustaining ecosystem: the edible forest garden.
 

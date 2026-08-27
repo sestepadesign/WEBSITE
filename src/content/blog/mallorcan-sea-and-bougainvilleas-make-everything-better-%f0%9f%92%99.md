@@ -1,5 +1,5 @@
 ---
-title: "Mallorcan Sea and Bougainvilleas make everything better &#x1f499;"
+title: "Mallorcan Sea and Bougainvillea"
 description: "Mallorcan Sea and Bougainvilleas make everything better &#x1f499;"
 pubDate: 2023-08-03
 lang: en

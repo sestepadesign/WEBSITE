@@ -1,13 +1,11 @@
 ---
-title: "The Wild Luxury: How Micro-Rewilding is Reshaping Mallorca&#8217;s Landscapes"
+title: "The Wild Luxury: Micro-Rewilding Mallorca's Landscapes"
 description: "Wild Luxury: A design philosophy that shapes the perfect integration of the island&#8217;s wild beauty into curated luxury spaces."
 pubDate: 2025-12-15
 lang: en
 draft: false
 noindex: false
 ---
-
-The Wild Luxury: How Micro-Rewilding is Reshaping Mallorca's Landscapes
 
 Wild luxury: A design philosophy that seamlessly integrates the island's wild beauty into curated luxury spaces. For decades, the definition of a luxury garden in the Mediterranean has been synonymous with total control: manicured lawns, clipped hedges, and irrigation systems fighting a perpetual war against the summer sun. But at S'Estepa Design, we pose a different question: Can a truly wild garden be truly luxurious?
 

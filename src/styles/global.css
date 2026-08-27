@@ -135,17 +135,7 @@ img, video {
 }
 
 /* Blog Specific Styles */
-.blog-hero {
-  position: relative;
-  height: 70vh;
-  min-height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  overflow: hidden;
-}
+/* .blog-hero is styled in src/pages/[slug].astro (typographic masthead). */
 .video-container {
   position: absolute;
   top: 0;
@@ -221,17 +211,6 @@ img, video {
 }
 .blog-content p {
   margin-bottom: 1.5rem;
-}
-
-/* Blog Navigation and Spacing Premium */
-.blog-hero .hero-content {
-  padding-top: 140px;
-}
-
-@media (max-width: 768px) {
-  .blog-hero .hero-content {
-    padding-top: 100px;
-  }
 }
 
 /* CookieYes third-party override: their default "Cookie Policy" link

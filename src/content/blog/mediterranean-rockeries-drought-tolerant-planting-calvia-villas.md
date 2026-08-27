@@ -1,13 +1,11 @@
 ---
-title: "Mediterranean Rockeries and Drought-Tolerant Planting for Coastal Calvi? Villas"
+title: "Mediterranean Rockeries for Coastal Calvià Villas"
 description: "How tailored xeriscape planting schemes and endemic stone integration elevate coastal properties in Santa Ponsa and the Balearic Islands."
 pubDate: 2026-08-21
 lang: en
 draft: false
 noindex: false
 ---
-
-# Mediterranean Rockeries and Drought-Tolerant Planting for Coastal Calvi? Villas
 
 Designing exterior living environments for coastal villas in Calvi? requires architectural alignment with the Mediterranean climate. In areas such as Santa Ponsa, Costa de la Calma, and Port Adriano, gardens face prolonged summer drought, intense ultraviolet exposure, and maritime salinity. 
 

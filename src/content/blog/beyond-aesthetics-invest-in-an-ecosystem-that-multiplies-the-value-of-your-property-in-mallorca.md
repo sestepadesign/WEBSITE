@@ -1,13 +1,11 @@
 ---
-title: "Beyond Aesthetics: Invest in an Ecosystem that Multiplies the Value of Your Property in Mallorca"
+title: "Beyond Aesthetics: The Garden as Property Investment"
 description: "A garden in Mallorca is a biological entity that increases its patrimonial value with every growing season."
 pubDate: 2025-11-19
 lang: en
 draft: false
 noindex: false
 ---
-
-Beyond Aesthetics: Invest in an Ecosystem that Multiplies the Value of Your Property in Mallorca
 
 In Mallorca’s exclusive real estate market—where a historic Finca in Santanyí or a Bauhaus villa in Son Vida can reach astronomical figures—there is a hidden asset that often determines the closing of a sale: the vitality of the surrounding landscape. After 26 years designing gardens across the Balearic Islands, I’ve learned that true luxury means orchestrating a living ecosystem that breathes with the island, rather than importing unsustainable English lawns that fight it.
 
