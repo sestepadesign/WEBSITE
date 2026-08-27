@@ -74,7 +74,7 @@ const readingTime = Math.max(1, Math.ceil(wordCount / 200));
     hreflangLocales={['en']}
     noindex={props.post.data.noindex}
   >
-    <section class="blog-hero" style="position: relative; height: 75vh; min-height: 550px; display: flex; align-items: center; justify-content: center; text-align: center; color: white; overflow: hidden; padding-top: 140px;">
+    <section class="blog-hero" style="position: relative; min-height: 640px; height: 78vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; overflow: hidden; padding: 150px 1rem 3.5rem;">
       <div class="video-container" aria-hidden="true" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
         <video autoplay loop muted playsinline preload="none" aria-label="Decorative background video" style="width: 100%; height: 100%; object-fit: cover;">
           <source src="/videos/hero-bg.mp4" type="video/mp4" />
@@ -108,8 +108,8 @@ const readingTime = Math.max(1, Math.ceil(wordCount / 200));
         </div>
       )}
       
-      <div class="hero-content" style="position: relative; z-index: 3; max-width: 900px; padding: 2rem; padding-top: 100px;">
-        <h1 set:html={props.post.data.title} style="font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; font-weight: 400; color: white;" />
+      <div class="hero-content" style="position: relative; z-index: 3; max-width: 860px; padding: 1rem;">
+        <h1 set:html={props.post.data.title} style="font-family: var(--font-serif); font-size: clamp(2rem, 4.6vw, 3.6rem); line-height: 1.12; margin-bottom: 1.5rem; font-weight: 400; color: white;" />
         {props.kind === 'blog' && (
           <span class="ux-meta" style="font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.85rem; opacity: 0.9; display: inline-block; border-top: 1px solid rgba(255, 255, 255, 0.3); padding-top: 1rem; margin-top: 0.5rem; color: white;">
             S'ESTEPA STUDIO &nbsp;&middot;&nbsp; {readingTime} MIN READ
