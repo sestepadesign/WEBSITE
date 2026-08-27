@@ -1,332 +1,983 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { ui } from '../../data/translations';
 import { getCollection } from 'astro:content';
-import { getPagePath } from '../../lib/urls';
+import { projects, getProjectLocation } from '../../data/projects';
+import { getPagePath, getProjectPath } from '../../lib/urls';
 
 interface Props { lang: 'en' | 'es' | 'de'; }
 const { lang } = Astro.props;
 
-const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
-
 const blogMeta = {
   en: {
-    title: 'Garden Design Insights',
-    subtitle: 'Cultivating knowledge',
+    eyebrow: "The S'Estepa Journal",
+    title: 'Garden Design Insights in Mallorca',
+    subtitle: 'Boutique garden design and landscape architecture studio',
+    taglineItalic: 'Three decades devoted to crafting exclusive fincas and Mediterranean landscapes.',
     description:
-      'Expert articles on Mediterranean garden design, sustainable landscaping and luxury outdoor living in Mallorca by S\'Estepa Design.',
+      "Notes on Mediterranean garden design, drought-resilient planting and outdoor living in Mallorca, drawn from the projects of S'Estepa Design.",
+    viewGarden: 'View this garden',
+    worksTag: 'Selected Work',
+    heroPanelTag: 'Landscape Design',
+    worksTitle: 'A Portfolio of Mediterranean Gardens',
+    worksDesc:
+      'Gardens designed, built and cared for across the island by our own team — from hillside fincas to sea-facing terraces.',
+    worksCta: 'Explore the full portfolio',
+    filmTag: 'Gardens in Motion',
+    filmTitle: 'On Film',
+    filmDesc: 'Short films following how each landscape settles into its site through the seasons.',
+    shortsTitle: 'In Short',
+    shortsDesc: 'Vertical clips from recent gardens.',
+    playLabel: 'Play film',
+    journalTag: 'The Journal',
+    journalTitle: 'Start Here',
+    journalDesc:
+      'The three articles most read before commissioning a garden — planning, water, and long-term property value.',
+    readArticle: 'Read article',
+    ctaTitle: 'Planning a garden in Mallorca?',
+    ctaDesc: 'Tell us about your finca, villa or terrace. We work in English, Spanish and German.',
+    ctaButton: 'Request a consultation',
+    carouselLabel: 'Garden portfolio carousel',
   },
   es: {
-    title: 'Artículos sobre Diseño de Jardines',
-    subtitle: 'Cultivando conocimiento',
+    eyebrow: "El Diario de S'Estepa",
+    title: 'Diseño de Jardines en Mallorca: Perspectivas',
+    subtitle: 'Estudio boutique de diseño de jardines y arquitectura del paisaje',
+    taglineItalic: 'Tres décadas dedicadas a crear fincas exclusivas y paisajes mediterráneos.',
     description:
-      'Artículos expertos sobre diseño de jardines mediterráneos, paisajismo sostenible y vida al aire libre en Mallorca por S\'Estepa Design.',
+      "Notas sobre diseño de jardines mediterráneos, plantación resistente a la sequía y vida al aire libre en Mallorca, a partir de los proyectos de S'Estepa Design.",
+    viewGarden: 'Ver este jardín',
+    worksTag: 'Trabajo Seleccionado',
+    heroPanelTag: 'Diseño de Paisaje',
+    worksTitle: 'Un Portfolio de Jardines Mediterráneos',
+    worksDesc:
+      'Jardines diseñados, construidos y cuidados por toda la isla por nuestro propio equipo — de fincas en ladera a terrazas frente al mar.',
+    worksCta: 'Explorar el portfolio completo',
+    filmTag: 'Jardines en Movimiento',
+    filmTitle: 'En Vídeo',
+    filmDesc: 'Cortos que siguen cómo cada paisaje se asienta en su entorno a lo largo de las estaciones.',
+    shortsTitle: 'En Corto',
+    shortsDesc: 'Clips verticales de jardines recientes.',
+    playLabel: 'Ver vídeo',
+    journalTag: 'El Diario',
+    journalTitle: 'Empiece Aquí',
+    journalDesc:
+      'Los tres artículos más leídos antes de encargar un jardín — planificación, agua y valor patrimonial a largo plazo.',
+    readArticle: 'Leer artículo',
+    ctaTitle: '¿Planea un jardín en Mallorca?',
+    ctaDesc: 'Cuéntenos sobre su finca, villa o terraza. Trabajamos en español, inglés y alemán.',
+    ctaButton: 'Solicitar una consulta',
+    carouselLabel: 'Carrusel del portfolio de jardines',
   },
   de: {
-    title: 'Gartendesign & Landschaftsartikel',
-    subtitle: 'Wissen kultivieren',
+    eyebrow: "Das S'Estepa Journal",
+    title: 'Gartendesign auf Mallorca: Einblicke',
+    subtitle: 'Boutique-Studio für Gartendesign und Landschaftsarchitektur',
+    taglineItalic: 'Drei Jahrzehnte für exklusive Fincas und mediterrane Landschaften.',
     description:
-      'Fachartikel über mediterranes Gartendesign, nachhaltige Landschaftsgestaltung und Outdoor-Living auf Mallorca von S\'Estepa Design.',
+      "Notizen zu mediterranem Gartendesign, trockenheitsresistenter Bepflanzung und Outdoor-Living auf Mallorca, aus den Projekten von S'Estepa Design.",
+    viewGarden: 'Diesen Garten ansehen',
+    worksTag: 'Ausgewählte Arbeiten',
+    heroPanelTag: 'Landschaftsarchitektur',
+    worksTitle: 'Ein Portfolio Mediterraner Gärten',
+    worksDesc:
+      'Gärten, die unser Team auf der ganzen Insel entwirft, baut und pflegt — von Hangfincas bis zu Terrassen am Meer.',
+    worksCta: 'Das vollständige Portfolio ansehen',
+    filmTag: 'Gärten in Bewegung',
+    filmTitle: 'Im Film',
+    filmDesc: 'Kurzfilme darüber, wie sich jede Landschaft im Lauf der Jahreszeiten in ihren Ort einfügt.',
+    shortsTitle: 'Kurz Gefilmt',
+    shortsDesc: 'Vertikale Clips aus aktuellen Gärten.',
+    playLabel: 'Film abspielen',
+    journalTag: 'Das Journal',
+    journalTitle: 'Hier Beginnen',
+    journalDesc:
+      'Die drei meistgelesenen Artikel vor einer Gartenbeauftragung — Planung, Wasser und langfristiger Immobilienwert.',
+    readArticle: 'Artikel lesen',
+    ctaTitle: 'Planen Sie einen Garten auf Mallorca?',
+    ctaDesc: 'Erzählen Sie uns von Ihrer Finca, Villa oder Terrasse. Wir arbeiten auf Deutsch, Englisch und Spanisch.',
+    ctaButton: 'Beratung anfragen',
+    carouselLabel: 'Karussell des Gartenportfolios',
   },
 };
-
 const meta = blogMeta[lang];
 
-const posts = (await getCollection('blog'))
-  .filter((p) => p.data.lang === lang && !p.data.draft)
-  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+const whatsappTexts = {
+  en: "Hello S'Estepa Design! I read your journal and would like to request a consultation.",
+  es: "Hola S'Estepa Design! He leído su diario y me gustaría solicitar una consulta.",
+  de: "Hallo S'Estepa Design! Ich habe Ihr Journal gelesen und möchte eine Beratung anfragen.",
+};
+const whatsappUrl = `https://wa.me/34681272252?text=${encodeURIComponent(whatsappTexts[lang])}`;
 
+// Pre-generated mobile cover variants (shared with the Home featured grid).
+const coverSrcsets: Record<string, string> = {
+  'sant-llorenc':
+    '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18-card.webp',
+  'finca-garden-campos-mallorca':
+    '/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa-card.webp',
+  'crestatx-garden-design':
+    '/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa-card.webp',
+  'garden-design-llubi-mallorca':
+    '/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(1)-card.webp',
+  'terrace-garden-in-palma':
+    '/portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa-card.webp',
+  'santa-ponsa': '/portfolio/santa-ponsa/images/GARDEN-DESIGN-MALLORCA-SANTA-PONSA-SESTEPA-1-card.webp',
+  binissalem: '/portfolio/binissalem/garden-design-mallorca-binissalem-sestepa-card.webp',
+  'terrace-garden-santa-eugenia':
+    '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-card.webp',
+};
+
+type Garden = {
+  slug: string;
+  title: string;
+  subtitle: string;
+  descIntro: string;
+  category: string;
+  location: string;
+  year: string;
+  size?: string;
+  cover: string;
+  coverSrcset?: string;
+  href: string;
+};
+function garden(slug: string): Garden | null {
+  const p = projects.find((x) => x.slug === slug);
+  if (!p) return null;
+  const firstPara = (p[lang].description?.[0] ?? '').replace(/<[^>]+>/g, '').trim();
+  return {
+    slug,
+    title: p[lang].title,
+    subtitle: p[lang].subtitle,
+    descIntro: firstPara,
+    category: p[lang].category,
+    location: getProjectLocation(p, lang),
+    year: p.year,
+    size: p.size,
+    cover: p.cover,
+    coverSrcset: coverSrcsets[slug],
+    href: getProjectPath(slug, lang),
+  };
+}
+
+const heroSlides = [
+  'sant-llorenc',
+  'finca-garden-campos-mallorca',
+  'garden-design-llubi-mallorca',
+  'crestatx-garden-design',
+  'vertical-gardens-in-mallorca',
+]
+  .map(garden)
+  .filter((g): g is Garden => Boolean(g));
+
+const stripGardens = [
+  'sant-llorenc',
+  'finca-garden-campos-mallorca',
+  'garden-design-llubi-mallorca',
+  'terrace-garden-santa-eugenia',
+  'crestatx-garden-design',
+  'binissalem',
+  'terrace-garden-in-palma',
+  'santa-ponsa',
+  'vertical-gardens-in-mallorca',
+]
+  .map(garden)
+  .filter((g): g is Garden => Boolean(g));
+
+const films = [
+  { slug: 'finca-garden-campos-mallorca', ytId: 'McyZviXDxhc' },
+  { slug: 'crestatx-garden-design', ytId: '-xs_kKaUnGA' },
+  { slug: 'jardin-mediterraneo', ytId: 'Aynezzlact0' },
+  { slug: 'jardin-mediterraneo', ytId: 'IdGlxUKjhUQ' },
+  { slug: 'vertical-gardens-in-mallorca', ytId: 'x3W0KQmr-pQ' },
+  { slug: 'finca-garden-campos-mallorca', ytId: 'g6QG3idswLU', name: 'Garden Film', loc: 'Mallorca' },
+]
+  .map((f) => {
+    const g = garden(f.slug);
+    if (!g) return null;
+    return { ...g, ytId: f.ytId, title: f.name ?? g.title, location: f.loc ?? g.location };
+  })
+  .filter((f): f is Garden & { ytId: string } => Boolean(f));
+
+// Vertical Shorts (9:16). Row is built for up to 4 across.
+const shorts = [
+  { slug: undefined as string | undefined, ytId: 'aukR9zbC9og', label: "S'Estepa Design · Mallorca" },
+  { slug: undefined as string | undefined, ytId: 'jXku-VCfZ94', label: "S'Estepa Design · Mallorca" },
+  { slug: 'terrace-garden-in-palma' as string | undefined, ytId: '1q1Qnh2s_mg', label: '' },
+  { slug: undefined as string | undefined, ytId: 'IzRNgQnHAXM', label: "S'Estepa Design · Mallorca" },
+].map((s) => {
+  if (s.slug) {
+    const g = garden(s.slug);
+    if (g) return { ytId: s.ytId, label: `${g.title} · ${g.location}` };
+  }
+  return { ytId: s.ytId, label: s.label || "S'Estepa Design · Mallorca" };
+});
+
+// --- The Journal: three hand-picked lead-facing articles (EN only for now) ---
+const curatedSlugs = [
+  'the-ultimate-guide-to-high-end-garden-design-in-mallorca',
+  'regenerative-landscapes-despite-mallorcas-water-realities',
+  'beyond-aesthetics-invest-in-an-ecosystem-that-multiplies-the-value-of-your-property-in-mallorca',
+];
+const articleImagePool = [
+  '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15-card.webp',
+  '/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa-card.webp',
+  '/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa-card.webp',
+  '/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(1)-card.webp',
+];
 function postSlug(id: string) {
   return id.replace(/\.md$/, '').split('/').pop() ?? id;
 }
-
 function postUrl(slug: string) {
   if (lang === 'en') return `/${slug}/`;
   return `${getPagePath('blog', lang).replace(/\/$/, '')}/${slug}/`;
 }
+const allPosts = (await getCollection('blog'))
+  .filter((p) => p.data.lang === lang && !p.data.draft)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+const bySlug = new Map(allPosts.map((p) => [postSlug(p.id), p]));
+const curated = curatedSlugs.map((s) => bySlug.get(s)).filter((p): p is NonNullable<typeof p> => Boolean(p));
+const journalPosts = (curated.length ? curated : allPosts.slice(0, 3)).map((post, i) => {
+  const slug = postSlug(post.id);
+  const wordCount = post.body ? post.body.split(/\s+/).length : 0;
+  return {
+    slug,
+    url: postUrl(slug),
+    title: post.data.title,
+    description: post.data.description,
+    readingTime: Math.max(1, Math.ceil(wordCount / 200)),
+    image: post.data.image || articleImagePool[i % articleImagePool.length],
+  };
+});
+
+const total = heroSlides.length;
 ---
 
 <Layout title={`S'Estepa Design | ${meta.title}`} description={meta.description} lang={lang} noindex={true}>
-  <!-- Hero Section with Background Video -->
-  <section class="hero" id="blog-hero">
-    <div class="video-container">
-      <video autoplay loop muted playsinline class="hero-video" aria-hidden="true" id="blogHeroVideo" data-src="/videos/hero-bg.mp4">
-      </video>
-      <div class="hero-overlay"></div>
+  <!-- Masthead -->
+  <header class="jmast">
+    <div class="container jmast-inner">
+      <span class="jmast-kicker">{meta.eyebrow}</span>
+      <h1 class="jmast-title">{meta.title}</h1>
+      <p class="jmast-sub">{meta.subtitle}</p>
+      <p class="jmast-sub-it">{meta.taglineItalic}</p>
     </div>
-    <script is:inline>
-      document.addEventListener('DOMContentLoaded', function() {
-        if (window.matchMedia('(min-width: 768px)').matches) {
-          var video = document.getElementById('blogHeroVideo');
-          var source = document.createElement('source');
-          source.src = video.getAttribute('data-src');
-          source.type = 'video/mp4';
-          video.appendChild(source);
-        }
-      });
-    </script>
-    
-    <div class="hero-content container">
-      <span class="hero-subtitle">{meta.subtitle}</span>
-      <h1 class="hero-title">{meta.title}</h1>
-      <p class="hero-desc">{meta.description}</p>
+  </header>
+
+  <!-- Hero — editorial 2/3 · 1/3 slider -->
+  <section class="jhero" id="jhero" tabindex="0" aria-roledescription="carousel" aria-label={meta.title}>
+    <div class="jhero-media" id="jheroMedia">
+      {heroSlides.map((g, i) => (
+        <figure class={`jhero-slide ${i === 0 ? 'is-active' : ''}`} data-i={i} aria-hidden={i !== 0 ? 'true' : 'false'}>
+          <picture>
+            {g.coverSrcset && <source media="(max-width: 900px)" srcset={g.coverSrcset} />}
+            <img
+              src={g.cover}
+              alt={`${g.title} — Garden Design ${g.location}, S'Estepa Design`}
+              class="jhero-img"
+              width="1600"
+              height="1200"
+              fetchpriority={i === 0 ? 'high' : undefined}
+              loading={i === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+              draggable="false"
+            />
+          </picture>
+          <figcaption class="jhero-slide-cap">
+            <span class="jhero-slide-cat">{g.category} · {g.location}</span>
+            <span class="jhero-slide-name">{g.title}</span>
+          </figcaption>
+        </figure>
+      ))}
+      <button class="jhero-zone jhero-zone-prev" type="button" aria-label="Previous garden" tabindex="-1"></button>
+      <button class="jhero-zone jhero-zone-next" type="button" aria-label="Next garden" tabindex="-1"></button>
+    </div>
+
+    <div class="jhero-panel">
+      <span class="jhero-panel-tag">{meta.heroPanelTag}</span>
+
+      <div class="jhero-panel-slide">
+        {heroSlides.map((g, i) => (
+          <div class={`jhero-ps ${i === 0 ? 'is-active' : ''}`} data-i={i}>
+            <span class="jhero-ps-meta">{g.category} · {g.location} · {g.year}{g.size ? ` · ${g.size}` : ''}</span>
+            <p class="jhero-ps-sub">{g.subtitle}</p>
+            <p class="jhero-ps-desc">{g.descIntro}</p>
+            <a href={g.href} class="jhero-ps-link">{meta.viewGarden} &rarr;</a>
+          </div>
+        ))}
+      </div>
+
+      <div class="jhero-panel-nav">
+        <span class="jhero-count"><b id="jheroNum">01</b> &nbsp;&#47;&nbsp; {String(total).padStart(2, '0')}</span>
+        <div class="jhero-dots" role="tablist" aria-label="Select garden">
+          {heroSlides.map((_, i) => (
+            <button class={`jhero-dot ${i === 0 ? 'is-active' : ''}`} data-i={i} type="button" aria-label={`Garden ${i + 1}`}></button>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 
-  <article class="blog-page section-padding">
+  <!-- Selected Work — auto, gestural carousel -->
+  <section class="blog-works section-padding">
     <div class="container">
-      {posts.length === 0 ? (
-        <p class="empty-state">
-          {lang === 'en' && 'Articles coming soon.'}
-          {lang === 'es' && 'Artículos próximamente.'}
-          {lang === 'de' && 'Artikel folgen in Kürze.'}
-        </p>
-      ) : (
-        <div class="posts-list">
-          {posts.map((post) => {
-            const slug = postSlug(post.id);
-            return (
-              <article class="post-card">
-                <div class="post-ux-meta">
-                  {(() => {
-                    const wordCount = post.body ? post.body.split(/\s+/).length : 0;
-                    const readingTime = Math.max(1, Math.ceil(wordCount / 200));
-                    return (
-                      <>
-                        <span class="brand">S'ESTEPA STUDIO</span>
-                        <span class="read-time">{readingTime} MIN READ</span>
-                      </>
-                    );
-                  })()}
-                </div>
-                <div class="post-content">
-                  <h2 class="post-title">
-                    <a href={postUrl(slug)}>{post.data.title}</a>
-                  </h2>
-                  <p class="post-excerpt">{post.data.description}</p>
-                  <a href={postUrl(slug)} class="read-more">
-                    {lang === 'en' && 'Read article'}
-                    {lang === 'es' && 'Leer artículo'}
-                    {lang === 'de' && 'Artikel lesen'} <span class="arrow">&rarr;</span>
-                  </a>
-                </div>
-              </article>
-            );
-          })}
+      <div class="works-head">
+        <div>
+          <span class="section-tag">{meta.worksTag}</span>
+          <h2 class="works-title">{meta.worksTitle}</h2>
+          <p class="works-desc">{meta.worksDesc}</p>
         </div>
-      )}
+        <a href={getPagePath('portfolio', lang)} class="text-link">{meta.worksCta} &rarr;</a>
+      </div>
     </div>
-  </article>
+
+    <div class="pf" id="pfCar" tabindex="0" role="region" aria-label={meta.carouselLabel}>
+      <ul class="pf-track" id="pfTrack">
+        {stripGardens.map((g) => (
+          <li class="pf-item">
+            <a href={g.href} class="pf-card" draggable="false">
+              <div class="pf-img-wrap">
+                <picture>
+                  {g.coverSrcset && <source media="(max-width: 768px)" srcset={g.coverSrcset} />}
+                  <img src={g.cover} alt={`${g.title} — Garden Design ${g.location}, S'Estepa Design`} class="pf-img" loading="lazy" decoding="async" width="640" height="480" draggable="false" />
+                </picture>
+              </div>
+              <span class="pf-cat">{g.category}</span>
+              <span class="pf-name">{g.title}</span>
+              <span class="pf-sub">{g.subtitle}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="pf-scrub" id="pfScrub" role="slider" tabindex="0" aria-label={meta.carouselLabel} aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <span class="pf-scrub-fill" id="pfBar"></span>
+        <span class="pf-scrub-knob" id="pfKnob"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- On Film — YouTube facades, uniform -->
+  {films.length > 0 && (
+    <section class="blog-film section-padding">
+      <div class="container">
+        <span class="section-tag center">{meta.filmTag}</span>
+        <h2 class="section-heading center">{meta.filmTitle}</h2>
+        <p class="section-desc center">{meta.filmDesc}</p>
+
+        <div class="film-grid">
+          {films.map((f) => (
+            <figure class="film-card">
+              <div class="film-frame">
+                <button class="film-facade" type="button" data-yt={f.ytId} aria-label={`${meta.playLabel} — ${f.title}`}>
+                  <img
+                    src={`https://i.ytimg.com/vi/${f.ytId}/maxresdefault.jpg`}
+                    onerror={`this.onerror=null;this.src='https://i.ytimg.com/vi/${f.ytId}/hqdefault.jpg'`}
+                    alt={`${f.title} — S'Estepa Design`}
+                    class="film-thumb"
+                    loading="lazy"
+                    decoding="async"
+                    width="1280"
+                    height="720"
+                  />
+                  <span class="film-play" aria-hidden="true"></span>
+                </button>
+              </div>
+              <figcaption class="film-meta">
+                <span class="film-name">{f.title}</span>
+                <span class="film-loc">{f.location}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        {shorts.length > 0 && (
+          <div class="shorts-row">
+            <span class="shorts-label">{meta.shortsTitle} <span class="shorts-sub">— {meta.shortsDesc}</span></span>
+            <div class="shorts-grid">
+              {shorts.map((s) => (
+                <div class="short-card">
+                  <div class="short-frame">
+                    <button class="film-facade" type="button" data-yt={s.ytId} data-short="1" aria-label={`${meta.playLabel} — ${s.label}`}>
+                      <img
+                        src={`https://i.ytimg.com/vi/${s.ytId}/oar2.jpg`}
+                        onerror={`this.onerror=null;this.src='https://i.ytimg.com/vi/${s.ytId}/hqdefault.jpg'`}
+                        alt={`${s.label} — S'Estepa Design`}
+                        class="film-thumb"
+                        loading="lazy"
+                        decoding="async"
+                        width="720"
+                        height="1280"
+                      />
+                      <span class="film-play" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+
+  <!-- The Journal -->
+  {journalPosts.length > 0 && (
+    <section class="blog-journal section-padding">
+      <div class="container">
+        <span class="section-tag center">{meta.journalTag}</span>
+        <h2 class="section-heading center">{meta.journalTitle}</h2>
+        <p class="section-desc center">{meta.journalDesc}</p>
+
+        <div class="journal-grid">
+          {journalPosts.map((post) => (
+            <article class="journal-card">
+              <a href={post.url} class="journal-image-link">
+                <img src={post.image} alt={post.title} class="journal-image" loading="lazy" decoding="async" width="600" height="420" />
+              </a>
+              <div class="journal-body">
+                <div class="journal-meta">
+                  <span class="brand">S'ESTEPA STUDIO</span>
+                  <span class="dot">·</span>
+                  <span class="read-time">{post.readingTime} MIN READ</span>
+                </div>
+                <h3 class="journal-title"><a href={post.url}>{post.title}</a></h3>
+                <p class="journal-excerpt">{post.description}</p>
+                <a href={post.url} class="read-more">{meta.readArticle} <span class="arrow">&rarr;</span></a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Closing CTA -->
+  <section class="blog-cta">
+    <div class="container blog-cta-inner">
+      <h2 class="blog-cta-title">{meta.ctaTitle}</h2>
+      <p class="blog-cta-desc">{meta.ctaDesc}</p>
+      <div class="blog-cta-actions">
+        <a href={getPagePath('contact', lang)} class="blog-cta-btn">{meta.ctaButton} &rarr;</a>
+        <a href={whatsappUrl} class="blog-cta-link" target="_blank" rel="noopener noreferrer">WhatsApp +34 681 272 252</a>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* ---------- Hero slider: tap-zones · swipe · keyboard · auto ---------- */
+      (function () {
+        var hero = document.getElementById('jhero');
+        if (!hero) return;
+        var media = document.getElementById('jheroMedia');
+        var slides = [].slice.call(hero.querySelectorAll('.jhero-slide'));
+        var panels = [].slice.call(hero.querySelectorAll('.jhero-ps'));
+        var dots = [].slice.call(hero.querySelectorAll('.jhero-dot'));
+        var num = document.getElementById('jheroNum');
+        var i = 0;
+        var timer = null;
+
+        function show(n) {
+          i = (n + slides.length) % slides.length;
+          slides.forEach(function (s, k) {
+            s.classList.toggle('is-active', k === i);
+            s.setAttribute('aria-hidden', k === i ? 'false' : 'true');
+          });
+          panels.forEach(function (p, k) { p.classList.toggle('is-active', k === i); });
+          dots.forEach(function (d, k) { d.classList.toggle('is-active', k === i); });
+          if (num) num.textContent = ('0' + (i + 1)).slice(-2);
+        }
+        function go(step) { show(i + step); ping(); }
+        function ping() { stop(); if (!reduce) timer = setInterval(function () { show(i + 1); }, 6500); }
+        function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+        [].forEach.call(hero.querySelectorAll('.jhero-zone'), function (z) {
+          z.addEventListener('mousedown', function (e) { e.preventDefault(); }); // never take focus
+          z.addEventListener('click', function () {
+            go(z.classList.contains('jhero-zone-prev') ? -1 : 1);
+            z.blur();
+          });
+        });
+        dots.forEach(function (d) { d.addEventListener('click', function () { show(+d.dataset.i); ping(); }); });
+        hero.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+          if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+        });
+
+        var x0 = null;
+        media.addEventListener('pointerdown', function (e) { x0 = e.clientX; });
+        media.addEventListener('pointerup', function (e) {
+          if (x0 === null) return;
+          var dx = e.clientX - x0;
+          x0 = null;
+          if (Math.abs(dx) > 45) { go(dx < 0 ? 1 : -1); }
+        });
+
+        hero.addEventListener('mouseenter', stop);
+        hero.addEventListener('mouseleave', ping);
+        hero.addEventListener('focusin', stop);
+        hero.addEventListener('focusout', ping);
+        document.addEventListener('visibilitychange', function () { document.hidden ? stop() : ping(); });
+        show(0);
+        ping();
+      })();
+
+      /* ---------- Portfolio carousel: native scroll · keyboard · scrubber · auto ---------- */
+      (function () {
+        var wrap = document.getElementById('pfCar');
+        var track = document.getElementById('pfTrack');
+        var bar = document.getElementById('pfBar');
+        var knob = document.getElementById('pfKnob');
+        var scrub = document.getElementById('pfScrub');
+        if (!wrap || !track) return;
+
+        function maxScroll() { return track.scrollWidth - track.clientWidth; }
+        function step() {
+          var c = track.querySelector('.pf-item');
+          return c ? c.getBoundingClientRect().width + 28 : track.clientWidth * 0.8;
+        }
+        function sync() {
+          var max = maxScroll();
+          var f = max > 0 ? Math.min(1, Math.max(0, track.scrollLeft / max)) : 0;
+          if (bar) bar.style.transform = 'scaleX(' + f + ')';
+          if (knob) knob.style.left = (f * 100) + '%';
+          if (scrub) scrub.setAttribute('aria-valuenow', Math.round(f * 100));
+        }
+        track.addEventListener('scroll', sync, { passive: true });
+        window.addEventListener('resize', sync);
+        sync();
+
+        // scrubber: click / drag to seek
+        if (scrub) {
+          var seeking = false;
+          var seek = function (clientX) {
+            var r = scrub.getBoundingClientRect();
+            var f = Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+            track.scrollLeft = f * maxScroll();
+          };
+          scrub.addEventListener('pointerdown', function (e) {
+            seeking = true;
+            try { scrub.setPointerCapture(e.pointerId); } catch (err) {}
+            seek(e.clientX);
+          });
+          scrub.addEventListener('pointermove', function (e) { if (seeking) seek(e.clientX); });
+          scrub.addEventListener('pointerup', function () { seeking = false; });
+          scrub.addEventListener('pointercancel', function () { seeking = false; });
+        }
+
+        wrap.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowRight') { e.preventDefault(); track.scrollBy({ left: step(), behavior: 'smooth' }); }
+          if (e.key === 'ArrowLeft') { e.preventDefault(); track.scrollBy({ left: -step(), behavior: 'smooth' }); }
+        });
+
+        // Mouse click-drag to scroll. Only becomes a "drag" past 8px; a real
+        // drag suppresses exactly the one click that follows, so links stay live.
+        var DRAG = 8;
+        var pid = null, x0 = 0, s0 = 0, dragging = false;
+        track.addEventListener('pointerdown', function (e) {
+          if (e.pointerType !== 'mouse' || e.button !== 0) return;
+          pid = e.pointerId; x0 = e.clientX; s0 = track.scrollLeft; dragging = false;
+        });
+        track.addEventListener('pointermove', function (e) {
+          if (e.pointerId !== pid) return;
+          var dx = e.clientX - x0;
+          if (!dragging) {
+            if (Math.abs(dx) < DRAG) return;
+            dragging = true;
+            track.classList.add('is-dragging');
+            try { track.setPointerCapture(pid); } catch (err) {}
+          }
+          e.preventDefault();
+          track.scrollLeft = s0 - dx;
+        });
+        function endDrag(e) {
+          if (pid === null || (e && e.pointerId !== pid)) return;
+          try { track.releasePointerCapture(pid); } catch (err) {}
+          pid = null;
+          if (dragging) {
+            track.classList.remove('is-dragging');
+            var kill = function (ev) { ev.preventDefault(); ev.stopPropagation(); };
+            track.addEventListener('click', kill, { capture: true, once: true });
+            // safety: if no click fires, drop the guard
+            setTimeout(function () { track.removeEventListener('click', kill, true); }, 60);
+          }
+          dragging = false;
+        }
+        track.addEventListener('pointerup', endDrag);
+        track.addEventListener('pointercancel', endDrag);
+
+        var auto = null;
+        function play() {
+          if (reduce) return;
+          stopAuto();
+          auto = setInterval(function () {
+            var max = track.scrollWidth - track.clientWidth - 4;
+            if (track.scrollLeft >= max) track.scrollTo({ left: 0, behavior: 'smooth' });
+            else track.scrollBy({ left: step(), behavior: 'smooth' });
+          }, 5000);
+        }
+        function stopAuto() { if (auto) { clearInterval(auto); auto = null; } }
+        // A pointer landing on a card kills auto AND any in-flight smooth scroll,
+        // so the click always lands on the link.
+        track.addEventListener('pointerdown', function () {
+          stopAuto();
+          track.scrollTo({ left: track.scrollLeft });
+        });
+        ['pointerenter', 'focusin', 'touchstart'].forEach(function (ev) {
+          wrap.addEventListener(ev, stopAuto, { passive: true });
+        });
+        ['pointerleave', 'focusout', 'touchend'].forEach(function (ev) {
+          wrap.addEventListener(ev, function () { stopAuto(); play(); }, { passive: true });
+        });
+        document.addEventListener('visibilitychange', function () { document.hidden ? stopAuto() : play(); });
+        play();
+      })();
+
+      /* ---------- Film facades ---------- */
+      [].forEach.call(document.querySelectorAll('.film-facade'), function (btn) {
+        btn.addEventListener('click', function () {
+          var frame = btn.closest('.film-frame, .short-frame');
+          var f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + btn.dataset.yt + '?autoplay=1&rel=0';
+          f.title = btn.getAttribute('aria-label') || 'Garden film';
+          f.loading = 'lazy';
+          f.className = 'film-iframe';
+          f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+          f.setAttribute('allowfullscreen', '');
+          frame.appendChild(f);
+          btn.remove();
+        });
+      });
+    });
+  </script>
 </Layout>
 
 <style>
-  /* Hero Section */
-  .hero {
-    position: relative;
-    height: 70vh;
-    min-height: 500px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    background-color: var(--color-charcoal);
+  /* ---------- Section primitives (local: Home keeps its own scoped copies) ---------- */
+  .section-tag {
+    font-family: var(--font-sans); font-size: 0.8rem; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-olive-dark);
+    display: block; margin-bottom: 1rem;
+  }
+  .section-tag.center {
+    text-align: center; font-size: 0.75rem; letter-spacing: 0.2rem;
+    color: var(--color-olive); font-weight: 600; margin-bottom: 0.8rem;
+  }
+  .section-heading.center {
+    text-align: center; font-family: var(--font-serif); font-weight: 300;
+    font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.2; margin-bottom: 1.5rem;
+    color: var(--color-charcoal);
+  }
+  .section-desc.center {
+    max-width: 640px; margin: 0 auto; text-align: center;
+    color: var(--color-charcoal-light); font-size: 1.05rem; line-height: 1.7; font-weight: 300;
+  }
+  .text-link {
+    flex: 0 0 auto;
+    font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--color-olive); border-bottom: 1px solid var(--color-sand-dark);
+    padding-bottom: 0.5rem; transition: var(--transition-fast);
+  }
+  .text-link:hover { color: var(--color-olive-dark); border-color: var(--color-olive); }
+
+  /* ---------- Masthead ---------- */
+  .jmast {
+    background-color: var(--color-sand-light);
+    border-bottom: 1px solid var(--color-sand-dark);
+    padding: clamp(7rem, 13vh, 10.5rem) 0 clamp(2.5rem, 5vh, 4rem);
+  }
+  .jmast-inner { max-width: 860px; text-align: center; }
+  .jmast-kicker {
+    display: block; font-family: var(--font-sans); font-size: 0.72rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.24em; color: var(--color-olive);
+    margin-bottom: 1.4rem;
+  }
+  .jmast-title {
+    font-family: var(--font-serif); font-weight: 300; color: var(--color-charcoal);
+    font-size: clamp(2.3rem, 5vw, 4rem); line-height: 1.06; letter-spacing: -0.015em;
+  }
+  .jmast-sub {
+    margin-top: 1.5rem; color: var(--color-charcoal); font-size: 1.05rem; line-height: 1.6;
+  }
+  .jmast-sub-it {
+    margin-top: 0.5rem; color: var(--color-limestone);
+    font-family: var(--font-serif); font-style: italic; font-size: 1rem; line-height: 1.55;
   }
 
-  .video-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
-
-  .hero-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.85;
-  }
-
-  .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      to bottom,
-      rgba(31, 33, 31, 0.5) 0%,
-      rgba(31, 33, 31, 0.3) 60%,
-      rgba(250, 249, 246, 1) 100%
-    );
-    z-index: 2;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    padding-top: 5rem;
-  }
-
-  .hero-subtitle {
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--color-sand-base);
-  }
-
-  .hero-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 300;
-    color: var(--color-white);
-    line-height: 1.1;
-    max-width: 800px;
-  }
-
-  .hero-desc {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.1rem;
-    max-width: 600px;
-    line-height: 1.6;
-  }
-
-  /* Blog List */
-  .blog-page {
+  /* ---------- Hero ---------- */
+  .jhero {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: min(72vh, 760px);
+    min-height: 520px;
     background-color: var(--color-sand-light);
   }
-
-  .posts-list {
-    max-width: 900px;
-    margin: -4rem auto 0;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
+  .jhero:focus { outline: none; }
+  .jhero:focus-visible { outline: none; }
+  .jhero-media {
     position: relative;
-    z-index: 4;
+    overflow: hidden;
+    background-color: var(--color-charcoal);
+    touch-action: pan-y;
   }
-
-  .post-card {
-    background: var(--color-white);
-    padding: 3rem;
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 2rem;
-    border: 1px solid rgba(0,0,0,0.04);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  .jhero-slide {
+    position: absolute; inset: 0; margin: 0;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.85s ease;
   }
-
-  .post-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 50px rgba(0,0,0,0.06);
+  .jhero-slide.is-active { opacity: 1; pointer-events: auto; }
+  .jhero-img { width: 100%; height: 100%; object-fit: cover; user-select: none; -webkit-user-drag: none; }
+  .jhero-slide-cap {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 3;
+    padding: 3rem 2.75rem 2.25rem;
+    display: flex; flex-direction: column; gap: 0.4rem;
+    background: linear-gradient(to top, rgba(15,16,15,0.72), rgba(15,16,15,0));
+    pointer-events: none;
   }
-
-  .post-ux-meta {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--color-charcoal-light);
-    padding-top: 0.5rem;
-    border-top: 1px solid var(--color-sand-dark);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  .jhero-slide-cat {
+    font-family: var(--font-sans); font-size: 0.7rem; text-transform: uppercase;
+    letter-spacing: 0.18em; color: rgba(255,255,255,0.8);
   }
-
-  .post-ux-meta .brand {
-    font-weight: 600;
-    color: var(--color-charcoal);
+  .jhero-slide-name {
+    font-family: var(--font-serif); font-weight: 300; color: #fff;
+    font-size: clamp(1.6rem, 3vw, 2.6rem); line-height: 1.1;
   }
-
-  .post-ux-meta .read-time {
-    color: var(--color-olive);
-    font-weight: 400;
+  .jhero-zone {
+    position: absolute; top: 0; bottom: 0; z-index: 4;
+    border: 0; background: transparent; padding: 0; margin: 0;
+    -webkit-appearance: none; appearance: none;
+    -webkit-tap-highlight-color: transparent;
   }
+  .jhero-zone:focus,
+  .jhero-zone:focus-visible { outline: none; }
+  .jhero-zone-prev { left: 0; width: 32%; cursor: w-resize; }
+  .jhero-zone-next { right: 0; width: 68%; cursor: e-resize; }
 
-  .post-title {
-    font-family: var(--font-serif);
-    font-size: 2rem;
-    font-weight: 300;
-    margin: 0 0 1rem 0;
-    line-height: 1.2;
+  .jhero-panel {
+    padding: clamp(2rem, 3.5vw, 3.75rem);
+    display: flex; flex-direction: column; gap: 2rem;
   }
-
-  .post-title a {
-    color: var(--color-charcoal);
-    text-decoration: none;
-    transition: color 0.3s ease;
+  .jhero-panel-tag {
+    font-family: var(--font-sans); font-size: 0.72rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-olive);
   }
-
-  .post-title a:hover {
-    color: var(--color-olive);
+  .jhero-panel-slide { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .jhero-ps { position: absolute; left: 0; right: 0; opacity: 0; transition: opacity 0.5s ease; pointer-events: none; }
+  .jhero-ps.is-active { position: static; opacity: 1; pointer-events: auto; }
+  .jhero-ps-meta {
+    display: block; font-family: var(--font-sans); font-size: 0.68rem;
+    text-transform: uppercase; letter-spacing: 0.16em; color: var(--color-olive-dark);
+    margin-bottom: 0.85rem;
   }
-
-  .post-excerpt {
-    line-height: 1.7;
-    color: var(--color-charcoal-light);
-    margin-bottom: 2rem;
-    font-size: 1.05rem;
+  .jhero-ps-sub {
+    font-family: var(--font-serif); font-style: italic; font-size: 1.15rem;
+    line-height: 1.45; color: var(--color-charcoal); margin-bottom: 1rem;
   }
+  .jhero-ps-desc {
+    font-size: 0.92rem; line-height: 1.65; color: var(--color-charcoal-light);
+    margin-bottom: 1.5rem;
+    display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .jhero-ps-link {
+    font-family: var(--font-sans); font-size: 0.75rem; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--color-olive); border-bottom: 1px solid var(--color-sand-dark);
+    padding-bottom: 0.35rem; transition: var(--transition-fast);
+  }
+  .jhero-ps-link:hover { color: var(--color-olive-dark); border-color: var(--color-olive); }
+  .jhero-panel-nav { display: flex; align-items: center; justify-content: space-between; }
+  .jhero-count {
+    font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.16em;
+    color: var(--color-limestone);
+  }
+  .jhero-count b { color: var(--color-charcoal); font-weight: 600; }
+  .jhero-dots { display: flex; gap: 0.55rem; }
+  .jhero-dot {
+    width: 30px; height: 2px; padding: 0; border: 0; cursor: pointer;
+    background: var(--color-sand-dark); transition: background 0.3s ease;
+  }
+  .jhero-dot.is-active { background: var(--color-olive); }
 
+  /* ---------- Portfolio carousel ---------- */
+  .blog-works { background-color: var(--color-sand-light); }
+  .works-head {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    gap: 2rem; margin-bottom: 3rem;
+  }
+  .works-title {
+    font-family: var(--font-serif); font-weight: 300;
+    font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.15; margin-top: 0.5rem;
+  }
+  .works-desc { margin-top: 1rem; max-width: 520px; color: var(--color-charcoal-light); line-height: 1.7; }
+
+  .pf { position: relative; outline: none; }
+  .pf-track {
+    display: flex; gap: 1.75rem; list-style: none; margin: 0;
+    padding: 0 max(2rem, calc((100vw - 1400px) / 2 + 2rem)) 1.5rem;
+    overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+  }
+  .pf-track::-webkit-scrollbar { display: none; }
+  .pf-track.is-dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
+  .pf-track.is-dragging .pf-img { transition: none; }
+  .pf-item { flex: 0 0 clamp(258px, 27vw, 340px); scroll-snap-align: start; list-style: none; }
+  .pf-card { display: flex; flex-direction: column; gap: 0.55rem; text-decoration: none; color: inherit; }
+  .pf-img-wrap { aspect-ratio: 4 / 3; overflow: hidden; background: var(--color-sand-base); margin-bottom: 0.5rem; }
+  .pf-img {
+    width: 100%; height: 100%; object-fit: cover; -webkit-user-drag: none;
+    transition: transform 1.2s cubic-bezier(0.25,1,0.5,1);
+  }
+  .pf-card:hover .pf-img { transform: scale(1.05); }
+  .pf-cat { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.13em; color: var(--color-olive); font-weight: 500; }
+  .pf-name { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 300; color: var(--color-charcoal); line-height: 1.2; }
+  .pf-card:hover .pf-name { color: var(--color-olive-dark); }
+  .pf-sub { font-size: 0.88rem; color: var(--color-limestone); line-height: 1.5; }
+  .pf-scrub {
+    position: relative;
+    margin: 2rem max(2rem, calc((100vw - 1400px) / 2 + 2rem)) 0;
+    height: 22px; display: flex; align-items: center;
+    cursor: pointer; touch-action: none; outline: none;
+  }
+  .pf-scrub::before {
+    content: ''; position: absolute; left: 0; right: 0; height: 2px;
+    background: var(--color-sand-dark);
+  }
+  .pf-scrub-fill {
+    position: absolute; left: 0; right: 0; height: 2px; background: var(--color-olive);
+    transform-origin: left; transform: scaleX(0); transition: transform 0.15s ease;
+  }
+  .pf-scrub-knob {
+    position: absolute; left: 0; width: 10px; height: 10px; border-radius: 50%;
+    background: var(--color-olive); transform: translateX(-50%);
+    transition: left 0.15s ease; pointer-events: none;
+  }
+  .pf-scrub:focus-visible .pf-scrub-knob { box-shadow: 0 0 0 4px rgba(90,103,85,0.25); }
+
+  /* ---------- On Film ---------- */
+  .blog-film { background-color: var(--color-white); border-top: 1px solid var(--color-sand-dark); }
+  .film-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem 1.75rem; margin-top: 3.5rem; }
+  .film-card { margin: 0; display: flex; flex-direction: column; gap: 0.9rem; }
+  .film-frame,
+  .short-frame {
+    position: relative; width: 100%;
+    overflow: hidden; background: var(--color-charcoal);
+  }
+  .film-frame { aspect-ratio: 16 / 9; }
+  .short-frame { aspect-ratio: 9 / 16; }
+  .film-facade,
+  .film-frame :global(iframe),
+  .short-frame :global(iframe) {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    border: 0; padding: 0; margin: 0;
+  }
+  .film-facade { background: none; cursor: pointer; display: block; }
+  .film-thumb { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.35s ease; }
+  .film-facade:hover .film-thumb { opacity: 0.82; }
+  .film-play {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(255,255,255,0.94);
+    display: grid; place-items: center;
+    transition: var(--transition-fast);
+  }
+  .film-play::after {
+    content: ''; margin-left: 3px;
+    border-style: solid; border-width: 8px 0 8px 13px;
+    border-color: transparent transparent transparent var(--color-charcoal);
+    transition: border-color 0.3s ease;
+  }
+  .film-facade:hover .film-play { background: var(--color-olive); }
+  .film-facade:hover .film-play::after { border-left-color: #fff; }
+  .film-meta { display: flex; flex-direction: column; gap: 0.15rem; }
+  .film-name { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 300; color: var(--color-charcoal); }
+  .film-loc { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-limestone); }
+
+  /* Shorts row (9:16) */
+  .shorts-row { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--color-sand-dark); }
+  .shorts-label {
+    display: block; text-align: center; font-family: var(--font-sans);
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--color-olive); font-weight: 600; margin-bottom: 2.25rem;
+  }
+  .shorts-sub { color: var(--color-limestone); font-weight: 400; letter-spacing: 0.06em; text-transform: none; }
+  .shorts-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;
+    max-width: 900px; margin: 0 auto;
+  }
+  .short-card { min-width: 0; }
+
+  /* ---------- Journal ---------- */
+  .blog-journal { background-color: var(--color-sand-light); border-top: 1px solid var(--color-sand-dark); }
+  .journal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 3.5rem; }
+  .journal-card { display: flex; flex-direction: column; }
+  .journal-image-link { display: block; overflow: hidden; aspect-ratio: 3 / 2; background-color: var(--color-sand-base); }
+  .journal-image { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s cubic-bezier(0.25,1,0.5,1); }
+  .journal-image-link:hover .journal-image { transform: scale(1.04); }
+  .journal-body { padding-top: 1.5rem; display: flex; flex-direction: column; gap: 0.9rem; }
+  .journal-meta {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--color-limestone);
+  }
+  .journal-meta .brand { color: var(--color-charcoal); font-weight: 600; }
+  .journal-meta .read-time { color: var(--color-olive); }
+  .journal-title { font-family: var(--font-serif); font-weight: 300; font-size: 1.5rem; line-height: 1.25; margin: 0; }
+  .journal-title a { color: var(--color-charcoal); text-decoration: none; transition: color 0.3s ease; }
+  .journal-title a:hover { color: var(--color-olive); }
+  .journal-excerpt { color: var(--color-charcoal-light); line-height: 1.65; font-size: 0.97rem; margin: 0; }
   .read-more {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--color-charcoal);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    margin-top: auto; padding-top: 0.5rem;
+    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500;
+    color: var(--color-charcoal); display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.3s ease;
   }
-  
-  .read-more .arrow {
-    transition: transform 0.3s ease;
-  }
+  .read-more .arrow { transition: transform 0.3s ease; }
+  .read-more:hover { color: var(--color-olive); }
+  .read-more:hover .arrow { transform: translateX(4px); }
 
-  .read-more:hover {
-    color: var(--color-olive);
+  /* ---------- CTA ---------- */
+  .blog-cta { background-color: var(--color-charcoal); color: var(--color-white); padding: 6rem 0; }
+  .blog-cta-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.25rem; }
+  .blog-cta-title { font-family: var(--font-serif); font-weight: 300; color: var(--color-white); font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; }
+  .blog-cta-desc { color: rgba(255,255,255,0.8); max-width: 520px; line-height: 1.7; }
+  .blog-cta-actions { display: flex; align-items: center; gap: 2rem; margin-top: 1rem; flex-wrap: wrap; justify-content: center; }
+  .blog-cta-btn {
+    font-family: var(--font-sans); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--color-charcoal); background: var(--color-white); padding: 1.2rem 2.5rem; transition: var(--transition-medium);
   }
-
-  .read-more:hover .arrow {
-    transform: translateX(4px);
+  .blog-cta-btn:hover { background: var(--color-olive); color: var(--color-white); }
+  .blog-cta-link {
+    font-family: var(--font-sans); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.85); border-bottom: 1px solid rgba(255,255,255,0.35); padding-bottom: 0.35rem; transition: var(--transition-fast);
   }
+  .blog-cta-link:hover { color: var(--color-white); border-color: var(--color-white); }
 
-  .empty-state {
-    text-align: center;
-    color: var(--color-charcoal-light);
-    font-size: 1.2rem;
-    padding: 4rem 0;
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1040px) {
+    .film-grid { grid-template-columns: repeat(2, 1fr); }
   }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @media (max-width: 768px) {
-    .post-card {
+  @media (max-width: 900px) {
+    .jhero {
       grid-template-columns: 1fr;
-      padding: 2rem;
-      gap: 1rem;
+      height: auto; min-height: 0;
     }
-    
-    .post-ux-meta {
-      border-top: none;
-      padding-top: 0;
-      border-left: 2px solid var(--color-olive);
-      padding-left: 1rem;
-    }
-    
-    .hero {
-      height: 60vh;
-    }
+    .jhero-media { height: 56vh; min-height: 340px; }
+    .jhero-panel { padding: 2.25rem 2rem 2.5rem; gap: 1.5rem; }
+    .jhero-panel-slide { flex: none; }
+    .works-head { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+    .journal-grid { grid-template-columns: 1fr; gap: 2.5rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+  }
+  @media (max-width: 620px) {
+    .film-grid { grid-template-columns: 1fr; gap: 2rem; max-width: 420px; margin-left: auto; margin-right: auto; }
+  }
+  @media (max-width: 768px) {
+    .pf-track { padding-left: 2rem; padding-right: 2rem; }
+    .pf-scrub { margin-left: 2rem; margin-right: 2rem; }
+    .jhero-slide-cap { padding: 2.25rem 1.75rem 1.75rem; }
+    .jhero-media { height: 50vh; min-height: 300px; }
+  }
+  @media (max-width: 760px) {
+    .shorts-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 400px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .jhero-slide, .jhero-ps, .pf-img, .film-thumb { transition: none; }
   }
 </style>
