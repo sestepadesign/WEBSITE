@@ -31,7 +31,7 @@ const blogMeta = {
     journalTag: 'The Journal',
     journalTitle: 'Start Here',
     journalDesc:
-      'The three articles most read before commissioning a garden — planning, water, and long-term property value.',
+      'The articles most read before commissioning a garden — planning, shelter, water, and long-term property value.',
     readArticle: 'Read article',
     ctaTitle: 'Planning a garden in Mallorca?',
     ctaDesc: 'Tell us about your finca, villa or terrace. We work in English, Spanish and German.',
@@ -61,7 +61,7 @@ const blogMeta = {
     journalTag: 'El Diario',
     journalTitle: 'Empiece Aquí',
     journalDesc:
-      'Los tres artículos más leídos antes de encargar un jardín — planificación, agua y valor patrimonial a largo plazo.',
+      'Los artículos más leídos antes de encargar un jardín — planificación, abrigo, agua y valor patrimonial a largo plazo.',
     readArticle: 'Leer artículo',
     ctaTitle: '¿Planea un jardín en Mallorca?',
     ctaDesc: 'Cuéntenos sobre su finca, villa o terraza. Trabajamos en español, inglés y alemán.',
@@ -91,7 +91,7 @@ const blogMeta = {
     journalTag: 'Das Journal',
     journalTitle: 'Hier Beginnen',
     journalDesc:
-      'Die drei meistgelesenen Artikel vor einer Gartenbeauftragung — Planung, Wasser und langfristiger Immobilienwert.',
+      'Die meistgelesenen Artikel vor einer Gartenbeauftragung — Planung, Schutz, Wasser und langfristiger Immobilienwert.',
     readArticle: 'Artikel lesen',
     ctaTitle: 'Planen Sie einen Garten auf Mallorca?',
     ctaDesc: 'Erzählen Sie uns von Ihrer Finca, Villa oder Terrasse. Wir arbeiten auf Deutsch, Englisch und Spanisch.',
@@ -211,9 +211,10 @@ const shorts = [
   return { ytId: s.ytId, label: s.label || "S'Estepa Design · Mallorca" };
 });
 
-// --- The Journal: three hand-picked lead-facing articles (EN only for now) ---
+// --- The Journal: hand-picked lead-facing articles ---
 const curatedSlugs = [
   'the-ultimate-guide-to-high-end-garden-design-in-mallorca',
+  'the-compounding-landscape',
   'regenerative-landscapes-despite-mallorcas-water-realities',
   'beyond-aesthetics-invest-in-an-ecosystem-that-multiplies-the-value-of-your-property-in-mallorca',
 ];
@@ -425,25 +426,33 @@ const total = heroSlides.length;
         <span class="section-tag center">{meta.journalTag}</span>
         <h2 class="section-heading center">{meta.journalTitle}</h2>
         <p class="section-desc center">{meta.journalDesc}</p>
+      </div>
 
-        <div class="journal-grid">
+      <div class="jrnl" id="jrnlCar" tabindex="0" role="region" aria-label={meta.journalTitle}>
+        <ul class="jrnl-track" id="jrnlTrack">
           {journalPosts.map((post) => (
-            <article class="journal-card">
-              <a href={post.url} class="journal-image-link">
-                <img src={post.image} alt={post.title} class="journal-image" loading="lazy" decoding="async" width="600" height="420" />
-              </a>
-              <div class="journal-body">
-                <div class="journal-meta">
-                  <span class="brand">S'ESTEPA STUDIO</span>
-                  <span class="dot">·</span>
-                  <span class="read-time">{post.readingTime} MIN READ</span>
+            <li class="jrnl-item">
+              <article class="journal-card">
+                <a href={post.url} class="journal-image-link">
+                  <img src={post.image} alt={post.title} class="journal-image" loading="lazy" decoding="async" width="600" height="420" draggable="false" />
+                </a>
+                <div class="journal-body">
+                  <div class="journal-meta">
+                    <span class="brand">S'ESTEPA STUDIO</span>
+                    <span class="dot">·</span>
+                    <span class="read-time">{post.readingTime} MIN READ</span>
+                  </div>
+                  <h3 class="journal-title"><a href={post.url}>{post.title}</a></h3>
+                  <p class="journal-excerpt">{post.description}</p>
+                  <a href={post.url} class="read-more">{meta.readArticle} <span class="arrow">&rarr;</span></a>
                 </div>
-                <h3 class="journal-title"><a href={post.url}>{post.title}</a></h3>
-                <p class="journal-excerpt">{post.description}</p>
-                <a href={post.url} class="read-more">{meta.readArticle} <span class="arrow">&rarr;</span></a>
-              </div>
-            </article>
+              </article>
+            </li>
           ))}
+        </ul>
+        <div class="jrnl-scrub" id="jrnlScrub" role="slider" tabindex="0" aria-label={meta.journalTitle} aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <span class="jrnl-scrub-fill" id="jrnlBar"></span>
+          <span class="jrnl-scrub-knob" id="jrnlKnob"></span>
         </div>
       </div>
     </section>
@@ -522,18 +531,20 @@ const total = heroSlides.length;
         ping();
       })();
 
-      /* ---------- Portfolio carousel: native scroll · keyboard · scrubber · auto ---------- */
-      (function () {
-        var wrap = document.getElementById('pfCar');
-        var track = document.getElementById('pfTrack');
-        var bar = document.getElementById('pfBar');
-        var knob = document.getElementById('pfKnob');
-        var scrub = document.getElementById('pfScrub');
+      /* ---------- Reusable carousel: native scroll · keyboard · scrubber · auto ---------- */
+      function initCarousel(o) {
+        var wrap = document.getElementById(o.wrap);
+        var track = document.getElementById(o.track);
+        var bar = document.getElementById(o.bar);
+        var knob = document.getElementById(o.knob);
+        var scrub = document.getElementById(o.scrub);
+        var itemSel = o.item;
+        var autoMs = o.autoMs || 5000;
         if (!wrap || !track) return;
 
         function maxScroll() { return track.scrollWidth - track.clientWidth; }
         function step() {
-          var c = track.querySelector('.pf-item');
+          var c = track.querySelector(itemSel);
           return c ? c.getBoundingClientRect().width + 28 : track.clientWidth * 0.8;
         }
         function sync() {
@@ -608,13 +619,13 @@ const total = heroSlides.length;
 
         var auto = null;
         function play() {
-          if (reduce) return;
+          if (reduce || o.noAuto) return;
           stopAuto();
           auto = setInterval(function () {
             var max = track.scrollWidth - track.clientWidth - 4;
             if (track.scrollLeft >= max) track.scrollTo({ left: 0, behavior: 'smooth' });
             else track.scrollBy({ left: step(), behavior: 'smooth' });
-          }, 5000);
+          }, autoMs);
         }
         function stopAuto() { if (auto) { clearInterval(auto); auto = null; } }
         // A pointer landing on a card kills auto AND any in-flight smooth scroll,
@@ -631,7 +642,10 @@ const total = heroSlides.length;
         });
         document.addEventListener('visibilitychange', function () { document.hidden ? stopAuto() : play(); });
         play();
-      })();
+      }
+
+      initCarousel({ wrap: 'pfCar', track: 'pfTrack', bar: 'pfBar', knob: 'pfKnob', scrub: 'pfScrub', item: '.pf-item', autoMs: 5000 });
+      initCarousel({ wrap: 'jrnlCar', track: 'jrnlTrack', bar: 'jrnlBar', knob: 'jrnlKnob', scrub: 'jrnlScrub', item: '.jrnl-item', autoMs: 7000 });
 
       /* ---------- Film facades ---------- */
       [].forEach.call(document.querySelectorAll('.film-facade'), function (btn) {
@@ -908,8 +922,42 @@ const total = heroSlides.length;
 
   /* ---------- Journal ---------- */
   .blog-journal { background-color: var(--color-sand-light); border-top: 1px solid var(--color-sand-dark); }
-  .journal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 3.5rem; }
-  .journal-card { display: flex; flex-direction: column; }
+
+  .jrnl { position: relative; outline: none; margin-top: 3.5rem; }
+  .jrnl-track {
+    display: flex; gap: 3rem; list-style: none; margin: 0;
+    padding: 0 max(2rem, calc((100vw - 1400px) / 2 + 2rem)) 0.5rem;
+    overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none;
+    -webkit-overflow-scrolling: touch; cursor: grab;
+  }
+  .jrnl-track::-webkit-scrollbar { display: none; }
+  .jrnl-track.is-dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
+  .jrnl-track.is-dragging .journal-image { transition: none; }
+  .jrnl-item {
+    flex: 0 0 clamp(280px, 30vw, 372px); scroll-snap-align: start; list-style: none;
+    display: flex;
+  }
+  .jrnl-scrub {
+    position: relative;
+    margin: 2rem max(2rem, calc((100vw - 1400px) / 2 + 2rem)) 0;
+    height: 22px; display: flex; align-items: center;
+    cursor: pointer; touch-action: none; outline: none;
+  }
+  .jrnl-scrub::before {
+    content: ''; position: absolute; left: 0; right: 0; height: 2px; background: var(--color-sand-dark);
+  }
+  .jrnl-scrub-fill {
+    position: absolute; left: 0; right: 0; height: 2px; background: var(--color-olive);
+    transform-origin: left; transform: scaleX(0); transition: transform 0.15s ease;
+  }
+  .jrnl-scrub-knob {
+    position: absolute; left: 0; width: 10px; height: 10px; border-radius: 50%;
+    background: var(--color-olive); transform: translateX(-50%);
+    transition: left 0.15s ease; pointer-events: none;
+  }
+  .jrnl-scrub:focus-visible .jrnl-scrub-knob { box-shadow: 0 0 0 4px rgba(90,103,85,0.25); }
+
+  .journal-card { display: flex; flex-direction: column; width: 100%; }
   .journal-image-link { display: block; overflow: hidden; aspect-ratio: 3 / 2; background-color: var(--color-sand-base); }
   .journal-image { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s cubic-bezier(0.25,1,0.5,1); }
   .journal-image-link:hover .journal-image { transform: scale(1.04); }
@@ -963,14 +1011,15 @@ const total = heroSlides.length;
     .jhero-panel { padding: 2.25rem 2rem 2.5rem; gap: 1.5rem; }
     .jhero-panel-slide { flex: none; }
     .works-head { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-    .journal-grid { grid-template-columns: 1fr; gap: 2.5rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .jrnl-track { gap: 2rem; }
+    .jrnl-item { flex-basis: clamp(268px, 82vw, 340px); }
   }
   @media (max-width: 620px) {
     .film-grid { grid-template-columns: 1fr; gap: 2rem; max-width: 420px; margin-left: auto; margin-right: auto; }
   }
   @media (max-width: 768px) {
-    .pf-track { padding-left: 2rem; padding-right: 2rem; }
-    .pf-scrub { margin-left: 2rem; margin-right: 2rem; }
+    .pf-track, .jrnl-track { padding-left: 2rem; padding-right: 2rem; }
+    .pf-scrub, .jrnl-scrub { margin-left: 2rem; margin-right: 2rem; }
     .jhero-slide-cap { padding: 2.25rem 1.75rem 1.75rem; }
     .jhero-media { height: 50vh; min-height: 300px; }
   }
@@ -978,6 +1027,6 @@ const total = heroSlides.length;
     .shorts-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 400px; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .jhero-slide, .jhero-ps, .pf-img, .film-thumb { transition: none; }
+    .jhero-slide, .jhero-ps, .pf-img, .journal-image, .film-thumb { transition: none; }
   }
 </style>
