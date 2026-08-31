@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="100%" height="100%" style="background-color:#FAF8F5; font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#4A5844" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#B2533E" />
+    </marker>
+  </defs>
+
+  <!-- Title & Header -->
+  <text x="40" y="45" font-size="20" font-weight="600" fill="#2C302E" letter-spacing="0.5">FIG. 1: METHODOLOGICAL FRAMEWORK</text>
+  <text x="40" y="70" font-size="13" font-style="italic" fill="#6E7271">Passive Ecological Diagnosis vs. Symptomatic Intervention in Mediterranean Estates</text>
+  <line x1="40" y1="85" x2="960" y2="85" stroke="#DCD4C7" stroke-width="1.5" />
+
+  <!-- SECTION 1: CONVENTIONAL LINEAR (SYMPTOMATIC) -->
+  <rect x="40" y="110" width="920" height="170" rx="8" fill="#F4EFEA" stroke="#E2D7CE" stroke-width="1" />
+  <text x="60" y="140" font-size="14" font-weight="600" fill="#B2533E" letter-spacing="0.5">MODEL A: CONVENTIONAL / LINEAR SYMPTOMATIC APPROACH</text>
+
+  <!-- Box A1 -->
+  <rect x="60" y="160" width="220" height="90" rx="6" fill="#FFFFFF" stroke="#DCD4C7" stroke-width="1.5" />
+  <text x="75" y="190" font-size="13" font-weight="600" fill="#2C302E">1. Superficial Symptom</text>
+  <text x="75" y="212" font-size="11.5" fill="#6E7271">? Soil moisture depletion</text>
+  <text x="75" y="230" font-size="11.5" fill="#6E7271">? Pest vulnerability / Foliage heat</text>
+
+  <line x1="280" y1="205" x2="350" y2="205" stroke="#B2533E" stroke-width="2" marker-end="url(#arrow-red)" />
+
+  <!-- Box A2 -->
+  <rect x="360" y="160" width="250" height="90" rx="6" fill="#FFFFFF" stroke="#DCD4C7" stroke-width="1.5" />
+  <text x="375" y="190" font-size="13" font-weight="600" fill="#2C302E">2. External Energy Influx</text>
+  <text x="375" y="212" font-size="11.5" fill="#6E7271">? High-volume potable irrigation</text>
+  <text x="375" y="230" font-size="11.5" fill="#6E7271">? Synthetic nitrogen / Pesticides</text>
+
+  <line x1="610" y1="205" x2="680" y2="205" stroke="#B2533E" stroke-width="2" marker-end="url(#arrow-red)" />
+
+  <!-- Box A3 -->
+  <rect x="690" y="160" width="250" height="90" rx="6" fill="#FFF5F5" stroke="#E8B4B4" stroke-width="1.5" />
+  <text x="705" y="190" font-size="13" font-weight="600" fill="#B2533E">3. Chronic Dependency</text>
+  <text x="705" y="212" font-size="11.5" fill="#6E7271">? Salt accumulation in substrate</text>
+  <text x="705" y="230" font-size="11.5" fill="#6E7271">? Perpetual maintenance expenditure</text>
+
+  <!-- SECTION 2: REGENERATIVE CLOSED-LOOP -->
+  <rect x="40" y="305" width="920" height="215" rx="8" fill="#F0F4EE" stroke="#D2DFCE" stroke-width="1" />
+  <text x="60" y="335" font-size="14" font-weight="600" fill="#4A5844" letter-spacing="0.5">MODEL B: REGENERATIVE PERMACULTURE DESIGN (CLOSED-LOOP)</text>
+
+  <!-- Box B1 -->
+  <rect x="60" y="355" width="220" height="135" rx="6" fill="#FFFFFF" stroke="#CBDAC7" stroke-width="1.5" />
+  <text x="75" y="385" font-size="13" font-weight="600" fill="#2C302E">1. Multi-Vector Diagnosis</text>
+  <text x="75" y="408" font-size="11.5" fill="#6E7271">? Solar arc &amp; thermal mass</text>
+  <text x="75" y="426" font-size="11.5" fill="#6E7271">? Tramuntana wind channels</text>
+  <text x="75" y="444" font-size="11.5" fill="#6E7271">? Natural contour hydrological flow</text>
+  <text x="75" y="462" font-size="11.5" fill="#6E7271">? Calcareous pH baseline</text>
+
+  <line x1="280" y1="422" x2="350" y2="422" stroke="#4A5844" stroke-width="2" marker-end="url(#arrow)" />
+
+  <!-- Box B2 -->
+  <rect x="360" y="355" width="250" height="135" rx="6" fill="#FFFFFF" stroke="#CBDAC7" stroke-width="1.5" />
+  <text x="375" y="385" font-size="13" font-weight="600" fill="#2C302E">2. Passive Engineering</text>
+  <text x="375" y="408" font-size="11.5" fill="#6E7271">? Swale &amp; bio-retention keylines</text>
+  <text x="375" y="426" font-size="11.5" fill="#6E7271">? Native endemic guilds (Olea / Pistacia)</text>
+  <text x="375" y="444" font-size="11.5" fill="#6E7271">? Mycorrhizal fungal inoculation</text>
+  <text x="375" y="462" font-size="11.5" fill="#6E7271">? Self-shading canopy stratification</text>
+
+  <line x1="610" y1="422" x2="680" y2="422" stroke="#4A5844" stroke-width="2" marker-end="url(#arrow)" />
+
+  <!-- Box B3 -->
+  <rect x="690" y="355" width="250" height="135" rx="6" fill="#F6FAF4" stroke="#A7C99D" stroke-width="1.5" />
+  <text x="705" y="385" font-size="13" font-weight="600" fill="#4A5844">3. Autonomous Resilience</text>
+  <text x="705" y="408" font-size="11.5" fill="#6E7271">? Self-cycling humus generation</text>
+  <text x="705" y="426" font-size="11.5" fill="#6E7271">? Minimal water footprint (&gt;60% drop)</text>
+  <text x="705" y="444" font-size="11.5" fill="#6E7271">? Enduring botanical longevity</text>
+  <text x="705" y="462" font-size="11.5" fill="#6E7271">? Microclimate buffering</text>
+
+  <!-- Technical Footer -->
+  <text x="40" y="540" font-size="10.5" fill="#8C908E">? S'ESTEPA DESIGN ? ARCHITECTURAL ECOLOGY TECHNICAL SPECIFICATIONS</text>
+</svg>

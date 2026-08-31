@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="100%" height="100%" style="background-color:#FAF8F5; font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <defs>
+    <marker id="arrow-circ" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#4A5844" />
+    </marker>
+  </defs>
+
+  <!-- Title & Header -->
+  <text x="40" y="45" font-size="20" font-weight="600" fill="#2C302E" letter-spacing="0.5">FIG. 4: CIRCULAR ECOLOGICAL METABOLISM</text>
+  <text x="40" y="70" font-size="13" font-style="italic" fill="#6E7271">Closed-Loop Resource Dynamics on the Mediterranean Estate</text>
+  <line x1="40" y1="85" x2="960" y2="85" stroke="#DCD4C7" stroke-width="1.5" />
+
+  <!-- Center Core Hub -->
+  <circle cx="500" cy="330" r="85" fill="#EDE6DD" stroke="#C8BCAF" stroke-width="2" />
+  <text x="500" y="315" font-size="14" font-weight="700" fill="#3D352E" text-anchor="middle">ESTATE SOIL</text>
+  <text x="500" y="333" font-size="14" font-weight="700" fill="#3D352E" text-anchor="middle">MICROBIOME</text>
+  <text x="500" y="352" font-size="11" fill="#75675A" text-anchor="middle">Living Carbon Sponge</text>
+  <text x="500" y="367" font-size="10" fill="#75675A" text-anchor="middle">&amp; Mycorrhizal Bridge</text>
+
+  <!-- Node 1: Top (Hydrological Capture) -->
+  <rect x="360" y="110" width="280" height="95" rx="8" fill="#FFFFFF" stroke="#A4BDD0" stroke-width="1.5" />
+  <text x="500" y="135" font-size="13" font-weight="700" fill="#355872" text-anchor="middle">1. HYDROLOGICAL RECHARGE</text>
+  <text x="500" y="155" font-size="11.5" fill="#516472" text-anchor="middle">? Rainwater catchment on roofscapes</text>
+  <text x="500" y="172" font-size="11.5" fill="#516472" text-anchor="middle">? Terraced bioswale subsoil percolation</text>
+  <text x="500" y="189" font-size="11.5" fill="#516472" text-anchor="middle">? Zero runoff loss to sea</text>
+
+  <!-- Node 2: Right (Biomass Production & Canopy) -->
+  <rect x="680" y="270" width="280" height="115" rx="8" fill="#FFFFFF" stroke="#A9C0A0" stroke-width="1.5" />
+  <text x="820" y="295" font-size="13" font-weight="700" fill="#3F5835" text-anchor="middle">2. BOTANICAL PRODUCTION</text>
+  <text x="820" y="315" font-size="11.5" fill="#51664A" text-anchor="middle">? High-efficiency carbon fixation</text>
+  <text x="820" y="332" font-size="11.5" fill="#51664A" text-anchor="middle">? Deep nutrient mining via root architecture</text>
+  <text x="820" y="349" font-size="11.5" fill="#51664A" text-anchor="middle">? Endemic flora resilience (no synthetic feed)</text>
+  <text x="820" y="366" font-size="11.5" fill="#51664A" text-anchor="middle">? Organic pruning yields</text>
+
+  <!-- Node 3: Bottom (Lignin Mulch & Composting) -->
+  <rect x="360" y="470" width="280" height="100" rx="8" fill="#FFFFFF" stroke="#C9B6A1" stroke-width="1.5" />
+  <text x="500" y="495" font-size="13" font-weight="700" fill="#5A4735" text-anchor="middle">3. CLOSED-LOOP MULCHING</text>
+  <text x="500" y="515" font-size="11.5" fill="#6A5847" text-anchor="middle">? On-site chipping of olive/carob prunings</text>
+  <text x="500" y="532" font-size="11.5" fill="#6A5847" text-anchor="middle">? Bed surface thermal blanket (8-10cm)</text>
+  <text x="500" y="549" font-size="11.5" fill="#6A5847" text-anchor="middle">? Slow lignin-to-humus breakdown</text>
+
+  <!-- Node 4: Left (Thermal & Microclimate Buffer) -->
+  <rect x="40" y="270" width="280" height="115" rx="8" fill="#FFFFFF" stroke="#D8B597" stroke-width="1.5" />
+  <text x="180" y="295" font-size="13" font-weight="700" fill="#754823" text-anchor="middle">4. MICROCLIMATE EQUILIBRIUM</text>
+  <text x="180" y="315" font-size="11.5" fill="#75563D" text-anchor="middle">? Stone wall thermal radiation at night</text>
+  <text x="180" y="332" font-size="11.5" fill="#75563D" text-anchor="middle">? Multi-layer canopy solar shading</text>
+  <text x="180" y="349" font-size="11.5" fill="#75563D" text-anchor="middle">? -40% Irrigation demand</text>
+  <text x="180" y="366" font-size="11.5" fill="#75563D" text-anchor="middle">? Stable root temperature</text>
+
+  <!-- Circular Connecting Arrows -->
+  <path d="M 640 160 C 720 160 780 200 800 260" fill="none" stroke="#4A5844" stroke-width="2.5" marker-end="url(#arrow-circ)" />
+  <path d="M 820 395 C 800 450 720 500 650 515" fill="none" stroke="#4A5844" stroke-width="2.5" marker-end="url(#arrow-circ)" />
+  <path d="M 360 520 C 280 500 200 450 180 395" fill="none" stroke="#4A5844" stroke-width="2.5" marker-end="url(#arrow-circ)" />
+  <path d="M 180 260 C 200 200 270 160 350 155" fill="none" stroke="#4A5844" stroke-width="2.5" marker-end="url(#arrow-circ)" />
+
+  <!-- Core Influx Arrows -->
+  <path d="M 500 215 L 500 240" stroke="#355872" stroke-width="2" marker-end="url(#arrow-circ)" />
+  <path d="M 670 330 L 595 330" stroke="#3F5835" stroke-width="2" marker-end="url(#arrow-circ)" />
+  <path d="M 500 460 L 500 425" stroke="#5A4735" stroke-width="2" marker-end="url(#arrow-circ)" />
+  <path d="M 330 330 L 405 330" stroke="#754823" stroke-width="2" marker-end="url(#arrow-circ)" />
+
+  <!-- Technical Footer -->
+  <text x="40" y="595" font-size="10.5" fill="#8C908E">? S'ESTEPA DESIGN ? ARCHITECTURAL ECOLOGY TECHNICAL SPECIFICATIONS</text>
+</svg>
