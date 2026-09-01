@@ -21,11 +21,6 @@ const clean = (s: string) =>
 const wordCount = post.body ? post.body.split(/\s+/).length : 0;
 const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 
-const localeTag = { en: 'en-US', es: 'es-ES', de: 'de-DE' }[lang];
-const pubDateLabel = post.data.pubDate.toLocaleDateString(localeTag, {
-  day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
-});
-
 const t = {
   en: { nav: 'Journal navigation', previous: 'Previous', journal: 'Journal', next: 'Next', studio: "S'Estepa Studio", read: 'min read' },
   es: { nav: 'Navegación del diario', previous: 'Anterior', journal: 'Diario', next: 'Siguiente', studio: "Estudio S'Estepa", read: 'min de lectura' },
@@ -79,8 +74,6 @@ const fallbackImage = '/portfolio/finca-garden-campos-mallorca/garden-design-mal
 
         <p class="blog-lead-meta">
           <span>{t.studio}</span>
-          <span class="sep" aria-hidden="true">&middot;</span>
-          <span>{pubDateLabel}</span>
           <span class="sep" aria-hidden="true">&middot;</span>
           <span>{readingTime} {t.read}</span>
         </p>
