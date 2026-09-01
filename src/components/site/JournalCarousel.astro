@@ -1,0 +1,139 @@
+---
+// Shared Journal carousel — the card row + scrubber used on the /blog/ index
+// and at the foot of every blog post. Behaviour lives in src/lib/carousel.js:
+// touch/trackpad swipe, keyboard arrows, mouse click-drag, scrubber seek. No
+// arrow buttons. One instance per page (fixed IDs).
+interface Props {
+  items: { url: string; title: string; description?: string; readingTime: number; image: string }[];
+  studioLabel: string;
+  minRead: string;
+  readArticle: string;
+  ariaLabel: string;
+  eyebrow?: string;
+  heading?: string;
+  intro?: string;
+}
+const { items, studioLabel, minRead, readArticle, ariaLabel, eyebrow, heading, intro } = Astro.props;
+---
+
+{items.length > 0 && (
+  <section class="blog-journal section-padding">
+    {(eyebrow || heading || intro) && (
+      <div class="container">
+        {eyebrow && <span class="section-tag center">{eyebrow}</span>}
+        {heading && <h2 class="section-heading center">{heading}</h2>}
+        {intro && <p class="section-desc center">{intro}</p>}
+      </div>
+    )}
+
+    <div class="jrnl" id="jcCar" tabindex="0" role="region" aria-label={ariaLabel}>
+      <ul class="jrnl-track" id="jcTrack">
+        {items.map((post) => (
+          <li class="jrnl-item">
+            <article class="journal-card">
+              <a href={post.url} class="journal-image-link">
+                <img src={post.image} alt={post.title} class="journal-image" loading="lazy" decoding="async" width="600" height="420" draggable="false" />
+              </a>
+              <div class="journal-body">
+                <div class="journal-meta">
+                  <span class="brand">{studioLabel}</span>
+                  <span class="dot">&middot;</span>
+                  <span class="read-time">{post.readingTime} {minRead}</span>
+                </div>
+                <h3 class="journal-title"><a href={post.url}>{post.title}</a></h3>
+                {post.description && <p class="journal-excerpt">{post.description}</p>}
+                <a href={post.url} class="read-more">{readArticle} <span class="arrow">&rarr;</span></a>
+              </div>
+            </article>
+          </li>
+        ))}
+      </ul>
+      <div class="jrnl-scrub" id="jcScrub" role="slider" tabindex="0" aria-label={ariaLabel} aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <span class="jrnl-scrub-fill" id="jcBar"></span>
+        <span class="jrnl-scrub-knob" id="jcKnob"></span>
+      </div>
+    </div>
+  </section>
+)}
+
+<script>
+  import { initCarousel } from '../../lib/carousel.js';
+  const start = () =>
+    initCarousel({ wrap: 'jcCar', track: 'jcTrack', bar: 'jcBar', knob: 'jcKnob', scrub: 'jcScrub', item: '.jrnl-item', autoMs: 7000 });
+  if (document.readyState !== 'loading') start();
+  else document.addEventListener('DOMContentLoaded', start);
+</script>
+
+<style>
+  .blog-journal { background-color: var(--color-sand-light); border-top: 1px solid var(--color-sand-dark); }
+
+  .jrnl { position: relative; outline: none; margin-top: 3.5rem; }
+  .jrnl-track {
+    display: flex; gap: 3rem; list-style: none; margin: 0;
+    padding: 0 max(2rem, calc((100vw - 1400px) / 2 + 2rem)) 0.5rem;
+    overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none;
+    -webkit-overflow-scrolling: touch; cursor: grab;
+  }
+  .jrnl-track::-webkit-scrollbar { display: none; }
+  .jrnl-track.is-dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
+  .jrnl-track.is-dragging .journal-image { transition: none; }
+  .jrnl-item {
+    flex: 0 0 clamp(280px, 30vw, 372px); scroll-snap-align: start; list-style: none;
+    display: flex;
+  }
+  .jrnl-scrub {
+    position: relative;
+    margin: 2rem max(2rem, calc((100vw - 1400px) / 2 + 2rem)) 0;
+    height: 22px; display: flex; align-items: center;
+    cursor: pointer; touch-action: none; outline: none;
+  }
+  .jrnl-scrub::before {
+    content: ''; position: absolute; left: 0; right: 0; height: 2px; background: var(--color-sand-dark);
+  }
+  .jrnl-scrub-fill {
+    position: absolute; left: 0; right: 0; height: 2px; background: var(--color-olive);
+    transform-origin: left; transform: scaleX(0); transition: transform 0.15s ease;
+  }
+  .jrnl-scrub-knob {
+    position: absolute; left: 0; width: 10px; height: 10px; border-radius: 50%;
+    background: var(--color-olive); transform: translateX(-50%);
+    transition: left 0.15s ease; pointer-events: none;
+  }
+  .jrnl-scrub:focus-visible .jrnl-scrub-knob { box-shadow: 0 0 0 4px rgba(90,103,85,0.25); }
+
+  .journal-card { display: flex; flex-direction: column; width: 100%; }
+  .journal-image-link { display: block; overflow: hidden; aspect-ratio: 3 / 2; background-color: var(--color-sand-base); }
+  .journal-image { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s cubic-bezier(0.25,1,0.5,1); }
+  .journal-image-link:hover .journal-image { transform: scale(1.04); }
+  .journal-body { padding-top: 1.5rem; display: flex; flex-direction: column; gap: 0.9rem; }
+  .journal-meta {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--color-limestone);
+  }
+  .journal-meta .brand { color: var(--color-charcoal); font-weight: 600; }
+  .journal-meta .read-time { color: var(--color-olive); }
+  .journal-title { font-family: var(--font-serif); font-weight: 300; font-size: 1.5rem; line-height: 1.25; margin: 0; }
+  .journal-title a { color: var(--color-charcoal); text-decoration: none; transition: color 0.3s ease; }
+  .journal-title a:hover { color: var(--color-olive); }
+  .journal-excerpt { color: var(--color-charcoal-light); line-height: 1.65; font-size: 0.97rem; margin: 0; }
+  .read-more {
+    margin-top: auto; padding-top: 0.5rem;
+    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500;
+    color: var(--color-charcoal); display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.3s ease;
+  }
+  .read-more .arrow { transition: transform 0.3s ease; }
+  .read-more:hover { color: var(--color-olive); }
+  .read-more:hover .arrow { transform: translateX(4px); }
+
+  @media (max-width: 900px) {
+    .jrnl-track { gap: 2rem; }
+    .jrnl-item { flex-basis: clamp(268px, 82vw, 340px); }
+  }
+  @media (max-width: 768px) {
+    .jrnl-track { padding-left: 2rem; padding-right: 2rem; }
+    .jrnl-scrub { margin-left: 2rem; margin-right: 2rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .journal-image { transition: none; }
+  }
+</style>

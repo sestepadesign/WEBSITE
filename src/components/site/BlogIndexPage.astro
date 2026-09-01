@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import JournalCarousel from './JournalCarousel.astro';
 import { getCollection } from 'astro:content';
 import { projects, getProjectLocation } from '../../data/projects';
 import { getPagePath, getProjectPath } from '../../lib/urls';
@@ -426,43 +427,16 @@ const total = heroSlides.length;
   )}
 
   <!-- The Journal -->
-  {journalPosts.length > 0 && (
-    <section class="blog-journal section-padding">
-      <div class="container">
-        <span class="section-tag center">{meta.journalTag}</span>
-        <h2 class="section-heading center">{meta.journalTitle}</h2>
-        <p class="section-desc center">{meta.journalDesc}</p>
-      </div>
-
-      <div class="jrnl" id="jrnlCar" tabindex="0" role="region" aria-label={meta.journalTitle}>
-        <ul class="jrnl-track" id="jrnlTrack">
-          {journalPosts.map((post) => (
-            <li class="jrnl-item">
-              <article class="journal-card">
-                <a href={post.url} class="journal-image-link">
-                  <img src={post.image} alt={post.title} class="journal-image" loading="lazy" decoding="async" width="600" height="420" draggable="false" />
-                </a>
-                <div class="journal-body">
-                  <div class="journal-meta">
-                    <span class="brand">{meta.studioLabel}</span>
-                    <span class="dot">·</span>
-                    <span class="read-time">{post.readingTime} {meta.minRead}</span>
-                  </div>
-                  <h3 class="journal-title"><a href={post.url}>{post.title}</a></h3>
-                  <p class="journal-excerpt">{post.description}</p>
-                  <a href={post.url} class="read-more">{meta.readArticle} <span class="arrow">&rarr;</span></a>
-                </div>
-              </article>
-            </li>
-          ))}
-        </ul>
-        <div class="jrnl-scrub" id="jrnlScrub" role="slider" tabindex="0" aria-label={meta.journalTitle} aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-          <span class="jrnl-scrub-fill" id="jrnlBar"></span>
-          <span class="jrnl-scrub-knob" id="jrnlKnob"></span>
-        </div>
-      </div>
-    </section>
-  )}
+  <JournalCarousel
+    items={journalPosts}
+    studioLabel={meta.studioLabel}
+    minRead={meta.minRead}
+    readArticle={meta.readArticle}
+    ariaLabel={meta.journalTitle}
+    eyebrow={meta.journalTag}
+    heading={meta.journalTitle}
+    intro={meta.journalDesc}
+  />
 
   <!-- Closing CTA -->
   <section class="blog-cta">
@@ -651,7 +625,7 @@ const total = heroSlides.length;
       }
 
       initCarousel({ wrap: 'pfCar', track: 'pfTrack', bar: 'pfBar', knob: 'pfKnob', scrub: 'pfScrub', item: '.pf-item', autoMs: 5000 });
-      initCarousel({ wrap: 'jrnlCar', track: 'jrnlTrack', bar: 'jrnlBar', knob: 'jrnlKnob', scrub: 'jrnlScrub', item: '.jrnl-item', autoMs: 7000 });
+      // The Journal carousel is now self-contained in <JournalCarousel>.
 
       /* ---------- Film facades ---------- */
       [].forEach.call(document.querySelectorAll('.film-facade'), function (btn) {
@@ -926,66 +900,7 @@ const total = heroSlides.length;
   }
   .short-card { min-width: 0; }
 
-  /* ---------- Journal ---------- */
-  .blog-journal { background-color: var(--color-sand-light); border-top: 1px solid var(--color-sand-dark); }
-
-  .jrnl { position: relative; outline: none; margin-top: 3.5rem; }
-  .jrnl-track {
-    display: flex; gap: 3rem; list-style: none; margin: 0;
-    padding: 0 max(2rem, calc((100vw - 1400px) / 2 + 2rem)) 0.5rem;
-    overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none;
-    -webkit-overflow-scrolling: touch; cursor: grab;
-  }
-  .jrnl-track::-webkit-scrollbar { display: none; }
-  .jrnl-track.is-dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
-  .jrnl-track.is-dragging .journal-image { transition: none; }
-  .jrnl-item {
-    flex: 0 0 clamp(280px, 30vw, 372px); scroll-snap-align: start; list-style: none;
-    display: flex;
-  }
-  .jrnl-scrub {
-    position: relative;
-    margin: 2rem max(2rem, calc((100vw - 1400px) / 2 + 2rem)) 0;
-    height: 22px; display: flex; align-items: center;
-    cursor: pointer; touch-action: none; outline: none;
-  }
-  .jrnl-scrub::before {
-    content: ''; position: absolute; left: 0; right: 0; height: 2px; background: var(--color-sand-dark);
-  }
-  .jrnl-scrub-fill {
-    position: absolute; left: 0; right: 0; height: 2px; background: var(--color-olive);
-    transform-origin: left; transform: scaleX(0); transition: transform 0.15s ease;
-  }
-  .jrnl-scrub-knob {
-    position: absolute; left: 0; width: 10px; height: 10px; border-radius: 50%;
-    background: var(--color-olive); transform: translateX(-50%);
-    transition: left 0.15s ease; pointer-events: none;
-  }
-  .jrnl-scrub:focus-visible .jrnl-scrub-knob { box-shadow: 0 0 0 4px rgba(90,103,85,0.25); }
-
-  .journal-card { display: flex; flex-direction: column; width: 100%; }
-  .journal-image-link { display: block; overflow: hidden; aspect-ratio: 3 / 2; background-color: var(--color-sand-base); }
-  .journal-image { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s cubic-bezier(0.25,1,0.5,1); }
-  .journal-image-link:hover .journal-image { transform: scale(1.04); }
-  .journal-body { padding-top: 1.5rem; display: flex; flex-direction: column; gap: 0.9rem; }
-  .journal-meta {
-    display: flex; align-items: center; gap: 0.5rem;
-    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--color-limestone);
-  }
-  .journal-meta .brand { color: var(--color-charcoal); font-weight: 600; }
-  .journal-meta .read-time { color: var(--color-olive); }
-  .journal-title { font-family: var(--font-serif); font-weight: 300; font-size: 1.5rem; line-height: 1.25; margin: 0; }
-  .journal-title a { color: var(--color-charcoal); text-decoration: none; transition: color 0.3s ease; }
-  .journal-title a:hover { color: var(--color-olive); }
-  .journal-excerpt { color: var(--color-charcoal-light); line-height: 1.65; font-size: 0.97rem; margin: 0; }
-  .read-more {
-    margin-top: auto; padding-top: 0.5rem;
-    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500;
-    color: var(--color-charcoal); display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.3s ease;
-  }
-  .read-more .arrow { transition: transform 0.3s ease; }
-  .read-more:hover { color: var(--color-olive); }
-  .read-more:hover .arrow { transform: translateX(4px); }
+  /* Journal carousel lives in <JournalCarousel> (src/components/site). */
 
   /* ---------- CTA ---------- */
   .blog-cta { background-color: var(--color-charcoal); color: var(--color-white); padding: 6rem 0; }
@@ -1017,15 +932,13 @@ const total = heroSlides.length;
     .jhero-panel { padding: 2.25rem 2rem 2.5rem; gap: 1.5rem; }
     .jhero-panel-slide { flex: none; }
     .works-head { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-    .jrnl-track { gap: 2rem; }
-    .jrnl-item { flex-basis: clamp(268px, 82vw, 340px); }
   }
   @media (max-width: 620px) {
     .film-grid { grid-template-columns: 1fr; gap: 2rem; max-width: 420px; margin-left: auto; margin-right: auto; }
   }
   @media (max-width: 768px) {
-    .pf-track, .jrnl-track { padding-left: 2rem; padding-right: 2rem; }
-    .pf-scrub, .jrnl-scrub { margin-left: 2rem; margin-right: 2rem; }
+    .pf-track { padding-left: 2rem; padding-right: 2rem; }
+    .pf-scrub { margin-left: 2rem; margin-right: 2rem; }
     .jhero-slide-cap { padding: 2.25rem 1.75rem 1.75rem; }
     .jhero-media { height: 50vh; min-height: 300px; }
   }
@@ -1033,6 +946,6 @@ const total = heroSlides.length;
     .shorts-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 400px; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .jhero-slide, .jhero-ps, .pf-img, .journal-image, .film-thumb { transition: none; }
+    .jhero-slide, .jhero-ps, .pf-img, .film-thumb { transition: none; }
   }
 </style>
