@@ -91,6 +91,17 @@ const ogAlternateLocales = hreflangAlternates && hreflangAlternates.length
   ? hreflangAlternates.filter((a) => a.hreflang !== lang && a.hreflang !== 'x-default').map((a) => ogLocales[a.hreflang as typeof lang]).filter(Boolean)
   : hreflangLocales.filter((l) => l !== lang).map((l) => ogLocales[l]);
 const ogLocaleAlternates = ogAlternateLocales;
+
+// Feed the header's language switcher explicit per-locale URLs when the page
+// carries them (blog posts) — otherwise getAlternatePath() sends every locale
+// link to that locale's homepage.
+const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
+  ? Object.fromEntries(
+      hreflangAlternates
+        .filter((a) => a.hreflang !== 'x-default')
+        .map((a) => [a.hreflang, a.href]),
+    )
+  : undefined;
 ---
 
 <!DOCTYPE html>
@@ -164,7 +175,7 @@ const ogLocaleAlternates = ogAlternateLocales;
       <p style="display:none">Redirecting to <a href={redirectTo}>{redirectTo}</a></p>
     ) : (
       <div class="site-wrapper">
-        <Header lang={lang} />
+        <Header lang={lang} langAlternates={headerLangAlternates} />
         <main id="main-content">
           <slot />
         </main>

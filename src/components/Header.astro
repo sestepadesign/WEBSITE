@@ -4,9 +4,15 @@ import { getAlternatePath, getPagePath } from '../lib/urls';
 
 interface Props {
   lang: 'en' | 'es' | 'de';
+  /**
+   * Explicit per-locale URLs for the current page, when it can't be resolved
+   * from the path alone (blog posts: EN at /slug/ but ES/DE at /es/blog/slug/).
+   * Keys are locale codes; values are hrefs. Falls back to getAlternatePath().
+   */
+  langAlternates?: Record<string, string>;
 }
 
-const { lang } = Astro.props;
+const { lang, langAlternates } = Astro.props;
 const currentUrl = Astro.url;
 
 const t = (key: keyof typeof ui[typeof lang]) => {
@@ -14,6 +20,7 @@ const t = (key: keyof typeof ui[typeof lang]) => {
 };
 
 function getLocalizedUrl(targetLang: string) {
+  if (langAlternates && langAlternates[targetLang]) return langAlternates[targetLang];
   return getAlternatePath(currentUrl.pathname, targetLang as 'en' | 'es' | 'de');
 }
 
