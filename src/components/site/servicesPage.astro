@@ -3,6 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import { ui } from '../../data/translations';
 import { servicesContent } from '../../data/services';
 import { getPagePath } from '../../lib/urls';
+import { projects, getProjectLocation } from '../../data/projects';
+import ProjectCard from '../ProjectCard.astro';
 import type { SitePageId } from '../../data/site-urls';
 
 interface Props { lang: 'en' | 'es' | 'de'; }
@@ -10,6 +12,39 @@ const { lang } = Astro.props;
 const content = servicesContent[lang];
 
 const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
+
+// Hero background — a project shot distinct from the homepage hero.
+const heroImage =
+  '/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp';
+
+// Projects strip — a broad spread across the island, different mix from the homepage grid.
+const stripSlugs = [
+  'sant-llorenc',
+  'finca-garden-campos-mallorca',
+  'jardin-mediterraneo',
+  'hotelcabotlasvelas',
+  'costadelacalma',
+  'terrace-garden-in-palma',
+];
+const stripProjects = stripSlugs
+  .map((slug) => projects.find((p) => p.slug === slug))
+  .filter((p): p is NonNullable<typeof p> => Boolean(p));
+
+const stripHeading = {
+  en: 'Gardens we have designed and built across Mallorca',
+  es: 'Jardines que hemos diseñado y construido por Mallorca',
+  de: 'Gärten, die wir auf ganz Mallorca entworfen und gebaut haben',
+}[lang];
+const stripLink = {
+  en: 'View all gardens',
+  es: 'Ver todos los jardines',
+  de: 'Alle Gärten ansehen',
+}[lang];
+const heroCta = {
+  en: 'Start a conversation',
+  es: 'Empecemos a hablar',
+  de: 'Sprechen wir darüber',
+}[lang];
 ---
 
 <Layout
@@ -17,12 +52,46 @@ const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
   description={content.metaDescription}
   lang={lang}
 >
+  <section class="svc-hero">
+    <img class="svc-hero-bg" src={heroImage} alt="" loading="eager" fetchpriority="high" />
+    <div class="svc-hero-veil"></div>
+    <div class="svc-hero-inner">
+      <span class="section-tag">{content.tag}</span>
+      <h1 class="svc-hero-title">{content.heroHeadline}</h1>
+      <p class="svc-hero-lead">{content.heroLead}</p>
+      <a href={getPagePath('contact', lang)} class="cta-button svc-hero-cta">{heroCta}</a>
+    </div>
+  </section>
+
   <article class="services-page section-padding">
     <div class="container">
+      {stripProjects.length > 0 && (
+        <section class="svc-strip">
+          <div class="svc-strip-head">
+            <h2 class="svc-strip-heading">{stripHeading}</h2>
+            <a href={getPagePath('portfolio', lang)} class="svc-strip-link">{stripLink} &rarr;</a>
+          </div>
+          <div class="svc-strip-scroll">
+            {stripProjects.map((project) => (
+              <div class="svc-strip-item">
+                <ProjectCard
+                  slug={project.slug}
+                  title={project[lang].title}
+                  category={project[lang].category}
+                  location={getProjectLocation(project, lang)}
+                  cover={project.cover}
+                  lang={lang}
+                  size={project.size}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       <header class="page-header">
-        <span class="section-tag">{content.tag}</span>
-        <h1 class="page-title">{content.title}</h1>
-        <p class="page-subtitle">{content.subtitle}</p>
+        <h2 class="page-title">{content.title}</h2>
+        {content.subtitle && <p class="page-subtitle">{content.subtitle}</p>}
         <p class="page-intro">{content.intro}</p>
       </header>
 
@@ -144,12 +213,142 @@ const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
 
 <style>
   .services-page {
-    padding-top: 10rem;
+    padding-top: 4rem;
   }
 
   @media (max-width: 768px) {
     .services-page {
-      padding-top: 8rem;
+      padding-top: 3rem;
+    }
+  }
+
+  /* Hero */
+  .svc-hero {
+    position: relative;
+    min-height: 78vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .svc-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  .svc-hero-veil {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(
+      to top,
+      rgba(31, 33, 31, 0.72) 0%,
+      rgba(31, 33, 31, 0.28) 45%,
+      rgba(31, 33, 31, 0.12) 100%
+    );
+  }
+
+  .svc-hero-inner {
+    position: relative;
+    z-index: 3;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md) 5rem;
+    color: var(--color-white);
+  }
+
+  .svc-hero-inner .section-tag {
+    color: var(--color-sand-dark);
+  }
+
+  .svc-hero-title {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    color: var(--color-white);
+    font-size: clamp(2.1rem, 4.4vw, 3.6rem);
+    line-height: 1.15;
+    max-width: 16ch;
+    margin: 1rem 0 1.25rem;
+  }
+
+  .svc-hero-lead {
+    font-size: 1.08rem;
+    line-height: 1.75;
+    max-width: 46ch;
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 2rem;
+  }
+
+  .svc-hero-cta {
+    background: var(--color-white);
+    color: var(--color-charcoal);
+  }
+
+  @media (max-width: 768px) {
+    .svc-hero {
+      min-height: 70vh;
+    }
+    .svc-hero-inner {
+      padding-bottom: 3rem;
+    }
+  }
+
+  /* Projects strip */
+  .svc-strip {
+    margin-bottom: 5rem;
+  }
+
+  .svc-strip-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .svc-strip-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.4rem, 2.4vw, 2rem);
+    font-weight: 300;
+    color: var(--color-charcoal);
+    max-width: 24ch;
+  }
+
+  .svc-strip-link {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-olive);
+    white-space: nowrap;
+  }
+
+  .svc-strip-scroll {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(300px, 1fr);
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .svc-strip-item {
+    scroll-snap-align: start;
+  }
+
+  @media (min-width: 1100px) {
+    .svc-strip-scroll {
+      grid-auto-columns: minmax(0, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-flow: row;
+      overflow: visible;
     }
   }
 

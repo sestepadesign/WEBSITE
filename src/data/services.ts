@@ -8,6 +8,11 @@ export interface ServiceItem {
 export interface ServicesContent {
   tag: string;
   seoTitle?: string;
+  /** Evocative hero headline (the single <h1> of the page). */
+  heroHeadline: string;
+  /** Hero supporting line. */
+  heroLead: string;
+  /** Keyword-framed section heading (rendered as <h2>), kept for SEO. */
   title: string;
   subtitle: string;
   metaDescription: string;
@@ -17,9 +22,12 @@ export interface ServicesContent {
 
 export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
   en: {
-    tag: 'Our Expertise',
-    seoTitle: "LANDSCAPE GARDEN DESIGN MALLORCA | S'ESTEPA DESIGN",
-    title: 'Garden Design & Landscape Architecture in Mallorca',
+    tag: 'Our Studio',
+    seoTitle: "Garden Design & Landscaping Services in Mallorca | S'Estepa Design",
+    heroHeadline: 'The garden becomes the favourite room of the house.',
+    heroLead:
+      'We stay with you for the whole of it — design, construction, irrigation and care — carried out by our own team. Thirty years shaping Mediterranean gardens with a Mallorcan hand.',
+    title: 'Our Garden Design and Landscaping Services in Mallorca',
     subtitle:
       'Specialist landscape design and garden design studio in Mallorca. We create and maintain living Mediterranean ecosystems for private villas, fincas and holiday residences — from concept to completion.',
     metaDescription:
@@ -54,9 +62,12 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
     ],
   },
   es: {
-    tag: 'Nuestra Experiencia',
-    seoTitle: "DISEÑO DE JARDINES Y PAISAJISMO MALLORCA | S'ESTEPA DESIGN",
-    title: 'Estudio de Paisajismo y Diseño de Jardines en Mallorca',
+    tag: 'Nuestro Estudio',
+    seoTitle: "Servicios de Diseño de Jardines y Paisajismo en Mallorca | S'Estepa Design",
+    heroHeadline: 'El jardín se convierte en el lugar favorito de la casa.',
+    heroLead:
+      'Te acompañamos en todo el proceso —diseño, construcción, riego y cuidado— con equipo propio. Treinta años dando forma a jardines mediterráneos con mano mallorquina.',
+    title: 'Nuestros Servicios de Diseño de Jardines y Paisajismo en Mallorca',
     subtitle: '',
     metaDescription:
       'Estudio boutique de paisajismo y diseño de jardines en Mallorca — de Palma a fincas y villas de la isla. 30 años de alma mediterránea auténtica.',
@@ -90,9 +101,12 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
     ],
   },
   de: {
-    tag: 'Unsere Expertise',
-    seoTitle: "LANDSCHAFTSARCHITEKTUR & GARTENGESTALTUNG MALLORCA | S'ESTEPA DESIGN",
-    title: 'Gartengestaltung & Landschaftsarchitektur auf Mallorca',
+    tag: 'Unser Studio',
+    seoTitle: "Gartengestaltung und Pflege auf Mallorca — Leistungen | S'Estepa Design",
+    heroHeadline: 'Der Garten wird zum Lieblingsort des Hauses.',
+    heroLead:
+      'Wir begleiten Sie durch den gesamten Prozess — Entwurf, Bau, Bewässerung und Pflege — mit unserem eigenen Team. Dreißig Jahre mediterrane Gärten mit mallorquinischer Handschrift.',
+    title: 'Unsere Leistungen für Gartengestaltung auf Mallorca',
     subtitle:
       'Wir bieten einen umfassenden Ansatz für die Landschaftsgestaltung auf Mallorca, mit Schwerpunkt auf der Schaffung und langfristigen Pflege lebendiger Ökosysteme für Villen und Feriendomizile.',
     metaDescription:
