@@ -11,7 +11,20 @@
 # services page and splitting the signal. (2026-09-01)
 /garden-design-mallorca/  /  301
 /garden-design-mallorca-in-mediterranean-style-from-terrace-to-fincas-in-mallorca/  /  301
-/landscapingmallorca/  /blog/  301
+
+# 2026-09-01: legacy URLs with real 3-month impression history in Search Console
+# (Performance report in docs/search/). /landscapingmallorca/ ranked ~pos 20 for
+# "landscaping mallorca" with 5,249 impressions — was 301'ing to /blog/ (wrong
+# target, throws the relevance away); now → homepage. /de/startseite/ (323 impr,
+# the old WP German homepage slug) and two WP category paths were returning 404.
+/landscapingmallorca/  /  301
+/landscapingmallorca  /  301
+/de/startseite/  /de/  301
+/de/startseite  /de/  301
+/es/category/3d-renders-es/  /es/portfolio/  301
+/es/category/3d-renders-es  /es/portfolio/  301
+/de/category/portfolio-de/  /de/portfolio/  301
+/de/category/portfolio-de  /de/portfolio/  301
 
 # Removed 2026-08-31: broken WordPress-import stub posts (no content, noindex) → Journal
 /design2d/  /blog/  301
