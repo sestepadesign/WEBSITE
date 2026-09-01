@@ -72,10 +72,12 @@ if (project) {
     }
   });
 
-  // Additive LandscapingProject schema for enhanced entity signaling
+  // Additive CreativeWork schema for the project as an entity.
+  // ("LandscapingProject" is not a real Schema.org type — Google discards the
+  // whole block. CreativeWork is the closest valid parent for a design project.)
   const projectSchema: any = {
     "@context": "https://schema.org",
-    "@type": "LandscapingProject",
+    "@type": "CreativeWork",
     "@id": `${currentUrl}#project`,
     "name": translation.title,
     "description": translation.subtitle,

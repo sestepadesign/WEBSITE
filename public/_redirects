@@ -5,8 +5,12 @@
 /es/paisajismo-y-diseno-de-jardines-en-mallorca-desde-terrazas-hasta-fincas/  /es/diseno-de-jardines-mallorca/  301
 
 # URLs huérfanas detectadas en Search Console con tráfico real (auditoría 2026-07-03)
-/garden-design-mallorca/  /garden-design-mallorca-landscape-management-villas-fincas/  301
-/garden-design-mallorca-in-mediterranean-style-from-terrace-to-fincas-in-mallorca/  /garden-design-mallorca-landscape-management-villas-fincas/  301
+# Exact-match keyword slugs -> homepage (the page that actually ranks for
+# "garden design mallorca"). Consolidates equity onto one URL instead of
+# feeding the thinner /garden-design-mallorca-landscape-management-villas-fincas/
+# services page and splitting the signal. (2026-09-01)
+/garden-design-mallorca/  /  301
+/garden-design-mallorca-in-mediterranean-style-from-terrace-to-fincas-in-mallorca/  /  301
 /landscapingmallorca/  /blog/  301
 
 # Removed 2026-08-31: broken WordPress-import stub posts (no content, noindex) → Journal
