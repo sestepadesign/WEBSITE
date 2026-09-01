@@ -16,6 +16,8 @@ Der Unterschied liegt nicht an den Pflanzen. Er liegt an den Entscheidungen, die
 
 ## 1. Das Gelände lesen, bevor gepflanzt wird
 
+*(Holmgren: beobachten und interagieren; Energie einfangen und speichern)*
+
 Konventionelle Gartengestaltung behandelt die Schwierigkeiten eines Standorts als etwas, das überschrieben werden muss: dünner Boden wird überschüttet, Wind ausgesperrt, Sommerhitze mit mehr Bewässerung beantwortet. Jede dieser Überschreibungen wird zu einem wiederkehrenden Posten im Pflegebudget. Der Permakultur-Ansatz verbringt die erste Saison stattdessen mit Messen, sodass jede Rahmenbedingung den Entwurf informiert, statt bekämpft zu werden.
 
 *   **Sonne und gespeicherte Wärme:** wohin die Mittagssonne im Juli tatsächlich fällt – im Vergleich zum Januar – und welche vorhandenen Mauern und Felsen bereits Wärme speichern und abgeben. Das legt die Pflanzpositionen fest, bevor eine einzige Art gewählt wird.
@@ -23,6 +25,8 @@ Konventionelle Gartengestaltung behandelt die Schwierigkeiten eines Standorts al
 *   **Der Boden, der da ist:** Mallorcas rote, tonreiche Böden schwanken stark in Tiefe, Textur und Drainage, selbst innerhalb eines Grundstücks. Zuerst Bodenprofile und Laboranalysen je Zone; dann eine Pflanzenpalette, die zum Vorgefundenen passt – *Olea europaea*, *Pistacia lentiscus*, *Ceratonia siliqua* – und nicht Hunderte Kubikmeter importierter Bodenverbesserung. Unser Garten in [Crestatx](/de/crestatx/) folgt genau dieser Boden-zuerst-Logik: Der Boden wurde vor Ort regeneriert, nicht ersetzt.
 
 ## 2. Schutz ist Infrastruktur, nicht Dekoration
+
+*(Holmgren: Randzonen nutzen und das Marginale schätzen; integrieren statt abgrenzen)*
 
 In der Ökologie ist die Naht, an der zwei Systeme aufeinandertreffen – das *Ökoton* –, der Ort, an dem sich der Austausch verdichtet. Das Permakultur-Prinzip „Ränder nutzen" nimmt das als Erlaubnis, Grenzen zu bearbeiten, statt sie wegzuglätten. Auf vielen balearischen Fincas ist der folgenreichste Rand vertikal und gebaut, und die Insel besitzt das Handwerk dafür: die *marges* und *parets seques*, von der UNESCO als immaterielles Kulturerbe anerkannt.
 
@@ -33,6 +37,8 @@ In der Ökologie ist die Naht, an der zwei Systeme aufeinandertreffen – das *�
 ![Abb. 1: Die Mauer als Kleinklima – die Tramuntana nach oben abgelenkt, die Tageswärme im Stein gespeichert und nach der Dämmerung in einen geschützten Windschatten abgegeben, in dem niedrige Aromapflanzen wachsen, mit einem jahrhundertealten Olivenbaum und seinen tiefen Wurzeln dahinter.](/images/diagrams/cl-fig-wall-cross-section.webp)
 
 ## 3. In Schichten pflanzen, die sich selbst beschatten
+
+*(Holmgren: Vielfalt nutzen und schätzen; Selbstregulierung anwenden und Feedback annehmen)*
 
 Das Schichtmodell des Waldgartens wird meist für gemäßigte Klimazonen mit sieben Ebenen gezeichnet. Auf einem halbtrockenen balearischen Grundstück ist die brauchbare Fassung auf vier verdichtet, und ihre Hauptaufgabe ist nicht der Ertrag, sondern die Selbstbeschattung: Jede Schicht moderiert die Bedingungen für die darunterliegende, sodass die Bodenebene nie ungeschützt bleibt.
 
@@ -46,6 +52,8 @@ Das kommt der Palette nahe, die im gesamten Garten des [Hotel Cabot Las Velas](/
 ![Abb. 2: Vier Pflanzschichten, für einen halbtrockenen Standort verdichtet – Krone, Mittelschicht, Strauch und Bodendecke, jede beschattet die darunterliegende.](/images/diagrams/cl-fig-planting-layers.webp)
 
 ## 4. Den Kreislauf schließen, so weit ein Garten kann
+
+*(Holmgren: keinen Abfall erzeugen; erneuerbare Ressourcen und Dienstleistungen nutzen und schätzen)*
 
 Der letzte Schritt ist, die Ausgänge eines Gartenteils in die Eingänge eines anderen zu leiten. Saisonales Schnittgut – zuvor gesichtet, krankes oder reguliertes Material aussortiert – wird vor Ort gehäckselt und als Mulch zurückgegeben und baut so die organische Substanz auf, die diesen Böden meist fehlt. Gewöhnlicher Abfluss wird verlangsamt und dort versickert, wo der Boden es zulässt; der Überschuss wird über einen geplanten Weg abgeführt, statt sich seinen eigenen zu suchen.
 
@@ -61,6 +69,6 @@ Nichts davon beschädigt das Bild, für das ein Kunde bezahlt. Ein alter Olivenb
 
 Eine Landschaft, die nur für das Übergabefoto entworfen ist, rutscht in fortlaufende Korrektur ab. Eine für die Sukzession entworfene Landschaft vertieft sich – an Schatten, Boden und Charakter – über Jahrzehnte, sofern Anwuchs, Schnitt und Wassermanagement tatsächlich gepflegt werden. Die Methode nimmt die Arbeit nicht weg; sie verschiebt sie nach vorn und lässt sie sich verzinsen.
 
-Indem S'Estepa Design das Gelände genau liest und die traditionellen mallorquinischen Techniken an zeitgenössische Architektur anpasst, entstehen Gärten, die widerstandsfähig, nachhaltig und visuell außergewöhnlich sind.
+Indem S'Estepa Design das Gelände genau liest und die traditionellen mallorquinischen Techniken an zeitgenössische Architektur anpasst, entstehen Gärten, die widerstandsfähig, nachhaltig und visuell außergewöhnlich sind – gestützt auf drei Jahrzehnte Wissen von der Insel, das Projektrisiko und langfristigen Unterhalt senkt.
 
-*Kontaktieren Sie S'Estepa Design, um über das ökologische und architektonische Potenzial Ihrer Finca zu sprechen.*
+*Kontaktieren Sie S'Estepa Design, um über das ökologische und architektonische Potenzial Ihrer Finca zu sprechen – oder um eine Geländebegehung und eine zonenweise Bodenanalyse zu beauftragen.*

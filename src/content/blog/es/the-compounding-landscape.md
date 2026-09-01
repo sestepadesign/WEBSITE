@@ -16,6 +16,8 @@ La diferencia no está en las plantas. Está en el conjunto de decisiones que se
 
 ## 1. Leer el terreno antes de plantar
 
+*(Holmgren: observar e interactuar; captar y almacenar energía)*
+
 El paisajismo convencional trata las dificultades del sitio como algo que hay que anular: se trae tierra sobre el suelo pobre, se cierra el paso al viento, se responde al calor del verano con más riego. Cada anulación se convierte en una partida recurrente del presupuesto de mantenimiento. El enfoque permacultural dedica la primera temporada a medir en su lugar, de modo que cada condicionante informe el diseño en vez de combatirlo.
 
 *   **Sol y calor acumulado:** dónde incide realmente el sol de mediodía en julio frente a enero, y qué muros y roca existentes ya acumulan y devuelven calor. Esto fija la posición de las plantaciones antes de elegir una sola especie.
@@ -23,6 +25,8 @@ El paisajismo convencional trata las dificultades del sitio como algo que hay qu
 *   **El suelo que hay:** los suelos rojos y arcillosos de Mallorca varían mucho en profundidad, textura y drenaje incluso dentro de una misma propiedad. Primero, calicatas y análisis de laboratorio por zonas; después, una paleta ajustada a lo que se encuentra — *Olea europaea*, *Pistacia lentiscus*, *Ceratonia siliqua* — y no cientos de metros cúbicos de enmienda importada. Nuestro jardín de [Crestatx](/es/crestatx/) se construyó sobre esta lógica de suelo primero: el terreno se regeneró in situ en lugar de sustituirlo.
 
 ## 2. El abrigo es infraestructura, no decoración
+
+*(Holmgren: usar los bordes y valorar lo marginal; integrar en lugar de segregar)*
 
 En ecología, la costura donde se encuentran dos sistemas — el *ecotono* — es donde se concentra el intercambio. El principio permacultural de "usar los bordes" lo toma como licencia para trabajar los límites en vez de suavizarlos. En muchas fincas baleares el borde más decisivo es vertical y construido, y la isla ya tiene el oficio: los *marges* y las *parets seques*, reconocidos por la UNESCO como patrimonio cultural inmaterial.
 
@@ -33,6 +37,8 @@ En ecología, la costura donde se encuentran dos sistemas — el *ecotono* — e
 ![Fig. 1: El muro como microclima — la Tramuntana desviada hacia arriba, el calor del día acumulado en la piedra y liberado al anochecer hacia un sotavento abrigado donde crecen aromáticas bajas, con un olivo centenario y sus raíces profundas más allá.](/images/diagrams/cl-fig-wall-cross-section.webp)
 
 ## 3. Plantar en estratos que se dan sombra
+
+*(Holmgren: usar y valorar la diversidad; aplicar la autorregulación y aceptar la retroalimentación)*
 
 El modelo de estratos apilados del bosque comestible suele dibujarse para climas templados con siete niveles. En una finca balear semiárida la versión útil se comprime a cuatro, y su función principal no es la producción sino el autosombreado: cada estrato modera las condiciones del que tiene debajo, de modo que el plano del suelo nunca queda expuesto.
 
@@ -46,6 +52,8 @@ Es una paleta parecida a la que sustituyó un césped sediento en todo el jardí
 ![Fig. 2: Cuatro estratos de plantación, comprimidos para una finca semiárida — dosel, estrato medio, arbusto y cubierta, cada uno dando sombra al que tiene debajo.](/images/diagrams/cl-fig-planting-layers.webp)
 
 ## 4. Cerrar el ciclo hasta donde un jardín puede
+
+*(Holmgren: no generar residuos; usar y valorar los recursos y servicios renovables)*
 
 El último movimiento es dirigir las salidas de una parte del jardín a las entradas de otra. Las podas de temporada — cribadas primero, apartando cualquier material enfermo o regulado — se trituran in situ y se devuelven como acolchado, construyendo la materia orgánica que a estos suelos suele faltarles. La escorrentía ordinaria se frena y se infiltra allí donde el terreno lo permite; el excedente se conduce por una ruta diseñada en lugar de dejarlo buscar su propio camino.
 
@@ -61,6 +69,6 @@ Nada de esto compromete la imagen que el cliente paga. Un olivo maduro sobre un 
 
 Un paisaje diseñado solo para la foto de entrega se desliza hacia la corrección recurrente. Un paisaje diseñado para la sucesión se profundiza — en sombra, suelo y carácter — con las décadas, siempre que se mantengan el arraigo, la poda y la gestión del agua. El método no elimina el trabajo; lo adelanta y hace que capitalice.
 
-Leyendo el terreno de cerca y adaptando las técnicas tradicionales mallorquinas a la arquitectura contemporánea, S'Estepa Design crea jardines resilientes, sostenibles y visualmente excepcionales.
+Leyendo el terreno de cerca y adaptando las técnicas tradicionales mallorquinas a la arquitectura contemporánea, S'Estepa Design crea jardines resilientes, sostenibles y visualmente excepcionales — con el respaldo de tres décadas de conocimiento local que reducen el riesgo del proyecto y el mantenimiento a largo plazo.
 
-*Contacte con S'Estepa Design para hablar del potencial ecológico y arquitectónico de su finca.*
+*Contacte con S'Estepa Design para hablar del potencial ecológico y arquitectónico de su finca — o para encargar una visita de lectura del terreno y un análisis de suelo zona por zona.*

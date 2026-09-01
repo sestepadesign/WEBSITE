@@ -16,6 +16,8 @@ The difference is not the plants. It is the set of decisions taken before either
 
 ## 1. Read the Site Before You Plant It
 
+*(Holmgren: Observe and interact; Catch and store energy)*
+
 Conventional landscaping treats a site's difficulties as things to override — thin soil is trucked over, wind is fenced out, summer heat is answered with more irrigation. Every override becomes a recurring line on the maintenance budget. A permacultural approach spends the first season measuring instead, so each constraint informs the design rather than fighting it.
 
 *   **Sun and stored heat:** where the midday sun actually lands in July versus January, and which existing walls and rock already hold and release warmth. This sets planting positions before a single species is chosen.
@@ -23,6 +25,8 @@ Conventional landscaping treats a site's difficulties as things to override — 
 *   **The soil that is there:** Mallorca's red, clay-rich soils vary sharply in depth, texture and drainage even within one property. Soil pits and laboratory analysis per zone come first, then a palette matched to what is found — *Olea europaea*, *Pistacia lentiscus*, *Ceratonia siliqua* — not hundreds of cubic metres of imported amendment. Our [Crestatx](/crestatx-garden-design/) garden is built on this soil-first logic: the ground was regenerated in place rather than replaced.
 
 ## 2. Shelter Is Infrastructure, Not Decoration
+
+*(Holmgren: Use edges and value the marginal; Integrate rather than segregate)*
 
 In ecology, the seam where two systems meet — the *ecotone* — is where exchange concentrates. Permaculture's "use edges" principle takes this as licence to work boundaries rather than smooth them away. On many Balearic estates the most consequential edge is vertical and built, and the island already has the craft for it: the *marges* and *parets seques* recognised by UNESCO as intangible cultural heritage.
 
@@ -33,6 +37,8 @@ In ecology, the seam where two systems meet — the *ecotone* — is where excha
 ![Fig. 1: The wall as a microclimate — the Tramuntana wind deflected upward, the day's heat stored in the stone and released after dusk into a sheltered lee where low aromatics grow, with a centenary olive and its deep roots beyond.](/images/diagrams/cl-fig-wall-cross-section.webp)
 
 ## 3. Plant in Layers That Shade Themselves
+
+*(Holmgren: Use and value diversity; Apply self-regulation and accept feedback)*
 
 The forest-garden model of stacked layers is usually drawn for temperate climates with seven tiers. On a semi-arid Balearic site the useful version is compressed to four, and its main job is not yield but self-shading: each layer moderates the conditions for the one below, so the ground plane is never left exposed.
 
@@ -46,6 +52,8 @@ This is close to the palette that replaced a thirsty lawn across the whole garde
 ![Fig. 2: Four planting layers, compressed for a semi-arid site — canopy, mid-tier, shrub and groundcover, each shading the layer beneath it.](/images/diagrams/cl-fig-planting-layers.webp)
 
 ## 4. Close the Loop as Far as a Garden Can
+
+*(Holmgren: Produce no waste; Use and value renewable resources and services)*
 
 The last move is to route the outputs of one part of the garden into the inputs of another. Screened prunings — with any diseased or regulated material set aside — are chipped on site and returned as mulch, building the organic matter these soils generally lack. Routine runoff is slowed and infiltrated where the ground allows; the excess is carried off on a designed route rather than left to find its own way.
 
@@ -61,6 +69,6 @@ None of this compromises the look a client is paying for. A mature olive over a 
 
 A landscape designed only for the handover photograph slides into recurring correction. A landscape designed for succession deepens — in shade, soil and character — over decades, provided establishment, pruning and water management are maintained. The method does not remove the work; it moves it earlier and lets it compound.
 
-By reading the terrain closely and adapting traditional Mallorcan techniques to contemporary architecture, S'Estepa Design creates gardens that are resilient, sustainable, and visually exceptional.
+By reading the terrain closely and adapting traditional Mallorcan techniques to contemporary architecture, S'Estepa Design creates gardens that are resilient, sustainable, and visually exceptional — backed by three decades of on-island knowledge that reduces project risk and long-term maintenance.
 
-*Contact S'Estepa Design to discuss the ecological and architectural potential of your estate.*
+*Contact S'Estepa Design to discuss the ecological and architectural potential of your estate — or to commission a site-reading visit and zone-by-zone soil analysis.*
