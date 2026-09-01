@@ -8,6 +8,12 @@
 /garden-design-mallorca/  /garden-design-mallorca-landscape-management-villas-fincas/  301
 /garden-design-mallorca-in-mediterranean-style-from-terrace-to-fincas-in-mallorca/  /garden-design-mallorca-landscape-management-villas-fincas/  301
 /landscapingmallorca/  /blog/  301
+
+# Removed 2026-08-31: broken WordPress-import stub posts (no content, noindex) → Journal
+/design2d/  /blog/  301
+/design2d3d/  /blog/  301
+/mallorcan-sea-and-bougainvilleas-make-everything-better-%f0%9f%92%99/  /blog/  301
+/mallorcan-sea-and-bougainvilleas-make-everything-better-f09f9299/  /blog/  301
 /category/portfolio/  /portfolio/  301
 /category/portfolio  /portfolio/  301
 /es/category/portfolio/  /es/portfolio/  301

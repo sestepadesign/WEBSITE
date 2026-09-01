@@ -1,11 +1,14 @@
 ---
 import ProjectDetail from '../components/ProjectDetail.astro';
+import BlogPost from '../components/site/BlogPost.astro';
 import { projects } from '../data/projects';
 import { getProjectStaticPathParams } from '../lib/urls';
-import { getCollection, render } from 'astro:content';
-import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
+  const SITE = 'https://design.sestepa.com';
+  const postSlug = (id: string) => id.replace(/\.md$/, '').split('/').pop()!;
+
   const projectPaths = getProjectStaticPathParams('en').map(({ params, props }) => {
     const project = projects.find((p) => p.slug === props.projectSlug)!;
     return {
@@ -18,27 +21,50 @@ export async function getStaticPaths() {
     };
   });
 
-  const posts = await getCollection('blog', ({ data }) => data.lang === 'en' && !data.draft);
-  posts.sort((a, b) => new Date(a.data.pubDate).getTime() - new Date(b.data.pubDate).getTime());
+  const all = await getCollection('blog', ({ data }) => !data.draft);
+  const enPosts = all
+    .filter((p) => p.data.lang === 'en')
+    .sort((a, b) => new Date(a.data.pubDate).getTime() - new Date(b.data.pubDate).getTime());
 
-  const blogPaths = posts.map((post, index) => {
-    const slug = post.id.replace(/\.md$/, '').split('/').pop()!;
-    const prevPost = index > 0 ? posts[index - 1] : null;
-    const nextPost = index < posts.length - 1 ? posts[index + 1] : null;
+  // Slugs that also have es + de translations → emit hreflang alternates.
+  const translated = new Set(
+    Object.entries(
+      all.reduce<Record<string, Set<string>>>((acc, p) => {
+        const s = postSlug(p.id);
+        (acc[s] ??= new Set()).add(p.data.lang);
+        return acc;
+      }, {}),
+    )
+      .filter(([, langs]) => langs.has('es') && langs.has('de'))
+      .map(([s]) => s),
+  );
+
+  const blogPaths = enPosts.map((post, index) => {
+    const slug = postSlug(post.id);
+    const prev = index > 0 ? enPosts[index - 1] : null;
+    const next = index < enPosts.length - 1 ? enPosts[index + 1] : null;
+    // Always explicit — blog posts aren't in SITE_PAGES, so the default
+    // getAlternatePath() would otherwise fall back to the homepage.
+    const alternates = translated.has(slug)
+      ? [
+          { hreflang: 'en', href: `${SITE}/${slug}/` },
+          { hreflang: 'es', href: `${SITE}/es/blog/${slug}/` },
+          { hreflang: 'de', href: `${SITE}/de/blog/${slug}/` },
+          { hreflang: 'x-default', href: `${SITE}/${slug}/` },
+        ]
+      : [
+          { hreflang: 'en', href: `${SITE}/${slug}/` },
+          { hreflang: 'x-default', href: `${SITE}/${slug}/` },
+        ];
 
     return {
       params: { slug },
       props: {
         kind: 'blog' as const,
         post,
-        prevPost: prevPost ? {
-          slug: prevPost.id.replace(/\.md$/, '').split('/').pop()!,
-          title: prevPost.data.title
-        } : null,
-        nextPost: nextPost ? {
-          slug: nextPost.id.replace(/\.md$/, '').split('/').pop()!,
-          title: nextPost.data.title
-        } : null,
+        alternates,
+        prev: prev ? { title: prev.data.title, href: `/${postSlug(prev.id)}/` } : null,
+        next: next ? { title: next.data.title, href: `/${postSlug(next.id)}/` } : null,
       },
     };
   });
@@ -47,237 +73,10 @@ export async function getStaticPaths() {
 }
 
 const props = Astro.props;
-const { prevPost, nextPost } = props;
-let BlogContent: Awaited<ReturnType<typeof render>>['Content'] | null = null;
-
-if (props.kind === 'blog') {
-  const rendered = await render(props.post);
-  BlogContent = rendered.Content;
-}
-
-const wordCount = props.kind === 'blog' ? props.post.body.split(/\s+/).length : 0;
-const readingTime = Math.max(1, Math.ceil(wordCount / 200));
-const pubDateLabel = props.kind === 'blog'
-  ? props.post.data.pubDate.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })
-  : '';
 ---
 
 {props.kind === 'project' ? (
-  <ProjectDetail
-    project={props.project}
-    lang="en"
-    canonicalPath={props.canonicalPath}
-  />
+  <ProjectDetail project={props.project} lang="en" canonicalPath={props.canonicalPath} />
 ) : (
-  <Layout
-    title={props.post.data.title.replace(/&#038;/g, '&').replace(/&#8217;/g, "'") + " | S'Estepa Design"}
-    description={props.post.data.description}
-    lang="en"
-    image={props.post.data.image ?? '/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp'}
-    hreflangLocales={['en']}
-    noindex={props.post.data.noindex}
-  >
-    <section class="blog-hero">
-      <div class="bh-inner">
-        <span class="bh-rule" aria-hidden="true"></span>
-        <h1 class="bh-title" set:html={props.post.data.title} />
-      </div>
-    </section>
-
-    <article class="container section-padding blog-post" id="blog-content">
-      <div class="blog-column">
-        {props.kind === 'blog' && (
-          <header class="blog-lead">
-            <nav class="blog-lead-nav" aria-label="Journal navigation">
-              {prevPost ? (
-                <a href={`/${prevPost.slug}/`} class="bln-link" title={prevPost.title} rel="prev">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                  <span class="bln-text">Previous</span>
-                </a>
-              ) : (
-                <span class="bln-spacer"></span>
-              )}
-
-              <a href="/blog/" class="bln-journal">Journal</a>
-
-              {nextPost ? (
-                <a href={`/${nextPost.slug}/`} class="bln-link" title={nextPost.title} rel="next">
-                  <span class="bln-text">Next</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                </a>
-              ) : (
-                <span class="bln-spacer"></span>
-              )}
-            </nav>
-
-            <p class="blog-lead-meta">
-              <span>S'Estepa Studio</span>
-              <span class="sep" aria-hidden="true">&middot;</span>
-              <span>{pubDateLabel}</span>
-              <span class="sep" aria-hidden="true">&middot;</span>
-              <span>{readingTime} min read</span>
-            </p>
-
-            {props.post.data.description && (
-              <p class="blog-lead-dek">{props.post.data.description}</p>
-            )}
-          </header>
-        )}
-
-        <div class="blog-content">
-          {BlogContent && <BlogContent />}
-        </div>
-      </div>
-    </article>
-  </Layout>
+  <BlogPost post={props.post} lang="en" prev={props.prev} next={props.next} alternates={props.alternates} />
 )}
-
-<style>
-  /* ── Blog post masthead — typographic hero ───────────────────────── */
-  .blog-hero {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: clamp(25rem, 52vh, 31rem);
-    padding: 9rem 1.5rem 3.5rem;
-    background: linear-gradient(180deg, var(--color-sand-light) 0%, var(--color-sand-base) 100%);
-    border-bottom: 1px solid var(--color-sand-dark);
-    overflow: hidden;
-  }
-  .bh-inner {
-    flex: 0 1 46rem;
-    min-width: 0;
-  }
-  /* Safety net: keep the masthead a standard height even if a title is long.
-     Titles are written to fit 2–3 lines; this only clips a stray over-long one. */
-  .bh-title {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-  }
-  .bh-rule {
-    display: block;
-    width: 2.5rem;
-    height: 1px;
-    background: var(--color-olive);
-    margin: 0 auto 1.9rem;
-  }
-  .bh-title {
-    margin: 0 auto;
-    max-width: 30ch;
-    font-family: var(--font-serif);
-    font-weight: 400;
-    color: var(--color-charcoal);
-    font-size: clamp(1.9rem, 4.4vw, 3rem);
-    line-height: 1.22;
-    letter-spacing: -0.006em;
-    text-wrap: balance;
-  }
-
-  @media (max-width: 768px) {
-    .blog-hero {
-      height: clamp(20rem, 48vh, 26rem);
-      padding: 8rem 1.25rem 2.75rem;
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .bh-rule  { animation: bhRise 0.9s cubic-bezier(0.25, 1, 0.5, 1) both; }
-    .bh-title { animation: bhRise 0.9s 0.07s cubic-bezier(0.25, 1, 0.5, 1) both; }
-  }
-  @keyframes bhRise {
-    from { opacity: 0; transform: translateY(0.9rem); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── Article lead — nav, byline & standfirst on the page body ────── */
-  .blog-column {
-    width: 100%;
-    max-width: 800px;
-  }
-  .blog-lead {
-    margin-bottom: 3.25rem;
-    padding-bottom: 2.75rem;
-    border-bottom: 1px solid var(--color-sand-dark);
-    text-align: center;
-  }
-  .blog-lead-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    width: min(100%, 26rem);
-    margin: 0 auto 2.25rem;
-    padding: 0.6rem 0;
-    border-top: 1px solid var(--color-sand-dark);
-    border-bottom: 1px solid var(--color-sand-dark);
-    font-family: var(--font-sans);
-    font-weight: 400;
-    font-size: 0.66rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-  }
-  .blog-lead-nav .bln-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--color-limestone);
-  }
-  .blog-lead-nav .bln-link:hover { color: var(--color-charcoal); }
-  .blog-lead-nav .bln-link svg { width: 0.8rem; height: 0.8rem; flex-shrink: 0; }
-  .blog-lead-nav .bln-journal {
-    color: var(--color-charcoal);
-    font-weight: 500;
-    letter-spacing: 0.26em;
-    padding-left: 0.26em;
-  }
-  .blog-lead-nav .bln-journal:hover { color: var(--color-olive); }
-  .blog-lead-nav .bln-spacer { width: 4.5rem; }
-
-  .blog-lead-meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 0.55rem;
-    margin: 0;
-    font-family: var(--font-sans);
-    font-weight: 400;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--color-limestone);
-  }
-  .blog-lead-meta .sep { opacity: 0.45; }
-
-  .blog-lead-dek {
-    margin: 1.5rem auto 0;
-    max-width: 46ch;
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-weight: 400;
-    color: var(--color-limestone);
-    font-size: clamp(1.2rem, 1.9vw, 1.55rem);
-    line-height: 1.55;
-    letter-spacing: 0.01em;
-  }
-
-  @media (max-width: 768px) {
-    .blog-lead { margin-bottom: 2.5rem; padding-bottom: 2.25rem; }
-    .blog-lead-nav {
-      width: min(100%, 20rem);
-      font-size: 0.6rem;
-      margin-bottom: 1.75rem;
-    }
-    .blog-lead-nav .bln-text { display: none; }
-    .blog-lead-nav .bln-spacer { width: 1.5rem; }
-    .blog-lead-meta { font-size: 0.64rem; gap: 0.4rem; }
-    .blog-lead-dek { margin-top: 1.2rem; }
-  }
-</style>
-
-
-

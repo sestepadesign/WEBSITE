@@ -4,6 +4,7 @@ description: "When we took on the challenge of creating this garden, we poured o
 pubDate: 2023-08-03
 lang: en
 draft: false
+noindex: true
 ---
 
 When we took on the challenge of creating this garden, we poured our hearts and creativity into it. We wanted it to be a magical and charming space, where nature could display all its beauty.

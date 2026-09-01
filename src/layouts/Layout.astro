@@ -31,6 +31,12 @@ interface Props {
   redirectTo?: string;
   /** Locales with a real alternate page (default: all). Blog posts EN-only use ['en']. */
   hreflangLocales?: SiteLocale[];
+  /**
+   * Explicit alternate URLs, used when the localised page does NOT follow the
+   * standard SITE_PAGES / project path mapping (e.g. blog posts, where EN lives
+   * at /slug/ but ES/DE at /es/blog/slug/). Overrides hreflangLocales entirely.
+   */
+  hreflangAlternates?: { hreflang: string; href: string }[];
   /** Hidden pages (SEO archive) — noindex, not linked in nav */
   noindex?: boolean;
 }
@@ -43,6 +49,7 @@ const {
   canonicalPath: canonicalPathProp,
   redirectTo,
   hreflangLocales = SITE_LOCALES,
+  hreflangAlternates,
   noindex = false,
 } = Astro.props;
 
@@ -70,8 +77,20 @@ const ogLocales: Record<typeof lang, string> = {
   de: 'de_DE',
 };
 
-const hreflangLinks = redirectTo ? [] : getHreflangAlternates(canonicalPath, site, hreflangLocales);
-const ogLocaleAlternates = hreflangLocales.filter((l) => l !== lang).map((l) => ogLocales[l]);
+const hreflangLinks = redirectTo
+  ? []
+  : hreflangAlternates && hreflangAlternates.length
+    ? [
+        ...hreflangAlternates,
+        ...(hreflangAlternates.some((a) => a.hreflang === 'x-default')
+          ? []
+          : [{ hreflang: 'x-default', href: hreflangAlternates.find((a) => a.hreflang === 'en')?.href ?? canonicalURL.href }]),
+      ]
+    : getHreflangAlternates(canonicalPath, site, hreflangLocales);
+const ogAlternateLocales = hreflangAlternates && hreflangAlternates.length
+  ? hreflangAlternates.filter((a) => a.hreflang !== lang && a.hreflang !== 'x-default').map((a) => ogLocales[a.hreflang as typeof lang]).filter(Boolean)
+  : hreflangLocales.filter((l) => l !== lang).map((l) => ogLocales[l]);
+const ogLocaleAlternates = ogAlternateLocales;
 ---
 
 <!DOCTYPE html>

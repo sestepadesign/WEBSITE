@@ -1,0 +1,38 @@
+---
+import BlogPost from '../../../components/site/BlogPost.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const SITE = 'https://design.sestepa.com';
+  const slugOf = (id) => id.replace(/\.md$/, '').split('/').pop();
+
+  const all = await getCollection('blog', ({ data }) => !data.draft);
+  const posts = all
+    .filter((p) => p.data.lang === 'es')
+    .sort((a, b) => new Date(a.data.pubDate).getTime() - new Date(b.data.pubDate).getTime());
+
+  return posts.map((post, index) => {
+    const slug = slugOf(post.id);
+    const prev = index > 0 ? posts[index - 1] : null;
+    const next = index < posts.length - 1 ? posts[index + 1] : null;
+    return {
+      params: { slug },
+      props: {
+        post,
+        alternates: [
+          { hreflang: 'en', href: `${SITE}/${slug}/` },
+          { hreflang: 'es', href: `${SITE}/es/blog/${slug}/` },
+          { hreflang: 'de', href: `${SITE}/de/blog/${slug}/` },
+          { hreflang: 'x-default', href: `${SITE}/${slug}/` },
+        ],
+        prev: prev ? { title: prev.data.title, href: `/es/blog/${slugOf(prev.id)}/` } : null,
+        next: next ? { title: next.data.title, href: `/es/blog/${slugOf(next.id)}/` } : null,
+      },
+    };
+  });
+}
+
+const { post, prev, next, alternates } = Astro.props;
+---
+
+<BlogPost post={post} lang="es" prev={prev} next={next} alternates={alternates} />

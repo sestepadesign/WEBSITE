@@ -7,6 +7,8 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.coerce.date(),
+    /** Set when a published post is materially revised — drives sitemap <lastmod>. */
+    updatedDate: z.coerce.date().optional(),
     lang: z.enum(['en', 'es', 'de']),
     image: z.string().optional(),
     draft: z.boolean().default(false),
