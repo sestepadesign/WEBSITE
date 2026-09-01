@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { render, type CollectionEntry } from 'astro:content';
+import { render, getCollection, type CollectionEntry } from 'astro:content';
 import { getPagePath } from '../../lib/urls';
 
 interface Props {
@@ -22,13 +22,52 @@ const wordCount = post.body ? post.body.split(/\s+/).length : 0;
 const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 
 const t = {
-  en: { nav: 'Journal navigation', previous: 'Previous', journal: 'Journal', next: 'Next', studio: "S'Estepa Studio", read: 'min read' },
-  es: { nav: 'Navegación del diario', previous: 'Anterior', journal: 'Diario', next: 'Siguiente', studio: "Estudio S'Estepa", read: 'min de lectura' },
-  de: { nav: 'Journal-Navigation', previous: 'Zurück', journal: 'Journal', next: 'Weiter', studio: "S'Estepa Studio", read: 'Min. Lesezeit' },
+  en: { nav: 'Journal navigation', previous: 'Previous', journal: 'Journal', next: 'Next', studio: "S'Estepa Studio", read: 'min read', more: 'Keep reading', moreScroll: 'More articles' },
+  es: { nav: 'Navegación del diario', previous: 'Anterior', journal: 'Diario', next: 'Siguiente', studio: "Estudio S'Estepa", read: 'min de lectura', more: 'Seguir leyendo', moreScroll: 'Más artículos' },
+  de: { nav: 'Journal-Navigation', previous: 'Zurück', journal: 'Journal', next: 'Weiter', studio: "S'Estepa Studio", read: 'Min. Lesezeit', more: 'Weiterlesen', moreScroll: 'Weitere Artikel' },
 }[lang];
 const journalPath = getPagePath('blog', lang);
 
 const fallbackImage = '/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp';
+
+// ── End-of-post carousel: other Journal articles, same locale ─────────
+const postSlugOf = (id: string) => id.replace(/\.md$/, '').split('/').pop()!;
+const currentSlug = postSlugOf(post.id);
+const relHref = (slug: string) =>
+  lang === 'es' ? `/es/blog/${slug}/` : lang === 'de' ? `/de/blog/${slug}/` : `/${slug}/`;
+
+// The curated lead articles (same set as the /blog/ index carousel), in order,
+// minus the post being read. Same-locale only, so ES/DE show their translations.
+const leadSlugs = [
+  'the-ultimate-guide-to-high-end-garden-design-in-mallorca',
+  'the-compounding-landscape',
+  'regenerative-landscapes-despite-mallorcas-water-realities',
+  'beyond-aesthetics-invest-in-an-ecosystem-that-multiplies-the-value-of-your-property-in-mallorca',
+];
+// A few lead articles carry no `image:` frontmatter — give each a stable cover
+// so the same post always shows the same photo, whichever post you came from.
+const coverBySlug: Record<string, string> = {
+  'the-ultimate-guide-to-high-end-garden-design-in-mallorca':
+    '/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa-card.webp',
+  'regenerative-landscapes-despite-mallorcas-water-realities':
+    '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15-card.webp',
+  'beyond-aesthetics-invest-in-an-ecosystem-that-multiplies-the-value-of-your-property-in-mallorca':
+    '/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(1)-card.webp',
+};
+const blogPosts = await getCollection('blog', ({ data }) => !data.draft && !data.noindex);
+const relatedPosts = leadSlugs
+  .filter((s) => s !== currentSlug)
+  .map((s) => blogPosts.find((p) => p.data.lang === lang && postSlugOf(p.id) === s))
+  .filter((p): p is CollectionEntry<'blog'> => Boolean(p))
+  .map((p) => {
+    const slug = postSlugOf(p.id);
+    return {
+      title: p.data.title,
+      href: relHref(slug),
+      image: p.data.image ?? coverBySlug[slug] ?? fallbackImage,
+      readingTime: Math.max(1, Math.ceil((p.body ? p.body.split(/\s+/).length : 0) / 200)),
+    };
+  });
 ---
 
 <Layout
@@ -88,7 +127,96 @@ const fallbackImage = '/portfolio/finca-garden-campos-mallorca/garden-design-mal
       </div>
     </div>
   </article>
+
+  {relatedPosts.length > 0 && (
+    <aside class="blog-more" aria-label={t.more}>
+      <div class="blog-more-head">
+        <span class="bm-rule" aria-hidden="true"></span>
+        <h2 class="bm-title">{t.more}</h2>
+        <a href={journalPath} class="bm-all">{t.journal} &rarr;</a>
+      </div>
+
+      <div class="bm-car" id="bmCar" role="region" aria-label={t.moreScroll} tabindex="0">
+        <ul class="bm-track" id="bmTrack">
+          {relatedPosts.map((p) => (
+            <li class="bm-item">
+              <article class="bm-card">
+                <a href={p.href} class="bm-img-link" tabindex="-1" aria-hidden="true">
+                  <img src={p.image} alt="" class="bm-img" loading="lazy" decoding="async" width="600" height="420" draggable="false" />
+                </a>
+                <div class="bm-body">
+                  <span class="bm-meta">{t.studio} <span aria-hidden="true">&middot;</span> {p.readingTime} {t.read}</span>
+                  <h3 class="bm-card-title"><a href={p.href}>{p.title}</a></h3>
+                </div>
+              </article>
+            </li>
+          ))}
+        </ul>
+        <div class="bm-ctrl" aria-hidden="true">
+          <button type="button" class="bm-arrow" data-dir="-1" tabindex="-1">&larr;</button>
+          <button type="button" class="bm-arrow" data-dir="1" tabindex="-1">&rarr;</button>
+        </div>
+      </div>
+    </aside>
+  )}
 </Layout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    var wrap = document.getElementById('bmCar');
+    var track = document.getElementById('bmTrack');
+    if (!wrap || !track) return;
+
+    function step() {
+      var c = track.querySelector('.bm-item');
+      return c ? c.getBoundingClientRect().width + 24 : track.clientWidth * 0.8;
+    }
+
+    [].forEach.call(wrap.querySelectorAll('.bm-arrow'), function (b) {
+      b.addEventListener('click', function () {
+        track.scrollBy({ left: step() * (+b.dataset.dir), behavior: 'smooth' });
+      });
+    });
+    wrap.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); track.scrollBy({ left: step(), behavior: 'smooth' }); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); track.scrollBy({ left: -step(), behavior: 'smooth' }); }
+    });
+
+    // Mouse click-drag to scroll; a real drag (>8px) eats the click that follows
+    // so card links still work on a plain click.
+    var pid = null, x0 = 0, s0 = 0, dragging = false;
+    track.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      pid = e.pointerId; x0 = e.clientX; s0 = track.scrollLeft; dragging = false;
+    });
+    track.addEventListener('pointermove', function (e) {
+      if (e.pointerId !== pid) return;
+      var dx = e.clientX - x0;
+      if (!dragging) {
+        if (Math.abs(dx) < 8) return;
+        dragging = true;
+        track.classList.add('is-dragging');
+        try { track.setPointerCapture(pid); } catch (err) {}
+      }
+      e.preventDefault();
+      track.scrollLeft = s0 - dx;
+    });
+    function endDrag(e) {
+      if (pid === null || (e && e.pointerId !== pid)) return;
+      try { track.releasePointerCapture(pid); } catch (err) {}
+      pid = null;
+      if (dragging) {
+        track.classList.remove('is-dragging');
+        var kill = function (ev) { ev.preventDefault(); ev.stopPropagation(); };
+        track.addEventListener('click', kill, { capture: true, once: true });
+        setTimeout(function () { track.removeEventListener('click', kill, true); }, 60);
+      }
+      dragging = false;
+    }
+    track.addEventListener('pointerup', endDrag);
+    track.addEventListener('pointercancel', endDrag);
+  });
+</script>
 
 <style>
   /* ── Blog post masthead — typographic hero ───────────────────────── */
@@ -234,5 +362,130 @@ const fallbackImage = '/portfolio/finca-garden-campos-mallorca/garden-design-mal
     .blog-lead-nav .bln-spacer { width: 1.5rem; }
     .blog-lead-meta { font-size: 0.64rem; gap: 0.4rem; }
     .blog-lead-dek { margin-top: 1.2rem; }
+  }
+
+  /* ── End-of-post carousel — more from the Journal ────────────────── */
+  .blog-more {
+    margin: 0;
+    padding: 3.5rem 0 5rem;
+    border-top: 1px solid var(--color-sand-dark);
+    background: var(--color-sand-light);
+  }
+  .blog-more-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0 max(1.5rem, calc((100vw - 1400px) / 2 + 1.5rem)) 2rem;
+  }
+  .bm-rule {
+    flex: 0 0 auto;
+    width: 2rem;
+    height: 1px;
+    background: var(--color-olive);
+    transform: translateY(-0.4rem);
+  }
+  .bm-title {
+    flex: 1 1 auto;
+    margin: 0;
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+    color: var(--color-charcoal);
+    letter-spacing: 0.01em;
+  }
+  .bm-all {
+    flex: 0 0 auto;
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-limestone);
+    white-space: nowrap;
+  }
+  .bm-all:hover { color: var(--color-olive); }
+
+  .bm-car { position: relative; outline: none; }
+  .bm-track {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0.5rem max(1.5rem, calc((100vw - 1400px) / 2 + 1.5rem));
+    list-style: none;
+    margin: 0;
+  }
+  .bm-track::-webkit-scrollbar { display: none; }
+  .bm-track.is-dragging { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
+  .bm-track.is-dragging .bm-img { transition: none; }
+  .bm-item {
+    flex: 0 0 clamp(260px, 30vw, 320px);
+    scroll-snap-align: start;
+  }
+  .bm-card { display: flex; flex-direction: column; height: 100%; }
+  .bm-img-link {
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: var(--color-sand-dark);
+  }
+  .bm-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  .bm-card:hover .bm-img { transform: scale(1.04); }
+  .bm-body { padding: 1.1rem 0 0; }
+  .bm-meta {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-limestone);
+    margin-bottom: 0.5rem;
+  }
+  .bm-card-title {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 1.14rem;
+    line-height: 1.32;
+    color: var(--color-charcoal);
+  }
+  .bm-card-title a { color: inherit; }
+  .bm-card-title a:hover { color: var(--color-olive); }
+
+  .bm-ctrl {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin: 1.5rem 0 0;
+    padding: 0 max(1.5rem, calc((100vw - 1400px) / 2 + 1.5rem));
+  }
+  .bm-arrow {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--color-sand-dark);
+    background: transparent;
+    color: var(--color-limestone);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .bm-arrow:hover { color: var(--color-charcoal); border-color: var(--color-olive-light); }
+
+  @media (hover: none) {
+    .bm-ctrl { display: none; }
+  }
+  @media (max-width: 768px) {
+    .blog-more { padding: 2.75rem 0 3.5rem; }
+    .blog-more-head { padding-bottom: 1.5rem; flex-wrap: wrap; }
+    .bm-rule { display: none; }
+    .bm-track { gap: 1.25rem; padding-left: 1.25rem; padding-right: 1.25rem; }
+    .bm-item { flex-basis: clamp(240px, 78vw, 300px); }
   }
 </style>
