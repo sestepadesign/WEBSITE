@@ -225,10 +225,11 @@ const heroCta = {
   /* Hero */
   .svc-hero {
     position: relative;
-    min-height: 78vh;
+    min-height: 76vh;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     overflow: hidden;
+    padding-top: 5rem; /* clear the fixed header */
   }
 
   .svc-hero-bg {
@@ -258,7 +259,7 @@ const heroCta = {
     max-width: 1400px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 var(--spacing-md) 5rem;
+    padding: 3rem var(--spacing-md);
     color: var(--color-white);
   }
 
@@ -270,9 +271,9 @@ const heroCta = {
     font-family: var(--font-serif);
     font-weight: 300;
     color: var(--color-white);
-    font-size: clamp(2.1rem, 4.4vw, 3.6rem);
+    font-size: clamp(2rem, 4vw, 3.4rem);
     line-height: 1.15;
-    max-width: 16ch;
+    max-width: 22ch;
     margin: 1rem 0 1.25rem;
   }
 
