@@ -45,8 +45,8 @@ const leadSlugs = [
   'regenerative-landscapes-despite-mallorcas-water-realities',
   'beyond-aesthetics-invest-in-an-ecosystem-that-multiplies-the-value-of-your-property-in-mallorca',
 ];
-// A few lead articles carry no `image:` frontmatter — give each a stable cover
-// so the same post always shows the same photo, whichever post you came from.
+// Covers for posts with no `image:` frontmatter — a stable slug→photo map for
+// the lead articles, then a rotating pool for the rest.
 const coverBySlug: Record<string, string> = {
   'the-ultimate-guide-to-high-end-garden-design-in-mallorca':
     '/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa-card.webp',
@@ -55,21 +55,36 @@ const coverBySlug: Record<string, string> = {
   'beyond-aesthetics-invest-in-an-ecosystem-that-multiplies-the-value-of-your-property-in-mallorca':
     '/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(1)-card.webp',
 };
-const blogPosts = await getCollection('blog', ({ data }) => !data.draft && !data.noindex);
-const relatedPosts = leadSlugs
-  .filter((s) => s !== currentSlug)
-  .map((s) => blogPosts.find((p) => p.data.lang === lang && postSlugOf(p.id) === s))
-  .filter((p): p is CollectionEntry<'blog'> => Boolean(p))
-  .map((p) => {
-    const slug = postSlugOf(p.id);
-    return {
-      title: p.data.title,
-      description: p.data.description,
-      url: relHref(slug),
-      image: p.data.image ?? coverBySlug[slug] ?? fallbackImage,
-      readingTime: Math.max(1, Math.ceil((p.body ? p.body.split(/\s+/).length : 0) / 200)),
-    };
-  });
+const coverPool = [
+  '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15-card.webp',
+  '/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa-card.webp',
+  '/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa-card.webp',
+  '/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(1)-card.webp',
+];
+
+// Lead articles first, then every other indexed same-locale post, newest first —
+// enough cards that the carousel always has somewhere to scroll.
+const leadRank = (slug: string) => {
+  const i = leadSlugs.indexOf(slug);
+  return i === -1 ? leadSlugs.length : i;
+};
+const blogPosts = (await getCollection('blog', ({ data }) => !data.draft && !data.noindex))
+  .filter((p) => p.data.lang === lang && postSlugOf(p.id) !== currentSlug)
+  .sort((a, b) =>
+    leadRank(postSlugOf(a.id)) - leadRank(postSlugOf(b.id)) ||
+    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+  )
+  .slice(0, 8);
+const relatedPosts = blogPosts.map((p, i) => {
+  const slug = postSlugOf(p.id);
+  return {
+    title: p.data.title,
+    description: p.data.description,
+    url: relHref(slug),
+    image: p.data.image ?? coverBySlug[slug] ?? coverPool[i % coverPool.length],
+    readingTime: Math.max(1, Math.ceil((p.body ? p.body.split(/\s+/).length : 0) / 200)),
+  };
+});
 ---
 
 <Layout
