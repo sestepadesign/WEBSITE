@@ -7,15 +7,23 @@
  * its docs), so this is generated separately and referenced directly from
  * robots.txt rather than folded into Astro's own sitemap-index.xml.
  *
+ * Rules kept in sync with the sitemaps.org / Google spec:
+ *   - every <loc> / <image:loc> is a fully URL-encoded absolute URL
+ *     (spaces -> %20, parens -> %28/%29) THEN XML-entity-escaped;
+ *   - an image is only listed if its file actually exists in public/, so the
+ *     sitemap never points Googlebot at a 404;
+ *   - output is deterministic (stable ordering) so diffs stay readable.
+ *
  * Run: node scripts/generate-image-sitemap.mjs
  */
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
+const PUBLIC_DIR = path.join(ROOT, 'public');
 const SITE_URLS_PATH = path.join(ROOT, 'src/data/site-urls.ts');
 const PROJECTS_PATH = path.join(ROOT, 'src/data/projects.ts');
-const OUTPUT_PATH = path.join(ROOT, 'public/sitemap-images.xml');
+const OUTPUT_PATH = path.join(PUBLIC_DIR, 'sitemap-images.xml');
 const SITE_URL = 'https://design.sestepa.com';
 const LOCALES = ['en', 'es', 'de'];
 
@@ -71,8 +79,33 @@ function parseProjectImages(source) {
   return result;
 }
 
+/** Encode a root-relative pathname into a spec-valid absolute URL. */
+function toAbsoluteUrl(pathname) {
+  // encodeURI leaves reserved chars intact but fixes spaces/UTF-8; then the
+  // few sub-delimiters Googlebot is picky about in practice.
+  const encoded = encodeURI(pathname)
+    .replace(/\(/g, '%28')
+    .replace(/\)/g, '%29')
+    .replace(/'/g, '%27');
+  return `${SITE_URL}${encoded}`;
+}
+
 function xmlEscape(s) {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+async function fileExists(pathname) {
+  try {
+    await fs.access(path.join(PUBLIC_DIR, pathname.replace(/^\//, '')));
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 const HOMEPAGE_PATHS = {
@@ -92,42 +125,52 @@ const HOMEPAGE_FEATURED_IMAGES = [
   '/portfolio/santa-ponsa/images/GARDEN-DESIGN-MALLORCA-SANTA-PONSA-SESTEPA-1.webp',
 ];
 
-function buildSitemapXml(projectPaths, projectImages) {
-  const urlEntries = [];
+function renderUrlEntry(locPathname, imagePathnames) {
+  const images = imagePathnames
+    .map(
+      (p) =>
+        `    <image:image>\n      <image:loc>${xmlEscape(
+          toAbsoluteUrl(p),
+        )}</image:loc>\n    </image:image>`,
+    )
+    .join('\n');
+  return `  <url>\n    <loc>${xmlEscape(
+    toAbsoluteUrl(locPathname),
+  )}</loc>\n${images}\n  </url>`;
+}
 
-  // Homepage entries in all locales
+async function buildSitemapXml(projectPaths, projectImages) {
+  const urlEntries = [];
+  const skipped = [];
+
+  // Homepage entries in all locales.
+  const homeImages = [];
+  for (const imgPath of HOMEPAGE_FEATURED_IMAGES) {
+    if (await fileExists(imgPath)) homeImages.push(imgPath);
+    else skipped.push(imgPath);
+  }
   for (const locale of LOCALES) {
-    const loc = `${SITE_URL}${HOMEPAGE_PATHS[locale]}`;
-    const images = HOMEPAGE_FEATURED_IMAGES
-      .map(
-        (imgPath) =>
-          `    <image:image>\n      <image:loc>${xmlEscape(
-            `${SITE_URL}${imgPath}`,
-          )}</image:loc>\n    </image:image>`,
-      )
-      .join('\n');
-    urlEntries.push(`  <url>\n    <loc>${xmlEscape(loc)}</loc>\n${images}\n  </url>`);
+    urlEntries.push(renderUrlEntry(HOMEPAGE_PATHS[locale], homeImages));
   }
 
   for (const [slug, filenames] of Object.entries(projectImages)) {
     const paths = projectPaths[slug];
     if (!paths) continue; // no public URL for this project — nothing to point a sitemap entry at
 
+    const present = [];
+    for (const filename of filenames) {
+      const rel = `/portfolio/${slug}/images/${filename}`;
+      if (await fileExists(rel)) present.push(rel);
+      else skipped.push(rel);
+    }
+    if (present.length === 0) continue;
+
     for (const locale of LOCALES) {
-      const loc = `${SITE_URL}${paths[locale]}`;
-      const images = filenames
-        .map(
-          (filename) =>
-            `    <image:image>\n      <image:loc>${xmlEscape(
-            `${SITE_URL}/portfolio/${slug}/images/${filename}`,
-          )}</image:loc>\n    </image:image>`,
-        )
-        .join('\n');
-      urlEntries.push(`  <url>\n    <loc>${xmlEscape(loc)}</loc>\n${images}\n  </url>`);
+      urlEntries.push(renderUrlEntry(paths[locale], present));
     }
   }
 
-  return [
+  const xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
     '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
@@ -135,6 +178,8 @@ function buildSitemapXml(projectPaths, projectImages) {
     '</urlset>',
     '',
   ].join('\n');
+
+  return { xml, skipped };
 }
 
 async function main() {
@@ -146,13 +191,22 @@ async function main() {
   const projectPaths = parseProjectPublicPaths(siteUrlsSource);
   const projectImages = parseProjectImages(projectsSource);
 
-  const xml = buildSitemapXml(projectPaths, projectImages);
+  const { xml, skipped } = await buildSitemapXml(projectPaths, projectImages);
   await fs.writeFile(OUTPUT_PATH, xml);
 
-  const totalImages = Object.values(projectImages).reduce((n, imgs) => n + imgs.length, 0);
+  const uniqueImages = new Set();
+  for (const m of xml.matchAll(/<image:loc>([^<]+)<\/image:loc>/g)) uniqueImages.add(m[1]);
+  const urlCount = [...xml.matchAll(/<url>/g)].length;
+
   console.log(
-    `Updated ${OUTPUT_PATH} (${Object.keys(projectImages).length} projects, ${totalImages} images x ${LOCALES.length} locales)`,
+    `Updated ${path.relative(ROOT, OUTPUT_PATH)} — ${urlCount} <url> entries, ${uniqueImages.size} unique images.`,
   );
+  if (skipped.length) {
+    console.warn(
+      `\n${skipped.length} image(s) referenced in projects.ts but missing from public/ — left OUT of the sitemap:`,
+    );
+    for (const s of skipped) console.warn(`  - ${s}`);
+  }
 }
 
 main().catch((err) => {
