@@ -127,6 +127,11 @@ const formattedLocation = projectLocation.toLowerCase().includes('mallorca')
               <cite>&mdash; {pedroQuote[lang].cite}</cite>
             </blockquote>
           )}
+          <p class="project-context">
+            {lang === 'en' && (<>Part of our <a href={getPagePath('home', lang)}>garden design work across Mallorca</a>.</>)}
+            {lang === 'es' && (<>Parte de nuestro <a href={getPagePath('home', lang)}>trabajo de diseño de jardines en Mallorca</a>.</>)}
+            {lang === 'de' && (<>Teil unserer <a href={getPagePath('home', lang)}>Gartengestaltung auf Mallorca</a>.</>)}
+          </p>
         </div>
 
         <!-- Specifications Panel -->
@@ -556,6 +561,22 @@ const formattedLocation = projectLocation.toLowerCase().includes('mallorca')
     font-size: 1rem !important;
     color: var(--color-limestone) !important;
     line-height: 1.7 !important;
+  }
+
+  .project-context {
+    margin-top: 1.75rem;
+    font-size: 0.9rem;
+    color: var(--color-limestone);
+  }
+
+  .project-context a {
+    color: var(--color-olive);
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+  }
+
+  .project-context a:hover {
+    color: var(--color-olive-dark);
   }
 
   .project-quote {

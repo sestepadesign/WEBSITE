@@ -371,20 +371,23 @@ const currentTestimonials = testimonialsCopy[lang];
         <div class="philosophy-text-col">
           {lang === 'en' && (
             <>
-              <p>S'Estepa Design projects sustainable ecosystems through a profound understanding of local soils, climate, and endemic flora.</p>
-              <p>Inspired by the authentic beauty of the island, we ensure every architectural intervention is an organic extension of Mallorca's natural soul.</p>
+              <p>S'Estepa Design was founded in Mallorca in 1999. Pedro Campaner started designing gardens on the island at eighteen; three decades on, the studio is a team of local professionals who have spent their working lives reading this particular terrain.</p>
+              <p>We design for Mallorca as it actually is — limestone and marès soil, the tramuntana wind, long dry summers and real water limits — working with endemic garriga species, dry-stone walls and the ancient wild olives left standing.</p>
+              <p>Every garden is managed from the first site visit to the finished planting, in English, Spanish and German. <a href={getPagePath('about', lang)}>More about the studio</a>.</p>
             </>
           )}
           {lang === 'es' && (
             <>
-              <p>S'Estepa Design proyecta ecosistemas sostenibles a través de un profundo conocimiento de los suelos locales, el clima y la flora endémica.</p>
-              <p>Inspirados por la belleza auténtica de la isla, aseguramos que cada intervención arquitectónica sea una extensión orgánica del alma natural de Mallorca.</p>
+              <p>S'Estepa Design nació en Mallorca en 1999. Pedro Campaner empezó a diseñar jardines en la isla a los dieciocho años; tres décadas después, el estudio es un equipo de profesionales locales que han dedicado su vida laboral a leer este terreno concreto.</p>
+              <p>Diseñamos para la Mallorca real: suelo calcáreo y marès, la tramontana, veranos largos y secos y límites de agua reales, trabajando con especies endémicas de la garriga, muros de piedra seca y los viejos acebuches que dejamos en pie.</p>
+              <p>Cada jardín se gestiona desde la primera visita hasta la última plantación, en español, inglés y alemán. <a href={getPagePath('about', lang)}>Más sobre el estudio</a>.</p>
             </>
           )}
           {lang === 'de' && (
             <>
-              <p>S'Estepa Design entwirft nachhaltige Ökosysteme durch ein tiefes Verständnis der lokalen Böden, des Klimas und der endemischen Flora.</p>
-              <p>Inspiriert von der authentischen Schönheit der Insel stellen wir sicher, dass jeder architektonische Eingriff eine organische Erweiterung der natürlichen Seele Mallorcas ist.</p>
+              <p>S'Estepa Design wurde 1999 auf Mallorca gegründet. Pedro Campaner begann mit achtzehn Jahren, Gärten auf der Insel zu gestalten; drei Jahrzehnte später ist das Studio ein Team lokaler Fachleute, die ihr Berufsleben dem Lesen genau dieses Geländes gewidmet haben.</p>
+              <p>Wir gestalten für Mallorca, wie es wirklich ist — Kalk- und Marès-Boden, der Tramuntana-Wind, lange trockene Sommer und echte Wassergrenzen — mit endemischen Garriga-Arten, Trockenmauern und den alten wilden Olivenbäumen, die stehen bleiben.</p>
+              <p>Jeder Garten wird von der ersten Besichtigung bis zur fertigen Bepflanzung begleitet, auf Deutsch, Spanisch und Englisch. <a href={getPagePath('about', lang)}>Mehr über das Studio</a>.</p>
             </>
           )}
         </div>
@@ -1050,6 +1053,17 @@ const currentTestimonials = testimonialsCopy[lang];
     font-size: 1.15rem;
     color: var(--color-charcoal-light);
     line-height: 1.8;
+  }
+
+  .philosophy-text-col a {
+    color: var(--color-olive);
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+    transition: var(--transition-fast);
+  }
+
+  .philosophy-text-col a:hover {
+    color: var(--color-olive-dark);
   }
 
   .philosophy-seo-lead {
