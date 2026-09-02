@@ -48,6 +48,16 @@
 /de/erhohen-sie-ihren-lebensstil-auf-mallorca-wo-ihr-garten-zum-grosten-raum-ihres-modernen-finca-anwesens-wird/  /de/blog/  301
 /es/eleva-tu-estilo-de-vida-en-mallorca-donde-tu-jardin-se-convierte-en-la-habitacion-mas-grandiosa-de-tu-finca-moderna/  /es/blog/  301
 
+# 2026-09-02: GSC "Erro de redirecionamento" (10). Half were Cloudflare's 308
+# trailing-slash normalisation (fine, resolve 200 — stale flags from Apr crawls).
+# These five now hit a plain 404 — locale-less project slugs and an old contact
+# slug that need a direct 301.
+/benissalem/  /binissalem/  301
+/puig-na-morisca/  /santa-ponsa/  301
+/crestatx/  /crestatx-garden-design/  301
+/es/contacte-con/  /es/contacto/  301
+/de/finca-garden-campos-mallorca/  /de/finca-garten-campos/  301
+
 # Removed 2026-08-31: broken WordPress-import stub posts (no content, noindex) → Journal
 /design2d/  /blog/  301
 /design2d3d/  /blog/  301
