@@ -26,6 +26,28 @@
 /de/category/portfolio-de/  /de/portfolio/  301
 /de/category/portfolio-de  /de/portfolio/  301
 
+# 2026-09-02: the 14 URLs in GSC "Não encontrado (404)" (Coverage drilldown in
+# docs/search/). Old about-page slugs, WP taxonomy pages, and DE/ES translations
+# of pages that were never carried over. /category/2d-simple-design/ was still
+# ranking pos 28 for "garden design mallorca" despite being 404 for months.
+/de/ueber/  /de/uber/  301
+/es/acerca-de/  /es/sobre/  301
+/category/2d-simple-design/  /portfolio/  301
+/category/2d-simple-design  /portfolio/  301
+/category/landscape-design/  /portfolio/  301
+/category/landscape-design  /portfolio/  301
+/tag/garden-design/  /portfolio/  301
+/tag/garden-design  /portfolio/  301
+/de/category/3d-renders-de/  /de/portfolio/  301
+/de/category/3d-renders-de  /de/portfolio/  301
+/es/category/cartera/  /es/portfolio/  301
+/es/category/cartera  /es/portfolio/  301
+/de/2d-und-3d-entwurf/  /de/gartengestaltung-mallorca/  301
+/de/landschafts-garten-design-von-der-terrasse-bis-zu-den-fincas-3/  /de/  301
+/de/wie-erstellt-man-einen-landschaftsentwurf/  /de/blog/  301
+/de/erhohen-sie-ihren-lebensstil-auf-mallorca-wo-ihr-garten-zum-grosten-raum-ihres-modernen-finca-anwesens-wird/  /de/blog/  301
+/es/eleva-tu-estilo-de-vida-en-mallorca-donde-tu-jardin-se-convierte-en-la-habitacion-mas-grandiosa-de-tu-finca-moderna/  /es/blog/  301
+
 # Removed 2026-08-31: broken WordPress-import stub posts (no content, noindex) → Journal
 /design2d/  /blog/  301
 /design2d3d/  /blog/  301
