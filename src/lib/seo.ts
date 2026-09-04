@@ -4,6 +4,7 @@ import { SITE_LOCALES, type SiteLocale } from './locale';
 export { SITE_LOCALES, DEFAULT_LOCALE, type SiteLocale } from './locale';
 export const GTM_ID = 'GTM-K6MSRJX9';
 export const GOOGLE_ADS_ID = 'AW-795871100';
+export const GOOGLE_ADS_CONVERSION_FORM = 'AW-795871100/dv-kCJrn0YoaEPyOwPsC';
 export const GTAG_ID = 'GT-WKTZS5C';
 export const GA4_ID = 'G-DZ9ZSG3VH0';
 export const COOKIEYES_CLIENT_ID = 'f292b5d0baace10a4365b956';

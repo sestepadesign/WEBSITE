@@ -795,9 +795,9 @@ const currentTestimonials = testimonialsCopy[lang];
         .then(() => {
           statusDiv.textContent = "Thank you. Your message has been sent successfully.";
           statusDiv.classList.add('success');
-          // Dispara a conversão no Google Ads (mesma tag do contactPage)
+          // Dispara a conversão no Google Ads (mesma tag oficial do contactPage)
           if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-            window.gtag('event', 'conversion', {'send_to': 'AW-795871100/contact_form_lead'});
+            window.gtag('event', 'conversion', {'send_to': 'AW-795871100/dv-kCJrn0YoaEPyOwPsC'});
           }
           form.reset();
         })
@@ -808,7 +808,7 @@ const currentTestimonials = testimonialsCopy[lang];
           statusDiv.classList.add('success');
           // Dispara a conversão também no fallback
           if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-            window.gtag('event', 'conversion', {'send_to': 'AW-795871100/contact_form_lead'});
+            window.gtag('event', 'conversion', {'send_to': 'AW-795871100/dv-kCJrn0YoaEPyOwPsC'});
           }
           form.reset();
         })
