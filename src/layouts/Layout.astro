@@ -189,6 +189,18 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
             const anchor = e.target.closest('a');
             if (anchor && anchor.href && anchor.href.includes('wa.me')) {
               const pathname = window.location.pathname;
+              if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+                window.gtag('event', 'whatsapp_click', {
+                  event_category: 'engagement',
+                  event_label: pathname
+                });
+              }
+              if (window.dataLayer) {
+                window.dataLayer.push({
+                  event: 'whatsapp_click',
+                  page: pathname
+                });
+              }
               const actionUrl = "https://script.google.com/macros/s/AKfycbzR8Kdmb5xfZv1___-qDOmeWgYuSOfwWlqQb00_6x37EACe4xKpgnlU5ZHRJuCPoZIszQ/exec";
               const params = new URLSearchParams({
                 name: "WhatsApp Click",
