@@ -70,10 +70,22 @@ function parseProjectImages(source) {
     if (key === 'hidden' && hiddenVal === 'true' && currentSlug) hiddenSlugs.add(currentSlug);
   }
 
+  // galleryChapters use `dir:` + `photos: [...]` (deliberately not `images:`,
+  // so the pairing above stays one block per project). Collect them per slug
+  // segment as `<dir>/<file>` relative to /portfolio/<slug>/images/.
+  const slugStarts = [...source.matchAll(/^\s*slug: "([\w-]+)"/gm)].map((m) => m.index);
+  const chapterFiles = slugStarts.map((start, i) => {
+    const segment = source.slice(start, slugStarts[i + 1] ?? source.length);
+    return [...segment.matchAll(/dir: "([^"]+)",\s*\n\s*photos: \[([\s\S]*?)\n\s*\]/g)].flatMap(
+      ([, dir, block]) => [...block.matchAll(/"([^"]+)"/g)].map((m) => `${dir}/${m[1]}`),
+    );
+  });
+
   const result = {};
   slugs.forEach((slug, i) => {
     if (hiddenSlugs.has(slug)) return;
     const filenames = [...imageBlocks[i].matchAll(/"([^"]+)"/g)].map((m) => m[1]);
+    filenames.push(...chapterFiles[i]);
     if (filenames.length > 0) result[slug] = filenames;
   });
   return result;

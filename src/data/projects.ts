@@ -6,7 +6,29 @@ export interface ProjectTranslation {
   botanical: string;
   /** Short editorial note shown after the description (e.g. "photographed N months after planting"). */
   developmentNote?: string;
+  /** Dated label for the main gallery when the project also has `galleryChapters` (e.g. "July 2026 · two months after planting"). */
+  galleryLabel?: string;
   imageAlts?: string[];
+}
+
+export interface GalleryChapterText {
+  label: string;
+  note?: string;
+  imageAlts?: string[];
+}
+
+/**
+ * A later photo session shown after the main gallery, in its own layout.
+ * Named `photos` (not `images`) on purpose: scripts/generate-image-sitemap.mjs
+ * pairs exactly one `images: [` block per project.
+ */
+export interface GalleryChapter {
+  /** Subfolder under /portfolio/<slug>/images/ */
+  dir: string;
+  photos: string[];
+  en: GalleryChapterText;
+  es: GalleryChapterText;
+  de: GalleryChapterText;
 }
 
 export interface ProjectClient {
@@ -35,6 +57,8 @@ export interface Project {
   /** Garden surface in m², shown on cards and detail (e.g. "10,000 m²"). Omit when unknown. */
   size?: string;
   images: string[];
+  /** Later photo sessions, in chronological order. All share the page lightbox with `images`. */
+  galleryChapters?: GalleryChapter[];
   en: ProjectTranslation;
   es: ProjectTranslation;
   de: ProjectTranslation;
@@ -573,8 +597,9 @@ export const projects: Project[] = [
     cover: "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp",
     ogImage: "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp",
     images: [
-      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15.webp",
-      "garden-design-mallorca-sant-llorenc-sestepa.webp",
+      // Feature + mid images: September 2026 (4 months) session, live in the chapter subfolder.
+      "2026-09-4-months/garden-design-mallorca-sant-llorenc-4-months-08-pool-view-mallorcan-countryside.webp",
+      "2026-09-4-months/garden-design-mallorca-sant-llorenc-4-months-18-olives-lavender-countryside.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-23.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-19-2.webp",
@@ -598,6 +623,109 @@ export const projects: Project[] = [
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-21.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-09.webp"
     ],
+    galleryChapters: [
+      {
+        // Shot 08.09.2026 (originals IMG_37xx/38xx, see _selection.txt). Order follows the
+        // visitor's walk: entrance → olives & gaura → house emerging → grass garden → pool → countryside.
+        dir: "2026-09-4-months",
+        photos: [
+          "garden-design-mallorca-sant-llorenc-4-months-04-olive-house-gaura-meadow.webp",
+          "garden-design-mallorca-sant-llorenc-4-months-02-entrance-path-rosemary-lavender-stipa.webp",
+          "garden-design-mallorca-sant-llorenc-4-months-01-olive-gaura-stipa.webp",
+          "garden-design-mallorca-sant-llorenc-4-months-17-olive-house-corner.webp",
+          "garden-design-mallorca-sant-llorenc-4-months-15-olive-gaura-curve.webp",
+          "garden-design-mallorca-sant-llorenc-4-months-03-olives-gaura-house-emerging.webp",
+          "garden-design-mallorca-sant-llorenc-4-months-05-house-gaura-meadow.webp",
+          "garden-design-mallorca-sant-llorenc-4-months-16-low-angle-bulbine-grasses.webp",
+          "garden-design-mallorca-sant-llorenc-4-months-11-gaura-flowers-detail.webp",
+          "garden-design-mallorca-sant-llorenc-4-months-09-facade-grass-garden.webp",
+          "garden-design-mallorca-sant-llorenc-4-months-10-grass-garden-backlight.webp",
+          "garden-design-mallorca-sant-llorenc-4-months-13-facade-climbers-stipa.webp",
+          "garden-design-mallorca-sant-llorenc-4-months-12-centenary-olive-architecture.webp",
+          "garden-design-mallorca-sant-llorenc-4-months-14-dry-stone-wall-grasses.webp",
+          "garden-design-mallorca-sant-llorenc-4-months-19-dry-stone-terraces-stairs-olive.webp",
+          "garden-design-mallorca-sant-llorenc-4-months-06-pool-house-grasses.webp",
+          "garden-design-mallorca-sant-llorenc-4-months-07-pool-terrace-grass-garden.webp",
+          "garden-design-mallorca-sant-llorenc-4-months-08-pool-view-mallorcan-countryside.webp",
+          "garden-design-mallorca-sant-llorenc-4-months-18-olives-lavender-countryside.webp"
+        ],
+        en: {
+          label: "September 2026 · four months after planting",
+          note: "The same garden eight weeks later. The grasses and gaura have filled out around the house, and the planting is beginning to close over the bare ground.",
+          imageAlts: [
+            "Sant Llorenç garden four months after planting: olive tree and gaura meadow in front of the house",
+            "Entrance path lined with rosemary, lavender and Stipa grasses leading towards the hidden house",
+            "Olive tree rising from drifts of flowering gaura and Stipa tenuissima in Sant Llorenç, Mallorca",
+            "Olive tree and young Mediterranean planting at the corner of the country house",
+            "Curving drift of white gaura beside an olive tree, the garden blending into the Mallorcan countryside",
+            "Olive trees and gaura in the foreground, with the house emerging from the vegetation beyond",
+            "Country house seen across a meadow of flowering gaura and ornamental grasses",
+            "Low-angle view through grasses and bulbine towards the house on the horizon",
+            "Close-up of Gaura lindheimeri flowers in bloom beside the house",
+            "Grass garden along the façade, Stipa and gaura softening the architecture",
+            "Backlit ornamental grasses and olive trees in the dry grass garden",
+            "Façade with climbing plants and Stipa tenuissima in the gravel border",
+            "Centenary olive tree beside the stone and render architecture of the house",
+            "Dry stone wall bordering a planting of Mediterranean grasses and gaura",
+            "Dry-stone terraces and stairs with a centenary olive tree and ornamental grasses in Sant Llorenç, Mallorca",
+            "Swimming pool and house framed by ornamental grasses four months after planting",
+            "Pool terrace surrounded by a naturalistic garden of drought-tolerant grasses",
+            "View across the pool to the Mallorcan countryside, the garden fading into the landscape",
+            "Olive trees, lavender and drifts of gaura opening onto the Mallorcan countryside, four months after planting"
+          ]
+        },
+        es: {
+          label: "Septiembre 2026 · cuatro meses después de la plantación",
+          note: "El mismo jardín ocho semanas después. Las gramíneas y la gaura han ganado volumen alrededor de la casa y la plantación empieza a cubrir el suelo desnudo.",
+          imageAlts: [
+            "Jardín de Sant Llorenç cuatro meses después de la plantación: olivo y pradera de gaura frente a la casa",
+            "Camino de entrada bordeado de romero, lavanda y Stipa que conduce hacia la casa escondida",
+            "Olivo entre masas de gaura en flor y Stipa tenuissima en Sant Llorenç, Mallorca",
+            "Olivo y plantación mediterránea joven en la esquina de la casa de campo",
+            "Curva de gaura blanca junto a un olivo, el jardín fundiéndose con el campo mallorquín",
+            "Olivos y gaura en primer plano, con la casa emergiendo de la vegetación al fondo",
+            "Casa de campo vista a través de una pradera de gaura en flor y gramíneas ornamentales",
+            "Vista a ras de suelo entre gramíneas y bulbine hacia la casa en el horizonte",
+            "Detalle de flores de Gaura lindheimeri junto a la casa",
+            "Jardín de gramíneas a lo largo de la fachada, Stipa y gaura suavizando la arquitectura",
+            "Gramíneas ornamentales y olivos a contraluz en el jardín seco",
+            "Fachada con trepadoras y Stipa tenuissima en el parterre de grava",
+            "Olivo centenario junto a la arquitectura de piedra y revoco de la casa",
+            "Muro de piedra seca bordeando una plantación de gramíneas mediterráneas y gaura",
+            "Terrazas de piedra seca y escalera con olivo centenario y gramíneas ornamentales en Sant Llorenç, Mallorca",
+            "Piscina y casa enmarcadas por gramíneas ornamentales cuatro meses después de la plantación",
+            "Terraza de la piscina rodeada de un jardín naturalista de gramíneas de secano",
+            "Vista sobre la piscina hacia el campo mallorquín, el jardín fundiéndose con el paisaje",
+            "Olivos, lavanda y masas de gaura abiertos al campo mallorquín, cuatro meses después de la plantación"
+          ]
+        },
+        de: {
+          label: "September 2026 · vier Monate nach der Pflanzung",
+          note: "Derselbe Garten acht Wochen später. Gräser und Gaura sind rund um das Haus dichter geworden, und die Pflanzung beginnt, den offenen Boden zu schließen.",
+          imageAlts: [
+            "Garten in Sant Llorenç vier Monate nach der Pflanzung: Olivenbaum und Gaura-Wiese vor dem Haus",
+            "Eingangsweg mit Rosmarin, Lavendel und Stipa, der zum verborgenen Haus führt",
+            "Olivenbaum inmitten blühender Gaura und Stipa tenuissima in Sant Llorenç, Mallorca",
+            "Olivenbaum und junge mediterrane Bepflanzung an der Ecke des Landhauses",
+            "Geschwungenes Band aus weißer Gaura neben einem Olivenbaum, der Garten geht in die mallorquinische Landschaft über",
+            "Olivenbäume und Gaura im Vordergrund, dahinter taucht das Haus aus der Vegetation auf",
+            "Landhaus hinter einer Wiese aus blühender Gaura und Ziergräsern",
+            "Bodennahe Perspektive durch Gräser und Bulbine auf das Haus am Horizont",
+            "Nahaufnahme blühender Gaura lindheimeri am Haus",
+            "Gräsergarten entlang der Fassade, Stipa und Gaura mildern die Architektur",
+            "Ziergräser und Olivenbäume im Gegenlicht im trockenen Gräsergarten",
+            "Fassade mit Kletterpflanzen und Stipa tenuissima im Kiesbeet",
+            "Jahrhundertealter Olivenbaum neben der Stein- und Putzarchitektur des Hauses",
+            "Trockenmauer an einer Pflanzung aus mediterranen Gräsern und Gaura",
+            "Trockenmauer-Terrassen und Treppe mit jahrhundertealtem Olivenbaum und Ziergräsern in Sant Llorenç, Mallorca",
+            "Pool und Haus, eingerahmt von Ziergräsern vier Monate nach der Pflanzung",
+            "Poolterrasse inmitten eines naturnahen Gartens aus trockenheitsverträglichen Gräsern",
+            "Blick über den Pool in die mallorquinische Landschaft, der Garten geht in die Natur über",
+            "Olivenbäume, Lavendel und Gaura-Bänder, die sich zur mallorquinischen Landschaft öffnen, vier Monate nach der Pflanzung"
+          ]
+        }
+      }
+    ],
     en: {
       title: "Sant Llorenç",
       subtitle: "A sustainable landscape designed as a gradual reveal",
@@ -605,14 +733,15 @@ export const projects: Project[] = [
       botanical: "Olea europaea var. sylvestris (Ullastre), Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
       description: [
         "Before a garden reaches its full potential, there is an equally beautiful stage: watching it grow.",
-        "This 18,000 m² garden in Sant Llorenç was planted just two months ago, so it is still very much in the early stages of development. The plants are establishing themselves, growing and naturally filling out their space. As the seasons pass, the garden will gradually gain more volume, texture and colour.",
+        "This 18,000 m² garden in Sant Llorenç was planted in spring 2026, so it is still very much in the early stages of development. The plants are establishing themselves, growing and naturally filling out their space. As the seasons pass, the garden will gradually gain more volume, texture and colour.",
         "For this project, we wanted to preserve the existing wild olive trees (ullastres), hardy trees that are characteristic of Mallorca's native garriga landscape, using them as the foundation of the design. Around them, we created a natural, wild-inspired landscape composed of low-maintenance flowering species that can thrive together while bringing colour and movement to the garden throughout much of the year.",
         "This is a garden designed to evolve over time, with nature as the true protagonist."
       ],
-      developmentNote: "These photographs were taken two months after planting — a garden still finding its shape, which will continue to fill in and mature over the coming seasons.",
+      developmentNote: "Photographed two months (July 2026) and four months (September 2026) after planting — a garden still finding its shape, which will continue to fill in and mature over the coming seasons.",
+      galleryLabel: "July 2026 · two months after planting",
       imageAlts: [
-        "Integrated swimming pool in Sant Llorenç with timber decking and centenary olive trees",
-        "Dusk view of the swimming pool reflecting the architectural lines and green landscape",
+        "View across the pool to the Mallorcan countryside, the Sant Llorenç garden four months after planting",
+        "Olive trees, lavender and drifts of gaura opening onto the Mallorcan countryside, four months after planting",
         "Scenic vista of the Mallorcan countryside hills integrated with the garden borders",
         "Informal groups of Stipa tenuissima and young olive trees in a private estate of Mallorca",
         "Elegantly pruned olive tree acting as a sculptural focus point in the landscape design",
@@ -644,14 +773,15 @@ export const projects: Project[] = [
       botanical: "Olea europaea var. sylvestris (Ullastre), Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
       description: [
         "Antes de que un jardín alcance su máximo esplendor, hay una etapa igual de bonita: verlo crecer.",
-        "Este jardín de aproximadamente 18.000 m² en Sant Llorenç tiene apenas dos meses desde su plantación, por lo que se encuentra en pleno proceso de desarrollo. Las plantas aún están estableciéndose, creciendo y ocupando su espacio de forma natural. Con el paso de las estaciones irá adquiriendo cada vez más volumen, textura y color.",
+        "Este jardín de aproximadamente 18.000 m² en Sant Llorenç se plantó en la primavera de 2026, por lo que se encuentra en pleno proceso de desarrollo. Las plantas aún están estableciéndose, creciendo y ocupando su espacio de forma natural. Con el paso de las estaciones irá adquiriendo cada vez más volumen, textura y color.",
         "En este proyecto quisimos conservar los acebuches (ullastres) existentes, árboles resistentes y representativos de la garriga mallorquina, utilizándolos como base del diseño. A su alrededor creamos un paisaje de carácter silvestre, compuesto por especies de floración natural y bajo mantenimiento, capaces de convivir entre sí y aportar color y movimiento durante gran parte del año.",
         "Es un jardín pensado para evolucionar con el tiempo, donde la naturaleza es la verdadera protagonista."
       ],
-      developmentNote: "Estas fotografías fueron tomadas dos meses después de la plantación — un jardín que aún está tomando forma y que continuará densificándose y madurando en las próximas estaciones.",
+      developmentNote: "Fotografiado a los dos meses (julio 2026) y a los cuatro meses (septiembre 2026) de la plantación — un jardín que aún está tomando forma y que continuará densificándose y madurando en las próximas estaciones.",
+      galleryLabel: "Julio 2026 · dos meses después de la plantación",
       imageAlts: [
-        "Piscina integrada en el paisaje de Sant Llorenç con tarima de madera y olivos centenarios",
-        "Vista crepuscular de la piscina reflejando la arquitectura de piedra y la vegetación",
+        "Vista sobre la piscina hacia el campo mallorquín, el jardín de Sant Llorenç cuatro meses después de la plantación",
+        "Olivos, lavanda y masas de gaura abiertos al campo mallorquín, cuatro meses después de la plantación",
         "Vista panorámica del campo mallorquín integrada con los límites del jardín",
         "Agrupaciones de gramíneas Stipa tenuissima y olivos jóvenes en una finca privada de Mallorca",
         "Olivo podado con elegancia actuando como punto focal escultórico en el paisaje",
@@ -683,14 +813,15 @@ export const projects: Project[] = [
       botanical: "Olea europaea var. sylvestris (Ullastre), Rosmarinus officinalis, Stipa tenuissima, Perovskia atriplicifolia, Teucrium fruticans, Chamaerops humilis",
       description: [
         "Bevor ein Garten seine volle Pracht erreicht, gibt es eine ebenso schöne Phase: ihm beim Wachsen zuzusehen.",
-        "Dieser rund 18.000 m² große Garten in Sant Llorenç ist erst zwei Monate nach der Pflanzung alt und befindet sich somit noch mitten in der Entwicklung. Die Pflanzen etablieren sich, wachsen und nehmen auf natürliche Weise ihren Raum ein. Mit jeder Jahreszeit wird er zunehmend an Volumen, Textur und Farbe gewinnen.",
+        "Dieser rund 18.000 m² große Garten in Sant Llorenç wurde im Frühjahr 2026 gepflanzt und befindet sich somit noch mitten in der Entwicklung. Die Pflanzen etablieren sich, wachsen und nehmen auf natürliche Weise ihren Raum ein. Mit jeder Jahreszeit wird er zunehmend an Volumen, Textur und Farbe gewinnen.",
         "Bei diesem Projekt wollten wir die vorhandenen wilden Olivenbäume (Ullastres) erhalten — robuste Bäume, die typisch für die mallorquinische Garriga sind — und sie als Grundlage des Entwurfs nutzen. Darum herum haben wir eine Landschaft mit wildem Charakter geschaffen, bestehend aus natürlich blühenden, pflegeleichten Arten, die miteinander harmonieren und einen Großteil des Jahres über Farbe und Bewegung bringen.",
         "Es ist ein Garten, der dafür gedacht ist, sich mit der Zeit zu entwickeln — die Natur ist der wahre Protagonist."
       ],
-      developmentNote: "Diese Aufnahmen entstanden zwei Monate nach der Pflanzung — ein Garten, der noch seine Form findet und sich in den kommenden Jahreszeiten weiter verdichten und entwickeln wird.",
+      developmentNote: "Fotografiert zwei Monate (Juli 2026) und vier Monate (September 2026) nach der Pflanzung — ein Garten, der noch seine Form findet und sich in den kommenden Jahreszeiten weiter verdichten und entwickeln wird.",
+      galleryLabel: "Juli 2026 · zwei Monate nach der Pflanzung",
       imageAlts: [
-        "Integriertes Schwimmbad in Sant Llorenç mit Holzdeck und jahrhundertealten Olivenbäumen",
-        "Dämmerungsblick auf den Pool, der die Steinarchitektur und die grüne Landschaft reflektiert",
+        "Blick über den Pool in die mallorquinische Landschaft, der Garten in Sant Llorenç vier Monate nach der Pflanzung",
+        "Olivenbäume, Lavendel und Gaura-Bänder, die sich zur mallorquinischen Landschaft öffnen, vier Monate nach der Pflanzung",
         "Panoramablick auf die mallorquinische Landschaft integriert mit den Gartenrändern",
         "Informelle Gruppen von Stipa tenuissima und jungen Olivenbäumen auf einem privaten Landgut",
         "Elegant geschnittener Olivenbaum als skulpturaler Mittelpunkt der Landschaftsgestaltung",

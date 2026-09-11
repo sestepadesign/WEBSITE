@@ -36,6 +36,69 @@ const nextProjectLocation = getProjectLocation(nextProject, lang);
 const formattedLocation = projectLocation.toLowerCase().includes('mallorca')
   ? projectLocation
   : `${projectLocation}, Mallorca`;
+// Dated label for the main photo set; also shown in the lightbox caption.
+const galleryLabel = translation.galleryLabel;
+const galleryChapters = project.galleryChapters ?? [];
+// Lightbox stage label for images[0]/[1], which may come from a chapter subfolder.
+const labelFor = (img: string) =>
+  galleryChapters.find((c) => img.startsWith(`${c.dir}/`))?.[lang].label ?? galleryLabel;
+
+// Projects photographed at several growth stages get a stage navigator and one section per
+// stage, newest first; the main gallery (images[2+]) becomes the earliest stage.
+const stageText = {
+  en: { nav: 'The garden over time', photos: 'photographs', latest: 'Latest' },
+  es: { nav: 'El jardín en el tiempo', photos: 'fotografías', latest: 'Más reciente' },
+  de: { nav: 'Der Garten im Lauf der Zeit', photos: 'Fotografien', latest: 'Neueste' },
+}[lang];
+const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+const splitLabel = (label: string) => {
+  const [date, ...rest] = label.split(' · ');
+  return { date, title: capitalize(rest.join(' · ') || date) };
+};
+type Stage = {
+  id: string; label: string; date: string; title: string; note?: string; offset: number;
+  photos: { src: string; alt: string }[];
+};
+const stages: Stage[] = galleryChapters.length === 0 ? [] : [
+  ...[...galleryChapters].reverse().map((chapter) => {
+    const text = chapter[lang];
+    return {
+      id: `stage-${chapter.dir}`,
+      label: text.label,
+      ...splitLabel(text.label),
+      note: text.note,
+      offset: 0,
+      photos: chapter.photos.map((img, idx) => ({
+        src: `/portfolio/${project.slug}/images/${chapter.dir}/${img}`,
+        alt: text.imageAlts?.[idx] ?? `${translation.title} — Garden Design ${formattedLocation}, ${text.label}`,
+      })),
+    };
+  }),
+  {
+    id: 'stage-first',
+    label: galleryLabel ?? '',
+    ...splitLabel(galleryLabel ?? ''),
+    offset: 0,
+    photos: project.images.slice(2).map((img, idx) => ({
+      src: `/portfolio/${project.slug}/images/${img}`,
+      alt: translation.imageAlts?.[idx + 2] ?? `${translation.title} — Garden Design ${formattedLocation}, Image ${idx + 3}`,
+    })),
+  },
+];
+// Position in the shared lightbox sequence (feature + mid images come first).
+stages.reduce((offset, stage) => { stage.offset = offset; return offset + stage.photos.length; }, 2);
+
+// Editorial rhythm for stage grids: wide, pair, trio, repeated; a short tail never leaves a gap.
+const rhythm = (count: number) => {
+  const out: string[] = [];
+  for (let g = 0; out.length < count; g++) {
+    const size = Math.min([1, 2, 3][g % 3], count - out.length);
+    if (size === 1) out.push('r-wide');
+    else if (size === 2) out.push('r-half', 'r-half');
+    else out.push('r-third r-third-lead', 'r-third', 'r-third');
+  }
+  return out;
+};
 ---
 
 <Layout 
@@ -98,6 +161,7 @@ const formattedLocation = projectLocation.toLowerCase().includes('mallorca')
           class="editorial-feature-btn"
           data-src={`/portfolio/${project.slug}/images/${project.images[0]}`}
           data-index={0}
+          data-chapter={labelFor(project.images[0])}
           aria-label={`View image 1 in fullscreen`}
         >
           <div class="editorial-feature-img">
@@ -179,6 +243,7 @@ const formattedLocation = projectLocation.toLowerCase().includes('mallorca')
           class="editorial-mid-btn"
           data-src={`/portfolio/${project.slug}/images/${project.images[1]}`}
           data-index={1}
+          data-chapter={labelFor(project.images[1])}
           aria-label={`View image 2 in fullscreen`}
         >
           <div class="editorial-mid-img">
@@ -213,8 +278,13 @@ const formattedLocation = projectLocation.toLowerCase().includes('mallorca')
       )}
 
       <!-- Image Gallery Grid (images[2+]) -->
-      {project.images.length > 2 && (
+      {galleryChapters.length === 0 && project.images.length > 2 && (
         <section class="project-gallery">
+          {galleryLabel && (
+            <header class="gallery-chapter-head">
+              <h2 class="gallery-chapter-label">{galleryLabel}</h2>
+            </header>
+          )}
           <div class="gallery-grid">
             {project.images.slice(2).map((img, idx) => {
               const globalIdx = idx + 2;
@@ -229,6 +299,7 @@ const formattedLocation = projectLocation.toLowerCase().includes('mallorca')
                   class={`gallery-item-btn ${shouldSpan ? 'full-width' : ''}`}
                   data-src={`/portfolio/${project.slug}/images/${img}`}
                   data-index={globalIdx}
+                  data-chapter={galleryLabel}
                   aria-label={`View image ${globalIdx + 1} in fullscreen`}
                 >
                   <div class="gallery-item">
@@ -245,6 +316,66 @@ const formattedLocation = projectLocation.toLowerCase().includes('mallorca')
           </div>
         </section>
       )}
+
+      <!-- Growth stages: navigator + one section per photo session, newest first.
+           All photos share the page lightbox (buttons reuse .gallery-item-btn). -->
+      {stages.length > 0 && (
+        <nav class="stage-nav" aria-label={stageText.nav}>
+          <p class="stage-kicker">{stageText.nav}</p>
+          <ol class="stage-nav-list">
+            {stages.map((stage, i) => (
+              <li>
+                <a href={`#${stage.id}`} class="stage-nav-card">
+                  <span class="stage-nav-thumb">
+                    <img src={stage.photos[0].src} alt="" loading="lazy" width="1920" height="1280" />
+                  </span>
+                  <span class="stage-nav-date">
+                    {stage.date}
+                    {i === 0 && <em class="stage-nav-latest">{stageText.latest}</em>}
+                  </span>
+                  <span class="stage-nav-title">{stage.title}</span>
+                  <span class="stage-count">{stage.photos.length} {stageText.photos}</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )}
+
+      {stages.map((stage) => {
+        const layout = rhythm(stage.photos.length);
+        return (
+          <section class="stage" id={stage.id}>
+            <header class="stage-head">
+              <p class="stage-kicker">{stage.date}</p>
+              <h2 class="stage-title">{stage.title}</h2>
+              {stage.note && <p class="stage-note">{stage.note}</p>}
+              <p class="stage-count">{stage.photos.length} {stageText.photos}</p>
+            </header>
+            <div class="stage-grid">
+              {stage.photos.map((photo, idx) => (
+                <button
+                  class={`gallery-item-btn stage-item ${layout[idx]}`}
+                  data-src={photo.src}
+                  data-chapter={stage.label}
+                  aria-label={`View image ${stage.offset + idx + 1} in fullscreen`}
+                >
+                  <div class="gallery-item">
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      loading="lazy"
+                      class="gallery-img"
+                      width="1920"
+                      height="1280"
+                    />
+                  </div>
+                </button>
+              ))}
+            </div>
+          </section>
+        );
+      })}
 
       <!-- Secondary Video Section (If present) -->
       {project.secondaryVideo && (
@@ -313,13 +444,18 @@ const formattedLocation = projectLocation.toLowerCase().includes('mallorca')
   const lightboxControls = document.getElementById('lightboxControls');
 
   if (lightbox && lightboxImg && lightboxCaption && lightboxClose && lightboxOverlay) {
-    const images: { src: string; caption: string }[] = [];
+    const images: { src: string; caption: string; chapter: string }[] = [];
     buttons.forEach((btn) => {
       const src = btn.getAttribute('data-src') || '';
       const img = btn.querySelector('img');
       const alt = img ? img.getAttribute('alt') || '' : '';
-      images.push({ src, caption: alt });
+      images.push({ src, caption: alt, chapter: btn.getAttribute('data-chapter') || '' });
     });
+
+    const counterText = (i: number) => {
+      const counter = `${i + 1} / ${images.length}`;
+      return images[i].chapter ? `${images[i].chapter}  —  ${counter}` : counter;
+    };
 
     let currentIndex = 0;
     let idleTimer: ReturnType<typeof setTimeout> | null = null;
@@ -352,13 +488,13 @@ const formattedLocation = projectLocation.toLowerCase().includes('mallorca')
         setTimeout(() => {
           lightboxImg.src = current.src;
           lightboxImg.alt = current.caption;
-          lightboxCaption.textContent = `${currentIndex + 1} / ${images.length}`;
+          lightboxCaption.textContent = counterText(currentIndex);
           setTimeout(() => lightboxImg.classList.remove('transitioning'), 40);
         }, 280);
       } else {
         lightboxImg.src = current.src;
         lightboxImg.alt = current.caption;
-        lightboxCaption.textContent = `${currentIndex + 1} / ${images.length}`;
+        lightboxCaption.textContent = counterText(currentIndex);
       }
     };
 
@@ -848,6 +984,203 @@ const formattedLocation = projectLocation.toLowerCase().includes('mallorca')
 
   .gallery-item-btn.full-width .gallery-item {
     aspect-ratio: 16 / 9;
+  }
+
+  /* Dated chapter headers (main gallery + later photo sessions) */
+  .gallery-chapter-head {
+    margin-bottom: 2.5rem;
+    max-width: 640px;
+  }
+
+  .gallery-chapter-label {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-olive);
+    margin: 0;
+  }
+
+  /* Growth stages (projects with galleryChapters): navigator + one section per stage */
+  .stage-nav,
+  .stage {
+    border-top: 1px solid var(--color-sand-dark);
+    padding-top: 4rem;
+    margin-top: 2rem;
+  }
+
+  .stage {
+    margin-top: 5rem;
+    scroll-margin-top: 6rem;
+  }
+
+  .stage-kicker {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-olive);
+    margin: 0 0 1rem;
+  }
+
+  .stage-nav .stage-kicker {
+    margin-bottom: 2rem;
+  }
+
+  .stage-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1rem, 3vw, 3rem);
+  }
+
+  .stage-nav-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .stage-nav-thumb {
+    display: block;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: var(--color-sand-base);
+    margin-bottom: 0.75rem;
+  }
+
+  .stage-nav-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .stage-nav-card:hover .stage-nav-thumb img {
+    transform: scale(1.03);
+  }
+
+  .stage-nav-date {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-olive);
+  }
+
+  .stage-nav-latest {
+    font-style: normal;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    border: 1px solid currentColor;
+    padding: 0.15rem 0.5rem;
+  }
+
+  .stage-nav-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    line-height: 1.3;
+    transition: color 0.3s ease;
+  }
+
+  .stage-nav-card:hover .stage-nav-title {
+    color: var(--color-olive);
+  }
+
+  .stage-head {
+    max-width: 640px;
+    margin-bottom: 2.5rem;
+  }
+
+  .stage-title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  .stage-note {
+    margin: 1.25rem 0 0;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-charcoal-light);
+  }
+
+  .stage-count {
+    margin: 1rem 0 0;
+    font-size: 0.85rem;
+    color: var(--color-limestone);
+  }
+
+  .stage-nav-card .stage-count {
+    margin: 0;
+  }
+
+  /* 6-column editorial rhythm: wide 16:9, then a pair, then a trio (see rhythm() above) */
+  .stage-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: clamp(0.75rem, 1.2vw, 1.25rem);
+  }
+
+  .stage-item.r-wide { grid-column: span 6; }
+  .stage-item.r-half { grid-column: span 3; }
+  .stage-item.r-third { grid-column: span 2; }
+
+  .stage-item.r-wide .gallery-item {
+    aspect-ratio: 16 / 9;
+  }
+
+  @media (max-width: 768px) {
+    .stage-nav,
+    .stage {
+      padding-top: 3rem;
+    }
+
+    .stage {
+      margin-top: 3.5rem;
+    }
+
+    .stage-nav-list {
+      gap: 1rem;
+    }
+
+    .stage-head {
+      margin-bottom: 1.75rem;
+    }
+
+    /* 2 columns: the trio opens with a wide frame so rows always pair evenly */
+    .stage-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stage-item.r-wide,
+    .stage-item.r-third-lead {
+      grid-column: span 2;
+    }
+
+    .stage-item.r-half,
+    .stage-item.r-third:not(.r-third-lead) {
+      grid-column: span 1;
+    }
+
+    .stage-item.r-third-lead .gallery-item {
+      aspect-ratio: 16 / 9;
+    }
   }
 
   .finca-garden-campos-mallorca .gallery-item-btn:first-child {
