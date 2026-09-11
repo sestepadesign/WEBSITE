@@ -598,8 +598,8 @@ export const projects: Project[] = [
     ogImage: "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp",
     images: [
       // Feature + mid images: September 2026 (4 months) session, live in the chapter subfolder.
-      "2026-09-4-months/garden-design-mallorca-sant-llorenc-4-months-08-pool-view-mallorcan-countryside.webp",
-      "2026-09-4-months/garden-design-mallorca-sant-llorenc-4-months-18-olives-lavender-countryside.webp",
+      "2026-09-4-months/garden-design-mallorca-sant-llorenc-4-months-08-pool-view-mallorcan-countryside-lavender.webp",
+      "2026-09-4-months/garden-design-mallorca-sant-llorenc-4-months-18-olives-lavender-gaura-countryside.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-23.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-19-2.webp",
@@ -646,8 +646,8 @@ export const projects: Project[] = [
           "garden-design-mallorca-sant-llorenc-4-months-19-dry-stone-terraces-stairs-olive.webp",
           "garden-design-mallorca-sant-llorenc-4-months-06-pool-house-grasses.webp",
           "garden-design-mallorca-sant-llorenc-4-months-07-pool-terrace-grass-garden.webp",
-          "garden-design-mallorca-sant-llorenc-4-months-08-pool-view-mallorcan-countryside.webp",
-          "garden-design-mallorca-sant-llorenc-4-months-18-olives-lavender-countryside.webp"
+          "garden-design-mallorca-sant-llorenc-4-months-08-pool-view-mallorcan-countryside-lavender.webp",
+          "garden-design-mallorca-sant-llorenc-4-months-18-olives-lavender-gaura-countryside.webp"
         ],
         en: {
           label: "September 2026 · four months after planting",
