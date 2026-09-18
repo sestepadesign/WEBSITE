@@ -40,6 +40,12 @@ S'Estepa Design does not publish fixed prices or project value ranges. Every pro
 - [Crestatx Sustainable Garden](https://design.sestepa.com/crestatx-garden-design/): Native species, zero-irrigation design
 - [Palma Terrace Garden](https://design.sestepa.com/terrace-garden-in-palma/): Urban rooftop garden design
 
+## Data API
+
+- [Projects API reference](https://design.sestepa.com/api/docs): Read-only JSON feed of all published garden projects (titles, locations, planting, URLs, cover images) in English, Spanish and German
+- [Projects feed](https://design.sestepa.com/api/projects.json): The JSON itself, rebuilt on every deploy
+- [OpenAPI description](https://design.sestepa.com/api/openapi.json): Machine-readable schema
+
 ## Language versions
 
 - English: https://design.sestepa.com/

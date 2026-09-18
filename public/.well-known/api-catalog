@@ -2,6 +2,9 @@
   "linkset": [
     {
       "anchor": "https://design.sestepa.com/api/projects.json",
+      "service-desc": [
+        { "href": "https://design.sestepa.com/api/openapi.json", "type": "application/vnd.oai.openapi+json" }
+      ],
       "service-doc": [
         { "href": "https://design.sestepa.com/api/docs", "type": "text/html" }
       ]
