@@ -118,8 +118,8 @@ export const PROJECT_PUBLIC_PATHS: Record<string, Record<SiteLocale, string>> = 
   },
   'santa-ponsa': {
     en: '/santa-ponsa/',
-    es: '/es/puig-na-morisca/',
-    de: '/de/puig-na-morisca/',
+    es: '/es/santa-ponsa/',
+    de: '/de/santa-ponsa/',
   },
   'son-vida': {
     en: '/son-vida/',
