@@ -980,6 +980,7 @@ export const projects: Project[] = [
     video: null,
     cover: "/portfolio/santa-ponsa/images/GARDEN-DESIGN-MALLORCA-SANTA-PONSA-SESTEPA-1.jpg",
     images: [
+        "GARDEN-DESIGN-MALLORCA-SANTA-PONSA-SESTEPA-1.2.jpg",
         "GARDEN-DESIGN-MALLORCA-SANTA-PONSA-SESTEPA-1.jpg",
         "GARDEN-DESIGN-MALLORCA-SANTA-PONSA-SESTEPA-2.jpg",
         "GARDEN-DESIGN-MALLORCA-SANTA-PONSA-SESTEPA-3.jpg",

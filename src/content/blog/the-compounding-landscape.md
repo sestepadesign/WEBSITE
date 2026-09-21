@@ -10,7 +10,7 @@ noindex: false
 
 Picture two olive trees on a west-facing terrace, ten metres apart.
 
-The first is planted into rotavated ground, watered on a daily summer clock and fed each spring. The second goes in behind a re-laid dry-stone wall, mulched with its own prunings, and watered only through establishment.
+The first is planted into rotavated ground, watered on a daily summer clock and fed each spring. The second goes in under the shelter of existing vegetation, mulched with its own prunings, and watered only through establishment.
 
 Several summers on, the first still scorches at the leaf margins through August and remains dependent on irrigation. The second, once established, can go through long stretches with no supplementary water.
 
@@ -30,29 +30,13 @@ Conventional landscaping has tended to treat a site's difficulties as problems t
 
 A permacultural approach spends the first season observing and measuring. The existing conditions become part of the project and help determine its layout, its materials and its planting palette.
 
-*   **Sun and stored heat:** where the midday sun actually lands in July versus January, and which existing walls and rock surfaces hold and release warmth. This tells us where planting should sit before a single species is chosen.
+*   **Sun and stored heat:** where the midday sun actually lands in July versus January, and which existing rock surfaces hold and release warmth. This tells us where planting should sit before a single species is chosen.
 *   **Water and landform:** where runoff concentrates after a September storm, how it moves across the ground, and where it can be slowed, spread and infiltrated. The layout also carries a designed overflow route for the storm that exceeds expected capacity.
-*   **The soil that is there:** Mallorca's red, clay-rich soils vary considerably in depth, texture and drainage even within one property. That is why we begin with soil pits and laboratory analysis by zone. The planting palette is then matched to what is found — *Olea europaea*, *Pistacia lentiscus*, *Ceratonia siliqua* and other species suited to the real conditions of the site.
+*   **The soil that is there:** Mallorca's red, clay-rich soils vary considerably in depth, texture and drainage even within one property. That is why we begin by observing the soil depth, structure and natural behavior by zone. The planting palette is then matched to what is found — *Olea europaea*, *Pistacia lentiscus*, *Ceratonia siliqua* and other species suited to the real conditions of the site.
 
-Our [Crestatx](/crestatx-garden-design/) garden was built on this soil-first logic. The ground was regenerated in place where possible, rather than replaced wholesale with hundreds of cubic metres of imported amendment.
+The ground is regenerated in place where possible, rather than replaced wholesale with hundreds of cubic metres of imported amendment.
 
-## 2. Shelter Is Infrastructure, Not Decoration
-
-*(Holmgren: Use edges and value the marginal; Integrate rather than segregate)*
-
-In ecology, the contact zone between two systems — the *ecotone* — concentrates a large share of the exchange of matter, energy and species. Permaculture's principle of working with edges is an invitation to pay attention to exactly those boundaries.
-
-On many Balearic estates, one of the most decisive boundaries is vertical and built. The island itself keeps an extraordinary tradition for working with them: the *marges* and *parets seques*, recognised by UNESCO as intangible cultural heritage.
-
-*   **Thermal mass:** a stone wall with enough mass stores part of the day's solar gain and releases it gradually after dusk. In the right position, this effect can change the microclimate conditions in the closest few metres and widen what can be planted there.
-*   **Wind in the lee:** set across the prevailing *Tramuntana*, a wall can create a sheltered zone where wind speed and evaporative demand both fall. The effect varies with height, porosity, orientation and distance from the wall, forming a gradient that fades as you move away.
-*   **Permeable margins:** a near-solid wall can throw a short, turbulent wake. So, where the design calls for it, we work with openings and with a planted layer that extends and smooths the aerodynamic shelter.
-
-At [Sant Llorenç](/sant-llorenc/), re-laid dry stone and centenary olives work together as a sheltering structure, combining heritage, mature planting and microclimate.
-
-![Fig. 1: The wall as a microclimate — the Tramuntana wind deflected upward, the day's heat stored in the stone and released after dusk into a sheltered lee where low aromatics grow, with a centenary olive and its deep roots beyond.](/images/diagrams/cl-fig-wall-cross-section.webp)
-
-## 3. Plant in Layers That Shade Themselves
+## 2. Plant in Layers That Shade Themselves
 
 *(Holmgren: Use and value diversity; Apply self-regulation and accept feedback)*
 
@@ -71,7 +55,7 @@ Near buildings, the planting composition must also answer to wildfire-safety con
 
 ![Fig. 2: Four planting layers, compressed for a semi-arid site — canopy, mid-tier, shrub and groundcover, each shading the layer beneath it.](/images/diagrams/cl-fig-planting-layers.webp)
 
-## 4. Close the Loop as Far as a Garden Can
+## 3. Close the Loop as Far as a Garden Can
 
 *(Holmgren: Produce no waste; Use and value renewable resources and services)*
 
@@ -81,19 +65,17 @@ Seasonal prunings — screened first to set aside diseased or regulated material
 
 Routine runoff can be slowed and infiltrated where the ground allows. The excess is carried off on a drainage route designed for that purpose, rather than left to find its own way during a storm.
 
-No estate is a fully closed system. Through the first years it still needs water for establishment, nursery stock and, in some cases, specific soil-test-directed amendments.
+No estate is a fully closed system. Through the first years it still needs water for establishment, nursery stock and, in some cases, specific amendments tailored to the site's observed needs.
 
 The point is to reduce the losses and keep a greater share of the material within the system itself: a garden that uses its own plant residue, protects its soil, and lets the biology of the ground take a growing part in its fertility.
 
 Our essay on [regenerative landscapes and Mallorca's water realities](/regenerative-landscapes-despite-mallorcas-water-realities/) sets out this same logic applied to water.
 
-![Regenerative dry garden with mineral ground layers, Crestatx, Mallorca](/images/journal/high-end-landscape-design-mallorca-crestatx.jpg)
-
 ## An Enduring Image, More Efficient to Keep
 
 None of this compromises the image a client expects of a high-end garden.
 
-A mature olive over a silver understorey, a stone wall that holds the afternoon's warmth, a floor of rosemary whose scent reaches you before the plant does: this image is part of the identity of the Balearic landscape.
+A mature olive over a silver understorey, natural stone that holds the afternoon's warmth, a floor of rosemary whose scent reaches you before the plant does: this image is part of the identity of the Balearic landscape.
 
 The difference is in how it is built.
 
@@ -111,6 +93,6 @@ The result is a design that aims to reduce project risk, improve long-term behav
 
 *If you are planning an estate, villa or terrace in Mallorca, the first step can be to understand the place before deciding what to plant.*
 
-*Contact S'Estepa Design for a site reading and a zone-by-zone soil analysis as part of the garden design process.*
+*Contact S'Estepa Design for a detailed site reading as part of the garden design process.*
 
 *Mediterranean garden design in Mallorca. A boutique landscape studio.*

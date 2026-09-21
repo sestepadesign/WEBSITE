@@ -49,6 +49,8 @@ export const ui = {
     'contact.form.phone': 'Phone Number (Optional)',
     'contact.form.location': 'Property Location',
     'contact.form.location_placeholder': 'e.g. Bunyola, Son Vida, Sant Llorenç',
+    'contact.form.size': 'Garden Size (Optional)',
+    'contact.form.size_placeholder': 'e.g. 2,000 m², 20,000 m²',
     'contact.form.message': 'Message',
     'contact.form.submit': 'Send',
     
@@ -110,6 +112,8 @@ export const ui = {
     'contact.form.phone': 'Su Teléfono (Opcional)',
     'contact.form.location': 'Ubicación de la Propiedad',
     'contact.form.location_placeholder': 'ej. Bunyola, Son Vida, Sant Llorenç',
+    'contact.form.size': 'Superficie del Jardín (Opcional)',
+    'contact.form.size_placeholder': 'ej. 2.000 m², 20.000 m²',
     'contact.form.message': 'Mensaje',
     'contact.form.submit': 'Enviar',
     
@@ -171,6 +175,8 @@ export const ui = {
     'contact.form.phone': 'Telefonnummer (Optional)',
     'contact.form.location': 'Standort der Immobilie',
     'contact.form.location_placeholder': 'z.B. Bunyola, Son Vida, Sant Llorenç',
+    'contact.form.size': 'Gartengröße (Optional)',
+    'contact.form.size_placeholder': 'z.B. 2.000 m², 20.000 m²',
     'contact.form.message': 'Nachricht',
     'contact.form.submit': 'Senden',
     

@@ -10,7 +10,7 @@ noindex: false
 
 Imagine dos olivos plantados en una terraza orientada al oeste, a diez metros el uno del otro.
 
-El primero se planta en tierra rotovada, se riega con un temporizador diario durante el verano y se abona cada primavera. El segundo se sitúa detrás de un muro de piedra seca recién recolocado, recibe acolchado procedente de sus propias podas y se riega solo durante la fase de arraigo.
+El primero se planta en tierra rotovada, se riega con un temporizador diario durante el verano y se abona cada primavera. El segundo se sitúa al abrigo de la vegetación existente, recibe acolchado procedente de sus propias podas y se riega solo durante la fase de arraigo.
 
 Varios veranos después, el primero sigue quemándose por los bordes de la hoja durante agosto y continúa dependiendo del riego. El segundo, una vez establecido, puede pasar largos periodos sin aportes adicionales de agua.
 
@@ -30,29 +30,13 @@ El paisajismo convencional ha tendido a tratar las dificultades del sitio como p
 
 El enfoque permacultural dedica la primera temporada a observar y medir. Las condiciones existentes pasan a formar parte del proyecto y ayudan a determinar su trazado, sus materiales y su paleta vegetal.
 
-*   **Sol y calor acumulado:** dónde incide realmente el sol de mediodía en julio frente a enero, y qué muros y superficies de roca existentes acumulan y devuelven calor. Esta información ayuda a fijar la posición de las plantaciones antes de elegir una sola especie.
+*   **Sol y calor acumulado:** dónde incide realmente el sol de mediodía en julio frente a enero, y qué superficies de roca existentes acumulan y devuelven calor. Esta información ayuda a fijar la posición de las plantaciones antes de elegir una sola especie.
 *   **Agua y relieve:** dónde se concentra la escorrentía después de una tormenta de septiembre, cómo se desplaza por el terreno y dónde puede frenarse, repartirse e infiltrarse. El trazado incorpora también una ruta de desagüe capaz de conducir el excedente cuando una tormenta supera la capacidad prevista.
-*   **El suelo que hay:** los suelos rojos y arcillosos de Mallorca varían considerablemente en profundidad, textura y drenaje incluso dentro de una misma propiedad. Por eso empezamos con calicatas y análisis de laboratorio por zonas. Después, la paleta vegetal se ajusta a lo encontrado: *Olea europaea*, *Pistacia lentiscus*, *Ceratonia siliqua* y otras especies adecuadas a las condiciones reales del lugar.
+*   **El suelo que hay:** los suelos rojos y arcillosos de Mallorca varían considerablemente en profundidad, textura y drenaje incluso dentro de una misma propiedad. Por eso empezamos observando la profundidad, la estructura y el comportamiento natural del terreno por zonas. Después, la paleta vegetal se ajusta a lo encontrado: *Olea europaea*, *Pistacia lentiscus*, *Ceratonia siliqua* y otras especies adecuadas a las condiciones reales del lugar.
 
-Nuestro jardín de [Crestatx](/es/crestatx/) se construyó siguiendo esta lógica de suelo primero. El terreno se regeneró in situ allí donde era posible, evitando sustituirlo indiscriminadamente por cientos de metros cúbicos de enmienda importada.
+El terreno se regenera in situ allí donde es posible, evitando sustituirlo indiscriminadamente por cientos de metros cúbicos de enmienda importada.
 
-## 2. El abrigo es infraestructura, no decoración
-
-*(Holmgren: usar los bordes y valorar lo marginal; integrar en lugar de segregar)*
-
-En ecología, la zona de contacto entre dos sistemas —el *ecotono*— concentra una parte importante del intercambio de materia, energía y especies. El principio permacultural de trabajar con los bordes invita a prestar atención precisamente a esos límites.
-
-En muchas fincas baleares, uno de los límites más determinantes es vertical y construido. La propia isla conserva una tradición extraordinaria para trabajar con ellos: los *marges* y las *parets seques*, reconocidos por la UNESCO como patrimonio cultural inmaterial.
-
-*   **Masa térmica:** un muro de piedra con suficiente masa acumula parte de la radiación solar durante el día y libera calor progresivamente al anochecer. En la posición adecuada, este efecto puede modificar las condiciones del microclima en los metros más próximos y ampliar las posibilidades de plantación.
-*   **Viento a sotavento:** situado transversalmente respecto a la *Tramuntana* dominante, un muro puede crear una zona protegida donde disminuyen la velocidad del viento y la demanda evaporativa. El efecto varía con la altura, la porosidad, la orientación y la distancia respecto al muro, formando un gradiente que pierde intensidad a medida que nos alejamos.
-*   **Márgenes permeables:** un muro casi macizo puede generar una estela corta y turbulenta. Por eso, cuando el diseño lo requiere, trabajamos con aberturas y con un estrato vegetal que prolonga y suaviza la protección aerodinámica.
-
-En [Sant Llorenç](/es/sant-llorenc/), la piedra seca recolocada y los olivos centenarios funcionan conjuntamente como una estructura de abrigo, combinando patrimonio, vegetación madura y microclima.
-
-![Fig. 1: El muro como microclima — la Tramuntana desviada hacia arriba, el calor del día acumulado en la piedra y liberado al anochecer hacia un sotavento abrigado donde crecen aromáticas bajas, con un olivo centenario y sus raíces profundas más allá.](/images/diagrams/cl-fig-wall-cross-section.webp)
-
-## 3. Plantar en estratos que se dan sombra
+## 2. Plantar en estratos que se dan sombra
 
 *(Holmgren: usar y valorar la diversidad; aplicar la autorregulación y aceptar la retroalimentación)*
 
@@ -71,7 +55,7 @@ Cerca de las edificaciones, la composición vegetal debe responder además a las
 
 ![Fig. 2: Cuatro estratos de plantación, comprimidos para una finca semiárida — dosel, estrato medio, arbusto y cubierta, cada uno dando sombra al que tiene debajo.](/images/diagrams/cl-fig-planting-layers.webp)
 
-## 4. Cerrar el ciclo hasta donde un jardín puede
+## 3. Cerrar el ciclo hasta donde un jardín puede
 
 *(Holmgren: no generar residuos; usar y valorar los recursos y servicios renovables)*
 
@@ -81,19 +65,17 @@ Las podas de temporada —previamente cribadas para retirar material enfermo o s
 
 La escorrentía ordinaria puede frenarse e infiltrarse allí donde el terreno lo permite. El excedente se conduce mediante una ruta de drenaje diseñada para ese propósito, en lugar de dejar que encuentre su propio recorrido durante una tormenta.
 
-Ninguna finca es un sistema completamente cerrado. Durante los primeros años sigue siendo necesario aportar agua para el arraigo, material vegetal procedente de vivero y, en determinados casos, enmiendas puntuales determinadas mediante análisis de suelo.
+Ninguna finca es un sistema completamente cerrado. Durante los primeros años sigue siendo necesario aportar agua para el arraigo, material vegetal procedente de vivero y, en determinados casos, enmiendas puntuales según las necesidades observadas en el terreno.
 
 La cuestión está en reducir las pérdidas y mantener una mayor proporción de materia dentro del propio sistema: un jardín que aprovecha sus restos vegetales, protege su suelo y permite que la biología del terreno participe progresivamente en su fertilidad.
 
 Nuestro ensayo sobre [paisajes regenerativos y la realidad hídrica de Mallorca](/es/blog/regenerative-landscapes-despite-mallorcas-water-realities/) desarrolla esta misma lógica aplicada al agua.
 
-![Jardín seco regenerativo con estratos minerales de suelo, Crestatx, Mallorca](/images/journal/high-end-landscape-design-mallorca-crestatx.jpg)
-
 ## Una imagen duradera, más eficiente de mantener
 
 Nada de esto compromete la imagen que el cliente espera de un jardín de alta gama.
 
-Un olivo maduro sobre un sotobosque plateado, un muro de piedra que conserva el calor de la tarde, un suelo de romero cuyo aroma aparece antes que la propia planta: esta imagen forma parte de la identidad del paisaje balear.
+Un olivo maduro sobre un sotobosque plateado, la piedra natural que conserva el calor de la tarde, un suelo de romero cuyo aroma aparece antes que la propia planta: esta imagen forma parte de la identidad del paisaje balear.
 
 La diferencia está en cómo se construye.
 
@@ -111,6 +93,6 @@ El resultado es un diseño que busca reducir el riesgo del proyecto, mejorar su 
 
 *Si está planificando una finca, villa o terraza en Mallorca, el primer paso puede ser entender el lugar antes de decidir qué plantar.*
 
-*Contacte con S'Estepa Design para realizar una lectura del terreno y un análisis del suelo por zonas como parte del proceso de diseño del jardín.*
+*Contacte con S'Estepa Design para realizar una lectura detallada del terreno como parte del proceso de diseño del jardín.*
 
 *Diseño de jardines mediterráneos en Mallorca. Un estudio de paisajismo boutique.*

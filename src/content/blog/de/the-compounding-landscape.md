@@ -10,7 +10,7 @@ noindex: false
 
 Stellen Sie sich zwei Olivenbäume auf einer nach Westen ausgerichteten Terrasse vor, zehn Meter voneinander entfernt.
 
-Der erste wird in fräsgelockerten Boden gepflanzt, im Sommer nach täglicher Zeitschaltuhr bewässert und jedes Frühjahr gedüngt. Der zweite kommt hinter eine neu aufgesetzte Trockenmauer, wird mit dem eigenen Schnittgut gemulcht und nur während der Anwachsphase bewässert.
+Der erste wird in fräsgelockerten Boden gepflanzt, im Sommer nach täglicher Zeitschaltuhr bewässert und jedes Frühjahr gedüngt. Der zweite kommt in den Schutz bestehender Bepflanzung, wird mit dem eigenen Schnittgut gemulcht und nur während der Anwachsphase bewässert.
 
 Mehrere Sommer später verbrennt der erste im August noch immer an den Blatträndern und bleibt von der Bewässerung abhängig. Der zweite kann nach dem Anwachsen lange Zeiträume ohne zusätzliche Wassergaben überstehen.
 
@@ -30,29 +30,13 @@ Konventionelle Gartengestaltung neigte dazu, die Schwierigkeiten eines Standorts
 
 Der Permakultur-Ansatz verbringt die erste Saison mit Beobachten und Messen. Die vorhandenen Bedingungen werden Teil des Projekts und helfen, seinen Grundriss, seine Materialien und seine Pflanzenpalette zu bestimmen.
 
-*   **Sonne und gespeicherte Wärme:** wohin die Mittagssonne im Juli tatsächlich fällt – im Vergleich zum Januar – und welche vorhandenen Mauern und Felsflächen Wärme speichern und abgeben. Das zeigt, wo die Bepflanzung sitzen sollte, bevor eine einzige Art gewählt wird.
+*   **Sonne und gespeicherte Wärme:** wohin die Mittagssonne im Juli tatsächlich fällt – im Vergleich zum Januar – und welche vorhandenen Felsflächen Wärme speichern und abgeben. Das zeigt, wo die Bepflanzung sitzen sollte, bevor eine einzige Art gewählt wird.
 *   **Wasser und Geländeform:** wo sich der Abfluss nach einem Septembergewitter sammelt, wie er sich über den Boden bewegt und wo er verlangsamt, verteilt und versickert werden kann. Die Anlage führt außerdem einen geplanten Überlaufweg für das Ereignis, das die erwartete Kapazität übersteigt.
-*   **Der Boden, der da ist:** Mallorcas rote, tonreiche Böden schwanken erheblich in Tiefe, Textur und Drainage, selbst innerhalb eines Grundstücks. Deshalb beginnen wir mit Bodenprofilen und Laboranalysen je Zone. Die Pflanzenpalette wird dann an das Vorgefundene angepasst – *Olea europaea*, *Pistacia lentiscus*, *Ceratonia siliqua* und weitere Arten, die zu den realen Bedingungen des Standorts passen.
+*   **Der Boden, der da ist:** Mallorcas rote, tonreiche Böden schwanken erheblich in Tiefe, Textur und Drainage, selbst innerhalb eines Grundstücks. Deshalb beginnen wir damit, Bodentiefe, Struktur und natürliches Verhalten je Zone zu beobachten. Die Pflanzenpalette wird dann an das Vorgefundene angepasst – *Olea europaea*, *Pistacia lentiscus*, *Ceratonia siliqua* und weitere Arten, die zu den realen Bedingungen des Standorts passen.
 
-Unser Garten in [Crestatx](/de/crestatx/) folgte dieser Boden-zuerst-Logik. Der Boden wurde vor Ort regeneriert, wo es möglich war, statt ihn pauschal durch Hunderte Kubikmeter importierter Bodenverbesserung zu ersetzen.
+Der Boden wird vor Ort regeneriert, wo es möglich ist, statt ihn pauschal durch Hunderte Kubikmeter importierter Bodenverbesserung zu ersetzen.
 
-## 2. Schutz ist Infrastruktur, nicht Dekoration
-
-*(Holmgren: Randzonen nutzen und das Marginale schätzen; integrieren statt abgrenzen)*
-
-In der Ökologie verdichtet die Kontaktzone zwischen zwei Systemen – das *Ökoton* – einen großen Teil des Austauschs von Materie, Energie und Arten. Das Permakultur-Prinzip, mit Rändern zu arbeiten, ist eine Einladung, genau diesen Grenzen Aufmerksamkeit zu schenken.
-
-Auf vielen balearischen Fincas ist eine der entscheidendsten Grenzen vertikal und gebaut. Die Insel selbst bewahrt eine außergewöhnliche Tradition, mit ihnen zu arbeiten: die *marges* und *parets seques*, von der UNESCO als immaterielles Kulturerbe anerkannt.
-
-*   **Thermische Masse:** Eine Steinmauer mit genügend Masse speichert einen Teil des Sonneneintrags des Tages und gibt ihn nach Einbruch der Dämmerung allmählich ab. In der richtigen Lage kann dieser Effekt die Kleinklima-Bedingungen in den nächsten wenigen Metern verändern und erweitern, was dort gepflanzt werden kann.
-*   **Wind im Windschatten:** quer zur vorherrschenden *Tramuntana* gesetzt, kann eine Mauer eine geschützte Zone schaffen, in der Windgeschwindigkeit und Verdunstungsanspruch beide sinken. Der Effekt hängt von Höhe, Porosität, Ausrichtung und Abstand zur Mauer ab und bildet einen Gradienten, der mit zunehmender Entfernung abnimmt.
-*   **Durchlässige Ränder:** Eine nahezu geschlossene Mauer kann einen kurzen, turbulenten Nachlauf werfen. Daher arbeiten wir, wo der Entwurf es verlangt, mit Öffnungen und mit einer bepflanzten Schicht, die den aerodynamischen Schutz verlängert und glättet.
-
-In [Sant Llorenç](/de/sant-llorenc/) wirken neu aufgesetztes Trockenmauerwerk und jahrhundertealte Olivenbäume gemeinsam als Schutzstruktur – eine Verbindung von Kulturerbe, altem Baumbestand und Kleinklima.
-
-![Abb. 1: Die Mauer als Kleinklima – die Tramuntana nach oben abgelenkt, die Tageswärme im Stein gespeichert und nach der Dämmerung in einen geschützten Windschatten abgegeben, in dem niedrige Aromapflanzen wachsen, mit einem jahrhundertealten Olivenbaum und seinen tiefen Wurzeln dahinter.](/images/diagrams/cl-fig-wall-cross-section.webp)
-
-## 3. In Schichten pflanzen, die sich selbst beschatten
+## 2. In Schichten pflanzen, die sich selbst beschatten
 
 *(Holmgren: Vielfalt nutzen und schätzen; Selbstregulierung anwenden und Feedback annehmen)*
 
@@ -71,7 +55,7 @@ In Gebäudenähe muss die Pflanzkomposition außerdem den Anforderungen des Bran
 
 ![Abb. 2: Vier Pflanzschichten, für einen halbtrockenen Standort verdichtet – Krone, Mittelschicht, Strauch und Bodendecke, jede beschattet die darunterliegende.](/images/diagrams/cl-fig-planting-layers.webp)
 
-## 4. Den Kreislauf schließen, so weit ein Garten kann
+## 3. Den Kreislauf schließen, so weit ein Garten kann
 
 *(Holmgren: keinen Abfall erzeugen; erneuerbare Ressourcen und Dienstleistungen nutzen und schätzen)*
 
@@ -81,19 +65,17 @@ Saisonales Schnittgut – zuvor gesichtet, um krankes oder reguliertes Material 
 
 Gewöhnlicher Abfluss kann verlangsamt und dort versickert werden, wo der Boden es zulässt. Der Überschuss wird über einen eigens dafür geplanten Entwässerungsweg abgeführt, statt sich während eines Gewitters seinen eigenen zu suchen.
 
-Keine Finca ist ein vollständig geschlossenes System. In den ersten Jahren braucht sie weiterhin Wasser zum Anwachsen, Baumschulware und, in manchen Fällen, gezielte, durch Bodenanalyse bestimmte Bodenverbesserungen.
+Keine Finca ist ein vollständig geschlossenes System. In den ersten Jahren braucht sie weiterhin Wasser zum Anwachsen, Baumschulware und, in manchen Fällen, gezielte Bodenverbesserungen je nach beobachtetem Bedarf des Geländes.
 
 Es geht darum, die Verluste zu verringern und einen größeren Anteil der Stoffe im System selbst zu halten: ein Garten, der sein eigenes Pflanzenmaterial nutzt, seinen Boden schützt und die Bodenbiologie einen wachsenden Anteil an seiner Fruchtbarkeit übernehmen lässt.
 
 Unser Essay über [regenerative Landschaften und die Wasserrealität Mallorcas](/de/blog/regenerative-landscapes-despite-mallorcas-water-realities/) führt dieselbe Logik für das Wasser aus.
 
-![Regenerativer Trockengarten mit mineralischen Bodenschichten, Crestatx, Mallorca](/images/journal/high-end-landscape-design-mallorca-crestatx.jpg)
-
 ## Ein bleibendes Bild, effizienter zu erhalten
 
 Nichts davon beschädigt das Bild, das ein Kunde von einem hochwertigen Garten erwartet.
 
-Ein alter Olivenbaum über einem silbrigen Unterwuchs, eine Steinmauer, die die Nachmittagswärme hält, ein Boden aus Rosmarin, dessen Duft einen erreicht, bevor man die Pflanze sieht: Dieses Bild gehört zur Identität der balearischen Landschaft.
+Ein alter Olivenbaum über einem silbrigen Unterwuchs, Naturstein, der die Nachmittagswärme hält, ein Boden aus Rosmarin, dessen Duft einen erreicht, bevor man die Pflanze sieht: Dieses Bild gehört zur Identität der balearischen Landschaft.
 
 Der Unterschied liegt darin, wie es gebaut wird.
 
@@ -111,6 +93,6 @@ Das Ergebnis ist ein Entwurf, der das Projektrisiko senken, das langfristige Ver
 
 *Wenn Sie eine Finca, Villa oder Terrasse auf Mallorca planen, kann der erste Schritt sein, den Ort zu verstehen, bevor Sie entscheiden, was gepflanzt wird.*
 
-*Kontaktieren Sie S'Estepa Design für eine Geländelesung und eine zonenweise Bodenanalyse als Teil des Gartengestaltungsprozesses.*
+*Kontaktieren Sie S'Estepa Design für eine detaillierte Geländelesung als Teil des Gartengestaltungsprozesses.*
 
 *Mediterrane Gartengestaltung auf Mallorca. Ein Boutique-Landschaftsstudio.*

@@ -121,6 +121,11 @@ const findUsText = {
             </div>
 
             <div class="form-group">
+              <label for="garden_size">{t('contact.form.size')}</label>
+              <input type="text" id="garden_size" name="garden_size" placeholder={t('contact.form.size_placeholder')} />
+            </div>
+
+            <div class="form-group">
               <label for="message">{t('contact.form.message')}</label>
               <textarea id="message" name="message" rows="6" required placeholder=" "></textarea>
             </div>
@@ -269,8 +274,20 @@ const findUsText = {
       // Legitimate human submission
       delete data.company_website;
 
+      const gardenSize = (data.garden_size || data.size || '').trim();
+      const extraDetails: string[] = [];
       if (data.phone) {
-        data.message = `[Phone: ${data.phone}]\n\n${data.message || ''}`;
+        extraDetails.push(`Phone: ${data.phone}`);
+      }
+      if (gardenSize) {
+        extraDetails.push(`Garden Size: ${gardenSize}`);
+      }
+      if (extraDetails.length > 0) {
+        data.message = `[${extraDetails.join(' | ')}]\n\n${data.message || ''}`;
+      }
+      if (gardenSize) {
+        data.garden_size = gardenSize;
+        data.size = gardenSize;
       }
 
       data.token = "sestepa_secure_2026";
