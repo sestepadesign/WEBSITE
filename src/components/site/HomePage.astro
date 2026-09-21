@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ContactForm from '../ContactForm.astro';
 import { ui } from '../../data/translations';
 import { projects, getProjectLocation } from '../../data/projects';
 import { testimonials, googleRating, googleReviewCount } from '../../data/testimonials';
@@ -681,43 +682,7 @@ const currentTestimonials = testimonialsCopy[lang];
       <div class="contact-grid">
         <!-- Form Block -->
         <div class="contact-form-container">
-          <form class="contact-form" action="#" method="POST" id="inquiryForm">
-            <div class="form-group">
-              <label for="name">{t('contact.form.name')}</label>
-              <input type="text" id="name" name="name" required placeholder=" " />
-            </div>
-
-            <div class="form-group">
-              <label for="email">{t('contact.form.email')}</label>
-              <input type="email" id="email" name="email" required placeholder=" " />
-            </div>
-
-            <div class="form-group">
-              <label for="phone">{t('contact.form.phone')}</label>
-              <input type="tel" id="phone" name="phone" placeholder=" " />
-            </div>
-
-            <div class="form-group">
-              <label for="subject">{t('contact.form.location')}</label>
-              <input type="text" id="subject" name="subject" required placeholder={t('contact.form.location_placeholder')} />
-            </div>
-
-            <div class="form-group">
-              <label for="garden_size">{t('contact.form.size')}</label>
-              <input type="text" id="garden_size" name="garden_size" placeholder={t('contact.form.size_placeholder')} />
-            </div>
-
-            <div class="form-group">
-              <label for="message">{t('contact.form.message')}</label>
-              <textarea id="message" name="message" rows="6" required placeholder=" "></textarea>
-            </div>
-
-            <button type="submit" class="submit-btn">
-              {t('contact.form.submit')} &rarr;
-            </button>
-            
-            <div class="form-status" id="formStatus" aria-live="polite"></div>
-          </form>
+          <ContactForm lang={lang} />
         </div>
 
         <!-- Info Block -->
@@ -764,78 +729,6 @@ const currentTestimonials = testimonialsCopy[lang];
       </div>
     </div>
   </section>
-
-  <script>
-    // Google Apps Script Web App Integration for form submission
-    const form = document.getElementById('inquiryForm') as HTMLFormElement;
-    const statusDiv = document.getElementById('formStatus');
-
-    if (form && statusDiv) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const submitBtn = form.querySelector('.submit-btn') as HTMLButtonElement;
-        const originalText = submitBtn.innerHTML;
-        submitBtn.textContent = "Sending...";
-        submitBtn.disabled = true;
-        
-        const formData = new FormData(form);
-        const data: Record<string, string> = {};
-        formData.forEach((val, key) => { data[key] = String(val); });
-        
-        const gardenSize = (data.garden_size || data.size || '').trim();
-        const extraDetails: string[] = [];
-        if (data.phone) {
-          extraDetails.push(`Phone: ${data.phone}`);
-        }
-        if (gardenSize) {
-          extraDetails.push(`Garden Size: ${gardenSize}`);
-        }
-        if (extraDetails.length > 0) {
-          data.message = `[${extraDetails.join(' | ')}]\n\n${data.message || ''}`;
-        }
-        if (gardenSize) {
-          data.garden_size = gardenSize;
-          data.size = gardenSize;
-        }
-        
-        data.token = "sestepa_secure_2026";
-        data.lang = document.documentElement.lang || "en";
-        
-        const actionUrl = "https://script.google.com/macros/s/AKfycbzR8Kdmb5xfZv1___-qDOmeWgYuSOfwWlqQb00_6x37EACe4xKpgnlU5ZHRJuCPoZIszQ/exec";
-        const queryString = new URLSearchParams(data).toString();
-        
-        fetch(`${actionUrl}?${queryString}`, {
-          method: "GET",
-          mode: "no-cors"
-        })
-        .then(() => {
-          statusDiv.textContent = "Thank you. Your message has been sent successfully.";
-          statusDiv.classList.add('success');
-          // Dispara a conversão no Google Ads (mesma tag oficial do contactPage)
-          if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-            window.gtag('event', 'conversion', {'send_to': 'AW-795871100/dv-kCJrn0YoaEPyOwPsC'});
-          }
-          form.reset();
-        })
-        .catch(err => {
-          console.error("Transmission error:", err);
-          // Fallback success feedback as it may fail CORS but succeeds in transmitting
-          statusDiv.textContent = "Thank you. Your message has been sent successfully.";
-          statusDiv.classList.add('success');
-          // Dispara a conversão também no fallback
-          if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-            window.gtag('event', 'conversion', {'send_to': 'AW-795871100/dv-kCJrn0YoaEPyOwPsC'});
-          }
-          form.reset();
-        })
-        .finally(() => {
-          submitBtn.innerHTML = originalText;
-          submitBtn.disabled = false;
-        });
-      });
-    }
-  </script>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
