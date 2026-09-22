@@ -64,6 +64,8 @@ const menuItems = [
       <span class="bar"></span>
     </button>
 
+    <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
     <nav class="nav-menu" id="navMenu">
       <ul class="nav-links">
         {menuItems.map(item => {
@@ -91,15 +93,20 @@ const menuItems = [
         </li>
       </ul>
 
+      <div class="menu-divider" aria-hidden="true"></div>
+
       <div class="lang-selector">
-        {['en', 'es', 'de'].map(l => (
-          <a 
-            href={getLocalizedUrl(l)} 
-            class:list={['lang-link', { active: lang === l }]}
-            aria-label={`Switch to ${l.toUpperCase()}`}
-          >
-            {l.toUpperCase()}
-          </a>
+        {['en', 'es', 'de'].map((l, index) => (
+          <Fragment>
+            {index > 0 && <span class="lang-separator" aria-hidden="true">|</span>}
+            <a 
+              href={getLocalizedUrl(l)} 
+              class:list={['lang-link', { active: lang === l }]}
+              aria-label={`Switch to ${l.toUpperCase()}`}
+            >
+              {l.toUpperCase()}
+            </a>
+          </Fragment>
         ))}
       </div>
     </nav>
@@ -109,15 +116,33 @@ const menuItems = [
 <script>
   const menuToggle = document.getElementById('menuToggle');
   const navMenu = document.getElementById('navMenu');
+  const navBackdrop = document.getElementById('navBackdrop');
 
-  if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
-      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', String(!expanded));
-      menuToggle.classList.toggle('open');
-      navMenu.classList.toggle('open');
-    });
+  function toggleMenu(force?: boolean) {
+    if (!menuToggle || !navMenu) return;
+    const shouldOpen = force !== undefined ? force : !navMenu.classList.contains('open');
+    menuToggle.setAttribute('aria-expanded', String(shouldOpen));
+    menuToggle.classList.toggle('open', shouldOpen);
+    navMenu.classList.toggle('open', shouldOpen);
+    if (navBackdrop) {
+      navBackdrop.classList.toggle('open', shouldOpen);
+    }
+    document.body.classList.toggle('menu-open', shouldOpen);
   }
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => toggleMenu());
+  }
+
+  if (navBackdrop) {
+    navBackdrop.addEventListener('click', () => toggleMenu(false));
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu?.classList.contains('open')) {
+      toggleMenu(false);
+    }
+  });
 </script>
 
 <style>
@@ -220,12 +245,31 @@ const menuItems = [
     color: var(--color-olive);
   }
 
+  :global(body.menu-open) {
+    overflow: hidden;
+  }
+
+  .nav-backdrop {
+    display: none;
+  }
+
+  .menu-divider {
+    display: none;
+  }
+
   .lang-selector {
     display: flex;
     gap: 0.75rem;
     align-items: center;
     border-left: 1px solid var(--color-sand-dark);
     padding-left: 1.5rem;
+  }
+
+  .lang-separator {
+    color: var(--color-sand-dark);
+    font-size: 0.75rem;
+    user-select: none;
+    line-height: 1;
   }
 
   .lang-link {
@@ -265,24 +309,52 @@ const menuItems = [
   }
 
   @media (max-width: 768px) {
+    .nav-backdrop {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(31, 33, 31, 0.25);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      z-index: 1050;
+    }
+
+    .nav-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
     .nav-toggle {
       display: flex;
+      z-index: 1200;
     }
 
     .nav-menu {
       position: fixed;
       top: 0;
       right: -100%;
-      width: 80%;
+      width: 82%;
       max-width: 320px;
       height: 100vh;
+      height: 100dvh;
+      max-height: 100dvh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
       background-color: var(--color-sand-light);
-      box-shadow: -10px 0 30px rgba(0,0,0,0.03);
+      box-shadow: -10px 0 35px rgba(0, 0, 0, 0.06);
       flex-direction: column;
       align-items: flex-start;
-      padding: 8rem 3rem 3rem 3rem;
-      gap: 3rem;
-      transition: right 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+      padding: 5rem 2.5rem max(2rem, env(safe-area-inset-bottom)) 2.5rem;
+      gap: 1.15rem;
+      transition: right 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+      z-index: 1100;
     }
 
     .nav-menu.open {
@@ -291,28 +363,50 @@ const menuItems = [
 
     .nav-links {
       flex-direction: column;
-      gap: 2rem;
+      gap: 1.15rem;
       width: 100%;
     }
 
     .nav-link {
-      font-size: 1.1rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      padding: 0.2rem 0;
       width: 100%;
       display: block;
     }
 
+    .menu-divider {
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-sand-dark);
+      margin: 0.35rem 0 0.15rem 0;
+      opacity: 0.8;
+    }
+
     .lang-selector {
       border-left: none;
-      border-top: 1px solid var(--color-sand-dark);
+      border-top: none;
       padding-left: 0;
-      padding-top: 1.5rem;
+      padding-top: 0;
       width: 100%;
+      display: flex;
+      align-items: center;
       justify-content: flex-start;
-      gap: 1.5rem;
+      gap: 0.85rem;
     }
 
     .lang-link {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      padding: 0.35rem 0.15rem;
+    }
+
+    .lang-separator {
+      font-size: 0.85rem;
+      color: var(--color-sand-dark);
+      user-select: none;
+      line-height: 1;
     }
 
     .nav-toggle.open .bar:nth-child(1) {

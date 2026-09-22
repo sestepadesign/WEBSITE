@@ -302,6 +302,46 @@ const rhythm = (count: number) => {
         </section>
       )}
 
+      <!-- Image Gallery Grid (images[2+]) -->
+      {galleryChapters.length === 0 && project.images.length > 2 && (
+        <section class="project-gallery">
+          {galleryLabel && (
+            <header class="gallery-chapter-head">
+              <h2 class="gallery-chapter-label">{galleryLabel}</h2>
+            </header>
+          )}
+          <div class="gallery-grid">
+            {project.images.slice(2).map((img, idx) => {
+              const globalIdx = idx + 2;
+              const remainingCount = project.images.length - 2;
+              const isFinca = project.slug === 'finca-garden-campos-mallorca';
+              // Finca has first-child as span-2 (takes 2 slots), so its parity is inverted
+              const isLastItem = idx === remainingCount - 1;
+              const isOddSlots = (remainingCount + (isFinca ? 1 : 0)) % 2 !== 0;
+              const shouldSpan = isLastItem && isOddSlots;
+              return (
+                <button
+                  class={`gallery-item-btn ${shouldSpan ? 'full-width' : ''}`}
+                  data-src={`/portfolio/${project.slug}/images/${img}`}
+                  data-index={globalIdx}
+                  data-chapter={galleryLabel}
+                  aria-label={`View image ${globalIdx + 1} in fullscreen`}
+                >
+                  <div class="gallery-item">
+                    <img
+                      src={`/portfolio/${project.slug}/images/${img}`}
+                      alt={translation.imageAlts?.[globalIdx] ?? `${translation.title} — Garden Design ${formattedLocation}, Image ${globalIdx + 1}`}
+                      loading="lazy"
+                      class="gallery-img"
+                    />
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
       {stages.map((stage) => {
         const layout = rhythm(stage.photos.length);
         return (
