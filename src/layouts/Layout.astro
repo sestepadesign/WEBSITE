@@ -248,9 +248,13 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
       window.gtag = window.gtag || function(){window.dataLayer.push(arguments);}
       window.gtag('js', new Date());
 
+      // Only the unified Google tag is configured here. GT-WKTZS5C already
+      // routes to GA4 (G-DZ9ZSG3VH0) and Ads (AW-795871100) — see
+      // docs/ANALYTICS.md — and the GTM container carries the same
+      // destinations, so configuring them again sent every page_view twice to
+      // both. Conversions keep working: they fire with an explicit
+      // `send_to: AW-795871100/<label>`, which resolves through this tag.
       window.gtag('config', GTAG_ID);
-      window.gtag('config', GOOGLE_ADS_ID);
-      window.gtag('config', GA4_ID);
     </script>
 
     <!-- Google Tag Manager -->
