@@ -1,17 +1,18 @@
 ---
 title: "Landscape Architecture for Slopes in Santa Ponsa"
-description: "Engineering natural slopes and Mediterranean rockeries for private villas in Santa Ponsa and Calvi?, preserving geological contours and endemic botany."
+description: "Engineering natural slopes and Mediterranean rockeries for private villas in Santa Ponsa and Calviá, preserving geological contours and endemic botany."
 pubDate: 2026-08-21
 lang: en
 draft: false
 noindex: false
+image: "/portfolio/santa-ponsa/images/GARDEN-DESIGN-MALLORCA-SANTA-PONSA-SESTEPA-1.2.jpg"
 ---
 
-Building an enduring landscape across the rugged, limestone-rich topography of Southwestern Mallorca demands an architectural philosophy grounded in restraint and geology. In coastal enclaves like Santa Ponsa, Nova Santa Ponsa, and the surrounding slopes of Calvi?, residential parcels often feature steep gradients, natural ravines, and exposed rock formations.
+Building an enduring landscape across the rugged, limestone-rich topography of Southwestern Mallorca demands an architectural philosophy grounded in restraint and geology. In coastal enclaves like Santa Ponsa, Nova Santa Ponsa, and the surrounding slopes of Calviá, residential parcels often feature steep gradients, natural ravines, and exposed rock formations.
 
 Rather than imposing aggressive earthworks or artificial grading that disrupts natural drainage corridors, high-end landscape architecture embraces the site's natural topography as its foundational structural asset.
 
-![Landscape architecture and natural slope engineering in Santa Ponsa, Mallorca](/images/journal/landscape-architecture-slopes-santa-ponsa-mallorca.webp)
+![Landscape architecture and natural slope engineering in Santa Ponsa, Mallorca](/portfolio/santa-ponsa/images/GARDEN-DESIGN-MALLORCA-SANTA-PONSA-SESTEPA-1.2.jpg)
 
 ## 1. Topographical Respect: Working with the Incline
 
@@ -23,7 +24,7 @@ In our project in [Santa Ponsa](/santa-ponsa/), the site descends through natura
 *   **Natural Water Channels:** Utilizing the existing ravine as a bioswale, guiding seasonal runoff away from structural foundations and into deep subterranean aquifers.
 *   **Subsoil Anchoring:** Planting deep-rooting Mediterranean shrubs that naturally stabilize the soil structure without requiring invasive concrete footings.
 
-![Mediterranean rockeries and structural stone integration in Santa Ponsa, Calvi?](/images/journal/mediterranean-rockeries-santa-ponsa-calvia.webp)
+![Mediterranean rockeries and structural stone integration in Santa Ponsa, Calviá](/portfolio/santa-ponsa/images/GARDEN-DESIGN-MALLORCA-SANTA-PONSA-SESTEPA-5.jpg)
 
 ## 2. Mediterranean Rockeries (*Rocallas*): Structure Meets Botanical Softness
 

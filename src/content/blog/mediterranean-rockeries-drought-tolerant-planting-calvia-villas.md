@@ -5,15 +5,16 @@ pubDate: 2026-08-21
 lang: en
 draft: false
 noindex: false
+image: "/portfolio/santa-ponsa/images/GARDEN-DESIGN-MALLORCA-SANTA-PONSA-SESTEPA-5.jpg"
 ---
 
-Designing exterior living environments for coastal villas in Calvi? requires architectural alignment with the Mediterranean climate. In areas such as Santa Ponsa, Costa de la Calma, and Port Adriano, gardens face prolonged summer drought, intense ultraviolet exposure, and maritime salinity. 
+Designing exterior living environments for coastal villas in Calviá requires architectural alignment with the Mediterranean climate. In areas such as Santa Ponsa, Costa de la Calma, and Port Adriano, gardens face prolonged summer drought, intense ultraviolet exposure, and maritime salinity. 
 
 A high-performance landscape design turns these climatic constraints into a refined aesthetic asset through tailored xeriscape planning, mineral harmony, and biological precision.
 
-![Drought-tolerant botanical design in Santa Ponsa, Mallorca](/images/journal/drought-tolerant-garden-design-santa-ponsa.webp)
+![Drought-tolerant botanical design in Santa Ponsa, Mallorca](/portfolio/santa-ponsa/images/GARDEN-DESIGN-MALLORCA-SANTA-PONSA-SESTEPA-5.jpg)
 
-## 1. The Microclimate of Coastal Calvi?
+## 1. The Microclimate of Coastal Calviá
 
 Coastal properties in Southwestern Mallorca occupy a distinct ecological zone characterized by warm microclimates and shallow calcareous topsoil over hard limestone bedrock. 
 
@@ -23,7 +24,7 @@ To ensure long-term botanical vitality without wasteful water consumption, the l
 *   **Thermal Mass Regulation:** Strategic placement of natural limestone boulders (*rocallas*) absorbs solar heat during daylight hours and radiates warmth gently at night, creating micro-zones that protect root systems.
 *   **Soil Moisture Retention:** Incorporating mineral gravel blankets prevents direct sun exposure on the soil surface, cutting evaporation rates by over 60%.
 
-![Coastal villa exterior landscape design in Santa Ponsa, Calvi?](/images/journal/coastal-villa-landscape-design-calvia-mallorca.webp)
+![Coastal villa exterior landscape design in Santa Ponsa, Calviá](/portfolio/santa-ponsa/images/GARDEN-DESIGN-MALLORCA-SANTA-PONSA-SESTEPA-1.jpg)
 
 ## 2. Botanical Palette: Texture, Scent, and Longevity
 
