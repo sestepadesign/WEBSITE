@@ -1136,8 +1136,11 @@ export const projects: Project[] = [
     year: "2023",
     architect: "Vertical Garden Mallorca",
     video: "https://www.youtube.com/embed/x3W0KQmr-pQ?feature=oembed",
-    cover: "/portfolio/vertical-gardens-in-mallorca/garden-design-mallorca-vertical-gardens-in-mallorca-sestepa.webp",
+    cover: "/portfolio/vertical-gardens-in-mallorca/images/2026-07-3-years/VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-13.jpg",
+    ogImage: "/portfolio/vertical-gardens-in-mallorca/images/2026-07-3-years/VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-13.jpg",
     images: [
+      "2026-07-3-years/VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-13.jpg",
+      "2026-07-3-years/VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-14.jpg",
       "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-1.jpg",
       "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-10.jpg",
       "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-11.jpg",
@@ -1149,25 +1152,69 @@ export const projects: Project[] = [
       "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-6.jpg",
       "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-7.jpg",
       "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-8.jpg",
-      "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-9.jpg",
-      "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-13.jpg",
-      "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-14.jpg",
-      "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-15.jpg",
-      "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-16.jpg",
-      "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-17.jpg",
-      "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-18.jpg"
+      "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-9.jpg"
+    ],
+    galleryChapters: [
+      {
+        dir: "2026-07-3-years",
+        photos: [
+          "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-13.jpg",
+          "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-14.jpg",
+          "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-15.jpg",
+          "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-16.jpg",
+          "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-17.jpg",
+          "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-18.jpg"
+        ],
+        en: {
+          label: "July 2026 · Three years after installation",
+          note: "The same vertical gardens photographed 3 years after completion. The tropical foliage and climbing species have fully acclimatized and expanded into dense living walls, demonstrating long-term structural execution quality, thermal performance, and biological balance.",
+          imageAlts: [
+            "Vertical garden in Mallorca three years after planting: lush exterior facade lattice",
+            "Vertical garden indoor section with lush tropical wall structure three years after installation",
+            "Mature vertical garden foliage detail showing tropical species adaptation and density",
+            "Living wall facade lattice filtering light into the interior space after three years of growth",
+            "Indoor suspended plant modules showing healthy growth and botanical volume",
+            "Vertical garden structure and architecture three years after installation in Mallorca"
+          ]
+        },
+        es: {
+          label: "Julio 2026 · Tres años después de la instalación",
+          note: "Los mismos jardines verticales fotografiados 3 años después de su finalización. El follaje tropical y las especies trepadoras se han aclimatado por completo, formando muros vivos de gran densidad que demuestran la excelencia en la ejecución técnica a largo plazo, la eficiencia térmica y el equilibrio biológico.",
+          imageAlts: [
+            "Jardín vertical en Mallorca tres años después de la plantación: celosía vegetal en fachada exterior",
+            "Jardín vertical interior con estructura de muro verde frondoso tres años después de la instalación",
+            "Detalle de follaje de jardín vertical maduro mostrando adaptación y densidad de especies tropicales",
+            "Celosía vegetal en fachada filtrando luz al espacio interior tras tres años de desarrollo",
+            "Módulos vegetales suspendidos en interior mostrando saludable crecimiento y volumen botánico",
+            "Estructura y arquitectura del jardín vertical tres años después de su instalación en Mallorca"
+          ]
+        },
+        de: {
+          label: "Juli 2026 · Drei Jahre nach der Bepflanzung",
+          note: "Dieselben vertikalen Gärten 3 Jahre nach der Fertigstellung fotografiert. Das tropische Blattwerk und die Kletterpflanzen haben sich vollständig akklimatisiert und bilden dichte lebende Wände, die langfristige Ausführungsqualität, thermische Effizienz und biologisches Gleichgewicht beweisen.",
+          imageAlts: [
+            "Vertikaler Garten auf Mallorca drei Jahre nach der Bepflanzung: üppige Außenfassadenstruktur",
+            "Vertikaler Garten im Innenbereich mit dichter tropischer Wandstruktur drei Jahre nach der Installation",
+            "Blattwerk-Detail des ausgereiften vertikalen Gartens mit tropischen Pflanzenarten",
+            "Begrünte Wandstruktur an der Fassade, die Licht nach drei Jahren Wuchs in den Innenraum filtert",
+            "Hängende Pflanzenmodule im Innenbereich mit gesundem Wuchs und botanischem Volumen",
+            "Struktur und Architektur des vertikalen Gartens drei Jahre nach der Installation auf Mallorca"
+          ]
+        }
+      }
     ],
     en: {
       title: "Vertical Gardens in Mallorca",
       subtitle: "Suspended jungle lattices filtering light and purifying air",
       category: "Vertical Garden",
       botanical: "Tropical and hanging species, climatic-adapted climbers",
+      galleryLabel: "2023 · Initial Installation & Lattices",
       description: [
         "Vertical gardens in Mallorca — design and installation of living wall structures for villas and private estates. S'Estepa Design, Mediterranean landscape studio.",
-        "The meticulous selection of tropical plants, based on adaptation, structure, and colors, provided the space with a sensation of freshness, warm colors, and plants suspended in the air",
+        "The meticulous selection of tropical plants, based on adaptation, structure, and colors, provided the space with a sensation of freshness, warm colors, and plants suspended in the air.",
         "The project proposal consists of two vertical gardens with different geometric structures, both indoors and outdoors, in combination with the space. Through avant-garde elements, the design aesthetics are focused on a vegetal lattice along the entire exterior facade: beams of light enter the interior space and achieve a jungle light effect.",
         "The vertical garden reduces facade temperature by up to 40%, absorbs sound to improve acoustic quality, and contributes to air purification by trapping dust and converting CO2 into oxygen.",
-        "The updated 2026 gallery documents the mature evolution of the living walls, capturing the lush density of the climbing and suspended vegetation as it integrates with the architecture.",
+        "The 3-year timeline gallery documents the mature evolution of the living walls, demonstrating the long-term execution quality, structural vitality, and sustained density of the climbing and suspended vegetation.",
         "This vertical garden was developed in collaboration with <a href=\"https://verticalgardenmallorca.com\" target=\"_blank\" rel=\"noopener noreferrer\">Vertical Garden Mallorca</a>, for their client OK Mobility."
       ]
     },
@@ -1176,12 +1223,13 @@ export const projects: Project[] = [
       subtitle: "Celosías de selva suspendidas que filtran la luz y purifican el aire",
       category: "Jardín Vertical",
       botanical: "Especies tropicales y colgantes, trepadoras adaptadas",
+      galleryLabel: "2023 · Instalación Inicial y Celosías",
       description: [
         "Jardines verticales en Mallorca: diseño e instalación de estructuras vegetales para fachadas. S'Estepa Design, estudio de paisajismo mediterráneo con 30 años de experiencia.",
         "La meticulosa selección de plantas tropicales, basada en la adaptación, la estructura y los colores, proporcionó al espacio una sensación de frescor, colores cálidos y plantas suspendidas en el aire.",
         "La propuesta consiste en dos jardines verticales con diferentes estructuras geométricas, tanto en el interior como en el exterior. Los haces de luz entran en el espacio interior y consiguen un efecto de luz selvática a lo largo de toda la fachada.",
         "El jardín reduce la temperatura del espacio hasta un 40% en las fachadas, absorbe el sonido y contribuye a la purificación del aire, atrapando polvo en suspensión y convirtiendo CO2 en oxígeno.",
-        "La galería actualizada de 2026 documenta la evolución madura de los muros vivos, capturando la frondosa densidad de la vegetación trepadora y suspendida integrada en la arquitectura.",
+        "La galería evolutiva a 3 años documenta la madurez de los muros vivos, demostrando la alta calidad de ejecución técnica, la vitalidad estructural y la frondosidad sostenida de la vegetación trepadora y suspendida.",
         "Este jardín vertical se desarrolló en colaboración con <a href=\"https://verticalgardenmallorca.com\" target=\"_blank\" rel=\"noopener noreferrer\">Vertical Garden Mallorca</a>, para su cliente OK Mobility."
       ]
     },
@@ -1190,12 +1238,13 @@ export const projects: Project[] = [
       subtitle: "Hängende Dschungelgitter, die Licht filtern und Luft reinigen",
       category: "Vertikaler Garten",
       botanical: "Tropische und hängende Arten, klimaangepasste Kletterpflanzen",
+      galleryLabel: "2023 · Erstinstallation & Wandstrukturen",
       description: [
         "Vertikale Gärten auf Mallorca: Planung und Installation begrünter Wandstrukturen für Villen und Privatanwesen. S'Estepa Design, mediterranes Landschaftsstudio.",
         "Die sorgfältige Auswahl tropischer Pflanzen, basierend auf Anpassung, Struktur und Farben, verleiht dem Raum ein Gefühl von Frische, warmen Farben und in der Luft schwebenden Pflanzen.",
         "Das Projektvorschlag besteht aus zwei vertikalen Gärten mit unterschiedlichen geometrischen Strukturen, innen und außen. Lichtstrahlen dringen in den Innenraum ein und erzeugen einen Dschungellichteffekt entlang der gesamten Außenfassade.",
         "Der Garten senkt die Raumtemperatur an Fassaden um bis zu 40 %, absorbiert Schall und trägt zur Luftreinigung bei, indem er Staubpartikel einfängt und CO2 in Sauerstoff umwandelt.",
-        "Die aktualisierte Galerie von 2026 dokumentiert die ausgereifte Entwicklung der lebenden Wände und hält die üppige Dichte der kletternden und hängenden Bepflanzung fest.",
+        "Die 3-Jahres-Zeitleisten-Galerie dokumentiert die ausgereifte Entwicklung der lebenden Wände und beweist die langfristige Ausführungsqualität, strukturelle Vitalität und anhaltende Dichte der Bepflanzung.",
         "Dieser vertikale Garten wurde in Zusammenarbeit mit <a href=\"https://verticalgardenmallorca.com\" target=\"_blank\" rel=\"noopener noreferrer\">Vertical Garden Mallorca</a> für deren Kunden OK Mobility entwickelt."
       ]
     }
