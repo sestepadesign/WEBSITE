@@ -1141,6 +1141,7 @@ export const projects: Project[] = [
     images: [
       "2026-07-3-years/VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-13.jpg",
       "2026-07-3-years/VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-14.jpg",
+      "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-15.jpg",
       "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-1.jpg",
       "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-10.jpg",
       "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-11.jpg",
@@ -1160,7 +1161,6 @@ export const projects: Project[] = [
         photos: [
           "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-13.jpg",
           "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-14.jpg",
-          "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-15.jpg",
           "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-16.jpg",
           "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-17.jpg",
           "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-18.jpg"
@@ -1171,7 +1171,6 @@ export const projects: Project[] = [
           imageAlts: [
             "Vertical garden in Mallorca three years after planting: lush exterior facade lattice",
             "Vertical garden indoor section with lush tropical wall structure three years after installation",
-            "Mature vertical garden foliage detail showing tropical species adaptation and density",
             "Living wall facade lattice filtering light into the interior space after three years of growth",
             "Indoor suspended plant modules showing healthy growth and botanical volume",
             "Vertical garden structure and architecture three years after installation in Mallorca"
@@ -1183,7 +1182,6 @@ export const projects: Project[] = [
           imageAlts: [
             "Jardín vertical en Mallorca tres años después de la plantación: celosía vegetal en fachada exterior",
             "Jardín vertical interior con estructura de muro verde frondoso tres años después de la instalación",
-            "Detalle de follaje de jardín vertical maduro mostrando adaptación y densidad de especies tropicales",
             "Celosía vegetal en fachada filtrando luz al espacio interior tras tres años de desarrollo",
             "Módulos vegetales suspendidos en interior mostrando saludable crecimiento y volumen botánico",
             "Estructura y arquitectura del jardín vertical tres años después de su instalación en Mallorca"
@@ -1195,7 +1193,6 @@ export const projects: Project[] = [
           imageAlts: [
             "Vertikaler Garten auf Mallorca drei Jahre nach der Bepflanzung: üppige Außenfassadenstruktur",
             "Vertikaler Garten im Innenbereich mit dichter tropischer Wandstruktur drei Jahre nach der Installation",
-            "Blattwerk-Detail des ausgereiften vertikalen Gartens mit tropischen Pflanzenarten",
             "Begrünte Wandstruktur an der Fassade, die Licht nach drei Jahren Wuchs in den Innenraum filtert",
             "Hängende Pflanzenmodule im Innenbereich mit gesundem Wuchs und botanischem Volumen",
             "Struktur und Architektur des vertikalen Gartens drei Jahre nach der Installation auf Mallorca"
