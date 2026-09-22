@@ -1149,7 +1149,13 @@ export const projects: Project[] = [
       "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-6.jpg",
       "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-7.jpg",
       "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-8.jpg",
-      "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-9.jpg"
+      "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-9.jpg",
+      "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-13.jpg",
+      "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-14.jpg",
+      "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-15.jpg",
+      "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-16.jpg",
+      "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-17.jpg",
+      "VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-18.jpg"
     ],
     en: {
       title: "Vertical Gardens in Mallorca",
@@ -1161,6 +1167,7 @@ export const projects: Project[] = [
         "The meticulous selection of tropical plants, based on adaptation, structure, and colors, provided the space with a sensation of freshness, warm colors, and plants suspended in the air",
         "The project proposal consists of two vertical gardens with different geometric structures, both indoors and outdoors, in combination with the space. Through avant-garde elements, the design aesthetics are focused on a vegetal lattice along the entire exterior facade: beams of light enter the interior space and achieve a jungle light effect.",
         "The vertical garden reduces facade temperature by up to 40%, absorbs sound to improve acoustic quality, and contributes to air purification by trapping dust and converting CO2 into oxygen.",
+        "The updated 2026 gallery documents the mature evolution of the living walls, capturing the lush density of the climbing and suspended vegetation as it integrates with the architecture.",
         "This vertical garden was developed in collaboration with <a href=\"https://verticalgardenmallorca.com\" target=\"_blank\" rel=\"noopener noreferrer\">Vertical Garden Mallorca</a>, for their client OK Mobility."
       ]
     },
@@ -1174,6 +1181,7 @@ export const projects: Project[] = [
         "La meticulosa selección de plantas tropicales, basada en la adaptación, la estructura y los colores, proporcionó al espacio una sensación de frescor, colores cálidos y plantas suspendidas en el aire.",
         "La propuesta consiste en dos jardines verticales con diferentes estructuras geométricas, tanto en el interior como en el exterior. Los haces de luz entran en el espacio interior y consiguen un efecto de luz selvática a lo largo de toda la fachada.",
         "El jardín reduce la temperatura del espacio hasta un 40% en las fachadas, absorbe el sonido y contribuye a la purificación del aire, atrapando polvo en suspensión y convirtiendo CO2 en oxígeno.",
+        "La galería actualizada de 2026 documenta la evolución madura de los muros vivos, capturando la frondosa densidad de la vegetación trepadora y suspendida integrada en la arquitectura.",
         "Este jardín vertical se desarrolló en colaboración con <a href=\"https://verticalgardenmallorca.com\" target=\"_blank\" rel=\"noopener noreferrer\">Vertical Garden Mallorca</a>, para su cliente OK Mobility."
       ]
     },
@@ -1187,6 +1195,7 @@ export const projects: Project[] = [
         "Die sorgfältige Auswahl tropischer Pflanzen, basierend auf Anpassung, Struktur und Farben, verleiht dem Raum ein Gefühl von Frische, warmen Farben und in der Luft schwebenden Pflanzen.",
         "Das Projektvorschlag besteht aus zwei vertikalen Gärten mit unterschiedlichen geometrischen Strukturen, innen und außen. Lichtstrahlen dringen in den Innenraum ein und erzeugen einen Dschungellichteffekt entlang der gesamten Außenfassade.",
         "Der Garten senkt die Raumtemperatur an Fassaden um bis zu 40 %, absorbiert Schall und trägt zur Luftreinigung bei, indem er Staubpartikel einfängt und CO2 in Sauerstoff umwandelt.",
+        "Die aktualisierte Galerie von 2026 dokumentiert die ausgereifte Entwicklung der lebenden Wände und hält die üppige Dichte der kletternden und hängenden Bepflanzung fest.",
         "Dieser vertikale Garten wurde in Zusammenarbeit mit <a href=\"https://verticalgardenmallorca.com\" target=\"_blank\" rel=\"noopener noreferrer\">Vertical Garden Mallorca</a> für deren Kunden OK Mobility entwickelt."
       ]
     }
