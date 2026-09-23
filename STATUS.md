@@ -10,7 +10,7 @@
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
 - **Status:** Publicado em `master`. Atualização e substituição das 8 fotografias da etapa de 4 meses do projeto Sant Llorenç (nomes com sufixo SEO `sestepa-design`, otimizados para WebP 1920px 3:2), regeneração do sitemap de imagens e limpeza de branches locais inativos.
-- **Checksum Atual (Deploy/Hash):** `pending-commit` (push em `master`, Cloudflare Pages).
+- **Checksum Atual (Deploy/Hash):** `2aa74f2` (push em `master`, Cloudflare Pages).
 
 ---
 
