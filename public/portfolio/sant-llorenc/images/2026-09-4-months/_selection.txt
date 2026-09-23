@@ -1,20 +1,9 @@
-new_name <- original (08.09.2026, ~4 months after planting)
-garden-design-mallorca-sant-llorenc-4-months-01-olive-gaura-stipa.webp <- IMG_3772.JPG
-garden-design-mallorca-sant-llorenc-4-months-02-entrance-path-rosemary-lavender-stipa.webp <- IMG_3773.JPG
-garden-design-mallorca-sant-llorenc-4-months-03-olives-gaura-house-emerging.webp <- IMG_3805.JPG
-garden-design-mallorca-sant-llorenc-4-months-04-olive-house-gaura-meadow.webp <- IMG_3823.JPG
-garden-design-mallorca-sant-llorenc-4-months-05-house-gaura-meadow.webp <- IMG_3807.JPG
-garden-design-mallorca-sant-llorenc-4-months-06-pool-house-grasses.webp <- IMG_3801.JPG
-garden-design-mallorca-sant-llorenc-4-months-07-pool-terrace-grass-garden.webp <- IMG_3830.JPG
-garden-design-mallorca-sant-llorenc-4-months-08-pool-view-mallorcan-countryside-lavender.webp <- IMG_3829.JPG (renamed for cache-busting; retouched 2026-09-11, client-approved variant B7: dead lavender clump and a loose dry tuft replaced with bare soil, brown base of the neighbouring lavender recoloured to the plant's own green; master in originais-grandes/sant-llorenc/2026-09-4-months/)
-garden-design-mallorca-sant-llorenc-4-months-09-facade-grass-garden.webp <- IMG_3788.JPG
-garden-design-mallorca-sant-llorenc-4-months-10-grass-garden-backlight.webp <- IMG_3787.JPG
-garden-design-mallorca-sant-llorenc-4-months-11-gaura-flowers-detail.webp <- IMG_3789.JPG
-garden-design-mallorca-sant-llorenc-4-months-12-centenary-olive-architecture.webp <- IMG_3781.JPG
-garden-design-mallorca-sant-llorenc-4-months-13-facade-climbers-stipa.webp <- IMG_3782.JPG
-garden-design-mallorca-sant-llorenc-4-months-14-dry-stone-wall-grasses.webp <- IMG_3835.JPG
-garden-design-mallorca-sant-llorenc-4-months-15-olive-gaura-curve.webp <- IMG_3817.JPG
-garden-design-mallorca-sant-llorenc-4-months-16-low-angle-bulbine-grasses.webp <- IMG_3816.JPG
-garden-design-mallorca-sant-llorenc-4-months-17-olive-house-corner.webp <- IMG_3774.JPG
-garden-design-mallorca-sant-llorenc-4-months-18-olive-lavender-rows-gaura-countryside.webp <- IMG_3828.JPG (renamed again for cache-busting; cropped 2026-09-11, 3:2 kept, bottom strip with a blue plastic removed; retouched 2026-09-11, client-approved variant C: brushwood pile (same one removed in 08) and a dry clump at the bottom edge replaced with bare soil incl. their shadows, 10 brown lavender clumps recoloured to the healthy lavender green of the same photo; master IMG_3828-retocada.jpg in originais-grandes/sant-llorenc/2026-09-4-months/)
-garden-design-mallorca-sant-llorenc-4-months-19-dry-stone-terraces-stairs-olive.webp <- IMG_3839.JPG (from 08.09.2026/1/1)
+new_name <- original (23.09.2026, 4 months session - updated edited PNGs)
+garden-design-mallorca-sant-llorenc-4-months-01-sestepa-design.webp <- 1.png (edited PNG from Canva/Google Drive 4 MESES)
+garden-design-mallorca-sant-llorenc-4-months-02-sestepa-design.webp <- 2.png (edited PNG from Canva/Google Drive 4 MESES)
+garden-design-mallorca-sant-llorenc-4-months-03-sestepa-design.webp <- 3.png (edited PNG from Canva/Google Drive 4 MESES)
+garden-design-mallorca-sant-llorenc-4-months-04-sestepa-design.webp <- 4.png (edited PNG from Canva/Google Drive 4 MESES)
+garden-design-mallorca-sant-llorenc-4-months-05-sestepa-design.webp <- 5.png (edited PNG from Canva/Google Drive 4 MESES)
+garden-design-mallorca-sant-llorenc-4-months-06-sestepa-design.webp <- 6.png (edited PNG from Canva/Google Drive 4 MESES)
+garden-design-mallorca-sant-llorenc-4-months-07-sestepa-design.webp <- 7.png (edited PNG from Canva/Google Drive 4 MESES)
+garden-design-mallorca-sant-llorenc-4-months-08-sestepa-design.webp <- 8.png (edited PNG from Canva/Google Drive 4 MESES)
