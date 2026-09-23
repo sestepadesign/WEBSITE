@@ -3,7 +3,7 @@ title: "El paisaje que se revaloriza: principios de permacultura para jardines d
 description: "Cómo la observación, el abrigo, la plantación estratificada y los ciclos de materia pueden convertir un jardín mallorquín en un sistema que gana valor con el tiempo y reduce determinadas necesidades de mantenimiento a medida que madura."
 pubDate: 2026-08-31
 lang: es
-image: "/images/journal/the-compounding-landscape-olive-layered-garden-illustration-mallorca-v2.webp"
+image: "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-09.webp"
 draft: false
 noindex: false
 ---
@@ -84,6 +84,10 @@ Cuando el jardín se concibe desde el principio como un sistema, la composición
 ![Fig. 3: El mantenimiento anual de un jardín a lo largo de veinte años — un esquema decorativo sostenido con aportes, con el coste subiendo, frente a un jardín concebido como sistema, donde el coste puede bajar a medida que se establecen suelo, dosel y sombra.](/images/diagrams/cl-fig-cost-over-time.webp)
 
 Un paisaje diseñado únicamente para la fotografía de entrega depende de correcciones sucesivas. Un paisaje pensado para la sucesión adquiere profundidad con los años: en sombra, en suelo, en escala y en carácter.
+
+![Jardín de S'Estepa Design en Sant Llorenç dos meses después de la plantación: acebuches conservados, muros bajos de piedra seca, rocallas naturales y gramíneas jóvenes sobre grava](/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-09.webp)
+
+*Sant Llorenç, dos meses después de la plantación. Los acebuches (ullastres) siguen donde siempre estuvieron, junto a muros bajos de piedra seca y rocallas naturales; la plantación es joven y aún está encontrando su manera de entretejerse. Es el comienzo de la sucesión, no su resultado.*
 
 El trabajo sigue existiendo. La diferencia es que muchas de las decisiones que determinarán su coste y su comportamiento futuro se toman antes de que el jardín alcance su madurez.
 

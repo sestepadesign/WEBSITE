@@ -16,6 +16,7 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 ### [2026-09-23] - Claude Code (Imagem de destaque de The Compounding Landscape)
+- **Ajuste posterior:** capa/`og:image` passou a ser a foto de Sant Llorenç (`...sant-llorenc-09.webp`, jardim com 2 meses), por escolha do cliente (Bunyola rejeitada: escadas em ângulo descendente). A ilustração v2 ficou no topo do corpo. Nova foto com legenda ("dois meses após a plantação") no fim do artigo, em EN/ES/DE.
 - Auditoria de 243 imagens do site: nenhuma mostra o jardim em camadas descrito no artigo (oliveira madura, sub-bosque prateado, pedra natural, chão de alecrim); a imagem anterior (Pedro e Sofia na estrada) não ilustrava o tema.
 - Nova ilustração gerada via Antigravity/Gemini (prompt fiel ao texto, sem muro nem corten): `public/images/journal/the-compounding-landscape-olive-layered-garden-illustration-mallorca-v2.webp` (1376x768). Aplicada como `image:` (og) e imagem do corpo, com alt novo, em `src/content/blog/{,es/,de/}the-compounding-landscape.md`.
 - Nota: as opções `...option-1-mar-es-wall.jpg` e `...option-2-full-bleed-boulders.jpg` em `public/images/journal/` (~2 MB) não foram commitadas; a opção 1 foi rejeitada. Originais e SVG local em `../contenido/infograficos-compounding-landscape/`.

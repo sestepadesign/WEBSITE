@@ -3,7 +3,7 @@ title: "Der Garten, der an Wert gewinnt: Permakultur-Prinzipien für hochwertige
 description: "Wie Beobachtung, Schutz, geschichtete Bepflanzung und Stoffkreisläufe einen mallorquinischen Garten in ein System verwandeln können, das mit der Zeit an Wert gewinnt und im Reifen bestimmte Pflegeanforderungen senkt."
 pubDate: 2026-08-31
 lang: de
-image: "/images/journal/the-compounding-landscape-olive-layered-garden-illustration-mallorca-v2.webp"
+image: "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-09.webp"
 draft: false
 noindex: false
 ---
@@ -84,6 +84,10 @@ Wenn der Garten von Anfang an als System gedacht ist, kann sich die ästhetische
 ![Abb. 3: Der jährliche Unterhalt eines Gartens über zwanzig Jahre – ein dekoratives Konzept, mit Zufuhr am Leben gehalten, dessen Kosten steigen, gegenüber einem als System entworfenen Garten, dessen Kosten sinken können, wenn Boden, Kronendach und Schatten sich etablieren.](/images/diagrams/cl-fig-cost-over-time.webp)
 
 Eine Landschaft, die nur für das Übergabefoto entworfen ist, hängt von aufeinanderfolgenden Korrekturen ab. Eine für die Sukzession gedachte Landschaft gewinnt über die Jahre an Tiefe: an Schatten, an Boden, an Maßstab und an Charakter.
+
+![Garten von S'Estepa Design in Sant Llorenç zwei Monate nach der Pflanzung: erhaltene wilde Olivenbäume, niedrige Trockenmauern, natürliche Steingärten und junge Gräser auf Kies](/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-09.webp)
+
+*Sant Llorenç, zwei Monate nach der Pflanzung. Die wilden Olivenbäume (Ullastres) stehen dort, wo sie immer standen, neben niedrigen Trockenmauern und natürlichen Steingärten; die Pflanzung ist jung und findet erst zueinander. Dies ist der Beginn der Sukzession, nicht ihr Ergebnis.*
 
 Die Arbeit bleibt bestehen. Der Unterschied ist, dass viele der Entscheidungen, die ihre Kosten und ihr künftiges Verhalten bestimmen, getroffen werden, bevor der Garten seine Reife erreicht.
 
