@@ -3,7 +3,7 @@ title: "The Compounding Landscape: Permaculture Principles for High-End Mallorca
 description: "How observation, shelter, layered planting, and material cycles can turn a Mallorcan garden into a system that gains value over time and reduces certain maintenance needs as it matures."
 pubDate: 2026-08-31
 lang: en
-image: "/images/journal/s-estepa-pedro-sofia-walking-the-land-mallorca.webp"
+image: "/images/journal/the-compounding-landscape-olive-layered-garden-illustration-mallorca-v2.webp"
 draft: false
 noindex: false
 ---
@@ -20,7 +20,7 @@ This is the practical case for bringing **permaculture principles** into high-en
 
 The vocabulary comes from Bill Mollison and David Holmgren and, in its contemporary development, from authors such as Jessi Bloom and Dave Boehnlein. Applied to Mediterranean garden design, it takes on a particularly useful dimension: observe first, understand the place, and let those conditions inform every decision that follows.
 
-![S'Estepa Design walking the land on a Mallorcan estate during site analysis](/images/journal/s-estepa-pedro-sofia-walking-the-land-mallorca.webp)
+![Illustration of a mature Mallorcan garden in four layers: an ancient olive over carob, pomegranate, lentisc and silver shrubs, with a rosemary and lavender groundcover over mulch and natural limestone boulders](/images/journal/the-compounding-landscape-olive-layered-garden-illustration-mallorca-v2.webp)
 
 ## 1. Read the Site Before You Plant It
 

@@ -15,6 +15,10 @@
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+### [2026-09-23] - Claude Code (Imagem de destaque de The Compounding Landscape)
+- Auditoria de 243 imagens do site: nenhuma mostra o jardim em camadas descrito no artigo (oliveira madura, sub-bosque prateado, pedra natural, chão de alecrim); a imagem anterior (Pedro e Sofia na estrada) não ilustrava o tema.
+- Nova ilustração gerada via Antigravity/Gemini (prompt fiel ao texto, sem muro nem corten): `public/images/journal/the-compounding-landscape-olive-layered-garden-illustration-mallorca-v2.webp` (1376x768). Aplicada como `image:` (og) e imagem do corpo, com alt novo, em `src/content/blog/{,es/,de/}the-compounding-landscape.md`.
+- Nota: as opções `...option-1-mar-es-wall.jpg` e `...option-2-full-bleed-boulders.jpg` em `public/images/journal/` (~2 MB) não foram commitadas; a opção 1 foi rejeitada. Originais e SVG local em `../contenido/infograficos-compounding-landscape/`.
 ### [2026-09-23] - Antigravity (Substituição de Fotos de 4 Meses de Sant Llorenç + Limpeza de Branches Stale)
 - **Substituição de Fotos (Sant Llorenç - 4 Meses):**
   1. *Cópia de Segurança de Originais:* Copiadas as 8 novas fotografias em PNG de `J:\Meu Drive\S'ESTEPA 2026\FOTOS 2026\SANT LLORENÇ\4 MESES\` (leitura estrita sem alterar a origem) para `originais-grandes/sant-llorenc/2026-09-4-months/edited-pngs/`.

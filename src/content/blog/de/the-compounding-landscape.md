@@ -3,7 +3,7 @@ title: "Der Garten, der an Wert gewinnt: Permakultur-Prinzipien für hochwertige
 description: "Wie Beobachtung, Schutz, geschichtete Bepflanzung und Stoffkreisläufe einen mallorquinischen Garten in ein System verwandeln können, das mit der Zeit an Wert gewinnt und im Reifen bestimmte Pflegeanforderungen senkt."
 pubDate: 2026-08-31
 lang: de
-image: "/images/journal/s-estepa-pedro-sofia-walking-the-land-mallorca.webp"
+image: "/images/journal/the-compounding-landscape-olive-layered-garden-illustration-mallorca-v2.webp"
 draft: false
 noindex: false
 ---
@@ -20,7 +20,7 @@ Das ist das praktische Argument dafür, **Permakultur-Prinzipien** in die hochwe
 
 Der Wortschatz stammt von Bill Mollison und David Holmgren und, in seiner zeitgenössischen Entwicklung, von Autoren wie Jessi Bloom und Dave Boehnlein. Auf die mediterrane Gartengestaltung angewandt, gewinnt er eine besonders nützliche Dimension: zuerst beobachten, den Ort verstehen und diese Bedingungen alle weiteren Entscheidungen bestimmen lassen.
 
-![Das Team von S'Estepa Design bei der Standortanalyse auf einer mallorquinischen Finca](/images/journal/s-estepa-pedro-sofia-walking-the-land-mallorca.webp)
+![Illustration eines reifen mallorquinischen Gartens in vier Schichten: ein uralter Olivenbaum über Johannisbrotbaum, Granatapfel, Mastix und silbrigen Sträuchern, mit Rosmarin und Lavendel als Bodendecker über Mulch und Kalksteinfelsen](/images/journal/the-compounding-landscape-olive-layered-garden-illustration-mallorca-v2.webp)
 
 ## 1. Das Gelände lesen, bevor gepflanzt wird
 

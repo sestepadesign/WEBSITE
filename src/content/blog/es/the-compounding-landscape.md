@@ -3,7 +3,7 @@ title: "El paisaje que se revaloriza: principios de permacultura para jardines d
 description: "Cómo la observación, el abrigo, la plantación estratificada y los ciclos de materia pueden convertir un jardín mallorquín en un sistema que gana valor con el tiempo y reduce determinadas necesidades de mantenimiento a medida que madura."
 pubDate: 2026-08-31
 lang: es
-image: "/images/journal/s-estepa-pedro-sofia-walking-the-land-mallorca.webp"
+image: "/images/journal/the-compounding-landscape-olive-layered-garden-illustration-mallorca-v2.webp"
 draft: false
 noindex: false
 ---
@@ -20,7 +20,7 @@ Este es el argumento práctico para incorporar **principios de permacultura** a 
 
 El vocabulario procede de Bill Mollison y David Holmgren y, en su desarrollo contemporáneo, de autores como Jessi Bloom y Dave Boehnlein. Aplicado al diseño de jardines mediterráneos, adquiere una dimensión especialmente útil: observar primero, comprender el lugar y dejar que esas condiciones informen las decisiones posteriores.
 
-![El equipo de S'Estepa Design recorriendo el terreno de una finca mallorquina durante el análisis del sitio](/images/journal/s-estepa-pedro-sofia-walking-the-land-mallorca.webp)
+![Ilustración de un jardín mallorquín maduro en cuatro capas: un olivo centenario sobre algarrobo, granado, lentisco y arbustos plateados, con un suelo de romero y lavanda sobre mulch y rocas de piedra caliza](/images/journal/the-compounding-landscape-olive-layered-garden-illustration-mallorca-v2.webp)
 
 ## 1. Leer el terreno antes de plantar
 
