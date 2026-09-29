@@ -87,7 +87,7 @@ A landscape designed only for the handover photograph depends on successive corr
 
 ![S'Estepa Design garden at Sant Llorenç two months after planting: wild olives kept in place, low dry-stone walls, natural rockeries and young grasses over gravel](/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-09.webp)
 
-*Sant Llorenç, two months after planting. The wild olives (ullastres) stand where they always stood, beside low dry-stone walls and natural rockeries; the planting is young and still finding its way together. This is the beginning of the succession, not its result.*
+*Sant Llorenç, two months after planting. The wild olives (ullastres) beside their low dry-stone walls and natural rockeries; the planting is young and still finding its way together. This is the beginning of the succession, not its result.*
 
 The work still exists. The difference is that many of the decisions that will determine its cost and its future behaviour are taken before the garden reaches maturity.
 

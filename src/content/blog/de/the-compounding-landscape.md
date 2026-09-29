@@ -87,7 +87,7 @@ Eine Landschaft, die nur für das Übergabefoto entworfen ist, hängt von aufein
 
 ![Garten von S'Estepa Design in Sant Llorenç zwei Monate nach der Pflanzung: erhaltene wilde Olivenbäume, niedrige Trockenmauern, natürliche Steingärten und junge Gräser auf Kies](/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-09.webp)
 
-*Sant Llorenç, zwei Monate nach der Pflanzung. Die wilden Olivenbäume (Ullastres) stehen dort, wo sie immer standen, neben niedrigen Trockenmauern und natürlichen Steingärten; die Pflanzung ist jung und findet erst zueinander. Dies ist der Beginn der Sukzession, nicht ihr Ergebnis.*
+*Sant Llorenç, zwei Monate nach der Pflanzung. Die wilden Olivenbäume (Ullastres) neben ihren niedrigen Trockenmauern und natürlichen Steingärten; die Pflanzung ist jung und findet erst zueinander. Dies ist der Beginn der Sukzession, nicht ihr Ergebnis.*
 
 Die Arbeit bleibt bestehen. Der Unterschied ist, dass viele der Entscheidungen, die ihre Kosten und ihr künftiges Verhalten bestimmen, getroffen werden, bevor der Garten seine Reife erreicht.
 

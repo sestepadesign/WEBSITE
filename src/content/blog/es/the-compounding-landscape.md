@@ -87,7 +87,7 @@ Un paisaje diseñado únicamente para la fotografía de entrega depende de corre
 
 ![Jardín de S'Estepa Design en Sant Llorenç dos meses después de la plantación: acebuches conservados, muros bajos de piedra seca, rocallas naturales y gramíneas jóvenes sobre grava](/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-09.webp)
 
-*Sant Llorenç, dos meses después de la plantación. Los acebuches (ullastres) siguen donde siempre estuvieron, junto a muros bajos de piedra seca y rocallas naturales; la plantación es joven y aún está encontrando su manera de entretejerse. Es el comienzo de la sucesión, no su resultado.*
+*Sant Llorenç, dos meses después de la plantación. Los acebuches (ullastres) junto a sus muros bajos de piedra seca y rocallas naturales; la plantación es joven y aún está encontrando su manera de entretejerse. Es el comienzo de la sucesión, no su resultado.*
 
 El trabajo sigue existiendo. La diferencia es que muchas de las decisiones que determinarán su coste y su comportamiento futuro se toman antes de que el jardín alcance su madurez.
 
