@@ -9,12 +9,23 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Publicado em `master`. Atualização e substituição das 8 fotografias da etapa de 4 meses do projeto Sant Llorenç (nomes com sufixo SEO `sestepa-design`, otimizados para WebP 1920px 3:2), regeneração do sitemap de imagens e limpeza de branches locais inativos.
-- **Checksum Atual (Deploy/Hash):** `2aa74f2` (push em `master`, Cloudflare Pages).
+- **Status:** Publicado em `master` e ativo no Cloudflare Pages com sucesso. Publicação dos 8 renders 3D em WebP com nomenclatura SEO corporativa no projeto Vertical Gardens Mallorca, correção de bug em tempo de build no `ProjectDetail.astro` e auditoria completa de metadados temporais no disco J.
+- **Checksum Atual (Deploy/Hash):** `44b215a` (push em `master`, Cloudflare Pages verificado: success).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+### [2026-09-30] - Antigravity (Deploy dos Renders 3D, Correção de Build no ProjectDetail & Auditoria Temporal no Disco J) — commit `44b215a`
+- **Deploy dos Renders 3D & Resolução do Bloqueio de Build:**
+  1. *Causa Raiz do Staging Travado:* O Cloudflare Pages estava falhando com `TypeError: Cannot read properties of undefined (reading 'src')` no arquivo `src/components/ProjectDetail.astro`. Ao renderizar o navegador de estágios temporais, o código assumia que `project.images.slice(2)` sempre conteria fotos remanescentes (`stage-first`), injetando um array vazio de fotos quando todas as imagens pertenciam a `galleryChapters`.
+  2. *Correção Técnica Cirúrgica:* Refatorado `src/components/ProjectDetail.astro` para condicionar `stage-first` exclusivamente à presença de fotos em `project.images.slice(2)` e aplicada proteção opcional no thumbnail (`stage.photos[0] && ...`).
+  3. *Homologação Cloudflare Pages:* Build concluído com sucesso (`conclusion: success`). A página pública `https://design.sestepa.com/vertical-gardens-in-mallorca/` agora serve 100% dos 8 renders 3D na 3ª seção cronológica.
+- **Auditoria de Fotografias Temporais (Disco J: - `VERTICAL GARDEN MALLORCA`):**
+  - Auditoria completa de metadados binários/EXIF identificou imagens capturadas após o período inicial:
+    - *Outubro/2023:* `IMG_5743.HEIC` (fase de entrega).
+    - *Junho-Julho/2024 (8 a 9 meses pós-instalação):* `53ACE7D5CB542DF656E608370BC2C32B.jpg`, `IMG_2157.HEIC`, `IMG_2158.HEIC`, `IMG_2159.HEIC`, `IMG_2160.HEIC`, `IMG_2502.HEIC`, `IMG_2109.MOV`.
+    - *Abril/2025 (18 meses pós-instalação):* `IMG_4126.HEIC`.
+    - *Maio/2026 (~3 anos):* `IMG_1987.JPG`.
 ### [2026-09-23] - Claude Code (Imagem de destaque de The Compounding Landscape)
 - **Ajuste posterior:** capa/`og:image` passou a ser a foto de Sant Llorenç (`...sant-llorenc-09.webp`, jardim com 2 meses), por escolha do cliente (Bunyola rejeitada: escadas em ângulo descendente). A ilustração v2 ficou no topo do corpo. Nova foto com legenda ("dois meses após a plantação") no fim do artigo, em EN/ES/DE.
 - Auditoria de 243 imagens do site: nenhuma mostra o jardim em camadas descrito no artigo (oliveira madura, sub-bosque prateado, pedra natural, chão de alecrim); a imagem anterior (Pedro e Sofia na estrada) não ilustrava o tema.
