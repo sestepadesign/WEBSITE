@@ -1092,36 +1092,36 @@ export const projects: Project[] = [
     year: "2023",
     architect: "Vertical Garden Mallorca",
     video: "https://www.youtube.com/embed/x3W0KQmr-pQ?feature=oembed",
-    cover: "/portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-01.webp",
-    ogImage: "/portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-01.webp",
+    cover: "/portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-06.webp",
+    ogImage: "/portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-06.webp",
     images: [
-      "2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-01.webp",
-      "2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-02.webp"
+      "2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-06.webp",
+      "2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-04.webp"
     ],
     galleryChapters: [
       {
         dir: "renders",
         photos: [
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-facade-overview.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-interior-atrium.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-vegetal-module.webp",
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-architectural-lattice.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-entrance-perspective.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-architectural-lattice.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-tropical-foliage.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-living-wall-detail.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-facade-overview.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-structural-framing.webp"
         ],
         en: {
           label: "3D Renders & Conceptual Architecture Proposal",
           note: "3D architectural visualizations and structural lattice design developed for OK Mobility HQ in Palma, Mallorca.",
           imageAlts: [
-            "3D landscape design render of OK Mobility vertical garden facade in Palma, Mallorca",
-            "Architectural 3D visualization of corporate living wall lattice for OK Mobility",
+            "Interior 3D render of suspended tropical vertical garden for OK Mobility corporate atrium in Palma, Mallorca",
             "3D render of vertical garden module structure showing plant arrangement",
-            "Interior 3D render of suspended tropical vertical garden for corporate atrium",
             "Perspective 3D render of exterior vertical garden facade lighting and geometry",
+            "Interior 3D render of suspended tropical vertical garden for corporate atrium",
             "3D render detail of facade vegetal lattice filtering natural sunlight",
             "Conceptual design 3D visualization of OK Mobility vertical garden entrance",
+            "3D landscape design render of OK Mobility vertical garden facade in Palma, Mallorca",
             "Night perspective 3D render of illuminated vertical garden facade for OK Mobility"
           ]
         },
@@ -1129,13 +1129,13 @@ export const projects: Project[] = [
           label: "Renders 3D y Propuesta de Diseño Conceptual",
           note: "Visualizaciones arquitectónicas 3D y diseño estructural de celosías desarrollados para la sede corporativa de OK Mobility en Palma de Mallorca.",
           imageAlts: [
-            "Render 3D de diseño de paisajismo para la fachada de jardín vertical de OK Mobility en Palma",
-            "Visualización arquitectónica 3D de la celosía de muro verde para OK Mobility",
+            "Render 3D interior de jardín vertical tropical suspendido para atrio corporativo de OK Mobility en Palma",
             "Render 3D de la estructura modular del jardín vertical mostrando la disposición de plantas",
-            "Render 3D interior de jardín vertical tropical suspendido para atrio corporativo",
             "Render 3D en perspectiva de la iluminación y geometría de la fachada de jardín vertical",
+            "Render 3D interior de jardín vertical tropical suspendido para atrio corporativo",
             "Detalle de render 3D de la celosía vegetal en fachada filtrando luz natural",
             "Visualización 3D de diseño conceptual para la entrada con jardín vertical de OK Mobility",
+            "Render 3D de diseño de paisajismo para la fachada de jardín vertical de OK Mobility en Palma",
             "Render 3D en perspectiva nocturna de la fachada de jardín vertical iluminada"
           ]
         },
@@ -1143,13 +1143,13 @@ export const projects: Project[] = [
           label: "3D-Renders & Konzeptentwurf der Architektur",
           note: "3D-Architekturvisualisierungen und Entwurf der begrünte Wandstrukturen für die Firmenzentrale von OK Mobility in Palma, Mallorca.",
           imageAlts: [
-            "3D-Landschaftsdesign-Render der vertikalen Gartenfassade von OK Mobility in Palma, Mallorca",
-            "Architektonische 3D-Visualisierung des begrünten Fassadengitters für OK Mobility",
+            "Innenraum-3D-Render des hängenden tropischen vertikalen Gartens für das Firmenatrium von OK Mobility in Palma",
             "3D-Render der vertikalen Gartenmodulstruktur mit Pflanzenanordnung",
-            "Innenraum-3D-Render des hängenden tropischen vertikalen Gartens für das Firmenatrium",
             "Perspektiven-3D-Render der Beleuchtung und Geometrie der vertikalen Gartenfassade",
+            "Innenraum-3D-Render des hängenden tropischen vertikalen Gartens für das Firmenatrium",
             "3D-Render-Detail des begrünte Wandstrukturgitters, das natürliches Sonnenlicht filtert",
             "Konzeptentwurf 3D-Visualisierung des Eingangsbereichs von OK Mobility mit vertikalem Garten",
+            "3D-Landschaftsdesign-Render der vertikalen Gartenfassade von OK Mobility in Palma, Mallorca",
             "Nachtperspektiven-3D-Render der beleuchteten vertikalen Gartenfassade für OK Mobility"
           ]
         }

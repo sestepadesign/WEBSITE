@@ -264,7 +264,7 @@ const rhythm = (count: number) => {
       {stages.length > 0 && (
         <nav class="stage-nav" aria-label={stageText.nav}>
           <p class="stage-kicker">{stageText.nav}</p>
-          <ol class="stage-nav-list">
+          <ol class="stage-nav-list" style={`--stages-count: ${stages.length};`}>
             {stages.map((stage, i) => (
               <li>
                 <a href={`#${stage.id}`} class="stage-nav-card">
@@ -1067,8 +1067,9 @@ const rhythm = (count: number) => {
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(1rem, 3vw, 3rem);
+    /* Places all stages side by side on the same row without leaving orphan cards or empty slots */
+    grid-template-columns: repeat(var(--stages-count, 3), minmax(0, 1fr));
+    gap: clamp(1rem, 2.5vw, 2.5rem);
   }
 
   .stage-nav-card {
@@ -1178,6 +1179,13 @@ const rhythm = (count: number) => {
     aspect-ratio: 16 / 9;
   }
 
+  /* The renders trio is 3 portrait CGI shots (~3:4 natural ratio) — the default
+     3:2 landscape crop would slice off most of each one, so this stage's thirds
+     get a taller frame instead, close to their real proportions. */
+  #stage-renders .stage-item.r-third .gallery-item {
+    aspect-ratio: 3 / 4;
+  }
+
   @media (max-width: 768px) {
     .stage-nav,
     .stage {
@@ -1189,7 +1197,8 @@ const rhythm = (count: number) => {
     }
 
     .stage-nav-list {
-      gap: 1rem;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
 
     .stage-head {
@@ -1405,8 +1414,8 @@ const rhythm = (count: number) => {
     flex-direction: column;
     align-items: center;
     gap: 0.6rem;
-    padding: 3.5rem 2rem 2.25rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.12) 65%, transparent 100%);
+    padding: 3.5rem 2.5rem max(2.5rem, env(safe-area-inset-bottom, 2.5rem));
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.25) 65%, transparent 100%);
     pointer-events: none;
   }
 
@@ -1418,9 +1427,13 @@ const rhythm = (count: number) => {
     font-family: var(--font-serif, Georgia, 'Times New Roman', serif);
     font-size: 1rem;
     font-weight: 300;
-    letter-spacing: 0.08em;
-    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.85);
     text-align: center;
+    max-width: min(88vw, 760px);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    line-height: 1.45;
   }
 
   @media (max-width: 1200px) {
@@ -1441,8 +1454,16 @@ const rhythm = (count: number) => {
     .luxe-lightbox__arrow { width: 42px; height: 42px; }
     .luxe-lightbox__prev { left: 0.6rem; }
     .luxe-lightbox__next { right: 0.6rem; }
-    .luxe-lightbox__footer { padding: 2.5rem 1rem 1.5rem; }
-    .luxe-lightbox__caption { font-size: 0.9rem; }
+    .luxe-lightbox__footer { 
+      padding: 2.5rem 1.5rem max(2rem, env(safe-area-inset-bottom, 2rem)); 
+    }
+    .luxe-lightbox__caption { 
+      font-size: 0.85rem; 
+      letter-spacing: 0.03em;
+      max-width: 86vw;
+      padding: 0 1rem;
+      line-height: 1.4;
+    }
   }
 
   /* ═══════════════════════════════════════════════
