@@ -466,9 +466,13 @@ const viewProjectLabel = {
     font-family: var(--font-serif, Georgia, 'Times New Roman', serif);
     font-size: 1rem;
     font-weight: 300;
-    letter-spacing: 0.03em;
-    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.85);
     text-align: center;
+    max-width: min(88vw, 760px);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    line-height: 1.45;
   }
 
   .luxe-lightbox__link {
@@ -510,8 +514,16 @@ const viewProjectLabel = {
     .luxe-lightbox__arrow { width: 42px; height: 42px; }
     .luxe-lightbox__prev { left: 0.6rem; }
     .luxe-lightbox__next { right: 0.6rem; }
-    .luxe-lightbox__footer { padding: 2.5rem 1rem 1.5rem; }
-    .luxe-lightbox__caption { font-size: 0.9rem; }
+    .luxe-lightbox__footer { 
+      padding: 2.5rem 1.5rem max(2rem, env(safe-area-inset-bottom, 2rem)); 
+    }
+    .luxe-lightbox__caption { 
+      font-size: 0.85rem; 
+      letter-spacing: 0.03em;
+      max-width: 86vw;
+      padding: 0 1rem;
+      line-height: 1.4;
+    }
   }
 
   @media (max-width: 560px) {

@@ -10,7 +10,7 @@
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
 - **Status:** Publicado em `master`, push confirmado. Atualização do projeto Santa Ponsa com 19 fotografias profissionais de alta resolução (Canon EOS 2000D), organizadas em piscina, laterais, frente da casa e jardim de encosta/talude com engenharia de rocallas. Fotos antigas preservadas em backup de segurança.
-- **Checksum Atual (Deploy/Hash):** `ecefeff` (push em `master`).
+- **Checksum Atual (Deploy/Hash):** `1d55fbb` (push em `master`).
 
 ---
 
