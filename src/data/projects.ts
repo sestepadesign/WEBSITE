@@ -1157,7 +1157,7 @@ export const projects: Project[] = [
       {
         dir: "2023-installation",
         photos: [
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-2023-01.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-2023-12.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-2023-02.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-2023-03.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-2023-04.webp",
@@ -1168,14 +1168,14 @@ export const projects: Project[] = [
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-2023-09.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-2023-10.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-2023-11.webp",
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-2023-12.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-2023-01.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-2023-13.webp"
         ],
         en: {
           label: "2023 · Initial Installation & Living Wall Structure",
           note: "Initial installation phase of the vertical gardens for OK Mobility HQ in Palma, establishing the geometric lattice and indoor/outdoor irrigation systems.",
           imageAlts: [
-            "Installation of vertical garden structure at OK Mobility HQ in Palma",
+            "Completed initial installation of OK Mobility vertical gardens in Palma",
             "Initial phase of vertical garden facade lattice with climbing plant modules",
             "Indoor living wall installation with tropical plant selection",
             "Installation team placing vertical garden modules on exterior facade",
@@ -1186,7 +1186,7 @@ export const projects: Project[] = [
             "Detail of climbing species planted along facade lattice",
             "Indoor vertical garden module installation detail",
             "Exterior view of OK Mobility facade during vertical garden completion",
-            "Completed initial installation of OK Mobility vertical gardens in Palma",
+            "Installation of vertical garden structure at OK Mobility HQ in Palma",
             "Aerial view of OK Mobility HQ vertical garden facade after initial 2023 setup"
           ]
         },
@@ -1194,7 +1194,7 @@ export const projects: Project[] = [
           label: "2023 · Instalación Inicial y Celosía Vegetal",
           note: "Fase de instalación inicial de los jardines verticales para la sede corporativa de OK Mobility en Palma, estableciendo la celosía geométrica y los sistemas de riego interior y exterior.",
           imageAlts: [
-            "Instalación de la estructura del jardín vertical en la sede de OK Mobility en Palma",
+            "Instalación inicial completada de los jardines verticales de OK Mobility en Palma",
             "Fase inicial de celosía vegetal en fachada con módulos de plantas trepadoras",
             "Instalación de jardín vertical interior con selección de plantas tropicales",
             "Equipo de trabajo instalando módulos de jardín vertical en fachada exterior",
@@ -1205,7 +1205,7 @@ export const projects: Project[] = [
             "Detalle de especies trepadoras plantadas a lo largo de la celosía",
             "Detalle de instalación de módulo de jardín vertical interior",
             "Vista exterior de la fachada de OK Mobility durante la finalización del jardín vertical",
-            "Instalación inicial completada de los jardines verticales de OK Mobility en Palma",
+            "Instalación de la estructura del jardín vertical en la sede de OK Mobility en Palma",
             "Vista aérea de la fachada de jardines verticales de OK Mobility tras el montaje inicial de 2023"
           ]
         },
@@ -1213,7 +1213,7 @@ export const projects: Project[] = [
           label: "2023 · Erstinstallation & Begrünte Fassadenstruktur",
           note: "Erstinstallation der vertikalen Gärten für die Firmenzentrale von OK Mobility in Palma mit Aufstellen des geometrischen Gitters und der Bewässerungssysteme.",
           imageAlts: [
-            "Installation der vertikalen Gartenstruktur in der OK Mobility Zentrale in Palma",
+            "Fertiggestellte Erstinstallation der vertikalen Gärten von OK Mobility in Palma",
             "Anfangsphase des begrünte Fassadengitters mit Kletterpflanzenmodulen",
             "Installation der Pflanzenwand im Innenbereich mit tropischer Pflanzenauswahl",
             "Installationsteam beim Anbringen der vertikalen Gartenmodule an der Außenfassade",
@@ -1224,7 +1224,7 @@ export const projects: Project[] = [
             "Detail der entlang des Gitters gepflanzten Kletterarten",
             "Detail der Installation des vertikalen Gartenmoduls im Innenbereich",
             "Außenansicht der OK Mobility Fassade bei Fertigstellung des vertikalen Gartens",
-            "Fertiggestellte Erstinstallation der vertikalen Gärten von OK Mobility in Palma",
+            "Installation der vertikalen Gartenstruktur in der OK Mobility Zentrale in Palma",
             "Luftaufnahme der vertikalen Gartenfassade von OK Mobility nach dem Erstaufbau 2023"
           ]
         }
@@ -1232,11 +1232,11 @@ export const projects: Project[] = [
       {
         dir: "2026-3-years-growth",
         photos: [
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-01.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-05.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-02.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-03.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-04.webp",
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-05.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-01.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-06.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-07.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-08.webp"
@@ -1245,11 +1245,11 @@ export const projects: Project[] = [
           label: "2026 · Three Years After Installation (Mature Living Walls)",
           note: "Three years after completion for OK Mobility HQ. The tropical foliage and climbing species have fully acclimatized, demonstrating long-term structural execution quality, 40% facade thermal reduction, sound absorption, and biological balance.",
           imageAlts: [
-            "Vertical garden OK Mobility HQ in Palma, Mallorca three years after installation: aerial view of mature vegetal facade",
+            "Indoor atrium vegetal module with hanging tropical species three years after planting",
             "OK Mobility vertical garden facade three years after planting showing dense climbing foliage",
             "Indoor living wall section with tropical foliage three years after installation",
             "Tropical vertical garden plant detail showing lush density and healthy growth",
-            "Indoor atrium vegetal module with hanging tropical species three years after planting",
+            "Vertical garden OK Mobility HQ in Palma, Mallorca three years after installation: aerial view of mature vegetal facade",
             "Facade vegetal lattice filtering light into OK Mobility interior offices",
             "Vertical garden architectural integration on OK Mobility corporate building in Palma",
             "Indoor living wall section filtering light and purifying air"
@@ -1259,11 +1259,11 @@ export const projects: Project[] = [
           label: "2026 · Tres Años de Maduración (Muros Vivos Plenos)",
           note: "Fotografías de los jardines verticales de la sede de OK Mobility tres años después de su ejecución. La vegetación tropical y trepadora ha completado su aclimatación, reduciendo la temperatura de fachada hasta un 40%, absorbiendo ruido y demostrando máxima calidad de ejecución a largo plazo.",
           imageAlts: [
-            "Jardín vertical sede OK Mobility en Palma de Mallorca tres años después de su instalación: vista aérea de fachada vegetal madura",
+            "Módulo vegetal suspendido en atrio interior tres años después de la plantación",
             "Fachada verde de OK Mobility tres años después de la plantación mostrando frondosa densidad vegetal",
             "Sección de muro vivo interior con plantas tropicales tres años después de la instalación",
             "Detalle de plantas de jardín vertical tropical mostrando salud y volumen botánico",
-            "Módulo vegetal suspendido en atrio interior tres años después de la plantación",
+            "Jardín vertical sede OK Mobility en Palma de Mallorca tres años después de su instalación: vista aérea de fachada vegetal madura",
             "Celosía vegetal en fachada filtrando luz natural hacia las oficinas de OK Mobility",
             "Integración arquitectónica del jardín vertical en edificio corporativo de OK Mobility en Palma",
             "Sección de jardín vertical interior purificando el aire y filtrando la luz"
@@ -1273,11 +1273,11 @@ export const projects: Project[] = [
           label: "2026 · Drei Jahre Nach der Bepflanzung (Ausgereifter Wuchs)",
           note: "Die vertikalen Gärten der OK Mobility Firmenzentrale drei Jahre nach der Ausführung. Die tropische Bepflanzung ist vollständig eingewachsen, senkt die Fassadentemperatur um bis zu 40 %, absorbiert Schall und beweist höchste technische Ausführungsqualität.",
           imageAlts: [
-            "Vertikaler Garten OK Mobility Zentrale in Palma, Mallorca drei Jahre nach der Bepflanzung: Luftaufnahme der begrünte Fassade",
+            "Hängende Pflanzenmodule im Innenatrium drei Jahre nach der Bepflanzung",
             "OK Mobility begrünte Fassade drei Jahre nach der Ausführung mit dichter Vegetation",
             "Innenraum-Pflanzenwand mit tropischen Arten drei Jahre nach der Installation",
             "Detailansicht der vertikalen tropischen Bepflanzung mit dichtem Blattwerk",
-            "Hängende Pflanzenmodule im Innenatrium drei Jahre nach der Bepflanzung",
+            "Vertikaler Garten OK Mobility Zentrale in Palma, Mallorca drei Jahre nach der Bepflanzung: Luftaufnahme der begrünte Fassade",
             "Begrünte Wandstruktur an der Fassade, die natürliches Licht in die Büros filtert",
             "Architektonische Integration des vertikalen Gartens im Firmengebäude von OK Mobility in Palma",
             "Pflanzenwand im Innenbereich zur Luftreinigung und Lichtfilterung"
