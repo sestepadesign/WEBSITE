@@ -10,11 +10,16 @@
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
 - **Status:** Publicado em `master`, push confirmado (deploy Cloudflare Pages ainda não verificado nesta sessão). Capa/spotlight do Vertical Garden trocada para fotos floridas reais; layout do capítulo de renders corrigido para não esmagar fotos retrato; navegador "The garden over time" movido para logo abaixo do título em ambos os projetos com `galleryChapters` (Vertical Garden e Sant Llorenç).
-- **Checksum Atual (Deploy/Hash):** `2e97d44` (push em `master`).
+- **Checksum Atual (Deploy/Hash):** `3a65ca4` (push em `master`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+### [2026-09-30] - Claude Code (Feature da instalação 2023 + restauro de reordenação perdida) — commit `3a65ca4`
+- **Miniatura do estágio "2023"** trocada para `2023-12` (a foto da plataforma elevatória a instalar a celosia na fachada) — pedido do operador, conta melhor a história da instalação do que a foto genérica anterior.
+- **Colisão multi-agente detetada e corrigida:** a reordenação da galeria "2026 · 3 anos" feita mais cedo nesta mesma sessão (miniatura = `3-years-05`) tinha desaparecido do `HEAD` — confirmado via `git show 961d6cb` que o commit publicado já não a continha. Causa provável: a sessão paralela do Antigravity (`Atualizar Imagens Vertical Garden`, a correr ao mesmo tempo no IDE do operador) editou `projects.ts` entretanto e uma versão sem essa troca acabou publicada por cima. Reaplicada aqui. **Lição para próximas sessões:** com duas sessões/agentes a editar `projects.ts` no mesmo projeto na mesma tarde, confirmar sempre com `git show <commit> -- src/data/projects.ts` que uma alteração feita mais cedo na conversa ainda está no ficheiro antes de dar como resolvida — não confiar só na memória da conversa.
+- Nenhum texto visível alterado. `astro build` local limpo (142 páginas) antes do push.
+
 ### [2026-09-30] - Claude Code (Navegador de estágios movido para cima — afeta Vertical Garden e Sant Llorenç) — commit `2e97d44`
 - **Pedido do operador:** o módulo "The garden over time" (navegador com 1 card por estágio, ex. as 3 galerias do Vertical Garden) ficava só depois da foto de capa, cabeçalho, foto editorial grande, bloco de descrição+especificações e uma segunda foto editorial — muito scroll até algo que o operador considerou informação relevante e cansativo de alcançar.
 - **Correção em [ProjectDetail.astro](src/components/ProjectDetail.astro:161):** o bloco `<nav class="stage-nav">` foi movido para logo após `<header class="project-header">` (título/subtítulo), antes das duas fotos editoriais e do grid de descrição. Nova classe `.stage-nav-top` remove a borda/padding de "divisor de secção" que o nav tinha quando vinha depois de uma foto (`border-top: none`, `padding-top: 0`, mantém só `margin-top`/`margin-bottom`). As secções de cada estágio (fotos completas) continuam mais abaixo, inalteradas — o link `#stage-id` do card continua a funcionar normalmente.
