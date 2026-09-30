@@ -9,12 +9,18 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Publicado em `master`, push confirmado (deploy Cloudflare Pages ainda não verificado nesta sessão). Hero do Vertical Garden agora reproduz o vídeo do YouTube em loop (desktop); removida foto duplicada do capítulo "3 anos".
-- **Checksum Atual (Deploy/Hash):** `4a44ad2` (push em `master`).
+- **Status:** Publicado em `master`, push confirmado (deploy Cloudflare Pages ainda não verificado nesta sessão). Hero do Vertical Garden agora reproduz o vídeo do YouTube em loop (desktop), com fade suave da foto de capa para o vídeo (sem flash preto); removida foto duplicada do capítulo "3 anos".
+- **Checksum Atual (Deploy/Hash):** `dd867d8` (push em `master`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+### [2026-09-30] - Claude Code (fix: flash preto no hero YouTube) — commit `dd867d8`
+- **Reportado pelo operador com screenshot**, visto tanto em produção como no preview local: ao abrir `/vertical-gardens-in-mallorca/`, o hero mostrava um retângulo preto sólido durante um instante antes do vídeo aparecer, em vez da foto de capa.
+- **Causa:** o player do YouTube mostra sempre um frame preto enquanto arranca (buffering inicial); como o wrapper `.yt-hero-scale` cobre o hero inteiro assim que o iframe é criado, esse preto tapava a `background-image` (foto de capa) que devia estar visível por baixo nesse intervalo.
+- **Correção em [ProjectDetail.astro](src/components/ProjectDetail.astro:139):** `.yt-hero-scale` arranca com `opacity: 0` e só recebe a classe `.is-visible` (`opacity: 1`, transição de 0.6s) no evento `onStateChange` quando `YT.PlayerState.PLAYING` dispara pela primeira vez — a foto de capa fica visível até o vídeo estar mesmo pronto a tocar, depois há um crossfade suave.
+- Verificado no preview local (`%TEMP%\sestepa-preview-fast`, robocopy do `src/` antes de recarregar): sem flash preto, fade visível, loop a partir do segundo 38 continua a funcionar.
+
 ### [2026-09-30] - Claude Code (Hero YouTube em loop + remoção de foto duplicada) — commit `4a44ad2`
 - **Pedido do operador:** hero de `/vertical-gardens-in-mallorca/` a usar o vídeo do YouTube já existente do projeto como fundo em loop, em vez da imagem estática. Testado em sessão com o operador e ajustado o ponto de início do loop duas vezes (3s → 15s → 38s, valor final aprovado).
 - **`projects.ts`:** novo campo opcional `heroYoutubeId` na interface `Project`; definido `"x3W0KQmr-pQ"` neste projeto (mesmo vídeo já usado na secção de vídeo da página).
