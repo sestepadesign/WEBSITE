@@ -1103,54 +1103,38 @@ export const projects: Project[] = [
         dir: "renders",
         photos: [
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-interior-atrium.webp",
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-vegetal-module.webp",
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-entrance-perspective.webp",
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-architectural-lattice.webp",
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-tropical-foliage.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-living-wall-detail.webp",
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-facade-overview.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-tropical-foliage.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-structural-framing.webp"
         ],
         en: {
           label: "3D Renders & Conceptual Architecture Proposal",
           note: "3D architectural visualizations and structural lattice design developed for OK Mobility HQ in Palma, Mallorca.",
           imageAlts: [
-            "Interior 3D render of suspended tropical vertical garden for OK Mobility corporate atrium in Palma, Mallorca",
-            "3D render of vertical garden module structure showing plant arrangement",
-            "Perspective 3D render of exterior vertical garden facade lighting and geometry",
-            "Interior 3D render of suspended tropical vertical garden for corporate atrium",
-            "3D render detail of facade vegetal lattice filtering natural sunlight",
-            "Conceptual design 3D visualization of OK Mobility vertical garden entrance",
-            "3D landscape design render of OK Mobility vertical garden facade in Palma, Mallorca",
-            "Night perspective 3D render of illuminated vertical garden facade for OK Mobility"
+            "3D architectural render of OK Mobility HQ exterior facade with vertical garden lattice and corporate signage",
+            "3D interior render of OK Mobility reception area with suspended tropical living wall",
+            "3D interior render of OK Mobility atrium showing tropical vertical garden canopy and art installation",
+            "3D architectural render of OK Mobility facade structural framing with vertical garden lattice"
           ]
         },
         es: {
           label: "Renders 3D y Propuesta de Diseño Conceptual",
           note: "Visualizaciones arquitectónicas 3D y diseño estructural de celosías desarrollados para la sede corporativa de OK Mobility en Palma de Mallorca.",
           imageAlts: [
-            "Render 3D interior de jardín vertical tropical suspendido para atrio corporativo de OK Mobility en Palma",
-            "Render 3D de la estructura modular del jardín vertical mostrando la disposición de plantas",
-            "Render 3D en perspectiva de la iluminación y geometría de la fachada de jardín vertical",
-            "Render 3D interior de jardín vertical tropical suspendido para atrio corporativo",
-            "Detalle de render 3D de la celosía vegetal en fachada filtrando luz natural",
-            "Visualización 3D de diseño conceptual para la entrada con jardín vertical de OK Mobility",
-            "Render 3D de diseño de paisajismo para la fachada de jardín vertical de OK Mobility en Palma",
-            "Render 3D en perspectiva nocturna de la fachada de jardín vertical iluminada"
+            "Render 3D arquitectónico de la fachada exterior de la sede de OK Mobility con celosía de jardín vertical y señalización corporativa",
+            "Render 3D interior de la recepción de OK Mobility con muro vivo tropical suspendido",
+            "Render 3D interior del atrio de OK Mobility mostrando el dosel del jardín vertical tropical y una instalación artística",
+            "Render 3D arquitectónico de la estructura de fachada de OK Mobility con celosía de jardín vertical"
           ]
         },
         de: {
           label: "3D-Renders & Konzeptentwurf der Architektur",
           note: "3D-Architekturvisualisierungen und Entwurf der begrünte Wandstrukturen für die Firmenzentrale von OK Mobility in Palma, Mallorca.",
           imageAlts: [
-            "Innenraum-3D-Render des hängenden tropischen vertikalen Gartens für das Firmenatrium von OK Mobility in Palma",
-            "3D-Render der vertikalen Gartenmodulstruktur mit Pflanzenanordnung",
-            "Perspektiven-3D-Render der Beleuchtung und Geometrie der vertikalen Gartenfassade",
-            "Innenraum-3D-Render des hängenden tropischen vertikalen Gartens für das Firmenatrium",
-            "3D-Render-Detail des begrünte Wandstrukturgitters, das natürliches Sonnenlicht filtert",
-            "Konzeptentwurf 3D-Visualisierung des Eingangsbereichs von OK Mobility mit vertikalem Garten",
-            "3D-Landschaftsdesign-Render der vertikalen Gartenfassade von OK Mobility in Palma, Mallorca",
-            "Nachtperspektiven-3D-Render der beleuchteten vertikalen Gartenfassade für OK Mobility"
+            "3D-Architekturrender der Außenfassade der OK Mobility Zentrale mit begrünte Wandstruktur und Firmenbeschriftung",
+            "3D-Innenraumrender des OK Mobility Empfangsbereichs mit hängender tropischer Pflanzenwand",
+            "3D-Innenraumrender des OK Mobility Atriums mit tropischem Blätterdach des vertikalen Gartens und Kunstinstallation",
+            "3D-Architekturrender der Fassadenstruktur von OK Mobility mit begrünte Wandstruktur"
           ]
         }
       },
@@ -1235,52 +1219,68 @@ export const projects: Project[] = [
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-05.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-02.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-03.webp",
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-04.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-01.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-08.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-09.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-06.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-04.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-07.webp",
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-08.webp"
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-10.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-11.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-12.webp"
         ],
         en: {
           label: "2026 · Three Years After Installation (Mature Living Walls)",
           note: "Three years after completion for OK Mobility HQ. The tropical foliage and climbing species have fully acclimatized, demonstrating long-term structural execution quality, 40% facade thermal reduction, sound absorption, and biological balance.",
           imageAlts: [
-            "Indoor atrium vegetal module with hanging tropical species three years after planting",
+            "Flowering bougainvillea and climbing species cascading over OK Mobility vertical garden facade three years after planting",
             "OK Mobility vertical garden facade three years after planting showing dense climbing foliage",
             "Indoor living wall section with tropical foliage three years after installation",
-            "Tropical vertical garden plant detail showing lush density and healthy growth",
             "Vertical garden OK Mobility HQ in Palma, Mallorca three years after installation: aerial view of mature vegetal facade",
-            "Facade vegetal lattice filtering light into OK Mobility interior offices",
+            "Indoor living wall section filtering light and purifying air",
+            "Aerial drone view of OK Mobility HQ vertical garden facade three years after installation, full building context",
+            "Close-up of flowering bougainvillea and mixed climbing species on OK Mobility vertical garden facade",
+            "Tropical vertical garden plant detail showing lush density and healthy growth",
             "Vertical garden architectural integration on OK Mobility corporate building in Palma",
-            "Indoor living wall section filtering light and purifying air"
+            "Reception area suspended fern living wall three years after installation",
+            "Dense mature tropical living wall with hanging pothos and ferns beside a corporate art installation",
+            "Flowering bougainvillea climbing the OK Mobility entrance facade three years after installation"
           ]
         },
         es: {
           label: "2026 · Tres Años de Maduración (Muros Vivos Plenos)",
           note: "Fotografías de los jardines verticales de la sede de OK Mobility tres años después de su ejecución. La vegetación tropical y trepadora ha completado su aclimatación, reduciendo la temperatura de fachada hasta un 40%, absorbiendo ruido y demostrando máxima calidad de ejecución a largo plazo.",
           imageAlts: [
-            "Módulo vegetal suspendido en atrio interior tres años después de la plantación",
+            "Buganvilla en flor y especies trepadoras cayendo sobre la fachada del jardín vertical de OK Mobility tres años después de la plantación",
             "Fachada verde de OK Mobility tres años después de la plantación mostrando frondosa densidad vegetal",
             "Sección de muro vivo interior con plantas tropicales tres años después de la instalación",
-            "Detalle de plantas de jardín vertical tropical mostrando salud y volumen botánico",
             "Jardín vertical sede OK Mobility en Palma de Mallorca tres años después de su instalación: vista aérea de fachada vegetal madura",
-            "Celosía vegetal en fachada filtrando luz natural hacia las oficinas de OK Mobility",
+            "Sección de jardín vertical interior purificando el aire y filtrando la luz",
+            "Vista aérea con dron de la fachada del jardín vertical de OK Mobility tres años después de la instalación",
+            "Detalle de buganvilla en flor y especies trepadoras mixtas en la fachada del jardín vertical de OK Mobility",
+            "Detalle de plantas de jardín vertical tropical mostrando salud y volumen botánico",
             "Integración arquitectónica del jardín vertical en edificio corporativo de OK Mobility en Palma",
-            "Sección de jardín vertical interior purificando el aire y filtrando la luz"
+            "Muro vivo de helechos suspendidos en la zona de recepción tres años después de la instalación",
+            "Muro vivo tropical denso y maduro con potos y helechos colgantes junto a una instalación artística corporativa",
+            "Buganvilla en flor trepando la fachada de entrada de OK Mobility tres años después de la instalación"
           ]
         },
         de: {
           label: "2026 · Drei Jahre Nach der Bepflanzung (Ausgereifter Wuchs)",
           note: "Die vertikalen Gärten der OK Mobility Firmenzentrale drei Jahre nach der Ausführung. Die tropische Bepflanzung ist vollständig eingewachsen, senkt die Fassadentemperatur um bis zu 40 %, absorbiert Schall und beweist höchste technische Ausführungsqualität.",
           imageAlts: [
-            "Hängende Pflanzenmodule im Innenatrium drei Jahre nach der Bepflanzung",
+            "Blühende Bougainvillea und Kletterpflanzen an der Fassade des vertikalen Gartens von OK Mobility drei Jahre nach der Bepflanzung",
             "OK Mobility begrünte Fassade drei Jahre nach der Ausführung mit dichter Vegetation",
             "Innenraum-Pflanzenwand mit tropischen Arten drei Jahre nach der Installation",
-            "Detailansicht der vertikalen tropischen Bepflanzung mit dichtem Blattwerk",
             "Vertikaler Garten OK Mobility Zentrale in Palma, Mallorca drei Jahre nach der Bepflanzung: Luftaufnahme der begrünte Fassade",
-            "Begrünte Wandstruktur an der Fassade, die natürliches Licht in die Büros filtert",
+            "Pflanzenwand im Innenbereich zur Luftreinigung und Lichtfilterung",
+            "Luftaufnahme per Drohne der Fassade des vertikalen Gartens von OK Mobility drei Jahre nach der Installation",
+            "Detailansicht blühender Bougainvillea und gemischter Kletterarten an der Fassade des vertikalen Gartens von OK Mobility",
+            "Detailansicht der vertikalen tropischen Bepflanzung mit dichtem Blattwerk",
             "Architektonische Integration des vertikalen Gartens im Firmengebäude von OK Mobility in Palma",
-            "Pflanzenwand im Innenbereich zur Luftreinigung und Lichtfilterung"
+            "Hängende Farn-Pflanzenwand im Empfangsbereich drei Jahre nach der Installation",
+            "Dichte, ausgereifte tropische Pflanzenwand mit hängenden Efeutute und Farnen neben einer Kunstinstallation",
+            "Blühende Bougainvillea an der Eingangsfassade von OK Mobility drei Jahre nach der Installation"
           ]
         }
       }

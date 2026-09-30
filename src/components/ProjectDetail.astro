@@ -1191,10 +1191,14 @@ const rhythm = (count: number) => {
     aspect-ratio: 16 / 9;
   }
 
-  /* The renders trio is 3 portrait CGI shots (~3:4 natural ratio) — the default
-     3:2 landscape crop would slice off most of each one, so this stage's thirds
-     get a taller frame instead, close to their real proportions. */
-  #stage-renders .stage-item.r-third .gallery-item {
+  /* Portrait photos (phone shots and vertically-exported CGI, ~3:4 natural ratio)
+     mixed in with this project's landscape ones — the default 3:2 crop would
+     slice off most of each one, so the slots that hold them get a taller frame
+     instead, close to their real proportions. Renders: both portrait CGI shots
+     sit in the half slots. 3-years-growth: the 3 portrait photos are the last
+     3 items (2nd trio) — nth-child keeps the 1st trio (landscape) at 3:2. */
+  #stage-renders .stage-item.r-half .gallery-item,
+  #stage-2026-3-years-growth .stage-item.r-third:nth-child(n+10) .gallery-item {
     aspect-ratio: 3 / 4;
   }
 
