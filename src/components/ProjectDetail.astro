@@ -157,6 +157,35 @@ const rhythm = (count: number) => {
         <p class="project-subtitle">{translation.subtitle}</p>
       </header>
 
+      <!-- Growth stages: navigator right after the title, so multi-session projects don't
+           bury their most useful jump-to-era links under two full-width editorial photos.
+           One section per photo session follows further down; all photos share the page
+           lightbox (buttons reuse .gallery-item-btn). -->
+      {stages.length > 0 && (
+        <nav class="stage-nav stage-nav-top" aria-label={stageText.nav}>
+          <p class="stage-kicker">{stageText.nav}</p>
+          <ol class="stage-nav-list" style={`--stages-count: ${stages.length};`}>
+            {stages.map((stage, i) => (
+              <li>
+                <a href={`#${stage.id}`} class="stage-nav-card">
+                  <span class="stage-nav-thumb">
+                    {stage.photos[0] && (
+                      <img src={stage.photos[0].src} alt="" loading="lazy" width="1920" height="1280" />
+                    )}
+                  </span>
+                  <span class="stage-nav-date">
+                    {stage.date}
+                    {i === 0 && <em class="stage-nav-latest">{stageText.latest}</em>}
+                  </span>
+                  <span class="stage-nav-title">{stage.title}</span>
+                  <span class="stage-count">{stage.photos.length} {stageText.photos}</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )}
+
       <!-- Editorial Feature Image (first image, full-width after title) -->
       {project.images.length > 0 && (
         <button
@@ -257,33 +286,6 @@ const rhythm = (count: number) => {
             />
           </div>
         </button>
-      )}
-
-      <!-- Growth stages: navigator + one section per photo session, newest first.
-           All photos share the page lightbox (buttons reuse .gallery-item-btn). -->
-      {stages.length > 0 && (
-        <nav class="stage-nav" aria-label={stageText.nav}>
-          <p class="stage-kicker">{stageText.nav}</p>
-          <ol class="stage-nav-list" style={`--stages-count: ${stages.length};`}>
-            {stages.map((stage, i) => (
-              <li>
-                <a href={`#${stage.id}`} class="stage-nav-card">
-                  <span class="stage-nav-thumb">
-                    {stage.photos[0] && (
-                      <img src={stage.photos[0].src} alt="" loading="lazy" width="1920" height="1280" />
-                    )}
-                  </span>
-                  <span class="stage-nav-date">
-                    {stage.date}
-                    {i === 0 && <em class="stage-nav-latest">{stageText.latest}</em>}
-                  </span>
-                  <span class="stage-nav-title">{stage.title}</span>
-                  <span class="stage-count">{stage.photos.length} {stageText.photos}</span>
-                </a>
-              </li>
-            ))}
-          </ol>
-        </nav>
       )}
 
       <!-- Video Section (If present) -->
@@ -1041,6 +1043,16 @@ const rhythm = (count: number) => {
     border-top: 1px solid var(--color-sand-dark);
     padding-top: 4rem;
     margin-top: 2rem;
+  }
+
+  /* The navigator now sits right under the title instead of after the editorial
+     photos — no divider needed there, and it needs less top air than a section
+     break further down the page. */
+  .stage-nav-top {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 2.5rem;
+    margin-bottom: 3.5rem;
   }
 
   .stage {
