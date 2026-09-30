@@ -1103,7 +1103,7 @@ export const projects: Project[] = [
         dir: "renders",
         photos: [
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-interior-atrium.webp",
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-vegetal-module.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-vegetal-module-softfocus.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-entrance-perspective.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-architectural-lattice.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-tropical-foliage.webp",
