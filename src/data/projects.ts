@@ -1102,14 +1102,14 @@ export const projects: Project[] = [
       {
         dir: "renders",
         photos: [
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-01.webp",
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-02.webp",
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-03.webp",
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-04.webp",
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-05.webp",
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-06.webp",
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-07.webp",
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-08.webp"
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-facade-overview.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-interior-atrium.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-vegetal-module.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-architectural-lattice.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-entrance-perspective.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-tropical-foliage.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-living-wall-detail.webp",
+          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-structural-framing.webp"
         ],
         en: {
           label: "3D Renders & Conceptual Architecture Proposal",
