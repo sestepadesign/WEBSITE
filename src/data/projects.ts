@@ -48,6 +48,8 @@ export interface Project {
   secondaryVideo?: string;
   heroVideo?: string;
   heroPoster?: string;
+  /** YouTube video ID used as a looping muted hero background (alternative to `heroVideo`'s local mp4). Loops from 15s after start to 2s before the end (start offset set in ProjectDetail.astro). */
+  heroYoutubeId?: string;
   cover: string;
   coverPosition?: string;
   /** Social preview image (JPG, ≤1MB). Falls back to cover when omitted. */
@@ -1092,6 +1094,7 @@ export const projects: Project[] = [
     year: "2023",
     architect: "Vertical Garden Mallorca",
     video: "https://www.youtube.com/embed/x3W0KQmr-pQ?feature=oembed",
+    heroYoutubeId: "x3W0KQmr-pQ",
     cover: "/portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-06.webp",
     ogImage: "/portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-06.webp",
     images: [
@@ -1226,7 +1229,6 @@ export const projects: Project[] = [
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-04.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-07.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-10.webp",
-          "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-11.webp",
           "garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-12.webp"
         ],
         en: {
@@ -1243,7 +1245,6 @@ export const projects: Project[] = [
             "Tropical vertical garden plant detail showing lush density and healthy growth",
             "Vertical garden architectural integration on OK Mobility corporate building in Palma",
             "Reception area suspended fern living wall three years after installation",
-            "Dense mature tropical living wall with hanging pothos and ferns beside a corporate art installation",
             "Flowering bougainvillea climbing the OK Mobility entrance facade three years after installation"
           ]
         },
@@ -1261,7 +1262,6 @@ export const projects: Project[] = [
             "Detalle de plantas de jardín vertical tropical mostrando salud y volumen botánico",
             "Integración arquitectónica del jardín vertical en edificio corporativo de OK Mobility en Palma",
             "Muro vivo de helechos suspendidos en la zona de recepción tres años después de la instalación",
-            "Muro vivo tropical denso y maduro con potos y helechos colgantes junto a una instalación artística corporativa",
             "Buganvilla en flor trepando la fachada de entrada de OK Mobility tres años después de la instalación"
           ]
         },
@@ -1279,7 +1279,6 @@ export const projects: Project[] = [
             "Detailansicht der vertikalen tropischen Bepflanzung mit dichtem Blattwerk",
             "Architektonische Integration des vertikalen Gartens im Firmengebäude von OK Mobility in Palma",
             "Hängende Farn-Pflanzenwand im Empfangsbereich drei Jahre nach der Installation",
-            "Dichte, ausgereifte tropische Pflanzenwand mit hängenden Efeutute und Farnen neben einer Kunstinstallation",
             "Blühende Bougainvillea an der Eingangsfassade von OK Mobility drei Jahre nach der Installation"
           ]
         }

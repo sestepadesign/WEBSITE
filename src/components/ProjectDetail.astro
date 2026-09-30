@@ -131,6 +131,81 @@ const rhythm = (count: number) => {
             });
           </script>
         </div>
+      ) : project.heroYoutubeId ? (
+        <div
+          class="video-container yt-hero"
+          style={`width: 100%; height: 100%; position: relative; overflow: hidden; background-image: url(${project.cover}); background-size: cover; background-position: center;`}
+        >
+          <div id={`ytHeroScale-${project.slug}`} class="yt-hero-scale">
+            <div id={`ytHero-${project.slug}`}></div>
+          </div>
+          <div class="hero-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(31, 33, 31, 0.4) 0%, rgba(31, 33, 31, 0.2) 60%, rgba(250, 249, 246, 1) 100%); pointer-events: none; z-index: 2;"></div>
+          <script is:inline define:vars={{ slug: project.slug, videoId: project.heroYoutubeId }}>
+            document.addEventListener('DOMContentLoaded', function () {
+              if (!window.matchMedia('(min-width: 768px)').matches) return;
+
+              var START = 38;
+              var END_BUFFER = 2;
+
+              function init() {
+                var end = null;
+                var player = new YT.Player('ytHero-' + slug, {
+                  videoId: videoId,
+                  width: '100%',
+                  height: '100%',
+                  playerVars: {
+                    autoplay: 1,
+                    mute: 1,
+                    controls: 0,
+                    disablekb: 1,
+                    fs: 0,
+                    iv_load_policy: 3,
+                    modestbranding: 1,
+                    playsinline: 1,
+                    rel: 0,
+                    start: START
+                  },
+                  events: {
+                    onReady: function (e) {
+                      e.target.mute();
+                      e.target.playVideo();
+                      var duration = e.target.getDuration();
+                      if (duration > 0) end = duration - END_BUFFER;
+                      setInterval(function () {
+                        if (end === null) {
+                          var d = e.target.getDuration();
+                          if (d > 0) end = d - END_BUFFER;
+                        }
+                        if (end !== null && e.target.getCurrentTime() >= end) {
+                          e.target.seekTo(START, true);
+                        }
+                      }, 250);
+                    },
+                    onStateChange: function (e) {
+                      if (e.data === YT.PlayerState.ENDED) {
+                        e.target.seekTo(START, true);
+                        e.target.playVideo();
+                      }
+                    }
+                  }
+                });
+              }
+
+              if (window.YT && window.YT.Player) {
+                init();
+              } else {
+                var tag = document.createElement('script');
+                tag.src = 'https://www.youtube.com/iframe_api';
+                document.head.appendChild(tag);
+                var prevReady = window.onYouTubeIframeAPIReady;
+                window.onYouTubeIframeAPIReady = function () {
+                  if (prevReady) prevReady();
+                  init();
+                };
+              }
+            });
+          </script>
+        </div>
       ) : (
         <img
           src={project.cover}
@@ -618,6 +693,30 @@ const rhythm = (count: number) => {
     object-fit: cover;
     object-position: center;
     display: block;
+  }
+
+  /* YouTube hero background: scale the iframe like a fixed 16:9 video so it always covers
+     the hero box, cropping the excess — the standard "fullscreen YouTube background" technique. */
+  .yt-hero-scale {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 177.78vh;
+    height: 56.25vw;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  /* :global — the iframe is injected at runtime by the YouTube API, so it never carries
+     Astro's scoping attribute and a scoped selector would silently never match it. */
+  .yt-hero-scale :global(iframe) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .back-link {
