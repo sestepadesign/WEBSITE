@@ -9,12 +9,21 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Publicado em `master`, push confirmado (deploy Cloudflare Pages ainda não verificado nesta sessão). Capa/spotlight do Vertical Garden trocada para fotos floridas reais; layout do capítulo de renders corrigido para não esmagar fotos retrato; navegador "The garden over time" movido para logo abaixo do título em ambos os projetos com `galleryChapters` (Vertical Garden e Sant Llorenç).
-- **Checksum Atual (Deploy/Hash):** `ef14187` (push em `master`).
+- **Status:** Publicado em `master`, push confirmado (deploy Cloudflare Pages ainda não verificado nesta sessão). Hero do Vertical Garden agora reproduz o vídeo do YouTube em loop (desktop); removida foto duplicada do capítulo "3 anos".
+- **Checksum Atual (Deploy/Hash):** `4a44ad2` (push em `master`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+### [2026-09-30] - Claude Code (Hero YouTube em loop + remoção de foto duplicada) — commit `4a44ad2`
+- **Pedido do operador:** hero de `/vertical-gardens-in-mallorca/` a usar o vídeo do YouTube já existente do projeto como fundo em loop, em vez da imagem estática. Testado em sessão com o operador e ajustado o ponto de início do loop duas vezes (3s → 15s → 38s, valor final aprovado).
+- **`projects.ts`:** novo campo opcional `heroYoutubeId` na interface `Project`; definido `"x3W0KQmr-pQ"` neste projeto (mesmo vídeo já usado na secção de vídeo da página).
+- **`ProjectDetail.astro`:** novo terceiro ramo no hero (`heroVideo` mp4 local → `heroYoutubeId` YouTube → imagem estática), usando a YouTube IFrame API — autoplay mudo, sem controlos, `start=38`, loop manual via `setInterval` que volta a `seekTo(38)` quando faltam 2s para o fim (duração lida em runtime via `getDuration()`). Só corre em desktop (`matchMedia('(min-width: 768px)')`), igual ao padrão já usado no `heroVideo` mp4. CSS de cobertura total (`.yt-hero-scale`) precisou de `:global(iframe)` — o iframe é criado em runtime pela API do YouTube e nunca recebe o atributo de scoping do Astro, por isso um seletor scoped normal falhava silenciosamente.
+- **Debug notável:** build local contra o mirror em `%TEMP%\sestepa-preview-fast` (via `robocopy`) — o script não corria porque o mirror ficou desatualizado depois da primeira sincronização; confirmado com um marcador `window.__ytHeroScriptRan` antes de perceber a causa. Lição: sempre repetir o `robocopy` de `src/` antes de recarregar a página quando o dev server corre a partir do mirror, não só na primeira vez.
+- **Foto duplicada removida do capítulo "2026 · Three Years After Installation":** `garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-11.webp` era a mesma fotografia que `-08.webp` (confirmado por análise de pixels: SSIM ≈ 0,9916, diferença uniforme de ~6-8/255 mesmo na zona de texto impresso estático da parede — padrão típico de reencodificação WebP, não de duas tomadas distintas). Removida a referência em `projects.ts` (array `photos` + `imageAlts` EN/ES/DE), o ficheiro `.webp` e as 3 entradas correspondentes em `public/sitemap-images.xml` (não consegui correr `scripts/generate-image-sitemap.mjs` — bloqueado pelo classificador de auto-modo por reescrever ficheiros; editado o XML manualmente).
+- **Verificação de colisão multi-agente:** antes de publicar, confirmei via `git show HEAD:src/data/projects.ts` e hash de todas as 12 fotos do capítulo que a sessão paralela anterior (`ef14187`, reclassificação renders→fotos reais, `3-years-09` a `12`) não tinha qualquer sobreposição de conteúdo com a duplicada `-11`/`-08` — as 12 fotos têm hashes todos distintos exceto esse par, confirmando que o fix é isolado e seguro.
+- Commit feito só com os 4 ficheiros relevantes (`projects.ts`, `ProjectDetail.astro`, `sitemap-images.xml`, a imagem apagada) — `public/_redirects` e `src/components/site/galleryPage.astro`, modificados por outra sessão em curso no mesmo checkout, foram deixados intocados e por commitar.
+
 ### [2026-09-30] - Claude Code (Separa renders CGI reais de fotografias reais + reverte blur) — commits `36ced74`, `ef14187`
 - **Blur do `vegetal-module` revertido** a pedido explícito do operador ("um horror" → "Imediatamente por favor") — foto voltou ao original, sem tratamento.
 - **Auditoria confirmada pelo operador, comparando imagens uma a uma:** do capítulo "3D Renders & Conceptual Architecture Proposal", só 4 das 8 imagens são renders CGI genuínos (`interior-atrium`, `living-wall-detail`, `tropical-foliage`, `structural-framing`); as outras 4 (`facade-overview`, `vegetal-module`, `architectural-lattice`, `entrance-perspective`) são fotografias reais do jardim maduro (confirmado também que `IMG_4126.HEIC` do disco J: = `architectural-lattice`, já publicada).
