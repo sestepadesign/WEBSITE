@@ -9,12 +9,25 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Publicado em `master`, push confirmado (deploy Cloudflare Pages ainda não verificado nesta sessão). Hero do Vertical Garden agora reproduz o vídeo do YouTube em loop (desktop), com fade suave da foto de capa para o vídeo (sem flash preto); removida foto duplicada do capítulo "3 anos".
-- **Checksum Atual (Deploy/Hash):** `dd867d8` (push em `master`).
+- **Status:** Publicado em `master`, push confirmado. Atualização do projeto Santa Ponsa com 19 fotografias profissionais de alta resolução (Canon EOS 2000D), organizadas em piscina, laterais, frente da casa e jardim de encosta/talude com engenharia de rocallas. Fotos antigas preservadas em backup de segurança.
+- **Checksum Atual (Deploy/Hash):** `ecefeff` (push em `master`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+### [2026-09-30] - Antigravity (Atualização de Santa Ponsa com 19 Fotos Curadas DSLR, Alts SEO e Backup de Preservação)
+- **Seleção e Curadoria Visual (Disco J:):** Auditadas 42 fotos candidatas capturadas em 25/09/2026 no diretório `Sant Llorenç - Puig de na Morisca...`. Comparadas fotos de telemóvel (Galaxy A56) e fotos profissionais DSLR (Canon EOS 2000D). Selecionadas 19 fotos exclusivas de resolução máxima (6000x4000), eliminando qualquer redundância visual ou repetição de enquadramento.
+- **Preservação de Ativos Anteriores:** 100% das fotos anteriores de 2023 foram preservadas intactas em `public/portfolio/santa-ponsa/images/` e uma cópia de segurança dedicada foi criada em `_backups/santa-ponsa-2023-photos/`.
+- **Otimização WebP & Nomenclatura SEO:** Convertidas as 19 fotos para WebP otimizado (largura máxima 1920px, proporção nativa 3:2, ~350-740 KB) e gerado thumbnail mobile dedicado `garden-design-mallorca-santa-ponsa-01-pool-villa-stipa-sestepa-card.webp`.
+- **Estrutura Narrativa Solicitada pelo Operador:**
+  1. *Piscina (01 a 06):* Hero com gramíneas Stipa tenacissima e villa contemporânea, vista panorâmica para o mar e colinas de pinos, terraço com muro de pedra seca mallorquina e cascata infinity edge.
+  2. *Laterais (07 a 09):* Corredor arquitetônico de pedra, escadaria, floreira com folhagens e caminho lateral com cubresuelos.
+  3. *Frente da Casa (10 a 12):* Oliveira centenária monumental (*Olea europaea*), prado verde, esferas topiárias e voladizo da residência.
+  4. *Jardim de Encosta / Talude (13 a 19):* Documentação da árdua engenharia de contenção com rocallas de caliza, traviesas de madeira e tapete denso estabilizador (*Chlorophytum comosum*, *Asparagus densiflorus*, *Agapanthus*, *Strelitzia nicolai*, *Cycas revoluta*).
+- **Conteúdo Multilíngue ([src/data/projects.ts](src/data/projects.ts)):** Descrições e especificações botânicas enriquecidas e `imageAlts` detalhados em EN, ES e DE para todas as 19 imagens.
+- **Sitemap de Imagens ([public/sitemap-images.xml](public/sitemap-images.xml)):** Regenerado com sucesso (54 URLs, 264 imagens indexadas).
+- **Homologação:** Validado pelo operador via preview local (`http://localhost:4322/santa-ponsa/`). Deploy autorizado e publicado em `master`.
+
 ### [2026-09-30] - Claude Code (fix: flash preto no hero YouTube) — commit `dd867d8`
 - **Reportado pelo operador com screenshot**, visto tanto em produção como no preview local: ao abrir `/vertical-gardens-in-mallorca/`, o hero mostrava um retângulo preto sólido durante um instante antes do vídeo aparecer, em vez da foto de capa.
 - **Causa:** o player do YouTube mostra sempre um frame preto enquanto arranca (buffering inicial); como o wrapper `.yt-hero-scale` cobre o hero inteiro assim que o iframe é criado, esse preto tapava a `background-image` (foto de capa) que devia estar visível por baixo nesse intervalo.
