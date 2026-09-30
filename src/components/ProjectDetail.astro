@@ -59,6 +59,11 @@ type Stage = {
   id: string; label: string; date: string; title: string; note?: string; offset: number;
   photos: { src: string; alt: string }[];
 };
+const firstStagePhotos = project.images.slice(2).map((img, idx) => ({
+  src: `/portfolio/${project.slug}/images/${img}`,
+  alt: translation.imageAlts?.[idx + 2] ?? `${translation.title} — Garden Design ${formattedLocation}, Image ${idx + 3}`,
+}));
+
 const stages: Stage[] = galleryChapters.length === 0 ? [] : [
   ...[...galleryChapters].reverse().map((chapter) => {
     const text = chapter[lang];
@@ -74,16 +79,13 @@ const stages: Stage[] = galleryChapters.length === 0 ? [] : [
       })),
     };
   }),
-  {
+  ...(firstStagePhotos.length > 0 ? [{
     id: 'stage-first',
     label: galleryLabel ?? '',
     ...splitLabel(galleryLabel ?? ''),
     offset: 0,
-    photos: project.images.slice(2).map((img, idx) => ({
-      src: `/portfolio/${project.slug}/images/${img}`,
-      alt: translation.imageAlts?.[idx + 2] ?? `${translation.title} — Garden Design ${formattedLocation}, Image ${idx + 3}`,
-    })),
-  },
+    photos: firstStagePhotos,
+  }] : []),
 ];
 // Position in the shared lightbox sequence (feature + mid images come first).
 stages.reduce((offset, stage) => { stage.offset = offset; return offset + stage.photos.length; }, 2);
@@ -267,7 +269,9 @@ const rhythm = (count: number) => {
               <li>
                 <a href={`#${stage.id}`} class="stage-nav-card">
                   <span class="stage-nav-thumb">
-                    <img src={stage.photos[0].src} alt="" loading="lazy" width="1920" height="1280" />
+                    {stage.photos[0] && (
+                      <img src={stage.photos[0].src} alt="" loading="lazy" width="1920" height="1280" />
+                    )}
                   </span>
                   <span class="stage-nav-date">
                     {stage.date}
