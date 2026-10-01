@@ -9,12 +9,20 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Publicado em `master`, push confirmado. Atualização do projeto Santa Ponsa com 19 fotografias profissionais de alta resolução (Canon EOS 2000D), organizadas em piscina, laterais, frente da casa e jardim de encosta/talude com engenharia de rocallas. Fotos antigas preservadas em backup de segurança.
-- **Checksum Atual (Deploy/Hash):** `1d55fbb` (push em `master`).
+- **Status:** Publicado em `master`, push confirmado. Atualização do projeto Binissalem com 5 fotografias selecionadas em alta resolução (25/09/2026), integradas diretamente à galeria principal contínua (sem etapas/capítulos). Originais preservados em `originais-grandes/binissalem/2026-09-25/`. Ficheiros web otimizados em `.webp` (max 1920px, ~460-590 KB). Galeria anterior 100% preservada.
+- **Checksum Atual (Deploy/Hash):** `2cd540a` (push em `master`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+### [2026-10-01] - Antigravity (Atualização de Fotos de Binissalem: 5 Fotos Curadas DSLR, Galeria Única e Preservação em G:)
+- **Seleção e Re-mapeamento (G:\...originais-grandes\binissalem\2026-09-25):** Processadas as 5 fotografias selecionadas pelo operador (`IMG_3861.JPG`, `IMG_3863.JPG`, `IMG_3864.JPG`, `IMG_3866.JPG`, `IMG_3871.JPG`). Geradas as cópias padronizadas `garden-design-mallorca-binissalem-01.jpg` a `05.jpg` e atualizado o arquivo de auditoria `_selection.txt`.
+- **Preparação Web (WebP):** Geradas 5 imagens WebP otimizadas (qualidade 82, filtro LANCZOS, dimensão máxima 1920px, ~460-590 KB) em `codigo/public/portfolio/binissalem/images/`.
+- **Galeria Única Sem Etapas ([src/data/projects.ts](src/data/projects.ts)):** Conforme instrução do operador, removidos capítulos temporais; reposicionada `BINISSALEM-MALLORCA-SESTEPA-DESIGN-8.jpg` para a posição 0 (hero feature image) e `BINISSALEM-MALLORCA-SESTEPA-DESIGN-12.jpg` para a posição 1 (mid editorial image), seguidas pelas 5 novas fotos WebP e pelas demais fotos da galeria.
+- **Sitemap de Imagens ([public/sitemap-images.xml](public/sitemap-images.xml)):** Regenerado com `node scripts/generate-image-sitemap.mjs` (54 URLs, 269 imagens indexadas, +5 fotos de Binissalem).
+- **Homologação Local:** Sincronizado espelho em `%TEMP%\sestepa-preview-fast`. Verificado em `http://localhost:4321/binissalem/` e `http://localhost:4321/es/benissalem/` (HTTP 200, hero = foto 8, mid = foto 12).
+- **Integridade:** Disco J: mantido estritamente inalterado (modo somente leitura). Zero comandos destrutivos.
+
 ### [2026-09-30] - Antigravity (Atualização de Santa Ponsa com 19 Fotos Curadas DSLR, Alts SEO e Backup de Preservação)
 - **Seleção e Curadoria Visual (Disco J:):** Auditadas 42 fotos candidatas capturadas em 25/09/2026 no diretório `Sant Llorenç - Puig de na Morisca...`. Comparadas fotos de telemóvel (Galaxy A56) e fotos profissionais DSLR (Canon EOS 2000D). Selecionadas 19 fotos exclusivas de resolução máxima (6000x4000), eliminando qualquer redundância visual ou repetição de enquadramento.
 - **Preservação de Ativos Anteriores:** 100% das fotos anteriores de 2023 foram preservadas intactas em `public/portfolio/santa-ponsa/images/` e uma cópia de segurança dedicada foi criada em `_backups/santa-ponsa-2023-photos/`.
