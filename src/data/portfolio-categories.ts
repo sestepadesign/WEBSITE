@@ -16,6 +16,7 @@ export const PORTFOLIO_FILTER_ORDER: PortfolioFilterCategory[] = [
 
 export const projectCategoryMap: Record<string, PortfolioFilterCategory> = {
   binissalem: 'residential',
+  'binissalem-courtyard': 'residential',
   bunyola: 'residential',
   'campanet-garden': 'residential',
   costadelacalma: 'residential',
@@ -44,6 +45,7 @@ export const PORTFOLIO_PROJECT_ORDER: string[] = [
   'finca-garden-campos-mallorca',
   'jardin-mediterraneo',
   'binissalem',
+  'binissalem-courtyard',
   'terrace-garden-santa-eugenia',
   'garden-design-llubi-mallorca',
   'santa-ponsa',

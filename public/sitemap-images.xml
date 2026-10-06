@@ -85,6 +85,12 @@
   <url>
     <loc>https://design.sestepa.com/binissalem/</loc>
     <image:image>
+      <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-8.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-12.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://design.sestepa.com/portfolio/binissalem/images/garden-design-mallorca-binissalem-01.webp</image:loc>
     </image:image>
     <image:image>
@@ -103,13 +109,7 @@
       <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-6.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-8.jpg</image:loc>
-    </image:image>
-    <image:image>
       <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-9.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-12.jpg</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-16.jpg</image:loc>
@@ -160,6 +160,12 @@
   <url>
     <loc>https://design.sestepa.com/es/benissalem/</loc>
     <image:image>
+      <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-8.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-12.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://design.sestepa.com/portfolio/binissalem/images/garden-design-mallorca-binissalem-01.webp</image:loc>
     </image:image>
     <image:image>
@@ -178,13 +184,7 @@
       <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-6.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-8.jpg</image:loc>
-    </image:image>
-    <image:image>
       <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-9.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-12.jpg</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-16.jpg</image:loc>
@@ -235,6 +235,12 @@
   <url>
     <loc>https://design.sestepa.com/de/benissalem/</loc>
     <image:image>
+      <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-8.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-12.jpg</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://design.sestepa.com/portfolio/binissalem/images/garden-design-mallorca-binissalem-01.webp</image:loc>
     </image:image>
     <image:image>
@@ -253,13 +259,7 @@
       <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-6.jpg</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-8.jpg</image:loc>
-    </image:image>
-    <image:image>
       <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-9.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-12.jpg</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://design.sestepa.com/portfolio/binissalem/images/BINISSALEM-MALLORCA-SESTEPA-DESIGN-16.jpg</image:loc>
@@ -305,6 +305,51 @@
     </image:image>
     <image:image>
       <image:loc>https://design.sestepa.com/portfolio/binissalem/images/LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://design.sestepa.com/binissalem-courtyard/</loc>
+    <image:image>
+      <image:loc>https://design.sestepa.com/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-01-pool-terrace-lemon-tree-sestepa.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://design.sestepa.com/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-02-sculptural-agave-cactus-detail-sestepa.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://design.sestepa.com/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-03-mediterranean-swimming-pool-garden-sestepa.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://design.sestepa.com/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-04-aerial-overview-townhouse-patio-sestepa.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://design.sestepa.com/es/binissalem-courtyard/</loc>
+    <image:image>
+      <image:loc>https://design.sestepa.com/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-01-pool-terrace-lemon-tree-sestepa.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://design.sestepa.com/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-02-sculptural-agave-cactus-detail-sestepa.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://design.sestepa.com/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-03-mediterranean-swimming-pool-garden-sestepa.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://design.sestepa.com/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-04-aerial-overview-townhouse-patio-sestepa.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://design.sestepa.com/de/binissalem-courtyard/</loc>
+    <image:image>
+      <image:loc>https://design.sestepa.com/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-01-pool-terrace-lemon-tree-sestepa.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://design.sestepa.com/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-02-sculptural-agave-cactus-detail-sestepa.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://design.sestepa.com/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-03-mediterranean-swimming-pool-garden-sestepa.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://design.sestepa.com/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-04-aerial-overview-townhouse-patio-sestepa.webp</image:loc>
     </image:image>
   </url>
   <url>

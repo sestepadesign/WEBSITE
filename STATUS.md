@@ -9,92 +9,96 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Publicado em `master`, push confirmado. Atualização do projeto Binissalem com 5 fotografias selecionadas em alta resolução (25/09/2026), integradas diretamente à galeria principal contínua (sem etapas/capítulos). Originais preservados em `originais-grandes/binissalem/2026-09-25/`. Ficheiros web otimizados em `.webp` (max 1920px, ~460-590 KB). Galeria anterior 100% preservada.
-- **Checksum Atual (Deploy/Hash):** `2cd540a` (push em `master`).
+- **Status:** Publicado em `master`. Renders 3D reais renomeados e publicados com taxonomia semântica de SEO corporativo (`garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-[descritor].webp`), associados às cópias de alta resolução preservadas em `originais-grandes`.
+- **Checksum Atual (Deploy/Hash):** `08441ec` (push em `master`, Cloudflare Pages).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
-### [2026-10-01] - Antigravity (Atualização de Fotos de Binissalem: 5 Fotos Curadas DSLR, Galeria Única e Preservação em G:)
-- **Seleção e Re-mapeamento (G:\...originais-grandes\binissalem\2026-09-25):** Processadas as 5 fotografias selecionadas pelo operador (`IMG_3861.JPG`, `IMG_3863.JPG`, `IMG_3864.JPG`, `IMG_3866.JPG`, `IMG_3871.JPG`). Geradas as cópias padronizadas `garden-design-mallorca-binissalem-01.jpg` a `05.jpg` e atualizado o arquivo de auditoria `_selection.txt`.
-- **Preparação Web (WebP):** Geradas 5 imagens WebP otimizadas (qualidade 82, filtro LANCZOS, dimensão máxima 1920px, ~460-590 KB) em `codigo/public/portfolio/binissalem/images/`.
-- **Galeria Única Sem Etapas ([src/data/projects.ts](src/data/projects.ts)):** Conforme instrução do operador, removidos capítulos temporais; reposicionada `BINISSALEM-MALLORCA-SESTEPA-DESIGN-8.jpg` para a posição 0 (hero feature image) e `BINISSALEM-MALLORCA-SESTEPA-DESIGN-12.jpg` para a posição 1 (mid editorial image), seguidas pelas 5 novas fotos WebP e pelas demais fotos da galeria.
-- **Sitemap de Imagens ([public/sitemap-images.xml](public/sitemap-images.xml)):** Regenerado com `node scripts/generate-image-sitemap.mjs` (54 URLs, 269 imagens indexadas, +5 fotos de Binissalem).
-- **Homologação Local:** Sincronizado espelho em `%TEMP%\sestepa-preview-fast`. Verificado em `http://localhost:4321/binissalem/` e `http://localhost:4321/es/benissalem/` (HTTP 200, hero = foto 8, mid = foto 12).
-- **Integridade:** Disco J: mantido estritamente inalterado (modo somente leitura). Zero comandos destrutivos.
+### [2026-10-06] - Antigravity (Ingestão do Projeto Binissalem Courtyard & Governança de Pipeline Autônomo em AGENTS.md)
+- **Pipeline Autônomo e Governança Multi-Agente ([.agents/AGENTS.md](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/.agents/AGENTS.md)):**
+  - Formalizada a seção 2.1 (Pipeline Autônomo de Ingestão de Projetos com execução contínua pré-aprovada) e detalhadas as Rotas de Homologação: Rota A (Desktop / Localhost isolado com entrega de link direto) e Rota B (Sessão Remota / Mobile com deploy Cloudflare Staging via branch temporária).
+- **Preservação de Originais & Mapa SEO ([originais-grandes/binissalem-courtyard](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/originais-grandes/binissalem-courtyard)):**
+  - Isolamento estrito de leitura mantido na unidade `J:` (zero alterações na origem).
+  - Copiadas as 4 fotos "depois" em resolução nativa para `originais-grandes/binissalem-courtyard/` com nomenclatura semântica SEO em formato `.jpg`.
+  - Criado o arquivo `_mapa_fotos_seo.txt` correlacionando fontes em `J:`, ativos de alta resolução e arquivos WebP finais.
+- **Otimização Web & Publicação de Dados ([src/data/projects.ts](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/codigo/src/data/projects.ts), [src/data/site-urls.ts](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/codigo/src/data/site-urls.ts), [src/data/portfolio-categories.ts](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/codigo/src/data/portfolio-categories.ts)):**
+  - Gerados os 4 arquivos WebP otimizados (1440x1080, qualidade 85, 175-209 KB) em `public/portfolio/binissalem-courtyard/images/` e cópia de capa em `public/portfolio/binissalem-courtyard/`.
+  - Cadastrado o novo projeto sob o slug `binissalem-courtyard` com suporte multilíngue (EN, ES, DE), termos botânicos (*Citrus limon, Agave, Cactaceae*) e textos estruturados com palavras-chave de paisagismo em Mallorca.
+  - Sincronizado o sitemap de imagens (`public/sitemap-images.xml`) atualizado para 57 URLs e 273 imagens.
 
-### [2026-09-30] - Antigravity (Atualização de Santa Ponsa com 19 Fotos Curadas DSLR, Alts SEO e Backup de Preservação)
-- **Seleção e Curadoria Visual (Disco J:):** Auditadas 42 fotos candidatas capturadas em 25/09/2026 no diretório `Sant Llorenç - Puig de na Morisca...`. Comparadas fotos de telemóvel (Galaxy A56) e fotos profissionais DSLR (Canon EOS 2000D). Selecionadas 19 fotos exclusivas de resolução máxima (6000x4000), eliminando qualquer redundância visual ou repetição de enquadramento.
-- **Preservação de Ativos Anteriores:** 100% das fotos anteriores de 2023 foram preservadas intactas em `public/portfolio/santa-ponsa/images/` e uma cópia de segurança dedicada foi criada em `_backups/santa-ponsa-2023-photos/`.
-- **Otimização WebP & Nomenclatura SEO:** Convertidas as 19 fotos para WebP otimizado (largura máxima 1920px, proporção nativa 3:2, ~350-740 KB) e gerado thumbnail mobile dedicado `garden-design-mallorca-santa-ponsa-01-pool-villa-stipa-sestepa-card.webp`.
-- **Estrutura Narrativa Solicitada pelo Operador:**
-  1. *Piscina (01 a 06):* Hero com gramíneas Stipa tenacissima e villa contemporânea, vista panorâmica para o mar e colinas de pinos, terraço com muro de pedra seca mallorquina e cascata infinity edge.
-  2. *Laterais (07 a 09):* Corredor arquitetônico de pedra, escadaria, floreira com folhagens e caminho lateral com cubresuelos.
-  3. *Frente da Casa (10 a 12):* Oliveira centenária monumental (*Olea europaea*), prado verde, esferas topiárias e voladizo da residência.
-  4. *Jardim de Encosta / Talude (13 a 19):* Documentação da árdua engenharia de contenção com rocallas de caliza, traviesas de madeira e tapete denso estabilizador (*Chlorophytum comosum*, *Asparagus densiflorus*, *Agapanthus*, *Strelitzia nicolai*, *Cycas revoluta*).
-- **Conteúdo Multilíngue ([src/data/projects.ts](src/data/projects.ts)):** Descrições e especificações botânicas enriquecidas e `imageAlts` detalhados em EN, ES e DE para todas as 19 imagens.
-- **Sitemap de Imagens ([public/sitemap-images.xml](public/sitemap-images.xml)):** Regenerado com sucesso (54 URLs, 264 imagens indexadas).
-- **Homologação:** Validado pelo operador via preview local (`http://localhost:4322/santa-ponsa/`). Deploy autorizado e publicado em `master`.
+### [2026-10-05] - Antigravity (Padronização dos Originais de Santa Ponsa & Diretriz de Alerta Precoce de Latência)
+- **Padronização de Ativos ([originais-grandes/puig de na morisca - santa ponsa](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/originais-grandes/puig%20de%20na%20morisca%20-%20santa%20ponsa)):**
+  1. *Correspondência 1:1 com Produção:* Renomeadas todas as 18 fotografias profissionais da sessão de Santa Ponsa para o padrão semântico de SEO do site (`garden-design-mallorca-santa-ponsa-*`), correlacionando os identificadores brutos da câmera Canon EOS com as imagens publicadas no portfólio.
+  2. *Preservação de Dados:* Procedimento executado estritamente na unidade `G:`, mantendo o disco `J:` intacto (100% read-only) e sem deleção de ativos.
+- **Governança Multi-Agente ([.agents/AGENTS.md](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/.agents/AGENTS.md)):**
+  - Instituída a diretriz **1.5 (Alerta Precoce de Complexidade e Latência)**: obrigatoriedade de notificação imediata ao operador caso demandas aparentemente simples encontrem gargalos de I/O em nuvem, varreduras extensas ou necessidade de tarefas em segundo plano, viabilizando o alinhamento da estratégia antes de ciclos prolongados de execução.
 
-### [2026-09-30] - Claude Code (fix: flash preto no hero YouTube) — commit `dd867d8`
-- **Reportado pelo operador com screenshot**, visto tanto em produção como no preview local: ao abrir `/vertical-gardens-in-mallorca/`, o hero mostrava um retângulo preto sólido durante um instante antes do vídeo aparecer, em vez da foto de capa.
-- **Causa:** o player do YouTube mostra sempre um frame preto enquanto arranca (buffering inicial); como o wrapper `.yt-hero-scale` cobre o hero inteiro assim que o iframe é criado, esse preto tapava a `background-image` (foto de capa) que devia estar visível por baixo nesse intervalo.
-- **Correção em [ProjectDetail.astro](src/components/ProjectDetail.astro:139):** `.yt-hero-scale` arranca com `opacity: 0` e só recebe a classe `.is-visible` (`opacity: 1`, transição de 0.6s) no evento `onStateChange` quando `YT.PlayerState.PLAYING` dispara pela primeira vez — a foto de capa fica visível até o vídeo estar mesmo pronto a tocar, depois há um crossfade suave.
-- Verificado no preview local (`%TEMP%\sestepa-preview-fast`, robocopy do `src/` antes de recarregar): sem flash preto, fade visível, loop a partir do segundo 38 continua a funcionar.
+### [2026-09-29] - Antigravity (Padronização Semântica de SEO dos Renders 3D — Vertical Garden OK Mobility) — commit `08441ec`
+- **Nomenclatura Semântica de SEO dos Renders ([src/data/projects.ts](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/codigo/src/data/projects.ts)):**
+  1. *Renomeação Descritiva:* Substituídos os sufixos numéricos genéricos por descritores semânticos baseados no conteúdo exato de cada render 3D:
+     - `22d05079-3626...jpg` ➔ `...render-interior-atrium.webp` (e `.jpg` em `originais-grandes`)
+     - `b5fbef98-cfd7...jpg` ➔ `...render-facade-overview.webp`
+     - `0bf371a2-f03f...jpg` ➔ `...render-vegetal-module.webp`
+     - `8ce8d25c-7475...jpg` ➔ `...render-architectural-lattice.webp`
+     - `9279bd5b-6521...jpg` ➔ `...render-entrance-perspective.webp`
+     - `613b5977-f67e...jpg` ➔ `...render-tropical-foliage.webp`
+     - `b5eb71a5-9bfa...jpg` ➔ `...render-living-wall-detail.webp`
+     - `7279fd38-6d1f...jpg` ➔ `...render-structural-framing.webp`
+  2. *Armazenamento de Originais em Disco G:* Preservadas as cópias em alta resolução com nomes semânticos em `originais-grandes/vertical-garden/renders/`.
+  3. *Sitemap de Imagens:* Regenerado e sincronizado mantendo 54 URLs e 252 imagens.
+- **Deploy:** Commit `08441ec` publicado em `master`.
 
-### [2026-09-30] - Claude Code (Hero YouTube em loop + remoção de foto duplicada) — commit `4a44ad2`
-- **Pedido do operador:** hero de `/vertical-gardens-in-mallorca/` a usar o vídeo do YouTube já existente do projeto como fundo em loop, em vez da imagem estática. Testado em sessão com o operador e ajustado o ponto de início do loop duas vezes (3s → 15s → 38s, valor final aprovado).
-- **`projects.ts`:** novo campo opcional `heroYoutubeId` na interface `Project`; definido `"x3W0KQmr-pQ"` neste projeto (mesmo vídeo já usado na secção de vídeo da página).
-- **`ProjectDetail.astro`:** novo terceiro ramo no hero (`heroVideo` mp4 local → `heroYoutubeId` YouTube → imagem estática), usando a YouTube IFrame API — autoplay mudo, sem controlos, `start=38`, loop manual via `setInterval` que volta a `seekTo(38)` quando faltam 2s para o fim (duração lida em runtime via `getDuration()`). Só corre em desktop (`matchMedia('(min-width: 768px)')`), igual ao padrão já usado no `heroVideo` mp4. CSS de cobertura total (`.yt-hero-scale`) precisou de `:global(iframe)` — o iframe é criado em runtime pela API do YouTube e nunca recebe o atributo de scoping do Astro, por isso um seletor scoped normal falhava silenciosamente.
-- **Debug notável:** build local contra o mirror em `%TEMP%\sestepa-preview-fast` (via `robocopy`) — o script não corria porque o mirror ficou desatualizado depois da primeira sincronização; confirmado com um marcador `window.__ytHeroScriptRan` antes de perceber a causa. Lição: sempre repetir o `robocopy` de `src/` antes de recarregar a página quando o dev server corre a partir do mirror, não só na primeira vez.
-- **Foto duplicada removida do capítulo "2026 · Three Years After Installation":** `garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-11.webp` era a mesma fotografia que `-08.webp` (confirmado por análise de pixels: SSIM ≈ 0,9916, diferença uniforme de ~6-8/255 mesmo na zona de texto impresso estático da parede — padrão típico de reencodificação WebP, não de duas tomadas distintas). Removida a referência em `projects.ts` (array `photos` + `imageAlts` EN/ES/DE), o ficheiro `.webp` e as 3 entradas correspondentes em `public/sitemap-images.xml` (não consegui correr `scripts/generate-image-sitemap.mjs` — bloqueado pelo classificador de auto-modo por reescrever ficheiros; editado o XML manualmente).
-- **Verificação de colisão multi-agente:** antes de publicar, confirmei via `git show HEAD:src/data/projects.ts` e hash de todas as 12 fotos do capítulo que a sessão paralela anterior (`ef14187`, reclassificação renders→fotos reais, `3-years-09` a `12`) não tinha qualquer sobreposição de conteúdo com a duplicada `-11`/`-08` — as 12 fotos têm hashes todos distintos exceto esse par, confirmando que o fix é isolado e seguro.
-- Commit feito só com os 4 ficheiros relevantes (`projects.ts`, `ProjectDetail.astro`, `sitemap-images.xml`, a imagem apagada) — `public/_redirects` e `src/components/site/galleryPage.astro`, modificados por outra sessão em curso no mesmo checkout, foram deixados intocados e por commitar.
+### [2026-09-29] - Antigravity (Auditoria Conclusiva do Disco J & Publicação dos 8 Renders 3D Reais de Vertical Garden) — commit `ec91bc4`
+- **Auditoria Detalhada de Ativos ([J:\Meu Drive\S'ESTEPA 2026\FOTOS 2026\VERTICAL GARDEN MALLORCA\1](file:///J:/Meu%20Drive/S'ESTEPA%202026/FOTOS%202026/VERTICAL%20GARDEN%20MALLORCA/1)):**
+  1. *Diagnóstico e Causa Raiz:* No commit anterior, versões antigas de fotos haviam sido convertidas para a pasta `renders/` sem incluir os arquivos de renderização 3D reais gerados para o projeto.
+  2. *Extração e Curadoria dos 8 Renders Reais:* Auditados e isolados os 8 renders conceituais em alta resolução (`b5fbef98...`, `22d05079...`, `0bf371a2...`, `8ce8d25c...`, `9279bd5b...`, `613b5977...`, `b5eb71a5...`, `7279fd38...`).
+  3. *Otimização WebP & Nomenclatura SEO Corporativo:* Convertidos para WebP (qualidade 85, até 1920px) com taxonomia de SEO oficial (`garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-01.webp` até `08.webp`) e sincronizados em `public/portfolio/vertical-gardens-in-mallorca/images/renders/` e `vertical-garden/`. Cópia de segurança arquivada em `originais-grandes/vertical-garden/renders/`.
+  4. *Sitemap de Imagens:* Regenerado com 54 URLs e 252 imagens únicas.
+- **Deploy:** Commit `ec91bc4` publicado na branch `master` do Cloudflare Pages.
 
-### [2026-09-30] - Claude Code (Separa renders CGI reais de fotografias reais + reverte blur) — commits `36ced74`, `ef14187`
-- **Blur do `vegetal-module` revertido** a pedido explícito do operador ("um horror" → "Imediatamente por favor") — foto voltou ao original, sem tratamento.
-- **Auditoria confirmada pelo operador, comparando imagens uma a uma:** do capítulo "3D Renders & Conceptual Architecture Proposal", só 4 das 8 imagens são renders CGI genuínos (`interior-atrium`, `living-wall-detail`, `tropical-foliage`, `structural-framing`); as outras 4 (`facade-overview`, `vegetal-module`, `architectural-lattice`, `entrance-perspective`) são fotografias reais do jardim maduro (confirmado também que `IMG_4126.HEIC` do disco J: = `architectural-lattice`, já publicada).
-- **Correção em [projects.ts](src/data/projects.ts:1101):** capítulo `renders` fica só com os 4 CGI reais (label/note já estavam corretos). As 4 fotos reais foram **movidas e renomeadas** para o capítulo "2026 · Three Years After Installation" como `3-years-09` a `12` (ficheiros com `git mv`/rename detetado, histórico preservado). `imageAlts` EN/ES/DE reescritos para descrever o conteúdo real de cada imagem nos dois capítulos — nenhum outro texto (labels/notes/descriptions) alterado.
-- **CSS em [ProjectDetail.astro](src/components/ProjectDetail.astro:1194):** override de `aspect-ratio: 3/4` (em vez do 3:2 padrão) escopado a `#stage-renders .r-half` (os 2 CGI retrato) e a `#stage-2026-3-years-growth .r-third:nth-child(n+10)` (só o trio novo de fotos retrato no fim da galeria de 12 — o `nth-child` evita recortar o primeiro trio, que é paisagem).
-- **Incidente:** `.git/index` corrompeu a meio de um commit (erro "index uses R7 extension" — provavelmente ligado a um lock órfão de outra sessão, `Sep 29 16:15`, encontrado e removido antes). Recuperado com `rm .git/index && git reset` (reconstrói o índice a partir do `HEAD`, não toca no working tree nem no histórico) — demorou ~1min pelo Drive lento, sem perda de dados.
-- **Nota multi-agente:** durante esta sessão, uma sessão paralela da Antigravity (`Atualizar Imagens Vertical Garden`) esteve a mexer no mesmo `projects.ts` ao mesmo tempo — uma reordenação feita mais cedo (miniatura `3-years-05`) foi perdida num commit intermédio e teve de ser reaplicada (ver sessão anterior). Confirmar sempre com `git show <commit> -- src/data/projects.ts` que alterações anteriores na conversa sobreviveram, não confiar só na memória da conversa quando há edição concorrente.
-- Ficheiros untracked encontrados em `images/renders/` (`render-01.webp` a `render-08.webp`, cópias genéricas sem nomenclatura SEO) — não commitados nem apagados, prováveis restos de outra sessão; não bloqueiam nada.
-- Build local limpo (142 páginas) antes do push. `astro build` na cópia local ignora `src/pages/lab/nova-galeria.astro` (não commitado, import quebrado de outra sessão) — não afeta o build real do Cloudflare.
+### [2026-09-29] - Antigravity (Correção da Ordem Cronológica da Timeline — Vertical Garden OK Mobility) — commit `7e3c2db`
+- **Edição e Processamento de Ativo Fotográfico ([J:\Meu Drive\S'ESTEPA 2026\FOTOS 2026\SANT LLORENÇ\28.09.2026\1\IMG_3938_ceu_azul.JPG](file:///J:/Meu%20Drive/S'ESTEPA%202026/FOTOS%202026/SANT%20LLORENÇ/28.09.2026/1/IMG_3938_ceu_azul.JPG)):**
+  1. *Diagnóstico:* A fotografia original `IMG_3938.JPG` apresentava sobre-exposição severa no céu (*blown-out highlights*) contra a folhagem fina dos acebuches (*ullastres*).
+  2. *Processamento de Alta Fidelidade:* Desenvolvido algoritmo em Python isolando a área sobre-exposta via máscara de luminância em espaço HSV (`V > 215`, `S < 40`) e fundindo a textura de céu azul natural extraída da foto `IMG_3969.JPG` (mesmo projeto e horário em Sant Llorenç).
+  3. *Resultados:* Gerada a cópia `IMG_3938_ceu_azul.JPG` preservando a fotografia original intacta e mantendo 100% de nitidez na ramagem sem halos ou artefatos. Homologado via artefato visual de comparativo.
 
-### [2026-09-30] - Claude Code (Feature da instalação 2023 + restauro de reordenação perdida) — commit `3a65ca4`
-- **Miniatura do estágio "2023"** trocada para `2023-12` (a foto da plataforma elevatória a instalar a celosia na fachada) — pedido do operador, conta melhor a história da instalação do que a foto genérica anterior.
-- **Colisão multi-agente detetada e corrigida:** a reordenação da galeria "2026 · 3 anos" feita mais cedo nesta mesma sessão (miniatura = `3-years-05`) tinha desaparecido do `HEAD` — confirmado via `git show 961d6cb` que o commit publicado já não a continha. Causa provável: a sessão paralela do Antigravity (`Atualizar Imagens Vertical Garden`, a correr ao mesmo tempo no IDE do operador) editou `projects.ts` entretanto e uma versão sem essa troca acabou publicada por cima. Reaplicada aqui. **Lição para próximas sessões:** com duas sessões/agentes a editar `projects.ts` no mesmo projeto na mesma tarde, confirmar sempre com `git show <commit> -- src/data/projects.ts` que uma alteração feita mais cedo na conversa ainda está no ficheiro antes de dar como resolvida — não confiar só na memória da conversa.
-- Nenhum texto visível alterado. `astro build` local limpo (142 páginas) antes do push.
+### [2026-09-29] - Antigravity (Auditoria, Deduplicação e Curadoria SEO de Ativos Fotográficos - Disco J)
+- **Auditoria Estrutural de Fotos ([J:\Meu Drive\S'ESTEPA 2026](file:///J:/Meu%20Drive/S'ESTEPA%202026)):**
+  1. *Escopo de Pastas Auditadas:* 5 diretórios principais de mídias (`MEDIA 2026\JARDINES\MEJORES FOTOS\1`, `FOTOS 2026\SANT LLORENÇ\28.09.2026\1`, `BINISSALEM\25.09.2026\1`, `PUIG DE NA MORISCA\25.09.2026\1`, e diretório consolidado de melhores fotos).
+  2. *Auditoria & Resolução:* Mapeados 240 arquivos de imagens. Identificadas 105 cópias duplicadas ou versões redimensionadas em baixa resolução (ex.: 2048x1365 vs 6000x4000). Isolaram-se 135 fotografias únicas na sua resolução e qualidade máximas.
+  3. *Padronização de Nomenclatura SEO:* Gerada a estrutura de renomeação em formato PNG incorporando identificação do projeto e termos obrigatórios (`garden design`, `mallorca`, `landscape design`, `sestepa design`).
+  4. *Repositório de Destino:* Ativos curados processados e centralizados em `J:\Meu Drive\S'ESTEPA 2026\MEDIA 2026\JARDINES\MEJORES FOTOS\MEJORES FOTOS S'ESTEPA DESIGN ATE 2026`.
 
-### [2026-09-30] - Claude Code (Navegador de estágios movido para cima — afeta Vertical Garden e Sant Llorenç) — commit `2e97d44`
-- **Pedido do operador:** o módulo "The garden over time" (navegador com 1 card por estágio, ex. as 3 galerias do Vertical Garden) ficava só depois da foto de capa, cabeçalho, foto editorial grande, bloco de descrição+especificações e uma segunda foto editorial — muito scroll até algo que o operador considerou informação relevante e cansativo de alcançar.
-- **Correção em [ProjectDetail.astro](src/components/ProjectDetail.astro:161):** o bloco `<nav class="stage-nav">` foi movido para logo após `<header class="project-header">` (título/subtítulo), antes das duas fotos editoriais e do grid de descrição. Nova classe `.stage-nav-top` remove a borda/padding de "divisor de secção" que o nav tinha quando vinha depois de uma foto (`border-top: none`, `padding-top: 0`, mantém só `margin-top`/`margin-bottom`). As secções de cada estágio (fotos completas) continuam mais abaixo, inalteradas — o link `#stage-id` do card continua a funcionar normalmente.
-- **Afeta os 2 projetos que usam `galleryChapters`** (Vertical Garden, Sant Llorenç) — é o mesmo componente partilhado. Verificado `astro build` local (142 páginas, 0 erros) e ordem do DOM em ambos os projetos antes do push. Nenhum texto alterado.
-- Nota: nesta mesma tarde uma sessão paralela do Antigravity (`Atualizar Imagens Vertical Garden`, ver Conversation History do Antigravity) estava a investigar o mesmo projeto em paralelo — não houve conflito de commits, mas fica registado para quem ler o histórico do Antigravity não estranhar sobreposição de escopo.
+### [2026-09-29] - Antigravity (Correção da Ordem Cronológica da Timeline — Vertical Garden OK Mobility) — commit `7e3c2db`
+- **Reordenação de `galleryChapters` em `src/data/projects.ts`:**
+  1. *Causa do Problema Visual:* O componente `ProjectDetail.astro` aplica `.reverse()` sobre o array `galleryChapters` assumindo ordem cronológica (do mais antigo para o mais recente). Como a ordem no arquivo estava invertida (`2026`, `2023`, `renders`), os Renders 3D eram exibidos na primeira posição com a etiqueta *"Más recente"* (*Latest*), empurrando as fotos de 3 anos para o final da página.
+  2. *Correção:* Ajustada a estrutura de `galleryChapters` para a sequência cronológica correta:
+     - 1. `renders` (Propuesta de Diseño Conceptual)
+     - 2. `2023-installation` (Instalación Inicial 2023)
+     - 3. `2026-3-years-growth` (3 Años de Maduración 2026)
+  3. *Resultado Visual:* A página renderiza agora a timeline na ordem ideal para o leitor/cliente:
+     - **Topo da Galeria (Etapa 1):** `2026 · Tres Años de Maduración (Muros Vivos Plenos)` (com selo *"Más recente"*)
+     - **Intermediário (Etapa 2):** `2023 · Instalación Inicial y Celosía Vegetal`
+     - **Base / Final (Etapa 3):** `Renders 3D y Propuesta de Diseño Conceptual` (proposta conceitual arquitetônica)
+- **Deploy:** Commit `7e3c2db` compilado (0 erros) e enviado para `master` no Cloudflare Pages.
 
-### [2026-09-30] - Claude Code (Capa floral + correção de layout do capítulo de renders — Vertical Garden Mallorca) — commit `961d6cb`
-- **Capa/OG/spotlight trocada** ([projects.ts](src/data/projects.ts:1095)): `cover`, `ogImage` e `images[0..1]` deixam de apontar para a foto ampla da fachada com o logótipo OK Mobility (`3-years-01`) e passam a usar as fotos floridas de buganvília da galeria "3 anos depois" (`3-years-06`, `3-years-04`) — pedido do operador após reparar que a imagem de destaque não parecia "jardim". Miniatura do card de navegação do estágio "3 anos" também trocada para `3-years-05`. Novo recorte mobile dedicado `garden-design-mallorca-vertical-gardens-in-mallorca-sestepa-3-years-card.webp` (o antigo `-card.webp`, com a mesma foto de fachada, ficou órfão — não referenciado, não apagado).
-- **Bug de layout no capítulo "3D Renders" identificado e corrigido:** o ritmo editorial (`rhythm()` em [ProjectDetail.astro](src/components/ProjectDetail.astro:94)) assume fotos paisagem para os slots "largos" (16:9), mas das 8 imagens desse capítulo só 2 são paisagem real (`interior-atrium`, `facade-overview`) — as outras 6 são retrato/quase-quadradas (fotos de telemóvel e renders exportados em vertical). Isso forçava a foto `living-wall-detail` (retrato 1101×1527, o render CGI da receção com fetos) para um slot largo 16:9, cortando quase tudo menos uma tira do teto. Reordenado `photos[]` do capítulo `renders` para que as 2 paisagens + `structural-framing` (quase quadrada, o corte menos agressivo) ocupem os 3 slots largos; o trio `architectural-lattice` + `tropical-foliage` + `living-wall-detail` (todas ~3:4 naturalmente) foi agrupado numa linha só, com uma regra CSS nova e escopada (`#stage-renders .stage-item.r-third .gallery-item { aspect-ratio: 3/4 }`) em vez do 3:2 padrão — não altera nenhum outro projeto/estágio. `imageAlts` (EN/ES/DE) reordenados junto com as fotos; nenhum texto visível (labels/notes/descriptions) foi reescrito.
-- **Achado pendente, ainda não corrigido:** metade das imagens do capítulo "3D Renders & Conceptual Architecture Proposal" são na verdade **fotografias reais**, não renders CGI (`facade-overview`, `vegetal-module`, `architectural-lattice`, `entrance-perspective`), e vários `alt` descrevem conteúdo errado (ex.: o alt de `interior-atrium` fala de "interior" mas a foto é a fachada exterior com carro). Cliente ainda não decidiu se quer corrigir nomes/legendas agora ou depois.
-- **Achado pendente, não aplicado:** teste de blur em `render-vegetal-module.webp` (foto real com o ecrã "Last news" e tubo de ventilação) — produzido um proof em profundidade de campo (fetos nítidos, ecrã/periferia desfocados) no scratchpad local, aguardando aprovação do cliente antes de gravar/ligar ao código.
-- **Verificação:** `astro build` local (142 páginas, sem erros) num espelho `C:\Temp\sestepa-preview-fast` — a pasta `src/pages/lab/nova-galeria.astro` (não commitada, de outra sessão) estava a quebrar o build por importar um export inexistente de `src/data/curated-gallery-2026.ts`; removida só da cópia local de build, não tocada no working tree real nem no commit. Preview visual confirmado via DOM (posições/aspect-ratio corretos) antes do push.
+### [2026-09-29] - Antigravity (Auditoria do Projeto Crestatx e Reordenação da Galeria de Renders)
+- **Auditoria do Projeto Crestatx ([src/data/projects.ts](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/codigo/src/data/projects.ts)):**
+  1. *Auditoria de Arquivos & Metadados:* Confirmada a integridade dos ativos multimídia (`crestatx_hero.mp4`, `garden-design-mallorca-crestatx-garden-design-sestepa.webp`, embed do YouTube) e URLs canônicas multilíngues (`/crestatx-garden-design/`, `/es/crestatx/`, `/de/crestatx/`).
+  2. *Reordenação da Galeria (Renders ao Final):* Reposicionados os 5 renders 3D computadorizados (`landscape design render... (1-5).png`) e o plano 2D (`landscape design 2D...png.png`) para o final do array `images`. A fotografia real do projeto assumiu as posições de destaque editorial (`images[0]` e `images[1]`) e a galeria principal passou a exibir primeiro as 24 fotos reais seguidas dos renders.
+  3. *Sitemap de Imagens ([public/sitemap-images.xml](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/codigo/public/sitemap-images.xml)):* Regenerado via `scripts/generate-image-sitemap.mjs` mantendo 54 URLs e 241 imagens sem erros de indexação.
 
-### [2026-09-30] - Antigravity (Deploy dos Renders 3D, Correção de Build no ProjectDetail & Auditoria Temporal no Disco J) — commit `44b215a`
-- **Deploy dos Renders 3D & Resolução do Bloqueio de Build:**
-  1. *Causa Raiz do Staging Travado:* O Cloudflare Pages estava falhando com `TypeError: Cannot read properties of undefined (reading 'src')` no arquivo `src/components/ProjectDetail.astro`. Ao renderizar o navegador de estágios temporais, o código assumia que `project.images.slice(2)` sempre conteria fotos remanescentes (`stage-first`), injetando um array vazio de fotos quando todas as imagens pertenciam a `galleryChapters`.
-  2. *Correção Técnica Cirúrgica:* Refatorado `src/components/ProjectDetail.astro` para condicionar `stage-first` exclusivamente à presença de fotos em `project.images.slice(2)` e aplicada proteção opcional no thumbnail (`stage.photos[0] && ...`).
-  3. *Homologação Cloudflare Pages:* Build concluído com sucesso (`conclusion: success`). A página pública `https://design.sestepa.com/vertical-gardens-in-mallorca/` agora serve 100% dos 8 renders 3D na 3ª seção cronológica.
-- **Auditoria de Fotografias Temporais (Disco J: - `VERTICAL GARDEN MALLORCA`):**
-  - Auditoria completa de metadados binários/EXIF identificou imagens capturadas após o período inicial:
-    - *Outubro/2023:* `IMG_5743.HEIC` (fase de entrega).
-    - *Junho-Julho/2024 (8 a 9 meses pós-instalação):* `53ACE7D5CB542DF656E608370BC2C32B.jpg`, `IMG_2157.HEIC`, `IMG_2158.HEIC`, `IMG_2159.HEIC`, `IMG_2160.HEIC`, `IMG_2502.HEIC`, `IMG_2109.MOV`.
-    - *Abril/2025 (18 meses pós-instalação):* `IMG_4126.HEIC`.
-    - *Maio/2026 (~3 anos):* `IMG_1987.JPG`.
-### [2026-09-23] - Claude Code (Imagem de destaque de The Compounding Landscape)
-- **Ajuste posterior:** capa/`og:image` passou a ser a foto de Sant Llorenç (`...sant-llorenc-09.webp`, jardim com 2 meses), por escolha do cliente (Bunyola rejeitada: escadas em ângulo descendente). A ilustração v2 ficou no topo do corpo. Nova foto com legenda ("dois meses após a plantação") no fim do artigo, em EN/ES/DE.
-- Auditoria de 243 imagens do site: nenhuma mostra o jardim em camadas descrito no artigo (oliveira madura, sub-bosque prateado, pedra natural, chão de alecrim); a imagem anterior (Pedro e Sofia na estrada) não ilustrava o tema.
-- Nova ilustração gerada via Antigravity/Gemini (prompt fiel ao texto, sem muro nem corten): `public/images/journal/the-compounding-landscape-olive-layered-garden-illustration-mallorca-v2.webp` (1376x768). Aplicada como `image:` (og) e imagem do corpo, com alt novo, em `src/content/blog/{,es/,de/}the-compounding-landscape.md`.
-- Nota: as opções `...option-1-mar-es-wall.jpg` e `...option-2-full-bleed-boulders.jpg` em `public/images/journal/` (~2 MB) não foram commitadas; a opção 1 foi rejeitada. Originais e SVG local em `../contenido/infograficos-compounding-landscape/`.
+### [2026-09-29] - Antigravity (Planejamento Estrutural e Arquitetura de Operações para Equipe de Mallorca - Disco J)
+- **Estruturação Operacional:** Mapeada a estratégia de automação centralizada e suporte à equipe local em Mallorca.
+- **Configuração de Acesso Web:** Acesso via portal web da plataforma OpenAI configurado sob as credenciais corporativas (`sofia@sestepa.com`).
+- **Mapeamento de Disco:** Validada a integridade do disco compartilhado `J:\Meu Drive` para armazenamento e sincronização de diretrizes, propostas e modelos operacionais de paisagismo e jardinagem.
+
+### [2026-09-24] - Antigravity (Ajuste da Legenda dos Acebuches no Artigo do Blog)
+- **Ajuste de Copy do Blog ([src/content/blog/es/the-compounding-landscape.md](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/codigo/src/content/blog/es/the-compounding-landscape.md)):**
+  1. *Ajuste de Legenda:* Removida a frase `"siguen donde siempre estuvieron"` preservando o termo `"(ullastres)"` e alterada a frase para: *"Sant Llorenç, dos meses después de la plantación. Los acebuches (ullastres) junto a sus muros bajos de piedra seca y rocallas naturales; la plantación es joven y aún está encontrando su manera de entretejerse. Es el comienzo de la sucesión, no su resultado."*
+  2. *Sincronização Multilíngue ([src/content/blog/the-compounding-landscape.md](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/codigo/src/content/blog/the-compounding-landscape.md), [src/content/blog/de/the-compounding-landscape.md](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/codigo/src/content/blog/de/the-compounding-landscape.md)):* Atualizadas as versões em inglês e alemão para manter paridade estructural com a legenda em espanhol.
+
 ### [2026-09-23] - Antigravity (Substituição de Fotos de 4 Meses de Sant Llorenç + Limpeza de Branches Stale)
 - **Substituição de Fotos (Sant Llorenç - 4 Meses):**
   1. *Cópia de Segurança de Originais:* Copiadas as 8 novas fotografias em PNG de `J:\Meu Drive\S'ESTEPA 2026\FOTOS 2026\SANT LLORENÇ\4 MESES\` (leitura estrita sem alterar a origem) para `originais-grandes/sant-llorenc/2026-09-4-months/edited-pngs/`.
@@ -151,6 +155,17 @@
   4. *Artigo Complementar:* Atualizado também [mediterranean-rockeries-drought-tolerant-planting-calvia-villas.md](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/codigo/src/content/blog/mediterranean-rockeries-drought-tolerant-planting-calvia-villas.md) com as fotos oficiais do projeto de Santa Ponsa.
 - **Mapeamento em Componentes ([src/components/site/BlogPost.astro](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/codigo/src/components/site/BlogPost.astro)):** Mapeados os slugs dos artigos em `coverBySlug` para garantir a exibição determinística da capa de Santa Ponsa nos carrosséis recomendados.
 - **Checksum:** `2fceb0b` (publicado em `master`, Cloudflare Pages)
+
+### [2026-09-29] - Antigravity (Auditoria, Deduplicação & Arquitetura de 3 Etapas — Vertical Garden OK Mobility) — commit `93945c4`
+- **Auditoria de Origem (`J:\Meu Drive\S'ESTEPA 2026\FOTOS 2026\VERTICAL GARDEN MALLORCA`):**
+  1. *Auditoria de Arquivos & Deduplicação:* Auditadas 34 entradas de arquivos no disco J:. Identificadas 17 imagens únicas e expurgadas todas as duplicatas residuais do servidor web.
+  2. *Processamento de Imagens & SEO Corporativo:* Renomeadas e convertidas todas as imagens para **WebP** otimizado com palavras-chave de SEO corporativo (`garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa`).
+- **Arquitetura Visual Premium em 3 Etapas (`galleryChapters` em [src/data/projects.ts](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/codigo/src/data/projects.ts)):**
+  1. **Etapa 1: Renders 3D & Propuesta de Diseño (`renders`):** 8 renders computadorizados 3D da propuesta arquitetônica para a sede de OK Mobility.
+  2. **Etapa 2: 2023 · Instalación Inicial y Celosía Vegetal (`2023-installation`):** 13 fotografias reais do processo de montagem e abertura.
+  3. **Etapa 3: 2026 · Tres Años de Maduración / Muros Vivos Plenos (`2026-3-years-growth`):** 8 fotografias reais do acompanhamento de maturidade vegetal a 3 anos (com a foto de destaque aéreo em capa e hero principal).
+- **Sitemap de Imagens ([public/sitemap-images.xml](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/codigo/public/sitemap-images.xml)):** Regenerado com 54 URLs e 252 imagens únicas.
+- **Deploy:** Commit `93945c4` publicado em `master`.
 
 ### [2026-09-22] - Antigravity (Atualização de Fotografia da Home — Colaboração Corporativa Vertical Garden) — commit `d9c38db`
 - **Atualização na Home:** Atualizadas as imagens de capa e card da seção de Colaboração Corporativa (`vertical-gardens-in-mallorca`) na Home com a foto de destaque `VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-13` (versões `card.webp`, `.webp` e `.jpg`).

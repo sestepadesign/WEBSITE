@@ -66,6 +66,11 @@ export const PROJECT_PUBLIC_PATHS: Record<string, Record<SiteLocale, string>> = 
     es: '/es/benissalem/',
     de: '/de/benissalem/',
   },
+  'binissalem-courtyard': {
+    en: '/binissalem-courtyard/',
+    es: '/es/binissalem-courtyard/',
+    de: '/de/binissalem-courtyard/',
+  },
   bunyola: {
     en: '/bunyola/',
     es: '/es/bunyola/',
