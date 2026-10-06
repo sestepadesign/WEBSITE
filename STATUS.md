@@ -9,13 +9,13 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Publicado em `master`. Renders 3D reais renomeados e publicados com taxonomia semântica de SEO corporativo (`garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-[descritor].webp`), associados às cópias de alta resolução preservadas em `originais-grandes`.
-- **Checksum Atual (Deploy/Hash):** `08441ec` (push em `master`, Cloudflare Pages).
+- **Status:** Publicado em `master`. Novo projeto `binissalem-courtyard` (Transformação de Pátio / Townhouse Courtyard com limonero, agaves e piscina) integrado com ativos WebP, cópias de alta resolução em `originais-grandes`, mapeamento SEO e sitemap atualizado para 57 URLs e 273 imagens.
+- **Checksum Atual (Deploy/Hash):** `a4048ae` (push em `master`, Cloudflare Pages).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
-### [2026-10-06] - Antigravity (Ingestão do Projeto Binissalem Courtyard & Governança de Pipeline Autônomo em AGENTS.md)
+### [2026-10-06] - Antigravity (Ingestão do Projeto Binissalem Courtyard & Governança de Pipeline Autônomo em AGENTS.md) — commit `a4048ae`
 - **Pipeline Autônomo e Governança Multi-Agente ([.agents/AGENTS.md](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/.agents/AGENTS.md)):**
   - Formalizada a seção 2.1 (Pipeline Autônomo de Ingestão de Projetos com execução contínua pré-aprovada) e detalhadas as Rotas de Homologação: Rota A (Desktop / Localhost isolado com entrega de link direto) e Rota B (Sessão Remota / Mobile com deploy Cloudflare Staging via branch temporária).
 - **Preservação de Originais & Mapa SEO ([originais-grandes/binissalem-courtyard](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/originais-grandes/binissalem-courtyard)):**
