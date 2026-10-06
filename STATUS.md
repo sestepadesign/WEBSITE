@@ -9,12 +9,26 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Publicado em `master`. Novo projeto `binissalem-courtyard` (Transformação de Pátio / Townhouse Courtyard com limonero, agaves e piscina) integrado com ativos WebP, cópias de alta resolução em `originais-grandes`, mapeamento SEO e sitemap atualizado para 57 URLs e 273 imagens.
-- **Checksum Atual (Deploy/Hash):** `a4048ae` (push em `master`, Cloudflare Pages).
+- **Status:** Produção publicada em `master` com Binissalem Courtyard integrado. Auditoria Codex de governança, preview local e assets concluída localmente, ainda sem deploy/push.
+- **Checksum Atual de Produção (origin/master):** `72cab58` (commit `docs(status): update session checksum to a4048ae`).
+- **Mudanças Locais Pendentes:** documentação operacional, `.gitignore`, `scripts/preview_local.py`, `STATUS.md` e relatórios de auditoria Codex. Não usar `git add -A` antes de classificar os untracked restantes.
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+### [2026-10-06] - Codex (Auditoria operacional, governança, preview local e classificação de assets) — local, sem deploy
+- **Autor/agente:** Codex.
+- **Escopo:** Auditoria pós-Antigravity de `sestepa-design`, cobrindo código, conteúdo, SEO/AEO, organização de pastas, regras multi-agente, preview local, untracked e assets.
+- **Sequência executada:** leitura de estado Git e histórico; leitura de `README.md`, `ARCHITECTURE.md`, `PREVIEW.md`, `AGENTS.md` e docs de equipe; auditoria de assets e untracked; atualização documental; implementação de preview local reutilizável; assinatura dos relatórios; correção de lock para `Codex`.
+- **Arquivos alterados:** `.agents/AGENTS.md`, `.gitignore`, `README.md`, `ARCHITECTURE.md`, `PREVIEW.md`, `docs/equipa/BRANCHES.md`, `scripts/preview_local.py`, `STATUS.md`.
+- **Relatórios criados:** `docs/AUDITORIA-OPERACIONAL-2026-10-06.md` e `docs/UNTRACKED-ASSETS-AUDIT-2026-10-06.md`.
+- **Decisões registradas:** separar fisicamente `codigo/`, `originais-grandes/`, `conteudo/`, `docs/` e `videos/`; tratar tudo como parte do sistema; preservar `public/_redirects` como ativo SEO das URLs antigas do WordPress; exigir assinatura/autoria em tarefas e handoffs; não usar `git add -A` com untracked antigos.
+- **Preview local:** `scripts/preview_local.py` passa a usar mirror reutilizável em `LOCALAPPDATA\SestepaPreview\codigo`, reaproveitando `node_modules` e reinstalando dependências apenas quando `package-lock.json` mudar.
+- **Assets/untracked:** 278 arquivos untracked não ignorados classificados por grupo. Nenhum asset foi apagado, movido ou incorporado ao deploy nesta etapa.
+- **Validações:** `python -m py_compile scripts/preview_local.py`, `git diff --check`, `git status --short`, auditoria de tamanhos e grupos de untracked.
+- **Uso do disco J:** nenhum acesso realizado nesta sessão.
+- **Pendências:** decidir editorialmente `public/gallery/curated-2026/`, duplicações de Vertical Garden, expansões Binissalem/Sant Llorenç, blog/diagramas e remoção física posterior de `public/api/docs.html` se aprovado.
+
 ### [2026-10-06] - Antigravity (Ingestão do Projeto Binissalem Courtyard & Governança de Pipeline Autônomo em AGENTS.md) — commit `a4048ae`
 - **Pipeline Autônomo e Governança Multi-Agente ([.agents/AGENTS.md](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/.agents/AGENTS.md)):**
   - Formalizada a seção 2.1 (Pipeline Autônomo de Ingestão de Projetos com execução contínua pré-aprovada) e detalhadas as Rotas de Homologação: Rota A (Desktop / Localhost isolado com entrega de link direto) e Rota B (Sessão Remota / Mobile com deploy Cloudflare Staging via branch temporária).

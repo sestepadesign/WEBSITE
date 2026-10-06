@@ -1,61 +1,99 @@
-# S'Estepa Design — Website architecture (admin guide)
+# S'Estepa Design — Architecture
 
-Simple structure so you can update the site without touching layout code.
+## Objetivo
 
-## Where to edit content
+Website Astro multilíngue para posicionar S'Estepa Design em garden design, landscape design e projetos mediterrâneos de alto nível em Mallorca. O sistema combina portfólio visual, SEO/AEO, dados estruturados, redirects de legado WordPress e assets otimizados.
 
-| What | File / folder | Notes |
-|------|----------------|-------|
-| **Projects (17 gardens)** | `src/data/projects.ts` | Titles, text EN/ES/DE, images list, video URL, slug |
-| **Gallery (33 SEO photos)** | `src/data/gallery-images.ts` + `public/gallery/` | Curated list; filenames must match Google Images |
-| **Portfolio categories** | `src/data/portfolio-categories.ts` | Which filter tab each project uses |
-| **UI labels (nav, buttons)** | `src/data/translations.ts` | EN / ES / DE menu and section titles |
-| **Services page** | `src/data/services.ts` | Service blocks |
-| **Press** | `src/pages/[lang]/press.astro` | Publications list |
-| **Studio / team** | `src/pages/[lang]/about.astro` | Team bios (sync with WordPress text) |
-| **SEO blog archive** | `src/content/blog/*.md` | Hidden from menu; `npm run import:blog` from WordPress |
-| **Redirects (SEO URLs)** | `public/_redirects` | Old WordPress paths → new Astro paths |
-| **Analytics IDs** | `src/lib/seo.ts` | GTM, Google Ads, CookieYes, Metricool |
+## Camadas
 
-## Images
+```text
+src/data/                  # fonte estruturada de projetos, URLs, categorias, serviços e textos
+src/components/            # componentes Astro compartilhados
+src/pages/                 # rotas EN/ES/DE, blog, portfolio, dashboard e APIs públicas
+src/utils/schema.ts        # geração de JSON-LD
+public/                    # assets finais publicados, redirects, robots, llms e sitemap de imagens
+scripts/                   # sincronização, geração de redirects/sitemaps e preview local
+```
 
-- **Project photos:** `public/portfolio/{slug}/` — cover + `images/` folder
-- **Gallery:** `public/gallery/` — run `npm run sync:gallery` after updating Drive `3-WEBSITE/gallery/`
-- **Team / press / logo:** `public/images/`
+## Dados principais
 
-Keep **original SEO filenames** on gallery images (critical for Google Images ranking).
+| Área | Arquivo |
+|---|---|
+| Projetos e galerias | `src/data/projects.ts` |
+| URLs canônicas por idioma | `src/data/site-urls.ts` |
+| Categorias do portfolio | `src/data/portfolio-categories.ts` |
+| Labels EN/ES/DE | `src/data/translations.ts` |
+| Serviços | `src/data/services.ts` |
+| FAQ | `src/data/faq.ts` |
+| Depoimentos | `src/data/testimonials.ts` |
 
-## Workflow (update → live)
+Projetos novos normalmente exigem atualização em `projects.ts`, `portfolio-categories.ts`, `site-urls.ts` e `public/sitemap-images.xml`.
 
-1. Edit data files in `src/data/` (or add images to `public/`)
-2. `npm run build` — preview with `npm run preview`
-3. Push to GitHub `sestepadesign/WEBSITE` → Cloudflare Pages auto-deploys
+## SEO e AEO
 
-## Build output
+O site trabalha com:
 
-- Astro builds to `dist/`
-- Cloudflare Pages: build command `npm run build`, output `dist`
+- Rotas multilíngues EN/ES/DE.
+- Canonical e hreflang.
+- JSON-LD em `src/utils/schema.ts` e `src/components/Schema.astro`.
+- Redirects de URLs antigas do WordPress em `public/_redirects`, preservando autoridade e evitando perda de sinais no Google.
+- `robots.txt`, `llms.txt` e sitemap de imagens.
+- Nomes de arquivos de imagens pensados para SEO visual.
 
-## Hidden blog (SEO articles archive)
+Regra: conteúdo estruturado deve corresponder ao conteúdo visível. Não criar schema para informação invisível ao usuário. Redirects antigos devem ser tratados como ativos de SEO e removidos apenas com auditoria URL por URL.
 
-- URLs: `/en/blog/`, `/es/blog/`, `/de/blog/` — **not in navigation**
-- `noindex` so Google does not promote these; you can read them directly
-- Import from WordPress: `npm run import:blog`
+## Assets
 
-## Locales
+`public/` é deploy. Deve conter somente arquivos finais usados pelo site.
 
-- English: `/en/…`
-- Spanish: `/es/…`
-- German: `/de/…`
-- Legacy WordPress URLs (e.g. `/binissalem/`) redirect via `_redirects`
+`originais-grandes/` fica fora de `codigo/` e preserva:
 
-## Analytics (parity with design.sestepa.com)
+- Fotos nativas em alta resolução.
+- Vídeos originais.
+- Zips, PSD/AI, renders brutos e backups.
+- Materiais para reels, campanhas e produtos futuros.
 
-All tags in `Layout.astro`, IDs in `src/lib/seo.ts`:
+Antes de adicionar assets ao site, classificar cada arquivo:
 
-- Google Tag Manager `GTM-K6MSRJX9`
-- gtag `GT-PZ6D6P9N` + Google Ads `AW-795871100`
-- CookieYes (GDPR)
-- Metricool tracker
+```text
+manter no deploy
+converter para webp
+mover para originais-grandes
+apagar somente se duplicado/temporário e aprovado
+```
 
-Verify in GTM / GA4 after each deploy on `sestepadesign.pages.dev`.
+## Preview e build
+
+Não executar `npm install`, `npm run dev` nem `npm run preview` diretamente no Google Drive (`G:`). O Drive pode bloquear I/O, corromper dependências e tornar o preview lento.
+
+Fluxo atual:
+
+```powershell
+cd "G:\Meu Drive\1. WEBSITES\sestepa-design\codigo"
+python scripts\preview_local.py
+```
+
+Fluxo atual: mirror local reutilizável em `C:\Users\inesg\AppData\Local\SestepaPreview\codigo`, sincronizando apenas arquivos necessários e reinstalando dependências somente quando `package-lock.json` mudar.
+
+## Deploy
+
+Branch de produção: `master`.
+
+- Desktop com localhost aprovado: commit final em `master` e push para `origin/master`.
+- Mobile/remoto: branch temporária, Cloudflare Preview, aprovação, merge em `master`, apagar branch.
+
+Não usar `git add -A` enquanto houver untracked antigos sem classificação.
+
+## Segurança
+
+O dashboard ainda possui proteção no frontend. Isso é compatível temporariamente com o hábito da equipe, mas não é segurança real. A solução correta é preservar a senha conhecida e mover validação para Cloudflare Access, Worker/Function ou backend.
+
+Tokens de Apps Script e URLs sensíveis não devem ser considerados secretos se aparecem no JavaScript público.
+
+## Regras de colaboração
+
+- Ler `.agents/AGENTS.md` e `STATUS.md` antes de editar.
+- Respeitar lock global de `G:\Meu Drive\1. WEBSITES`.
+- Revisar `git status --short` e `git diff` antes de commit.
+- Registrar o commit final real em `STATUS.md`.
+- Não editar, mover ou apagar arquivos em `J:` sem autorização explícita.

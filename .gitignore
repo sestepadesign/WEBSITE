@@ -8,3 +8,18 @@ npm-debug.log*
 *.log
 _backups/
 *tratadas com magnific*/
+# Temporary previews / local agent artifacts
+public/_clpreview*.html
+*.bak-*
+
+# Raw archives must live outside codigo/public
+public/**/*.zip
+public/**/*.7z
+public/**/*.rar
+
+# Generated/duplicate API docs are produced from src/pages/api/docs.html.ts
+public/api/docs.html
+
+# Python local validation cache
+__pycache__/
+**/__pycache__/
