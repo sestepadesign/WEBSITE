@@ -13,7 +13,7 @@ G:\Meu Drive\1. WEBSITES\sestepa-design\codigo
 ## Estado Git
 
 - Branch atual: `master`.
-- `master` local estava alinhado com `origin/master` no início da auditoria; ao final ficou `ahead 2` com commits locais Codex ainda sem push.
+- `master` local estava alinhado com `origin/master` no início da auditoria. Ao final, os commits Codex `5e23e7e`, `4efd6a0` e `6ae0173` foram enviados para `origin/master`.
 - Últimos commits publicados:
   - `72cab58 docs(status): update session checksum to a4048ae`
   - `a4048ae feat(binissalem-courtyard): add townhouse courtyard project and update sitemap`
