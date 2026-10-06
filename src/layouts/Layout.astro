@@ -201,17 +201,16 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
                   page: pathname
                 });
               }
-              const actionUrl = "https://script.google.com/macros/s/AKfycbzR8Kdmb5xfZv1___-qDOmeWgYuSOfwWlqQb00_6x37EACe4xKpgnlU5ZHRJuCPoZIszQ/exec";
-              const params = new URLSearchParams({
+              const payload = {
                 name: "WhatsApp Click",
                 email: "---",
                 subject: "WhatsApp",
-                message: `Click en el botón de WhatsApp desde: ${pathname}`,
-                token: "sestepa_secure_2026"
-              });
-              fetch(`${actionUrl}?${params.toString()}`, { 
-                method: "GET", 
-                mode: "no-cors",
+                message: `Click en el botón de WhatsApp desde: ${pathname}`
+              };
+              fetch("/api/leads", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ type: "whatsapp", payload }),
                 keepalive: true
               }).catch(err => console.error("WhatsApp click logging failed:", err));
             }

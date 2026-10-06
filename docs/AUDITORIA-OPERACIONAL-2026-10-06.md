@@ -13,12 +13,13 @@ G:\Meu Drive\1. WEBSITES\sestepa-design\codigo
 ## Estado Git
 
 - Branch atual: `master`.
-- `master` local alinhado com `origin/master`.
+- `master` local estava alinhado com `origin/master` no início da auditoria; ao final ficou `ahead 2` com commits locais Codex ainda sem push.
 - Últimos commits publicados:
   - `72cab58 docs(status): update session checksum to a4048ae`
   - `a4048ae feat(binissalem-courtyard): add townhouse courtyard project and update sitemap`
 - O projeto Binissalem Courtyard foi publicado em `master`, sem branch temporária.
-- Há muitos untracked antigos que devem ser classificados antes de novos deploys. `public/_redirects` não teve regras alteradas nesta auditoria; redirects antigos do WordPress devem ser preservados.
+- Há muitos untracked antigos que devem ser classificados antes de novos deploys.
+- `public/_redirects` foi sincronizado pelo pré-build para incluir redirects legados `/portfolio/binissalem-courtyard/` em EN/ES/DE. Os demais redirects antigos do WordPress devem ser preservados.
 
 ## Tamanho e assets
 
@@ -28,7 +29,7 @@ G:\Meu Drive\1. WEBSITES\sestepa-design\codigo
 - Nenhum arquivo rastreado pelo Git foi encontrado acima de 25 MB.
 - Arquivos acima de 25 MB existem dentro de `public/portfolio/sant-llorenc/images tratadas com magnific/`, mas estão ignorados pelo Git.
 
-Conclusão: o risco imediato de Cloudflare bloquear por arquivo rastreado >25 MB está controlado, mas a organização ainda está ruim porque arquivos brutos vivem dentro de `codigo/public`.
+Conclusão: o risco imediato de Cloudflare bloquear por arquivo rastreado >25 MB está controlado, mas a organização ainda está ruim porque arquivos brutos vivem dentro de `codigo/public`. `originais-grandes/` deve guardar originais nativos em alta resolução (JPG, PNG, TIFF, PSD, vídeo etc. conforme a fonte), não WebP final de deploy.
 
 ## Preview local
 
@@ -58,11 +59,11 @@ Ações realizadas nesta auditoria:
 
 Foram encontrados valores sensíveis no frontend:
 
-- Senha do dashboard: `sestepa2026`.
-- Token de Apps Script: `sestepa_secure_2026`.
-- URL de Google Apps Script em JavaScript público.
+- Senha do dashboard exposta no JavaScript público.
+- Token de Apps Script exposto no JavaScript público.
+- URL de Google Apps Script exposta em JavaScript público.
 
-Observação: a senha pode continuar a mesma por hábito da equipe, mas a validação deveria sair do frontend e ir para Cloudflare Access, Worker/Function ou backend.
+Correção aplicada após a auditoria inicial: o dashboard, o formulário de contato e o tracking de WhatsApp passaram a chamar Cloudflare Pages Functions (`/api/dashboard-leads` e `/api/leads`) em vez de expor senha, token e URL no bundle frontend. Para continuidade operacional, os valores conhecidos ficam como fallback server-side temporário; a próxima etapa é cadastrar `DASHBOARD_PASSWORD`, `SHEETS_SCRIPT_URL` e `SHEETS_API_TOKEN` no Cloudflare e depois rotacionar o token do Apps Script.
 
 ## SEO/AEO — Pontos fortes
 
@@ -80,6 +81,8 @@ Observação: a senha pode continuar a mesma por hábito da equipe, mas a valida
 - Garantir que schema e conteúdo visível continuem 1:1.
 - Revisar dashboard e integração de leads para não expor token/senha no browser.
 - Auditar branches antigas e previews Cloudflare associados.
+
+Branches remotas conhecidas em 2026-10-06 que merecem auditoria antes de limpeza: `origin/claude/sant-llorenc-botanicals`, `origin/claude/sant-llorenc-new-text-jm-cleanup`, `origin/claude/sant-llorenc-video-update-ffhitf`, `origin/claude/session-log-2026-08-07`, `origin/feature/google-ads-conversion-tags`, `origin/fix/home-meta-description-en` e `origin/preview`.
 
 ## Organização recomendada
 
@@ -109,4 +112,4 @@ Regra: separar fisicamente; governar como um único projeto.
 - Escopo: auditoria operacional, governanca, preview local, classificacao de assets e documentacao de fluxo
 - Modo: sem deploy, sem remocao de assets, sem acesso ao disco J:
 - Sequencia: auditoria -> documentacao -> protecoes -> relatorio -> validacoes
-- Validacoes: `python -m py_compile scripts/preview_local.py`, `git diff --check`, `git status --short`
+- Validacoes: `python -m py_compile scripts/preview_local.py`, `node --check functions/api/*.js`, `git diff --check`, busca sem segredo em `src/` e `public/`, pré-build de redirects/sitemap e build completo no mirror local reutilizável (`python scripts/preview_local.py build`): 146 páginas geradas, Pagefind indexou 150 páginas.

@@ -831,9 +831,6 @@ const t = {
 
 <!-- Client Side Scripting -->
 <script is:inline>
-  // Google Apps Script Web App URL to securely fetch leads from the Restricted Sheet
-  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzR8Kdmb5xfZv1___-qDOmeWgYuSOfwWlqQb00_6x37EACe4xKpgnlU5ZHRJuCPoZIszQ/exec?action=getLeads&token=sestepa_secure_2026';
-
   // CSV Parser Helper
   function parseCSV(text) {
     const lines = [];
@@ -901,9 +898,18 @@ const t = {
     document.getElementById('metric-whatsapp-clicks').textContent = '0';
   }
 
-  async function loadRealData() {
+  async function loadRealData(passwordOverride) {
     try {
-      const response = await fetch(SHEET_URL);
+      const password = passwordOverride || sessionStorage.getItem(AUTH_KEY) || '';
+      const response = await fetch('/api/dashboard-leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password })
+      });
+      if (response.status === 401) {
+        sessionStorage.removeItem(AUTH_KEY);
+        throw new Error("Unauthorized");
+      }
       if (!response.ok) throw new Error("Fetch failed");
       const csvText = await response.text();
       if (csvText.includes('<!DOCTYPE') || csvText.includes('<html')) throw new Error("Sheet not public");
@@ -956,6 +962,7 @@ const t = {
     } catch (err) {
       console.error("Error loading real data:", err);
       setMetricsFallback();
+      throw err;
     }
   }
 
@@ -1079,8 +1086,6 @@ const t = {
 
   // Auth Handling
   const AUTH_KEY = 'sestepa_dashboard_auth';
-  const PASSWORD_CORRECT = 'sestepa2026';
-
   const overlay = document.getElementById('password-overlay');
   const dashboard = document.getElementById('dashboard-content');
   const authForm = document.getElementById('auth-form');
@@ -1089,18 +1094,21 @@ const t = {
   const logoutBtn = document.getElementById('btn-logout');
 
   // Check auth on load
-  if (sessionStorage.getItem(AUTH_KEY) === 'true') {
+  if (sessionStorage.getItem(AUTH_KEY)) {
     showDashboard();
   }
 
   // Handle Login
-  authForm.addEventListener('submit', (e) => {
+  authForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    if (passwordInput.value === PASSWORD_CORRECT) {
-      sessionStorage.setItem(AUTH_KEY, 'true');
+    const password = passwordInput.value;
+    sessionStorage.setItem(AUTH_KEY, password);
+    try {
+      await loadRealData(password);
       errorMessage.classList.remove('show');
       fadeOverlayOut();
-    } else {
+    } catch {
+      sessionStorage.removeItem(AUTH_KEY);
       errorMessage.classList.add('show');
       passwordInput.value = '';
       passwordInput.focus();
@@ -1114,18 +1122,23 @@ const t = {
   });
 
   async function showDashboard() {
-    overlay.style.display = 'none';
-    dashboard.style.display = 'block';
-    setMetricsFallback();
-    await loadRealData();
+    try {
+      overlay.style.display = 'none';
+      dashboard.style.display = 'block';
+      setMetricsFallback();
+      await loadRealData();
+    } catch {
+      overlay.style.display = 'flex';
+      dashboard.style.display = 'none';
+      errorMessage.classList.add('show');
+      passwordInput.focus();
+    }
   }
 
   async function fadeOverlayOut() {
     overlay.style.opacity = '0';
     overlay.style.pointerEvents = 'none';
     dashboard.style.display = 'block';
-    setMetricsFallback();
-    await loadRealData();
     setTimeout(() => {
       overlay.style.display = 'none';
     }, 500);

@@ -93,4 +93,4 @@ O build gera `dist/`. Em produção, Cloudflare Pages executa o build automatica
 
 ## Segurança
 
-O dashboard e integrações não devem depender de senhas/tokens expostos no frontend. Se uma senha conhecida precisar continuar, a melhoria correta é mover a validação para Cloudflare Access, Function/Worker ou backend, preservando a experiência da equipe.
+O dashboard e integrações não devem depender de senhas/tokens expostos no frontend. A validação e o envio de leads passam por Cloudflare Pages Functions; em produção, manter `DASHBOARD_PASSWORD`, `SHEETS_SCRIPT_URL` e `SHEETS_API_TOKEN` como variáveis do Cloudflare, preservando a senha conhecida pela equipe quando necessário.

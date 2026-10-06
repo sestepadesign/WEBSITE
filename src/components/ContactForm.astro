@@ -143,15 +143,12 @@ const t = (key: keyof typeof ui[typeof lang]) => {
         data.size = gardenSize;
       }
 
-      data.token = "sestepa_secure_2026";
       data.lang = document.documentElement.lang || "en";
 
-      const actionUrl = "https://script.google.com/macros/s/AKfycbzR8Kdmb5xfZv1___-qDOmeWgYuSOfwWlqQb00_6x37EACe4xKpgnlU5ZHRJuCPoZIszQ/exec";
-      const queryString = new URLSearchParams(data).toString();
-      
-      fetch(`${actionUrl}?${queryString}`, {
-        method: "GET",
-        mode: "no-cors"
+      fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "contact", payload: data })
       })
       .then(() => {
         statusDiv.textContent = "Thank you. Your message has been sent successfully.";

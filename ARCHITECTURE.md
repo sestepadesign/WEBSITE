@@ -86,9 +86,9 @@ Não usar `git add -A` enquanto houver untracked antigos sem classificação.
 
 ## Segurança
 
-O dashboard ainda possui proteção no frontend. Isso é compatível temporariamente com o hábito da equipe, mas não é segurança real. A solução correta é preservar a senha conhecida e mover validação para Cloudflare Access, Worker/Function ou backend.
+O dashboard não deve depender de senha em JavaScript público. A validação deve passar por Cloudflare Access, Worker/Function ou backend, preservando a senha conhecida apenas como experiência de operação.
 
-Tokens de Apps Script e URLs sensíveis não devem ser considerados secretos se aparecem no JavaScript público.
+Tokens de Apps Script e URLs sensíveis não devem aparecer no bundle frontend. O fluxo atual usa Cloudflare Pages Functions como intermediário para dashboard, formulário de contato e tracking de WhatsApp; os valores devem ficar em variáveis de ambiente do Cloudflare (`DASHBOARD_PASSWORD`, `SHEETS_SCRIPT_URL`, `SHEETS_API_TOKEN`).
 
 ## Regras de colaboração
 

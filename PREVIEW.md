@@ -19,11 +19,13 @@ cd "G:\Meu Drive\1. WEBSITES\sestepa-design\codigo"
 python scripts\preview_local.py
 ```
 
-O script cria uma cópia temporária e inicia Astro em localhost.
+O script sincroniza o projeto para o mirror local reutilizável e inicia Astro em localhost.
 
-## Limitação conhecida
+Para validar build fora do Google Drive:
 
-O script atual recria a cópia inteira e roda `npm install` em cada execução. Como `public/` pesa mais de 1 GB, o processo pode ficar lento nesta máquina.
+```powershell
+python scripts\preview_local.py build
+```
 
 ## Mirror local reutilizável
 

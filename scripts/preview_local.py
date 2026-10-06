@@ -144,6 +144,8 @@ def run(cmd: list[str], cwd: Path) -> None:
 
 
 def main() -> int:
+    mode = "build" if any(arg in {"build", "--build"} for arg in sys.argv[1:]) else "dev"
+
     print(f"Source directory: {SOURCE_DIR}")
     print(f"Reusable preview mirror: {DEST_DIR}")
 
@@ -162,6 +164,12 @@ def main() -> int:
         save_package_lock_hash()
     else:
         print("Dependencies unchanged; reusing node_modules.")
+
+    if mode == "build":
+        print("\n[3/3] Running Astro build in the local mirror.")
+        run(["npm", "run", "build"], DEST_DIR)
+        print("\nBuild finished. The local mirror is preserved for the next preview.")
+        return 0
 
     print("\n[3/3] Starting Astro dev server.")
     print("Local URL: http://localhost:4321/")

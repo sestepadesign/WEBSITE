@@ -9,9 +9,9 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Produção publicada em `master` com Binissalem Courtyard integrado. Auditoria Codex de governança, preview local e assets concluída localmente, ainda sem deploy/push.
+- **Status:** Produção publicada em `master` com Binissalem Courtyard integrado. Auditoria Codex de governança, preview local, redirects e assets concluída localmente, ainda sem deploy/push.
 - **Checksum Atual de Produção (origin/master):** `72cab58` (commit `docs(status): update session checksum to a4048ae`).
-- **Mudanças Locais Pendentes:** documentação operacional, `.gitignore`, `scripts/preview_local.py`, `STATUS.md` e relatórios de auditoria Codex. Não usar `git add -A` antes de classificar os untracked restantes.
+- **Commits Locais Pendentes de Push:** `5e23e7e docs(audit): codify sestepa design governance and asset workflow` e `4efd6a0 chore(redirects): sync binissalem courtyard redirects`. Não usar `git add -A` antes de classificar os untracked restantes.
 
 ---
 
@@ -20,12 +20,14 @@
 - **Autor/agente:** Codex.
 - **Escopo:** Auditoria pós-Antigravity de `sestepa-design`, cobrindo código, conteúdo, SEO/AEO, organização de pastas, regras multi-agente, preview local, untracked e assets.
 - **Sequência executada:** leitura de estado Git e histórico; leitura de `README.md`, `ARCHITECTURE.md`, `PREVIEW.md`, `AGENTS.md` e docs de equipe; auditoria de assets e untracked; atualização documental; implementação de preview local reutilizável; assinatura dos relatórios; correção de lock para `Codex`.
-- **Arquivos alterados:** `.agents/AGENTS.md`, `.gitignore`, `README.md`, `ARCHITECTURE.md`, `PREVIEW.md`, `docs/equipa/BRANCHES.md`, `scripts/preview_local.py`, `STATUS.md`.
+- **Arquivos alterados:** `.agents/AGENTS.md`, `.gitignore`, `README.md`, `ARCHITECTURE.md`, `PREVIEW.md`, `docs/equipa/BRANCHES.md`, `scripts/preview_local.py`, `STATUS.md`, `public/_redirects`.
 - **Relatórios criados:** `docs/AUDITORIA-OPERACIONAL-2026-10-06.md` e `docs/UNTRACKED-ASSETS-AUDIT-2026-10-06.md`.
 - **Decisões registradas:** separar fisicamente `codigo/`, `originais-grandes/`, `conteudo/`, `docs/` e `videos/`; tratar tudo como parte do sistema; preservar `public/_redirects` como ativo SEO das URLs antigas do WordPress; exigir assinatura/autoria em tarefas e handoffs; não usar `git add -A` com untracked antigos.
 - **Preview local:** `scripts/preview_local.py` passa a usar mirror reutilizável em `LOCALAPPDATA\SestepaPreview\codigo`, reaproveitando `node_modules` e reinstalando dependências apenas quando `package-lock.json` mudar.
 - **Assets/untracked:** 278 arquivos untracked não ignorados classificados por grupo. Nenhum asset foi apagado, movido ou incorporado ao deploy nesta etapa.
-- **Validações:** `python -m py_compile scripts/preview_local.py`, `git diff --check`, `git status --short`, auditoria de tamanhos e grupos de untracked.
+- **Segurança dashboard/leads:** senha do dashboard, token e URL do Apps Script removidos do frontend e roteados por Cloudflare Pages Functions (`/api/dashboard-leads`, `/api/leads`). Próxima etapa: mover fallback server-side para variáveis Cloudflare e rotacionar token do Apps Script.
+- **Validações:** `python -m py_compile scripts/preview_local.py`, `node --check functions/api/*.js`, `git diff --check`, auditoria de tamanhos e grupos de untracked, busca sem segredo em `src/` e `public/`, e build completo no mirror local reutilizável (`python scripts/preview_local.py build`): 146 páginas geradas, Pagefind indexou 150 páginas.
+- **Alertas técnicos:** `npm install` no mirror local reportou 11 vulnerabilidades via `npm audit` (1 low, 1 moderate, 8 high, 1 critical). Não bloqueou build, mas deve ser auditado em tarefa própria.
 - **Uso do disco J:** nenhum acesso realizado nesta sessão.
 - **Pendências:** decidir editorialmente `public/gallery/curated-2026/`, duplicações de Vertical Garden, expansões Binissalem/Sant Llorenç, blog/diagramas e remoção física posterior de `public/api/docs.html` se aprovado.
 
