@@ -24,7 +24,7 @@ In our project in **Son Vida**, Palma's most exclusive enclave, a gravel pathway
 
 Beautiful gardens do not always require vast expanses. In dense, urban settings, terraces fulfil that role as elevated gardens. Our **Palma Terrace** project transformed a top-floor rooftop, exposed to sun, wind and sweeping views over the city and the Mediterranean, into a private botanical sanctuary.
 
-![Rooftop terrace garden in Palma de Mallorca with Strelitzia nicolai and sea views over the city](/portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-1.jpg)
+![Rooftop terrace garden in Palma de Mallorca with Strelitzia nicolai and sea views over the city](/portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp)
 
 Large-format planters of *Strelitzia nicolai*, *Chamaerops humilis* and *Rhapis excelsa* were laid out to define lounging and gathering zones without ever closing off the horizon. Every species was chosen for its resilience to wind and salt air as much as for its form — proof that a garden in the sky can be just as sheltering, and just as alive, as one at ground level.
 

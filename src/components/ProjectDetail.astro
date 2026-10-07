@@ -42,6 +42,10 @@ const galleryChapters = project.galleryChapters ?? [];
 // Lightbox stage label for images[0]/[1], which may come from a chapter subfolder.
 const labelFor = (img: string) =>
   galleryChapters.find((c) => img.startsWith(`${c.dir}/`))?.[lang].label ?? galleryLabel;
+const projectImageSrc = (img: string) =>
+  img.startsWith('/') || /^https?:\/\//.test(img)
+    ? img
+    : `/portfolio/${project.slug}/images/${img}`;
 
 // Projects photographed at several growth stages get a stage navigator and one section per
 // stage, newest first; the main gallery (images[2+]) becomes the earliest stage.
@@ -60,7 +64,7 @@ type Stage = {
   photos: { src: string; alt: string }[];
 };
 const firstStagePhotos = project.images.slice(2).map((img, idx) => ({
-  src: `/portfolio/${project.slug}/images/${img}`,
+  src: projectImageSrc(img),
   alt: translation.imageAlts?.[idx + 2] ?? `${translation.title} — Garden Design ${formattedLocation}, Image ${idx + 3}`,
 }));
 
@@ -269,14 +273,14 @@ const rhythm = (count: number) => {
       {project.images.length > 0 && (
         <button
           class="editorial-feature-btn"
-          data-src={`/portfolio/${project.slug}/images/${project.images[0]}`}
+          data-src={projectImageSrc(project.images[0])}
           data-index={0}
           data-chapter={labelFor(project.images[0])}
           aria-label={`View image 1 in fullscreen`}
         >
           <div class="editorial-feature-img">
             <img
-              src={`/portfolio/${project.slug}/images/${project.images[0]}`}
+              src={projectImageSrc(project.images[0])}
               alt={translation.imageAlts?.[0] ?? `${translation.title} — Garden Design Detail, ${formattedLocation}`}
               loading="lazy"
               class="editorial-img"
@@ -351,14 +355,14 @@ const rhythm = (count: number) => {
       {project.images.length > 1 && (
         <button
           class="editorial-mid-btn"
-          data-src={`/portfolio/${project.slug}/images/${project.images[1]}`}
+          data-src={projectImageSrc(project.images[1])}
           data-index={1}
           data-chapter={labelFor(project.images[1])}
           aria-label={`View image 2 in fullscreen`}
         >
           <div class="editorial-mid-img">
             <img
-              src={`/portfolio/${project.slug}/images/${project.images[1]}`}
+              src={projectImageSrc(project.images[1])}
               alt={translation.imageAlts?.[1] ?? `${translation.title} — Garden Design ${formattedLocation}, S'Estepa Design`}
               loading="lazy"
               class="editorial-img"
@@ -407,14 +411,14 @@ const rhythm = (count: number) => {
               return (
                 <button
                   class={`gallery-item-btn ${shouldSpan ? 'full-width' : ''}`}
-                  data-src={`/portfolio/${project.slug}/images/${img}`}
+                  data-src={projectImageSrc(img)}
                   data-index={globalIdx}
                   data-chapter={galleryLabel}
                   aria-label={`View image ${globalIdx + 1} in fullscreen`}
                 >
                   <div class="gallery-item">
                     <img
-                      src={`/portfolio/${project.slug}/images/${img}`}
+                      src={projectImageSrc(img)}
                       alt={translation.imageAlts?.[globalIdx] ?? `${translation.title} — Garden Design ${formattedLocation}, Image ${globalIdx + 1}`}
                       loading="lazy"
                       class="gallery-img"

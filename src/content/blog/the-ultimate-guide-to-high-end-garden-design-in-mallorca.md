@@ -11,7 +11,7 @@ For international owners of private estates, villas, and holiday fincas in Mallo
 
 This guide outlines the essential steps and technical considerations for planning and executing a premium landscape design project that matures gracefully and enhances the long-term value of your property.
 
-![High-end landscape design in Campos, Mallorca](/images/journal/luxury-landscape-architect-mallorca-campos.jpg)
+![High-end landscape design in Campos, Mallorca](/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp)
 
 ## 1. Site Analysis: Respecting the Microclimates
 
@@ -28,7 +28,7 @@ A high-end garden must respect the architectural vernacular of Mallorca. This is
 *   **Pedra en Sec (Dry-Stone Walls):** This UNESCO-recognized local craft is the backbone of Mallorcan terracing. Constructed without mortar, dry-stone walls provide organic texture, prevent soil erosion on slopes, and offer thermal mass that benefits the surrounding plantings.
 *   **Local Limestone and Gravel:** Utilizing native limestone and gravel stabilizers creates clean, elegant pathways that integrate visually with the terrain, facilitating circulation and reducing the heat island effect common with poured concrete.
 
-![Modern landscape architect garden design in Crestatx, Sa Pobla](/images/journal/high-end-landscape-design-mallorca-crestatx.jpg)
+![Modern landscape architect garden design in Crestatx, Sa Pobla](/portfolio/crestatx-garden-design/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.webp)
 
 ## 3. Water Wisely: Engineering Sustainable Systems
 

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 448" width="720" height="448" style="background:#FAF9F6" font-family="'Jost',-apple-system,'Segoe UI',sans-serif">
+  <defs>
+    <marker id="cl4a" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 1 L10 5 L0 9 z" fill="#5A6755"/></marker>
+  </defs>
+
+  <text x="32" y="40" font-size="21" fill="#1F211F">A tightened loop, not a sealed one</text>
+  <line x1="32" y1="54" x2="688" y2="54" stroke="#E3DDD3" stroke-width="1.5"/>
+
+  <!-- hub -->
+  <circle cx="360" cy="220" r="80" fill="#EEF1EC" stroke="#C5D0C0" stroke-width="2"/>
+  <text x="360" y="212" font-size="16" fill="#3C4539" text-anchor="middle" font-weight="600">Estate soil</text>
+  <text x="360" y="234" font-size="14.5" fill="#625E57" text-anchor="middle">+ its living biology</text>
+
+  <!-- nodes -->
+  <rect x="250" y="82" width="220" height="66" rx="6" fill="#FFFFFF" stroke="#E3DDD3" stroke-width="1.5"/>
+  <text x="360" y="108" font-size="15" fill="#1F211F" text-anchor="middle" font-weight="600">1 · Rainfall</text>
+  <text x="360" y="130" font-size="14" fill="#625E57" text-anchor="middle">slowed, spread, infiltrated where ground allows</text>
+
+  <rect x="486" y="188" width="220" height="66" rx="6" fill="#FFFFFF" stroke="#E3DDD3" stroke-width="1.5"/>
+  <text x="596" y="214" font-size="15" fill="#1F211F" text-anchor="middle" font-weight="600">2 · Growth</text>
+  <text x="596" y="236" font-size="14" fill="#625E57" text-anchor="middle">carbon fixed; roots reach depth</text>
+
+  <rect x="250" y="300" width="220" height="66" rx="6" fill="#FFFFFF" stroke="#E3DDD3" stroke-width="1.5"/>
+  <text x="360" y="326" font-size="15" fill="#1F211F" text-anchor="middle" font-weight="600">3 · Mulch</text>
+  <text x="360" y="348" font-size="14" fill="#625E57" text-anchor="middle">screened prunings chipped on site, returned</text>
+
+  <!-- circular arrows -->
+  <path d="M360,148 v34" fill="none" stroke="#5A6755" stroke-width="1.8" marker-end="url(#cl4a)"/>
+  <path d="M486,232 q-70 -14 -104 -24" fill="none" stroke="#5A6755" stroke-width="1.8" marker-end="url(#cl4a)"/>
+  <path d="M360,300 v-16" fill="none" stroke="#5A6755" stroke-width="1.8" marker-end="url(#cl4a)"/>
+  <path d="M440,220 h34" fill="none" stroke="#5A6755" stroke-width="1.8" marker-end="url(#cl4a)"/>
+
+  <!-- buffer + imports -->
+  <text x="32" y="200" font-size="14.5" fill="#3C4539" font-weight="600">Buffer</text>
+  <text x="32" y="220" font-size="14" fill="#625E57">wall &amp; canopy steady</text>
+  <text x="32" y="238" font-size="14" fill="#625E57">the temperature and</text>
+  <text x="32" y="256" font-size="14" fill="#625E57">moisture swings</text>
+
+  <text x="32" y="392" font-size="14" fill="#625E57">Still imported: establishment-years water · nursery stock ·</text>
+  <text x="32" y="410" font-size="14" fill="#625E57">soil-test-directed amendments · chipper fuel.</text>
+  <text x="32" y="430" font-size="14" fill="#625E57">Segregated &amp; removed: diseased, infested or regulated plant material.</text>
+</svg>

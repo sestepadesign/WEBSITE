@@ -10,7 +10,7 @@ const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 
 const jobs = [
   {
-    input: 'public/portfolio/sant-llorenc/images tratadas com magnific/FOTOS SELECIONADAS/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.jpg',
+    input: '../originais-grandes/sant-llorenc/images-tratadas-com-magnific/FOTOS SELECIONADAS/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.jpg',
     output: 'public/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.jpg',
   },
 ];

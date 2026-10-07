@@ -91,7 +91,6 @@ export const projects: Project[] = [
         "LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-10.jpg",
         "LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-12.jpg",
         "LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-5.jpg",
-        "LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-6.jpg",
         "LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-9.jpg",
         "LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-17.jpg",
         "LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-18.jpg",
@@ -149,7 +148,7 @@ export const projects: Project[] = [
     video: null,
     cover: "/portfolio/binissalem-courtyard/garden-design-mallorca-binissalem-courtyard-01-pool-terrace-lemon-tree-sestepa.webp",
     images: [
-      "garden-design-mallorca-binissalem-courtyard-01-pool-terrace-lemon-tree-sestepa.webp",
+      "/portfolio/binissalem-courtyard/garden-design-mallorca-binissalem-courtyard-01-pool-terrace-lemon-tree-sestepa.webp",
       "garden-design-mallorca-binissalem-courtyard-02-sculptural-agave-cactus-detail-sestepa.webp",
       "garden-design-mallorca-binissalem-courtyard-03-mediterranean-swimming-pool-garden-sestepa.webp",
       "garden-design-mallorca-binissalem-courtyard-04-aerial-overview-townhouse-patio-sestepa.webp",
@@ -218,7 +217,7 @@ export const projects: Project[] = [
       "BUNYOLA-2D-SESTEPA-DESIGN-MALLORCA.png",
       "BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-1.jpg",
       "BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-2.jpg",
-      "BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN.jpg",
+      "/portfolio/bunyola/garden-design-mallorca-bunyola-sestepa.jpg",
       "BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-4.jpg",
       "BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-9.jpg"
     ],
@@ -274,7 +273,7 @@ export const projects: Project[] = [
       "garden-design-mallorca-landscape-design-sestepa-campanet-2.jpg",
       "garden-design-mallorca-landscape-design-sestepa-campanet-3.jpg",
       "garden-design-mallorca-landscape-design-sestepa-campanet-4.jpg",
-      "garden-design-mallorca-landscape-design-sestepa-campanet-6.jpg",
+      "/portfolio/campanet-garden/garden-design-mallorca-campanet-garden-sestepa.jpg",
       "garden-design-mallorca-landscape-design-sestepa-campanet-7.jpg"
     ],
     en: {
@@ -321,7 +320,7 @@ export const projects: Project[] = [
     cover: "/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp",
     ogImage: "/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp",
     images: [
-      "GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.jpg",
+      "/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp",
       "GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-13.jpg",
       "GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-11.jpg",
       "GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-12.jpg",
@@ -414,7 +413,7 @@ export const projects: Project[] = [
       "LANDSCAPE-GARDEN-DESIGN-MALLORCA-COSTA-DE-LA-CALMA-SESTEPA-DESIGN-1-3.webp",
       "LANDSCAPE-GARDEN-DESIGN-MALLORCA-COSTA-DE-LA-CALMA-SESTEPA-DESIGN-1-4.webp",
       "LANDSCAPE-GARDEN-DESIGN-MALLORCA-COSTA-DE-LA-CALMA-SESTEPA-DESIGN-1-5.webp",
-      "LANDSCAPE-GARDEN-DESIGN-MALLORCA-COSTA-DE-LA-CALMA-SESTEPA-DESIGN.webp"
+      "/portfolio/costadelacalma/LANDSCAPE-GARDEN-DESIGN-MALLORCA-COSTA-DE-LA-CALMA-SESTEPA-DESIGN.webp"
     ],
     en: {
       title: "Costa de la Calma",
@@ -464,7 +463,7 @@ export const projects: Project[] = [
     heroPoster: "/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp",
     cover: "/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp",
     images: [
-      "GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-1.jpg",
+      "GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.webp",
       "GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-2.jpg",
       "GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-3.jpg",
       "GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-4.jpg",
@@ -488,12 +487,12 @@ export const projects: Project[] = [
       "GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-22.jpg",
       "GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-23.jpg",
       "GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.webp",
-      "landscape design render mallorca crestatx sestepa design (1).png",
-      "landscape design render mallorca crestatx sestepa design (2).png",
-      "landscape design render mallorca crestatx sestepa design (3).png",
-      "landscape design render mallorca crestatx sestepa design (4).png",
-      "landscape design render mallorca crestatx sestepa design (5).png",
-      "landscape design 2D mallorca crestatx sestepa design.png.png"
+      "landscape design render mallorca crestatx sestepa design (1).webp",
+      "landscape design render mallorca crestatx sestepa design (2).webp",
+      "landscape design render mallorca crestatx sestepa design (3).webp",
+      "landscape design render mallorca crestatx sestepa design (4).webp",
+      "landscape design render mallorca crestatx sestepa design (5).webp",
+      "landscape design 2D mallorca crestatx sestepa design.webp"
     ],
     en: {
       title: "Crestatx",
@@ -546,7 +545,7 @@ export const projects: Project[] = [
     video: null,
     cover: "/portfolio/hotelcabotlasvelas/garden-design-mallorca-hotelcabotlasvelas-sestepa.webp",
     images: [
-      "CABOT-LAS-VELAS-HOTEL-SESTEPA-DESIGN-MALLORCA-1.webp",
+      "/portfolio/hotelcabotlasvelas/garden-design-mallorca-hotelcabotlasvelas-sestepa.webp",
       "CABOT-LAS-VELAS-HOTEL-SESTEPA-DESIGN-MALLORCA-2.webp",
       "CABOT-LAS-VELAS-HOTEL-SESTEPA-DESIGN-MALLORCA-_4_.webp",
       "CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-1.jpg",
@@ -1140,7 +1139,7 @@ export const projects: Project[] = [
       "garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-1.jpg",
       "garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-2.jpg",
       "garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-3.jpg",
-      "garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-4.jpg",
+      "/portfolio/son-vida/garden-design-mallorca-son-vida-sestepa.jpg",
       "garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-5.jpg",
       "garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-6.jpg",
       "garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-8.jpg"
@@ -1187,7 +1186,7 @@ export const projects: Project[] = [
     video: "https://www.youtube.com/embed/1q1Qnh2s_mg?feature=oembed",
     cover: "/portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp",
     images: [
-      "landscape-garden-design-terrace-palma-mallorca-sestepa-design-1.jpg",
+      "/portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp",
       "landscape-garden-design-terrace-palma-mallorca-sestepa-design-6.jpg",
       "landscape-garden-design-terrace-palma-mallorca-sestepa-design-3.jpg",
       "landscape-garden-design-terrace-palma-mallorca-sestepa-design-4.jpg",
@@ -1483,7 +1482,7 @@ export const projects: Project[] = [
     hidden: true,
     cover: "/portfolio/finca-garden-inca/garden-design-mallorca-finca-garden-inca-sestepa.jpg",
     images: [
-      "PLANO-DE-JARDIN-INCA-SESTEPA-GARDEN-DESIGN-MALLORCA.jpg"
+      "/portfolio/finca-garden-inca/garden-design-mallorca-finca-garden-inca-sestepa.jpg"
     ],
     en: {
       title: "Finca Garden Inca",
@@ -1528,11 +1527,11 @@ export const projects: Project[] = [
     year: "2025",
     architect: null,
     video: null,
-    cover: "/portfolio/sacabaneta/images/landscape design render mallorca sa cabaneta sestepa design (1).png",
+    cover: "/portfolio/sacabaneta/images/landscape design render mallorca sa cabaneta sestepa design (1).webp",
     images: [
-      "landscape design render mallorca sa cabaneta sestepa design (1).png",
-      "landscape design render mallorca sa cabaneta sestepa design (3).png",
-      "landscape design render mallorca sa cabaneta sestepa design (5).png",
+      "landscape design render mallorca sa cabaneta sestepa design (1).webp",
+      "landscape design render mallorca sa cabaneta sestepa design (3).webp",
+      "landscape design render mallorca sa cabaneta sestepa design (5).webp",
     ],
     en: {
       title: "Sa Cabaneta Garden",
@@ -1580,23 +1579,23 @@ export const projects: Project[] = [
     year: "2023",
     architect: null,
     video: null,
-    cover: "/portfolio/seaside-house-alcudia/images/landscape garden design alcanada - alcudia - mallorca sestepa design (1).jpg",
+    cover: "/portfolio/seaside-house-alcudia/images/landscape garden design alcanada - alcudia - mallorca sestepa design (1).webp",
     images: [
-      "landscape garden design alcanada - alcudia - mallorca sestepa design (1).jpg",
-      "landscape garden design alcanada - alcudia - mallorca sestepa design (2).jpg",
-      "landscape garden design alcanada - alcudia - mallorca sestepa design (3).jpg",
-      "landscape garden design alcanada - alcudia - mallorca sestepa design (4).jpg",
-      "landscape garden design alcanada - alcudia - mallorca sestepa design (5).jpg",
-      "landscape garden design alcanada - alcudia - mallorca sestepa design (6).jpg",
-      "landscape garden design alcanada - alcudia - mallorca sestepa design (7).jpg",
-      "landscape garden design alcanada - alcudia - mallorca sestepa design (8).jpg",
-      "landscape garden design alcanada - alcudia - mallorca sestepa design (9).jpg",
-      "landscape garden design alcanada - alcudia - mallorca sestepa design (10).jpg",
-      "landscape garden design alcanada - alcudia - mallorca sestepa design (11).jpg",
-      "landscape garden design alcanada - alcudia - mallorca sestepa design (12).jpg",
-      "landscape garden design alcanada - alcudia - mallorca sestepa design (13).jpg",
-      "landscape garden design alcanada - alcudia - mallorca sestepa design (14).jpg",
-      "landscape garden design alcanada - alcudia - mallorca sestepa design (15).jpg",
+      "landscape garden design alcanada - alcudia - mallorca sestepa design (1).webp",
+      "landscape garden design alcanada - alcudia - mallorca sestepa design (2).webp",
+      "landscape garden design alcanada - alcudia - mallorca sestepa design (3).webp",
+      "landscape garden design alcanada - alcudia - mallorca sestepa design (4).webp",
+      "landscape garden design alcanada - alcudia - mallorca sestepa design (5).webp",
+      "landscape garden design alcanada - alcudia - mallorca sestepa design (6).webp",
+      "landscape garden design alcanada - alcudia - mallorca sestepa design (7).webp",
+      "landscape garden design alcanada - alcudia - mallorca sestepa design (8).webp",
+      "landscape garden design alcanada - alcudia - mallorca sestepa design (9).webp",
+      "landscape garden design alcanada - alcudia - mallorca sestepa design (10).webp",
+      "landscape garden design alcanada - alcudia - mallorca sestepa design (11).webp",
+      "landscape garden design alcanada - alcudia - mallorca sestepa design (12).webp",
+      "landscape garden design alcanada - alcudia - mallorca sestepa design (13).webp",
+      "landscape garden design alcanada - alcudia - mallorca sestepa design (14).webp",
+      "landscape garden design alcanada - alcudia - mallorca sestepa design (15).webp",
     ],
     en: {
       title: "Alcanada",

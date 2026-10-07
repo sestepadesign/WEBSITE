@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 292" width="380" height="292" role="img"
+  aria-label="Cross-section of a dry-stone wall sheltering planting. The Tramuntana wind strikes the wall and is deflected upward. The wall holds the day's heat and releases it after dusk into a sheltered lee, where low rosemary grows. A centenary olive stands beyond, its deep roots reaching moisture in the rock, over mulch, clay soil and limestone."
+  font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <rect width="380" height="292" fill="#FAF9F6"/>
+  <text x="20" y="26" font-size="16" font-weight="700" fill="#1F211F">The wall as a microclimate</text>
+
+  <!-- soil -->
+  <rect x="0" y="228" width="380" height="64" fill="#5C4A3A"/>
+  <rect x="0" y="228" width="380" height="6" fill="#3B2E22"/>
+  <g fill="#7A6653"><circle cx="28" cy="258" r="1.5"/><circle cx="72" cy="276" r="1.5"/><circle cx="130" cy="252" r="1.5"/><circle cx="200" cy="278" r="1.5"/><circle cx="270" cy="256" r="1.5"/><circle cx="340" cy="276" r="1.5"/></g>
+  <text x="20" y="278" font-size="10.5" fill="#E7DECF">mulch over clay soil &amp; limestone</text>
+
+  <!-- lee tint -->
+  <rect x="96" y="98" width="130" height="130" fill="#5A6755" opacity="0.06"/>
+
+  <!-- wind -->
+  <path d="M12,66 L 82,102" fill="none" stroke="#5A6755" stroke-width="4" stroke-linecap="round"/>
+  <path d="M88,98 Q 104,74 118,60" fill="none" stroke="#5A6755" stroke-width="4" stroke-linecap="round"/>
+  <path d="M118,60 l -1,13 l 11,-6 z" fill="#5A6755"/>
+  <text x="10" y="42" font-size="13" font-weight="700" fill="#3C4539">Tramuntana wind</text>
+
+  <!-- sun -->
+  <circle cx="332" cy="50" r="11" fill="#E0A45C"/>
+  <g stroke="#E0A45C" stroke-width="2" stroke-linecap="round"><line x1="332" y1="30" x2="332" y2="24"/><line x1="350" y1="40" x2="356" y2="36"/><line x1="314" y1="40" x2="308" y2="36"/></g>
+  <text x="332" y="76" font-size="10.5" fill="#625E57" text-anchor="middle">midday sun</text>
+
+  <!-- wall -->
+  <rect x="46" y="104" width="52" height="124" fill="#CFBEA3" stroke="#A98F6D" stroke-width="1.5"/>
+  <g stroke="#A98F6D" stroke-width="1.1">
+    <line x1="46" y1="134" x2="98" y2="134"/><line x1="46" y1="164" x2="98" y2="164"/><line x1="46" y1="196" x2="98" y2="196"/>
+    <line x1="72" y1="104" x2="72" y2="134"/><line x1="64" y1="134" x2="64" y2="164"/><line x1="82" y1="164" x2="82" y2="196"/><line x1="70" y1="196" x2="70" y2="228"/>
+  </g>
+  <!-- heat -->
+  <path d="M100,150 q 26,12 50,2" fill="none" stroke="#B26A45" stroke-width="2" stroke-dasharray="4 3"/>
+  <path d="M100,172 q 28,14 54,2" fill="none" stroke="#B26A45" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="108" y="126" font-size="13" font-weight="700" fill="#4A3B2E">Dry-stone wall</text>
+  <text x="108" y="143" font-size="11.5" fill="#A9573C">holds the day's heat,</text>
+  <text x="108" y="196" font-size="11.5" fill="#A9573C">releases it after dusk</text>
+
+  <!-- rosemary mound -->
+  <path d="M132,228 q 4,-26 28,-26 q 24,0 28,26 z" fill="#8E9C88"/>
+  <text x="284" y="228" font-size="11.5" fill="#3C4539" text-anchor="end">rosemary in the lee</text>
+  <path d="M204,222 L 186,216" fill="none" stroke="#9A9683" stroke-width="1"/>
+
+  <!-- olive -->
+  <rect x="318" y="132" width="8" height="96" fill="#5A4838"/>
+  <ellipse cx="322" cy="118" rx="42" ry="34" fill="#7D8F71"/>
+  <text x="322" y="98" font-size="13" font-weight="700" fill="#3C4539" text-anchor="middle">centenary olive</text>
+  <g fill="none" stroke="#5A4838" stroke-width="1.6">
+    <path d="M322,228 C 322,250 316,266 296,282"/>
+    <path d="M322,228 C 324,252 338,268 358,280"/>
+    <path d="M322,228 C 322,250 322,268 324,286"/>
+  </g>
+  <text x="300" y="288" font-size="10.5" fill="#E7DECF" text-anchor="middle">roots reach moisture at depth</text>
+</svg>

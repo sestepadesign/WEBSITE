@@ -102,8 +102,11 @@ async function main() {
   const endIdx = redirects.indexOf(MARKER_END);
 
   if (startIdx !== -1 && endIdx !== -1) {
+    const afterGeneratedBlock = redirects
+      .slice(endIdx + MARKER_END.length)
+      .replace(/^(?:\r?\n)+/, '');
     redirects =
-      redirects.slice(0, startIdx) + generated + redirects.slice(endIdx + MARKER_END.length);
+      redirects.slice(0, startIdx) + generated + afterGeneratedBlock;
   } else {
     redirects = redirects.trimEnd() + '\n\n' + generated;
   }

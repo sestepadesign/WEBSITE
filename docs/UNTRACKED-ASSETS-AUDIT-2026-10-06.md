@@ -4,6 +4,12 @@
 
 Nenhum arquivo foi apagado, movido ou incorporado ao deploy nesta etapa. A classificacao abaixo e uma proposta operacional para evitar perda de trabalho de outros agentes e proteger SEO, performance e organizacao.
 
+## Atualizacao 2026-10-07
+
+Esta pagina registra o estado da auditoria em 2026-10-06 e nao deve ser lida como status atual.
+
+Decisao posterior: a proposta `src/pages/lab/nova-galeria.astro`, seu arquivo de dados `src/data/curated-gallery-2026.ts` e a pasta `public/gallery/curated-2026/` foram removidos do deploy local. A pasta `src/pages/lab/` permanece como laboratorio visual noindex para futuras propostas; ver `docs/LAB-PAGES.md`.
+
 ## Resumo atual
 
 Depois de ignorar artefatos temporarios (`public/_clpreview*.html`), caches Python e o HTML duplicado `public/api/docs.html`, restam 278 arquivos untracked nao ignorados.

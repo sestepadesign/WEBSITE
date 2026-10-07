@@ -120,6 +120,12 @@ async function fileExists(pathname) {
   }
 }
 
+function projectImagePath(slug, filename) {
+  return filename.startsWith('/')
+    ? filename
+    : `/portfolio/${slug}/images/${filename}`;
+}
+
 const HOMEPAGE_PATHS = {
   en: '/',
   es: '/es/',
@@ -171,7 +177,7 @@ async function buildSitemapXml(projectPaths, projectImages) {
 
     const present = [];
     for (const filename of filenames) {
-      const rel = `/portfolio/${slug}/images/${filename}`;
+      const rel = projectImagePath(slug, filename);
       if (await fileExists(rel)) present.push(rel);
       else skipped.push(rel);
     }

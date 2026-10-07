@@ -126,7 +126,7 @@ export function getLocalizedSchema(
     ],
     "logo": {
       "@type": "ImageObject",
-      "url": "https://design.sestepa.com/images/S-ESTEPA-GARDEN-DESIGN-MALLORCA-LOGO-BLACK-344.png",
+      "url": "https://design.sestepa.com/images/logo.png",
       "width": 344,
       "height": 120
     },

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 348" width="380" height="348" role="img"
+  aria-label="Line chart of a garden's annual upkeep cost over twenty years. A decorative scheme starts moderate and climbs steadily. A garden designed as a system starts slightly higher, then falls below and keeps dropping as it matures."
+  font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <rect width="380" height="348" fill="#FAF9F6"/>
+  <text x="24" y="34" font-size="18" font-weight="700" fill="#1F211F">React every year, or design once</text>
+  <text x="24" y="55" font-size="12.5" fill="#625E57">annual upkeep — water, labour, plant replacement</text>
+
+  <!-- axes -->
+  <line x1="46" y1="86" x2="46" y2="286" stroke="#C6BFB2" stroke-width="1.5"/>
+  <line x1="46" y1="286" x2="356" y2="286" stroke="#C6BFB2" stroke-width="1.5"/>
+  <text x="42" y="98" font-size="12" fill="#625E57" text-anchor="end">high</text>
+  <text x="42" y="284" font-size="12" fill="#625E57" text-anchor="end">low</text>
+  <text x="46" y="304" font-size="12" fill="#625E57">Year 1</text>
+  <text x="356" y="304" font-size="12" fill="#625E57" text-anchor="end">Year 20</text>
+
+  <!-- reactive: climbs -->
+  <path d="M46,196 C 120,190 150,158 230,128 C 300,104 335,94 356,90" fill="none" stroke="#A9573C" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="46" cy="196" r="4" fill="#A9573C"/>
+  <circle cx="356" cy="90" r="4" fill="#A9573C"/>
+  <text x="356" y="78" font-size="13.5" font-weight="600" fill="#A9573C" text-anchor="end">Decorative scheme</text>
+  <text x="356" y="112" font-size="11.5" fill="#A9573C" text-anchor="end">held up with inputs</text>
+
+  <!-- designed: falls -->
+  <path d="M46,202 C 120,214 150,224 230,240 C 300,252 335,258 356,260" fill="none" stroke="#5A6755" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="46" cy="202" r="4" fill="#5A6755"/>
+  <circle cx="356" cy="260" r="4" fill="#5A6755"/>
+  <text x="356" y="248" font-size="13.5" font-weight="600" fill="#3C4539" text-anchor="end">Designed as a system</text>
+  <text x="356" y="278" font-size="11.5" fill="#3C4539" text-anchor="end">gains soil, canopy, shade</text>
+
+  <text x="24" y="334" font-size="10.5" fill="#8E8A80">S'Estepa Design — illustrative, not measured data</text>
+</svg>

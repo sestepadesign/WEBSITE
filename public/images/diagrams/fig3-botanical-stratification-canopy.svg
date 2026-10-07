@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%" style="background-color:#FAF8F5; font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <!-- Title & Header -->
+  <text x="40" y="45" font-size="20" font-weight="600" fill="#2C302E" letter-spacing="0.5">FIG. 3: MULTI-TIERED BOTANICAL STRATIFICATION</text>
+  <text x="40" y="70" font-size="13" font-style="italic" fill="#6E7271">Canopy Hierarchy for Semi-Arid Mediterranean Microclimates &amp; Calcareous Soils</text>
+  <line x1="40" y1="85" x2="960" y2="85" stroke="#DCD4C7" stroke-width="1.5" />
+
+  <!-- Elevation Axis on Left -->
+  <line x1="80" y1="110" x2="80" y2="480" stroke="#707573" stroke-width="1.5" />
+  <line x1="75" y1="120" x2="85" y2="120" stroke="#707573" stroke-width="1.5" />
+  <text x="45" y="124" font-size="11" font-weight="600" fill="#4B504E">+10m</text>
+
+  <line x1="75" y1="210" x2="85" y2="210" stroke="#707573" stroke-width="1.5" />
+  <text x="50" y="214" font-size="11" font-weight="600" fill="#4B504E">+6m</text>
+
+  <line x1="75" y1="310" x2="85" y2="310" stroke="#707573" stroke-width="1.5" />
+  <text x="50" y="314" font-size="11" font-weight="600" fill="#4B504E">+3m</text>
+
+  <line x1="75" y1="410" x2="85" y2="410" stroke="#707573" stroke-width="1.5" />
+  <text x="50" y="414" font-size="11" font-weight="600" fill="#4B504E">+1m</text>
+
+  <line x1="75" y1="480" x2="85" y2="480" stroke="#707573" stroke-width="1.5" />
+  <text x="55" y="484" font-size="11" font-weight="600" fill="#4B504E">0m</text>
+
+  <!-- Ground and Subsoil -->
+  <line x1="80" y1="480" x2="960" y2="480" stroke="#5A4838" stroke-width="2" />
+  <rect x="80" y="482" width="880" height="60" fill="#EAE2D8" />
+  <text x="100" y="520" font-size="11.5" font-weight="600" fill="#7A6855">Root Zone &amp; Living Subterranean Ecosystem (Mycorrhizae / CEC Nutrient Bank)</text>
+
+  <!-- Layer 1: Overstory Canopy -->
+  <ellipse cx="230" cy="180" rx="110" ry="75" fill="#6A805E" fill-opacity="0.85" stroke="#485B3F" stroke-width="1.5" />
+  <path d="M 230 480 L 230 240" stroke="#5A4838" stroke-width="4" />
+  <!-- Callout Layer 1 -->
+  <rect x="360" y="125" width="580" height="70" rx="6" fill="#F0F4EE" stroke="#CBDAC7" stroke-width="1" />
+  <text x="375" y="150" font-size="13" font-weight="700" fill="#3D4E35">LAYER 1: OVERSTORY / ARCHITECTURAL CANOPY (6.0m ? 10.0m+)</text>
+  <text x="375" y="170" font-size="12" font-weight="600" fill="#2C302E">Species: Olea europaea (Olive), Ceratonia siliqua (Carob), Pinus halepensis</text>
+  <text x="375" y="186" font-size="11" fill="#6E7271">Function: Solar attenuation, macro-shade umbrella, primary biomass generation, deep anchor roots.</text>
+
+  <!-- Layer 2: Sub-Canopy / Productive Mid-Tier -->
+  <ellipse cx="270" cy="300" rx="75" ry="50" fill="#889C76" fill-opacity="0.85" stroke="#566947" stroke-width="1.5" />
+  <path d="M 270 480 L 270 340" stroke="#685542" stroke-width="3" />
+  <!-- Callout Layer 2 -->
+  <rect x="360" y="215" width="580" height="70" rx="6" fill="#F5F7F3" stroke="#D3DFC0" stroke-width="1" />
+  <text x="375" y="240" font-size="13" font-weight="700" fill="#4B5E41">LAYER 2: SUB-CANOPY / PRODUCTIVE ORCHARD (2.5m ? 5.0m)</text>
+  <text x="375" y="260" font-size="12" font-weight="600" fill="#2C302E">Species: Punica granatum (Pomegranate), Ficus carica (Fig), Citrus aurantium</text>
+  <text x="375" y="276" font-size="11" fill="#6E7271">Function: Filtered daylight absorption, fruit yield, intermediate wind buffering, micro-fauna shelter.</text>
+
+  <!-- Layer 3: Shrub & Aromatic Tier -->
+  <ellipse cx="210" cy="400" rx="55" ry="35" fill="#5F755A" fill-opacity="0.9" stroke="#3D5039" stroke-width="1.5" />
+  <path d="M 210 480 L 210 430" stroke="#5A4838" stroke-width="2" />
+  <!-- Callout Layer 3 -->
+  <rect x="360" y="305" width="580" height="70" rx="6" fill="#F9FAF7" stroke="#DBE5D7" stroke-width="1" />
+  <text x="375" y="330" font-size="13" font-weight="700" fill="#455B3F">LAYER 3: SHRUB &amp; SENSORY AROMATICS (0.8m ? 2.0m)</text>
+  <text x="375" y="350" font-size="12" font-weight="600" fill="#2C302E">Species: Pistacia lentiscus (Mata), Myrtus communis, Teucrium fruticans, Cistus</text>
+  <text x="375" y="366" font-size="11" fill="#6E7271">Function: Spatial definition, high-saline tolerance, essential oil emission deterrent to pests.</text>
+
+  <!-- Layer 4: Herbaceous & Living Mulch -->
+  <ellipse cx="170" cy="460" rx="40" ry="18" fill="#4E6748" stroke="#33472E" stroke-width="1.2" />
+  <!-- Callout Layer 4 -->
+  <rect x="360" y="395" width="580" height="70" rx="6" fill="#FFFFFF" stroke="#D8E2D5" stroke-width="1" />
+  <text x="375" y="420" font-size="13" font-weight="700" fill="#3D5238">LAYER 4: HERBACEOUS GROUNDCOVER &amp; LIVING MULCH (0.0m ? 0.5m)</text>
+  <text x="375" y="440" font-size="12" font-weight="600" fill="#2C302E">Species: Rosmarinus postratus, Lavandula dentata, Thymus vulgaris, Phlomis italica</text>
+  <text x="375" y="456" font-size="11" fill="#6E7271">Function: Total soil shading, weed suppression, nitrogen retention, pollinator pathway.</text>
+
+  <!-- Technical Footer -->
+  <text x="40" y="575" font-size="10.5" fill="#8C908E">? S'ESTEPA DESIGN ? ARCHITECTURAL ECOLOGY TECHNICAL SPECIFICATIONS</text>
+</svg>

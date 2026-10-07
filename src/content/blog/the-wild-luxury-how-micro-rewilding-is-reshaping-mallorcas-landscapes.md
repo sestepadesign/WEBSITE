@@ -11,7 +11,7 @@ Wild luxury: A design philosophy that seamlessly integrates the island's wild be
 
 We believe the answer lies in a radical shift in perspective. True exclusivity is no longer about imposing an alien order upon the land; it is about curating an intimate relationship with the indigenous spirit of Mallorca. This is the essence of micro-rewilding—a design philosophy that invites the island’s untamed beauty into the heart of high-end architecture.
 
-![Wild luxury and traditional dry-stone design in Campanet, Mallorca](/images/journal/garden-design-mallorca-campanet.jpg)
+![Wild luxury and traditional dry-stone design in Campanet, Mallorca](/portfolio/campanet-garden/garden-design-mallorca-campanet-garden-sestepa.jpg)
 
 ## The Architecture of the &#8220;Uncontrolled&#8221;
 
@@ -27,7 +27,7 @@ Soil Memory: We work extensively with Mallorca’s Call vermell (red clay soi
 
 Wind Vectors: We analyze the prevailing winds (the Tramuntana or the Llevant) to predict how seeds will travel across the property, positioning our rewilding zones to catch specific endemic flora.
 
-![Curated wild garden with fire pit in Llubí, Mallorca](/images/journal/best-garden-design-mallorca-llubi-firepit.webp)
+![Curated wild garden with fire pit in Llubí, Mallorca](/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(1).webp)
 
 ## Beyond the Static Garden
 

@@ -35,10 +35,12 @@ This repo is one of several sites (`sestepa-design`, `ines-grimaux`, `grimaux-ne
 
 ## Commands
 
-```
-npm install
-npm run dev      # local dev server, http://localhost:4321
-npm run build    # production build to dist/
+Do not run npm/Astro directly in the Google Drive checkout (`G:\...`). The Drive filesystem can corrupt Node caches and `node_modules`.
+
+```powershell
+cd "G:\Meu Drive\1. WEBSITES\sestepa-design\codigo"
+python scripts\preview_local.py        # local dev server, http://localhost:4321
+python scripts\preview_local.py build  # production build in the local mirror
 ```
 
 ## Deploy pipeline
@@ -47,7 +49,7 @@ Cloudflare Pages is connected to this GitHub repo and auto-deploys on every push
 
 ## Review workflow — depends on the session environment
 
-- **Desktop / interactive session:** run `npm run dev` and let the user click through the change on `localhost:4321` *before* it's pushed anywhere. This is the default approval step whenever a local preview is reachable.
+- **Desktop / interactive session:** run `python scripts\preview_local.py` from the Drive checkout and let the user click through the change on `localhost:4321` *before* it's pushed anywhere. Never run `npm run dev` directly in `G:\...`.
 - **Mobile / remote session (no localhost access for the user):** there is no way to hand the user a local preview. In this case: build/verify locally in the sandbox first (build passes, screenshot via Playwright if useful), push to a feature branch, then merge to `master` only with the user's explicit go-ahead. Approval happens *after* the Cloudflare deploy, by the user checking the live URL — not before.
 
 ## Git branch hygiene

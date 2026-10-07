@@ -11,7 +11,7 @@ Para los propietarios internacionales de fincas privadas, villas y casas de vera
 
 Esta guía resume los pasos esenciales y las consideraciones técnicas para planificar y ejecutar un proyecto de paisajismo prémium que madure con elegancia y aumente el valor de la propiedad a largo plazo.
 
-![Diseño de paisaje de alto standing en Campos, Mallorca](/images/journal/luxury-landscape-architect-mallorca-campos.jpg)
+![Diseño de paisaje de alto standing en Campos, Mallorca](/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp)
 
 ## 1. Análisis del sitio: respetar los microclimas
 
@@ -28,7 +28,7 @@ Un jardín de alto standing debe respetar el lenguaje arquitectónico de Mallorc
 *   **Pedra en sec (muros de piedra seca):** este oficio local reconocido por la UNESCO es la espina dorsal del abancalamiento mallorquín. Construidos sin mortero, los muros de piedra seca aportan textura orgánica, evitan la erosión del suelo en pendiente y ofrecen una masa térmica que beneficia a las plantaciones cercanas.
 *   **Piedra caliza y grava locales:** utilizar caliza autóctona y estabilizadores de grava crea sendas limpias y elegantes que se integran visualmente con el terreno, facilitan la circulación y reducen el efecto isla de calor propio del hormigón vertido.
 
-![Diseño de jardín de arquitecto paisajista contemporáneo en Crestatx, Sa Pobla](/images/journal/high-end-landscape-design-mallorca-crestatx.jpg)
+![Diseño de jardín de arquitecto paisajista contemporáneo en Crestatx, Sa Pobla](/portfolio/crestatx-garden-design/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.webp)
 
 ## 3. Agua con criterio: sistemas sostenibles bien diseñados
 

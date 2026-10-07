@@ -17,7 +17,7 @@ There is a misconception that a dry garden means gravel and cactus. This could n
 
 Our approach focuses on hydro-zoning—grouping plants with similar water needs to eliminate waste—and utilizing species that have evolved over millennia to thrive in our specific microclimates. By pivoting from water-dependent aesthetics to drought-tolerant architectural forms, we ensure that your estate remains vibrant even in the height of August, while others fade.
 
-![Regenerative dry garden design with mineral layers in Crestatx, Mallorca](/images/journal/high-end-landscape-design-mallorca-crestatx.jpg)
+![Regenerative dry garden design with mineral layers in Crestatx, Mallorca](/portfolio/crestatx-garden-design/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.webp)
 
 ## Mastering the Mallorcan Terroir: Soil and Wind
 
@@ -31,7 +31,7 @@ Many estates in the central and southern plains of Mallorca sit atop Call Vermel
 
 Water is not the only element we curate; we also design for the wind. The strong Tramuntana winds can dehydrate a garden faster than the sun. We utilize structural planting—using dense, wind-tolerant hedging like *Pistacia lentiscus* (Mastic) and *Cupressus sempervirens*—to create microclimates. These &#8216;green windbreaks' reduce evaporation rates for the more delicate flora within the inner sanctuary, protecting the garden's lush aesthetic without artificial intervention.
 
-![Lush regenerative landscape design in Campos, Mallorca](/images/journal/luxury-landscape-architect-mallorca-campos.jpg)
+![Lush regenerative landscape design in Campos, Mallorca](/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp)
 
 ## The Palette of Resilience: Native Flora
 

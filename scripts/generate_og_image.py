@@ -5,6 +5,9 @@ from PIL import Image
 def generate_og_image():
     # Source image candidate paths
     candidates = [
+        os.path.join("..", "originais-grandes", "sant-llorenc", "images-tratadas-com-magnific", "FOTOS SELECIONADAS", "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.jpg"),
+        os.path.join("..", "originais-grandes", "sant-llorenc", "images-tratadas-com-magnific", "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.jpg"),
+        os.path.join("..", "originais-grandes", "sant-llorenc", "images-tratadas-com-magnific", "resultado-ceu-azul", "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.jpg"),
         os.path.join("public", "portfolio", "sant-llorenc", "images tratadas com magnific", "FOTOS SELECIONADAS", "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.jpg"),
         os.path.join("public", "portfolio", "sant-llorenc", "images tratadas com magnific", "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.jpg"),
         os.path.join("public", "portfolio", "sant-llorenc", "images tratadas com magnific", "resultado-ceu-azul", "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.jpg"),

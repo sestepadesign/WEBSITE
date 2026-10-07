@@ -31,6 +31,11 @@ if (pageId === 'faq') {
 }
 
 const project = projectSlug ? projects.find((p) => p.slug === projectSlug) : null;
+const projectImageUrl = (project: NonNullable<typeof project>, img: string) => {
+  if (/^https?:\/\//.test(img)) return img;
+  if (img.startsWith('/')) return `${SITE_URL_PRODUCTION}${img}`;
+  return `${SITE_URL_PRODUCTION}/portfolio/${project.slug}/images/${img}`;
+};
 if (project) {
   const translation = project[currentLocale] ?? project.en;
   
@@ -68,7 +73,7 @@ if (project) {
       "name": translation.title,
       "description": translation.subtitle,
       "url": currentUrl,
-      "image": project.images.map(img => `${SITE_URL_PRODUCTION}/portfolio/${project.slug}/images/${img}`)
+      "image": project.images.map(img => projectImageUrl(project, img))
     }
   });
 

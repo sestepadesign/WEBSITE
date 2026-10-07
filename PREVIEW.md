@@ -6,11 +6,11 @@
 G:\Meu Drive\1. WEBSITES\sestepa-design\codigo\
 ```
 
-## Regra
+## Regra critica
 
-Não executar `npm install`, `npm run dev` ou `npm run preview` diretamente em `G:`.
+NUNCA executar `npm install`, `npm run dev`, `npm run preview`, `npm run build` ou `npx astro ...` diretamente em `G:`.
 
-O Google Drive pode bloquear I/O, atrasar a sincronização e corromper dependências. O preview deve rodar fora do Drive.
+O Google Drive pode bloquear caches do Node, atrasar a sincronização, corromper `node_modules`, travar I/O e derrubar o Drive. O preview deve rodar fora do Drive.
 
 ## Fluxo atual
 
@@ -19,7 +19,7 @@ cd "G:\Meu Drive\1. WEBSITES\sestepa-design\codigo"
 python scripts\preview_local.py
 ```
 
-O script sincroniza o projeto para o mirror local reutilizável e inicia Astro em localhost.
+Este é o único comando autorizado para subir localhost a partir do projeto em Drive. O script sincroniza o projeto para o mirror local reutilizável e inicia Astro em localhost.
 
 Para validar build fora do Google Drive:
 

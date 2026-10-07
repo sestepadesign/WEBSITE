@@ -17,7 +17,7 @@ Es hält sich das Missverständnis, ein Trockengarten bedeute Kies und Kaktus. N
 
 Unser Ansatz setzt auf Hydrozonierung – Pflanzen mit ähnlichem Wasserbedarf zu gruppieren, um Verschwendung zu vermeiden – und auf Arten, die sich über Jahrtausende entwickelt haben, um in unseren konkreten Kleinklimata zu gedeihen. Indem wir von wasserabhängiger Ästhetik zu trockenheitstoleranten architektonischen Formen wechseln, bleibt Ihr Anwesen selbst im Hochsommer lebendig, während andere verblassen.
 
-![Regenerativer Trockengarten mit mineralischen Schichten in Crestatx, Mallorca](/images/journal/high-end-landscape-design-mallorca-crestatx.jpg)
+![Regenerativer Trockengarten mit mineralischen Schichten in Crestatx, Mallorca](/portfolio/crestatx-garden-design/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.webp)
 
 ## Das mallorquinische Terroir meistern: Boden und Wind
 
@@ -31,7 +31,7 @@ Viele Anwesen in den zentralen und südlichen Ebenen Mallorcas liegen auf dem Ca
 
 Wasser ist nicht das einzige Element, das wir steuern; wir entwerfen auch für den Wind. Die starken Tramuntana-Winde können einen Garten schneller austrocknen als die Sonne. Wir nutzen strukturierende Bepflanzung – dichte, windtolerante Hecken wie *Pistacia lentiscus* (Mastix) und *Cupressus sempervirens* –, um Kleinklimata zu schaffen. Diese „grünen Windschutzpflanzungen" senken die Verdunstung für die empfindlichere Flora im inneren Rückzugsraum und schützen das üppige Erscheinungsbild des Gartens ohne künstlichen Eingriff.
 
-![Üppige regenerative Landschaft in Campos, Mallorca](/images/journal/luxury-landscape-architect-mallorca-campos.jpg)
+![Üppige regenerative Landschaft in Campos, Mallorca](/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp)
 
 ## Die Palette der Resilienz: heimische Flora
 

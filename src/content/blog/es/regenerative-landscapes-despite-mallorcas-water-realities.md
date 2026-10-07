@@ -17,7 +17,7 @@ Existe el malentendido de que un jardín seco es grava y cactus. Nada más lejos
 
 Nuestro enfoque se centra en la hidrozonificación —agrupar plantas con necesidades de agua similares para eliminar el desperdicio— y en emplear especies que han evolucionado durante milenios para prosperar en nuestros microclimas concretos. Al pasar de una estética dependiente del agua a formas arquitectónicas tolerantes a la sequía, garantizamos que su finca siga vibrante en pleno agosto, cuando otras se apagan.
 
-![Jardín seco regenerativo con estratos minerales en Crestatx, Mallorca](/images/journal/high-end-landscape-design-mallorca-crestatx.jpg)
+![Jardín seco regenerativo con estratos minerales en Crestatx, Mallorca](/portfolio/crestatx-garden-design/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.webp)
 
 ## Dominar el terroir mallorquín: suelo y viento
 
@@ -31,7 +31,7 @@ Muchas fincas de las llanuras centrales y del sur de Mallorca se asientan sobre 
 
 El agua no es el único elemento que gestionamos; también diseñamos para el viento. Los fuertes vientos de Tramuntana pueden deshidratar un jardín más deprisa que el sol. Utilizamos plantación estructural —setos densos y tolerantes al viento como *Pistacia lentiscus* (lentisco) y *Cupressus sempervirens*— para crear microclimas. Estas "barreras verdes" reducen la evaporación para la flora más delicada del santuario interior y protegen la estética exuberante del jardín sin intervención artificial.
 
-![Paisaje regenerativo exuberante en Campos, Mallorca](/images/journal/luxury-landscape-architect-mallorca-campos.jpg)
+![Paisaje regenerativo exuberante en Campos, Mallorca](/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp)
 
 ## La paleta de la resiliencia: flora autóctona
 

@@ -108,7 +108,7 @@ export const galleryImages: GalleryImageEntry[] = [
   },
   // 3 × Bunyola
   {
-    src: galleryPath('BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN.jpg'),
+    src: '/portfolio/bunyola/garden-design-mallorca-bunyola-sestepa.jpg',
     alt: 'GARDEN LANDSCAPE DESIGN BUNYOLA MALLORCA SESTEPA DESIGN',
     projectSlug: bunyola,
   },
@@ -118,23 +118,23 @@ export const galleryImages: GalleryImageEntry[] = [
     projectSlug: bunyola,
   },
   {
-    src: galleryPath('BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-2.jpg'),
+    src: '/portfolio/bunyola/images/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-2.jpg',
     alt: 'GARDEN LANDSCAPE DESIGN BUNYOLA MALLORCA SESTEPA DESIGN',
     projectSlug: bunyola,
   },
   // 3 × Santa Ponsa
   {
-    src: galleryPath('GARDEN-DESIGN-MALLORCA-SESTEPA-JARDINERIA-INTEGRAL-SANTA PONSA (1).jpg'),
+    src: '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-1.jpg',
     alt: 'GARDEN LANDSCAPE DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN',
     projectSlug: santaPonsa,
   },
   {
-    src: galleryPath('GARDEN-DESIGN-MALLORCA-SESTEPA-JARDINERIA-INTEGRAL-SANTA PONSA (2).jpg'),
+    src: '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-3.jpg',
     alt: 'GARDEN LANDSCAPE DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN',
     projectSlug: santaPonsa,
   },
   {
-    src: galleryPath('GARDEN-DESIGN-MALLORCA-SESTEPA-JARDINERIA-INTEGRAL-SANTA PONSA (3).jpg'),
+    src: '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-5.jpg',
     alt: 'GARDEN LANDSCAPE DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN',
     projectSlug: santaPonsa,
   },

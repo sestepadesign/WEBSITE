@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 408" width="380" height="408" role="img"
+  aria-label="Profile of four planting layers by height. Canopy at six to ten metres: olive and carob, for shade. Mid-tier at 2.5 to five metres: pomegranate and fig, for fruit and shade. Shrub layer at 0.8 to two metres: lentisc and myrtle, for evergreen structure. Groundcover at zero to 0.4 metres: rosemary and lavender, so the soil is never bare. Below ground, mycorrhizal roots; keep soil disturbance low."
+  font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+  <rect width="380" height="408" fill="#FAF9F6"/>
+  <text x="20" y="30" font-size="16" font-weight="700" fill="#1F211F">Four layers, each shading the next</text>
+
+  <!-- height ruler -->
+  <line x1="46" y1="58" x2="46" y2="362" stroke="#C6BFB2" stroke-width="1.5"/>
+  <g font-size="11" fill="#625E57" text-anchor="end">
+    <text x="40" y="62">10 m</text>
+    <text x="40" y="154">5 m</text>
+    <text x="40" y="256">2 m</text>
+    <text x="40" y="366">0</text>
+  </g>
+  <line x1="46" y1="362" x2="360" y2="362" stroke="#8A7B68" stroke-width="2"/>
+
+  <!-- silhouettes -->
+  <rect x="98" y="112" width="6" height="250" fill="#5A4838"/>
+  <ellipse cx="101" cy="98" rx="42" ry="38" fill="#7D8F71"/>
+  <rect x="140" y="244" width="4" height="118" fill="#5A4838"/>
+  <ellipse cx="142" cy="224" rx="24" ry="20" fill="#8E9C88"/>
+  <ellipse cx="86" cy="326" rx="20" ry="15" fill="#5A6755"/>
+  <path d="M56,361 q 8,-8 16,0 q 8,-8 16,0 q 8,-8 16,0 q 8,-8 16,0" fill="none" stroke="#4A5B44" stroke-width="2.4"/>
+
+  <!-- rows -->
+  <g>
+    <text x="170" y="86" font-size="15" font-weight="700" fill="#3C4539">Canopy · 6–10 m</text>
+    <text x="170" y="105" font-size="12" fill="#625E57">olive &amp; carob — midday shade</text>
+
+    <text x="170" y="176" font-size="15" font-weight="700" fill="#3C4539">Mid-tier · 2.5–5 m</text>
+    <text x="170" y="195" font-size="12" fill="#625E57">pomegranate &amp; fig — fruit, shade</text>
+
+    <text x="170" y="262" font-size="15" font-weight="700" fill="#3C4539">Shrub · 0.8–2 m</text>
+    <text x="170" y="281" font-size="12" fill="#625E57">lentisc &amp; myrtle — evergreen bones</text>
+
+    <text x="170" y="336" font-size="15" font-weight="700" fill="#3C4539">Groundcover · 0–0.4 m</text>
+    <text x="170" y="355" font-size="12" fill="#625E57">rosemary &amp; lavender — living mulch</text>
+  </g>
+
+  <text x="20" y="394" font-size="11" fill="#625E57">Below ground: mycorrhizal roots — keep soil disturbance low.</text>
+</svg>

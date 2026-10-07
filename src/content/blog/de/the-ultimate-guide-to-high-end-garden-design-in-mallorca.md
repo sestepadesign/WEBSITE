@@ -11,7 +11,7 @@ Für internationale Eigentümer von Landgütern, Villen und Ferienfincas auf Mal
 
 Dieser Leitfaden fasst die wesentlichen Schritte und technischen Überlegungen zusammen, um ein Premium-Landschaftsprojekt zu planen und auszuführen, das würdevoll altert und den langfristigen Wert des Anwesens steigert.
 
-![Hochwertiges Landschaftsdesign in Campos, Mallorca](/images/journal/luxury-landscape-architect-mallorca-campos.jpg)
+![Hochwertiges Landschaftsdesign in Campos, Mallorca](/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp)
 
 ## 1. Standortanalyse: die Kleinklimata respektieren
 
@@ -28,7 +28,7 @@ Ein hochwertiger Garten muss die architektonische Sprache Mallorcas respektieren
 *   **Pedra en sec (Trockenmauern):** Dieses von der UNESCO anerkannte lokale Handwerk ist das Rückgrat der mallorquinischen Terrassierung. Ohne Mörtel gesetzt, geben Trockenmauern organische Textur, verhindern Bodenerosion am Hang und bieten eine thermische Masse, von der die umliegende Bepflanzung profitiert.
 *   **Lokaler Kalkstein und Kies:** Der Einsatz heimischen Kalksteins und von Kies-Stabilisatoren schafft klare, elegante Wege, die sich visuell ins Gelände einfügen, die Zirkulation erleichtern und den bei gegossenem Beton üblichen Wärmeinseleffekt verringern.
 
-![Zeitgenössischer Landschaftsarchitektur-Garten in Crestatx, Sa Pobla](/images/journal/high-end-landscape-design-mallorca-crestatx.jpg)
+![Zeitgenössischer Landschaftsarchitektur-Garten in Crestatx, Sa Pobla](/portfolio/crestatx-garden-design/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.webp)
 
 ## 3. Klug mit Wasser: nachhaltige Systeme richtig planen
 

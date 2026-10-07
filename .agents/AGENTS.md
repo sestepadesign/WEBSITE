@@ -15,10 +15,11 @@ Nenhum deploy deve ocorrer sem homologacao previa.
 
 ### 2.1 Rota A — Desktop com localhost disponivel
 1. Trabalhar em `master` somente quando houver preview local aprovado.
-2. Nao executar `npm install`, `npm run dev` ou `npm run preview` diretamente no Google Drive (`G:`).
-3. Usar ambiente isolado fora do Drive. Fluxo atual: `python scripts/preview_local.py` a partir de `codigo/`, usando mirror local reutilizavel em `C:\Users\inesg\AppData\Local\SestepaPreview\codigo` e reinstalando dependencias apenas quando `package-lock.json` mudar.
-4. Apos aprovacao visual, fazer um unico commit final contendo codigo, sitemap, docs operacionais e `STATUS.md` quando aplicavel.
-5. Push para `origin/master` publica em Cloudflare Pages.
+2. **Regra critica:** NUNCA executar `npm install`, `npm run dev`, `npm run preview`, `npm run build` ou `npx astro ...` diretamente no Google Drive (`G:`). O Drive pode bloquear cache do Node, corromper `node_modules`, travar I/O e derrubar a sincronizacao.
+3. Para localhost/build, abrir PowerShell na raiz do projeto `G:\Meu Drive\1. WEBSITES\sestepa-design\codigo` e executar exclusivamente `python scripts\preview_local.py` ou `python scripts\preview_local.py build`.
+4. O script cria/atualiza mirror local reutilizavel fora do Drive em `C:\Users\inesg\AppData\Local\SestepaPreview\codigo`, reutiliza `node_modules` e reinstala dependencias somente quando `package-lock.json` mudar.
+5. Apos aprovacao visual, fazer um unico commit final contendo codigo, sitemap, docs operacionais e `STATUS.md` quando aplicavel.
+6. Push para `origin/master` publica em Cloudflare Pages.
 
 ### 2.2 Rota B — Mobile/remoto sem localhost
 1. Criar branch temporaria com nome claro, por exemplo `feature/<slug-ou-tarefa>`.
@@ -46,6 +47,13 @@ Nenhum deploy deve ocorrer sem homologacao previa.
 2. Conteudo visivel e dados estruturados devem ser coerentes. Nao marcar no schema informacao que nao aparece para o usuario.
 3. Projetos novos devem atualizar, quando aplicavel: `src/data/projects.ts`, `src/data/portfolio-categories.ts`, `src/data/site-urls.ts`, `public/sitemap-images.xml` e redirects.
 4. O tom editorial deve manter S'Estepa Design como marca premium, precisa e botanicamente especializada, sem exagerar termos genericos como luxury quando nao forem intencionais.
+
+## 5.1 Pasta `lab`
+1. `src/pages/lab/` e uma area interna de laboratorio editorial/design: propostas de home, galeria, linguagem visual, experiencias e ideias. Ver tambem `docs/LAB-PAGES.md`.
+2. Rotas em `/lab/...` devem ser preservadas quando forem insights uteis, mas nao entram no menu publico nem viram pagina oficial sem aprovacao editorial.
+3. Toda rota `/lab/...` deve ficar fora do sitemap e usar `noindex` quando publicada em preview. Manter `src/lib/blog-sitemap.mjs` sincronizado.
+4. Assets usados somente por propostas de `lab` nao devem permanecer em `public/` se nao forem aprovados para deploy. Arquivar derivados web separados dos originais nativos em alta resolucao.
+5. Se uma proposta `lab` precisar de imagens, preferir reutilizar assets publicos existentes do site. Criar uma nova pasta pesada em `public/` apenas quando a proposta for aprovada para deploy.
 
 ## 6. Segurança
 1. Senhas, tokens e URLs privadas nao devem viver em JavaScript publico. Se existir compatibilidade temporaria, registrar risco e planejar migracao para Cloudflare Access, Function/Worker ou backend.

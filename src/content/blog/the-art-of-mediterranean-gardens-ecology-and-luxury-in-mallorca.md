@@ -11,7 +11,7 @@ In the exclusive residential enclaves of Mallorca, the definition of luxury has 
 
 At S'Estepa Design, our approach is defined by thirty years of working directly with the unique soils, winds, and microclimates of Mallorca. Led by founder and agricultural technologist Pedro Campaner, our design philosophy proves that ecological resilience and high-end aesthetics are not mutually exclusive.
 
-![Mediterranean fire pit garden design in Llubí, Mallorca](/images/journal/best-garden-design-mallorca-llubi-firepit.webp)
+![Mediterranean fire pit garden design in Llubí, Mallorca](/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(1).webp)
 
 ## Designing for the Terroir: Soil, Sun, and Stone
 
@@ -29,7 +29,7 @@ Water scarcity is one of the most critical factors in modern Mallorcan landscapi
 
 Replacing water-thirsty grass lawns with layers of local river gravel, crushed limestone, and volcanic rocks decreases water use and adds a sophisticated textural element to the property. 
 
-![Sustainable landscape design with mineral layers in Crestatx, Mallorca](/images/journal/high-end-landscape-design-mallorca-crestatx.jpg)
+![Sustainable landscape design with mineral layers in Crestatx, Mallorca](/portfolio/crestatx-garden-design/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.webp)
 
 In our project in Crestatx, we completely replaced the traditional lawn with layers of mini river stone and organic islands of native shrubs, ornamental grasses (*Stipa tenuissima*), and structural palms (*Chamaerops humilis*). This transformation reduces water requirements by over 70% while creating a dynamic landscape that changes gracefully with the seasons.
 
