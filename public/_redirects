@@ -1,4 +1,3 @@
-/PORTFOLIO/*  /portfolio/:splat  301
 
 # Tracked deleted asset canonicalization audit 2026-10-07
 /portfolio/campanet/info.txt  /portfolio/campanet-garden/info.txt  301
@@ -12,7 +11,7 @@
 /portfolio/sacabaneta/images/landscape%20design%20render%20mallorca%20sa%20cabaneta%20sestepa%20design%20%282%29.png  /portfolio/sacabaneta/images/landscape%20design%20render%20mallorca%20sa%20cabaneta%20sestepa%20design%20%281%29.webp  301
 /portfolio/sacabaneta/images/landscape%20design%20render%20mallorca%20sa%20cabaneta%20sestepa%20design%20%284%29.png  /portfolio/sacabaneta/images/landscape%20design%20render%20mallorca%20sa%20cabaneta%20sestepa%20design%20%283%29.webp  301
 /portfolio/sacabaneta/images/landscape%20design%20render%20mallorca%20sa%20cabaneta%20sestepa%20design%20%286%29.png  /portfolio/sacabaneta/images/landscape%20design%20render%20mallorca%20sa%20cabaneta%20sestepa%20design%20%285%29.webp  301
-/portfolio/sant-llorenc/images/2026-09-4-months/_selection.txt  /portfolio/sant-llorenc/  301
+/portfolio/sant-llorenc/images/2026-09-4-months/_selection.txt  /sant-llorenc/  301
 /portfolio/santa-eugenia/info.txt  /portfolio/terrace-garden-santa-eugenia/info.txt  301
 /portfolio/seaside-house-alcudia/garden-design-mallorca-seaside-house-alcudia-sestepa.jpg  /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%281%29.webp  301
 /portfolio/seaside-house-alcudia/images/ALCANADA-RENDER-SESTEPA-GARDEN-DESIGN-scaled.jpg  /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%281%29.webp  301
@@ -20,25 +19,21 @@
 /portfolio/vertical-garden/garden-design-mallorca-vertical-gardens-in-mallorca-sestepa-card.webp  /portfolio/vertical-gardens-in-mallorca/garden-design-mallorca-vertical-gardens-in-mallorca-sestepa-3-years-card.webp  301
 /portfolio/vertical-garden/garden-design-mallorca-vertical-gardens-in-mallorca-sestepa.jpg  /portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-06.webp  301
 /portfolio/vertical-garden/garden-design-mallorca-vertical-gardens-in-mallorca-sestepa.webp  /portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-06.webp  301
-/portfolio/vertical-garden/images/fotos%20julho%202026.zip  /portfolio/vertical-gardens-in-mallorca/  301
+/portfolio/vertical-garden/images/fotos%20julho%202026.zip  /vertical-gardens-in-mallorca/  301
 /portfolio/vertical-garden/images/renders/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-architectural-lattice.webp  /portfolio/vertical-gardens-in-mallorca/images/renders/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-structural-framing.webp  301
 /portfolio/vertical-garden/images/renders/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-entrance-perspective.webp  /portfolio/vertical-gardens-in-mallorca/images/renders/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-interior-atrium.webp  301
 /portfolio/vertical-garden/images/renders/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-facade-overview.webp  /portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-09.webp  301
 /portfolio/vertical-garden/images/renders/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-vegetal-module.webp  /portfolio/vertical-gardens-in-mallorca/images/renders/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-living-wall-detail.webp  301
-/portfolio/vertical-garden/info.txt  /portfolio/vertical-gardens-in-mallorca/  301
-/portfolio/vertical-gardens-in-mallorca/info.txt  /portfolio/vertical-gardens-in-mallorca/  301
+/portfolio/vertical-garden/info.txt  /vertical-gardens-in-mallorca/  301
+/portfolio/vertical-gardens-in-mallorca/info.txt  /vertical-gardens-in-mallorca/  301
 /videos/hero-bg.mp4  /videos/sant_llorenc_hero.mp4  301
 
 /portfolio/santa-eugenia/  /terrace-garden-santa-eugenia/  301
 /portfolio/santa-eugenia/garden-design-mallorca-santa-eugenia-sestepa.jpg  /portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-card.webp  301
-/portfolio/santa-eugenia/images/*  /portfolio/terrace-garden-santa-eugenia/images/:splat  301
 /portfolio/terrace-garden-santa-eugenia/garden-design-mallorca-terrace-garden-santa-eugenia-sestepa.jpg  /portfolio/terrace-garden-santa-eugenia/images/1.%20garden%20design%20mallorca%20santa%20eugenia%20sestepa%20landscape%20design%20(5).jpg  301
 /portfolio/campos/  /finca-garden-campos/  301
-/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/campos/images/*  /portfolio/finca-garden-campos-mallorca/images/:splat  301
 /portfolio/campanet/  /campanet-garden/  301
 /portfolio/campanet/garden-design-mallorca-campanet-sestepa.jpg  /portfolio/campanet-garden/garden-design-mallorca-campanet-garden-sestepa.jpg  301
-/portfolio/campanet/images/*  /portfolio/campanet-garden/images/:splat  301
 /portfolio/binissalem/images/LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-6.jpg  /portfolio/binissalem/garden-design-mallorca-binissalem-sestepa.jpg  301
 
 # Resolvendo rotas antigas/fantasmas em espanhol (SEO)
@@ -116,8 +111,6 @@
 /en/portfolio/  /portfolio/  301
 /en/services/  /garden-design-mallorca-landscape-management-villas-fincas/  301
 /en/blog/  /blog/  301
-/en/blog/*  /:splat  301
-/en/portfolio/*  /:splat  301
 
 # Campos canonical slug (WordPress primary)
 /finca-garden-campos-mallorca/  /finca-garden-campos/  301
@@ -127,7 +120,6 @@
 # Short legacy slugs → WordPress canonical
 /campos/  /finca-garden-campos/  301
 /es/campos/  /es/finca-garden-campos/  301
-/portfolio/campos/*  /finca-garden-campos/  301
 
 /en/portfolio/campos/  /finca-garden-campos/  301
 /es/portfolio/campos/  /es/finca-garden-campos/  301
@@ -160,7 +152,6 @@
 /portfolio/terrace-garden-palma/images/TERRACE-GARDEN-PALMA-MALLORCA-SESTEPA-DESIGN-4.jpg  /portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-4.jpg  301
 /portfolio/terrace-garden-palma/images/TERRACE-GARDEN-PALMA-MALLORCA-SESTEPA-DESIGN-5.jpg  /portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-5.jpg  301
 /portfolio/terrace-garden-palma/images/TERRACE-GARDEN-PALMA-MALLORCA-SESTEPA-DESIGN-6.jpg  /portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-6.jpg  301
-/portfolio/terrace-garden-palma/images/*  /portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp  301
 
 /en/portfolio/vertical-garden/  /vertical-gardens-in-mallorca/  301
 /es/portfolio/vertical-garden/  /es/jardines-verticales-en-mallorca/  301
@@ -178,7 +169,6 @@
 
 # --- project-url-redirects (auto-generated) ---
 # Internal Astro slugs → design.sestepa.com canonical URLs
-/de/finca-garten-campos-mallorca/  /de/finca-garten-campos/  301
 /de/finca-gartengestaltung-mallorca-campos/  /de/finca-garten-campos/  301
 /de/haus-am-meer-alcudia/  /de/alcanada/  301
 /de/luxus-landschaftsarchitektur-mallorca-andratx/  /de/sant-llorenc/  301
@@ -225,7 +215,6 @@
 /en/portfolio/terrace-garden-santa-eugenia/  /terrace-garden-santa-eugenia/  301
 /en/portfolio/vertical-gardens-in-mallorca/  /vertical-gardens-in-mallorca/  301
 /es/casa-de-mar-alcudia/  /es/alcanada/  301
-/es/finca-garden-campos-mallorca/  /es/finca-garden-campos/  301
 /es/paisajista-fincas-lujo-son-vida/  /es/sant-llorenc/  301
 /es/portfolio/binissalem-courtyard/  /es/binissalem-courtyard/  301
 /es/portfolio/binissalem/  /es/benissalem/  301
@@ -248,15 +237,11 @@
 /es/portfolio/terrace-garden-in-palma/  /es/terraza-jardin/  301
 /es/portfolio/terrace-garden-santa-eugenia/  /es/terraza-jardin-santa-eugenia/  301
 /es/portfolio/vertical-gardens-in-mallorca/  /es/jardines-verticales-en-mallorca/  301
-/finca-garden-campos-mallorca/  /finca-garden-campos/  301
 /portfolio/finca-garden-campos-mallorca/  /finca-garden-campos/  301
 /portfolio/seaside-house-alcudia/  /alcanada/  301
 /seaside-house-alcudia/  /alcanada/  301
 # --- end project-url-redirects ---
 # Removed placeholder images (explicit 404 at edge)
-/portfolio/sant-llorenc/images/sant-llorenc-gallery-artwork.jpg 404
-/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-artwork.jpg 404
-/portfolio/sant-llorenc/images/landscape-garden-design-mallorca-sestepa-landscape-design-sant-llorenc-sculpture.jpg 404
 
 # --- manual-image-redirects (restored authority) ---
 /portfolio/campos/images/finca-garden-campos-sestepa-design-landscaper-mallorca-22.jpg  /portfolio/finca-garden-campos-mallorca/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-22.webp  301
@@ -272,51 +257,16 @@
 /portfolio/campos/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-7.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
 /portfolio/campos/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-8.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
 /portfolio/campos/images/finca-garden-campos-sestepa-design-landscaper-mallorca-20.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/campos/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
 /portfolio/campos/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-9.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
 /portfolio/campos/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-11.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/landscape design render mallorca crestatx sestepa design (1).png  /portfolio/crestatx-garden-design/images/landscape%20design%20render%20mallorca%20crestatx%20sestepa%20design%20(1).webp  301
 /portfolio/crestatx-garden-design/images/landscape%20design%20render%20mallorca%20crestatx%20sestepa%20design%20(1).png  /portfolio/crestatx-garden-design/images/landscape%20design%20render%20mallorca%20crestatx%20sestepa%20design%20(1).webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-6.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-8.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/landscape design render mallorca crestatx sestepa design (4).png  /portfolio/crestatx-garden-design/images/landscape%20design%20render%20mallorca%20crestatx%20sestepa%20design%20(4).webp  301
 /portfolio/crestatx-garden-design/images/landscape%20design%20render%20mallorca%20crestatx%20sestepa%20design%20(4).png  /portfolio/crestatx-garden-design/images/landscape%20design%20render%20mallorca%20crestatx%20sestepa%20design%20(4).webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-23.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/landscape design render mallorca crestatx sestepa design (2).png  /portfolio/crestatx-garden-design/images/landscape%20design%20render%20mallorca%20crestatx%20sestepa%20design%20(2).webp  301
 /portfolio/crestatx-garden-design/images/landscape%20design%20render%20mallorca%20crestatx%20sestepa%20design%20(2).png  /portfolio/crestatx-garden-design/images/landscape%20design%20render%20mallorca%20crestatx%20sestepa%20design%20(2).webp  301
-/portfolio/crestatx-garden-design/images/landscape design render mallorca crestatx sestepa design (3).png  /portfolio/crestatx-garden-design/images/landscape%20design%20render%20mallorca%20crestatx%20sestepa%20design%20(3).webp  301
 /portfolio/crestatx-garden-design/images/landscape%20design%20render%20mallorca%20crestatx%20sestepa%20design%20(3).png  /portfolio/crestatx-garden-design/images/landscape%20design%20render%20mallorca%20crestatx%20sestepa%20design%20(3).webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-17.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/3D_Plan_Crestatx_SEstepa_Design-2.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-13.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/2D_Crestatx_SEstepa_Design_960.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-16.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-7.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-15.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
 /portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-1.jpg  /portfolio/crestatx-garden-design/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-11.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-9.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-14.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-10.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-12.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-19.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-22.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/landscape design 2D mallorca crestatx sestepa design.png.png  /portfolio/crestatx-garden-design/images/landscape%20design%202D%20mallorca%20crestatx%20sestepa%20design.webp  301
 /portfolio/crestatx-garden-design/images/landscape%20design%202D%20mallorca%20crestatx%20sestepa%20design.png.png  /portfolio/crestatx-garden-design/images/landscape%20design%202D%20mallorca%20crestatx%20sestepa%20design.webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-18.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-5.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/3D_Plan_Crestatx_SEstepa_Design-1.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-3.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-21.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/landscape design render mallorca crestatx sestepa design (5).png  /portfolio/crestatx-garden-design/images/landscape%20design%20render%20mallorca%20crestatx%20sestepa%20design%20(5).webp  301
 /portfolio/crestatx-garden-design/images/landscape%20design%20render%20mallorca%20crestatx%20sestepa%20design%20(5).png  /portfolio/crestatx-garden-design/images/landscape%20design%20render%20mallorca%20crestatx%20sestepa%20design%20(5).webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-20.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-2.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/2D_Crestatx_SEstepa_Design_960-2.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-4.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
 /portfolio/crestatx/  /crestatx-garden-design/  301
-/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx/*  /portfolio/crestatx-garden-design/:splat  301
 /portfolio/crestatx/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-6.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
 /portfolio/crestatx/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-8.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
 /portfolio/crestatx/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-23.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
@@ -327,7 +277,6 @@
 /portfolio/crestatx/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-16.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
 /portfolio/crestatx/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-7.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
 /portfolio/crestatx/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-15.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/crestatx/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-1.jpg  /portfolio/crestatx-garden-design/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.webp  301
 /portfolio/crestatx/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-11.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
 /portfolio/crestatx/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-9.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
 /portfolio/crestatx/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-14.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
@@ -344,33 +293,7 @@
 /portfolio/crestatx/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-2.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
 /portfolio/crestatx/images/2D_Crestatx_SEstepa_Design_960-2.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
 /portfolio/crestatx/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-4.jpg  /portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-30.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-31.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-5.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-20.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-35.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-8.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-38.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-4.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-28.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-10.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-7.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-22.jpg  /portfolio/finca-garden-campos-mallorca/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-22.webp  301
-/portfolio/finca-garden-campos-mallorca/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-6.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-32.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-39.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-9.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-11.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-37.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-33.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-23.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-12.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-14.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-29.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-13.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-34.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
 /portfolio/finca-garden-campos-mallorca/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
-/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-36.jpg  /portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp  301
 /portfolio/gallery_images/Binissalem-Garden-Design-Mallorca-SEstepa-Design-1.webp  /portfolio/binissalem/garden-design-mallorca-binissalem-sestepa.jpg  301
 /portfolio/gallery_images/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-1.jpg  /portfolio/bunyola/images/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-1.jpg  301
 /portfolio/gallery_images/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-2.jpg  /portfolio/bunyola/images/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-2.jpg  301
@@ -393,35 +316,11 @@
 /portfolio/gallery_images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-6-1.webp  /gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CABOT%20LAS%20VELAS%20%282%29.webp  301
 /portfolio/gallery_images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-7-1.webp  /gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CABOT%20LAS%20VELAS%20%283%29.webp  301
 /portfolio/gallery_images/sestepa-landscape-garden-design-mallorca-1.webp  /images/press/sestepa-landscape-garden-design-mallorca-1.webp  301
-/portfolio/garden-design-llubi-mallorca/images/GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-8.png  /portfolio/garden-design-llubi-mallorca/images/LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-8.webp  301
-/portfolio/garden-design-llubi-mallorca/images/GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-5.png  /portfolio/garden-design-llubi-mallorca/images/LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-5.webp  301
-/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-6.jpg  /portfolio/hotelcabotlasvelas/garden-design-mallorca-hotelcabotlasvelas-sestepa.webp  301
-/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-11.jpg  /portfolio/hotelcabotlasvelas/garden-design-mallorca-hotelcabotlasvelas-sestepa.webp  301
-/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-3.jpg  /portfolio/hotelcabotlasvelas/garden-design-mallorca-hotelcabotlasvelas-sestepa.webp  301
-/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-8.jpg  /portfolio/hotelcabotlasvelas/garden-design-mallorca-hotelcabotlasvelas-sestepa.webp  301
-/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-5-1.jpg  /portfolio/hotelcabotlasvelas/garden-design-mallorca-hotelcabotlasvelas-sestepa.webp  301
-/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-1.jpg  /portfolio/hotelcabotlasvelas/garden-design-mallorca-hotelcabotlasvelas-sestepa.webp  301
-/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-2.jpg  /portfolio/hotelcabotlasvelas/garden-design-mallorca-hotelcabotlasvelas-sestepa.webp  301
-/portfolio/hotelcabotlasvelas/images/HOTEL-CABOT-LAS-VELAS-SESTEPA-GARDEN-DESIGN-MALLORCA-15.jpg  /portfolio/hotelcabotlasvelas/garden-design-mallorca-hotelcabotlasvelas-sestepa.webp  301
-/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-10.jpg  /portfolio/hotelcabotlasvelas/garden-design-mallorca-hotelcabotlasvelas-sestepa.webp  301
-/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-13.jpg  /portfolio/hotelcabotlasvelas/garden-design-mallorca-hotelcabotlasvelas-sestepa.webp  301
-/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-12.jpg  /portfolio/hotelcabotlasvelas/garden-design-mallorca-hotelcabotlasvelas-sestepa.webp  301
-/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-9.jpg  /portfolio/hotelcabotlasvelas/garden-design-mallorca-hotelcabotlasvelas-sestepa.webp  301
 /portfolio/llubi/  /garden-design-llubi-mallorca/  301
 /portfolio/llubi/garden-design-mallorca-llubi-sestepa.webp  /portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(1).webp  301
-/portfolio/garden-design-llubi-mallorca/images/LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-5.webp  /portfolio/garden-design-llubi-mallorca/images/LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-5.webp  301
-/portfolio/garden-design-llubi-mallorca/images/LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-8.webp  /portfolio/garden-design-llubi-mallorca/images/LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-8.webp  301
 /portfolio/llubi/images/LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-9.webp  /portfolio/garden-design-llubi-mallorca/images/LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-9.webp  301
 /portfolio/llubi/images/LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-10.webp  /portfolio/garden-design-llubi-mallorca/images/LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-10.webp  301
 /portfolio/llubi/images/LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-13.webp  /portfolio/garden-design-llubi-mallorca/images/LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-13.webp  301
-/portfolio/garden-design-llubi-mallorca/images/GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-5.png  /portfolio/garden-design-llubi-mallorca/images/GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-5.png  301
-/portfolio/garden-design-llubi-mallorca/images/GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-8.png  /portfolio/garden-design-llubi-mallorca/images/GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-8.png  301
-/portfolio/llubi/images/*  /portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(1).webp  301
-/portfolio/garden-design-llubi-mallorca/images/GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-8.png  /portfolio/garden-design-llubi-mallorca/images/LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-8.webp  301
-/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(3).webp  /portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(3).webp  301
-/portfolio/garden-design-llubi-mallorca/images/GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-5.png  /portfolio/garden-design-llubi-mallorca/images/LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-5.webp  301
-/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(1).webp  /portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(1).webp  301
-/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(6).webp  /portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(6).webp  301
 /portfolio/press_images/ABC-MALLORCA-SESTEPA-1.png  /images/press/ABC-MALLORCA-SESTEPA-1.png  301
 /portfolio/press_images/ABC-MALLORCA-SESTEPA-4.png  /images/press/ABC-MALLORCA-SESTEPA-4.png  301
 /portfolio/press_images/ABC-MALLORCA-ONLY-THE-BEST-2024-SESTEPA-LANDSCAPE-GARDEN-DESIGN-MALLORCA.jpg-1.jpg  /images/press/ABC-MALLORCA-ONLY-THE-BEST-2024-SESTEPA-LANDSCAPE-GARDEN-DESIGN-MALLORCA.jpg-1.jpg  301
@@ -443,14 +342,8 @@
 /portfolio/press_images/ABC-MALLORCA-SESTEPA-2.png  /images/press/ABC-MALLORCA-SESTEPA-2.png  301
 /portfolio/press_images/ABC-MALLORCA-PROPERTY-SPECIAL-2024-SESTEPA-LANDSCAPE-GARDEN-DESIGN-MALLORCA-3.jpg  /images/press/ABC-MALLORCA-PROPERTY-SPECIAL-2024-SESTEPA-LANDSCAPE-GARDEN-DESIGN-MALLORCA-3.jpg  301
 /portfolio/press_images/ABC-MALLORCA-ONLY-THE-BEST-2024-SESTEPA-LANDSCAPE-GARDEN-DESIGN-MALLORCA.jpg-5.jpg  /images/press/ABC-MALLORCA-ONLY-THE-BEST-2024-SESTEPA-LANDSCAPE-GARDEN-DESIGN-MALLORCA.jpg-5.jpg  301
-/portfolio/press_images/*  /images/press/:splat  301
-/portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-3.jpg  /portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp  301
-/portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-2.jpg  /portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp  301
 /portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-1.jpg  /portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp  301
-/portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-5.jpg  /portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp  301
-/portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-4.jpg  /portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp  301
 /portfolio/terrace-garden-in-palma/cover.jpg  /portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp  301
-/portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-6.jpg  /portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp  301
 # Duplicate asset canonicalization audit 2026-10-07
 /images/journal/garden-design-mallorca-campanet.jpg  /portfolio/campanet-garden/garden-design-mallorca-campanet-garden-sestepa.jpg  301
 /portfolio/campanet-garden/images/garden-design-mallorca-landscape-design-sestepa-campanet-6.jpg  /portfolio/campanet-garden/garden-design-mallorca-campanet-garden-sestepa.jpg  301
@@ -462,7 +355,6 @@
 /gallery/GARDEN-DESIGN-MALLORCA-SESTEPA-JARDINERIA-INTEGRAL-SANTA%20PONSA%20%281%29.jpg  /portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-1.jpg  301
 /gallery/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-2.jpg  /portfolio/bunyola/images/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-2.jpg  301
 /images/journal/best-garden-design-mallorca-llubi-firepit.webp  /portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(1).webp  301
-/portfolio/santa-ponsa/garden-design-mallorca-santa-ponsa-sestepa.jpg  /portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-01-pool-villa-stipa-sestepa.webp  301
 /portfolio/santa-ponsa/cover.jpeg  /portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-01-pool-villa-stipa-sestepa.webp  301
 /portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-4.jpg  /portfolio/son-vida/garden-design-mallorca-son-vida-sestepa.jpg  301
 /portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-HOTEL-SESTEPA-DESIGN-MALLORCA-1.webp  /portfolio/hotelcabotlasvelas/garden-design-mallorca-hotelcabotlasvelas-sestepa.webp  301
@@ -473,45 +365,28 @@
 /portfolio/finca-garden-inca/images/PLANO-DE-JARDIN-INCA-SESTEPA-GARDEN-DESIGN-MALLORCA.jpg  /portfolio/finca-garden-inca/garden-design-mallorca-finca-garden-inca-sestepa.jpg  301
 /images/S-ESTEPA-GARDEN-DESIGN-MALLORCA-LOGO-BLACK-344.png  /images/logo.png  301
 /images/logo.webp  /images/S-ESTEPA-GARDEN-DESIGN-MALLORCA-LOGO-BLACK-344.webp  301
-/portfolio/sant-llorenc/22 (3).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-22.webp  301
 /portfolio/sant-llorenc/22%20(3).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-22.webp  301
-/portfolio/sant-llorenc/6 (4).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-06.webp  301
 /portfolio/sant-llorenc/6%20(4).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-06.webp  301
-/portfolio/sant-llorenc/1 (3).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp  301
 /portfolio/sant-llorenc/1%20(3).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp  301
-/portfolio/sant-llorenc/20 (3).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-20.webp  301
 /portfolio/sant-llorenc/20%20(3).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-20.webp  301
-/portfolio/sant-llorenc/17 (2).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-17.webp  301
 /portfolio/sant-llorenc/17%20(2).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-17.webp  301
-/portfolio/sant-llorenc/9 (2).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-09.webp  301
 /portfolio/sant-llorenc/9%20(2).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-09.webp  301
-/portfolio/sant-llorenc/7 (5).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-07.webp  301
 /portfolio/sant-llorenc/7%20(5).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-07.webp  301
 /portfolio/sant-llorenc/16.png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-16.webp  301
-/portfolio/sant-llorenc/2 (4).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-19-2.webp  301
 /portfolio/sant-llorenc/2%20(4).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-19-2.webp  301
-/portfolio/sant-llorenc/10 (3).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp  301
 /portfolio/sant-llorenc/10%20(3).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp  301
-/portfolio/sant-llorenc/5 (8).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-05.webp  301
 /portfolio/sant-llorenc/5%20(8).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-05.webp  301
 /portfolio/sant-llorenc/12.png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-12.webp  301
-/portfolio/sant-llorenc/4 (3).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-04.webp  301
 /portfolio/sant-llorenc/4%20(3).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-04.webp  301
-/portfolio/sant-llorenc/3 (3).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-03.webp  301
 /portfolio/sant-llorenc/3%20(3).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-03.webp  301
 /portfolio/sant-llorenc/garden-design-mallorca-sant-llorenc-sestepa.jpg  /portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp  301
-/portfolio/sant-llorenc/11 (2).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-11.webp  301
 /portfolio/sant-llorenc/11%20(2).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-11.webp  301
-/portfolio/sant-llorenc/21 (2).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-21.webp  301
 /portfolio/sant-llorenc/21%20(2).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-21.webp  301
-/portfolio/sant-llorenc/8 (2).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-08.webp  301
 /portfolio/sant-llorenc/8%20(2).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-08.webp  301
 /portfolio/sant-llorenc/15.png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15.webp  301
-/portfolio/sant-llorenc/18 (3).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp  301
 /portfolio/sant-llorenc/18%20(3).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp  301
 /portfolio/sant-llorenc/14.png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-14.webp  301
 /portfolio/sant-llorenc/13.png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-13.webp  301
-/portfolio/sant-llorenc/19 (3).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-19.webp  301
 /portfolio/sant-llorenc/19%20(3).png  /portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-19.webp  301
 /portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-3-1.jpg  /portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-3-1.webp  301
 /portfolio/jardin-mediterraneo/images/1.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-01.webp  301
@@ -524,7 +399,6 @@
 /portfolio/jardin-mediterraneo/images/2_3.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-07.webp  301
 /portfolio/jardin-mediterraneo/images/2_2.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-06.webp  301
 /portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-7-1.jpg  /portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-7-1.webp  301
-/portfolio/jardin-mediterraneo/images/1 3.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-01.webp  301
 /portfolio/jardin-mediterraneo/images/1%203.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-01.webp  301
 /portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-2-1.jpg  /portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-2-1.webp  301
 /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-03.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-03.webp  301
@@ -536,10 +410,8 @@
 /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-05.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-05.webp  301
 /portfolio/jardin-mediterraneo/images/jardin-mediterraneo-gallery-terrace.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-09.webp  301
 /portfolio/jardin-mediterraneo/garden-design-mallorca-sant-llorenc-sestepa.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-01.webp  301
-/portfolio/jardin-mediterraneo/images/1 1.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-01.webp  301
 /portfolio/jardin-mediterraneo/images/1%201.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-01.webp  301
 /portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-5-1.jpg  /portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-5-1.webp  301
-/portfolio/jardin-mediterraneo/images/1 2.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-01.webp  301
 /portfolio/jardin-mediterraneo/images/1%202.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-01.webp  301
 /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-12.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-12.webp  301
 /portfolio/jardin-mediterraneo/images/6.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-06.webp  301
@@ -552,7 +424,6 @@
 /portfolio/jardin-mediterraneo/images/jardin-mediterraneo-gallery-pool.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-10.webp  301
 /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-09.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-09.webp  301
 /portfolio/jardin-mediterraneo/images/4.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-04.webp  301
-/portfolio/jardin-mediterraneo/images/1 4.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-01.webp  301
 /portfolio/jardin-mediterraneo/images/1%204.jpg  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-01.webp  301
 /portfolio/jardin-mediterraneo/images/2_2.webp  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-06.webp  301
 /portfolio/jardin-mediterraneo/images/2_3.webp  /portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-07.webp  301
@@ -587,7 +458,6 @@
 /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%2814%29.jpg  /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%2814%29.webp  301
 /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%2815%29.jpg  /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%2815%29.webp  301
 /portfolio/vertical-garden/garden-design-mallorca-vertical-garden-sestepa.jpg  /portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-06.webp  301
-/portfolio/vertical-garden/*  /portfolio/vertical-gardens-in-mallorca/:splat  301
 /portfolio/vertical-gardens-in-mallorca/garden-design-mallorca-vertical-gardens-in-mallorca-sestepa.jpg  /portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-06.webp  301
 /portfolio/vertical-gardens-in-mallorca/garden-design-mallorca-vertical-gardens-in-mallorca-sestepa.webp  /portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-06.webp  301
 /portfolio/vertical-gardens-in-mallorca/garden-design-mallorca-vertical-gardens-in-mallorca-sestepa-card.webp  /portfolio/vertical-gardens-in-mallorca/garden-design-mallorca-vertical-gardens-in-mallorca-sestepa-3-years-card.webp  301
@@ -624,3 +494,45 @@
 /portfolio/vertical-gardens-in-mallorca/images/VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-18.jpg  /portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-08.webp  301
 /portfolio/vertical-gardens-in-mallorca/images/VERTICAL-GARDEN-DESIGN-MALLORCA-SESTEPA-LANDSCAPE-DESIGN-18.webp  /portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-08.webp  301
 # --- end manual-image-redirects ---
+
+# Literal-parenthesis twins of the %28/%29 rules (browsers/crawlers send ( ) unencoded)
+/portfolio/sacabaneta/images/landscape%20design%20render%20mallorca%20sa%20cabaneta%20sestepa%20design%20(2).png  /portfolio/sacabaneta/images/landscape%20design%20render%20mallorca%20sa%20cabaneta%20sestepa%20design%20%281%29.webp  301
+/portfolio/sacabaneta/images/landscape%20design%20render%20mallorca%20sa%20cabaneta%20sestepa%20design%20(4).png  /portfolio/sacabaneta/images/landscape%20design%20render%20mallorca%20sa%20cabaneta%20sestepa%20design%20%283%29.webp  301
+/portfolio/sacabaneta/images/landscape%20design%20render%20mallorca%20sa%20cabaneta%20sestepa%20design%20(6).png  /portfolio/sacabaneta/images/landscape%20design%20render%20mallorca%20sa%20cabaneta%20sestepa%20design%20%285%29.webp  301
+/gallery/GARDEN-DESIGN-MALLORCA-SESTEPA-JARDINERIA-INTEGRAL-SANTA%20PONSA%20(2).jpg  /portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-3.jpg  301
+/gallery/GARDEN-DESIGN-MALLORCA-SESTEPA-JARDINERIA-INTEGRAL-SANTA%20PONSA%20(3).jpg  /portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-5.jpg  301
+/gallery/GARDEN-DESIGN-MALLORCA-SESTEPA-JARDINERIA-INTEGRAL-SANTA%20PONSA%20(1).jpg  /portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-1.jpg  301
+/portfolio/sacabaneta/images/landscape%20design%20render%20mallorca%20sa%20cabaneta%20sestepa%20design%20(1).png  /portfolio/sacabaneta/images/landscape%20design%20render%20mallorca%20sa%20cabaneta%20sestepa%20design%20%281%29.webp  301
+/portfolio/sacabaneta/images/landscape%20design%20render%20mallorca%20sa%20cabaneta%20sestepa%20design%20(3).png  /portfolio/sacabaneta/images/landscape%20design%20render%20mallorca%20sa%20cabaneta%20sestepa%20design%20%283%29.webp  301
+/portfolio/sacabaneta/images/landscape%20design%20render%20mallorca%20sa%20cabaneta%20sestepa%20design%20(5).png  /portfolio/sacabaneta/images/landscape%20design%20render%20mallorca%20sa%20cabaneta%20sestepa%20design%20%285%29.webp  301
+/portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20(1).jpg  /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%281%29.webp  301
+/portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20(2).jpg  /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%282%29.webp  301
+/portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20(3).jpg  /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%283%29.webp  301
+/portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20(4).jpg  /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%284%29.webp  301
+/portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20(5).jpg  /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%285%29.webp  301
+/portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20(6).jpg  /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%286%29.webp  301
+/portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20(7).jpg  /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%287%29.webp  301
+/portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20(8).jpg  /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%288%29.webp  301
+/portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20(9).jpg  /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%289%29.webp  301
+/portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20(10).jpg  /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%2810%29.webp  301
+/portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20(11).jpg  /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%2811%29.webp  301
+/portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20(12).jpg  /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%2812%29.webp  301
+/portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20(13).jpg  /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%2813%29.webp  301
+/portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20(14).jpg  /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%2814%29.webp  301
+/portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20(15).jpg  /portfolio/seaside-house-alcudia/images/landscape%20garden%20design%20alcanada%20-%20alcudia%20-%20mallorca%20sestepa%20design%20%2815%29.webp  301
+
+# --- Dynamic rules (splat/placeholder) ---
+# Keep AFTER every static rule: Cloudflare Pages counts every rule that follows the
+# first splat as dynamic (max 100) and silently skips the rest of the file.
+/PORTFOLIO/*  /portfolio/:splat  301
+/portfolio/santa-eugenia/images/*  /portfolio/terrace-garden-santa-eugenia/images/:splat  301
+/portfolio/campos/images/*  /portfolio/finca-garden-campos-mallorca/images/:splat  301
+/portfolio/campanet/images/*  /portfolio/campanet-garden/images/:splat  301
+/en/blog/*  /:splat  301
+/en/portfolio/*  /:splat  301
+/portfolio/campos/*  /finca-garden-campos/  301
+/portfolio/terrace-garden-palma/images/*  /portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp  301
+/portfolio/crestatx/*  /portfolio/crestatx-garden-design/:splat  301
+/portfolio/llubi/images/*  /portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design%20(1).webp  301
+/portfolio/press_images/*  /images/press/:splat  301
+/portfolio/vertical-garden/*  /portfolio/vertical-gardens-in-mallorca/:splat  301
