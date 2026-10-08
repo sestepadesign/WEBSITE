@@ -16,6 +16,15 @@
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+### [2026-10-08] - Claude (Auditoria geral + atualização Astro 6.4.8 para 7.3.7) — branch `feature/astro-7-upgrade` (preview Cloudflare; NÃO em `master`)
+- **Autor/agente:** Claude (Sonnet 5.5). Disco J: não acedido.
+- **Escopo:** auditoria completa da pasta (código, SEO/AEO, pastas, instruções a agentes) e atualização major do Astro para eliminar 11 vulnerabilidades (1 crítica).
+- **Alterações:** `package.json` (`astro` ^7.3.7, `sharp` ^0.35.5, `@astrojs/sitemap` ^3.7.4), `package-lock.json` (inclui `npm audit fix`), `src/components/site/servicesPage.astro` (fecho de `</div>` e `</article>`), `src/components/site/galleryPage.astro` (script envolvido em IIFE), novos `docs/UPGRADE-ASTRO-6-PARA-7-2026-10-08.md` e `scripts/compare-builds.py`.
+- **Validação:** `npm audit` 11 para 0; build 153 páginas (igual à baseline); sitemap 128 URLs iguais; assinatura SEO (título, descrição, canonical, h1, JSON-LD, hreflang, imagens) idêntica nas 153 páginas; `_redirects`, `_headers`, `robots.txt`, `llms.txt` idênticos; diferenças só de espaços, ordem de propriedades CSS, `3MIN` para `3 MIN` e `&#x26;` para `&amp;`; lightbox da galeria, menu móvel e página de serviços testados no navegador.
+- **Pendências (humano):** (1) rotação de credenciais de integração (detalhe tratado fora deste repositório público); (2) confirmar no Cloudflare Pages, Settings, Builds, Branch control, antes de apagar a branch remota `preview`; (3) aprovar o preview e fazer merge desta branch.
+- **Limpeza feita:** `codigo/node_modules` apagado do Drive (9.883 de 9.947 ficheiros com 0 bytes; o Astro não corria dali). As branches remotas já integradas em `master` foram apagadas, exceto `preview`.
+- **Rollback:** `git revert` do commit desta branch.
+
 ### [2026-10-08] - Claude (Correção de `public/_redirects` pós-auditoria de assets) — commit `6c77c5d`, publicado em `master`
 - **Autor/agente:** Claude (Sonnet 5.5), a rever o trabalho Codex de 2026-10-07 (`9e0648f`, `837fe36`).
 - **Problema:** o relatório `docs/DELETED-TRACKED-ASSETS-AUDIT-2026-10-07.md` indicava 329/329 assets apagados cobertos por 301, mas em produção só 66 respondiam 301 e 245 davam 404. Causa: o Cloudflare Pages conta como dinâmica toda a regra que vem depois da primeira regra com splat/placeholder (limite 100) e ignora o resto do ficheiro. A linha 1 (`/PORTFOLIO/* ...`) tornava dinâmicas todas as regras seguintes; só ~100 estavam ativas.
