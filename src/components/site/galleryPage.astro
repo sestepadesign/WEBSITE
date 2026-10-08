@@ -74,6 +74,7 @@ const viewProjectLabel = {
 </Layout>
 
 <script define:vars={{ images, lang }}>
+(() => {
   const lightbox = document.getElementById('galleryLightbox');
   const lightboxImg = document.getElementById('galleryLightboxImg');
   const lightboxCaption = document.getElementById('galleryLightboxCaption');
@@ -202,6 +203,7 @@ const viewProjectLabel = {
       diff < 0 ? showImage(currentIndex + 1, true) : showImage(currentIndex - 1, true);
     }
   }, { passive: true });
+})();
 </script>
 
 <style>
