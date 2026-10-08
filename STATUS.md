@@ -10,12 +10,20 @@
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
 - **Status:** Produção publicada em `master` com Binissalem Courtyard integrado. Auditoria Codex de governança, preview local, redirects, segurança dashboard/leads e classificação de assets enviada para `origin/master`.
-- **Último commit técnico publicado:** `6ae0173` (`fix(security): proxy dashboard and lead integrations`).
+- **Último commit técnico publicado:** `6c77c5d` (`fix(redirects): keep static rules before splats and drop rules shadowing live files`). Antes: `837fe36`, `9e0648f` (auditoria de assets), `6ae0173` (segurança dashboard/leads).
 - **Commits Codex publicados nesta sessão:** `5e23e7e`, `4efd6a0`, `6ae0173`. Não usar `git add -A` antes de classificar os untracked restantes.
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+### [2026-10-08] - Claude (Correção de `public/_redirects` pós-auditoria de assets) — commit `6c77c5d`, publicado em `master`
+- **Autor/agente:** Claude (Sonnet 5.5), a rever o trabalho Codex de 2026-10-07 (`9e0648f`, `837fe36`).
+- **Problema:** o relatório `docs/DELETED-TRACKED-ASSETS-AUDIT-2026-10-07.md` indicava 329/329 assets apagados cobertos por 301, mas em produção só 66 respondiam 301 e 245 davam 404. Causa: o Cloudflare Pages conta como dinâmica toda a regra que vem depois da primeira regra com splat/placeholder (limite 100) e ignora o resto do ficheiro. A linha 1 (`/PORTFOLIO/* ...`) tornava dinâmicas todas as regras seguintes; só ~100 estavam ativas.
+- **Correção (apenas `public/_redirects`):** as 12 regras com splat passaram para o fim do ficheiro (secção "Dynamic rules"); 27 origens com espaços codificadas como `%20`; 24 regras com parênteses literais (`(` `)`) além das `%28`/`%29`; removidas 83 regras cuja origem é um ficheiro vivo em `public/` ou um loop (origem = destino), 32 duplicados e 3 linhas inválidas `... 404`; 4 destinos `info.txt`/`.zip`/`_selection.txt` redirecionados para páginas existentes (`/sant-llorenc/`, `/vertical-gardens-in-mallorca/`).
+- **Validação:** parser do Wrangler (`wrangler pages dev`) passou de 100 válidas/490 ignoradas para 477 válidas, sem regras ignoradas por limite; build `python scripts\preview_local.py build` OK; em produção, 329/329 URLs apagados respondem 301 para destino 200; home, portfolio, gallery, blog, `/the-compounding-landscape/` e `/crestatx-garden-design/` respondem 200.
+- **Regra para o futuro:** em `_redirects`, manter regras estáticas antes de qualquer splat/placeholder; nunca criar regra cuja origem seja um ficheiro/página que existe; testar com `wrangler pages dev` (avisos "invalid redirect rule") antes de publicar. Avisos de duplicados idênticos vindos do bloco auto-gerado por `scripts/generate-project-redirects.mjs` são inofensivos.
+- **Rollback:** `git revert 6c77c5d`.
+
 ### [2026-10-06] - Codex (Auditoria operacional, governança, preview local, redirects e segurança) — publicado em `master`
 - **Autor/agente:** Codex.
 - **Escopo:** Auditoria pós-Antigravity de `sestepa-design`, cobrindo código, conteúdo, SEO/AEO, organização de pastas, regras multi-agente, preview local, untracked e assets.
