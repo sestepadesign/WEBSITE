@@ -117,7 +117,9 @@ Ficheiros:
 },
 ```
 4. Imagens em `public/portfolio/novo-slug/images/`
-5. Commit e push.
+5. Regenerar sitemap de imagens: `node scripts/generate-image-sitemap.mjs`
+6. Homologar via preview local: `python scripts/preview_local.py` (salvo ordem explícita de publicação direta).
+7. Commit e push para `master`.
 
 Sem entrada em `PROJECT_PUBLIC_PATHS`, o build falha.
 

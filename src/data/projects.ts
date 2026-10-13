@@ -1,3 +1,9 @@
+export interface ProjectTransformationLink {
+  url: string;
+  label: string;
+  subtitle?: string;
+}
+
 export interface ProjectTranslation {
   title: string;
   subtitle: string;
@@ -9,6 +15,7 @@ export interface ProjectTranslation {
   /** Dated label for the main gallery when the project also has `galleryChapters` (e.g. "July 2026 · two months after planting"). */
   galleryLabel?: string;
   imageAlts?: string[];
+  transformationLink?: ProjectTransformationLink;
 }
 
 export interface GalleryChapterText {
@@ -152,56 +159,78 @@ export const projects: Project[] = [
       "garden-design-mallorca-binissalem-courtyard-02-sculptural-agave-cactus-detail-sestepa.webp",
       "garden-design-mallorca-binissalem-courtyard-03-mediterranean-swimming-pool-garden-sestepa.webp",
       "garden-design-mallorca-binissalem-courtyard-04-aerial-overview-townhouse-patio-sestepa.webp",
+      "garden-design-mallorca-binissalem-courtyard-05-pool-terrace-yellow-chairs-sestepa.webp",
     ],
     en: {
-      title: "Binissalem Courtyard Transformation",
-      subtitle: "From a construction site to a Mediterranean courtyard garden with its own identity",
+      title: "Binissalem Courtyard",
+      subtitle: "A mineral composition of sculptural forms around a preserved lemon tree",
       category: "Courtyard & Townhouse Garden",
-      botanical: "Citrus limon, Agave americana, Euphorbia ingens, Echinocactus grusonii",
+      botanical: "Citrus limon, Agave americana 'Marginata', Agave attenuata, Pachycereus marginatus, Pachycereus pringlei, Echinocactus grusonii, Euphorbia ingens, Cleistocactus strausii, Yucca rostrata",
       description: [
-        "In this transformation in Binissalem, Mallorca, the existing lemon tree was preserved as the central feature of the space, developing a Mediterranean courtyard garden around it using cacti, agaves, and sculptural drought-tolerant species adapted to Mallorca’s climate.",
-        "A simple and balanced composition, where vegetation, stone, and natural tones complement the architecture without overwhelming the space.",
-        "The result: a completely transformed townhouse courtyard, designed to evolve naturally over time and become part of the home."
+        "A mineral courtyard where planting is composed almost as a collection of forms.",
+        "Cacti, agaves and other sculptural species are placed with restraint, allowing space around each plant and giving every specimen its own presence.",
+        "The existing lemon tree remains as a counterpoint: softer, more organic, bringing shade and movement into an otherwise highly structured composition.",
+        "A simple planting palette, adapted to the Mediterranean climate and designed to sit naturally within the architecture."
       ],
+      transformationLink: {
+        url: "https://www.sestepa.com/binissalem-patio/",
+        label: "View the transformation photos",
+        subtitle: "Explore the construction phase photographs and the before-and-after story"
+      },
       imageAlts: [
         "Mediterranean courtyard swimming pool and preserved lemon tree in Binissalem Mallorca by S'Estepa Design",
         "Sculptural agaves and cacti composition beneath mature lemon tree in Binissalem Mallorca",
         "Horizontal perspective of courtyard swimming pool terrace with stone textures in Binissalem Mallorca",
-        "Elevated view of the transformed townhouse courtyard with pool and native planting in Binissalem Mallorca"
+        "Elevated view of the transformed townhouse courtyard with pool and native planting in Binissalem Mallorca",
+        "Vertical perspective of courtyard pool terrace with yellow loungers, mature lemon tree and sculptural cacti in Binissalem Mallorca"
       ]
     },
     es: {
-      title: "Transformación de Patio en Binissalem",
-      subtitle: "De un patio en obra a un jardín con identidad propia",
+      title: "Patio en Binissalem",
+      subtitle: "Una composición mineral de formas escultóricas en torno a un limonero preservado",
       category: "Patio y Jardín de Pueblo",
-      botanical: "Citrus limon, Agave americana, Euphorbia ingens, Echinocactus grusonii",
+      botanical: "Citrus limon, Agave americana 'Marginata', Agave attenuata, Pachycereus marginatus, Pachycereus pringlei, Echinocactus grusonii, Euphorbia ingens, Cleistocactus strausii, Yucca rostrata",
       description: [
-        "En esta transformación en Binissalem conservamos el limonero existente como protagonista del espacio y construimos a su alrededor un jardín de carácter mediterráneo de bajo consumo hídrico, con cactus, agaves y especies escultóricas adaptadas al clima de Mallorca.",
-        "Una composición sencilla y equilibrada, donde la vegetación, la piedra y los tonos naturales acompañan la arquitectura y aportan estructura sin sobrecargar el espacio.",
-        "El resultado: un patio de pueblo completamente renovado, pensado para evolucionar bien con el tiempo y formar parte de la vivienda."
+        "Un patio mineral donde la vegetación se compone casi como una colección de formas.",
+        "Los cactus, agaves y otras especies escultóricas se disponen con moderación, dejando espacio alrededor de cada planta y otorgando a cada ejemplar su propia presencia.",
+        "El limonero existente permanece como contrapunto: más suave, más orgánico, aportando sombra y movimiento a una composición estrictamente estructurada.",
+        "Una paleta vegetal depurada, adaptada al clima mediterráneo y diseñada para integrarse con naturalidad en la arquitectura."
       ],
+      transformationLink: {
+        url: "https://www.sestepa.com/binissalem-patio/",
+        label: "Ver las fotos de la transformación",
+        subtitle: "Descubre las fotos de la fase de obra y el proceso completo del patio"
+      },
       imageAlts: [
         "Piscina de patio mediterráneo y limonero preservado en Binissalem Mallorca por S'Estepa Design",
         "Composición escultórica de agaves y cactus bajo el limonero maduro en Binissalem Mallorca",
         "Perspectiva horizontal de la terraza de la piscina del patio con texturas de piedra en Binissalem Mallorca",
-        "Vista superior del patio de casa de pueblo transformado con piscina y vegetación en Binissalem Mallorca"
+        "Vista superior del patio de casa de pueblo transformado con piscina y vegetación en Binissalem Mallorca",
+        "Perspectiva vertical de la terraza de la piscina con tumbonas amarillas, limonero maduro y cactus escultóricos en Binissalem Mallorca"
       ]
     },
     de: {
-      title: "Innenhof-Transformation in Binissalem",
-      subtitle: "Von einer Baustelle zu einem mediterranen Garten mit eigener Identität",
+      title: "Innenhof Binissalem",
+      subtitle: "Eine mineralische Komposition skulpturaler Formen um einen erhaltenen Zitronenbaum",
       category: "Innenhof & Stadthausgarten",
-      botanical: "Citrus limon, Agave americana, Euphorbia ingens, Echinocactus grusonii",
+      botanical: "Citrus limon, Agave americana 'Marginata', Agave attenuata, Pachycereus marginatus, Pachycereus pringlei, Echinocactus grusonii, Euphorbia ingens, Cleistocactus strausii, Yucca rostrata",
       description: [
-        "Bei dieser Umgestaltung in Binissalem wurde der bestehende Zitronenbaum als zentrales Element des Raumes erhalten. Um ihn herum entstand ein neuer mediterraner Innenhofgarten mit skulpturalen Kakteen, Agaven und trockenheitsresistenten Arten, die an das Klima Mallorcas angepasst sind.",
-        "Eine schlichte und ausgewogene Komposition, bei der Vegetation, Naturstein und sanfte Erdtöne die Architektur begleiten, ohne den Raum zu überladen.",
-        "Das Ergebnis: ein vollständig transformierter Innenhof, der sich im Laufe der Zeit natürlich weiterentwickelt und Teil des Zuhauses wird."
+        "Ein mineralischer Innenhof, in dem die Bepflanzung nahezu wie eine Sammlung von Formen komponiert ist.",
+        "Kakteen, Agaven und weitere skulpturale Arten sind mit bewusster Zurückhaltung platziert, sodass jede Pflanze Raum erhält und jedes Exemplar seine eigene Präsenz entfaltet.",
+        "Der bestehende Zitronenbaum bleibt als Kontrapunkt erhalten: sanfter, organischer, spendet Schatten und bringt Bewegung in eine ansonsten streng strukturierte Komposition.",
+        "Eine schlichte, an das mediterrane Klima angepasste Pflanzenpalette, die sich harmonisch in die Architektur einfügt."
       ],
+      transformationLink: {
+        url: "https://www.sestepa.com/binissalem-patio/",
+        label: "Fotos der Transformation ansehen",
+        subtitle: "Entdecken Sie die Bauphase und den Vorher-Nachher-Vergleich des Innenhofs"
+      },
       imageAlts: [
         "Mediterraner Innenhof-Pool und erhaltener Zitronenbaum in Binissalem Mallorca von S'Estepa Design",
         "Skulpturale Agaven und Kakteen unter dem ausgewachsenen Zitronenbaum in Binissalem Mallorca",
         "Horizontale Perspektive der Innenhof-Poolterrasse mit Steintexturen in Binissalem Mallorca",
-        "Erhöhte Ansicht des umgestalteten Stadthaus-Innenhofs mit Pool und Bepflanzung in Binissalem Mallorca"
+        "Erhöhte Ansicht des umgestalteten Stadthaus-Innenhofs mit Pool und Bepflanzung in Binissalem Mallorca",
+        "Vertikale Perspektive der Innenhof-Poolterrasse mit gelben Liegestühlen, ausgewachsenem Zitronenbaum und skulpturalen Kakteen in Binissalem Mallorca"
       ]
     }
   },

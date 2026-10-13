@@ -14,7 +14,7 @@ Estas regras aplicam-se a S'Estepa Design e devem ser seguidas por qualquer agen
 Nenhum deploy deve ocorrer sem homologacao previa.
 
 ### 2.1 Rota A — Desktop com localhost disponivel
-1. Trabalhar em `master` somente quando houver preview local aprovado.
+1. Trabalhar em `master` somente quando houver preview local aprovado (salvo solicitacao explicita de publicacao direta, conforme secao 2.3.2).
 2. **Regra critica:** NUNCA executar `npm install`, `npm run dev`, `npm run preview`, `npm run build` ou `npx astro ...` diretamente no Google Drive (`G:`). O Drive pode bloquear cache do Node, corromper `node_modules`, travar I/O e derrubar a sincronizacao.
 3. Para localhost/build, abrir PowerShell na raiz do projeto `G:\Meu Drive\1. WEBSITES\sestepa-design\codigo` e executar exclusivamente `python scripts\preview_local.py` ou `python scripts\preview_local.py build`.
 4. O script cria/atualiza mirror local reutilizavel fora do Drive em `C:\Users\inesg\AppData\Local\SestepaPreview\codigo`, reutiliza `node_modules` e reinstala dependencias somente quando `package-lock.json` mudar.
@@ -27,6 +27,22 @@ Nenhum deploy deve ocorrer sem homologacao previa.
 3. Enviar URL de preview ao operador e aguardar aprovacao explicita.
 4. Depois da aprovacao: merge para `master`, push, apagar branch local e remota.
 5. Nunca deixar branches temporarias acumuladas.
+
+### 2.3 Pipeline Autonomo de Ingestao de Projetos (One-Shot ate Localhost)
+1. **Autorizacao Previa e Execucao Continua:** Uma vez solicitada a criacao de um novo projeto pelo operador, o agente esta previamente autorizado a executar todo o fluxo tecnico ponta a ponta sem solicitar permissoes ou confirmacoes intermediarias (aquisicao de lock, copia de originais para `originais-grandes/`, conversao para WebP com nomes SEO em `public/portfolio/<slug>/images/`, cadastro estruturado em `projects.ts`, `portfolio-categories.ts`, `site-urls.ts`, geracao de `sitemap-images.xml` e inicializacao do `preview_local.py`).
+2. **Ponto Unico de Parada Obrigatorio (Handoff no Localhost) e Ressalva de Publicacao Direta:**
+   - **Regra Geral:** O agente DEVE compilar e disponibilizar o servidor local (`python scripts/preview_local.py`), entregando ao operador o link exato de homologacao (`http://localhost:4321/<slug>/`), parando e aguardando a aprovacao visual explicita antes de efetuar qualquer commit ou deploy em `master`.
+   - **Ressalva de Agilidade (Publicacao Direta):** Caso o operador solicite explicitamente no comando a publicacao direta (ex.: "publicar diretamente", "deploy direto", "sem localhost"), a parada no preview local e dispensada. O agente deve apenas validar a integridade tecnica com build local isolado (`python scripts/preview_local.py build`) e, se aprovado, prosseguir de imediato com o commit final, push para `origin/master` (Cloudflare Pages), registro em `STATUS.md` e liberacao de lock.
+3. **Diretriz de Textos e Conteudo Editorial:**
+   - **Padrao:** O operador fornece os textos previamente redigidos e aprovados. O agente realiza apenas a ingestao fiel e estruturada sem reescrever ou alterar o tom da marca.
+   - **Excecao sob demanda:** O agente so cria ou redige textos botanicos/editoriais com base nas fotos se for solicitado explicitamente no comando do operador.
+   - **Falta de texto:** Se os textos nao forem fornecidos e o operador nao solicitou explicitamente a redacao, o agente deve pausar no inicio e solicitar os textos para evitar dados ficticios.
+4. **Criterios de Parada Excepcional (Gateways de Seguranca & Warnings):** O agente so deve interromper a esteira antes de gerar o localhost nos seguintes casos criticos:
+   - Conflito de lock ativo (< 30 min) pertencente a outro agente em `TRABALHANDO.json`.
+   - Violacao de seguranca de dados (qualquer escrita em `J:`, tentativa de exclusao de arquivos ou toque em estruturas do DriveFS).
+   - Inconsistencia material impeditiva (fotos brutas nao encontradas, corrompidas ou sem caminho informado).
+   - Arquivo irredutivel > 25 MB que quebre o deploy do Cloudflare Pages.
+   - Erro critico e irrecuperavel de compilacao/build no espelho do Astro.
 
 ## 3. Locks, Concorrencia e Estado
 1. Ler `STATUS.md` antes de editar codigo.

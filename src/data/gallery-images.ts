@@ -10,6 +10,7 @@ export interface GalleryImageEntry {
 }
 
 const binissalem = 'binissalem';
+const binissalemCourtyard = 'binissalem-courtyard';
 const bunyola = 'bunyola';
 const santaPonsa = 'santa-ponsa';
 const crestatx = 'crestatx-garden-design';
@@ -27,6 +28,22 @@ function galleryPath(filename: string): string {
 }
 
 export const galleryImages: GalleryImageEntry[] = [
+  // 3 × Binissalem Courtyard (New addition)
+  {
+    src: '/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-01-pool-terrace-lemon-tree-sestepa.webp',
+    alt: 'BINISSALEM COURTYARD MEDITERRANEAN SWIMMING POOL AND LEMON TREE SESTEPA DESIGN',
+    projectSlug: binissalemCourtyard,
+  },
+  {
+    src: '/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-02-sculptural-agave-cactus-detail-sestepa.webp',
+    alt: 'BINISSALEM COURTYARD SCULPTURAL AGAVE AND CACTI COMPOSITION SESTEPA DESIGN',
+    projectSlug: binissalemCourtyard,
+  },
+  {
+    src: '/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-05-pool-terrace-yellow-chairs-sestepa.webp',
+    alt: 'BINISSALEM COURTYARD POOL TERRACE WITH YELLOW LOUNGERS AND SCULPTURAL SPECIES SESTEPA DESIGN',
+    projectSlug: binissalemCourtyard,
+  },
   // 3 × New Binissalem additions (First Row of Gallery)
   {
     src: '/portfolio/binissalem/images/LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-14.jpg',
