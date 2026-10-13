@@ -41,12 +41,11 @@
 /es/paisajismo-y-diseno-de-jardines-en-mallorca-desde-terrazas-hasta-fincas/  /es/diseno-de-jardines-mallorca/  301
 
 # URLs huérfanas detectadas en Search Console con tráfico real (auditoría 2026-07-03)
-# Exact-match keyword slugs -> homepage (the page that actually ranks for
-# "garden design mallorca"). Consolidates equity onto one URL instead of
-# feeding the thinner /garden-design-mallorca-landscape-management-villas-fincas/
-# services page and splitting the signal. (2026-09-01)
-/garden-design-mallorca/  /  301
-/garden-design-mallorca-in-mediterranean-style-from-terrace-to-fincas-in-mallorca/  /  301
+# Exact-match keyword slugs -> services page (the pillar page for "garden design mallorca").
+# 2026-09-01: sent to the homepage (cadef94). 2026-10-13: reverted to the services page after
+# the term slipped from pos ~5.5 to ~7.9 (28-day ~10.0); approved by the operator (docs/search exports).
+/garden-design-mallorca/  /garden-design-mallorca-landscape-management-villas-fincas/  301
+/garden-design-mallorca-in-mediterranean-style-from-terrace-to-fincas-in-mallorca/  /garden-design-mallorca-landscape-management-villas-fincas/  301
 
 # 2026-09-01: legacy URLs with real 3-month impression history in Search Console
 # (Performance report in docs/search/). /landscapingmallorca/ ranked ~pos 20 for
