@@ -26,12 +26,12 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
     seoTitle: "Garden Design & Landscaping Services in Mallorca | S'Estepa Design",
     heroHeadline: 'The garden becomes the favourite room of the house.',
     heroLead:
-      'We stay with you for the whole of it — design, construction, irrigation and care — carried out by our own team. Thirty years shaping Mediterranean gardens with a Mallorcan hand.',
+      'We stay with you for the whole of it — design, construction, irrigation and care — carried out by our own team. Nearly three decades shaping Mediterranean gardens with a Mallorcan hand.',
     title: 'Our Garden Design and Landscaping Services in Mallorca',
     subtitle:
       'Specialist landscape design and garden design studio in Mallorca. We create and maintain living Mediterranean ecosystems for private villas, fincas and holiday residences — from concept to completion.',
     metaDescription:
-      'Boutique garden design, construction and ecological care for private villas, fincas and estates in Mallorca. S\'Estepa Design — 30 years of Mediterranean landscape architecture.',
+      'Boutique garden design, construction and ecological care for private villas, fincas and estates in Mallorca. Founded in Mallorca in 1999 · nearly three decades of Mediterranean garden design.',
     intro:
       'Our team oversees the entire process—from design and construction to technical irrigation and planting. We ensure a seamless experience, managing every detail in English, Spanish, and German.',
     items: [
@@ -66,11 +66,11 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
     seoTitle: "Servicios de Diseño de Jardines y Paisajismo en Mallorca | S'Estepa Design",
     heroHeadline: 'El jardín se convierte en el lugar favorito de la casa.',
     heroLead:
-      'Te acompañamos en todo el proceso —diseño, construcción, riego y cuidado— con equipo propio. Treinta años dando forma a jardines mediterráneos con mano mallorquina.',
+      'Te acompañamos en todo el proceso —diseño, construcción, riego y cuidado— con equipo propio. Casi tres décadas dando forma a jardines mediterráneos con mano mallorquina.',
     title: 'Nuestros Servicios de Diseño de Jardines y Paisajismo en Mallorca',
     subtitle: '',
     metaDescription:
-      'Estudio boutique de paisajismo y diseño de jardines en Mallorca — de Palma a fincas y villas de la isla. 30 años de alma mediterránea auténtica.',
+      'Estudio boutique de paisajismo y diseño de jardines en Mallorca — de Palma a fincas y villas de la isla. Fundado en Mallorca en 1999 · casi tres décadas de diseño mediterráneo.',
     intro:
       'Nuestro equipo supervisa todo el proceso, desde el diseño y la construcción hasta el riego técnico y la plantación. Garantizamos una experiencia sin fisuras, gestionando cada detalle en inglés, español y alemán.',
     items: [
@@ -105,12 +105,12 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
     seoTitle: "Gartengestaltung und Pflege auf Mallorca — Leistungen | S'Estepa Design",
     heroHeadline: 'Der Garten wird zum Lieblingsort des Hauses.',
     heroLead:
-      'Wir begleiten Sie durch den gesamten Prozess — Entwurf, Bau, Bewässerung und Pflege — mit unserem eigenen Team. Dreißig Jahre mediterrane Gärten mit mallorquinischer Handschrift.',
+      'Wir begleiten Sie durch den gesamten Prozess — Entwurf, Bau, Bewässerung und Pflege — mit unserem eigenen Team. Fast drei Jahrzehnte mediterrane Gärten mit mallorquinischer Handschrift.',
     title: 'Unsere Leistungen für Gartengestaltung auf Mallorca',
     subtitle:
       'Wir bieten einen umfassenden Ansatz für die Landschaftsgestaltung auf Mallorca, mit Schwerpunkt auf der Schaffung und langfristigen Pflege lebendiger Ökosysteme für Villen und Feriendomizile.',
     metaDescription:
-      'Boutique-Gartengestaltung und Landschaftsarchitektur auf Mallorca für private Fincas und Villen. S\'Estepa Design — 30 Jahre mediterrane Gartenplanung. Planung, Bau und ökologische Pflege.',
+      'Boutique-Gartengestaltung und Landschaftsarchitektur auf Mallorca für private Fincas und Villen. 1999 auf Mallorca gegründet · fast drei Jahrzehnte mediterrane Gartengestaltung. Planung, Bau und ökologische Pflege.',
     intro:
       'Unser Team überwacht den gesamten Prozess – vom Entwurf und Bau bis hin zur technischen Bewässerung und Bepflanzung. Wir garantieren einen reibungslosen Ablauf und regeln jedes Detail auf Englisch, Spanisch und Deutsch.',
     items: [

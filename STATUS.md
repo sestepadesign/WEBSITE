@@ -16,6 +16,30 @@
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+### [2026-10-13] - Claude (Auditoria SEO/AEO/Ads + plano; reversão de 2 redirects; texto "desde 1999 · casi tres décadas"; Binissalem commitado) — commits locais, NÃO publicados (sem push)
+- **Autor/agente:** Claude (Sonnet 5.5). Disco J: não acedido. Aprovado pela utilizadora em chat a 13/10/2026 (3 pontos).
+- **Entregas em `docs/auditoria seo/`:** `2026-10-13_Claude_Auditoria_design-sestepa-com.md` (+ Inventário e Matriz AEO CSV) e `2026-10-13_Plano_Posicionamento_Google_e_IA.md`.
+- **Commit `01e5509` — Binissalem Courtyard:** sessão Antigravity de 09/10 (estava sem commit; homologada em localhost) commitada em separado, sem `package-lock.json` (só diferenças de fim de linha) e sem STATUS.
+- **Redirects (`public/_redirects`):** `/garden-design-mallorca/` e `/garden-design-mallorca-in-mediterranean-style-from-terrace-to-fincas-in-mallorca/` voltam a 301 → `/garden-design-mallorca-landscape-management-villas-fincas/` (reversão do `cadef94` de 01/09). Motivo: critério de 18/09 cumprido — pos. do termo 5,4–6,3 antes de 01/09; 7,87 em 3 meses e ~10,0 nos últimos 28 dias (exports 13/10 em `docs/search`). **Medir:** GSC por página/país semanal; ponto de revisão sugerido ~03/11/2026.
+- **Texto institucional:** "30 anos" = carreira do Pedro Campaner; empresa fundada em 1999 → "Fundado en 1999 · casi tres décadas" (EN "Founded in 1999 · nearly three decades", DE "1999 gegründet · fast drei Jahrzehnte"). Alterados: `services.ts` (heroLead + metaDescription ×3), `schema.ts` (descrições ×3), `AboutPage.astro` (meta ×3), `BotanicalExpertisePage.astro` (meta + subtítulo ×3), `HomePage.astro` (caixa "30 Years of Expertise" → "1999 · Founded in Mallorca / Fundado en Mallorca / Gegründet auf Mallorca"), `LabHomePreview.astro`, `projects.ts` (1 frase). **Não alterado de propósito:** corpo dos artigos de blog e `faq.ts` (voz do Pedro/"thirty years later"), `llms.txt` — a rever com texto aprovado. "Casi tres décadas" vale até 2029 (30 anos de 1999).
+- **Validação:** localhost http://localhost:4321/ (mirror em `%LOCALAPPDATA%\SestepaPreview\codigo`): meta descriptions e caixa 1999 conferidas em EN/ES/DE; redirects de `_redirects` não são servidos pelo dev server (verificar após deploy). Sem build completo nesta sessão.
+- **Pendente:** push para `master` (publicação) aguarda ok final da utilizadora; Perplexity/Gemini sem coleta; GBP e Wikidata ficam com a equipa (rascunho em `Wikidata_Draft_SEstepaDesign.md`).
+
+### [2026-10-09] - Antigravity (Refinamento Editorial, Identificação Botânica, Ingestão da 5ª Foto e Blindagem de Privacidade — Binissalem Courtyard)
+- **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento mantido).
+- **Escopo:** Refinamento dos textos editoriais e metadados botânicos do projeto `binissalem-courtyard`, inclusão da 5ª fotografia na galeria e aplicação de blindagem estrita de privacidade/segurança (remoção de dados nominais de proprietário/residência privada).
+- **Ações Realizadas:**
+  1. *Identificação Botânica de Precisão:* Catalogadas e integradas todas as espécies visíveis no pátio (*Citrus limon, Agave americana 'Marginata', Agave attenuata, Pachycereus marginatus, Pachycereus pringlei, Echinocactus grusonii, Euphorbia ingens, Cleistocactus strausii, Yucca rostrata*).
+  2. *Refinamento Editorial Multilíngue ([src/data/projects.ts](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/codigo/src/data/projects.ts)):* Atualizada a narrativa com foco em pátio mineral e coleção de formas em EN, ES e DE, incluindo link oficial para ver a história da transformação e fotos da obra em `https://www.sestepa.com/binissalem-patio/`.
+  3. *Estilo de Links Editoriais ([src/components/ProjectDetail.astro](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/codigo/src/components/ProjectDetail.astro)):* Adicionado estilo específico para links inseridos na descrição do projeto, preservando a identidade visual da marca (tom oliva com sublinhado elegante).
+  4. *Blindagem de Privacidade e Segurança:* Omitidos todos os nomes pessoais do proprietário/residência dos metadados públicos, ALT tags e mapas de fotos para proteção e confidencialidade.
+  5. *Otimização e Ingestão da Foto 05:* Convertida a fotografia da área da piscina com espreguiçadeiras amarelas para WebP (`garden-design-mallorca-binissalem-courtyard-05-pool-terrace-yellow-chairs-sestepa.webp`, 1080x1440, 142 KB), preservando o original JPG em `originais-grandes`.
+  6. *Integração na Galeria Principal ([src/data/gallery-images.ts](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/codigo/src/data/gallery-images.ts)):* Integradas 3 imagens curadas de `binissalem-courtyard` no topo da galeria geral do site (`/gallery/`, `/es/galeria/`, `/de/galerie/`), direcionando para o projeto.
+  7. *Sitemap de Imagens ([public/sitemap-images.xml](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/codigo/public/sitemap-images.xml)):* Regenerado via `scripts/generate-image-sitemap.mjs`, cobrindo agora 5 fotos para `binissalem-courtyard`.
+  8. *Mapa SEO ([originais-grandes/binissalem-courtyard/_mapa_fotos_seo.txt](file:///g:/Meu%20Drive/1.%20WEBSITES/sestepa-design/originais-grandes/binissalem-courtyard/_mapa_fotos_seo.txt)):* Atualizado e anonimizado.
+- **Validações:** Build completo executado com sucesso no mirror isolado (`python scripts/preview_local.py build`): 145 páginas geradas, 149 indexadas pelo Pagefind, 0 erros; `node scripts/generate-image-sitemap.mjs` OK (57 URLs, 270 imagens); `git diff` verificado.
+- **Uso do disco J:** Nenhum acesso realizado.
+
 ### [2026-10-08] - Claude (Auditoria geral + atualização Astro 6.4.8 para 7.3.7) — merge em `master` (branches `feature/astro-7-upgrade` e `feature/blog-fora-do-menu`, ambas aprovadas pela utilizadora em preview Cloudflare)
 - **Autor/agente:** Claude (Sonnet 5.5). Disco J: não acedido.
 - **Escopo:** auditoria completa da pasta (código, SEO/AEO, pastas, instruções a agentes) e atualização major do Astro para eliminar 11 vulnerabilidades (1 crítica).
