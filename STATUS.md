@@ -16,6 +16,16 @@
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+### [2026-10-14] - Antigravity (Blindagem Server-Side do Endpoint /api/leads contra Bots e Anonymous) — publicado em master
+- **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento mantido).
+- **Escopo:** Eliminação de e-mails espúrios de formulário com assunto 'S'Estepa Design Web Contact — Anonymous | No Location Specified'. Diagnóstico confirmou que scanners de rede enviavam requisições POST vazias ao endpoint Cloudflare /api/leads (criado em 06/10), que por sua vez repassava para o Google Apps Script sem validação prévia.
+- **Ações Realizadas:**
+  1. Adicionada validação estrita em unctions/api/leads.js na borda (Cloudflare Pages Function).
+  2. Validados os tipos suportados: contact (exigência estrita de nome com >= 2 caracteres e e-mail estruturado com @ e domínio) e whatsapp (telemetria legítima do botão WhatsApp).
+  3. Descarte de requisições vazias, payloads sem tipo e bots com honeypot preenchido (company_website) retornando 400 Bad Request diretamente na borda antes de alcançar o Google Apps Script.
+- **Validação:** Build completo isolado (python scripts/preview_local.py build) finalizado com sucesso (182 rotas compiladas em 35.04s).
+- **Arquivos alterados:** unctions/api/leads.js, STATUS.md.
+
 ### [2026-10-13] - Claude (Auditoria SEO/AEO/Ads + plano; reversão de 2 redirects; texto "desde 1999 · casi tres décadas"; Binissalem commitado) — publicado em `master`
 - **Autor/agente:** Claude (Sonnet 5.5). Disco J: não acedido. Aprovado pela utilizadora em chat a 13/10/2026 (3 pontos).
 - **Entregas em `docs/auditoria seo/`:** `2026-10-13_Claude_Auditoria_design-sestepa-com.md` (+ Inventário e Matriz AEO CSV) e `2026-10-13_Plano_Posicionamento_Google_e_IA.md`.
