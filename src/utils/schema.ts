@@ -207,8 +207,7 @@ export function getLocalizedSchema(
       "@type": "Review",
       "author": { "@type": "Person", "name": item.author },
       "reviewBody": item.quote[locale] ?? item.quote.en,
-      "reviewRating": { "@type": "Rating", "ratingValue": String(item.rating), "bestRating": "5" },
-      "itemReviewed": { "@id": "https://design.sestepa.com/#business" }
+      "reviewRating": { "@type": "Rating", "ratingValue": String(item.rating), "bestRating": "5" }
     })),
     "priceRange": "$$$",
     "openingHoursSpecification": [

@@ -16,14 +16,16 @@
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
-### [2026-10-13] - Claude (Auditoria SEO/AEO/Ads + plano; reversão de 2 redirects; texto "desde 1999 · casi tres décadas"; Binissalem commitado) — commits locais, NÃO publicados (sem push)
+### [2026-10-13] - Claude (Auditoria SEO/AEO/Ads + plano; reversão de 2 redirects; texto "desde 1999 · casi tres décadas"; Binissalem commitado) — publicado em `master`
 - **Autor/agente:** Claude (Sonnet 5.5). Disco J: não acedido. Aprovado pela utilizadora em chat a 13/10/2026 (3 pontos).
 - **Entregas em `docs/auditoria seo/`:** `2026-10-13_Claude_Auditoria_design-sestepa-com.md` (+ Inventário e Matriz AEO CSV) e `2026-10-13_Plano_Posicionamento_Google_e_IA.md`.
 - **Commit `01e5509` — Binissalem Courtyard:** sessão Antigravity de 09/10 (estava sem commit; homologada em localhost) commitada em separado, sem `package-lock.json` (só diferenças de fim de linha) e sem STATUS.
 - **Redirects (`public/_redirects`):** `/garden-design-mallorca/` e `/garden-design-mallorca-in-mediterranean-style-from-terrace-to-fincas-in-mallorca/` voltam a 301 → `/garden-design-mallorca-landscape-management-villas-fincas/` (reversão do `cadef94` de 01/09). Motivo: critério de 18/09 cumprido — pos. do termo 5,4–6,3 antes de 01/09; 7,87 em 3 meses e ~10,0 nos últimos 28 dias (exports 13/10 em `docs/search`). **Medir:** GSC por página/país semanal; ponto de revisão sugerido ~03/11/2026.
 - **Texto institucional:** "30 anos" = carreira do Pedro Campaner; empresa fundada em 1999 → "Fundado en 1999 · casi tres décadas" (EN "Founded in 1999 · nearly three decades", DE "1999 gegründet · fast drei Jahrzehnte"). Alterados: `services.ts` (heroLead + metaDescription ×3), `schema.ts` (descrições ×3), `AboutPage.astro` (meta ×3), `BotanicalExpertisePage.astro` (meta + subtítulo ×3), `HomePage.astro` (caixa "30 Years of Expertise" → "1999 · Founded in Mallorca / Fundado en Mallorca / Gegründet auf Mallorca"), `LabHomePreview.astro`, `projects.ts` (1 frase). **Não alterado de propósito:** corpo dos artigos de blog e `faq.ts` (voz do Pedro/"thirty years later"), `llms.txt` — a rever com texto aprovado. "Casi tres décadas" vale até 2029 (30 anos de 1999).
 - **Validação:** localhost http://localhost:4321/ (mirror em `%LOCALAPPDATA%\SestepaPreview\codigo`): meta descriptions e caixa 1999 conferidas em EN/ES/DE; redirects de `_redirects` não são servidos pelo dev server (verificar após deploy). Sem build completo nesta sessão.
-- **Pendente:** push para `master` (publicação) aguarda ok final da utilizadora; Perplexity/Gemini sem coleta; GBP e Wikidata ficam com a equipa (rascunho em `Wikidata_Draft_SEstepaDesign.md`).
+- **Schema (aviso do Rich Results Test, itemReviewed):** removido `itemReviewed` de cada `Review` aninhado no `LocalBusiness` (`src/utils/schema.ts`, ~l.211). O aviso afetava 137 das 151 páginas do build; após o build: 0 ocorrências, 376 blocos JSON-LD válidos (137 com `review`). Sem alteração visual.
+- **Publicado:** `c0482d5` (texto + redirects) e commit seguinte (schema) em `master` a 13/10/2026; confirmados 301 e meta description no site vivo.
+- **Pendente:** Perplexity/Gemini sem coleta; GBP e Wikidata ficam com a equipa (rascunho em `Wikidata_Draft_SEstepaDesign.md`).
 
 ### [2026-10-09] - Antigravity (Refinamento Editorial, Identificação Botânica, Ingestão da 5ª Foto e Blindagem de Privacidade — Binissalem Courtyard)
 - **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento mantido).
