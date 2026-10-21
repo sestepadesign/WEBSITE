@@ -16,6 +16,12 @@
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+### [2026-10-21] - Antigravity (Atualização do Card Mobile Feature de Santa Ponsa) — publicado em master
+- **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento mantido).
+- **Escopo:** Correção da imagem de capa mobile (coverSrcset) de Santa Ponsa na Home Page para carregar a nova foto de destaque (`garden-design-mallorca-santa-ponsa-01-pool-villa-stipa-sestepa-card.webp`), substituindo a imagem legada.
+- **Validação:** Build e push para produção Cloudflare Pages.
+- **Arquivos alterados:** `src/components/site/HomePage.astro`, `STATUS.md`.
+
 ### [2026-10-14] - Antigravity (Blindagem Server-Side do Endpoint /api/leads contra Bots e Anonymous) — publicado em master
 - **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento mantido).
 - **Escopo:** Eliminação de e-mails espúrios de formulário com assunto 'S'Estepa Design Web Contact — Anonymous | No Location Specified'. Diagnóstico confirmou que scanners de rede enviavam requisições POST vazias ao endpoint Cloudflare /api/leads (criado em 06/10), que por sua vez repassava para o Google Apps Script sem validação prévia.
