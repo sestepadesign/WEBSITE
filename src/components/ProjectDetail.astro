@@ -80,6 +80,7 @@ const stages: Stage[] = galleryChapters.length === 0 ? [] : [
       photos: chapter.photos.map((img, idx) => ({
         src: `/portfolio/${project.slug}/images/${chapter.dir}/${img}`,
         alt: text.imageAlts?.[idx] ?? `${translation.title} — Garden Design ${formattedLocation}, ${text.label}`,
+        isPortrait: /(?:^|[-_])(portrait|vertical)(?:[-_.]|$)/i.test(img) || img.endsWith('-v.webp'),
       })),
     };
   }),
@@ -476,25 +477,44 @@ const rhythm = (count: number) => {
               <p class="stage-count">{stage.photos.length} {stageText.photos}</p>
             </header>
             <div class="stage-grid">
-              {stage.photos.map((photo, idx) => (
-                <button
-                  class={`gallery-item-btn stage-item ${layout[idx]}`}
-                  data-src={photo.src}
-                  data-chapter={stage.label}
-                  aria-label={`View image ${stage.offset + idx + 1} in fullscreen`}
-                >
-                  <div class="gallery-item">
-                    <img
-                      src={photo.src}
-                      alt={photo.alt}
-                      loading="lazy"
-                      class="gallery-img"
-                      width="1920"
-                      height="1280"
-                    />
-                  </div>
-                </button>
-              ))}
+              {stage.photos.map((photo, idx) => {
+                let layoutClass = layout[idx];
+                if (stage.id === 'stage-2026-10-5-months') {
+                  if (photo.isPortrait) {
+                    layoutClass = 'r-third is-portrait';
+                  } else if (
+                    photo.src.includes('5-months-01') ||
+                    photo.src.includes('5-months-02') ||
+                    photo.src.includes('5-months-08') ||
+                    photo.src.includes('5-months-09')
+                  ) {
+                    layoutClass = 'r-wide is-landscape';
+                  } else {
+                    layoutClass = 'r-half is-landscape';
+                  }
+                } else if (photo.isPortrait) {
+                  layoutClass = `${layoutClass} is-portrait`;
+                }
+                return (
+                  <button
+                    class={`gallery-item-btn stage-item ${layoutClass}`}
+                    data-src={photo.src}
+                    data-chapter={stage.label}
+                    aria-label={`View image ${stage.offset + idx + 1} in fullscreen`}
+                  >
+                    <div class="gallery-item">
+                      <img
+                        src={photo.src}
+                        alt={photo.alt}
+                        loading="lazy"
+                        class="gallery-img"
+                        width="1920"
+                        height="1280"
+                      />
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </section>
         );
@@ -1439,8 +1459,12 @@ const rhythm = (count: number) => {
      sit in the half slots. 3-years-growth: the 3 portrait photos are the last
      3 items (2nd trio) — nth-child keeps the 1st trio (landscape) at 3:2. */
   #stage-renders .stage-item.r-half .gallery-item,
-  #stage-2026-3-years-growth .stage-item.r-third:nth-child(n+10) .gallery-item {
-    aspect-ratio: 3 / 4;
+  #stage-2026-3-years-growth .stage-item.r-third:nth-child(n+10) .gallery-item,
+  .stage-item.is-portrait .gallery-item {
+    aspect-ratio: 3 / 4 !important;
+  }
+  .stage-item.is-portrait.r-wide {
+    grid-column: span 3 !important;
   }
 
   @media (max-width: 768px) {

@@ -55,6 +55,7 @@ export const ui = {
     'contact.form.submit': 'Send',
     
     'project.details': 'Details',
+    'project.view': 'View Project',
     'project.location': 'Location',
     'project.category': 'Category',
     'project.year': 'Year',
@@ -118,6 +119,7 @@ export const ui = {
     'contact.form.submit': 'Enviar',
     
     'project.details': 'Ficha Técnica',
+    'project.view': 'Ver Proyecto',
     'project.location': 'Ubicación',
     'project.category': 'Categoría',
     'project.year': 'Año',
@@ -181,6 +183,7 @@ export const ui = {
     'contact.form.submit': 'Senden',
     
     'project.details': 'Projektdetails',
+    'project.view': 'Projekt ansehen',
     'project.location': 'Standort',
     'project.category': 'Kategorie',
     'project.year': 'Jahr',
