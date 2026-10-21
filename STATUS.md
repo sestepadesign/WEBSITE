@@ -16,6 +16,12 @@
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+### [2026-10-21] - Antigravity (Reordenação da Galeria Interna de Santa Ponsa: Foto 06 na Posição 04) — publicado em master
+- **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento mantido).
+- **Escopo:** Na galeria interna de Santa Ponsa, a imagem 06 (`garden-design-mallorca-santa-ponsa-06-covered-terrace-pool-perspective-sestepa.webp`) foi movida para a 4ª posição, e a imagem 04 (`04-pool-deck-mediterranean-panorama-sestepa.webp`) para a 6ª posição, com sincronização dos textos alternativos (imageAlts) em EN, ES e DE.
+- **Validação:** Push para produção Cloudflare Pages.
+- **Arquivos alterados:** `src/data/projects.ts`, `STATUS.md`.
+
 ### [2026-10-21] - Antigravity (Reordenação de Santa Ponsa antes de Llubí na Home e Portfólio) — publicado em master
 - **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento mantido).
 - **Escopo:** Reordenação dos projetos em destaque na Home Page e listagem do Portfólio, posicionando Santa Ponsa imediatamente antes de Llubí.
