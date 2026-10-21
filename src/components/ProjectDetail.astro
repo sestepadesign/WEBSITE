@@ -18,6 +18,9 @@ const visibleProjects = projects.filter(p => !p.hidden);
 const currentIndex = visibleProjects.findIndex(p => p.slug === project.slug);
 const nextProject = visibleProjects[(currentIndex + 1) % visibleProjects.length];
 const nextProjectTranslation = nextProject[lang];
+const upcomingProjects = [1, 2, 3, 4].map(
+  (offset) => visibleProjects[(currentIndex + 1 + offset) % visibleProjects.length]
+);
 
 const categorySlug = getProjectCategory(project.slug);
 const showPedroQuote = categorySlug === 'estate';
@@ -557,6 +560,33 @@ const rhythm = (count: number) => {
           </span>
         </div>
       </a>
+    </section>
+
+    <!-- 4 Subsequent Projects Strip (Template) -->
+    <section class="footer-upcoming-strip" aria-label={lang === 'es' ? 'Más proyectos' : lang === 'de' ? 'Weitere Projekte' : 'More Projects'}>
+      <div class="footer-upcoming-grid">
+        {upcomingProjects.map((p) => {
+          const pTrans = p[lang];
+          const pLoc = getProjectLocation(p, lang);
+          const pLocFormatted = pLoc.toLowerCase().includes('mallorca') ? pLoc : `${pLoc}, Mallorca`;
+          return (
+            <a href={getProjectPath(p.slug, lang)} class="footer-upcoming-card">
+              <div class="footer-upcoming-bg">
+                <img
+                  src={p.cover}
+                  alt={`${pTrans.title} — Garden Design ${pLocFormatted}`}
+                  loading="lazy"
+                  class="footer-upcoming-img"
+                />
+                <div class="footer-upcoming-overlay" />
+              </div>
+              <div class="footer-upcoming-content">
+                <h3 class="footer-upcoming-title">{pTrans.title}</h3>
+              </div>
+            </a>
+          );
+        })}
+      </div>
     </section>
   </article>
 
@@ -1857,6 +1887,119 @@ const rhythm = (count: number) => {
       height: 35vh;
       min-height: 280px;
       margin-top: 2rem;
+    }
+  }
+
+  /* ═══════════════════════════════════════════════
+     FOOTER UPCOMING PROJECTS STRIP (4 NEXT PROJECTS)
+     ═══════════════════════════════════════════════ */
+  .footer-upcoming-strip {
+    width: 100%;
+    background-color: var(--color-charcoal);
+    border-top: 2px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer-upcoming-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background-color: rgba(255, 255, 255, 0.08);
+    width: 100%;
+  }
+
+  .footer-upcoming-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: clamp(260px, 30vh, 360px);
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    background-color: var(--color-charcoal);
+    cursor: pointer;
+  }
+
+  .footer-upcoming-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .footer-upcoming-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .footer-upcoming-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(20, 22, 20, 0.2) 0%, rgba(20, 22, 20, 0.45) 50%, rgba(20, 22, 20, 0.65) 100%);
+    transition: background var(--transition-normal);
+  }
+
+  .footer-upcoming-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-sm) 1.25rem;
+    width: 100%;
+    max-width: 90%;
+    pointer-events: none;
+  }
+
+  .footer-upcoming-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.35rem, 1.8vw, 1.85rem);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: white;
+    line-height: 1.25;
+    margin: 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), text-shadow 0.6s ease;
+  }
+
+  /* Hover states */
+  .footer-upcoming-card:hover .footer-upcoming-img {
+    transform: scale(1.06);
+  }
+
+  .footer-upcoming-card:hover .footer-upcoming-overlay {
+    background: linear-gradient(180deg, rgba(20, 22, 20, 0.1) 0%, rgba(20, 22, 20, 0.35) 50%, rgba(20, 22, 20, 0.55) 100%);
+  }
+
+  .footer-upcoming-card:hover .footer-upcoming-title {
+    transform: translateY(-3px) scale(1.02);
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.55);
+  }
+
+  @media (max-width: 1024px) {
+    .footer-upcoming-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .footer-upcoming-card {
+      height: 250px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-upcoming-grid {
+      grid-template-columns: 1fr;
+    }
+    .footer-upcoming-card {
+      height: 210px;
     }
   }
 </style>
