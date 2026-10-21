@@ -29,6 +29,38 @@ function galleryPath(filename: string): string {
 }
 
 export const galleryImages: GalleryImageEntry[] = [
+  // 3 × Santa Ponsa (Primeira Linha da Galeria)
+  {
+    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-01-pool-villa-stipa-sestepa.webp',
+    alt: 'GARDEN DESIGN SANTA PONSA MALLORCA POOL VILLA STIPA SESTEPA DESIGN',
+    projectSlug: santaPonsa,
+  },
+  {
+    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-06-covered-terrace-pool-perspective-sestepa.webp',
+    alt: 'GARDEN DESIGN SANTA PONSA MALLORCA COVERED TERRACE POOL SESTEPA DESIGN',
+    projectSlug: santaPonsa,
+  },
+  {
+    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-09-architectural-side-walkway-vista-sestepa.webp',
+    alt: 'GARDEN DESIGN SANTA PONSA MALLORCA ARCHITECTURAL SIDE WALKWAY SESTEPA DESIGN',
+    projectSlug: santaPonsa,
+  },
+  // 3 × Sant Llorenç (Segunda Linha da Galeria — 5 Meses & Hero Cover)
+  {
+    src: '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA MUHLENBERGIA HERO COVER SESTEPA DESIGN',
+    projectSlug: santLlorenc,
+  },
+  {
+    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-01-corten-gravel-walk-destaque-sestepa-design.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA CORTEN GRAVEL WALK 5 MONTHS SESTEPA DESIGN',
+    projectSlug: santLlorenc,
+  },
+  {
+    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-15-mediterranean-botanical-detail-sestepa-design.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA MEDITERRANEAN BOTANICAL DETAIL 5 MONTHS SESTEPA DESIGN',
+    projectSlug: santLlorenc,
+  },
   // 3 × Binissalem Courtyard (New addition)
   {
     src: '/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-01-pool-terrace-lemon-tree-sestepa.webp',
@@ -267,37 +299,5 @@ export const galleryImages: GalleryImageEntry[] = [
     src: galleryPath('VERTICAL GARDEN MALLORCA-SESTEPA-DESIGN (1).avif'),
     alt: 'VERTICAL GARDENS IN MALLORCA SESTEPA LANDSCAPE DESIGN',
     projectSlug: vertical,
-  },
-  // 3 × Santa Ponsa
-  {
-    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-01-pool-villa-stipa-sestepa.webp',
-    alt: 'GARDEN DESIGN SANTA PONSA MALLORCA POOL VILLA STIPA SESTEPA DESIGN',
-    projectSlug: santaPonsa,
-  },
-  {
-    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-06-covered-terrace-pool-perspective-sestepa.webp',
-    alt: 'GARDEN DESIGN SANTA PONSA MALLORCA COVERED TERRACE POOL SESTEPA DESIGN',
-    projectSlug: santaPonsa,
-  },
-  {
-    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-09-architectural-side-walkway-vista-sestepa.webp',
-    alt: 'GARDEN DESIGN SANTA PONSA MALLORCA ARCHITECTURAL SIDE WALKWAY SESTEPA DESIGN',
-    projectSlug: santaPonsa,
-  },
-  // 3 × Sant Llorenç (5 Months & Hero Cover — Última linha)
-  {
-    src: '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp',
-    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA MUHLENBERGIA HERO COVER SESTEPA DESIGN',
-    projectSlug: santLlorenc,
-  },
-  {
-    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-01-corten-gravel-walk-destaque-sestepa-design.webp',
-    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA CORTEN GRAVEL WALK 5 MONTHS SESTEPA DESIGN',
-    projectSlug: santLlorenc,
-  },
-  {
-    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-15-mediterranean-botanical-detail-sestepa-design.webp',
-    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA MEDITERRANEAN BOTANICAL DETAIL 5 MONTHS SESTEPA DESIGN',
-    projectSlug: santLlorenc,
   },
 ];
