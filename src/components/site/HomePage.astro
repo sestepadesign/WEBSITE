@@ -37,14 +37,14 @@ const whatsappTexts = {
 };
 const whatsappUrl = `https://wa.me/34681272252?text=${encodeURIComponent(whatsappTexts[lang])}`;
 
-// Featured projects &mdash; 2×3 grid: Llubí, Santa Eugènia, Crestatx, Binissalem, Terrace Palma, Santa Ponsa
+// Featured projects &mdash; 2×3 grid: Santa Ponsa, Llubí, Santa Eugènia, Crestatx, Binissalem, Terrace Palma
 const featuredSlugs = [
+  'santa-ponsa',
   'garden-design-llubi-mallorca',
   'terrace-garden-santa-eugenia',
   'crestatx-garden-design',
   'binissalem',
   'terrace-garden-in-palma',
-  'santa-ponsa',
 ];
 const featuredProjects = featuredSlugs
   .map((slug) => projects.find((p) => p.slug === slug))

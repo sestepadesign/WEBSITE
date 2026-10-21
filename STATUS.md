@@ -16,6 +16,12 @@
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+### [2026-10-21] - Antigravity (Reordenação de Santa Ponsa antes de Llubí na Home e Portfólio) — publicado em master
+- **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento mantido).
+- **Escopo:** Reordenação dos projetos em destaque na Home Page e listagem do Portfólio, posicionando Santa Ponsa imediatamente antes de Llubí.
+- **Validação:** Push para produção Cloudflare Pages.
+- **Arquivos alterados:** `src/components/site/HomePage.astro`, `src/data/portfolio-categories.ts`, `STATUS.md`.
+
 ### [2026-10-21] - Antigravity (Atualização do Card Mobile Feature de Santa Ponsa) — publicado em master
 - **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento mantido).
 - **Escopo:** Correção da imagem de capa mobile (coverSrcset) de Santa Ponsa na Home Page para carregar a nova foto de destaque (`garden-design-mallorca-santa-ponsa-01-pool-villa-stipa-sestepa-card.webp`), substituindo a imagem legada.
