@@ -16,6 +16,17 @@
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+
+### [2026-10-21] - Antigravity (Hero Mobile: Foto de Destaque Sant Llorenc e Remocao de Degrade Escuro)
+- Autor/agente: Antigravity. Disco J: nao acessado (100% isolamento mantido).
+- Escopo:
+  1. No Hero da Home Page (src/components/site/HomePage.astro), substituicao do frame de video no mobile por tag picture responsiva com a fotografia de destaque de Sant Llorenç (garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp).
+  2. Remocao do degrade escuro no mobile (@media (max-width: 768px) { .hero-overlay { background: none; } }) para garantir maxima fidelidade e clareza da imagem aprovada pelo operador.
+- Validacao:
+  - Build isolado via mirror local aprovado com 0 erros (145 paginas estaticas geradas, Pagefind indexado).
+  - Homologacao visual aprovada no localhost pelo operador.
+- Arquivos alterados: src/components/site/HomePage.astro, STATUS.md.
+
 ### [2026-10-21] - Antigravity (Reordenação de Santa Ponsa no Journal e no Portfólio Geral) — publicado em master
 - **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento mantido).
 - **Escopo:** 
