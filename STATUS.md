@@ -17,6 +17,18 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-21] - Antigravity (Harmonização de posicionamento Boutique nas Meta Descriptions da página About) — publicado em master
+- **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento mantido).
+- **Escopo:**
+  1. Atualização das meta descriptions (`descriptions`) em `src/components/site/AboutPage.astro` para consolidar o posicionamento de estúdio boutique na indexação e snippets de busca em todas as línguas:
+     - EN: `"S'Estepa Design — boutique landscape architecture studio in Mallorca. Founded in 1999 · nearly three decades creating bespoke gardens for private fincas, villas and estates across the island."`
+     - ES: `"S'Estepa Design — estudio boutique de arquitectura del paisaje en Mallorca. Fundado en 1999 · casi tres décadas creando jardines exclusivos para fincas, villas y residencias privadas."`
+     - DE: `"S'Estepa Design — Boutique-Landschaftsarchitektur-Studio auf Mallorca. 1999 gegründet · fast drei Jahrzehnte Erfahrung in der Gestaltung exklusiver Gärten für Fincas, Villen und Anwesen."`
+- **Validação:**
+  - Build isolado via mirror local (`python scripts/preview_local.py build`) executado com sucesso (145 páginas geradas, Pagefind indexado, 0 erros).
+  - Deploy em `master` via Cloudflare Pages.
+- **Arquivos alterados:** `src/components/site/AboutPage.astro`, `STATUS.md`.
+
 ### [2026-10-21] - Antigravity (Inclusão de posicionamento Boutique em about.subtitle) — publicado em master
 - **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento mantido).
 - **Escopo:**
