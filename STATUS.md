@@ -17,6 +17,18 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-21] - Antigravity (Inclusão de posicionamento Boutique em about.subtitle) — publicado em master
+- **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento mantido).
+- **Escopo:**
+  1. Atualização do subtítulo institucional (`about.subtitle`) em `src/data/translations.ts` para incorporar a caracterização de estúdio boutique de forma elegante e harmonizada:
+     - EN: `"Boutique garden and landscape design studio in Mallorca, working across townhouse gardens, private estates, and roof terraces."`
+     - ES: `"Estudio boutique de diseño de jardines y paisajismo en Mallorca, trabajando en jardines urbanos, fincas privadas y terrazas."`
+     - DE: `"Boutique-Garten- und Landschaftsdesign-Studio auf Mallorca, tätig für Stadthausgärten, private Landgüter und Dachterrassen."`
+- **Validação:**
+  - Build isolado via mirror local (`python scripts/preview_local.py build`) executado com sucesso (145 páginas geradas, Pagefind indexado, 0 erros).
+  - Deploy em `master` via Cloudflare Pages.
+- **Arquivos alterados:** `src/data/translations.ts`, `STATUS.md`.
+
 ### [2026-10-21] - Antigravity (Aceleração e Ritmo do Slideshow do Hero no Portfólio) — publicado em master
 - **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento mantido).
 - **Escopo:**
