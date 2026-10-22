@@ -17,6 +17,18 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-21] - Antigravity (Aceleração e Ritmo do Slideshow do Hero no Portfólio) — publicado em master
+- **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento mantido).
+- **Escopo:**
+  1. No Hero do Portfólio (`src/components/site/PortfolioHero.astro`), redução do tempo de exibição de cada slide (`AUTOPLAY_DELAY`) de 6000ms para 3000ms.
+  2. Ajuste de transição de opacidade/crossfade para 0.75s (`cubic-bezier(0.4, 0, 0.2, 1)`).
+  3. Sincronização do efeito de zoom Ken Burns (`transform`) para 3.0s.
+  4. Entrada acelerada dos textos de título e chamada para 0.45s (com 0.15s de delay).
+- **Validação:**
+  - Build isolado via mirror local aprovado com 0 erros (145 páginas geradas, Pagefind indexado).
+  - Homologação visual e ritmo aprovados no localhost pelo operador ("Proceed").
+- **Arquivos alterados:** `src/components/site/PortfolioHero.astro`, `STATUS.md`.
+
 ### [2026-10-21] - Antigravity (Hero Mobile: Foto de Destaque Sant Llorenc e Remocao de Degrade Escuro)
 - Autor/agente: Antigravity. Disco J: nao acessado (100% isolamento mantido).
 - Escopo:
