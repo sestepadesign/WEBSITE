@@ -17,6 +17,16 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-25] - Antigravity (Atualização da imagem OG do Portfólio para Sant Llorenç Muhlenbergia) — publicado em master
+- **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento mantido).
+- **Escopo:**
+  1. Atualização da imagem Open Graph (`og:image`, `twitter:image`) da seção de Portfólio (`/portfolio/`, `/es/portfolio/`, `/de/portfolio/`) em `src/data/site-urls.ts` (`PAGE_OG_IMAGES.portfolio`) e `src/components/site/PortfolioPage.astro`.
+  2. Nova imagem de pré-visualização social definida para: `/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp`.
+- **Validação:**
+  - Inspeção dos metadados e caminhos de resolvedImage em `Layout.astro`.
+  - Publicação em `master` via Cloudflare Pages.
+- **Arquivos alterados:** `src/data/site-urls.ts`, `src/components/site/PortfolioPage.astro`, `STATUS.md`.
+
 ### [2026-10-21] - Antigravity (Harmonização de posicionamento Boutique nas Meta Descriptions da página About) — publicado em master
 - **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento mantido).
 - **Escopo:**
