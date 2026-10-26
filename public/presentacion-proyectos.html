@@ -4,17 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>S'Estepa Design Studio | Proyectos | Mallorca</title>
+  <meta name="description" content="S'Estepa Design Studio — Colección y archivo fotográfico de proyectos de arquitectura del paisaje en Mallorca. Fincas privadas, residencias exclusivas y diseño botánico mediterráneo.">
+
+  <!-- Open Graph / WhatsApp / Social Preview -->
+  <meta property="og:site_name" content="S'Estepa Design Studio">
+  <meta property="og:title" content="S'Estepa Design Studio | Proyectos | Mallorca">
+  <meta property="og:description" content="Colección fotográfica de proyectos de arquitectura del paisaje en Mallorca. Fincas privadas, residencias exclusivas y diseño botánico mediterráneo.">
+  <meta property="og:image" content="https://design.sestepa.com/images/og-presentacion-proyectos.jpg">
+  <meta property="og:image:secure_url" content="https://design.sestepa.com/images/og-presentacion-proyectos.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://design.sestepa.com/presentacion-proyectos">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="S'Estepa Design Studio | Proyectos | Mallorca">
+  <meta name="twitter:description" content="Colección fotográfica de proyectos de arquitectura del paisaje en Mallorca. Fincas privadas, residencias exclusivas y diseño botánico mediterráneo.">
+  <meta name="twitter:image" content="https://design.sestepa.com/images/og-presentacion-proyectos.jpg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0d0d0c;
-      --bg-card: #141413;
-      --text: #f5f3ee;
-      --text-muted: #8e8b82;
-      --accent: #c49a5b;
-      --border: rgba(255, 255, 255, 0.08);
+      --bg: #0a0a0a;
+      --bg-card: #141414;
+      --text: #f0f0f0;
+      --text-muted: #888888;
+      --accent: #dcdcdc;
+      --border: rgba(255, 255, 255, 0.1);
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
     }
@@ -25,6 +45,7 @@
       --bg-card: #f9f9f8;
       --text: #1a1a18;
       --text-muted: #66635c;
+      --accent: #222222;
       --border: rgba(0, 0, 0, 0.1);
     }
 
@@ -62,7 +83,7 @@
       justify-content: space-between;
       padding: 0 32px;
       z-index: 100;
-      background: linear-gradient(180deg, rgba(13, 13, 12, 0.94) 0%, rgba(13, 13, 12, 0) 100%);
+      background: linear-gradient(180deg, rgba(10, 10, 10, 0.94) 0%, rgba(10, 10, 10, 0) 100%);
       pointer-events: none;
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
@@ -95,9 +116,12 @@
     }
 
     .brand-sep {
-      color: var(--accent);
+      color: rgba(255, 255, 255, 0.3);
       font-weight: 200;
-      opacity: 0.65;
+    }
+
+    body.pdf-light .brand-sep {
+      color: rgba(0, 0, 0, 0.25);
     }
 
     .brand-secondary,
@@ -136,14 +160,14 @@
     }
 
     .btn-icon:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.3);
     }
 
     .btn-icon.active-mode {
-      background: rgba(196, 154, 91, 0.25);
-      border-color: var(--accent);
-      color: var(--accent);
+      background: rgba(255, 255, 255, 0.16);
+      border-color: var(--text);
+      color: #ffffff;
     }
 
     /* View Switch Rules */
@@ -192,16 +216,16 @@
     }
 
     .overview-card:hover {
-      border-color: var(--accent);
+      border-color: rgba(255, 255, 255, 0.35);
       transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
     }
 
     .overview-thumb {
       width: 100%;
       aspect-ratio: 16 / 10;
       object-fit: cover;
-      background: #171715;
+      background: #151515;
     }
 
     .overview-caption {
@@ -276,7 +300,7 @@
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
       background-color: rgba(255, 255, 255, 0.02);
       border-radius: 2px;
       transition: transform 6s ease;
@@ -306,7 +330,7 @@
       justify-content: space-between;
       padding: 0 32px;
       z-index: 100;
-      background: linear-gradient(0deg, rgba(13, 13, 12, 0.94) 0%, rgba(13, 13, 12, 0) 100%);
+      background: linear-gradient(0deg, rgba(10, 10, 10, 0.94) 0%, rgba(10, 10, 10, 0) 100%);
       pointer-events: none;
       transition: opacity 0.25s ease, transform 0.25s ease;
     }
@@ -380,7 +404,7 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: rgba(13, 13, 12, 0.65);
+      background: rgba(10, 10, 10, 0.75);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.18);
@@ -394,9 +418,9 @@
     }
 
     .fs-close-btn:hover {
-      background: rgba(196, 154, 91, 0.4);
+      background: rgba(255, 255, 255, 0.2);
       transform: scale(1.08);
-      border-color: var(--accent);
+      border-color: #ffffff;
     }
 
     /* Ultra-Clean Fullscreen Mode (100% Pure Landscape Photography) */
@@ -440,7 +464,7 @@
       left: 32px;
       width: auto;
       height: auto;
-      background: rgba(13, 13, 12, 0.72);
+      background: rgba(10, 10, 10, 0.78);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       padding: 8px 22px;
@@ -467,6 +491,175 @@
       transition: opacity 0.25s ease;
     }
 
+    /* PDF EXPORT MODAL (Black & Grey Luxury) */
+    .pdf-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 5, 5, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .pdf-modal-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .pdf-modal-card {
+      background: #111111;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 12px;
+      max-width: 680px;
+      width: 100%;
+      padding: 36px 40px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.85);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      transform: scale(0.98);
+      transition: transform 0.3s ease;
+    }
+
+    .pdf-modal-backdrop.open .pdf-modal-card {
+      transform: scale(1);
+    }
+
+    .pdf-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 18px;
+    }
+
+    .pdf-modal-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      letter-spacing: 0.08em;
+      font-weight: 300;
+      color: #f0f0f0;
+      text-transform: uppercase;
+    }
+
+    .pdf-modal-subtitle {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      margin-top: 4px;
+      text-transform: uppercase;
+    }
+
+    .pdf-modal-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .pdf-modal-close:hover {
+      color: #ffffff;
+    }
+
+    .pdf-options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .pdf-option-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 8px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      transition: border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .pdf-option-box:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .pdf-option-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .pdf-option-heading {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      letter-spacing: 0.06em;
+      color: #ffffff;
+      margin: 4px 0 8px;
+    }
+
+    .pdf-option-desc {
+      font-size: 0.76rem;
+      line-height: 1.5;
+      color: #a0a0a0;
+    }
+
+    .btn-pdf-download {
+      background: #f0f0f0;
+      color: #0a0a0a;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 24px;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-align: center;
+      transition: all 0.25s ease;
+      display: block;
+      margin-top: 8px;
+    }
+
+    .btn-pdf-download:hover {
+      background: #ffffff;
+      box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .pdf-modal-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 16px;
+    }
+
+    .btn-browser-print {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+
+    .btn-browser-print:hover {
+      color: #ffffff;
+    }
+
     /* Print & PDF Export (A4 Landscape 297mm x 210mm) */
     @page {
       size: 297mm 210mm;
@@ -489,7 +682,7 @@
         print-color-adjust: exact !important;
       }
 
-      .top-bar, .bottom-bar, .index-view, .cover-buttons, .fs-close-btn {
+      .top-bar, .bottom-bar, .index-view, .cover-buttons, .fs-close-btn, .pdf-modal-backdrop {
         display: none !important;
       }
 
@@ -604,6 +797,12 @@
       .index-view {
         padding: 80px 16px 40px;
       }
+      .pdf-options-grid {
+        grid-template-columns: 1fr;
+      }
+      .pdf-modal-card {
+        padding: 24px;
+      }
     }
   </style>
 </head>
@@ -656,13 +855,13 @@
       </button>
 
       <!-- 4. Export to PDF Button -->
-      <button class="btn-icon" id="btnPrint" style="background: rgba(196, 154, 91, 0.22); border-color: var(--accent);" title="Guardar como PDF / Imprimir (Ctrl+P)">
+      <button class="btn-icon" id="btnPrint" title="Exportar Presentación a PDF">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="6 9 6 2 18 2 18 9"></polyline>
           <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
           <rect x="6" y="14" width="12" height="8"></rect>
         </svg>
-        <span style="font-weight: 500;">Generar PDF</span>
+        <span>Generar PDF</span>
       </button>
 
       <!-- 5. Fullscreen -->
@@ -713,72 +912,128 @@
     </div>
   </footer>
 
+  <!-- PDF EXPORT MODAL -->
+  <div class="pdf-modal-backdrop" id="pdfModal">
+    <div class="pdf-modal-card">
+      <div class="pdf-modal-header">
+        <div>
+          <h2 class="pdf-modal-title">Exportar Presentación</h2>
+          <p class="pdf-modal-subtitle">Formatos oficiales de alta calidad editorial</p>
+        </div>
+        <button class="pdf-modal-close" id="btnClosePdfModal" title="Cerrar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="pdf-options-grid">
+        <!-- Option 1: Horizontal / Paisaje -->
+        <div class="pdf-option-box">
+          <div>
+            <span class="pdf-option-tag">Desktop · Proyección · Impresión</span>
+            <h3 class="pdf-option-heading">PDF Horizontal</h3>
+            <p class="pdf-option-desc">Formato A4 apaisado panorámico (297 × 210 mm). Ideal para pantallas de escritorio, conferencias e impresión en papel.</p>
+          </div>
+          <a href="/Presentacion%20Fotos/Sestepa-Design-Proyectos-Paisagem.pdf" download="Sestepa-Design-Proyectos-Paisagem.pdf" class="btn-pdf-download">Descargar Paisaje</a>
+        </div>
+
+        <!-- Option 2: Vertical / Retrato Mobile -->
+        <div class="pdf-option-box">
+          <div>
+            <span class="pdf-option-tag">Móvil · WhatsApp · Pantalla Vertical</span>
+            <h3 class="pdf-option-heading">PDF Vertical (Celular)</h3>
+            <p class="pdf-option-desc">Formato A4 vertical con foto centrada al derecho (sin rotar). Optimizado para ver en teléfonos móviles y enviar por WhatsApp.</p>
+          </div>
+          <a href="/Presentacion%20Fotos/Sestepa-Design-Proyectos-Celular-Vertical.pdf" download="Sestepa-Design-Proyectos-Celular-Vertical.pdf" class="btn-pdf-download">Descargar Celular</a>
+        </div>
+      </div>
+
+      <div class="pdf-modal-footer">
+        <button class="btn-browser-print" id="btnBrowserPrint">O imprimir directamente con el navegador (Ctrl+P)</button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Gallery Data matching exact order of /gallery/ page
+    // Gallery Data grouped with strict coherence (All project photos consecutive)
     const galleryItems = [
-      // 3 x Santa Ponsa
+      // 1. Santa Ponsa (3 photos)
       { title: "Santa Ponsa", path: "/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-01-pool-villa-stipa-sestepa.webp" },
       { title: "Santa Ponsa", path: "/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-06-covered-terrace-pool-perspective-sestepa.webp" },
       { title: "Santa Ponsa", path: "/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-09-architectural-side-walkway-vista-sestepa.webp" },
-      // 6 x Sant Llorenç (Continuas en la presentación)
+
+      // 2. Sant Llorenç (6 photos grouped consecutively)
       { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp" },
       { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-01-corten-gravel-walk-destaque-sestepa-design.webp" },
       { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-15-mediterranean-botanical-detail-sestepa-design.webp" },
       { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp" },
       { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp" },
       { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp" },
-      // 3 x Patio en Binissalem
+
+      // 3. Patio en Binissalem (3 photos)
       { title: "Patio en Binissalem", path: "/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-01-pool-terrace-lemon-tree-sestepa.webp" },
       { title: "Patio en Binissalem", path: "/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-02-sculptural-agave-cactus-detail-sestepa.webp" },
       { title: "Patio en Binissalem", path: "/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-05-pool-terrace-yellow-chairs-sestepa.webp" },
-      // 3 x Jardín Binissalem (New additions)
+
+      // 4. Jardín Binissalem (ALL 9 photos grouped together consecutively)
       { title: "Jardín Binissalem", path: "/portfolio/binissalem/images/LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-14.jpg" },
       { title: "Jardín Binissalem", path: "/portfolio/binissalem/images/LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-15.jpg" },
       { title: "Jardín Binissalem", path: "/portfolio/binissalem/images/LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-16.jpg" },
-      // 3 x Jardín Mediterráneo
-      { title: "Jardín Mediterráneo", path: "/portfolio/jardin-mediterraneo/images/landscape-garden-malorca-jardin-mediterraneo-sestepa.webp" },
-      { title: "Jardín Mediterráneo", path: "/portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-6-1.webp" },
-      { title: "Jardín Mediterráneo", path: "/portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-10.webp" },
-      // 6 x Jardín Binissalem
       { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (1).avif" },
       { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (2).avif" },
       { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (3).avif" },
       { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (4).avif" },
       { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (5).avif" },
       { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (6).avif" },
-      // 3 x Bunyola
+
+      // 5. Jardín Mediterráneo (3 photos)
+      { title: "Jardín Mediterráneo", path: "/portfolio/jardin-mediterraneo/images/landscape-garden-malorca-jardin-mediterraneo-sestepa.webp" },
+      { title: "Jardín Mediterráneo", path: "/portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-6-1.webp" },
+      { title: "Jardín Mediterráneo", path: "/portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-10.webp" },
+
+      // 6. Bunyola (3 photos)
       { title: "Bunyola", path: "/portfolio/bunyola/garden-design-mallorca-bunyola-sestepa.jpg" },
       { title: "Bunyola", path: "/gallery/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-1.webp" },
       { title: "Bunyola", path: "/portfolio/bunyola/images/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-2.jpg" },
-      // 3 x Son Vida
+
+      // 7. Son Vida (3 photos)
       { title: "Son Vida", path: "/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-1.jpg" },
       { title: "Son Vida", path: "/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-3.jpg" },
       { title: "Son Vida", path: "/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-5.jpg" },
-      // 3 x Crestatx
+
+      // 8. Crestatx (3 photos)
       { title: "Crestatx", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CRESTATX.avif" },
       { title: "Crestatx", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CRESTATX.jpg" },
       { title: "Crestatx", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CRESTATX.webp" },
-      // 3 x Puerto Andratx
+
+      // 9. Puerto Andratx (3 photos)
       { title: "Puerto Andratx", path: "/gallery/GARDEN-DESIGN-MALLORCA-PUERTO-ANDRATX-SESTEPA-DESIGN-MAR-LLABRES-_1_.webp" },
       { title: "Puerto Andratx", path: "/gallery/GARDEN-DESIGN-MALLORCA-PUERTO-ANDRATX-SESTEPA-DESIGN-MAR-LLABRES-_2_.webp" },
       { title: "Puerto Andratx", path: "/gallery/garden-design-mar-llabres-collab-mallorca-sestepa.jpg" },
-      // 3 x Hotel Cabot Las Velas
+
+      // 10. Hotel Cabot Las Velas (3 photos)
       { title: "Hotel Cabot Las Velas", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CABOT LAS VELAS (1).webp" },
       { title: "Hotel Cabot Las Velas", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CABOT LAS VELAS (2).webp" },
       { title: "Hotel Cabot Las Velas", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CABOT LAS VELAS (3).webp" },
-      // 3 x Finca Jardín Campos
+
+      // 11. Finca Jardín Campos (3 photos)
       { title: "Finca Jardín Campos", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CAMPOS (1).webp" },
       { title: "Finca Jardín Campos", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CAMPOS (2).webp" },
       { title: "Finca Jardín Campos", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CAMPOS (1).avif" },
-      // 3 x Santa Eugènia
+
+      // 12. Santa Eugènia (3 photos)
       { title: "Santa Eugènia", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-SANTA EUGENIA.avif" },
       { title: "Santa Eugènia", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-SANTA EUGENIA.webp" },
       { title: "Santa Eugènia", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-SANTA EUGENIA (2).webp" },
-      // 3 x Llubí
+
+      // 13. Llubí (3 photos)
       { title: "Llubí", path: "/gallery/GARDEN DESIGN LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA (1).avif" },
       { title: "Llubí", path: "/gallery/GARDEN DESIGN LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA (2).avif" },
       { title: "Llubí", path: "/gallery/GARDEN DESIGN LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA (3).avif" },
-      // 3 x Jardines Verticales en Mallorca
+
+      // 14. Jardines Verticales en Mallorca (3 photos)
       { title: "Jardines Verticales en Mallorca", path: "/gallery/VERTICAL GARDEN MALLORCA-SESTEPA-DESIGN (1).webp" },
       { title: "Jardines Verticales en Mallorca", path: "/gallery/VERTICAL GARDEN MALLORCA-SESTEPA-DESIGN (2).webp" },
       { title: "Jardines Verticales en Mallorca", path: "/gallery/VERTICAL GARDEN MALLORCA-SESTEPA-DESIGN (1).avif" }
@@ -1140,7 +1395,9 @@
           toggleFullscreen();
           break;
         case 'Escape':
-          if (document.fullscreenElement || document.webkitFullscreenElement || document.body.classList.contains('is-fullscreen')) {
+          if (document.getElementById('pdfModal').classList.contains('open')) {
+            closePdfModal();
+          } else if (document.fullscreenElement || document.webkitFullscreenElement || document.body.classList.contains('is-fullscreen')) {
             exitFullscreen();
           } else if (document.body.classList.contains('view-slideshow')) {
             showIndexView();
@@ -1201,23 +1458,45 @@
       themeToggleText.textContent = isLight ? 'Fondo Oscuro' : 'Fondo Claro';
     });
 
-    // Print & PDF Export (Preload all images eagerly before printing)
-    window.onbeforeprint = () => {
-      stopAutoPlay();
-      document.querySelectorAll('.slide-img').forEach(img => {
-        img.loading = 'eager';
-      });
-    };
+    // PDF Export Modal Handlers
+    const pdfModal = document.getElementById('pdfModal');
+    const btnPrint = document.getElementById('btnPrint');
+    const btnClosePdfModal = document.getElementById('btnClosePdfModal');
+    const btnBrowserPrint = document.getElementById('btnBrowserPrint');
 
-    document.getElementById('btnPrint').addEventListener('click', () => {
+    function openPdfModal() {
       stopAutoPlay();
+      pdfModal.classList.add('open');
+    }
+
+    function closePdfModal() {
+      pdfModal.classList.remove('open');
+    }
+
+    btnPrint.addEventListener('click', openPdfModal);
+    btnClosePdfModal.addEventListener('click', closePdfModal);
+    pdfModal.addEventListener('click', (e) => {
+      if (e.target === pdfModal) closePdfModal();
+    });
+
+    btnBrowserPrint.addEventListener('click', () => {
+      closePdfModal();
       document.querySelectorAll('.slide-img').forEach(img => {
         img.loading = 'eager';
       });
       window.print();
     });
 
-    // Initialize on Slide 0 for the slideshow deck
+    // Preload all images eagerly before native printing
+    window.onbeforeprint = () => {
+      stopAutoPlay();
+      closePdfModal();
+      document.querySelectorAll('.slide-img').forEach(img => {
+        img.loading = 'eager';
+      });
+    };
+
+    // Initialize on Slide 0
     goToSlide(0);
   </script>
 </body>

@@ -17,6 +17,21 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-26] - Antigravity (OG Image JPEG WhatsApp, Paleta Preto/Cinza, Agrupamento Binissalem e Dual PDF Modal) — publicado em master
+- **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento estrito mantido).
+- **Escopo:**
+  1. Criação e integração de imagem Open Graph JPEG dedicada (`public/images/og-presentacion-proyectos.jpg`, 1200x630, 337 KB) a partir da foto hero de Sant Llorenç (Muhlenbergia), garantindo compatibilidade total com o scraper do WhatsApp/Telegram que rejeita WebP.
+  2. Atualização das tags `<meta property="og:image">`, `secure_url`, `og:image:type`, `twitter:image` em `presentacion-proyectos.html`.
+  3. Eliminação total do tom âmbar/ouro na apresentação HTML, adotando paleta estritamente monocromática: preto profundo (`#0a0a0a`), cinzas nobres (`#dcdcdc`, `#888888`) e contrastes discretos de luxo.
+  4. Agrupamento rigoroso e consecutivo de todas as 9 fotos do Jardín Binissalem logo após as 3 fotos do Patio en Binissalem.
+  5. Adição de modal de exportação de PDF com opções diretas de download em alta fidelidade: Paisagem (A4 Desktop/Impresión, 21 MB) e Vertical (A4 Celular/WhatsApp, 21 MB), além de atalho de impressão nativa do navegador.
+- **Validação:**
+  - Validação técnica da imagem JPEG 1200x630 no filesystem.
+  - Validação dos arquivos PDF gerados via pymupdf abaixo do teto de 25 MB do Cloudflare Pages.
+  - Sincronização espelhada no arquivo raiz `presentacion-proyectos.html` e cache de preview.
+  - Push realizado para `origin/master`.
+- **Arquivos alterados:** `public/presentacion-proyectos.html`, `public/images/og-presentacion-proyectos.jpg`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Paisagem.pdf`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Celular-Vertical.pdf`, `STATUS.md`.
+
 ### [2026-10-26] - Antigravity (Correção Galeria Puerto Andratx, Apresentação HTML e Limpeza de Redirects) — publicado em master
 - **Autor/agente:** Antigravity. Disco J: não acessado.
 - **Escopo:**
