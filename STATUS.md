@@ -17,6 +17,24 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-26] - Antigravity (Design 100% Responsivo Mobile, Remoção de Botões Ant/Sig, Renomeação Horizontal e Limpeza PDF) — publicado em master
+- **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento estrito mantido).
+- **Escopo:**
+  1. Responsividade mobile completa da apresentação:
+     - Top bar ajustada para não quebrar títulos em múltiplas linhas (`white-space: nowrap`), contração harmônica para `S'Estepa Studio` em telas < 960px e `S'Estepa` em smartphones estreitos (< 420px).
+     - Botões compactos com labels responsivas: ícone dedicado para Modo Claro/Escuro e Fullscreen, 'PDF' conciso para telas móveis, prevenindo qualquer corte ou transbordo horizontal da barra de navegação.
+     - Índice com grid responsivo de 2 colunas (`repeat(2, 1fr)`) em mobile (< 680px), transformando a visualização em um catálogo editorial limpo.
+     - Slideshow com altura dinâmica `100dvh` e centralização matemática sem deformação.
+  2. Remoção definitiva dos botões 'Anterior' e 'Siguiente' da barra inferior, eliminando poluição visual. A navegação mantém swipe touch, cliques nas metades da tela e setas do teclado.
+  3. Barra inferior minimalista centralizada em cápsula translúcida de luxo contendo título do projeto e contador de fotos.
+  4. Remoção total da frase redundante 'ARQUITECTURA DEL PAISAJE · FOTOGRAFÍA' de todos os PDFs gerados.
+  5. Substituição da terminologia 'Paisaje' por 'Horizontal' (evitando conflito conceitual com paisagismo) tanto no modal de exportação quanto no arquivo final (`Sestepa-Design-Proyectos-Horizontal.pdf`).
+- **Validação:**
+  - Regeneração dos dois PDFs em alta fidelidade (`Sestepa-Design-Proyectos-Horizontal.pdf` e `Sestepa-Design-Proyectos-Celular-Vertical.pdf`), ambos preservados abaixo de 23 MB.
+  - Sincronização dos arquivos espelho na raiz e preview local.
+  - Push realizado para `origin/master`.
+- **Arquivos alterados:** `public/presentacion-proyectos.html`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Horizontal.pdf`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Celular-Vertical.pdf`, `scripts/generate_presentation_pdfs.py`, `STATUS.md`.
+
 ### [2026-10-26] - Antigravity (OG Image JPEG WhatsApp, Paleta Preto/Cinza, Agrupamento Binissalem e Dual PDF Modal) — publicado em master
 - **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento estrito mantido).
 - **Escopo:**
