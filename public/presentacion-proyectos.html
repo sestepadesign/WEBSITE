@@ -59,6 +59,7 @@
       z-index: 100;
       background: linear-gradient(180deg, rgba(13, 13, 12, 0.88) 0%, rgba(13, 13, 12, 0) 100%);
       pointer-events: none;
+      transition: opacity 0.35s ease, transform 0.35s ease;
     }
 
     body.pdf-light .top-bar {
@@ -122,6 +123,15 @@
       position: relative;
       width: 100vw;
       height: 100vh;
+      cursor: default;
+    }
+
+    .deck-container.cursor-prev {
+      cursor: w-resize;
+    }
+
+    .deck-container.cursor-next {
+      cursor: e-resize;
     }
 
     .slide {
@@ -243,15 +253,6 @@
       gap: 16px;
     }
 
-    .header-subbrand {
-      font-family: var(--font-sans);
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 400;
-    }
-
     .project-name {
       font-family: var(--font-serif);
       font-size: clamp(1.4rem, 2.5vw, 2.2rem);
@@ -310,6 +311,7 @@
       z-index: 100;
       background: linear-gradient(0deg, rgba(13, 13, 12, 0.88) 0%, rgba(13, 13, 12, 0) 100%);
       pointer-events: none;
+      transition: opacity 0.35s ease, transform 0.35s ease;
     }
 
     body.pdf-light .bottom-bar {
@@ -360,6 +362,58 @@
     .btn-nav:hover {
       background: rgba(255, 255, 255, 0.12);
       border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* True Fullscreen Mode & Auto-Hide Controls */
+    :fullscreen body,
+    :-webkit-full-screen body,
+    body.is-fullscreen {
+      background-color: var(--bg);
+    }
+
+    :fullscreen .top-bar,
+    :-webkit-full-screen .top-bar,
+    body.is-fullscreen .top-bar {
+      opacity: 0;
+      transform: translateY(-100%);
+      pointer-events: none;
+    }
+
+    :fullscreen .bottom-bar,
+    :-webkit-full-screen .bottom-bar,
+    body.is-fullscreen .bottom-bar {
+      opacity: 0;
+      transform: translateY(100%);
+      pointer-events: none;
+    }
+
+    :fullscreen.show-controls .top-bar,
+    :-webkit-full-screen.show-controls .top-bar,
+    body.is-fullscreen.show-controls .top-bar {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    :fullscreen.show-controls .bottom-bar,
+    :-webkit-full-screen.show-controls .bottom-bar,
+    body.is-fullscreen.show-controls .bottom-bar {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    :fullscreen .image-wrapper,
+    :-webkit-full-screen .image-wrapper,
+    body.is-fullscreen .image-wrapper {
+      height: calc(100vh - 90px);
+      max-width: 96vw;
+    }
+
+    :fullscreen .slide-img,
+    :-webkit-full-screen .slide-img,
+    body.is-fullscreen .slide-img {
+      max-height: 86vh;
     }
 
     /* Overview Grid Modal */
@@ -441,15 +495,18 @@
       text-overflow: ellipsis;
     }
 
-    /* ==========================================================================
-       PRINT & PDF EXPORT OPTIMIZATIONS (A4 LANDSCAPE 16:9 EXACT FIT)
-       ========================================================================== */
+    /* Print & PDF Export (A4 Landscape 297mm x 210mm) */
     @page {
-      size: A4 landscape;
+      size: 297mm 210mm;
       margin: 0;
     }
 
     @media print {
+      @page {
+        size: 297mm 210mm;
+        margin: 0;
+      }
+
       html, body {
         width: 297mm !important;
         height: auto !important;
@@ -483,7 +540,7 @@
         break-after: page !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
-        padding: 14mm 18mm 12mm !important;
+        padding: 12mm 16mm 10mm !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: flex-start !important;
@@ -515,11 +572,6 @@
         padding-bottom: 4mm !important;
       }
 
-      .header-subbrand {
-        display: inline-block !important;
-        font-size: 8pt !important;
-      }
-
       .project-name {
         font-size: 18pt !important;
         line-height: 1.2 !important;
@@ -531,8 +583,8 @@
 
       .image-wrapper {
         width: 100% !important;
-        height: calc(210mm - 46mm) !important;
-        max-height: calc(210mm - 46mm) !important;
+        height: calc(210mm - 44mm) !important;
+        max-height: calc(210mm - 44mm) !important;
         max-width: none !important;
         display: flex !important;
         align-items: center !important;
@@ -542,25 +594,21 @@
       .slide-img {
         max-width: 100% !important;
         max-height: 100% !important;
-        width: auto !important;
-        height: auto !important;
         object-fit: contain !important;
         box-shadow: none !important;
       }
     }
 
+    /* Responsive adjustments */
     @media (max-width: 768px) {
       .top-bar {
         padding: 0 16px;
       }
       .brand-title {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
       }
       .slide {
-        padding: 60px 16px 60px;
-      }
-      .project-name {
-        font-size: 1.2rem;
+        padding: 60px 16px 56px;
       }
       .image-wrapper {
         height: calc(100vh - 140px);
@@ -577,15 +625,26 @@
   <header class="top-bar">
     <div class="brand-title">Proyectos S'Estepa Design</div>
     <div class="top-controls">
-      <!-- Video Slideshow Preview -->
-      <button class="btn-icon" id="btnAutoPlay" title="Modo Video / Pase Automático (Espacio)">
+      <!-- 1. Overview Index -->
+      <button class="btn-icon" id="btnOverview" title="Índice de proyectos (G)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+        <span>Índice</span>
+      </button>
+
+      <!-- 2. PLAY / Video Slideshow -->
+      <button class="btn-icon" id="btnAutoPlay" title="Modo Video / Reproducción Automática (Espacio)">
         <svg id="playIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polygon points="5 3 19 12 5 21 5 3"></polygon>
         </svg>
-        <span id="autoPlayText">Pase Video</span>
+        <span id="autoPlayText">PLAY</span>
       </button>
 
-      <!-- Theme Toggle -->
+      <!-- 3. Theme Toggle -->
       <button class="btn-icon" id="btnThemeToggle" title="Alternar Fondo Claro / Oscuro para PDF">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="12" cy="12" r="5"></circle>
@@ -601,25 +660,7 @@
         <span id="themeToggleText">Fondo Claro</span>
       </button>
 
-      <!-- Overview Index -->
-      <button class="btn-icon" id="btnOverview" title="Índice de fotografías (G)">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="3" y="3" width="7" height="7"></rect>
-          <rect x="14" y="3" width="7" height="7"></rect>
-          <rect x="14" y="14" width="7" height="7"></rect>
-          <rect x="3" y="14" width="7" height="7"></rect>
-        </svg>
-        <span>Índice</span>
-      </button>
-
-      <!-- Fullscreen -->
-      <button class="btn-icon" id="btnFullscreen" title="Pantalla completa (F)">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
-        </svg>
-      </button>
-
-      <!-- Export to PDF Button -->
+      <!-- 4. Export to PDF Button -->
       <button class="btn-icon" id="btnPrint" style="background: rgba(196, 154, 91, 0.22); border-color: var(--accent);" title="Guardar como PDF / Imprimir (Ctrl+P)">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="6 9 6 2 18 2 18 9"></polyline>
@@ -627,6 +668,13 @@
           <rect x="6" y="14" width="12" height="8"></rect>
         </svg>
         <span style="font-weight: 500;">Generar PDF</span>
+      </button>
+
+      <!-- 5. Fullscreen -->
+      <button class="btn-icon" id="btnFullscreen" title="Pantalla completa (F)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+        </svg>
       </button>
     </div>
   </header>
@@ -647,7 +695,7 @@
           </div>
           <div class="cover-start-hint" id="startVideoDeck" style="border-color: rgba(255,255,255,0.2); color: var(--text);">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            <span>Reproducir Video</span>
+            <span>PLAY</span>
           </div>
         </div>
       </div>
@@ -804,7 +852,6 @@
       header.className = 'slide-header';
       header.innerHTML = `
         <div class="slide-header-left">
-          <span class="header-subbrand">Proyectos S'Estepa Design</span>
           <h2 class="project-name">${item.title}</h2>
         </div>
         <span class="project-order">${String(slideIndex).padStart(2, '0')} / ${String(galleryItems.length).padStart(2, '0')}</span>
@@ -854,7 +901,7 @@
       overviewGrid.appendChild(card);
     });
 
-    // Navigation Logic
+    // Navigation State
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
@@ -862,42 +909,60 @@
     const totalSlidesNum = document.getElementById('totalSlidesNum');
     totalSlidesNum.textContent = totalSlides;
 
-    function updateSlide() {
-      slides.forEach((s, idx) => {
-        s.classList.toggle('active', idx === currentSlide);
-      });
+    function goToSlide(index) {
+      if (index < 0 || index >= totalSlides) return;
+      slides[currentSlide].classList.remove('active');
+      currentSlide = index;
+      slides[currentSlide].classList.add('active');
       currentSlideNum.textContent = currentSlide + 1;
 
-      document.querySelectorAll('.overview-card').forEach(c => {
-        c.classList.toggle('active', parseInt(c.dataset.index, 10) === currentSlide);
+      // Highlight active in overview
+      document.querySelectorAll('.overview-card').forEach(card => {
+        card.classList.toggle('active', parseInt(card.dataset.index) === currentSlide);
       });
-    }
 
-    function goToSlide(index) {
-      if (index >= 0 && index < totalSlides) {
-        currentSlide = index;
-        updateSlide();
+      // Preload next images
+      if (currentSlide + 1 < totalSlides) {
+        const nextImg = slides[currentSlide + 1].querySelector('.slide-img');
+        if (nextImg && nextImg.loading === 'lazy') nextImg.loading = 'eager';
+      }
+      if (currentSlide + 2 < totalSlides) {
+        const nextImg2 = slides[currentSlide + 2].querySelector('.slide-img');
+        if (nextImg2 && nextImg2.loading === 'lazy') nextImg2.loading = 'eager';
       }
     }
 
     function nextSlide() {
       if (currentSlide < totalSlides - 1) {
-        currentSlide++;
-        updateSlide();
-      } else if (isPlaying) {
-        currentSlide = 1;
-        updateSlide();
+        goToSlide(currentSlide + 1);
+      } else {
+        goToSlide(0);
       }
     }
 
     function prevSlide() {
       if (currentSlide > 0) {
-        currentSlide--;
-        updateSlide();
+        goToSlide(currentSlide - 1);
+      } else {
+        goToSlide(totalSlides - 1);
       }
     }
 
-    // Video Slideshow / Auto-Play Mode
+    // Auto-Hide Controls & Fullscreen idle management
+    let idleTimer = null;
+    function showControls() {
+      document.body.classList.add('show-controls');
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(() => {
+        if (document.fullscreenElement || document.webkitFullscreenElement || document.body.classList.contains('is-fullscreen')) {
+          document.body.classList.remove('show-controls');
+        }
+      }, 2500);
+    }
+    window.addEventListener('mousemove', showControls);
+    window.addEventListener('touchstart', showControls, { passive: true });
+
+    // Video Slideshow / PLAY Mode
     let isPlaying = false;
     let autoPlayTimer = null;
     const SLIDE_DURATION = 3800; // 3.8 seconds per photo
@@ -906,7 +971,7 @@
       isPlaying = true;
       document.body.classList.add('video-playing');
       document.getElementById('btnAutoPlay').classList.add('active-mode');
-      document.getElementById('autoPlayText').textContent = 'Pausar';
+      document.getElementById('autoPlayText').textContent = 'PAUSA';
       document.getElementById('playIcon').innerHTML = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>';
       
       if (currentSlide === 0) {
@@ -921,7 +986,7 @@
       isPlaying = false;
       document.body.classList.remove('video-playing');
       document.getElementById('btnAutoPlay').classList.remove('active-mode');
-      document.getElementById('autoPlayText').textContent = 'Pase Video';
+      document.getElementById('autoPlayText').textContent = 'PLAY';
       document.getElementById('playIcon').innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
       clearInterval(autoPlayTimer);
     }
@@ -936,7 +1001,88 @@
       startAutoPlay();
     });
 
-    // Event Listeners
+    // Screen-Half Click Navigation (Signature S'Estepa Slideshow behavior)
+    deckContainer.addEventListener('click', (e) => {
+      if (currentSlide === 0) return;
+      if (overviewModal.classList.contains('open')) return;
+      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.top-bar') || e.target.closest('.bottom-bar') || e.target.closest('.cover-buttons')) {
+        return;
+      }
+
+      stopAutoPlay();
+      const width = window.innerWidth;
+      const clickX = e.clientX;
+      if (clickX < width / 2) {
+        prevSlide();
+      } else {
+        nextSlide();
+      }
+      showControls();
+    });
+
+    // Dynamic directional cursor indication on hover
+    deckContainer.addEventListener('mousemove', (e) => {
+      showControls();
+      if (currentSlide === 0 || overviewModal.classList.contains('open')) {
+        deckContainer.classList.remove('cursor-prev', 'cursor-next');
+        return;
+      }
+      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.top-bar') || e.target.closest('.bottom-bar') || e.target.closest('.cover-buttons')) {
+        deckContainer.classList.remove('cursor-prev', 'cursor-next');
+        return;
+      }
+      const width = window.innerWidth;
+      if (e.clientX < width / 2) {
+        deckContainer.classList.add('cursor-prev');
+        deckContainer.classList.remove('cursor-next');
+      } else {
+        deckContainer.classList.add('cursor-next');
+        deckContainer.classList.remove('cursor-prev');
+      }
+    });
+
+    // Touch Navigation for Mobile & Tablets (Swipe + Half-Screen Tap)
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchStartTime = 0;
+
+    window.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+      touchStartTime = Date.now();
+      showControls();
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+      if (overviewModal.classList.contains('open')) return;
+      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.top-bar') || e.target.closest('.bottom-bar') || e.target.closest('.cover-buttons')) return;
+
+      const diffX = e.changedTouches[0].screenX - touchStartX;
+      const diffY = e.changedTouches[0].screenY - touchStartY;
+      const elapsed = Date.now() - touchStartTime;
+
+      // Horizontal swipe (left = next, right = prev)
+      if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+        stopAutoPlay();
+        if (diffX < 0) nextSlide();
+        else prevSlide();
+        return;
+      }
+
+      // Tap on left/right half screen
+      if (currentSlide > 0 && Math.abs(diffX) < 20 && Math.abs(diffY) < 20 && elapsed < 400) {
+        const width = window.innerWidth;
+        const tapX = e.changedTouches[0].clientX;
+        stopAutoPlay();
+        if (tapX < width / 2) {
+          prevSlide();
+        } else {
+          nextSlide();
+        }
+      }
+    }, { passive: true });
+
+    // Navigation Buttons
     document.getElementById('btnNext').addEventListener('click', () => {
       stopAutoPlay();
       nextSlide();
@@ -952,7 +1098,7 @@
 
     // Keyboard Shortcuts
     window.addEventListener('keydown', (e) => {
-      if (document.getElementById('overviewModal').classList.contains('open')) {
+      if (overviewModal.classList.contains('open')) {
         if (e.key === 'Escape') closeOverview();
         return;
       }
@@ -995,38 +1141,52 @@
         case 'F':
           toggleFullscreen();
           break;
+        case 'Escape':
+          if (document.fullscreenElement || document.webkitFullscreenElement) {
+            toggleFullscreen();
+          }
+          break;
       }
     });
 
-    // Touch Swipe Navigation for Tablets & Mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
-    window.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    window.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
-    }, { passive: true });
-
-    function handleSwipe() {
-      const swipeDistance = touchEndX - touchStartX;
-      if (Math.abs(swipeDistance) > 50) {
-        stopAutoPlay();
-        if (swipeDistance < 0) nextSlide();
-        else prevSlide();
-      }
-    }
-
     // Fullscreen Toggle
     function toggleFullscreen() {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(() => {});
+      if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        const docEl = document.documentElement;
+        if (docEl.requestFullscreen) {
+          docEl.requestFullscreen().catch(() => {});
+        } else if (docEl.webkitRequestFullscreen) {
+          docEl.webkitRequestFullscreen();
+        }
+        document.body.classList.add('is-fullscreen');
+        showControls();
       } else {
-        if (document.exitFullscreen) document.exitFullscreen();
+        if (document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        }
+        document.body.classList.remove('is-fullscreen', 'show-controls');
       }
     }
+
+    document.addEventListener('fullscreenchange', () => {
+      if (!document.fullscreenElement) {
+        document.body.classList.remove('is-fullscreen', 'show-controls');
+      } else {
+        document.body.classList.add('is-fullscreen');
+        showControls();
+      }
+    });
+    document.addEventListener('webkitfullscreenchange', () => {
+      if (!document.webkitFullscreenElement) {
+        document.body.classList.remove('is-fullscreen', 'show-controls');
+      } else {
+        document.body.classList.add('is-fullscreen');
+        showControls();
+      }
+    });
+
     document.getElementById('btnFullscreen').addEventListener('click', toggleFullscreen);
 
     // Theme Toggle (Dark Luxury / Clean White for PDF)
