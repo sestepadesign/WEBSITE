@@ -27,6 +27,7 @@ export const projectCategoryMap: Record<string, PortfolioFilterCategory> = {
   'son-vida': 'residential',
   'seaside-house-alcudia': 'residential',
   'sacabaneta': 'residential',
+  'puerto-andratx': 'residential',
   'finca-garden-campos-mallorca': 'estate',
   'sant-llorenc': 'estate',
   'jardin-mediterraneo': 'estate',

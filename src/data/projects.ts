@@ -1754,6 +1754,54 @@ export const projects: Project[] = [
         "Bei der Gestaltung dieses Gartens wurden visuelle und funktionale Elemente erfolgreich miteinander kombiniert, so dass ein reizvoller und harmonischer Raum entstand, in dem man sich am Meer erholen und die Schönheit der Natur genießen kann."
       ]
     }
+  },
+  {
+    slug: "puerto-andratx",
+    location: "Port d'Andratx, Mallorca",
+    wikidataLocation: "https://www.wikidata.org/wiki/Q1002422",
+    year: "2023",
+    architect: "Mar Llabrés",
+    video: null,
+    hidden: true,
+    cover: "/gallery/GARDEN-DESIGN-MALLORCA-PUERTO-ANDRATX-SESTEPA-DESIGN-MAR-LLABRES-_1_.webp",
+    images: [
+      "/gallery/GARDEN-DESIGN-MALLORCA-PUERTO-ANDRATX-SESTEPA-DESIGN-MAR-LLABRES-_1_.webp",
+      "/gallery/GARDEN-DESIGN-MALLORCA-PUERTO-ANDRATX-SESTEPA-DESIGN-MAR-LLABRES-_2_.webp",
+      "/gallery/garden-design-mar-llabres-collab-mallorca-sestepa.jpg"
+    ],
+    en: {
+      title: "Puerto Andratx",
+      subtitle: "Architectural botanical integration overlooking the bay in collaboration with Mar Llabrés",
+      category: "Preserved Botanical Installation",
+      botanical: "Bougainvillea spectabilis, Hedera helix, Preserved and hyperrealistic Mediterranean foliage",
+      description: [
+        "Developed in collaboration with interior designer Mar Llabrés, this private villa in Port d'Andratx explores high-precision botanical design and maintenance-free hyperrealistic green compositions.",
+        "The intervention frames contemporary interior courtyards, infinity pool terraces, and crisp architectural openings facing the Mediterranean Sea.",
+        "By integrating UV-stabilized, lifelike botanical specimens, lush vertical cascades of vibrant bougainvillea and architectural ivy bring perennial color and Mediterranean freshness to spaces where natural irrigation or direct soil contact would otherwise present technical constraints."
+      ]
+    },
+    es: {
+      title: "Puerto Andratx",
+      subtitle: "Integración botánica arquitectónica frente a la bahía en colaboración con Mar Llabrés",
+      category: "Instalación Botánica Preservada",
+      botanical: "Bougainvillea spectabilis, Hedera helix, Follaje botánico hiperrealista y preservado",
+      description: [
+        "Desarrollado en colaboración con la diseñadora de interiores Mar Llabrés, este proyecto residencial en Port d'Andratx explora el diseño botánico de alta precisión mediante composiciones vegetales hiperrealistas y libres de mantenimiento.",
+        "La intervención complementa la arquitectura contemporánea de la villa, enmarcando patios interiores, la terraza de la piscina infinita y las vistas panorámicas a la bahía.",
+        "Mediante la integración de especies botánicas biosintéticas de última generación y alta resistencia UV, se lograron vibrantes cascadas de buganvilla y hiedra arquitectónica que aportan frescura perenne y calidez mediterránea en zonas donde el riego convencional y la humedad representan limitaciones constructivas."
+      ]
+    },
+    de: {
+      title: "Puerto Andratx",
+      subtitle: "Architektonische botanische Integration mit Blick auf die Bucht in Kooperation mit Mar Llabrés",
+      category: "Konservierte Botanische Installation",
+      botanical: "Bougainvillea spectabilis, Hedera helix, Hyperrealistisches mediterranes Blattwerk",
+      description: [
+        "In Zusammenarbeit mit der Innenarchitektin Mar Llabrés verbindet dieses Projekt in Port d'Andratx moderne Architektur mit präziser, pflegefreier botanischer Gestaltung.",
+        "Die Installation setzt farbintensive Akzente an Innenhöfen, Terrassen und der Infinity-Pool-Ebene mit Panoramablick auf das Meer.",
+        "Hochwertige, UV-resistente botanische Kompositionen aus Bougainvillea und Kletterpflanzen schaffen ganzjährige mediterrane Frische ohne Bewässerungsaufwand."
+      ]
+    }
   }
 ];
 

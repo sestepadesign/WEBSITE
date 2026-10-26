@@ -156,6 +156,11 @@ export const PROJECT_PUBLIC_PATHS: Record<string, Record<SiteLocale, string>> = 
     es: '/es/sacabaneta/',
     de: '/de/sacabaneta/',
   },
+  'puerto-andratx': {
+    en: '/puerto-andratx/',
+    es: '/es/puerto-andratx/',
+    de: '/de/puerto-andratx/',
+  },
 };
 
 export const PROJECT_PATH_ALIASES: Record<SiteLocale, Record<string, string>> = {

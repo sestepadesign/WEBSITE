@@ -22,6 +22,7 @@ const hotelCabot = 'hotelcabotlasvelas';
 const santaEugenia = 'terrace-garden-santa-eugenia';
 const llubi = 'garden-design-llubi-mallorca';
 const vertical = 'vertical-gardens-in-mallorca';
+const puertoAndratx = 'puerto-andratx';
 
 /** Filename on disk (may include spaces — encode in HTML via normal paths). */
 function galleryPath(filename: string): string {
@@ -208,17 +209,17 @@ export const galleryImages: GalleryImageEntry[] = [
   {
     src: galleryPath('GARDEN-DESIGN-MALLORCA-PUERTO-ANDRATX-SESTEPA-DESIGN-MAR-LLABRES-_1_.webp'),
     alt: 'GARDEN DESIGN MALLORCA PUERTO ANDRATX SESTEPA DESIGN MAR LLABRES',
-    projectSlug: bunyola,
+    projectSlug: puertoAndratx,
   },
   {
     src: galleryPath('GARDEN-DESIGN-MALLORCA-PUERTO-ANDRATX-SESTEPA-DESIGN-MAR-LLABRES-_2_.webp'),
     alt: 'GARDEN DESIGN MALLORCA PUERTO ANDRATX SESTEPA DESIGN MAR LLABRES',
-    projectSlug: bunyola,
+    projectSlug: puertoAndratx,
   },
   {
     src: galleryPath('garden-design-mar-llabres-collab-mallorca-sestepa.jpg'),
     alt: 'GARDEN DESIGN MAR LLABRES COLLABORATION MALLORCA SESTEPA DESIGN',
-    projectSlug: bunyola,
+    projectSlug: puertoAndratx,
   },
   // 3 × Hotel Cabot
   {
