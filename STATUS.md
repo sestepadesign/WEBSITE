@@ -17,6 +17,23 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-26] - Antigravity (Tipografia de Cabeçalho do PDF Premium & Cartão Interativo de Encerramento) — publicado em master
+- **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento estrito mantido).
+- **Escopo:**
+  1. Aumento e destaque premium no cabeçalho das páginas dos PDFs: `S'ESTEPA DESIGN STUDIO` configurado em `times-bold`, corpo `15.0pt` e alto contraste (`#f2f2f2`), garantindo legibilidade perfeita mesmo em miniaturas e cards do WhatsApp.
+  2. Criação da página 52 de encerramento em ambos os PDFs (Horizontal e Celular Vertical) com um cartão de contato executivo estilizado:
+     - Título: `S'ESTEPA DESIGN` com subtítulo `ESTUDIO DE PAISAJISMO · MALLORCA`.
+     - 4 blocos de ação 100% clicáveis (`fitz.LINK_URI`):
+       - Email: `sofia@sestepa.com` (`mailto:sofia@sestepa.com`)
+       - Telefone / WhatsApp: `+34 681 272 252` (`https://wa.me/34681272252`)
+       - Endereço / Estúdio: `Carrer dels Menestrals, 5 · 07300 Inca` (`https://maps.google.com/?q=Carrer+dels+Menestrals+5+07300+Inca+Illes+Balears`)
+       - Web Oficial: `design.sestepa.com` (`https://design.sestepa.com`)
+- **Validação:**
+  - Verificação de 52 páginas em ambos os PDFs com 4 links funcionais embutidos em cada um.
+  - Tamanho dos arquivos validado em 22.1 MB (< 25 MB limite Cloudflare).
+  - Push realizado para `origin/master`.
+- **Arquivos alterados:** `scripts/generate_presentation_pdfs.py`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Horizontal.pdf`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Celular-Vertical.pdf`, `STATUS.md`.
+
 ### [2026-10-26] - Antigravity (Index Desktop em 6 Colunas / Múltiplos de 3) — publicado em master
 - **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento estrito mantido).
 - **Escopo:**
