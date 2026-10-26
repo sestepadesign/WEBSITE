@@ -28,6 +28,7 @@ export const projectCategoryMap: Record<string, PortfolioFilterCategory> = {
   'seaside-house-alcudia': 'residential',
   'sacabaneta': 'residential',
   'puerto-andratx': 'residential',
+  andratx: 'estate',
   'finca-garden-campos-mallorca': 'estate',
   'sant-llorenc': 'estate',
   'jardin-mediterraneo': 'estate',
@@ -59,6 +60,7 @@ export const PORTFOLIO_PROJECT_ORDER: string[] = [
   'finca-garden-inca',
   'hotelcabotlasvelas',
   'vertical-gardens-in-mallorca',
+  'andratx',
   'sacabaneta',
   'seaside-house-alcudia'
 ];

@@ -17,6 +17,33 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-26] - Antigravity (Novo Projeto Andratx, Atualização de Fotos na Galeria e Apresentação, PDFs 66 fotos) — publicado em master
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Declaração explícita de uso somente leitura (read-only). Cópia estrita de `Copia de campos-1.jpg` para `originais-grandes\campos\campos-1.jpg`. Nenhuma escrita, renomeação ou exclusão em J:.
+- **Escopo:**
+  1. Novo Projeto Andratx (Camino en Mallorca):
+     - Slug canônico em inglês e estruturado: `/andratx/` (EN), `/es/andratx/` (ES), `/de/andratx/` (DE) registrado em `site-urls.ts`, `projects.ts` e `portfolio-categories.ts`.
+     - Posicionamento em `PORTFOLIO_PROJECT_ORDER` como 3º projeto contando do final (`hotelcabotlasvelas`, `vertical-gardens-in-mallorca`, `andratx`, `sacabaneta`, `seaside-house-alcudia`).
+     - Conversão das 3 fotos originais de `originais-grandes\andratx` para WebP otimizado com nomes SEO (`garden-design-mallorca-andratx-sestepa-01.webp`, `02.webp`, `03.webp`) e imagem de capa.
+     - Redirecionamento 301 de `/diseno-camino-mallorca/` para `/andratx/` registrado em `_redirects`.
+     - Inclusão das fotos na galeria (`gallery-images.ts`) e no catálogo do slideshow (`presentacion-proyectos.html`) posicionadas entre `binissalemCourtyard` e `binissalem`.
+  2. Atualização de Fotos da Galeria e Apresentação (Catálogo com 66 fotos = 11 linhas completas de 6):
+     - Cabot Las Velas: Atualizado para 6 fotos aprovadas.
+     - Campos Finca: Atualizado para 6 fotos aprovadas (incluindo foto aérea master).
+     - Santa Eugènia: Atualizado para 6 fotos aprovadas.
+     - Llubí: Remoção das 3 fotos legadas .avif; substituição pelas 6 fotos novas aprovadas.
+     - Jardins Verticais: Remoção de 2 fotos obsoletas; inclusão de 3 fotos de 3 anos de crescimento (05, 08 e 11 bougainvillea mesh).
+  3. Regeneração dos PDFs de Apresentação (Horizontal e Celular Vertical):
+     - 67 páginas geradas (66 lâminas de fotos + lâmina 67 de cartão de visitas interativo com 4 links funcionais).
+     - Otimização de imagens internas para 1440px / q80: arquivos finais com 21.15 MB e 21.16 MB, cumprindo com folga a regra de limite de 25 MB do Cloudflare Pages.
+  4. Sitemap e Redirects:
+     - `sitemap-images.xml` e `_redirects` sincronizados e validados com build local Astro sem erros.
+- **Validação:**
+  - Build local isolado com Astro (`python scripts/preview_local.py build`) executado com sucesso: 151 páginas estáticas geradas, indexação Pagefind sem erros.
+  - Verificação de dimensões e conformidade de peso dos PDFs (< 25 MB).
+- **Arquivos alterados:** `src/data/site-urls.ts`, `src/data/portfolio-categories.ts`, `src/data/projects.ts`, `src/data/gallery-images.ts`, `public/_redirects`, `public/presentacion-proyectos.html`, `public/sitemap-images.xml`, `scripts/generate_presentation_pdfs.py`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Horizontal.pdf`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Celular-Vertical.pdf`, `public/portfolio/andratx/`, `STATUS.md`.
+
+
 ### [2026-10-26] - Antigravity (Navegação Interativa: Links de Cabeçalho e Título do Projeto no Slideshow) — publicado em master
 - **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento estrito mantido).
 - **Escopo:**

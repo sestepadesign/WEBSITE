@@ -349,6 +349,7 @@ export const projects: Project[] = [
     cover: "/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp",
     ogImage: "/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp",
     images: [
+      "finca-garden-campos-sestepa-design-landscaper-mallorca-01-master.webp",
       "/portfolio/finca-garden-campos-mallorca/garden-design-mallorca-finca-garden-campos-mallorca-sestepa.webp",
       "GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-13.jpg",
       "GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-11.jpg",
@@ -1752,6 +1753,53 @@ export const projects: Project[] = [
         "Wir haben darauf geachtet, dass die Farben in diesen Räumen durch ihre Intensität und ihren Kontrast hervorstechen: intensive Grün-, Flieder-, Blau-, Gelb- und Weißtöne. Auf diese Weise wurde der Garten vor allem im Sommer und Frühjahr zu einem kontrastreichen Farbenspiel.",
         "Die meisten Pflanzen waren tropischen Ursprungs und an die Hanglage des Grundstücks in Meeresnähe angepasst, mit Eigenschaften, die es ihnen ermöglichen, die wenigen Winterfröste zu überstehen.",
         "Bei der Gestaltung dieses Gartens wurden visuelle und funktionale Elemente erfolgreich miteinander kombiniert, so dass ein reizvoller und harmonischer Raum entstand, in dem man sich am Meer erholen und die Schönheit der Natur genießen kann."
+      ]
+    }
+  },
+  {
+    slug: "andratx",
+    location: "Andratx, Mallorca",
+    wikidataLocation: "https://www.wikidata.org/wiki/Q492984",
+    year: "2023",
+    architect: null,
+    video: null,
+    cover: "/portfolio/andratx/garden-design-mallorca-andratx-sestepa-01.webp",
+    images: [
+      "/portfolio/andratx/images/garden-design-mallorca-andratx-sestepa-01.webp",
+      "/portfolio/andratx/images/garden-design-mallorca-andratx-sestepa-02.webp",
+      "/portfolio/andratx/images/garden-design-mallorca-andratx-sestepa-03.webp"
+    ],
+    en: {
+      title: "Andratx",
+      subtitle: "A pathway towards the sky and mountains, creating a visual tunnel into nature",
+      category: "Mediterranean Estate Path",
+      botanical: "Muhlenbergia capillaris, Stipa tenuissima, Pittosporum tobira 'Nana', Gaura lindheimeri, Olea europaea",
+      description: [
+        "A pathway towards the sky and the mountains, creating a contemplative visual tunnel that integrates harmoniously with the wild Tramuntana landscape.",
+        "In this project, we accentuate the natural surroundings with resilient Mediterranean species whose textures and continuous movement dance with the island breeze.",
+        "The palette of rustic reds, yellows, whites, and deep greens highlights botanical diversity, accompanying the gravel path with an organic, elegant rhythm."
+      ]
+    },
+    es: {
+      title: "Andratx",
+      subtitle: "Un camino hacia el cielo y las montañas, un túnel visual hacia estos dos elementos de la naturaleza",
+      category: "Sendero de Finca Mediterránea",
+      botanical: "Muhlenbergia capillaris, Stipa tenuissima, Pittosporum tobira 'Nana', Gaura lindheimeri, Olea europaea",
+      description: [
+        "Un camino hacia el cielo y las montañas, un túnel visual hacia estos dos elementos de la naturaleza.",
+        "En este proyecto acentuamos el entorno salvaje con plantas de características y formas naturales, donde el viento hace que siempre tengan movimiento y sus diferentes tonalidades de colores rojos, amarillos, blancos, verdes, marcan la diversidad de especies, creando un espacio armónico y salvaje que acompaña al camino y su entorno.",
+        "Este lindísimo camino diseñado y montado por S’Estepa está dentro de una finca en Mallorca en las Islas Baleares."
+      ]
+    },
+    de: {
+      title: "Andratx",
+      subtitle: "Ein Weg zum Himmel und zu den Bergen, ein visueller Tunnel in die Natur",
+      category: "Mediterraner Fincaweg",
+      botanical: "Muhlenbergia capillaris, Stipa tenuissima, Pittosporum tobira 'Nana', Gaura lindheimeri, Olea europaea",
+      description: [
+        "Ein Weg zum Himmel und zu den Bergen, ein visueller Tunnel zu diesen beiden Elementen der mallorquinischen Natur.",
+        "In diesem Projekt betonen wir die wilde Umgebung mit Pflanzen von natürlicher Form und Wuchs, deren Bewegung im Wind und deren rote, gelbe, weiße und grüne Farbtöne einen harmonischen Raum schaffen.",
+        "Dieser von S'Estepa gestaltete und angelegte Pfad befindet sich auf einer privaten Finca auf Mallorca."
       ]
     }
   },
