@@ -96,23 +96,32 @@
       pointer-events: auto;
     }
 
-    .brand-title {
+    .brand-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
       font-family: var(--font-serif);
       font-size: 1.22rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       font-weight: 300;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .brand-link {
       color: var(--text);
       text-decoration: none;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 12px;
       transition: color 0.25s ease, opacity 0.25s ease;
     }
 
-    .brand-title:hover {
-      color: var(--accent);
+    .brand-link:hover {
+      color: #ffffff;
+      text-decoration: underline;
+      text-underline-offset: 4px;
     }
 
     .brand-sep {
@@ -122,6 +131,10 @@
 
     body.pdf-light .brand-sep {
       color: rgba(0, 0, 0, 0.25);
+    }
+
+    .brand-name-short {
+      display: none;
     }
 
     .brand-secondary,
@@ -365,6 +378,19 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s ease, opacity 0.2s ease;
+      cursor: pointer;
+    }
+
+    .bottom-project-name:hover {
+      color: #ffffff;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    body.pdf-light .bottom-project-name:hover {
+      color: #000000;
     }
 
     .bottom-counter {
@@ -751,9 +777,8 @@
     }
 
     @media (max-width: 960px) {
-      .brand-secondary,
       .brand-location,
-      .brand-sep {
+      .brand-sep:last-of-type {
         display: none !important;
       }
     }
@@ -763,11 +788,15 @@
         height: 54px;
         padding: 0 max(12px, env(safe-area-inset-right)) 0 max(12px, env(safe-area-inset-left));
       }
-      .brand-title {
+      .brand-nav {
         font-size: 0.96rem;
         letter-spacing: 0.1em;
         white-space: nowrap;
         gap: 6px;
+      }
+      .brand-projects,
+      .brand-sep {
+        display: none !important;
       }
       .top-controls {
         gap: 6px;
@@ -866,11 +895,14 @@
       }
     }
 
-    @media (max-width: 420px) {
-      .brand-subtitle {
+    @media (max-width: 440px) {
+      .brand-name-full {
         display: none !important;
       }
-      .brand-title {
+      .brand-name-short {
+        display: inline !important;
+      }
+      .brand-nav {
         font-size: 0.9rem;
       }
       .top-controls {
@@ -901,14 +933,20 @@
 
   <!-- Top Bar (Persistent Navigation) -->
   <header class="top-bar">
-    <a href="javascript:void(0)" class="brand-title" id="brandLink" title="Ir al Índice">
-      <span class="brand-primary">S'Estepa</span>
-      <span class="brand-subtitle">Studio</span>
+    <nav class="brand-nav" aria-label="Navegación principal">
+      <a href="https://design.sestepa.com" class="brand-link brand-studio" title="Ir al sitio web oficial de S'Estepa Design Studio" target="_blank" rel="noopener">
+        <span class="brand-name-full">S'Estepa Design Studio</span>
+        <span class="brand-name-short">S'Estepa</span>
+      </a>
       <span class="brand-sep">|</span>
-      <span class="brand-secondary">Proyectos</span>
+      <a href="javascript:void(0)" class="brand-link brand-projects" id="brandProjectsLink" title="Ir al índice de proyectos">
+        <span>Proyectos</span>
+      </a>
       <span class="brand-sep">|</span>
-      <span class="brand-location">Mallorca</span>
-    </a>
+      <a href="https://maps.google.com/?q=Carrer+dels+Menestrals+5+07300+Inca+Illes+Balears" class="brand-link brand-location" title="Ver ubicación del estudio en Google Maps" target="_blank" rel="noopener">
+        <span>Mallorca</span>
+      </a>
+    </nav>
 
     <div class="top-controls">
       <!-- 1. Index Button (visible only in Slideshow view) -->
@@ -991,7 +1029,7 @@
   <!-- Bottom Navigation Bar (Active in Slideshow view) -->
   <footer class="bottom-bar" id="bottomBar">
     <div class="bottom-project-info">
-      <span class="bottom-project-name" id="bottomProjectName"></span>
+      <a href="#" class="bottom-project-name" id="bottomProjectName" target="_blank" rel="noopener" title="Ver proyecto en la web"></a>
       <span class="bottom-counter" id="bottomCounter">01 / 51</span>
     </div>
   </footer>
@@ -1044,83 +1082,83 @@
     // Gallery Data grouped with strict coherence (All project photos consecutive)
     const galleryItems = [
       // 1. Santa Ponsa (3 photos)
-      { title: "Santa Ponsa", path: "/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-01-pool-villa-stipa-sestepa.webp" },
-      { title: "Santa Ponsa", path: "/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-06-covered-terrace-pool-perspective-sestepa.webp" },
-      { title: "Santa Ponsa", path: "/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-09-architectural-side-walkway-vista-sestepa.webp" },
+      { title: "Santa Ponsa", path: "/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-01-pool-villa-stipa-sestepa.webp", url: "/santa-ponsa/" },
+      { title: "Santa Ponsa", path: "/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-06-covered-terrace-pool-perspective-sestepa.webp", url: "/santa-ponsa/" },
+      { title: "Santa Ponsa", path: "/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-09-architectural-side-walkway-vista-sestepa.webp", url: "/santa-ponsa/" },
 
       // 2. Sant Llorenç (6 photos grouped consecutively)
-      { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp" },
-      { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-01-corten-gravel-walk-destaque-sestepa-design.webp" },
-      { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-15-mediterranean-botanical-detail-sestepa-design.webp" },
-      { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp" },
-      { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp" },
-      { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp" },
+      { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp", url: "/sant-llorenc/" },
+      { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-01-corten-gravel-walk-destaque-sestepa-design.webp", url: "/sant-llorenc/" },
+      { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-15-mediterranean-botanical-detail-sestepa-design.webp", url: "/sant-llorenc/" },
+      { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp", url: "/sant-llorenc/" },
+      { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp", url: "/sant-llorenc/" },
+      { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp", url: "/sant-llorenc/" },
 
       // 3. Patio en Binissalem (3 photos)
-      { title: "Patio en Binissalem", path: "/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-01-pool-terrace-lemon-tree-sestepa.webp" },
-      { title: "Patio en Binissalem", path: "/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-02-sculptural-agave-cactus-detail-sestepa.webp" },
-      { title: "Patio en Binissalem", path: "/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-05-pool-terrace-yellow-chairs-sestepa.webp" },
+      { title: "Patio en Binissalem", path: "/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-01-pool-terrace-lemon-tree-sestepa.webp", url: "/binissalem-courtyard/" },
+      { title: "Patio en Binissalem", path: "/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-02-sculptural-agave-cactus-detail-sestepa.webp", url: "/binissalem-courtyard/" },
+      { title: "Patio en Binissalem", path: "/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-05-pool-terrace-yellow-chairs-sestepa.webp", url: "/binissalem-courtyard/" },
 
       // 4. Jardín Binissalem (ALL 9 photos grouped together consecutively)
-      { title: "Jardín Binissalem", path: "/portfolio/binissalem/images/LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-14.jpg" },
-      { title: "Jardín Binissalem", path: "/portfolio/binissalem/images/LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-15.jpg" },
-      { title: "Jardín Binissalem", path: "/portfolio/binissalem/images/LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-16.jpg" },
-      { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (1).avif" },
-      { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (2).avif" },
-      { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (3).avif" },
-      { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (4).avif" },
-      { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (5).avif" },
-      { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (6).avif" },
+      { title: "Jardín Binissalem", path: "/portfolio/binissalem/images/LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-14.jpg", url: "/binissalem/" },
+      { title: "Jardín Binissalem", path: "/portfolio/binissalem/images/LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-15.jpg", url: "/binissalem/" },
+      { title: "Jardín Binissalem", path: "/portfolio/binissalem/images/LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-16.jpg", url: "/binissalem/" },
+      { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (1).avif", url: "/binissalem/" },
+      { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (2).avif", url: "/binissalem/" },
+      { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (3).avif", url: "/binissalem/" },
+      { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (4).avif", url: "/binissalem/" },
+      { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (5).avif", url: "/binissalem/" },
+      { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (6).avif", url: "/binissalem/" },
 
       // 5. Jardín Mediterráneo (3 photos)
-      { title: "Jardín Mediterráneo", path: "/portfolio/jardin-mediterraneo/images/landscape-garden-malorca-jardin-mediterraneo-sestepa.webp" },
-      { title: "Jardín Mediterráneo", path: "/portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-6-1.webp" },
-      { title: "Jardín Mediterráneo", path: "/portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-10.webp" },
+      { title: "Jardín Mediterráneo", path: "/portfolio/jardin-mediterraneo/images/landscape-garden-malorca-jardin-mediterraneo-sestepa.webp", url: "/es/jardin-mediterraneo/" },
+      { title: "Jardín Mediterráneo", path: "/portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-6-1.webp", url: "/es/jardin-mediterraneo/" },
+      { title: "Jardín Mediterráneo", path: "/portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-10.webp", url: "/es/jardin-mediterraneo/" },
 
       // 6. Bunyola (3 photos)
-      { title: "Bunyola", path: "/portfolio/bunyola/garden-design-mallorca-bunyola-sestepa.jpg" },
-      { title: "Bunyola", path: "/gallery/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-1.webp" },
-      { title: "Bunyola", path: "/portfolio/bunyola/images/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-2.jpg" },
+      { title: "Bunyola", path: "/portfolio/bunyola/garden-design-mallorca-bunyola-sestepa.jpg", url: "/bunyola/" },
+      { title: "Bunyola", path: "/gallery/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-1.webp", url: "/bunyola/" },
+      { title: "Bunyola", path: "/portfolio/bunyola/images/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-2.jpg", url: "/bunyola/" },
 
       // 7. Son Vida (3 photos)
-      { title: "Son Vida", path: "/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-1.jpg" },
-      { title: "Son Vida", path: "/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-3.jpg" },
-      { title: "Son Vida", path: "/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-5.jpg" },
+      { title: "Son Vida", path: "/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-1.jpg", url: "/son-vida/" },
+      { title: "Son Vida", path: "/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-3.jpg", url: "/son-vida/" },
+      { title: "Son Vida", path: "/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-5.jpg", url: "/son-vida/" },
 
       // 8. Crestatx (3 photos)
-      { title: "Crestatx", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CRESTATX.avif" },
-      { title: "Crestatx", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CRESTATX.jpg" },
-      { title: "Crestatx", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CRESTATX.webp" },
+      { title: "Crestatx", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CRESTATX.avif", url: "/crestatx-garden-design/" },
+      { title: "Crestatx", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CRESTATX.jpg", url: "/crestatx-garden-design/" },
+      { title: "Crestatx", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CRESTATX.webp", url: "/crestatx-garden-design/" },
 
       // 9. Puerto Andratx (3 photos)
-      { title: "Puerto Andratx", path: "/gallery/GARDEN-DESIGN-MALLORCA-PUERTO-ANDRATX-SESTEPA-DESIGN-MAR-LLABRES-_1_.webp" },
-      { title: "Puerto Andratx", path: "/gallery/GARDEN-DESIGN-MALLORCA-PUERTO-ANDRATX-SESTEPA-DESIGN-MAR-LLABRES-_2_.webp" },
-      { title: "Puerto Andratx", path: "/gallery/garden-design-mar-llabres-collab-mallorca-sestepa.jpg" },
+      { title: "Puerto Andratx", path: "/gallery/GARDEN-DESIGN-MALLORCA-PUERTO-ANDRATX-SESTEPA-DESIGN-MAR-LLABRES-_1_.webp", url: "/puerto-andratx/" },
+      { title: "Puerto Andratx", path: "/gallery/GARDEN-DESIGN-MALLORCA-PUERTO-ANDRATX-SESTEPA-DESIGN-MAR-LLABRES-_2_.webp", url: "/puerto-andratx/" },
+      { title: "Puerto Andratx", path: "/gallery/garden-design-mar-llabres-collab-mallorca-sestepa.jpg", url: "/puerto-andratx/" },
 
       // 10. Hotel Cabot Las Velas (3 photos)
-      { title: "Hotel Cabot Las Velas", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CABOT LAS VELAS (1).webp" },
-      { title: "Hotel Cabot Las Velas", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CABOT LAS VELAS (2).webp" },
-      { title: "Hotel Cabot Las Velas", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CABOT LAS VELAS (3).webp" },
+      { title: "Hotel Cabot Las Velas", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CABOT LAS VELAS (1).webp", url: "/hotelcabotlasvelas/" },
+      { title: "Hotel Cabot Las Velas", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CABOT LAS VELAS (2).webp", url: "/hotelcabotlasvelas/" },
+      { title: "Hotel Cabot Las Velas", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CABOT LAS VELAS (3).webp", url: "/hotelcabotlasvelas/" },
 
       // 11. Finca Jardín Campos (3 photos)
-      { title: "Finca Jardín Campos", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CAMPOS (1).webp" },
-      { title: "Finca Jardín Campos", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CAMPOS (2).webp" },
-      { title: "Finca Jardín Campos", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CAMPOS (1).avif" },
+      { title: "Finca Jardín Campos", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CAMPOS (1).webp", url: "/finca-garden-campos/" },
+      { title: "Finca Jardín Campos", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CAMPOS (2).webp", url: "/finca-garden-campos/" },
+      { title: "Finca Jardín Campos", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CAMPOS (1).avif", url: "/finca-garden-campos/" },
 
       // 12. Santa Eugènia (3 photos)
-      { title: "Santa Eugènia", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-SANTA EUGENIA.avif" },
-      { title: "Santa Eugènia", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-SANTA EUGENIA.webp" },
-      { title: "Santa Eugènia", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-SANTA EUGENIA (2).webp" },
+      { title: "Santa Eugènia", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-SANTA EUGENIA.avif", url: "/terrace-garden-santa-eugenia/" },
+      { title: "Santa Eugènia", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-SANTA EUGENIA.webp", url: "/terrace-garden-santa-eugenia/" },
+      { title: "Santa Eugènia", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-SANTA EUGENIA (2).webp", url: "/terrace-garden-santa-eugenia/" },
 
       // 13. Llubí (3 photos)
-      { title: "Llubí", path: "/gallery/GARDEN DESIGN LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA (1).avif" },
-      { title: "Llubí", path: "/gallery/GARDEN DESIGN LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA (2).avif" },
-      { title: "Llubí", path: "/gallery/GARDEN DESIGN LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA (3).avif" },
+      { title: "Llubí", path: "/gallery/GARDEN DESIGN LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA (1).avif", url: "/garden-design-llubi-mallorca/" },
+      { title: "Llubí", path: "/gallery/GARDEN DESIGN LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA (2).avif", url: "/garden-design-llubi-mallorca/" },
+      { title: "Llubí", path: "/gallery/GARDEN DESIGN LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA (3).avif", url: "/garden-design-llubi-mallorca/" },
 
       // 14. Jardines Verticales en Mallorca (3 photos)
-      { title: "Jardines Verticales en Mallorca", path: "/gallery/VERTICAL GARDEN MALLORCA-SESTEPA-DESIGN (1).webp" },
-      { title: "Jardines Verticales en Mallorca", path: "/gallery/VERTICAL GARDEN MALLORCA-SESTEPA-DESIGN (2).webp" },
-      { title: "Jardines Verticales en Mallorca", path: "/gallery/VERTICAL GARDEN MALLORCA-SESTEPA-DESIGN (1).avif" }
+      { title: "Jardines Verticales en Mallorca", path: "/gallery/VERTICAL GARDEN MALLORCA-SESTEPA-DESIGN (1).webp", url: "/vertical-gardens-in-mallorca/" },
+      { title: "Jardines Verticales en Mallorca", path: "/gallery/VERTICAL GARDEN MALLORCA-SESTEPA-DESIGN (2).webp", url: "/vertical-gardens-in-mallorca/" },
+      { title: "Jardines Verticales en Mallorca", path: "/gallery/VERTICAL GARDEN MALLORCA-SESTEPA-DESIGN (1).avif", url: "/vertical-gardens-in-mallorca/" }
     ];
 
     // Automatic Path Resolver (Works with file://, localhost, relative folder, and fallback to live site)
@@ -1234,6 +1272,8 @@
 
       const item = galleryItems[currentSlide];
       bottomProjectName.textContent = item.title;
+      bottomProjectName.href = item.url || '#';
+      bottomProjectName.title = `Ver proyecto ${item.title} en el sitio web (abre en nueva pestaña)`;
       bottomCounter.textContent = `${String(currentSlide + 1).padStart(2, '0')} / ${String(galleryItems.length).padStart(2, '0')}`;
 
       // Preload adjacent images
@@ -1279,11 +1319,14 @@
       }
     }
 
-    // Header Brand Link -> Always returns to Index View
-    document.getElementById('brandLink').addEventListener('click', (e) => {
-      e.preventDefault();
-      showIndexView();
-    });
+    // Header Brand Projects Link -> Returns to Index View
+    const brandProjectsLink = document.getElementById('brandProjectsLink');
+    if (brandProjectsLink) {
+      brandProjectsLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showIndexView();
+      });
+    }
 
     // Overview Button in Slideshow Header -> Returns to Index View
     document.getElementById('btnOverview').addEventListener('click', () => {

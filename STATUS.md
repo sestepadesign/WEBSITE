@@ -17,6 +17,23 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-26] - Antigravity (Navegação Interativa: Links de Cabeçalho e Título do Projeto no Slideshow) — publicado em master
+- **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento estrito mantido).
+- **Escopo:**
+  1. Cabeçalho com elementos interativos e links diretos:
+     - `S'ESTEPA DESIGN STUDIO`: link para o site oficial `https://design.sestepa.com` (abre em nova aba com target="_blank" e rel="noopener").
+     - `PROYECTOS`: link para retornar imediatamente à tela inicial de grade/índice de fotos (`showIndexView()`).
+     - `MALLORCA`: link direto para o Google Maps na localização exata do estúdio em Inca (`https://maps.google.com/?q=Carrer+dels+Menestrals+5+07300+Inca+Illes+Balears`).
+  2. Rodapé do modo Slideshow:
+     - O nome do projeto na barra inferior agora é um link interativo (`#bottomProjectName`) direcionando para a página canônica individual de cada projeto no site oficial (ex.: `/santa-ponsa/`, `/sant-llorenc/`, `/binissalem-courtyard/`, `/es/jardin-mediterraneo/`, etc.), abrindo em nova aba com feedback visual elegante no hover.
+     - Todas as 51 fotos do catálogo mapeadas com suas URLs canônicas correspondentes validadas contra `site-urls.ts`.
+  3. Regeneração dos PDFs (Horizontal e Celular Vertical) com parsing atualizado das 51 fotos e cartão de encerramento de 52 páginas.
+- **Validação:**
+  - Verificação de clique e transições de tela no espelho local.
+  - Verificação de parsing e geração de 52 páginas sem erros nos scripts de PDF.
+  - Push realizado para `origin/master`.
+- **Arquivos alterados:** `public/presentacion-proyectos.html`, `scripts/generate_presentation_pdfs.py`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Horizontal.pdf`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Celular-Vertical.pdf`, `STATUS.md`.
+
 ### [2026-10-26] - Antigravity (Tipografia de Cabeçalho do PDF Premium & Cartão Interativo de Encerramento) — publicado em master
 - **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento estrito mantido).
 - **Escopo:**
