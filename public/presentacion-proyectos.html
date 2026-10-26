@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proyectos S'Estepa Design</title>
+  <title>S'Estepa Design Studio | Proyectos | Mallorca</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
@@ -38,11 +38,16 @@
       background-color: var(--bg);
       color: var(--text);
       font-family: var(--font-sans);
-      height: 100vh;
-      overflow: hidden;
+      min-height: 100vh;
+      overflow-x: hidden;
       user-select: none;
       -webkit-font-smoothing: antialiased;
       transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.view-slideshow {
+      height: 100vh;
+      overflow: hidden;
     }
 
     /* Top Bar */
@@ -72,19 +77,33 @@
 
     .brand-title {
       font-family: var(--font-serif);
-      font-size: 1.25rem;
-      letter-spacing: 0.22em;
+      font-size: 1.22rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      font-weight: 400;
+      font-weight: 300;
       color: var(--text);
       text-decoration: none;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
       transition: color 0.25s ease, opacity 0.25s ease;
     }
 
     .brand-title:hover {
       color: var(--accent);
-      opacity: 0.9;
+    }
+
+    .brand-sep {
+      color: var(--accent);
+      font-weight: 200;
+      opacity: 0.65;
+    }
+
+    .brand-secondary,
+    .brand-location {
+      font-weight: 300;
+      letter-spacing: 0.16em;
     }
 
     .top-controls {
@@ -98,7 +117,7 @@
       border: 1px solid var(--border);
       color: var(--text);
       height: 38px;
-      padding: 0 14px;
+      padding: 0 16px;
       border-radius: 20px;
       display: inline-flex;
       align-items: center;
@@ -107,8 +126,9 @@
       cursor: pointer;
       transition: all 0.25s ease;
       font-size: 0.72rem;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
+      font-family: var(--font-sans);
     }
 
     body.pdf-light .btn-icon {
@@ -126,7 +146,76 @@
       color: var(--accent);
     }
 
-    /* Presentation Deck */
+    /* View Switch Rules */
+    body.view-index #btnOverview {
+      display: none !important;
+    }
+
+    body.view-index .bottom-bar {
+      display: none !important;
+    }
+
+    body.view-index .slideshow-view {
+      display: none !important;
+    }
+
+    body.view-slideshow .index-view {
+      display: none !important;
+    }
+
+    body.view-slideshow #btnOverview {
+      display: inline-flex !important;
+    }
+
+    /* 1. INDEX GRID VIEW (Home Default) */
+    .index-view {
+      padding: 88px 32px 56px;
+      max-width: 1720px;
+      margin: 0 auto;
+    }
+
+    .index-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 22px;
+    }
+
+    .overview-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .overview-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    .overview-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      background: #171715;
+    }
+
+    .overview-caption {
+      padding: 12px 14px;
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--text);
+    }
+
+    /* 2. SLIDESHOW VIEW */
     .deck-container {
       position: relative;
       width: 100vw;
@@ -151,7 +240,7 @@
       align-items: center;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.4s ease, transform 0.4s ease;
+      transition: opacity 0.35s ease, transform 0.35s ease;
       transform: scale(0.99);
       padding: 68px 32px 68px;
     }
@@ -163,80 +252,6 @@
       z-index: 10;
     }
 
-    /* Cover Slide */
-    .slide-cover {
-      text-align: center;
-      background: radial-gradient(circle at center, #1b1a18 0%, #0d0d0c 70%);
-      padding: 32px;
-    }
-
-    body.pdf-light .slide-cover {
-      background: radial-gradient(circle at center, #ffffff 0%, #f4f3f0 70%);
-    }
-
-    .cover-content {
-      max-width: 800px;
-      padding: 40px;
-    }
-
-    .cover-tagline {
-      font-size: 0.8rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 24px;
-      font-weight: 300;
-    }
-
-    .cover-heading {
-      font-family: var(--font-serif);
-      font-size: clamp(2.4rem, 5vw, 4.2rem);
-      font-weight: 300;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      line-height: 1.15;
-      margin-bottom: 24px;
-    }
-
-    .cover-sub {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 1.25rem;
-      color: var(--text-muted);
-      letter-spacing: 0.08em;
-      font-weight: 300;
-    }
-
-    .cover-buttons {
-      margin-top: 48px;
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .cover-start-hint {
-      font-size: 0.72rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--accent);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 28px;
-      border: 1px solid rgba(196, 154, 91, 0.4);
-      border-radius: 40px;
-      transition: all 0.3s ease;
-    }
-
-    .cover-start-hint:hover {
-      background: rgba(196, 154, 91, 0.18);
-      border-color: var(--accent);
-      transform: translateY(-1px);
-    }
-
-    /* Photo Slide */
     .slide-figure {
       position: relative;
       width: 100%;
@@ -275,12 +290,11 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
     }
 
-    /* Print Caption (Hidden on screen, only used for PDF generation) */
     .print-caption {
       display: none;
     }
 
-    /* Bottom Navigation Bar */
+    /* Bottom Navigation Bar (Slideshow view only) */
     .bottom-bar {
       position: fixed;
       bottom: 0;
@@ -434,7 +448,7 @@
       border: 1px solid rgba(255, 255, 255, 0.12);
     }
 
-    /* Auto-Hide All Information on Inactivity: ZERO Information, 100% Pure Photo */
+    /* Auto-Hide All Information on Inactivity (900ms): ZERO Information, 100% Pure Photo */
     body.is-fullscreen.hide-controls,
     body.is-fullscreen.hide-controls * {
       cursor: none !important;
@@ -451,85 +465,6 @@
       opacity: 1;
       pointer-events: auto;
       transition: opacity 0.25s ease;
-    }
-
-    /* Overview Grid Modal */
-    .overview-modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(13, 13, 12, 0.96);
-      backdrop-filter: blur(10px);
-      z-index: 200;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      padding: 32px;
-      overflow-y: auto;
-    }
-
-    body.pdf-light .overview-modal {
-      background: rgba(255, 255, 255, 0.97);
-    }
-
-    .overview-modal.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .overview-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .overview-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
-      padding-bottom: 40px;
-    }
-
-    .overview-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .overview-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
-    }
-
-    .overview-card.active {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px var(--accent);
-    }
-
-    .overview-thumb {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-      background: #1d1d1b;
-    }
-
-    .overview-caption {
-      padding: 10px 12px;
-      font-family: var(--font-serif);
-      font-size: 0.95rem;
-      letter-spacing: 0.05em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     /* Print & PDF Export (A4 Landscape 297mm x 210mm) */
@@ -554,8 +489,12 @@
         print-color-adjust: exact !important;
       }
 
-      .top-bar, .bottom-bar, .overview-modal, .cover-buttons, .fs-close-btn {
+      .top-bar, .bottom-bar, .index-view, .cover-buttons, .fs-close-btn {
         display: none !important;
+      }
+
+      body.view-index .slideshow-view {
+        display: block !important;
       }
 
       .deck-container {
@@ -584,10 +523,6 @@
         align-items: center !important;
         overflow: hidden !important;
         box-sizing: border-box !important;
-      }
-
-      .slide-cover {
-        justify-content: center !important;
       }
 
       .slide-figure {
@@ -645,7 +580,14 @@
         padding: 0 16px;
       }
       .brand-title {
-        font-size: 1.05rem;
+        font-size: 0.95rem;
+        gap: 6px;
+      }
+      .brand-secondary, .brand-location {
+        display: none;
+      }
+      .brand-sep {
+        display: none;
       }
       .slide {
         padding: 60px 16px 64px;
@@ -659,17 +601,27 @@
       .bottom-project-name {
         font-size: 1.05rem;
       }
+      .index-view {
+        padding: 80px 16px 40px;
+      }
     }
   </style>
 </head>
-<body>
+<body class="view-index">
 
-  <!-- Top Bar -->
+  <!-- Top Bar (Persistent Navigation) -->
   <header class="top-bar">
-    <a href="javascript:void(0)" class="brand-title" id="brandLink" title="Volver a la portada">S'ESTEPA DESIGN</a>
+    <a href="javascript:void(0)" class="brand-title" id="brandLink" title="Ir al Índice">
+      <span class="brand-primary">S'Estepa Design Studio</span>
+      <span class="brand-sep">|</span>
+      <span class="brand-secondary">Proyectos</span>
+      <span class="brand-sep">|</span>
+      <span class="brand-location">Mallorca</span>
+    </a>
+
     <div class="top-controls">
-      <!-- 1. Overview Index -->
-      <button class="btn-icon" id="btnOverview" title="Índice de proyectos (G)">
+      <!-- 1. Index Button (visible only in Slideshow view) -->
+      <button class="btn-icon" id="btnOverview" title="Volver al Índice de proyectos (G)">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <rect x="3" y="3" width="7" height="7"></rect>
           <rect x="14" y="3" width="7" height="7"></rect>
@@ -730,35 +682,24 @@
     </svg>
   </button>
 
-  <!-- Presentation Deck -->
-  <main class="deck-container" id="deckContainer">
-
-    <!-- Cover Slide -->
-    <section class="slide slide-cover active" data-index="0" data-title="Portada">
-      <div class="cover-content">
-        <p class="cover-tagline">Mallorca · Arquitectura del Paisaje</p>
-        <h1 class="cover-heading">Proyectos S'Estepa Design</h1>
-        <p class="cover-sub">Fotografía de Paisajismo</p>
-        <div class="cover-buttons">
-          <div class="cover-start-hint" id="startDeck">
-            <span>Iniciar Presentación</span>
-            <span>&rarr;</span>
-          </div>
-          <div class="cover-start-hint" id="startVideoDeck" style="border-color: rgba(255,255,255,0.2); color: var(--text);">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-            <span>PLAY</span>
-          </div>
-        </div>
-      </div>
+  <!-- Main View Container -->
+  <main>
+    <!-- 1. INDEX GRID VIEW (Página Inicial) -->
+    <section class="index-view" id="indexView">
+      <div class="index-grid" id="overviewGrid"></div>
     </section>
 
+    <!-- 2. SLIDESHOW VIEW (Fotografías a Pantalla Completa) -->
+    <section class="slideshow-view" id="slideshowView">
+      <div class="deck-container" id="deckContainer"></div>
+    </section>
   </main>
 
-  <!-- Bottom Navigation Bar -->
+  <!-- Bottom Navigation Bar (Active in Slideshow view) -->
   <footer class="bottom-bar" id="bottomBar">
     <div class="bottom-project-info">
       <span class="bottom-project-name" id="bottomProjectName"></span>
-      <span class="bottom-counter" id="bottomCounter">Portada</span>
+      <span class="bottom-counter" id="bottomCounter">01 / 51</span>
     </div>
     <div class="nav-buttons">
       <button class="btn-nav" id="btnPrev" title="Anterior (&larr;)">
@@ -771,18 +712,6 @@
       </button>
     </div>
   </footer>
-
-  <!-- Overview Grid Modal -->
-  <div class="overview-modal" id="overviewModal">
-    <div class="overview-header">
-      <h2 style="font-family: var(--font-serif); font-size: 1.5rem; letter-spacing: 0.1em; font-weight: 300;">Índice de Proyectos</h2>
-      <button class="btn-icon" id="btnCloseOverview" title="Cerrar (Esc)">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-        <span>Cerrar</span>
-      </button>
-    </div>
-    <div class="overview-grid" id="overviewGrid"></div>
-  </div>
 
   <script>
     // Gallery Data matching exact order of /gallery/ page
@@ -889,7 +818,7 @@
     const overviewGrid = document.getElementById('overviewGrid');
 
     galleryItems.forEach((item, index) => {
-      const slideIndex = index + 1;
+      const slideIndex = index;
 
       // 1. Create Slide (Pure image container, NO headers on slide)
       const slide = document.createElement('section');
@@ -906,7 +835,7 @@
       const img = document.createElement('img');
       img.className = 'slide-img';
       img.alt = item.title;
-      img.loading = slideIndex <= 3 ? 'eager' : 'lazy';
+      img.loading = slideIndex < 3 ? 'eager' : 'lazy';
       
       const initialSrc = resolveImgSrc(item.path);
       img.src = encodeURI(initialSrc);
@@ -920,14 +849,14 @@
       printCaption.className = 'print-caption';
       printCaption.innerHTML = `
         <span class="print-title">${item.title}</span>
-        <span class="print-order">${String(slideIndex).padStart(2, '0')} / ${String(galleryItems.length).padStart(2, '0')}</span>
+        <span class="print-order">${String(slideIndex + 1).padStart(2, '0')} / ${String(galleryItems.length).padStart(2, '0')}</span>
       `;
       figure.appendChild(printCaption);
 
       slide.appendChild(figure);
       deckContainer.appendChild(slide);
 
-      // 2. Create Overview Card
+      // 2. Create Overview Card in Index Grid
       const card = document.createElement('div');
       card.className = 'overview-card';
       card.dataset.index = slideIndex;
@@ -941,14 +870,12 @@
 
       const cap = document.createElement('div');
       cap.className = 'overview-caption';
-      cap.textContent = `${String(slideIndex).padStart(2, '0')}. ${item.title}`;
+      cap.textContent = `${String(slideIndex + 1).padStart(2, '0')}. ${item.title}`;
 
       card.appendChild(thumb);
       card.appendChild(cap);
       card.addEventListener('click', () => {
-        stopAutoPlay();
-        goToSlide(slideIndex);
-        closeOverview();
+        showSlideshowView(slideIndex);
       });
       overviewGrid.appendChild(card);
     });
@@ -966,21 +893,11 @@
       currentSlide = index;
       slides[currentSlide].classList.add('active');
 
-      if (currentSlide === 0) {
-        bottomProjectName.textContent = '';
-        bottomCounter.textContent = 'Portada';
-      } else {
-        const item = galleryItems[currentSlide - 1];
-        bottomProjectName.textContent = item.title;
-        bottomCounter.textContent = `${String(currentSlide).padStart(2, '0')} / ${String(galleryItems.length).padStart(2, '0')}`;
-      }
+      const item = galleryItems[currentSlide];
+      bottomProjectName.textContent = item.title;
+      bottomCounter.textContent = `${String(currentSlide + 1).padStart(2, '0')} / ${String(galleryItems.length).padStart(2, '0')}`;
 
-      // Highlight active in overview
-      document.querySelectorAll('.overview-card').forEach(card => {
-        card.classList.toggle('active', parseInt(card.dataset.index) === currentSlide);
-      });
-
-      // Preload next images
+      // Preload adjacent images
       if (currentSlide + 1 < totalSlides) {
         const nextImg = slides[currentSlide + 1].querySelector('.slide-img');
         if (nextImg && nextImg.loading === 'lazy') nextImg.loading = 'eager';
@@ -1007,11 +924,31 @@
       }
     }
 
-    // Header Link: Click S'ESTEPA DESIGN to go to Portada
+    // View Transitions
+    function showIndexView() {
+      stopAutoPlay();
+      document.body.classList.remove('view-slideshow');
+      document.body.classList.add('view-index');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showSlideshowView(index) {
+      document.body.classList.remove('view-index');
+      document.body.classList.add('view-slideshow');
+      if (typeof index === 'number') {
+        goToSlide(index);
+      }
+    }
+
+    // Header Brand Link -> Always returns to Index View
     document.getElementById('brandLink').addEventListener('click', (e) => {
       e.preventDefault();
-      stopAutoPlay();
-      goToSlide(0);
+      showIndexView();
+    });
+
+    // Overview Button in Slideshow Header -> Returns to Index View
+    document.getElementById('btnOverview').addEventListener('click', () => {
+      showIndexView();
     });
 
     // Fast Auto-Hide (900ms): In Fullscreen, all UI vanishes into 100% pure photo
@@ -1036,14 +973,11 @@
 
     function startAutoPlay() {
       isPlaying = true;
+      showSlideshowView();
       document.body.classList.add('video-playing');
       document.getElementById('btnAutoPlay').classList.add('active-mode');
       document.getElementById('autoPlayText').textContent = 'PAUSA';
       document.getElementById('playIcon').innerHTML = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>';
-      
-      if (currentSlide === 0) {
-        nextSlide();
-      }
 
       clearInterval(autoPlayTimer);
       autoPlayTimer = setInterval(nextSlide, SLIDE_DURATION);
@@ -1059,20 +993,21 @@
     }
 
     function toggleAutoPlay() {
-      if (isPlaying) stopAutoPlay();
-      else startAutoPlay();
+      if (isPlaying) {
+        stopAutoPlay();
+      } else {
+        if (document.body.classList.contains('view-index')) {
+          showSlideshowView(0);
+        }
+        startAutoPlay();
+      }
     }
 
     document.getElementById('btnAutoPlay').addEventListener('click', toggleAutoPlay);
-    document.getElementById('startVideoDeck').addEventListener('click', () => {
-      startAutoPlay();
-    });
 
     // Screen-Half Click Navigation (Standard S'Estepa Slideshow behavior)
     deckContainer.addEventListener('click', (e) => {
-      if (currentSlide === 0) return;
-      if (overviewModal.classList.contains('open')) return;
-      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.top-bar') || e.target.closest('.bottom-bar') || e.target.closest('.cover-buttons') || e.target.closest('.fs-close-btn')) {
+      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.top-bar') || e.target.closest('.bottom-bar') || e.target.closest('.fs-close-btn')) {
         return;
       }
 
@@ -1089,11 +1024,7 @@
 
     // Dynamic directional cursor indication on hover
     deckContainer.addEventListener('mousemove', (e) => {
-      if (currentSlide === 0 || overviewModal.classList.contains('open')) {
-        deckContainer.classList.remove('cursor-prev', 'cursor-next');
-        return;
-      }
-      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.top-bar') || e.target.closest('.bottom-bar') || e.target.closest('.cover-buttons') || e.target.closest('.fs-close-btn')) {
+      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.top-bar') || e.target.closest('.bottom-bar') || e.target.closest('.fs-close-btn')) {
         deckContainer.classList.remove('cursor-prev', 'cursor-next');
         return;
       }
@@ -1120,8 +1051,8 @@
     }, { passive: true });
 
     window.addEventListener('touchend', (e) => {
-      if (overviewModal.classList.contains('open')) return;
-      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.top-bar') || e.target.closest('.bottom-bar') || e.target.closest('.cover-buttons') || e.target.closest('.fs-close-btn')) return;
+      if (document.body.classList.contains('view-index')) return;
+      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.top-bar') || e.target.closest('.bottom-bar') || e.target.closest('.fs-close-btn')) return;
 
       const diffX = e.changedTouches[0].screenX - touchStartX;
       const diffY = e.changedTouches[0].screenY - touchStartY;
@@ -1136,7 +1067,7 @@
       }
 
       // Tap on left/right half screen
-      if (currentSlide > 0 && Math.abs(diffX) < 20 && Math.abs(diffY) < 20 && elapsed < 400) {
+      if (Math.abs(diffX) < 20 && Math.abs(diffY) < 20 && elapsed < 400) {
         const width = window.innerWidth;
         const tapX = e.changedTouches[0].clientX;
         stopAutoPlay();
@@ -1157,51 +1088,52 @@
       stopAutoPlay();
       prevSlide();
     });
-    document.getElementById('startDeck').addEventListener('click', () => {
-      stopAutoPlay();
-      goToSlide(1);
-    });
 
     // Keyboard Shortcuts
     window.addEventListener('keydown', (e) => {
-      if (overviewModal.classList.contains('open')) {
-        if (e.key === 'Escape') closeOverview();
-        return;
-      }
-
       switch (e.key) {
         case 'ArrowRight':
         case 'ArrowDown':
         case 'PageDown':
-          e.preventDefault();
-          stopAutoPlay();
-          nextSlide();
+          if (document.body.classList.contains('view-slideshow')) {
+            e.preventDefault();
+            stopAutoPlay();
+            nextSlide();
+          }
           break;
         case 'ArrowLeft':
         case 'ArrowUp':
         case 'Backspace':
         case 'PageUp':
-          e.preventDefault();
-          stopAutoPlay();
-          prevSlide();
+          if (document.body.classList.contains('view-slideshow')) {
+            e.preventDefault();
+            stopAutoPlay();
+            prevSlide();
+          }
           break;
         case ' ':
           e.preventDefault();
           toggleAutoPlay();
           break;
         case 'Home':
-          e.preventDefault();
-          stopAutoPlay();
-          goToSlide(0);
+          if (document.body.classList.contains('view-slideshow')) {
+            e.preventDefault();
+            stopAutoPlay();
+            goToSlide(0);
+          }
           break;
         case 'End':
-          e.preventDefault();
-          stopAutoPlay();
-          goToSlide(totalSlides - 1);
+          if (document.body.classList.contains('view-slideshow')) {
+            e.preventDefault();
+            stopAutoPlay();
+            goToSlide(totalSlides - 1);
+          }
           break;
         case 'g':
         case 'G':
-          toggleOverview();
+          if (document.body.classList.contains('view-slideshow')) {
+            showIndexView();
+          }
           break;
         case 'f':
         case 'F':
@@ -1210,6 +1142,8 @@
         case 'Escape':
           if (document.fullscreenElement || document.webkitFullscreenElement || document.body.classList.contains('is-fullscreen')) {
             exitFullscreen();
+          } else if (document.body.classList.contains('view-slideshow')) {
+            showIndexView();
           }
           break;
       }
@@ -1283,21 +1217,8 @@
       window.print();
     });
 
-    // Overview Modal
-    const overviewModal = document.getElementById('overviewModal');
-    function openOverview() {
-      stopAutoPlay();
-      overviewModal.classList.add('open');
-    }
-    function closeOverview() {
-      overviewModal.classList.remove('open');
-    }
-    function toggleOverview() {
-      if (overviewModal.classList.contains('open')) closeOverview();
-      else openOverview();
-    }
-    document.getElementById('btnOverview').addEventListener('click', toggleOverview);
-    document.getElementById('btnCloseOverview').addEventListener('click', closeOverview);
+    // Initialize on Slide 0 for the slideshow deck
+    goToSlide(0);
   </script>
 </body>
 </html>
