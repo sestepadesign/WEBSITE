@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyectos S'Estepa Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d0d0c;
+      --bg-card: #141413;
+      --text: #f5f3ee;
+      --text-muted: #8e8b82;
+      --accent: #c49a5b;
+      --border: rgba(255, 255, 255, 0.08);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    /* Light Theme (Ideal para impresión y PDF editorial) */
+    body.pdf-light {
+      --bg: #ffffff;
+      --bg-card: #f9f9f8;
+      --text: #1a1a18;
+      --text-muted: #66635c;
+      --border: rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      height: 100vh;
+      overflow: hidden;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      z-index: 100;
+      background: linear-gradient(180deg, rgba(13, 13, 12, 0.88) 0%, rgba(13, 13, 12, 0) 100%);
+      pointer-events: none;
+    }
+
+    body.pdf-light .top-bar {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    .top-bar * {
+      pointer-events: auto;
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: var(--text);
+    }
+
+    .top-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-icon {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text);
+      height: 38px;
+      padding: 0 14px;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    body.pdf-light .btn-icon {
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .btn-icon:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-icon.active-mode {
+      background: rgba(196, 154, 91, 0.25);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Presentation Deck */
+    .deck-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      transform: scale(0.985);
+      padding: 72px 48px 56px;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+      z-index: 10;
+    }
+
+    /* Cover Slide */
+    .slide-cover {
+      text-align: center;
+      background: radial-gradient(circle at center, #1b1a18 0%, #0d0d0c 70%);
+    }
+
+    body.pdf-light .slide-cover {
+      background: radial-gradient(circle at center, #ffffff 0%, #f4f3f0 70%);
+    }
+
+    .cover-content {
+      max-width: 800px;
+      padding: 40px;
+    }
+
+    .cover-tagline {
+      font-size: 0.8rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+
+    .cover-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
+    .cover-sub {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      font-weight: 300;
+    }
+
+    .cover-buttons {
+      margin-top: 48px;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cover-start-hint {
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border: 1px solid rgba(196, 154, 91, 0.4);
+      border-radius: 40px;
+      transition: all 0.3s ease;
+    }
+
+    .cover-start-hint:hover {
+      background: rgba(196, 154, 91, 0.18);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* Photo Slide */
+    .slide-figure {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide-header {
+      width: 100%;
+      max-width: 1400px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .slide-header-left {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .header-subbrand {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    .project-name {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .project-order {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+    }
+
+    .image-wrapper {
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 165px);
+      max-width: 1500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+      background-color: rgba(255, 255, 255, 0.02);
+      border-radius: 2px;
+      transition: transform 6s ease;
+    }
+
+    body.video-playing .slide.active .slide-img {
+      transform: scale(1.025);
+    }
+
+    body.pdf-light .slide-img {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Bottom Navigation Bar */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      z-index: 100;
+      background: linear-gradient(0deg, rgba(13, 13, 12, 0.88) 0%, rgba(13, 13, 12, 0) 100%);
+      pointer-events: none;
+    }
+
+    body.pdf-light .bottom-bar {
+      background: linear-gradient(0deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    .bottom-bar * {
+      pointer-events: auto;
+    }
+
+    .deck-counter {
+      font-size: 0.78rem;
+      letter-spacing: 0.25em;
+      color: var(--text-muted);
+    }
+
+    .deck-counter strong {
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-nav {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 18px;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    body.pdf-light .btn-nav {
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    .btn-nav:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Overview Grid Modal */
+    .overview-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(13, 13, 12, 0.96);
+      backdrop-filter: blur(10px);
+      z-index: 200;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      padding: 32px;
+      overflow-y: auto;
+    }
+
+    body.pdf-light .overview-modal {
+      background: rgba(255, 255, 255, 0.97);
+    }
+
+    .overview-modal.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .overview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      padding-bottom: 40px;
+    }
+
+    .overview-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .overview-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .overview-card.active {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+
+    .overview-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      background: #1d1d1b;
+    }
+
+    .overview-caption {
+      padding: 10px 12px;
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* ==========================================================================
+       PRINT & PDF EXPORT OPTIMIZATIONS (A4 LANDSCAPE 16:9 EXACT FIT)
+       ========================================================================== */
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    @media print {
+      html, body {
+        width: 297mm !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .top-bar, .bottom-bar, .overview-modal, .cover-buttons {
+        display: none !important;
+      }
+
+      .deck-container {
+        position: static !important;
+        width: 297mm !important;
+        height: auto !important;
+        display: block !important;
+      }
+
+      .slide {
+        position: relative !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        width: 297mm !important;
+        height: 210mm !important;
+        max-height: 210mm !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        padding: 14mm 18mm 12mm !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+      }
+
+      .slide-cover {
+        justify-content: center !important;
+      }
+
+      .slide-figure {
+        width: 100% !important;
+        height: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+      }
+
+      .slide-header {
+        width: 100% !important;
+        max-width: none !important;
+        margin-bottom: 8mm !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: baseline !important;
+        border-bottom: 1px solid var(--border) !important;
+        padding-bottom: 4mm !important;
+      }
+
+      .header-subbrand {
+        display: inline-block !important;
+        font-size: 8pt !important;
+      }
+
+      .project-name {
+        font-size: 18pt !important;
+        line-height: 1.2 !important;
+      }
+
+      .project-order {
+        font-size: 8pt !important;
+      }
+
+      .image-wrapper {
+        width: 100% !important;
+        height: calc(210mm - 46mm) !important;
+        max-height: calc(210mm - 46mm) !important;
+        max-width: none !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+
+      .slide-img {
+        max-width: 100% !important;
+        max-height: 100% !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain !important;
+        box-shadow: none !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .top-bar {
+        padding: 0 16px;
+      }
+      .brand-title {
+        font-size: 0.9rem;
+      }
+      .slide {
+        padding: 60px 16px 60px;
+      }
+      .project-name {
+        font-size: 1.2rem;
+      }
+      .image-wrapper {
+        height: calc(100vh - 140px);
+      }
+      .bottom-bar {
+        padding: 0 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="brand-title">Proyectos S'Estepa Design</div>
+    <div class="top-controls">
+      <!-- Video Slideshow Preview -->
+      <button class="btn-icon" id="btnAutoPlay" title="Modo Video / Pase Automático (Espacio)">
+        <svg id="playIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+        <span id="autoPlayText">Pase Video</span>
+      </button>
+
+      <!-- Theme Toggle -->
+      <button class="btn-icon" id="btnThemeToggle" title="Alternar Fondo Claro / Oscuro para PDF">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <span id="themeToggleText">Fondo Claro</span>
+      </button>
+
+      <!-- Overview Index -->
+      <button class="btn-icon" id="btnOverview" title="Índice de fotografías (G)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+        <span>Índice</span>
+      </button>
+
+      <!-- Fullscreen -->
+      <button class="btn-icon" id="btnFullscreen" title="Pantalla completa (F)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+        </svg>
+      </button>
+
+      <!-- Export to PDF Button -->
+      <button class="btn-icon" id="btnPrint" style="background: rgba(196, 154, 91, 0.22); border-color: var(--accent);" title="Guardar como PDF / Imprimir (Ctrl+P)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        <span style="font-weight: 500;">Generar PDF</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Presentation Deck -->
+  <main class="deck-container" id="deckContainer">
+
+    <!-- Cover Slide -->
+    <section class="slide slide-cover active" data-index="0" data-title="Portada">
+      <div class="cover-content">
+        <p class="cover-tagline">Mallorca · Arquitectura del Paisaje</p>
+        <h1 class="cover-heading">Proyectos S'Estepa Design</h1>
+        <p class="cover-sub">Fotografía de Paisajismo</p>
+        <div class="cover-buttons">
+          <div class="cover-start-hint" id="startDeck">
+            <span>Iniciar Presentación</span>
+            <span>&rarr;</span>
+          </div>
+          <div class="cover-start-hint" id="startVideoDeck" style="border-color: rgba(255,255,255,0.2); color: var(--text);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <span>Reproducir Video</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <footer class="bottom-bar">
+    <div class="deck-counter" id="deckCounter">
+      <strong id="currentSlideNum">1</strong> / <span id="totalSlidesNum">52</span>
+    </div>
+    <div class="nav-buttons">
+      <button class="btn-nav" id="btnPrev" title="Anterior (&larr;)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        Anterior
+      </button>
+      <button class="btn-nav" id="btnNext" title="Siguiente (&rarr;)">
+        Siguiente
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Overview Grid Modal -->
+  <div class="overview-modal" id="overviewModal">
+    <div class="overview-header">
+      <h2 style="font-family: var(--font-serif); font-size: 1.5rem; letter-spacing: 0.1em; font-weight: 300;">Índice de Proyectos</h2>
+      <button class="btn-icon" id="btnCloseOverview" title="Cerrar (Esc)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        <span>Cerrar</span>
+      </button>
+    </div>
+    <div class="overview-grid" id="overviewGrid"></div>
+  </div>
+
+  <script>
+    // Gallery Data matching exact order of /gallery/ page
+    const galleryItems = [
+      // 3 x Santa Ponsa
+      { title: "Santa Ponsa", path: "/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-01-pool-villa-stipa-sestepa.webp" },
+      { title: "Santa Ponsa", path: "/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-06-covered-terrace-pool-perspective-sestepa.webp" },
+      { title: "Santa Ponsa", path: "/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-09-architectural-side-walkway-vista-sestepa.webp" },
+      // 6 x Sant Llorenç (Continuas en la presentación)
+      { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp" },
+      { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-01-corten-gravel-walk-destaque-sestepa-design.webp" },
+      { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-15-mediterranean-botanical-detail-sestepa-design.webp" },
+      { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp" },
+      { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp" },
+      { title: "Sant Llorenç", path: "/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp" },
+      // 3 x Patio en Binissalem
+      { title: "Patio en Binissalem", path: "/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-01-pool-terrace-lemon-tree-sestepa.webp" },
+      { title: "Patio en Binissalem", path: "/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-02-sculptural-agave-cactus-detail-sestepa.webp" },
+      { title: "Patio en Binissalem", path: "/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-05-pool-terrace-yellow-chairs-sestepa.webp" },
+      // 3 x Jardín Binissalem (New additions)
+      { title: "Jardín Binissalem", path: "/portfolio/binissalem/images/LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-14.jpg" },
+      { title: "Jardín Binissalem", path: "/portfolio/binissalem/images/LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-15.jpg" },
+      { title: "Jardín Binissalem", path: "/portfolio/binissalem/images/LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-16.jpg" },
+      // 3 x Jardín Mediterráneo
+      { title: "Jardín Mediterráneo", path: "/portfolio/jardin-mediterraneo/images/landscape-garden-malorca-jardin-mediterraneo-sestepa.webp" },
+      { title: "Jardín Mediterráneo", path: "/portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-6-1.webp" },
+      { title: "Jardín Mediterráneo", path: "/portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-10.webp" },
+      // 6 x Jardín Binissalem
+      { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (1).avif" },
+      { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (2).avif" },
+      { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (3).avif" },
+      { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (4).avif" },
+      { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (5).avif" },
+      { title: "Jardín Binissalem", path: "/gallery/1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (6).avif" },
+      // 3 x Bunyola
+      { title: "Bunyola", path: "/portfolio/bunyola/garden-design-mallorca-bunyola-sestepa.jpg" },
+      { title: "Bunyola", path: "/gallery/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-1.webp" },
+      { title: "Bunyola", path: "/portfolio/bunyola/images/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-2.jpg" },
+      // 3 x Son Vida
+      { title: "Son Vida", path: "/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-1.jpg" },
+      { title: "Son Vida", path: "/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-3.jpg" },
+      { title: "Son Vida", path: "/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-5.jpg" },
+      // 3 x Crestatx
+      { title: "Crestatx", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CRESTATX.avif" },
+      { title: "Crestatx", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CRESTATX.jpg" },
+      { title: "Crestatx", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CRESTATX.webp" },
+      // 3 x Puerto Andratx
+      { title: "Puerto Andratx", path: "/gallery/GARDEN-DESIGN-MALLORCA-PUERTO-ANDRATX-SESTEPA-DESIGN-MAR-LLABRES-_1_.webp" },
+      { title: "Puerto Andratx", path: "/gallery/GARDEN-DESIGN-MALLORCA-PUERTO-ANDRATX-SESTEPA-DESIGN-MAR-LLABRES-_2_.webp" },
+      { title: "Puerto Andratx", path: "/gallery/garden-design-mar-llabres-collab-mallorca-sestepa.jpg" },
+      // 3 x Hotel Cabot Las Velas
+      { title: "Hotel Cabot Las Velas", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CABOT LAS VELAS (1).webp" },
+      { title: "Hotel Cabot Las Velas", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CABOT LAS VELAS (2).webp" },
+      { title: "Hotel Cabot Las Velas", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CABOT LAS VELAS (3).webp" },
+      // 3 x Finca Jardín Campos
+      { title: "Finca Jardín Campos", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CAMPOS (1).webp" },
+      { title: "Finca Jardín Campos", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CAMPOS (2).webp" },
+      { title: "Finca Jardín Campos", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CAMPOS (1).avif" },
+      // 3 x Santa Eugènia
+      { title: "Santa Eugènia", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-SANTA EUGENIA.avif" },
+      { title: "Santa Eugènia", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-SANTA EUGENIA.webp" },
+      { title: "Santa Eugènia", path: "/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-SANTA EUGENIA (2).webp" },
+      // 3 x Llubí
+      { title: "Llubí", path: "/gallery/GARDEN DESIGN LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA (1).avif" },
+      { title: "Llubí", path: "/gallery/GARDEN DESIGN LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA (2).avif" },
+      { title: "Llubí", path: "/gallery/GARDEN DESIGN LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA (3).avif" },
+      // 3 x Jardines Verticales en Mallorca
+      { title: "Jardines Verticales en Mallorca", path: "/gallery/VERTICAL GARDEN MALLORCA-SESTEPA-DESIGN (1).webp" },
+      { title: "Jardines Verticales en Mallorca", path: "/gallery/VERTICAL GARDEN MALLORCA-SESTEPA-DESIGN (2).webp" },
+      { title: "Jardines Verticales en Mallorca", path: "/gallery/VERTICAL GARDEN MALLORCA-SESTEPA-DESIGN (1).avif" }
+    ];
+
+    // Automatic Path Resolver (Works with file://, localhost, relative folder, and fallback to live site)
+    function resolveImgSrc(rawPath) {
+      const cleanPath = rawPath.startsWith('/') ? rawPath.slice(1) : rawPath;
+      const isFileProtocol = window.location.protocol === 'file:';
+      
+      if (isFileProtocol) {
+        if (window.location.pathname.includes('/codigo/public/')) {
+          return cleanPath;
+        }
+        return 'codigo/public/' + cleanPath;
+      }
+      return '/' + cleanPath;
+    }
+
+    // Setup Fallback for Remote CDN
+    function setupFallback(imgElement, rawPath) {
+      imgElement.addEventListener('error', function() {
+        if (!this.dataset.triedFallback) {
+          this.dataset.triedFallback = '1';
+          const clean = rawPath.startsWith('/') ? rawPath : '/' + rawPath;
+          this.src = clean;
+        } else if (this.dataset.triedFallback === '1') {
+          this.dataset.triedFallback = '2';
+          const clean = rawPath.startsWith('/') ? rawPath : '/' + rawPath;
+          this.src = 'https://www.sestepa.com' + encodeURI(clean);
+        }
+      });
+    }
+
+    // Build Slide Deck & Overview Grid
+    const deckContainer = document.getElementById('deckContainer');
+    const overviewGrid = document.getElementById('overviewGrid');
+
+    galleryItems.forEach((item, index) => {
+      const slideIndex = index + 1;
+
+      // 1. Create Slide
+      const slide = document.createElement('section');
+      slide.className = 'slide';
+      slide.dataset.index = slideIndex;
+      slide.dataset.title = item.title;
+
+      const figure = document.createElement('div');
+      figure.className = 'slide-figure';
+
+      const header = document.createElement('div');
+      header.className = 'slide-header';
+      header.innerHTML = `
+        <div class="slide-header-left">
+          <span class="header-subbrand">Proyectos S'Estepa Design</span>
+          <h2 class="project-name">${item.title}</h2>
+        </div>
+        <span class="project-order">${String(slideIndex).padStart(2, '0')} / ${String(galleryItems.length).padStart(2, '0')}</span>
+      `;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'image-wrapper';
+
+      const img = document.createElement('img');
+      img.className = 'slide-img';
+      img.alt = item.title;
+      img.loading = slideIndex <= 3 ? 'eager' : 'lazy';
+      
+      const initialSrc = resolveImgSrc(item.path);
+      img.src = encodeURI(initialSrc);
+      setupFallback(img, item.path);
+
+      wrapper.appendChild(img);
+      figure.appendChild(header);
+      figure.appendChild(wrapper);
+      slide.appendChild(figure);
+      deckContainer.appendChild(slide);
+
+      // 2. Create Overview Card
+      const card = document.createElement('div');
+      card.className = 'overview-card';
+      card.dataset.index = slideIndex;
+
+      const thumb = document.createElement('img');
+      thumb.className = 'overview-thumb';
+      thumb.alt = item.title;
+      thumb.loading = 'lazy';
+      thumb.src = encodeURI(initialSrc);
+      setupFallback(thumb, item.path);
+
+      const cap = document.createElement('div');
+      cap.className = 'overview-caption';
+      cap.textContent = `${String(slideIndex).padStart(2, '0')}. ${item.title}`;
+
+      card.appendChild(thumb);
+      card.appendChild(cap);
+      card.addEventListener('click', () => {
+        stopAutoPlay();
+        goToSlide(slideIndex);
+        closeOverview();
+      });
+      overviewGrid.appendChild(card);
+    });
+
+    // Navigation Logic
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    const currentSlideNum = document.getElementById('currentSlideNum');
+    const totalSlidesNum = document.getElementById('totalSlidesNum');
+    totalSlidesNum.textContent = totalSlides;
+
+    function updateSlide() {
+      slides.forEach((s, idx) => {
+        s.classList.toggle('active', idx === currentSlide);
+      });
+      currentSlideNum.textContent = currentSlide + 1;
+
+      document.querySelectorAll('.overview-card').forEach(c => {
+        c.classList.toggle('active', parseInt(c.dataset.index, 10) === currentSlide);
+      });
+    }
+
+    function goToSlide(index) {
+      if (index >= 0 && index < totalSlides) {
+        currentSlide = index;
+        updateSlide();
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateSlide();
+      } else if (isPlaying) {
+        currentSlide = 1;
+        updateSlide();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    // Video Slideshow / Auto-Play Mode
+    let isPlaying = false;
+    let autoPlayTimer = null;
+    const SLIDE_DURATION = 3800; // 3.8 seconds per photo
+
+    function startAutoPlay() {
+      isPlaying = true;
+      document.body.classList.add('video-playing');
+      document.getElementById('btnAutoPlay').classList.add('active-mode');
+      document.getElementById('autoPlayText').textContent = 'Pausar';
+      document.getElementById('playIcon').innerHTML = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>';
+      
+      if (currentSlide === 0) {
+        nextSlide();
+      }
+
+      clearInterval(autoPlayTimer);
+      autoPlayTimer = setInterval(nextSlide, SLIDE_DURATION);
+    }
+
+    function stopAutoPlay() {
+      isPlaying = false;
+      document.body.classList.remove('video-playing');
+      document.getElementById('btnAutoPlay').classList.remove('active-mode');
+      document.getElementById('autoPlayText').textContent = 'Pase Video';
+      document.getElementById('playIcon').innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
+      clearInterval(autoPlayTimer);
+    }
+
+    function toggleAutoPlay() {
+      if (isPlaying) stopAutoPlay();
+      else startAutoPlay();
+    }
+
+    document.getElementById('btnAutoPlay').addEventListener('click', toggleAutoPlay);
+    document.getElementById('startVideoDeck').addEventListener('click', () => {
+      startAutoPlay();
+    });
+
+    // Event Listeners
+    document.getElementById('btnNext').addEventListener('click', () => {
+      stopAutoPlay();
+      nextSlide();
+    });
+    document.getElementById('btnPrev').addEventListener('click', () => {
+      stopAutoPlay();
+      prevSlide();
+    });
+    document.getElementById('startDeck').addEventListener('click', () => {
+      stopAutoPlay();
+      goToSlide(1);
+    });
+
+    // Keyboard Shortcuts
+    window.addEventListener('keydown', (e) => {
+      if (document.getElementById('overviewModal').classList.contains('open')) {
+        if (e.key === 'Escape') closeOverview();
+        return;
+      }
+
+      switch (e.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+        case 'PageDown':
+          e.preventDefault();
+          stopAutoPlay();
+          nextSlide();
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+        case 'Backspace':
+        case 'PageUp':
+          e.preventDefault();
+          stopAutoPlay();
+          prevSlide();
+          break;
+        case ' ':
+          e.preventDefault();
+          toggleAutoPlay();
+          break;
+        case 'Home':
+          e.preventDefault();
+          stopAutoPlay();
+          goToSlide(0);
+          break;
+        case 'End':
+          e.preventDefault();
+          stopAutoPlay();
+          goToSlide(totalSlides - 1);
+          break;
+        case 'g':
+        case 'G':
+          toggleOverview();
+          break;
+        case 'f':
+        case 'F':
+          toggleFullscreen();
+          break;
+      }
+    });
+
+    // Touch Swipe Navigation for Tablets & Mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    window.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const swipeDistance = touchEndX - touchStartX;
+      if (Math.abs(swipeDistance) > 50) {
+        stopAutoPlay();
+        if (swipeDistance < 0) nextSlide();
+        else prevSlide();
+      }
+    }
+
+    // Fullscreen Toggle
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        if (document.exitFullscreen) document.exitFullscreen();
+      }
+    }
+    document.getElementById('btnFullscreen').addEventListener('click', toggleFullscreen);
+
+    // Theme Toggle (Dark Luxury / Clean White for PDF)
+    const btnThemeToggle = document.getElementById('btnThemeToggle');
+    const themeToggleText = document.getElementById('themeToggleText');
+    btnThemeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('pdf-light');
+      const isLight = document.body.classList.contains('pdf-light');
+      themeToggleText.textContent = isLight ? 'Fondo Oscuro' : 'Fondo Claro';
+    });
+
+    // Print & PDF Export (Preload all images eagerly before printing)
+    window.onbeforeprint = () => {
+      stopAutoPlay();
+      document.querySelectorAll('.slide-img').forEach(img => {
+        img.loading = 'eager';
+      });
+    };
+
+    document.getElementById('btnPrint').addEventListener('click', () => {
+      stopAutoPlay();
+      document.querySelectorAll('.slide-img').forEach(img => {
+        img.loading = 'eager';
+      });
+      window.print();
+    });
+
+    // Overview Modal
+    const overviewModal = document.getElementById('overviewModal');
+    function openOverview() {
+      stopAutoPlay();
+      overviewModal.classList.add('open');
+    }
+    function closeOverview() {
+      overviewModal.classList.remove('open');
+    }
+    function toggleOverview() {
+      if (overviewModal.classList.contains('open')) closeOverview();
+      else openOverview();
+    }
+    document.getElementById('btnOverview').addEventListener('click', toggleOverview);
+    document.getElementById('btnCloseOverview').addEventListener('click', closeOverview);
+  </script>
+</body>
+</html>

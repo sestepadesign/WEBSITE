@@ -10,12 +10,25 @@
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
 - **Status:** Produção publicada em `master` com Binissalem Courtyard integrado. Auditoria Codex de governança, preview local, redirects, segurança dashboard/leads e classificação de assets enviada para `origin/master`.
-- **Último commit técnico publicado:** `6c77c5d` (`fix(redirects): keep static rules before splats and drop rules shadowing live files`). Antes: `837fe36`, `9e0648f` (auditoria de assets), `6ae0173` (segurança dashboard/leads).
+- **Último commit técnico publicado:** `3d013bb` (`fix(gallery): link Mar Llabres Puerto Andratx photos to dedicated hidden project instead of Bunyola`).
 - **Commits Codex publicados nesta sessão:** `5e23e7e`, `4efd6a0`, `6ae0173`. Não usar `git add -A` antes de classificar os untracked restantes.
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+
+### [2026-10-26] - Antigravity (Correção Galeria Puerto Andratx, Apresentação HTML e Limpeza de Redirects) — publicado em master
+- **Autor/agente:** Antigravity. Disco J: não acessado.
+- **Escopo:**
+  1. Criação do projeto oculto Puerto Andratx (`hidden: true`) em `src/data/projects.ts` nos três idiomas (EN, ES, DE) substituindo "plantas artificiales" por linguagem de alto padrão botânico/preservado.
+  2. Atualização de rotas em `src/data/site-urls.ts` (`puerto-andratx`) e categorização em `src/data/portfolio-categories.ts`.
+  3. Correção em `src/data/gallery-images.ts`: fotos 34, 35 e 36 reatribuídas de Bunyola para `puertoAndratx`.
+  4. Apresentação HTML de projetos criada em `presentacion-proyectos.html` com agrupamento das 6 fotos de Sant Llorenç de forma consecutiva e layout para exportação em PDF e vídeo.
+  5. Remoção estrita em `public/_redirects` de qualquer redirecionamento de `/plantas-artificiales-vibrantes-mar-llabres/` e `/port-andratx/`, conforme instrução direta do operador.
+- **Validação:**
+  - Build local isolado (`python scripts/preview_local.py build`) concluído com 0 erros (148 páginas geradas com sucesso).
+  - Push realizado para `origin/master`.
+- **Arquivos alterados:** `src/data/projects.ts`, `src/data/gallery-images.ts`, `src/data/site-urls.ts`, `src/data/portfolio-categories.ts`, `public/_redirects`, `public/presentacion-proyectos.html`, `STATUS.md`.
 
 ### [2026-10-25] - Antigravity (Atualização da imagem OG do Portfólio para Sant Llorenç Muhlenbergia) — publicado em master
 - **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento mantido).
