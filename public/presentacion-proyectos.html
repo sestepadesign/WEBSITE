@@ -19,7 +19,7 @@
       --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    /* Light Theme (Ideal para impresión y PDF editorial) */
+    /* Light Theme (Para impresión y PDF editorial) */
     body.pdf-light {
       --bg: #ffffff;
       --bg-card: #f9f9f8;
@@ -57,13 +57,13 @@
       justify-content: space-between;
       padding: 0 32px;
       z-index: 100;
-      background: linear-gradient(180deg, rgba(13, 13, 12, 0.88) 0%, rgba(13, 13, 12, 0) 100%);
+      background: linear-gradient(180deg, rgba(13, 13, 12, 0.94) 0%, rgba(13, 13, 12, 0) 100%);
       pointer-events: none;
-      transition: opacity 0.35s ease, transform 0.35s ease;
+      transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
     body.pdf-light .top-bar {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0) 100%);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0) 100%);
     }
 
     .top-bar * {
@@ -72,11 +72,19 @@
 
     .brand-title {
       font-family: var(--font-serif);
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       font-weight: 400;
       color: var(--text);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.25s ease, opacity 0.25s ease;
+    }
+
+    .brand-title:hover {
+      color: var(--accent);
+      opacity: 0.9;
     }
 
     .top-controls {
@@ -144,8 +152,8 @@
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.4s ease, transform 0.4s ease;
-      transform: scale(0.985);
-      padding: 72px 48px 56px;
+      transform: scale(0.99);
+      padding: 68px 32px 68px;
     }
 
     .slide.active {
@@ -159,6 +167,7 @@
     .slide-cover {
       text-align: center;
       background: radial-gradient(circle at center, #1b1a18 0%, #0d0d0c 70%);
+      padding: 32px;
     }
 
     body.pdf-light .slide-cover {
@@ -238,42 +247,11 @@
       justify-content: center;
     }
 
-    .slide-header {
-      width: 100%;
-      max-width: 1400px;
-      margin-bottom: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-
-    .slide-header-left {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-    }
-
-    .project-name {
-      font-family: var(--font-serif);
-      font-size: clamp(1.4rem, 2.5vw, 2.2rem);
-      font-weight: 300;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text);
-    }
-
-    .project-order {
-      font-size: 0.78rem;
-      letter-spacing: 0.2em;
-      color: var(--text-muted);
-      font-family: var(--font-sans);
-    }
-
     .image-wrapper {
       position: relative;
       width: 100%;
-      height: calc(100vh - 165px);
-      max-width: 1500px;
+      height: calc(100vh - 146px);
+      max-width: 1600px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -297,40 +275,56 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
     }
 
+    /* Print Caption (Hidden on screen, only used for PDF generation) */
+    .print-caption {
+      display: none;
+    }
+
     /* Bottom Navigation Bar */
     .bottom-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 56px;
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 32px;
       z-index: 100;
-      background: linear-gradient(0deg, rgba(13, 13, 12, 0.88) 0%, rgba(13, 13, 12, 0) 100%);
+      background: linear-gradient(0deg, rgba(13, 13, 12, 0.94) 0%, rgba(13, 13, 12, 0) 100%);
       pointer-events: none;
-      transition: opacity 0.35s ease, transform 0.35s ease;
+      transition: opacity 0.25s ease, transform 0.25s ease;
     }
 
     body.pdf-light .bottom-bar {
-      background: linear-gradient(0deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0) 100%);
+      background: linear-gradient(0deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0) 100%);
     }
 
     .bottom-bar * {
       pointer-events: auto;
     }
 
-    .deck-counter {
+    .bottom-project-info {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .bottom-project-name {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .bottom-counter {
       font-size: 0.78rem;
       letter-spacing: 0.25em;
       color: var(--text-muted);
-    }
-
-    .deck-counter strong {
-      color: var(--text);
-      font-weight: 400;
+      font-family: var(--font-sans);
     }
 
     .nav-buttons {
@@ -364,56 +358,99 @@
       border-color: rgba(255, 255, 255, 0.25);
     }
 
-    /* True Fullscreen Mode & Auto-Hide Controls */
-    :fullscreen body,
-    :-webkit-full-screen body,
-    body.is-fullscreen {
-      background-color: var(--bg);
+    /* Floating Exit Fullscreen Button */
+    .fs-close-btn {
+      position: fixed;
+      top: 24px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(13, 13, 12, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 300;
+      transition: opacity 0.25s ease, transform 0.2s ease, background-color 0.2s ease;
     }
 
-    :fullscreen .top-bar,
-    :-webkit-full-screen .top-bar,
+    .fs-close-btn:hover {
+      background: rgba(196, 154, 91, 0.4);
+      transform: scale(1.08);
+      border-color: var(--accent);
+    }
+
+    /* Ultra-Clean Fullscreen Mode (100% Pure Landscape Photography) */
     body.is-fullscreen .top-bar {
-      opacity: 0;
-      transform: translateY(-100%);
-      pointer-events: none;
+      display: none !important;
     }
 
-    :fullscreen .bottom-bar,
-    :-webkit-full-screen .bottom-bar,
-    body.is-fullscreen .bottom-bar {
-      opacity: 0;
-      transform: translateY(100%);
-      pointer-events: none;
+    body.is-fullscreen .nav-buttons {
+      display: none !important;
     }
 
-    :fullscreen.show-controls .top-bar,
-    :-webkit-full-screen.show-controls .top-bar,
-    body.is-fullscreen.show-controls .top-bar {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
+    body.is-fullscreen .fs-close-btn {
+      display: flex;
     }
 
-    :fullscreen.show-controls .bottom-bar,
-    :-webkit-full-screen.show-controls .bottom-bar,
-    body.is-fullscreen.show-controls .bottom-bar {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
+    body.is-fullscreen .slide {
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
     }
 
-    :fullscreen .image-wrapper,
-    :-webkit-full-screen .image-wrapper,
     body.is-fullscreen .image-wrapper {
-      height: calc(100vh - 90px);
-      max-width: 96vw;
+      width: 100vw !important;
+      height: 100vh !important;
+      max-width: 100vw !important;
+      max-height: 100vh !important;
     }
 
-    :fullscreen .slide-img,
-    :-webkit-full-screen .slide-img,
     body.is-fullscreen .slide-img {
-      max-height: 86vh;
+      max-width: 100vw !important;
+      max-height: 100vh !important;
+      width: auto !important;
+      height: auto !important;
+      object-fit: contain !important;
+      box-shadow: none !important;
+    }
+
+    body.is-fullscreen .bottom-bar {
+      bottom: 24px;
+      left: 32px;
+      width: auto;
+      height: auto;
+      background: rgba(13, 13, 12, 0.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 8px 22px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    /* Auto-Hide All Information on Inactivity: ZERO Information, 100% Pure Photo */
+    body.is-fullscreen.hide-controls,
+    body.is-fullscreen.hide-controls * {
+      cursor: none !important;
+    }
+
+    body.is-fullscreen.hide-controls .bottom-bar,
+    body.is-fullscreen.hide-controls .fs-close-btn {
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
+    body.is-fullscreen .bottom-bar,
+    body.is-fullscreen .fs-close-btn {
+      opacity: 1;
+      pointer-events: auto;
+      transition: opacity 0.25s ease;
     }
 
     /* Overview Grid Modal */
@@ -517,7 +554,7 @@
         print-color-adjust: exact !important;
       }
 
-      .top-bar, .bottom-bar, .overview-modal, .cover-buttons {
+      .top-bar, .bottom-bar, .overview-modal, .cover-buttons, .fs-close-btn {
         display: none !important;
       }
 
@@ -561,30 +598,10 @@
         justify-content: space-between !important;
       }
 
-      .slide-header {
-        width: 100% !important;
-        max-width: none !important;
-        margin-bottom: 8mm !important;
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: baseline !important;
-        border-bottom: 1px solid var(--border) !important;
-        padding-bottom: 4mm !important;
-      }
-
-      .project-name {
-        font-size: 18pt !important;
-        line-height: 1.2 !important;
-      }
-
-      .project-order {
-        font-size: 8pt !important;
-      }
-
       .image-wrapper {
         width: 100% !important;
-        height: calc(210mm - 44mm) !important;
-        max-height: calc(210mm - 44mm) !important;
+        height: calc(210mm - 40mm) !important;
+        max-height: calc(210mm - 40mm) !important;
         max-width: none !important;
         display: flex !important;
         align-items: center !important;
@@ -597,6 +614,29 @@
         object-fit: contain !important;
         box-shadow: none !important;
       }
+
+      .print-caption {
+        display: flex !important;
+        width: 100% !important;
+        justify-content: space-between !important;
+        align-items: baseline !important;
+        border-top: 1px solid var(--border) !important;
+        padding-top: 3mm !important;
+        margin-top: 3mm !important;
+      }
+
+      .print-title {
+        font-family: var(--font-serif) !important;
+        font-size: 16pt !important;
+        letter-spacing: 0.1em !important;
+        text-transform: uppercase !important;
+      }
+
+      .print-order {
+        font-size: 8pt !important;
+        letter-spacing: 0.2em !important;
+        font-family: var(--font-sans) !important;
+      }
     }
 
     /* Responsive adjustments */
@@ -605,16 +645,19 @@
         padding: 0 16px;
       }
       .brand-title {
-        font-size: 0.95rem;
+        font-size: 1.05rem;
       }
       .slide {
-        padding: 60px 16px 56px;
+        padding: 60px 16px 64px;
       }
       .image-wrapper {
         height: calc(100vh - 140px);
       }
       .bottom-bar {
         padding: 0 16px;
+      }
+      .bottom-project-name {
+        font-size: 1.05rem;
       }
     }
   </style>
@@ -623,7 +666,7 @@
 
   <!-- Top Bar -->
   <header class="top-bar">
-    <div class="brand-title">Proyectos S'Estepa Design</div>
+    <a href="javascript:void(0)" class="brand-title" id="brandLink" title="Volver a la portada">S'ESTEPA DESIGN</a>
     <div class="top-controls">
       <!-- 1. Overview Index -->
       <button class="btn-icon" id="btnOverview" title="Índice de proyectos (G)">
@@ -679,6 +722,14 @@
     </div>
   </header>
 
+  <!-- Exit Fullscreen Button (Floating) -->
+  <button class="fs-close-btn" id="btnExitFs" title="Salir de pantalla completa (Esc)">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+
   <!-- Presentation Deck -->
   <main class="deck-container" id="deckContainer">
 
@@ -704,9 +755,10 @@
   </main>
 
   <!-- Bottom Navigation Bar -->
-  <footer class="bottom-bar">
-    <div class="deck-counter" id="deckCounter">
-      <strong id="currentSlideNum">1</strong> / <span id="totalSlidesNum">52</span>
+  <footer class="bottom-bar" id="bottomBar">
+    <div class="bottom-project-info">
+      <span class="bottom-project-name" id="bottomProjectName"></span>
+      <span class="bottom-counter" id="bottomCounter">Portada</span>
     </div>
     <div class="nav-buttons">
       <button class="btn-nav" id="btnPrev" title="Anterior (&larr;)">
@@ -839,7 +891,7 @@
     galleryItems.forEach((item, index) => {
       const slideIndex = index + 1;
 
-      // 1. Create Slide
+      // 1. Create Slide (Pure image container, NO headers on slide)
       const slide = document.createElement('section');
       slide.className = 'slide';
       slide.dataset.index = slideIndex;
@@ -847,15 +899,6 @@
 
       const figure = document.createElement('div');
       figure.className = 'slide-figure';
-
-      const header = document.createElement('div');
-      header.className = 'slide-header';
-      header.innerHTML = `
-        <div class="slide-header-left">
-          <h2 class="project-name">${item.title}</h2>
-        </div>
-        <span class="project-order">${String(slideIndex).padStart(2, '0')} / ${String(galleryItems.length).padStart(2, '0')}</span>
-      `;
 
       const wrapper = document.createElement('div');
       wrapper.className = 'image-wrapper';
@@ -870,8 +913,17 @@
       setupFallback(img, item.path);
 
       wrapper.appendChild(img);
-      figure.appendChild(header);
       figure.appendChild(wrapper);
+
+      // Print-only caption for each slide (used only when generating PDF)
+      const printCaption = document.createElement('div');
+      printCaption.className = 'print-caption';
+      printCaption.innerHTML = `
+        <span class="print-title">${item.title}</span>
+        <span class="print-order">${String(slideIndex).padStart(2, '0')} / ${String(galleryItems.length).padStart(2, '0')}</span>
+      `;
+      figure.appendChild(printCaption);
+
       slide.appendChild(figure);
       deckContainer.appendChild(slide);
 
@@ -905,16 +957,23 @@
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
-    const currentSlideNum = document.getElementById('currentSlideNum');
-    const totalSlidesNum = document.getElementById('totalSlidesNum');
-    totalSlidesNum.textContent = totalSlides;
+    const bottomProjectName = document.getElementById('bottomProjectName');
+    const bottomCounter = document.getElementById('bottomCounter');
 
     function goToSlide(index) {
       if (index < 0 || index >= totalSlides) return;
       slides[currentSlide].classList.remove('active');
       currentSlide = index;
       slides[currentSlide].classList.add('active');
-      currentSlideNum.textContent = currentSlide + 1;
+
+      if (currentSlide === 0) {
+        bottomProjectName.textContent = '';
+        bottomCounter.textContent = 'Portada';
+      } else {
+        const item = galleryItems[currentSlide - 1];
+        bottomProjectName.textContent = item.title;
+        bottomCounter.textContent = `${String(currentSlide).padStart(2, '0')} / ${String(galleryItems.length).padStart(2, '0')}`;
+      }
 
       // Highlight active in overview
       document.querySelectorAll('.overview-card').forEach(card => {
@@ -948,19 +1007,27 @@
       }
     }
 
-    // Auto-Hide Controls & Fullscreen idle management
+    // Header Link: Click S'ESTEPA DESIGN to go to Portada
+    document.getElementById('brandLink').addEventListener('click', (e) => {
+      e.preventDefault();
+      stopAutoPlay();
+      goToSlide(0);
+    });
+
+    // Fast Auto-Hide (900ms): In Fullscreen, all UI vanishes into 100% pure photo
     let idleTimer = null;
-    function showControls() {
-      document.body.classList.add('show-controls');
+    function resetIdleTimer() {
+      document.body.classList.remove('hide-controls');
       clearTimeout(idleTimer);
-      idleTimer = setTimeout(() => {
-        if (document.fullscreenElement || document.webkitFullscreenElement || document.body.classList.contains('is-fullscreen')) {
-          document.body.classList.remove('show-controls');
-        }
-      }, 2500);
+      if (document.body.classList.contains('is-fullscreen') || document.fullscreenElement || document.webkitFullscreenElement) {
+        idleTimer = setTimeout(() => {
+          document.body.classList.add('hide-controls');
+        }, 900); // 900ms: prompt and clean
+      }
     }
-    window.addEventListener('mousemove', showControls);
-    window.addEventListener('touchstart', showControls, { passive: true });
+    window.addEventListener('mousemove', resetIdleTimer);
+    window.addEventListener('touchstart', resetIdleTimer, { passive: true });
+    window.addEventListener('keydown', resetIdleTimer);
 
     // Video Slideshow / PLAY Mode
     let isPlaying = false;
@@ -1001,11 +1068,11 @@
       startAutoPlay();
     });
 
-    // Screen-Half Click Navigation (Signature S'Estepa Slideshow behavior)
+    // Screen-Half Click Navigation (Standard S'Estepa Slideshow behavior)
     deckContainer.addEventListener('click', (e) => {
       if (currentSlide === 0) return;
       if (overviewModal.classList.contains('open')) return;
-      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.top-bar') || e.target.closest('.bottom-bar') || e.target.closest('.cover-buttons')) {
+      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.top-bar') || e.target.closest('.bottom-bar') || e.target.closest('.cover-buttons') || e.target.closest('.fs-close-btn')) {
         return;
       }
 
@@ -1017,17 +1084,16 @@
       } else {
         nextSlide();
       }
-      showControls();
+      resetIdleTimer();
     });
 
     // Dynamic directional cursor indication on hover
     deckContainer.addEventListener('mousemove', (e) => {
-      showControls();
       if (currentSlide === 0 || overviewModal.classList.contains('open')) {
         deckContainer.classList.remove('cursor-prev', 'cursor-next');
         return;
       }
-      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.top-bar') || e.target.closest('.bottom-bar') || e.target.closest('.cover-buttons')) {
+      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.top-bar') || e.target.closest('.bottom-bar') || e.target.closest('.cover-buttons') || e.target.closest('.fs-close-btn')) {
         deckContainer.classList.remove('cursor-prev', 'cursor-next');
         return;
       }
@@ -1050,12 +1116,12 @@
       touchStartX = e.changedTouches[0].screenX;
       touchStartY = e.changedTouches[0].screenY;
       touchStartTime = Date.now();
-      showControls();
+      resetIdleTimer();
     }, { passive: true });
 
     window.addEventListener('touchend', (e) => {
       if (overviewModal.classList.contains('open')) return;
-      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.top-bar') || e.target.closest('.bottom-bar') || e.target.closest('.cover-buttons')) return;
+      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.top-bar') || e.target.closest('.bottom-bar') || e.target.closest('.cover-buttons') || e.target.closest('.fs-close-btn')) return;
 
       const diffX = e.changedTouches[0].screenX - touchStartX;
       const diffY = e.changedTouches[0].screenY - touchStartY;
@@ -1142,52 +1208,55 @@
           toggleFullscreen();
           break;
         case 'Escape':
-          if (document.fullscreenElement || document.webkitFullscreenElement) {
-            toggleFullscreen();
+          if (document.fullscreenElement || document.webkitFullscreenElement || document.body.classList.contains('is-fullscreen')) {
+            exitFullscreen();
           }
           break;
       }
     });
 
-    // Fullscreen Toggle
+    // Fullscreen Controls
     function toggleFullscreen() {
       if (!document.fullscreenElement && !document.webkitFullscreenElement) {
-        const docEl = document.documentElement;
-        if (docEl.requestFullscreen) {
-          docEl.requestFullscreen().catch(() => {});
-        } else if (docEl.webkitRequestFullscreen) {
-          docEl.webkitRequestFullscreen();
-        }
-        document.body.classList.add('is-fullscreen');
-        showControls();
+        enterFullscreen();
       } else {
-        if (document.exitFullscreen) {
-          document.exitFullscreen().catch(() => {});
-        } else if (document.webkitExitFullscreen) {
-          document.webkitExitFullscreen();
-        }
-        document.body.classList.remove('is-fullscreen', 'show-controls');
+        exitFullscreen();
       }
     }
 
-    document.addEventListener('fullscreenchange', () => {
-      if (!document.fullscreenElement) {
-        document.body.classList.remove('is-fullscreen', 'show-controls');
-      } else {
-        document.body.classList.add('is-fullscreen');
-        showControls();
+    function enterFullscreen() {
+      const docEl = document.documentElement;
+      if (docEl.requestFullscreen) {
+        docEl.requestFullscreen().catch(() => {});
+      } else if (docEl.webkitRequestFullscreen) {
+        docEl.webkitRequestFullscreen();
       }
-    });
-    document.addEventListener('webkitfullscreenchange', () => {
-      if (!document.webkitFullscreenElement) {
-        document.body.classList.remove('is-fullscreen', 'show-controls');
-      } else {
-        document.body.classList.add('is-fullscreen');
-        showControls();
-      }
-    });
+      document.body.classList.add('is-fullscreen');
+      resetIdleTimer();
+    }
 
+    function exitFullscreen() {
+      if (document.exitFullscreen) {
+        document.exitFullscreen().catch(() => {});
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      }
+      document.body.classList.remove('is-fullscreen', 'hide-controls');
+    }
+
+    function onFullscreenChange() {
+      if (document.fullscreenElement || document.webkitFullscreenElement) {
+        document.body.classList.add('is-fullscreen');
+        resetIdleTimer();
+      } else {
+        document.body.classList.remove('is-fullscreen', 'hide-controls');
+      }
+    }
+
+    document.addEventListener('fullscreenchange', onFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', onFullscreenChange);
     document.getElementById('btnFullscreen').addEventListener('click', toggleFullscreen);
+    document.getElementById('btnExitFs').addEventListener('click', exitFullscreen);
 
     // Theme Toggle (Dark Luxury / Clean White for PDF)
     const btnThemeToggle = document.getElementById('btnThemeToggle');
