@@ -200,8 +200,8 @@
 
     .index-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 18px;
     }
 
     .overview-card {
@@ -743,6 +743,13 @@
     }
 
     /* Responsive adjustments */
+    @media (max-width: 1280px) {
+      .index-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+    }
+
     @media (max-width: 960px) {
       .brand-secondary,
       .brand-location,

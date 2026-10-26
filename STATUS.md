@@ -17,6 +17,16 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-26] - Antigravity (Index Desktop em 6 Colunas / Múltiplos de 3) — publicado em master
+- **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento estrito mantido).
+- **Escopo:**
+  1. Configuração estrita do grid de projetos do índice em 6 colunas (`grid-template-columns: repeat(6, 1fr)`) em desktop e 3 colunas (`repeat(3, 1fr)`) em telas médias até 1280px.
+  2. Harmonização visual com os projetos compostos por múltiplos de 3 fotos (51 fotos no total), eliminando o layout órfão onde a foto #51 ficava isolada em uma linha única no desktop.
+- **Validação:**
+  - Sincronização do arquivo espelho na raiz e preview local.
+  - Push realizado para `origin/master`.
+- **Arquivos alterados:** `public/presentacion-proyectos.html`, `STATUS.md`.
+
 ### [2026-10-26] - Antigravity (Design 100% Responsivo Mobile, Remoção de Botões Ant/Sig, Renomeação Horizontal e Limpeza PDF) — publicado em master
 - **Autor/agente:** Antigravity. Disco J: não acessado (100% isolamento estrito mantido).
 - **Escopo:**
