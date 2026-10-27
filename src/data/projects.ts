@@ -1804,6 +1804,56 @@ export const projects: Project[] = [
     }
   },
   {
+    slug: "portals-nous",
+    location: "Portals Nous, Calvià, Mallorca",
+    wikidataLocation: "https://www.wikidata.org/wiki/Q1002347",
+    year: "2024",
+    architect: null,
+    video: null,
+    cover: "/portfolio/portals-nous/garden-design-mallorca-portals-nous-sestepa-01.webp",
+    images: [
+      "/portfolio/portals-nous/images/garden-design-mallorca-portals-nous-sestepa-01.webp",
+      "/portfolio/portals-nous/images/garden-design-mallorca-portals-nous-sestepa-02.webp",
+      "/portfolio/portals-nous/images/garden-design-mallorca-portals-nous-sestepa-03.webp",
+      "/portfolio/portals-nous/images/garden-design-mallorca-portals-nous-sestepa-04.webp",
+      "/portfolio/portals-nous/images/garden-design-mallorca-portals-nous-sestepa-05.webp",
+      "/portfolio/portals-nous/images/garden-design-mallorca-portals-nous-sestepa-06.webp"
+    ],
+    en: {
+      title: "Portals Nous",
+      subtitle: "The tropics in Mallorca! We design microenvironments where tropical species can perfectly adapt to the Mediterranean climate",
+      category: "Tropical Mediterranean Oasis",
+      botanical: "Strelitzia nicolai, Archontophoenix cunninghamiana, Phoenix dactylifera, Philodendron bipinnatifidum, Alocasia odora, Alternanthera dentata",
+      description: [
+        "The tropics in Mallorca! We design microenvironments where tropical species can perfectly adapt to the Mediterranean climate.",
+        "Situated in the coastal microclimate of Portals Nous, this residential garden creates a sheltered sanctuary characterized by lush multi-layered tropical greenery, contrasting foliage textures, and sculptural palm canopies.",
+        "Sheltered architectural stone pathways and curated gravel borders meander through rich compositions of Strelitzia nicolai, architectural palms, and deep violet groundcovers, proving that tropical vitality thrives in perfect harmony with the Mediterranean sun."
+      ]
+    },
+    es: {
+      title: "Portals Nous",
+      subtitle: "¡El trópico en Mallorca! Diseñamos microambientes donde las especies tropicales se adaptan al clima mediterráneo",
+      category: "Oasis Tropical Mediterráneo",
+      botanical: "Strelitzia nicolai, Archontophoenix cunninghamiana, Phoenix dactylifera, Philodendron bipinnatifidum, Alocasia odora, Alternanthera dentata",
+      description: [
+        "¡El trópico en Mallorca! Diseñamos microambientes donde las especies tropicales se adaptan a la perfección al clima mediterráneo.",
+        "Ubicado en el microclima costero de Portals Nous, este jardín residencial conforma un santuario protegido definido por exuberantes estratos vegetales, densas texturas de hojas grandes y esbeltas copas de palmeras.",
+        "Senderos de adoquín y grava natural recorren composiciones de Strelitzia nicolai, palmeras arquitectónicas y cubresuelos de tonos púrpuras y verdes intensos, demostrando la viabilidad de atmósferas tropicales serenas y sofisticadas en la isla."
+      ]
+    },
+    de: {
+      title: "Portals Nous",
+      subtitle: "Die Tropen auf Mallorca! Wir gestalten Mikroumgebungen, in denen sich tropische Arten an das Mittelmeerklima anpassen",
+      category: "Tropische Mediterrane Oase",
+      botanical: "Strelitzia nicolai, Archontophoenix cunninghamiana, Phoenix dactylifera, Philodendron bipinnatifidum, Alocasia odora, Alternanthera dentata",
+      description: [
+        "Die Tropen auf Mallorca! Wir schaffen geschützte Mikroumgebungen, in denen sich tropische Pflanzenarten perfekt an das mediterrane Klima anpassen.",
+        "In der geschützten Küstenlage von Portals Nous verbindet dieses Gartenprojekt dichte tropische Blattstrukturen mit mediterraner Lebensart.",
+        "Naturstein- und Kieswege führen durch Kompositionen aus Strelitzia nicolai, majestätischen Palmen und violetten Bodendeckern, die ein üppiges, dauerhaft vitales Gartenparadies formen."
+      ]
+    }
+  },
+  {
     slug: "puerto-andratx",
     location: "Port d'Andratx, Mallorca",
     wikidataLocation: "https://www.wikidata.org/wiki/Q1002422",

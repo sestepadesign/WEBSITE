@@ -173,9 +173,11 @@
 
 # --- project-url-redirects (auto-generated) ---
 # Internal Astro slugs → design.sestepa.com canonical URLs
+/de/finca-garten-campos-mallorca/  /de/finca-garten-campos/  301
 /de/finca-gartengestaltung-mallorca-campos/  /de/finca-garten-campos/  301
 /de/haus-am-meer-alcudia/  /de/alcanada/  301
 /de/luxus-landschaftsarchitektur-mallorca-andratx/  /de/sant-llorenc/  301
+/de/portfolio/andratx/  /de/andratx/  301
 /de/portfolio/binissalem-courtyard/  /de/binissalem-courtyard/  301
 /de/portfolio/binissalem/  /de/benissalem/  301
 /de/portfolio/bunyola/  /de/bunyola-mallorca/  301
@@ -191,6 +193,8 @@
 /de/portfolio/hotelcabotlasvelas/  /de/hotel-cabot-las-velas/  301
 /de/portfolio/jardin-mediterraneo/  /de/mediterraner-garten/  301
 /de/portfolio/luxus-landschaftsarchitektur-mallorca-andratx/  /de/sant-llorenc/  301
+/de/portfolio/portals-nous/  /de/portals-nous/  301
+/de/portfolio/puerto-andratx/  /de/puerto-andratx/  301
 /de/portfolio/sacabaneta/  /de/sacabaneta/  301
 /de/portfolio/sant-llorenc/  /de/sant-llorenc/  301
 /de/portfolio/santa-ponsa/  /de/santa-ponsa/  301
@@ -199,6 +203,7 @@
 /de/portfolio/terrace-garden-in-palma/  /de/terrassengarten/  301
 /de/portfolio/terrace-garden-santa-eugenia/  /de/terrace-garden-santa-eugenia/  301
 /de/portfolio/vertical-gardens-in-mallorca/  /de/vertikale-garten-auf-mallorca/  301
+/en/portfolio/andratx/  /andratx/  301
 /en/portfolio/binissalem-courtyard/  /binissalem-courtyard/  301
 /en/portfolio/binissalem/  /binissalem/  301
 /en/portfolio/bunyola/  /bunyola/  301
@@ -210,6 +215,8 @@
 /en/portfolio/garden-design-llubi-mallorca/  /garden-design-llubi-mallorca/  301
 /en/portfolio/hotelcabotlasvelas/  /hotelcabotlasvelas/  301
 /en/portfolio/jardin-mediterraneo/  /mediterranean-garden/  301
+/en/portfolio/portals-nous/  /portals-nous/  301
+/en/portfolio/puerto-andratx/  /puerto-andratx/  301
 /en/portfolio/sacabaneta/  /sacabaneta/  301
 /en/portfolio/sant-llorenc/  /sant-llorenc/  301
 /en/portfolio/santa-ponsa/  /santa-ponsa/  301
@@ -219,7 +226,9 @@
 /en/portfolio/terrace-garden-santa-eugenia/  /terrace-garden-santa-eugenia/  301
 /en/portfolio/vertical-gardens-in-mallorca/  /vertical-gardens-in-mallorca/  301
 /es/casa-de-mar-alcudia/  /es/alcanada/  301
+/es/finca-garden-campos-mallorca/  /es/finca-garden-campos/  301
 /es/paisajista-fincas-lujo-son-vida/  /es/sant-llorenc/  301
+/es/portfolio/andratx/  /es/andratx/  301
 /es/portfolio/binissalem-courtyard/  /es/binissalem-courtyard/  301
 /es/portfolio/binissalem/  /es/benissalem/  301
 /es/portfolio/bunyola/  /es/bunyola/  301
@@ -233,6 +242,8 @@
 /es/portfolio/hotelcabotlasvelas/  /es/hotel-cabot-las-velas/  301
 /es/portfolio/jardin-mediterraneo/  /es/jardin-mediterraneo/  301
 /es/portfolio/paisajista-fincas-lujo-son-vida/  /es/sant-llorenc/  301
+/es/portfolio/portals-nous/  /es/portals-nous/  301
+/es/portfolio/puerto-andratx/  /es/puerto-andratx/  301
 /es/portfolio/sacabaneta/  /es/sacabaneta/  301
 /es/portfolio/sant-llorenc/  /es/sant-llorenc/  301
 /es/portfolio/santa-ponsa/  /es/santa-ponsa/  301
@@ -241,6 +252,7 @@
 /es/portfolio/terrace-garden-in-palma/  /es/terraza-jardin/  301
 /es/portfolio/terrace-garden-santa-eugenia/  /es/terraza-jardin-santa-eugenia/  301
 /es/portfolio/vertical-gardens-in-mallorca/  /es/jardines-verticales-en-mallorca/  301
+/finca-garden-campos-mallorca/  /finca-garden-campos/  301
 /portfolio/finca-garden-campos-mallorca/  /finca-garden-campos/  301
 /portfolio/seaside-house-alcudia/  /alcanada/  301
 /seaside-house-alcudia/  /alcanada/  301

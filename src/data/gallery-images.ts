@@ -24,6 +24,8 @@ const llubi = 'garden-design-llubi-mallorca';
 const vertical = 'vertical-gardens-in-mallorca';
 const puertoAndratx = 'puerto-andratx';
 const andratx = 'andratx';
+const terracePalma = 'terrace-garden-in-palma';
+const portalsNous = 'portals-nous';
 
 /** Filename on disk (may include spaces — encode in HTML via normal paths). */
 function galleryPath(filename: string): string {
@@ -377,5 +379,37 @@ export const galleryImages: GalleryImageEntry[] = [
     src: '/portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-11-bougainvillea-mesh.webp',
     alt: 'VERTICAL GARDENS IN MALLORCA OK MOBILITY FLOWERING BOUGAINVILLEA ON ARCHITECTURAL PLANTERS SESTEPA DESIGN',
     projectSlug: vertical,
+  },
+  // 3 × Terrace Garden in Palma
+  {
+    src: '/portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp',
+    alt: 'TERRACE GARDEN IN PALMA LUXURY ROOFTOP LOUNGE AND MEDITERRANEAN SEA VISTA SESTEPA DESIGN',
+    projectSlug: terracePalma,
+  },
+  {
+    src: '/portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-6.jpg',
+    alt: 'TERRACE GARDEN IN PALMA CONTEMPORARY OUTDOOR SOFAS AND PLANTERS SESTEPA DESIGN',
+    projectSlug: terracePalma,
+  },
+  {
+    src: '/portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-5.jpg',
+    alt: 'TERRACE GARDEN IN PALMA RESILIENT MEDITERRANEAN BOTANICAL SPECIES AND CITY SKYLINE SESTEPA DESIGN',
+    projectSlug: terracePalma,
+  },
+  // 3 × Portals Nous (Tropical Oasis)
+  {
+    src: '/portfolio/portals-nous/images/garden-design-mallorca-portals-nous-sestepa-01.webp',
+    alt: 'PORTALS NOUS TROPICAL MEDITERRANEAN OASIS STONE PATHWAY AND MATURE PALMS SESTEPA DESIGN',
+    projectSlug: portalsNous,
+  },
+  {
+    src: '/portfolio/portals-nous/images/garden-design-mallorca-portals-nous-sestepa-02.webp',
+    alt: 'PORTALS NOUS TROPICAL SPECIES AND VIBRANT BOTANICAL COMPOSITION SESTEPA DESIGN',
+    projectSlug: portalsNous,
+  },
+  {
+    src: '/portfolio/portals-nous/images/garden-design-mallorca-portals-nous-sestepa-03.webp',
+    alt: 'PORTALS NOUS LUSH FOLIAGE TEXTURES AND STRELITZIA COMPOSITION SESTEPA DESIGN',
+    projectSlug: portalsNous,
   },
 ];

@@ -166,6 +166,11 @@ export const PROJECT_PUBLIC_PATHS: Record<string, Record<SiteLocale, string>> = 
     es: '/es/andratx/',
     de: '/de/andratx/',
   },
+  'portals-nous': {
+    en: '/portals-nous/',
+    es: '/es/portals-nous/',
+    de: '/de/portals-nous/',
+  },
 };
 
 export const PROJECT_PATH_ALIASES: Record<SiteLocale, Record<string, string>> = {

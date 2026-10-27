@@ -36,6 +36,7 @@ export const projectCategoryMap: Record<string, PortfolioFilterCategory> = {
   'terrace-garden-santa-eugenia': 'residential',
   hotelcabotlasvelas: 'commercial',
   'vertical-gardens-in-mallorca': 'vertical',
+  'portals-nous': 'residential',
 };
 
 export function getProjectCategory(slug: string): PortfolioFilterCategory {
@@ -60,6 +61,7 @@ export const PORTFOLIO_PROJECT_ORDER: string[] = [
   'finca-garden-inca',
   'hotelcabotlasvelas',
   'vertical-gardens-in-mallorca',
+  'portals-nous',
   'andratx',
   'sacabaneta',
   'seaside-house-alcudia'

@@ -17,6 +17,27 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-26] - Antigravity (Novo Projeto Portals Nous, Fotos Terraza en Palma, Galeria/Apresentacao 72 fotos) — publicado em master
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Declaração explícita de uso somente leitura (read-only). Cópia estrita dos 6 arquivos de Portals Nous de `J:\Meu Drive\S'ESTEPA 2026\MEDIA 2026\JARDINES\MEJORES FOTOS\1. MEJORES FOTOS PEDRO` para `originais-grandes\portals-nous\`. Nenhuma escrita, renomeação ou exclusão em J:.
+- **Escopo:**
+  1. Novo Projeto Portals Nous (Oasis Tropical Mediterrâneo):
+     - Slug canônico registrado em `site-urls.ts`, `projects.ts` e `portfolio-categories.ts`: `/portals-nous/` (EN), `/es/portals-nous/` (ES), `/de/portals-nous/` (DE).
+     - Posicionamento em `PORTFOLIO_PROJECT_ORDER` como 4º projeto contando de baixo (`hotelcabotlasvelas`, `vertical-gardens-in-mallorca`, `portals-nous`, `andratx`, `sacabaneta`, `seaside-house-alcudia`).
+     - 6 imagens convertidas para WebP com nomenclatura SEO em `public/portfolio/portals-nous/images/` e capa em `public/portfolio/portals-nous/`.
+     - Texto autoral fornecido pelo operador: "The tropics in Mallorca! We design microenvironments where tropical species can perfectly adapt to the Mediterranean climate."
+  2. Galeria e Apresentação (Catálogo com 72 fotos = 12 linhas completas de 6 fotos):
+     - Inclusão de 3 fotos de Terraza en Palma (`terrace-garden-in-palma`).
+     - Inclusão de 3 fotos de Portals Nous (`portals-nous`), destacando a capa como primeira imagem.
+     - Total: 72 fotos (múltiplo exato de 3 e 6), mantendo simetria absoluta na grade e navegação.
+  3. Regeneração dos PDFs de Apresentação (Horizontal e Celular Vertical):
+     - 73 páginas geradas (72 fotos de projetos + lâmina 73 de cartão de visitas interativo com 4 links funcionais).
+     - Otimização aplicada (1440px / q78): arquivos finais com ~22 MB (< 25 MB limite Cloudflare).
+- **Validação:**
+  - Build local isolado com Astro (`preview_local.py build`) executado com sucesso: todas as rotas estáticas compiladas e indexadas pelo Pagefind.
+- **Arquivos alterados:** `src/data/site-urls.ts`, `src/data/portfolio-categories.ts`, `src/data/projects.ts`, `src/data/gallery-images.ts`, `public/presentacion-proyectos.html`, `public/sitemap-images.xml`, `public/_redirects`, `scripts/generate_presentation_pdfs.py`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Horizontal.pdf`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Celular-Vertical.pdf`, `public/portfolio/portals-nous/`, `STATUS.md`.
+
+
 ### [2026-10-26] - Antigravity (Novo Projeto Andratx, Atualização de Fotos na Galeria e Apresentação, PDFs 66 fotos) — publicado em master
 - **Autor/agente:** Antigravity.
 - **Acesso à unidade J:** Declaração explícita de uso somente leitura (read-only). Cópia estrita de `Copia de campos-1.jpg` para `originais-grandes\campos\campos-1.jpg`. Nenhuma escrita, renomeação ou exclusão em J:.
