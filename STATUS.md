@@ -17,6 +17,25 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-26] - Antigravity (Atualização da Seleção de 6 Fotos de Llubí na Galeria e Apresentação) — publicado em master
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Não houve acesso a J: nesta tarefa.
+- **Escopo:**
+  1. Atualização do Catálogo de Llubí:
+     - Galeria (`gallery-images.ts`) e catálogo da apresentação (`presentacion-proyectos.html`) atualizados com a seleção exata de 6 fotos solicitada pelo operador:
+       - `landscape-architecture-mallorca-llubi-sestepa-design (1).webp`
+       - `landscape-architecture-mallorca-llubi-sestepa-design (4).webp`
+       - `GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-5.png`
+       - `landscape-architecture-mallorca-llubi-sestepa-design (9).webp`
+       - `landscape-architecture-mallorca-llubi-sestepa-design (5).webp`
+       - `landscape-architecture-mallorca-llubi-sestepa-design (2).webp`
+  2. Regeneração dos PDFs de Apresentação:
+     - 76 páginas regeneradas, fotos atualizadas, peso mantido abaixo de 22 MB (< 25 MB limite Cloudflare).
+- **Validação:**
+  - Build local isolado com Astro (`preview_local.py build`) executado com sucesso: código 0.
+- **Arquivos alterados:** `src/data/gallery-images.ts`, `public/presentacion-proyectos.html`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Horizontal.pdf`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Celular-Vertical.pdf`, `STATUS.md`.
+
+
 ### [2026-10-26] - Antigravity (Atualização das 6 Fotos de Santa Eugènia na Galeria e Apresentação) — publicado em master
 - **Autor/agente:** Antigravity.
 - **Acesso à unidade J:** Declaração explícita de uso somente leitura (read-only). Cópia estrita das 6 fotos oficiais de `J:\Meu Drive\S'ESTEPA 2026\MEDIA 2026\JARDINES\MEJORES FOTOS\1. MEJORES FOTOS PEDRO\garden design mallorca santa eugenia sestepa landscape design 1..6.JPG` para `originais-grandes\santa-eugenia\`. Nenhuma escrita, renomeação ou exclusão em J:.

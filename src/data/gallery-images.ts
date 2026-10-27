@@ -341,11 +341,6 @@ export const galleryImages: GalleryImageEntry[] = [
     projectSlug: llubi,
   },
   {
-    src: '/portfolio/garden-design-llubi-mallorca/images/LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-13.webp',
-    alt: 'GARDEN DESIGN LLUBI SWIMMING POOL AND COUNTRYSIDE VISTA SESTEPA DESIGN',
-    projectSlug: llubi,
-  },
-  {
     src: '/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design (4).webp',
     alt: 'GARDEN DESIGN LLUBI DRY STONE WALLS AND SUNBEDS SESTEPA DESIGN',
     projectSlug: llubi,
@@ -356,13 +351,18 @@ export const galleryImages: GalleryImageEntry[] = [
     projectSlug: llubi,
   },
   {
-    src: '/portfolio/garden-design-llubi-mallorca/images/LLUBI-GARDEN-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-10.webp',
-    alt: 'GARDEN DESIGN LLUBI MEDITERRANEAN SUNSET PATIO SESTEPA DESIGN',
+    src: '/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design (9).webp',
+    alt: 'GARDEN DESIGN LLUBI MEDITERRANEAN SHRUB GRAVEL COMPOSITION SESTEPA DESIGN',
     projectSlug: llubi,
   },
   {
     src: '/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design (5).webp',
     alt: 'GARDEN DESIGN LLUBI ARCHITECTURAL POOL REFLECTION SESTEPA DESIGN',
+    projectSlug: llubi,
+  },
+  {
+    src: '/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design (2).webp',
+    alt: 'GARDEN DESIGN LLUBI STONE FIRE PIT AND LAVENDER MEADOW SESTEPA DESIGN',
     projectSlug: llubi,
   },
   // 3 × Vertical Gardens (3 Years Growth)
