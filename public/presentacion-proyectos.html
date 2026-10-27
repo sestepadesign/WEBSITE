@@ -1988,6 +1988,80 @@
       }
     }
 
+  
+    /* Clickable Slide Counter (Jump to First / Last Photo) */
+    .bottom-counter {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      user-select: none;
+    }
+
+    .counter-num {
+      background: none;
+      border: none;
+      padding: 2px 5px;
+      margin: 0;
+      color: inherit;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 500;
+      letter-spacing: inherit;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+      line-height: 1;
+    }
+
+    .counter-num:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.18);
+      transform: scale(1.08);
+    }
+
+    .counter-total {
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .counter-total:hover {
+      color: #ffffff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .counter-sep {
+      color: rgba(255, 255, 255, 0.35);
+      font-weight: 300;
+      padding: 0 1px;
+    }
+
+    body.pdf-light .bottom-counter {
+      color: #4a4740 !important;
+    }
+
+    body.pdf-light .counter-num {
+      color: #333330 !important;
+      font-weight: 600 !important;
+    }
+
+    body.pdf-light .counter-num:hover {
+      color: #0d0d0c !important;
+      background: rgba(0, 0, 0, 0.08) !important;
+    }
+
+    body.pdf-light .counter-total:hover {
+      color: #000000 !important;
+    }
+
+    body.pdf-light .counter-sep {
+      color: rgba(0, 0, 0, 0.4) !important;
+    }
+
   </style>
 </head>
 <body class="view-index">
@@ -2271,7 +2345,11 @@
     <div class="bottom-bar-content">
       <div class="bottom-project-info" id="bottomProjectPill">
         <a href="#" class="bottom-project-name" id="bottomProjectName" target="_blank" rel="noopener" title="Ver proyecto en la web"></a>
-        <span class="bottom-counter" id="bottomCounter">01 / 78</span>
+        <span class="bottom-counter" id="bottomCounter">
+          <button type="button" class="counter-num counter-current" id="counterCurrent" title="Ir a la primera foto (01)">01</button>
+          <span class="counter-sep">/</span>
+          <button type="button" class="counter-num counter-total" id="counterTotal" title="Ir a la última foto (78)">78</button>
+        </span>
       </div>
 
       <!-- Luxury Interactive Filmstrip Carousel (Reveals on bottom hover / swipe) -->
@@ -2574,6 +2652,8 @@
     const totalSlides = slides.length;
     const bottomProjectName = document.getElementById('bottomProjectName');
     const bottomCounter = document.getElementById('bottomCounter');
+    const counterCurrent = document.getElementById('counterCurrent');
+    const counterTotal = document.getElementById('counterTotal');
 
     function goToSlide(index) {
       if (index < 0 || index >= totalSlides) return;
@@ -2595,7 +2675,8 @@
       bottomProjectName.textContent = item.title;
       bottomProjectName.href = item.url || '#';
       bottomProjectName.title = `Ver proyecto ${item.title} en el sitio web (abre en nueva pestaña)`;
-      bottomCounter.textContent = `${String(currentSlide + 1).padStart(2, '0')} / ${String(galleryItems.length).padStart(2, '0')}`;
+      if (counterCurrent) counterCurrent.textContent = String(currentSlide + 1).padStart(2, '0');
+      if (counterTotal) counterTotal.textContent = String(galleryItems.length).padStart(2, '0');
 
       // Synchronize active filmstrip thumbnail & smooth center scroll
       const filmstripThumbs = document.querySelectorAll('.filmstrip-thumb-btn');
@@ -3169,6 +3250,24 @@
           e.stopPropagation();
           bottomFilmstripDrawer?.classList.toggle('is-revealed');
         }
+      });
+    }
+
+  
+    // Jump to First / Last Photo when clicking slide counter numbers
+    if (counterTotal) {
+      counterTotal.addEventListener('click', (e) => {
+        e.stopPropagation();
+        stopAutoPlay();
+        goToSlide(totalSlides - 1);
+      });
+    }
+
+    if (counterCurrent) {
+      counterCurrent.addEventListener('click', (e) => {
+        e.stopPropagation();
+        stopAutoPlay();
+        goToSlide(0);
       });
     }
 
