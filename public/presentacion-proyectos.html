@@ -2406,6 +2406,16 @@
   </div>
 
   <script>
+    // Senior UX String Normalizer (Accents, lowercase, diacritics stripping for instant search matching)
+    function normalizeStr(str) {
+      return (str || '')
+        .toString()
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[̀-ͯ]/g, '')
+        .trim();
+    }
+
     // Gallery Data grouped with strict coherence (All project photos consecutive)
     const galleryItems = [
       // 1. Santa Ponsa (3 photos)
@@ -2601,6 +2611,7 @@
       card.className = 'overview-card';
       card.dataset.index = slideIndex;
       card.dataset.title = item.title;
+      card.dataset.search = `${item.title} ${item.path || ''} ${item.url || ''}`.replace(/[-_/.]/g, ' ');
 
       const thumb = document.createElement('img');
       thumb.className = 'overview-thumb';
@@ -2846,6 +2857,7 @@
     const heroSearchInput = document.getElementById('indexSearchInput');
     const heroSearchClear = document.getElementById('indexSearchClear');
     const heroSearchCount = document.getElementById('indexSearchCount');
+    const btnSearchToggle = document.getElementById('btnSearchToggle');
     const heroPills = document.querySelectorAll('.idx-pill');
     const btnProjectDropdown = document.getElementById('btnProjectDropdown');
     const projectDropdownPopover = document.getElementById('projectDropdownPopover');
@@ -2950,8 +2962,10 @@
       }
 
       cards.forEach(card => {
-        const title = normalizeStr(card.dataset.title || '');
-        const match = !q || title.includes(q);
+        const titleStr = normalizeStr(card.dataset.title || '');
+        const searchStr = normalizeStr(card.dataset.search || '');
+        const fullTarget = `${titleStr} ${searchStr}`;
+        const match = !q || fullTarget.includes(q);
         card.style.display = match ? 'flex' : 'none';
         if (match) visibleCount++;
       });
@@ -3155,9 +3169,7 @@
           }
           break;
         case 'Escape':
-          if (searchBar?.classList.contains('open')) {
-            toggleSearchBar(false);
-          } else if (document.getElementById('pdfModal').classList.contains('open')) {
+          const presDrawer = document.getElementById('presentationSearchBar'); if (presDrawer?.classList.contains('open')) presDrawer.classList.remove('open'); else if (document.getElementById('pdfModal').classList.contains('open')) {
             closePdfModal();
           } else if (document.fullscreenElement || document.webkitFullscreenElement || document.body.classList.contains('is-fullscreen')) {
             exitFullscreen();
