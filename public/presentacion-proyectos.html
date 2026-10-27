@@ -833,6 +833,150 @@
       color: var(--text);
     }
 
+    
+    /* Premium Integrated Search Hero (Senior UX) */
+    .index-search-hero {
+      margin-bottom: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .index-search-bar-wrap {
+      display: flex;
+      align-items: center;
+      background: #141414;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 30px;
+      padding: 0 20px;
+      height: 48px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    }
+
+    body.pdf-light .index-search-bar-wrap {
+      background: #f4f3ef;
+      border-color: rgba(0, 0, 0, 0.14);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    }
+
+    .index-search-bar-wrap:focus-within {
+      border-color: rgba(255, 255, 255, 0.45);
+      background: #181818;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    body.pdf-light .index-search-bar-wrap:focus-within {
+      background: #ffffff;
+      border-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .index-search-icon {
+      color: var(--text-muted);
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+
+    .index-search-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      letter-spacing: 0.03em;
+    }
+
+    .index-search-input::placeholder {
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    .index-search-input::-webkit-search-cancel-button {
+      display: none;
+    }
+
+    .index-search-clear {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      transition: color 0.2s ease;
+    }
+
+    .index-search-clear:hover {
+      color: var(--text);
+    }
+
+    .index-search-badge {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 12px;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    body.pdf-light .index-search-badge {
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .index-filter-pills-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .index-filter-pills-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .idx-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      border-radius: 18px;
+      padding: 6px 14px;
+      font-size: 0.72rem;
+      font-family: var(--font-sans);
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.22s ease;
+    }
+
+    body.pdf-light .idx-pill {
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    .idx-pill:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .idx-pill.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      font-weight: 500;
+    }
+
     /* Print & PDF Export (A4 Landscape 297mm x 210mm) */
     @page {
       size: 297mm 210mm;
@@ -1245,6 +1389,49 @@
   <main>
     <!-- 1. INDEX GRID VIEW (Página Inicial) -->
     <section class="index-view" id="indexView">
+      <!-- Premium Integrated Search & Filter Experience -->
+      <div class="index-search-hero" id="indexSearchHero">
+        <div class="index-search-bar-wrap">
+          <svg class="index-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7.5"></circle>
+            <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+          </svg>
+          <input
+            type="search"
+            id="indexSearchInput"
+            class="index-search-input"
+            placeholder="Buscar por jardín o proyecto (ej: Son Vida, Portals Nous, Santa Ponsa, Palma, Patio)..."
+            aria-label="Buscar proyectos"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button type="button" id="indexSearchClear" class="index-search-clear" style="display:none;" title="Limpiar búsqueda">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+          <span class="index-search-badge" id="indexSearchCount">78 fotos</span>
+        </div>
+
+        <div class="index-filter-pills-row" id="indexFilterPills">
+          <button type="button" class="idx-pill active" data-filter="all">Todos (78)</button>
+          <button type="button" class="idx-pill" data-filter="Son Vida">Son Vida (6)</button>
+          <button type="button" class="idx-pill" data-filter="Santa Ponsa">Santa Ponsa (3)</button>
+          <button type="button" class="idx-pill" data-filter="Sant Llorenç">Sant Llorenç (6)</button>
+          <button type="button" class="idx-pill" data-filter="Binissalem">Binissalem (12)</button>
+          <button type="button" class="idx-pill" data-filter="Portals Nous">Portals Nous (3)</button>
+          <button type="button" class="idx-pill" data-filter="Llubí">Llubí (6)</button>
+          <button type="button" class="idx-pill" data-filter="Santa Eugènia">Santa Eugènia (6)</button>
+          <button type="button" class="idx-pill" data-filter="Palma">Palma (3)</button>
+          <button type="button" class="idx-pill" data-filter="Andratx">Andratx (6)</button>
+          <button type="button" class="idx-pill" data-filter="Bunyola">Bunyola (3)</button>
+          <button type="button" class="idx-pill" data-filter="Crestatx">Crestatx (3)</button>
+          <button type="button" class="idx-pill" data-filter="Campos">Campos (3)</button>
+          <button type="button" class="idx-pill" data-filter="Marratxí">Marratxí (3)</button>
+        </div>
+      </div>
+
       <div class="index-grid" id="overviewGrid"></div>
     </section>
 
@@ -1650,6 +1837,90 @@
     }
 
     document.getElementById('btnAutoPlay').addEventListener('click', toggleAutoPlay);
+
+    
+    // Hero Search Input & Filter Pills Wiring
+    const heroSearchInput = document.getElementById('indexSearchInput');
+    const heroSearchClear = document.getElementById('indexSearchClear');
+    const heroSearchCount = document.getElementById('indexSearchCount');
+    const heroPills = document.querySelectorAll('.idx-pill');
+
+    function applyIndexFilter(rawQuery) {
+      const q = normalizeStr(rawQuery);
+      const cards = document.querySelectorAll('.overview-card');
+      let visibleCount = 0;
+
+      if (heroSearchClear) {
+        heroSearchClear.style.display = q ? 'flex' : 'none';
+      }
+
+      heroPills.forEach(p => {
+        const filterVal = p.dataset.filter;
+        if (filterVal === 'all' && !q) {
+          p.classList.add('active');
+        } else if (filterVal !== 'all' && q === normalizeStr(filterVal)) {
+          p.classList.add('active');
+        } else {
+          p.classList.remove('active');
+        }
+      });
+
+      cards.forEach(card => {
+        const title = normalizeStr(card.dataset.title || '');
+        const match = !q || title.includes(q);
+        card.style.display = match ? 'flex' : 'none';
+        if (match) visibleCount++;
+      });
+
+      if (heroSearchCount) {
+        if (!q) {
+          heroSearchCount.textContent = `${galleryItems.length} fotos`;
+        } else if (visibleCount === 0) {
+          heroSearchCount.textContent = `0 fotos`;
+        } else {
+          heroSearchCount.textContent = `${visibleCount} de ${galleryItems.length} fotos`;
+        }
+      }
+    }
+
+    if (heroSearchInput) {
+      heroSearchInput.addEventListener('input', (e) => {
+        applyIndexFilter(e.target.value);
+      });
+    }
+
+    if (heroSearchClear) {
+      heroSearchClear.addEventListener('click', () => {
+        if (heroSearchInput) {
+          heroSearchInput.value = '';
+          applyIndexFilter('');
+          heroSearchInput.focus();
+        }
+      });
+    }
+
+    heroPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const filterVal = pill.dataset.filter;
+        if (filterVal === 'all') {
+          if (heroSearchInput) heroSearchInput.value = '';
+          applyIndexFilter('');
+        } else {
+          if (heroSearchInput) heroSearchInput.value = filterVal;
+          applyIndexFilter(filterVal);
+        }
+      });
+    });
+
+    if (btnSearchToggle) {
+      btnSearchToggle.addEventListener('click', () => {
+        if (!document.body.classList.contains('view-index')) {
+          showIndexView();
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => heroSearchInput?.focus(), 80);
+      });
+    }
 
     // Presentation Search & Filter Logic
     const btnSearchToggle = document.getElementById('btnSearchToggle');

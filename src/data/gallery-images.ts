@@ -415,17 +415,17 @@ export const galleryImages: GalleryImageEntry[] = [
   // 3 × Portals Nous (Tropical Oasis)
   {
     src: '/portfolio/portals-nous/images/garden-design-mallorca-portals-nous-sestepa-01.webp',
-    alt: 'PORTALS NOUS TROPICAL MEDITERRANEAN OASIS STONE PATHWAY AND MATURE PALMS SESTEPA DESIGN',
+    alt: 'PORTALS NOUS RESIDENTIAL GARDEN WALKWAY PAVING AND ARCHITECTURAL PLANTERS SESTEPA DESIGN',
     projectSlug: portalsNous,
   },
   {
     src: '/portfolio/portals-nous/images/garden-design-mallorca-portals-nous-sestepa-02.webp',
-    alt: 'PORTALS NOUS TROPICAL SPECIES AND VIBRANT BOTANICAL COMPOSITION SESTEPA DESIGN',
+    alt: 'PORTALS NOUS LUSH TROPICAL PALM TERRACE CYCAS REVOLUTA AND ARCHITECTURAL PLANTING SESTEPA DESIGN',
     projectSlug: portalsNous,
   },
   {
     src: '/portfolio/portals-nous/images/garden-design-mallorca-portals-nous-sestepa-03.webp',
-    alt: 'PORTALS NOUS LUSH FOLIAGE TEXTURES AND STRELITZIA COMPOSITION SESTEPA DESIGN',
+    alt: 'PORTALS NOUS SUNLIT GARDEN PATHWAY MATURE PALMS AND CLASSICAL BALUSTRADE SESTEPA DESIGN',
     projectSlug: portalsNous,
   },
   // 3 × Marratxí (Living Landscape with Time)
