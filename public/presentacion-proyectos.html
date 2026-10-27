@@ -661,6 +661,178 @@
       color: #ffffff;
     }
 
+    /* Presentation Search Bar */
+    .presentation-search-bar {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      width: 100%;
+      background: rgba(14, 14, 14, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 99;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, padding 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      padding: 0 32px;
+    }
+
+    body.pdf-light .presentation-search-bar {
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .presentation-search-bar.open {
+      max-height: 240px;
+      opacity: 1;
+      padding: 16px 32px 18px;
+    }
+
+    .presentation-search-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .search-input-field {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 0 16px;
+      height: 42px;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    body.pdf-light .search-input-field {
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .search-input-field:focus-within {
+      border-color: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    body.pdf-light .search-input-field:focus-within {
+      border-color: rgba(0, 0, 0, 0.4);
+      background: #ffffff;
+    }
+
+    .search-field-icon {
+      color: var(--text-muted);
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+
+    .search-input-field input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      letter-spacing: 0.02em;
+    }
+
+    .search-input-field input::placeholder {
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    .search-input-field input::-webkit-search-cancel-button {
+      display: none;
+    }
+
+    .search-field-clear {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .search-field-clear:hover {
+      color: var(--text);
+    }
+
+    .search-pills-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .search-pills-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .pres-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      border-radius: 16px;
+      padding: 4px 12px;
+      font-size: 0.72rem;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    body.pdf-light .pres-pill {
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    .pres-pill:hover {
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .pres-pill.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      font-weight: 500;
+    }
+
+    .search-status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .search-close-link {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.72rem;
+      font-family: inherit;
+      text-decoration: underline;
+    }
+
+    .search-close-link:hover {
+      color: var(--text);
+    }
+
     /* Print & PDF Export (A4 Landscape 297mm x 210mm) */
     @page {
       size: 297mm 210mm;
@@ -960,6 +1132,15 @@
         <span class="btn-label">Índice</span>
       </button>
 
+      <!-- Search Button (Lupinha) -->
+      <button class="btn-icon" id="btnSearchToggle" title="Buscar por proyecto o jardín (/)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+        </svg>
+        <span class="btn-label btn-label-desktop">Buscar</span>
+      </button>
+
       <!-- 2. PLAY / Video Slideshow -->
       <button class="btn-icon" id="btnAutoPlay" title="Modo Video / Reproducción Automática (Espacio)">
         <svg id="playIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1004,6 +1185,53 @@
       </button>
     </div>
   </header>
+
+  <!-- Presentation Search Drawer -->
+  <div class="presentation-search-bar" id="presentationSearchBar">
+    <div class="presentation-search-inner">
+      <div class="search-input-field">
+        <svg class="search-field-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+        </svg>
+        <input
+          type="search"
+          id="presSearchInput"
+          placeholder="Buscar por proyecto o jardín (ej: Son Vida, Santa Ponsa, Palma, Patio, Binissalem...)"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button type="button" id="presSearchClear" class="search-field-clear" style="display:none;" title="Limpiar">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Quick Filter Project Pills -->
+      <div class="search-pills-row" id="searchPillsRow">
+        <button type="button" class="pres-pill active" data-filter="all">Todos (78)</button>
+        <button type="button" class="pres-pill" data-filter="Son Vida">Son Vida (6)</button>
+        <button type="button" class="pres-pill" data-filter="Santa Ponsa">Santa Ponsa (3)</button>
+        <button type="button" class="pres-pill" data-filter="Sant Llorenç">Sant Llorenç (6)</button>
+        <button type="button" class="pres-pill" data-filter="Binissalem">Binissalem (12)</button>
+        <button type="button" class="pres-pill" data-filter="Llubí">Llubí (6)</button>
+        <button type="button" class="pres-pill" data-filter="Santa Eugènia">Santa Eugènia (6)</button>
+        <button type="button" class="pres-pill" data-filter="Palma">Palma (3)</button>
+        <button type="button" class="pres-pill" data-filter="Andratx">Andratx (6)</button>
+        <button type="button" class="pres-pill" data-filter="Bunyola">Bunyola (3)</button>
+        <button type="button" class="pres-pill" data-filter="Crestatx">Crestatx (3)</button>
+        <button type="button" class="pres-pill" data-filter="Campos">Campos (3)</button>
+        <button type="button" class="pres-pill" data-filter="Marratxí">Marratxí (3)</button>
+      </div>
+
+      <div class="search-status-bar">
+        <span id="presSearchCount">78 fotos</span>
+        <button type="button" id="presSearchClose" class="search-close-link">Cerrar buscador [Esc]</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Exit Fullscreen Button (Floating) -->
   <button class="fs-close-btn" id="btnExitFs" title="Salir de pantalla completa (Esc)">
@@ -1272,6 +1500,7 @@
       const card = document.createElement('div');
       card.className = 'overview-card';
       card.dataset.index = slideIndex;
+      card.dataset.title = item.title;
 
       const thumb = document.createElement('img');
       thumb.className = 'overview-thumb';
@@ -1422,6 +1651,105 @@
 
     document.getElementById('btnAutoPlay').addEventListener('click', toggleAutoPlay);
 
+    // Presentation Search & Filter Logic
+    const btnSearchToggle = document.getElementById('btnSearchToggle');
+    const searchBar = document.getElementById('presentationSearchBar');
+    const searchInput = document.getElementById('presSearchInput');
+    const searchClear = document.getElementById('presSearchClear');
+    const searchCount = document.getElementById('presSearchCount');
+    const searchClose = document.getElementById('presSearchClose');
+    const searchPills = document.querySelectorAll('.pres-pill');
+
+    function normalizeStr(str) {
+      return (str || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .trim();
+    }
+
+    function toggleSearchBar(force) {
+      if (!searchBar) return;
+      const isOpen = force !== undefined ? force : !searchBar.classList.contains('open');
+      searchBar.classList.toggle('open', isOpen);
+      btnSearchToggle?.classList.toggle('active-mode', isOpen);
+      if (isOpen) {
+        if (!document.body.classList.contains('view-index')) {
+          showIndexView();
+        }
+        setTimeout(() => searchInput?.focus(), 60);
+      } else {
+        searchInput?.blur();
+      }
+    }
+
+    btnSearchToggle?.addEventListener('click', () => toggleSearchBar());
+    searchClose?.addEventListener('click', () => toggleSearchBar(false));
+
+    function filterPresentation(rawQuery) {
+      const q = normalizeStr(rawQuery);
+      const cards = document.querySelectorAll('.overview-card');
+      let visibleCount = 0;
+
+      if (searchClear) {
+        searchClear.style.display = q ? 'flex' : 'none';
+      }
+
+      // Update active state on pills
+      searchPills.forEach(p => {
+        const filterVal = p.dataset.filter;
+        if (filterVal === 'all' && !q) {
+          p.classList.add('active');
+        } else if (filterVal !== 'all' && q === normalizeStr(filterVal)) {
+          p.classList.add('active');
+        } else {
+          p.classList.remove('active');
+        }
+      });
+
+      cards.forEach(card => {
+        const title = normalizeStr(card.dataset.title || '');
+        const match = !q || title.includes(q);
+        card.style.display = match ? 'flex' : 'none';
+        if (match) visibleCount++;
+      });
+
+      if (searchCount) {
+        if (!q) {
+          searchCount.textContent = `${galleryItems.length} fotos`;
+        } else if (visibleCount === 0) {
+          searchCount.textContent = `No se encontraron fotos para "${rawQuery}"`;
+        } else {
+          searchCount.textContent = `${visibleCount} de ${galleryItems.length} fotos`;
+        }
+      }
+    }
+
+    searchInput?.addEventListener('input', (e) => {
+      filterPresentation(e.target.value);
+    });
+
+    searchClear?.addEventListener('click', () => {
+      if (searchInput) {
+        searchInput.value = '';
+        filterPresentation('');
+        searchInput.focus();
+      }
+    });
+
+    searchPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const filterVal = pill.dataset.filter;
+        if (filterVal === 'all') {
+          if (searchInput) searchInput.value = '';
+          filterPresentation('');
+        } else {
+          if (searchInput) searchInput.value = filterVal;
+          filterPresentation(filterVal);
+        }
+      });
+    });
+
     // Screen-Half Click Navigation (Standard S'Estepa Slideshow behavior)
     deckContainer.addEventListener('click', (e) => {
       if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.top-bar') || e.target.closest('.bottom-bar') || e.target.closest('.fs-close-btn')) {
@@ -1546,8 +1874,16 @@
         case 'F':
           toggleFullscreen();
           break;
+        case '/':
+          if (document.activeElement?.tagName !== 'INPUT') {
+            e.preventDefault();
+            toggleSearchBar(true);
+          }
+          break;
         case 'Escape':
-          if (document.getElementById('pdfModal').classList.contains('open')) {
+          if (searchBar?.classList.contains('open')) {
+            toggleSearchBar(false);
+          } else if (document.getElementById('pdfModal').classList.contains('open')) {
             closePdfModal();
           } else if (document.fullscreenElement || document.webkitFullscreenElement || document.body.classList.contains('is-fullscreen')) {
             exitFullscreen();
