@@ -17,6 +17,25 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-27] - Antigravity (Diversificação das Fotos de Crestatx na Galeria e Apresentação + Atualização SEO de Imagem) — publicado em master
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Leitura exclusiva em J: nas etapas anteriores; nenhum arquivo alterado ou gravado em J:.
+- **Escopo:**
+  1. Diversificação das 3 fotos de Crestatx na Galeria e Apresentação:
+     - Eliminada a repetição triplicada da mesma imagem em /gallery/ e presentacion-proyectos.html.
+     - Vagas 1, 2 e 3 configuradas com 3 ângulos distintos e complementares:
+       - Foto 1: /portfolio/crestatx-garden-design/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.webp (Pátio com oliveira, cascalho e agaves).
+       - Foto 2: /portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-22.jpg (Perspectiva perimetral do jardim e piscina).
+       - Foto 3: /portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-4.jpg (Capins ornamentais sob luz solar aprimorados via Magnific AI a partir de IMG_2946_hibrida_full.jpg).
+  2. Preservação de Autoridade SEO:
+     - Imagem tratada salva exatamente com o nome e caminho canônico GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-4.jpg e gerado .webp.
+     - Restaurados os arquivos originais da foto de pátio em public/gallery/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CRESTATX.*.
+  3. Mapeamento de Assets:
+     - Atualizado originais-grandes/crestatx/ASSET-MAP.md documentando a proveniência do master IMG_2946_hibrida_full.jpg e das fotos selecionadas.
+- **Validação:**
+  - Build estático com Astro e Pagefind concluído no espelho local (preview_local.py build) com código 0.
+- **Commit publicado:** fd61ca.
+
 ### [2026-10-26] - Antigravity (Adição de 3 Fotos de Son Vida na Galeria e Apresentação) — publicado em master
 - **Autor/agente:** Antigravity.
 - **Acesso à unidade J:** Não houve acesso a J:.
