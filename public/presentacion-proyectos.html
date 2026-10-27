@@ -2718,7 +2718,8 @@
 
     // View Transitions
     function showIndexView() {
-      stopAutoPlay();
+      stopAutoPlay(true);
+      cancelAutoResume();
       document.body.classList.remove('view-slideshow');
       document.body.classList.add('view-index');
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -2729,6 +2730,9 @@
       document.body.classList.add('view-slideshow');
       if (typeof index === 'number') {
         goToSlide(index);
+      }
+      if (!isPlaying) {
+        scheduleAutoResume();
       }
     }
 
@@ -2761,12 +2765,30 @@
     window.addEventListener('touchstart', resetIdleTimer, { passive: true });
     window.addEventListener('keydown', resetIdleTimer);
 
-    // Video Slideshow / PLAY Mode
+    // Video Slideshow / PLAY Mode & 20s Auto-Resume Engine
     let isPlaying = false;
     let autoPlayTimer = null;
     const SLIDE_DURATION = 4200; // 4.2s per photo (luxurious pace with smooth crossfade and subtle zoom)
+    const AUTO_RESUME_DELAY = 20000; // 20s of inactivity automatically resumes the slideshow
+    let autoResumeTimer = null;
+
+    function scheduleAutoResume() {
+      clearTimeout(autoResumeTimer);
+      if (document.body.classList.contains('view-slideshow') && !isPlaying) {
+        autoResumeTimer = setTimeout(() => {
+          if (document.body.classList.contains('view-slideshow') && !isPlaying) {
+            startAutoPlay();
+          }
+        }, AUTO_RESUME_DELAY);
+      }
+    }
+
+    function cancelAutoResume() {
+      clearTimeout(autoResumeTimer);
+    }
 
     function startAutoPlay() {
+      cancelAutoResume();
       isPlaying = true;
       showSlideshowView();
       // PLAY merges seamlessly with Fullscreen mode
@@ -2780,13 +2802,19 @@
       autoPlayTimer = setInterval(nextSlide, SLIDE_DURATION);
     }
 
-    function stopAutoPlay() {
+    function stopAutoPlay(preventResume = false) {
       isPlaying = false;
       document.body.classList.remove('video-playing');
       document.getElementById('btnAutoPlay').classList.remove('active-mode');
       document.getElementById('autoPlayText').textContent = 'PLAY';
       document.getElementById('playIcon').innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
       clearInterval(autoPlayTimer);
+
+      if (!preventResume) {
+        scheduleAutoResume();
+      } else {
+        cancelAutoResume();
+      }
     }
 
     function toggleAutoPlay() {
@@ -2801,6 +2829,16 @@
     }
 
     document.getElementById('btnAutoPlay').addEventListener('click', toggleAutoPlay);
+
+    // Any user interaction in slideshow refreshes the 20-second auto-resume timer
+    function onUserActivityInSlideshow() {
+      if (document.body.classList.contains('view-slideshow') && !isPlaying) {
+        scheduleAutoResume();
+      }
+    }
+    window.addEventListener('mousemove', onUserActivityInSlideshow, { passive: true });
+    window.addEventListener('touchstart', onUserActivityInSlideshow, { passive: true });
+    window.addEventListener('keydown', onUserActivityInSlideshow, { passive: true });
 
     
     
