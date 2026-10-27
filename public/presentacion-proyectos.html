@@ -2062,6 +2062,257 @@
       color: rgba(0, 0, 0, 0.4) !important;
     }
 
+  
+    /* ==========================================================================
+       ULTRA-RESPONSIVE ARCHITECTURE FOR MOBILE (IPHONE & SAMSUNG)
+       ========================================================================== */
+    @media (max-width: 768px) {
+      /* Top Bar */
+      .top-bar {
+        height: 52px;
+        padding: 0 max(12px, env(safe-area-inset-right)) 0 max(12px, env(safe-area-inset-left));
+      }
+
+      .brand-nav {
+        font-size: 0.95rem;
+        letter-spacing: 0.12em;
+        white-space: nowrap;
+        gap: 6px;
+      }
+
+      .brand-projects,
+      .brand-location,
+      .brand-sep {
+        display: none !important;
+      }
+
+      .top-controls {
+        gap: 6px;
+      }
+
+      .btn-icon {
+        height: 34px;
+        padding: 0 10px;
+        font-size: 0.68rem;
+        letter-spacing: 0.08em;
+        gap: 5px;
+      }
+
+      .btn-icon svg {
+        width: 12px;
+        height: 12px;
+      }
+
+      .btn-label-desktop {
+        display: none !important;
+      }
+
+      .btn-label-mobile {
+        display: inline !important;
+      }
+
+      /* Index View Spacing */
+      .index-view {
+        padding: 64px 12px 40px;
+        max-width: 100%;
+      }
+
+      .index-search-hero {
+        margin-bottom: 14px;
+        gap: 8px;
+        width: 100%;
+      }
+
+      /* Search Row: Compact Dropdown Icon Button to give Maximum Width to Search Bar */
+      .index-search-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+      }
+
+      .index-search-bar-wrap {
+        flex: 1;
+        min-width: 0;
+        height: 44px;
+        padding: 0 12px;
+        gap: 8px;
+      }
+
+      .index-search-icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 4px;
+        flex-shrink: 0;
+      }
+
+      .index-search-input {
+        font-size: 0.84rem;
+        min-width: 0;
+        flex: 1;
+      }
+
+      .index-search-badge {
+        font-size: 0.66rem;
+        padding: 3px 7px;
+        border-radius: 10px;
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+
+      /* Compact Project Dropdown Button on Mobile */
+      .btn-project-dropdown {
+        height: 44px;
+        width: 44px;
+        min-width: 44px;
+        padding: 0;
+        justify-content: center;
+        gap: 2px;
+        border-radius: 22px;
+      }
+
+      .btn-project-dropdown .dropdown-label-text {
+        display: none !important;
+      }
+
+      .project-dropdown-popover {
+        width: min(320px, calc(100vw - 24px));
+        right: 0;
+        max-height: 280px;
+      }
+
+      /* Horizontal Filter Pills with Smooth Edge-to-Edge Touch Momentum */
+      .pills-carousel-container {
+        width: 100%;
+        margin: 0;
+      }
+
+      .pills-arrow-btn {
+        display: none !important;
+      }
+
+      .pills-track-mask {
+        mask-image: none !important;
+        -webkit-mask-image: none !important;
+        padding: 2px 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x proximity;
+        scrollbar-width: none;
+      }
+
+      .pills-track-mask::-webkit-scrollbar {
+        display: none;
+      }
+
+      .index-filter-pills-row {
+        gap: 6px;
+        padding: 0 2px;
+      }
+
+      .idx-pill {
+        padding: 6px 12px;
+        font-size: 0.72rem;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+      }
+
+      /* Grid Cards on Mobile */
+      .index-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+      }
+
+      .overview-card {
+        border-radius: 4px;
+      }
+
+      .overview-caption {
+        padding: 8px 8px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* Slideshow Dynamic Viewport & Safe Insets on iPhone/Samsung */
+      .deck-container {
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+      }
+
+      .slide {
+        padding: 56px 8px max(74px, calc(env(safe-area-inset-bottom) + 60px)) !important;
+      }
+
+      .image-wrapper {
+        width: 100% !important;
+        height: 100% !important;
+        max-height: calc(100dvh - 130px) !important;
+      }
+
+      .slide-img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      /* Bottom Bar & Filmstrip on Mobile */
+      .bottom-bar {
+        padding: 0 10px max(14px, env(safe-area-inset-bottom)) !important;
+      }
+
+      .bottom-project-info {
+        padding: 6px 16px;
+        gap: 10px;
+      }
+
+      .bottom-project-name {
+        font-size: 1.05rem;
+        letter-spacing: 0.08em;
+      }
+
+      .bottom-counter {
+        font-size: 0.72rem;
+      }
+
+      .bottom-filmstrip-drawer {
+        padding: 4px 6px;
+      }
+
+      .filmstrip-scroll-mask {
+        padding: 6px 8px;
+        border-radius: 8px;
+      }
+
+      .filmstrip-thumb-btn {
+        width: 58px;
+        height: 38px;
+        border-radius: 3px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .brand-name-full {
+        display: none !important;
+      }
+      .brand-name-short {
+        display: inline !important;
+      }
+      .top-bar {
+        padding: 0 10px;
+      }
+      .btn-icon {
+        padding: 0 8px;
+      }
+      .index-search-badge {
+        display: none !important;
+      }
+    }
+
   </style>
 </head>
 <body class="view-index">
@@ -2203,7 +2454,7 @@
               type="search"
               id="indexSearchInput"
               class="index-search-input"
-              placeholder="Buscar por jardín o proyecto (ej: Son Vida, Portals Nous, Palma, Patio)..."
+              placeholder="Buscar por jardín o proyecto..."
               aria-label="Buscar proyectos"
               autocomplete="off"
               spellcheck="false"
@@ -2226,7 +2477,7 @@
                 <rect x="14" y="14" width="7" height="7"></rect>
                 <rect x="3" y="14" width="7" height="7"></rect>
               </svg>
-              <span id="projectDropdownCurrentLabel">Proyectos</span>
+              <span id="projectDropdownCurrentLabel" class="dropdown-label-text">Proyectos</span>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
