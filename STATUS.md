@@ -17,6 +17,20 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-27] - Antigravity (Organização Alfabética dos Menus de Projetos na Apresentação) — publicado em master
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Não houve acesso a J:.
+- **Escopo:**
+  1. Ordenação Alfabética dos 2 Menus de Projetos na Apresentação (public/presentacion-proyectos.html):
+     - Menu Dropdown (#projectDropdownPopover): ordenado de A a Z com contadores precisos de fotos por projeto.
+     - Menu de Pílulas/Carrossel (#indexFilterPills): ordenado de A a Z correspondendo exatamente às opções do dropdown.
+     - Ordem estabelecida: Todos (78), Andratx (6), Binissalem (12), Bunyola (3), Campos (6), Crestatx (3), Hotel Cabot (6), Llubí (6), Marratxí (3), Palma (3), Portals Nous (3), Santa Eugènia (6), Santa Ponsa (3), Sant Llorenç (6), Son Vida (6).
+  2. Preservação Total dos Itens de Galeria:
+     - As 78 fotografias e seus respectivos caminhos, títulos e URLs no deck continuam inalteradas conforme solicitado.
+- **Validação:**
+  - Integridade validada e sincronizada no espelho local.
+- **Commit publicado:** a registrar no push.
+
 ### [2026-10-27] - Antigravity (Diversificação das Fotos de Crestatx na Galeria e Apresentação + Atualização SEO de Imagem) — publicado em master
 - **Autor/agente:** Antigravity.
 - **Acesso à unidade J:** Leitura exclusiva em J: nas etapas anteriores; nenhum arquivo alterado ou gravado em J:.
