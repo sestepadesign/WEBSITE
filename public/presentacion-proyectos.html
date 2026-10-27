@@ -268,7 +268,7 @@
       cursor: e-resize;
     }
 
-    .slide {
+        .slide {
       position: absolute;
       inset: 0;
       display: flex;
@@ -276,16 +276,22 @@
       justify-content: center;
       align-items: center;
       opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.35s ease, transform 0.35s ease;
-      transform: scale(0.99);
+      pointer-events: none;
+      transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1);
       padding: 68px 32px 68px;
+      z-index: 1;
+    }
+
+    .slide.outgoing {
+      opacity: 0;
+      z-index: 5;
+      pointer-events: none;
+      transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     .slide.active {
       opacity: 1;
-      visibility: visible;
-      transform: scale(1);
+      pointer-events: auto;
       z-index: 10;
     }
 
@@ -316,11 +322,17 @@
       box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
       background-color: rgba(255, 255, 255, 0.02);
       border-radius: 2px;
-      transition: transform 6s ease;
+      transform: scale(1.0);
+      transition: transform 5.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform;
     }
 
-    body.video-playing .slide.active .slide-img {
-      transform: scale(1.025);
+    .slide.active .slide-img {
+      transform: scale(1.032);
+    }
+
+    .slide.outgoing .slide-img {
+      transform: scale(1.038);
     }
 
     body.pdf-light .slide-img {
@@ -1501,6 +1513,271 @@
         grid-template-columns: 1fr;
       }
     }
+  
+    /* ==========================================================================
+       SENIOR UX ARCHITECTURE: ULTRA-HIGH CONTRAST & VISIBILITY (LIGHT THEME)
+       ========================================================================== */
+    body.pdf-light {
+      --bg: #faf9f6;
+      --bg-card: #ffffff;
+      --text: #0d0d0c;
+      --text-muted: #3e3b35;
+      --accent: #000000;
+      --border: rgba(0, 0, 0, 0.28);
+    }
+
+    body.pdf-light .top-bar {
+      background: linear-gradient(180deg, rgba(250, 249, 246, 0.98) 0%, rgba(250, 249, 246, 0) 100%);
+    }
+
+    body.pdf-light .brand-nav,
+    body.pdf-light .brand-link {
+      color: #0d0d0c !important;
+      font-weight: 500 !important;
+    }
+
+    body.pdf-light .brand-sep {
+      color: rgba(0, 0, 0, 0.35) !important;
+    }
+
+    /* All Top Bar Controls in Light Mode */
+    body.pdf-light .btn-icon {
+      background: #ffffff !important;
+      border: 1.5px solid #1a1a18 !important;
+      color: #0d0d0c !important;
+      font-weight: 600 !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    body.pdf-light .btn-icon:hover {
+      background: #0d0d0c !important;
+      border-color: #0d0d0c !important;
+      color: #ffffff !important;
+    }
+
+    body.pdf-light .btn-icon svg {
+      stroke: #0d0d0c !important;
+    }
+
+    body.pdf-light .btn-icon:hover svg {
+      stroke: #ffffff !important;
+    }
+
+    /* Active State (PAUSA / Running Play) */
+    body.pdf-light .btn-icon.active-mode {
+      background: #0d0d0c !important;
+      color: #ffffff !important;
+      border-color: #0d0d0c !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    body.pdf-light .btn-icon.active-mode svg {
+      stroke: #ffffff !important;
+      fill: #ffffff !important;
+    }
+
+    body.pdf-light .btn-icon.active-mode:hover {
+      background: #2a2a26 !important;
+      border-color: #2a2a26 !important;
+      color: #ffffff !important;
+    }
+
+    /* Slideshow Bottom Bar & Pill in Light Mode */
+    body.pdf-light .bottom-bar {
+      background: linear-gradient(0deg, rgba(250, 249, 246, 0.98) 0%, rgba(250, 249, 246, 0) 100%) !important;
+    }
+
+    body.pdf-light .bottom-project-info {
+      background: #ffffff !important;
+      border: 1.5px solid #1a1a18 !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16) !important;
+    }
+
+    body.pdf-light .bottom-project-name {
+      color: #0d0d0c !important;
+      font-weight: 600 !important;
+      font-size: 1.25rem !important;
+      letter-spacing: 0.12em !important;
+    }
+
+    body.pdf-light .bottom-project-name:hover {
+      color: #000000 !important;
+      text-decoration: underline !important;
+    }
+
+    body.pdf-light .bottom-counter {
+      color: #3a3832 !important;
+      font-weight: 700 !important;
+      font-size: 0.82rem !important;
+      letter-spacing: 0.2em !important;
+    }
+
+    /* Slideshow Navigation Arrows in Light Mode */
+    body.pdf-light .slide-nav-arrow {
+      background: #ffffff !important;
+      border: 1.5px solid #1a1a18 !important;
+      color: #0d0d0c !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14) !important;
+    }
+
+    body.pdf-light .slide-nav-arrow:hover {
+      background: #0d0d0c !important;
+      color: #ffffff !important;
+      border-color: #0d0d0c !important;
+    }
+
+    body.pdf-light .slide-nav-arrow svg {
+      stroke: currentColor !important;
+    }
+
+    /* Search Bar in Light Mode */
+    body.pdf-light .index-search-bar-wrap {
+      background: #ffffff !important;
+      border: 1.5px solid #1a1a18 !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    body.pdf-light .index-search-bar-wrap:focus-within {
+      background: #ffffff !important;
+      border-color: #000000 !important;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.14) !important;
+    }
+
+    body.pdf-light .index-search-input {
+      color: #0d0d0c !important;
+      font-weight: 600 !important;
+    }
+
+    body.pdf-light .index-search-input::placeholder {
+      color: #5a5750 !important;
+      font-weight: 400 !important;
+    }
+
+    body.pdf-light .index-search-icon {
+      color: #0d0d0c !important;
+    }
+
+    body.pdf-light .index-search-clear {
+      color: #3e3b35 !important;
+    }
+
+    body.pdf-light .index-search-clear:hover {
+      color: #000000 !important;
+    }
+
+    body.pdf-light .index-search-badge {
+      background: #eeece6 !important;
+      border: 1px solid #1a1a18 !important;
+      color: #0d0d0c !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.1em !important;
+    }
+
+    /* Project Dropdown Button & Popover in Light Mode */
+    body.pdf-light .btn-project-dropdown {
+      background: #ffffff !important;
+      border: 1.5px solid #1a1a18 !important;
+      color: #0d0d0c !important;
+      font-weight: 600 !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    body.pdf-light .btn-project-dropdown:hover,
+    body.pdf-light .btn-project-dropdown.active {
+      background: #f0ede6 !important;
+      border-color: #000000 !important;
+      color: #000000 !important;
+    }
+
+    body.pdf-light .btn-project-dropdown svg {
+      stroke: #0d0d0c !important;
+    }
+
+    body.pdf-light .project-dropdown-popover {
+      background: #ffffff !important;
+      border: 1px solid rgba(0, 0, 0, 0.25) !important;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    body.pdf-light .dropdown-opt-btn {
+      color: #1a1a18 !important;
+      font-weight: 500 !important;
+    }
+
+    body.pdf-light .dropdown-opt-btn:hover {
+      background: #f0ede6 !important;
+      color: #000000 !important;
+    }
+
+    body.pdf-light .dropdown-opt-btn.active {
+      background: #0d0d0c !important;
+      color: #ffffff !important;
+      font-weight: 600 !important;
+    }
+
+    body.pdf-light .dropdown-opt-btn.active .dropdown-opt-count {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    body.pdf-light .dropdown-opt-count {
+      color: #4a4740 !important;
+      font-weight: 600 !important;
+    }
+
+    /* Carousel Filter Pills in Light Mode */
+    body.pdf-light .idx-pill {
+      background: #ffffff !important;
+      border: 1px solid rgba(0, 0, 0, 0.3) !important;
+      color: #1a1a18 !important;
+      font-weight: 500 !important;
+    }
+
+    body.pdf-light .idx-pill:hover {
+      background: #f0ede6 !important;
+      border-color: #000000 !important;
+      color: #000000 !important;
+    }
+
+    body.pdf-light .idx-pill.active {
+      background: #0d0d0c !important;
+      color: #ffffff !important;
+      border-color: #0d0d0c !important;
+      font-weight: 600 !important;
+    }
+
+    body.pdf-light .pills-arrow-btn {
+      background: #ffffff !important;
+      border: 1px solid rgba(0, 0, 0, 0.3) !important;
+      color: #0d0d0c !important;
+      font-weight: bold !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+
+    body.pdf-light .pills-arrow-btn:hover {
+      background: #0d0d0c !important;
+      color: #ffffff !important;
+      border-color: #0d0d0c !important;
+    }
+
+    /* Cards & Captions in Light Mode */
+    body.pdf-light .overview-card {
+      background: #ffffff !important;
+      border: 1px solid rgba(0, 0, 0, 0.2) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    body.pdf-light .overview-card:hover {
+      border-color: rgba(0, 0, 0, 0.6) !important;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14) !important;
+    }
+
+    body.pdf-light .overview-caption {
+      color: #0d0d0c !important;
+      font-weight: 600 !important;
+      font-size: 1.12rem !important;
+      letter-spacing: 0.03em !important;
+    }
+
   </style>
 </head>
 <body class="view-index">
@@ -1576,14 +1853,6 @@
         </svg>
         <span class="btn-label btn-label-desktop">Generar PDF</span>
         <span class="btn-label btn-label-mobile">PDF</span>
-      </button>
-
-      <!-- 5. Fullscreen -->
-      <button class="btn-icon" id="btnFullscreen" title="Pantalla completa (F)">
-        <svg id="fsIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
-        </svg>
-        <span class="btn-label btn-label-desktop">Fullscreen</span>
       </button>
     </div>
   </header>
@@ -2076,9 +2345,19 @@
 
     function goToSlide(index) {
       if (index < 0 || index >= totalSlides) return;
-      slides[currentSlide].classList.remove('active');
+      if (index === currentSlide && slides[currentSlide].classList.contains('active')) return;
+      
+      const prevSlideEl = slides[currentSlide];
+      const nextSlideEl = slides[index];
+
+      prevSlideEl.classList.remove('active');
+      prevSlideEl.classList.add('outgoing');
+      setTimeout(() => {
+        prevSlideEl.classList.remove('outgoing');
+      }, 900);
+
       currentSlide = index;
-      slides[currentSlide].classList.add('active');
+      nextSlideEl.classList.add('active');
 
       const item = galleryItems[currentSlide];
       bottomProjectName.textContent = item.title;
@@ -2161,11 +2440,13 @@
     // Video Slideshow / PLAY Mode
     let isPlaying = false;
     let autoPlayTimer = null;
-    const SLIDE_DURATION = 3800; // 3.8 seconds per photo
+    const SLIDE_DURATION = 4200; // 4.2s per photo (luxurious pace with smooth crossfade and subtle zoom)
 
     function startAutoPlay() {
       isPlaying = true;
       showSlideshowView();
+      // PLAY merges seamlessly with Fullscreen mode
+      enterFullscreen();
       document.body.classList.add('video-playing');
       document.getElementById('btnAutoPlay').classList.add('active-mode');
       document.getElementById('autoPlayText').textContent = 'PAUSA';
@@ -2532,6 +2813,8 @@
         document.webkitExitFullscreen();
       }
       document.body.classList.remove('is-fullscreen', 'hide-controls');
+      stopAutoPlay();
+      showIndexView();
     }
 
     function onFullscreenChange() {
@@ -2540,12 +2823,13 @@
         resetIdleTimer();
       } else {
         document.body.classList.remove('is-fullscreen', 'hide-controls');
+        stopAutoPlay();
+        showIndexView();
       }
     }
 
     document.addEventListener('fullscreenchange', onFullscreenChange);
     document.addEventListener('webkitfullscreenchange', onFullscreenChange);
-    document.getElementById('btnFullscreen').addEventListener('click', toggleFullscreen);
     document.getElementById('btnExitFs').addEventListener('click', exitFullscreen);
 
     // Theme Toggle (Dark Luxury / Clean White for PDF)
