@@ -17,6 +17,23 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-26] - Antigravity (Atualização das 6 Fotos de Santa Eugènia na Galeria e Apresentação) — publicado em master
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Declaração explícita de uso somente leitura (read-only). Cópia estrita das 6 fotos oficiais de `J:\Meu Drive\S'ESTEPA 2026\MEDIA 2026\JARDINES\MEJORES FOTOS\1. MEJORES FOTOS PEDRO\garden design mallorca santa eugenia sestepa landscape design 1..6.JPG` para `originais-grandes\santa-eugenia\`. Nenhuma escrita, renomeação ou exclusão em J:.
+- **Escopo:**
+  1. Otimização de Santa Eugènia:
+     - 6 imagens convertidas para WebP de alta qualidade (`garden-design-mallorca-santa-eugenia-sestepa-01..06.webp`) em `public/portfolio/terrace-garden-santa-eugenia/images/` e capa correspondente.
+     - Atualização do projeto em `src/data/projects.ts`.
+  2. Galeria e Apresentação:
+     - Substituição das 6 fotos legadas na galeria (`src/data/gallery-images.ts`) e no catálogo do slideshow (`public/presentacion-proyectos.html`) pelas 6 fotos novas oficiais.
+     - Contagem total mantida em 75 fotos no catálogo da apresentação e galeria.
+  3. Regeneração dos PDFs de Apresentação:
+     - 76 páginas geradas mantendo peso abaixo de 25 MB do Cloudflare Pages.
+- **Validação:**
+  - Build local isolado com Astro (`preview_local.py build`) executado com sucesso: código 0.
+- **Arquivos alterados:** `src/data/gallery-images.ts`, `src/data/projects.ts`, `public/presentacion-proyectos.html`, `public/sitemap-images.xml`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Horizontal.pdf`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Celular-Vertical.pdf`, `public/portfolio/terrace-garden-santa-eugenia/`, `STATUS.md`.
+
+
 ### [2026-10-26] - Antigravity (Novo Projeto Marratxi, 3 Fotos na Galeria e Apresentação, PDFs 75 fotos) — publicado em master
 - **Autor/agente:** Antigravity.
 - **Acesso à unidade J:** Não houve acesso a J: nesta tarefa. Originais processados diretamente a partir de `originais-grandes\marratxi\website-gallery\` em G:.

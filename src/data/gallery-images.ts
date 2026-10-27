@@ -305,33 +305,33 @@ export const galleryImages: GalleryImageEntry[] = [
   },
   // 6 × Santa Eugènia (terrace · pool · planting)
   {
-    src: galleryPath('GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-SANTA EUGENIA.avif'),
-    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA SESTEPA DESIGN',
+    src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-01.webp',
+    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA RESIDENTIAL VILLA SESTEPA DESIGN',
     projectSlug: santaEugenia,
   },
   {
-    src: galleryPath('GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-SANTA EUGENIA.webp'),
-    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA SESTEPA DESIGN',
+    src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-02.webp',
+    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA LAWN AND ARCHITECTURAL PLANTING SESTEPA DESIGN',
     projectSlug: santaEugenia,
   },
   {
-    src: galleryPath('GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-SANTA EUGENIA (2).webp'),
-    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA SESTEPA DESIGN',
+    src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-03.webp',
+    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA POOL TERRACE AND MEDITERRANEAN PERENNIALS SESTEPA DESIGN',
     projectSlug: santaEugenia,
   },
   {
-    src: '/portfolio/terrace-garden-santa-eugenia/images/1. garden design mallorca santa eugenia sestepa landscape design (5).jpg',
-    alt: 'TERRACE GARDEN SANTA EUGENIA WOODEN STAIRS AGAPANTHUS SESTEPA DESIGN',
+    src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-04.webp',
+    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA SCULPTURAL SPECIES AND STONE WALLS SESTEPA DESIGN',
     projectSlug: santaEugenia,
   },
   {
-    src: '/portfolio/terrace-garden-santa-eugenia/images/garden design mallorca santa eugenia sestepa landscape design (2).jpg',
-    alt: 'TERRACE GARDEN SANTA EUGENIA LAWN AND CORTEN SCULPTURE SESTEPA DESIGN',
+    src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-05.webp',
+    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA WOODEN STEPS AND AGAPANTHUS BORDERS SESTEPA DESIGN',
     projectSlug: santaEugenia,
   },
   {
-    src: '/portfolio/terrace-garden-santa-eugenia/images/garden design mallorca santa eugenia sestepa landscape design (7).jpg',
-    alt: 'TERRACE GARDEN SANTA EUGENIA WALL CLIMBERS AND AGAPANTHUS SESTEPA DESIGN',
+    src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-06.webp',
+    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA COURTYARD PERGOLA AND LUSH FOLIAGE SESTEPA DESIGN',
     projectSlug: santaEugenia,
   },
   // 6 × Llubí
