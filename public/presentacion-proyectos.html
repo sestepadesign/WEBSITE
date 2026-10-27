@@ -1778,6 +1778,216 @@
       letter-spacing: 0.03em !important;
     }
 
+  
+    /* ==========================================================================
+       LUXURY FILMSTRIP CAROUSEL & SEAMLESS NAVIGATION (SENIOR UX ARCHITECTURE)
+       ========================================================================== */
+    .deck-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      cursor: default;
+    }
+
+    body.view-slideshow .deck-container {
+      cursor: pointer;
+    }
+
+    .deck-container.cursor-prev {
+      cursor: w-resize !important;
+    }
+
+    .deck-container.cursor-next {
+      cursor: e-resize !important;
+    }
+
+    /* Bottom Bar & Filmstrip */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 0 max(16px, env(safe-area-inset-bottom));
+      z-index: 100;
+      background: linear-gradient(0deg, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.55) 65%, rgba(10, 10, 10, 0) 100%);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    body.pdf-light .bottom-bar {
+      background: linear-gradient(0deg, rgba(250, 249, 246, 0.98) 0%, rgba(250, 249, 246, 0.65) 65%, rgba(250, 249, 246, 0) 100%) !important;
+    }
+
+    .bottom-bar-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      pointer-events: auto;
+    }
+
+    .bottom-project-info {
+      display: inline-flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 16px;
+      background: rgba(14, 14, 14, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      padding: 8px 24px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .bottom-project-info:hover {
+      background: rgba(24, 24, 24, 0.92);
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: translateY(-2px);
+    }
+
+    body.pdf-light .bottom-project-info {
+      background: #ffffff !important;
+      border: 1.5px solid #1a1a18 !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16) !important;
+    }
+
+    body.pdf-light .bottom-project-info:hover {
+      background: #f4f3ee !important;
+      border-color: #000000 !important;
+    }
+
+    /* Filmstrip Drawer (Reveals smoothly when mouse approaches bottom zone) */
+    .bottom-filmstrip-drawer {
+      width: 100%;
+      max-width: 1400px;
+      padding: 4px 24px;
+      opacity: 0;
+      transform: translateY(18px);
+      pointer-events: none;
+      transition: opacity 0.35s cubic-bezier(0.25, 1, 0.5, 1), transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* Hover on bottom bar or interactive trigger */
+    .bottom-bar:hover .bottom-filmstrip-drawer,
+    .bottom-filmstrip-drawer.is-revealed,
+    .bottom-filmstrip-drawer:focus-within {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .filmstrip-scroll-mask {
+      width: 100%;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+      background: rgba(12, 12, 12, 0.88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 12px;
+      padding: 10px 14px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+    }
+
+    body.pdf-light .filmstrip-scroll-mask {
+      background: rgba(255, 255, 255, 0.96) !important;
+      border: 1.5px solid #1a1a18 !important;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18) !important;
+      scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+    }
+
+    .filmstrip-track {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: max-content;
+    }
+
+    .filmstrip-thumb-btn {
+      width: 76px;
+      height: 50px;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      background: #000000;
+      padding: 0;
+      cursor: pointer;
+      flex-shrink: 0;
+      opacity: 0.6;
+      transition: all 0.22s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .filmstrip-thumb-btn:hover {
+      opacity: 1;
+      transform: translateY(-3px) scale(1.06);
+      border-color: rgba(255, 255, 255, 0.6);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+    }
+
+    .filmstrip-thumb-btn.active {
+      opacity: 1;
+      border: 2px solid #ffffff;
+      transform: scale(1.08);
+      box-shadow: 0 0 0 1px #ffffff, 0 8px 20px rgba(0, 0, 0, 0.8);
+    }
+
+    body.pdf-light .filmstrip-thumb-btn {
+      border: 1.5px solid rgba(0, 0, 0, 0.2);
+      opacity: 0.65;
+    }
+
+    body.pdf-light .filmstrip-thumb-btn:hover {
+      border-color: #000000;
+      opacity: 1;
+    }
+
+    body.pdf-light .filmstrip-thumb-btn.active {
+      border: 2px solid #0d0d0c;
+      box-shadow: 0 0 0 1px #0d0d0c, 0 6px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    .filmstrip-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    /* Hide redundant arrow styles */
+    .slide-nav-arrow {
+      display: none !important;
+    }
+
+    @media (max-width: 768px) {
+      .bottom-filmstrip-drawer {
+        padding: 4px 10px;
+      }
+      .filmstrip-scroll-mask {
+        padding: 6px 8px;
+        border-radius: 8px;
+      }
+      .filmstrip-thumb-btn {
+        width: 56px;
+        height: 38px;
+        border-radius: 3px;
+      }
+      .filmstrip-track {
+        gap: 6px;
+      }
+    }
+
   </style>
 </head>
 <body class="view-index">
@@ -2053,27 +2263,23 @@
     <!-- 2. SLIDESHOW VIEW (Fotografías a Pantalla Completa) -->
         <section class="slideshow-view" id="slideshowView">
       <div class="deck-container" id="deckContainer"></div>
-
-      <!-- Luxury Floating Navigation Chevrons -->
-      <button type="button" class="slide-nav-arrow slide-nav-prev" id="slideNavPrev" aria-label="Foto anterior" title="Foto anterior (←)">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-      </button>
-
-      <button type="button" class="slide-nav-arrow slide-nav-next" id="slideNavNext" aria-label="Siguiente foto" title="Siguiente foto (→)">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </button>
     </section>
   </main>
 
   <!-- Bottom Navigation Bar (Active in Slideshow view) -->
   <footer class="bottom-bar" id="bottomBar">
-    <div class="bottom-project-info">
-      <a href="#" class="bottom-project-name" id="bottomProjectName" target="_blank" rel="noopener" title="Ver proyecto en la web"></a>
-      <span class="bottom-counter" id="bottomCounter">01 / 78</span>
+    <div class="bottom-bar-content">
+      <div class="bottom-project-info" id="bottomProjectPill">
+        <a href="#" class="bottom-project-name" id="bottomProjectName" target="_blank" rel="noopener" title="Ver proyecto en la web"></a>
+        <span class="bottom-counter" id="bottomCounter">01 / 78</span>
+      </div>
+
+      <!-- Luxury Interactive Filmstrip Carousel (Reveals on bottom hover / swipe) -->
+      <div class="bottom-filmstrip-drawer" id="bottomFilmstripDrawer">
+        <div class="filmstrip-scroll-mask" id="filmstripScrollMask">
+          <div class="filmstrip-track" id="filmstripTrack"></div>
+        </div>
+      </div>
     </div>
   </footer>
 
@@ -2271,6 +2477,7 @@
     // Build Slide Deck & Overview Grid
     const deckContainer = document.getElementById('deckContainer');
     const overviewGrid = document.getElementById('overviewGrid');
+    const filmstripTrack = document.getElementById('filmstripTrack');
 
     galleryItems.forEach((item, index) => {
       const slideIndex = index;
@@ -2334,6 +2541,31 @@
         showSlideshowView(slideIndex);
       });
       overviewGrid.appendChild(card);
+
+      // 3. Create Micro-Thumbnail in Bottom Filmstrip
+      if (filmstripTrack) {
+        const thumbBtn = document.createElement('button');
+        thumbBtn.type = 'button';
+        thumbBtn.className = 'filmstrip-thumb-btn' + (slideIndex === 0 ? ' active' : '');
+        thumbBtn.dataset.index = slideIndex;
+        thumbBtn.setAttribute('aria-label', `${item.title} (${slideIndex + 1})`);
+        thumbBtn.title = `${slideIndex + 1}. ${item.title}`;
+
+        const filmImg = document.createElement('img');
+        filmImg.className = 'filmstrip-thumb-img';
+        filmImg.alt = item.title;
+        filmImg.loading = 'lazy';
+        filmImg.src = encodeURI(initialSrc);
+        setupFallback(filmImg, item.path);
+
+        thumbBtn.appendChild(filmImg);
+        thumbBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          stopAutoPlay();
+          goToSlide(slideIndex);
+        });
+        filmstripTrack.appendChild(thumbBtn);
+      }
     });
 
     // Navigation State
@@ -2364,6 +2596,17 @@
       bottomProjectName.href = item.url || '#';
       bottomProjectName.title = `Ver proyecto ${item.title} en el sitio web (abre en nueva pestaña)`;
       bottomCounter.textContent = `${String(currentSlide + 1).padStart(2, '0')} / ${String(galleryItems.length).padStart(2, '0')}`;
+
+      // Synchronize active filmstrip thumbnail & smooth center scroll
+      const filmstripThumbs = document.querySelectorAll('.filmstrip-thumb-btn');
+      filmstripThumbs.forEach((btn, i) => {
+        if (i === currentSlide) {
+          btn.classList.add('active');
+          btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        } else {
+          btn.classList.remove('active');
+        }
+      });
 
       // Preload adjacent images
       if (currentSlide + 1 < totalSlides) {
@@ -2659,7 +2902,7 @@
       });
     }
 
-// Dynamic directional cursor indication on hover
+// Dynamic directional cursor indication and half-screen click navigation
     deckContainer.addEventListener('mousemove', (e) => {
       if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.top-bar') || e.target.closest('.bottom-bar') || e.target.closest('.fs-close-btn')) {
         deckContainer.classList.remove('cursor-prev', 'cursor-next');
@@ -2675,7 +2918,22 @@
       }
     });
 
-    // Touch Navigation for Mobile & Tablets (Swipe + Half-Screen Tap)
+    // Seamless full-screen click navigation (Left = Prev, Right = Next)
+    deckContainer.addEventListener('click', (e) => {
+      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.top-bar') || e.target.closest('.bottom-bar') || e.target.closest('.fs-close-btn')) {
+        return;
+      }
+      if (!document.body.classList.contains('view-slideshow')) return;
+      stopAutoPlay();
+      const width = window.innerWidth;
+      if (e.clientX < width / 2) {
+        prevSlide();
+      } else {
+        nextSlide();
+      }
+    });
+
+    // Touch Navigation for Mobile & Tablets (Swipe + Tap to Pause/Navigate)
     let touchStartX = 0;
     let touchStartY = 0;
     let touchStartTime = 0;
@@ -2703,11 +2961,16 @@
         return;
       }
 
-      // Tap on left/right half screen
+      // Quick tap on touchscreen
       if (Math.abs(diffX) < 20 && Math.abs(diffY) < 20 && elapsed < 400) {
+        // If autoplay is currently running, tap pauses it
+        if (isPlaying) {
+          stopAutoPlay();
+          return;
+        }
+        // If paused, tap left half goes prev, right half goes next
         const width = window.innerWidth;
         const tapX = e.changedTouches[0].clientX;
-        stopAutoPlay();
         if (tapX < width / 2) {
           prevSlide();
         } else {
@@ -2884,6 +3147,31 @@
 
     // Initialize on Slide 0
     goToSlide(0);
+  
+    // Reveal filmstrip when mouse approaches bottom zone (within 130px) in slideshow view
+    const bottomFilmstripDrawer = document.getElementById('bottomFilmstripDrawer');
+    const bottomProjectPill = document.getElementById('bottomProjectPill');
+
+    window.addEventListener('mousemove', (e) => {
+      if (!document.body.classList.contains('view-slideshow')) return;
+      const distFromBottom = window.innerHeight - e.clientY;
+      if (distFromBottom < 130) {
+        bottomFilmstripDrawer?.classList.add('is-revealed');
+      } else if (!e.target.closest('#bottomFilmstripDrawer')) {
+        bottomFilmstripDrawer?.classList.remove('is-revealed');
+      }
+    });
+
+    // On touch screens: tapping the bottom project pill toggles the filmstrip
+    if (bottomProjectPill) {
+      bottomProjectPill.addEventListener('click', (e) => {
+        if (!e.target.closest('a')) {
+          e.stopPropagation();
+          bottomFilmstripDrawer?.classList.toggle('is-revealed');
+        }
+      });
+    }
+
   </script>
 </body>
 </html>
