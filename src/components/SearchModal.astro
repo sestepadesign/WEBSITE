@@ -1,0 +1,1221 @@
+---
+import { projects } from '../data/projects';
+import { galleryImages } from '../data/gallery-images';
+import { getProjectPath } from '../lib/urls';
+import { ui } from '../data/translations';
+
+interface Props {
+  lang: 'en' | 'es' | 'de';
+}
+
+const { lang } = Astro.props;
+
+const t = (key: keyof typeof ui[typeof lang]) => {
+  return ui[lang][key] || key;
+};
+
+const locationPills = [
+  'Son Vida',
+  'Santa Ponsa',
+  'Sant Llorenç',
+  'Llubí',
+  'Santa Eugènia',
+  'Palma',
+  'Binissalem',
+  'Bunyola',
+  'Campos',
+  'Andratx'
+];
+
+const stylePills: Record<'en' | 'es' | 'de', string[]> = {
+  en: ['Terrace Gardens', 'Swimming Pools', 'Fincas & Estates', 'Mediterranean Flora', 'Corten Steel', 'Olive Trees'],
+  es: ['Terrazas y Patios', 'Piscinas y Agua', 'Fincas y Campos', 'Flora Mediterránea', 'Acero Corten', 'Olivos'],
+  de: ['Terrassengärten', 'Pools & Wasser', 'Fincas & Landgüter', 'Mediterrane Flora', 'Cortenstahl', 'Olivenbäume']
+};
+
+const activeStylePills = stylePills[lang];
+
+// Prepare lightweight search index for projects
+const searchProjects = projects.filter(p => !p.hidden).map(p => {
+  const tr = p[lang];
+  let projectUrl = '#';
+  try {
+    projectUrl = getProjectPath(p.slug, lang);
+  } catch {
+    projectUrl = `/${p.slug}/`;
+  }
+
+  return {
+    slug: p.slug,
+    title: tr.title,
+    subtitle: tr.subtitle,
+    category: tr.category,
+    location: p.location,
+    botanical: tr.botanical,
+    cover: p.cover,
+    url: projectUrl,
+    searchText: [
+      tr.title,
+      p.location,
+      tr.category,
+      tr.subtitle,
+      tr.botanical,
+      p.slug
+    ].join(' ').toLowerCase()
+  };
+});
+
+// Prepare lightweight search index for gallery photos
+const searchPhotos = galleryImages.map(img => {
+  const prj = projects.find(p => p.slug === img.projectSlug);
+  const prjTitle = prj ? prj[lang]?.title || prj.slug : img.projectSlug;
+  let projectUrl = '#';
+  try {
+    projectUrl = getProjectPath(img.projectSlug, lang);
+  } catch {
+    projectUrl = `/${img.projectSlug}/`;
+  }
+
+  return {
+    src: img.src,
+    alt: img.alt,
+    projectSlug: img.projectSlug,
+    projectTitle: prjTitle,
+    url: projectUrl,
+    searchText: [
+      img.alt,
+      prjTitle,
+      img.projectSlug
+    ].join(' ').toLowerCase()
+  };
+});
+---
+
+<div
+  id="searchModal"
+  class="search-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-hidden="true"
+  aria-label={t('search.title')}
+>
+  <div class="search-backdrop" id="searchBackdrop"></div>
+
+  <div class="search-dialog" id="searchDialog">
+    <!-- Top Bar with Search Input -->
+    <div class="search-header">
+      <div class="search-input-box">
+        <svg class="search-icon-input" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7.5"></circle>
+          <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+        </svg>
+        <input
+          type="search"
+          id="searchInput"
+          class="search-input"
+          placeholder={t('search.placeholder')}
+          aria-label={t('search.placeholder')}
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+        />
+        <button
+          type="button"
+          id="searchClearBtn"
+          class="search-clear-btn"
+          aria-label={t('search.close')}
+          style="display: none;"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <button
+        type="button"
+        id="searchCloseBtn"
+        class="search-close-btn"
+        aria-label={t('search.close')}
+      >
+        <span class="search-kbd-hint" aria-hidden="true">ESC</span>
+        <svg class="search-close-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Filter Tabs (Active when user enters query) -->
+    <div class="search-tabs" id="searchTabs" style="display: none;">
+      <button type="button" class="search-tab active" data-tab="all" id="tabAll">
+        {t('search.all')} <span class="tab-badge" id="countAll">0</span>
+      </button>
+      <button type="button" class="search-tab" data-tab="projects" id="tabProjects">
+        {t('search.projects')} <span class="tab-badge" id="countProjects">0</span>
+      </button>
+      <button type="button" class="search-tab" data-tab="photos" id="tabPhotos">
+        {t('search.photos')} <span class="tab-badge" id="countPhotos">0</span>
+      </button>
+    </div>
+
+    <!-- Scrollable Content Body -->
+    <div class="search-body" id="searchBody">
+      <!-- Default View: Suggested Discovery Pills -->
+      <div class="search-suggested" id="searchSuggested">
+        <div class="suggested-block">
+          <span class="suggested-title">{t('search.filter.locations')}</span>
+          <div class="pills-grid">
+            {locationPills.map(loc => (
+              <button type="button" class="search-pill" data-search={loc}>
+                {loc}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div class="suggested-block">
+          <span class="suggested-title">{t('search.filter.styles')}</span>
+          <div class="pills-grid">
+            {activeStylePills.map(style => (
+              <button type="button" class="search-pill" data-search={style}>
+                {style}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Results View -->
+      <div class="search-results-wrapper" id="searchResultsWrapper" style="display: none;">
+        <!-- Projects Section -->
+        <div class="results-group" id="projectsGroup">
+          <div class="group-header">
+            <span class="group-title">{t('search.projects')}</span>
+            <span class="group-counter" id="projectsCounter">0</span>
+          </div>
+          <div class="projects-container" id="projectsContainer"></div>
+        </div>
+
+        <!-- Photos Section -->
+        <div class="results-group" id="photosGroup">
+          <div class="group-header">
+            <span class="group-title">{t('search.photos')}</span>
+            <span class="group-counter" id="photosCounter">0</span>
+          </div>
+          <div class="photos-container" id="photosContainer"></div>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div class="search-empty-state" id="searchEmptyState" style="display: none;">
+        <div class="empty-icon-box">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7.5"></circle>
+            <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+            <line x1="8" y1="11" x2="14" y2="11"></line>
+          </svg>
+        </div>
+        <p class="empty-message">
+          {t('search.noResults')} "<strong id="emptyQueryHighlight"></strong>"
+        </p>
+        <p class="empty-subtext">{t('search.noResultsHint')}</p>
+        <div class="empty-links">
+          <a href={lang === 'en' ? '/portfolio/' : `/${lang}/portfolio/`} class="empty-action-btn">
+            {t('search.exploreAll')} &rarr;
+          </a>
+          <a href={lang === 'en' ? '/gallery/' : `/${lang}/galeria/`} class="empty-action-btn empty-action-secondary">
+            {t('search.viewGallery')} &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Footer with Keyboard Shortcuts -->
+    <div class="search-footer">
+      <span class="footer-tagline">S'Estepa Design &middot; Mallorca</span>
+      <div class="footer-keyboard-shortcuts">
+        <span class="shortcut-unit"><kbd class="kbd-key">&uarr;</kbd><kbd class="kbd-key">&darr;</kbd> Navigate</span>
+        <span class="shortcut-unit"><kbd class="kbd-key">&crarr;</kbd> Open</span>
+        <span class="shortcut-unit"><kbd class="kbd-key">ESC</kbd> Close</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Embedded Search Data -->
+<script id="searchDataProjects" type="application/json" set:html={JSON.stringify(searchProjects)}></script>
+<script id="searchDataPhotos" type="application/json" set:html={JSON.stringify(searchPhotos)}></script>
+
+<script>
+  (() => {
+    const modal = document.getElementById('searchModal');
+    const backdrop = document.getElementById('searchBackdrop');
+    const closeBtn = document.getElementById('searchCloseBtn');
+    const input = document.getElementById('searchInput') as HTMLInputElement | null;
+    const clearBtn = document.getElementById('searchClearBtn');
+    const tabs = document.getElementById('searchTabs');
+    const tabAll = document.getElementById('tabAll');
+    const tabProjects = document.getElementById('tabProjects');
+    const tabPhotos = document.getElementById('tabPhotos');
+    const countAll = document.getElementById('countAll');
+    const countProjects = document.getElementById('countProjects');
+    const countPhotos = document.getElementById('countPhotos');
+    const suggested = document.getElementById('searchSuggested');
+    const resultsWrapper = document.getElementById('searchResultsWrapper');
+    const projectsGroup = document.getElementById('projectsGroup');
+    const photosGroup = document.getElementById('photosGroup');
+    const projectsContainer = document.getElementById('projectsContainer');
+    const photosContainer = document.getElementById('photosContainer');
+    const projectsCounter = document.getElementById('projectsCounter');
+    const photosCounter = document.getElementById('photosCounter');
+    const emptyState = document.getElementById('searchEmptyState');
+    const emptyQueryHighlight = document.getElementById('emptyQueryHighlight');
+
+    if (!modal || !input) return;
+
+    // Load serialized search items
+    let projectsData: any[] = [];
+    let photosData: any[] = [];
+    try {
+      const pScript = document.getElementById('searchDataProjects');
+      const phScript = document.getElementById('searchDataPhotos');
+      if (pScript) projectsData = JSON.parse(pScript.textContent || '[]');
+      if (phScript) photosData = JSON.parse(phScript.textContent || '[]');
+    } catch (e) {
+      console.error("Search data parse error:", e);
+    }
+
+    let activeTab = 'all';
+    let lastActiveTrigger: HTMLElement | null = null;
+    let selectedIndex = -1;
+
+    // Normalize text removing diacritics for seamless bilingual matching
+    function normalize(str: string): string {
+      return (str || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .trim();
+    }
+
+    function openSearch(triggerEl?: HTMLElement | null) {
+      if (triggerEl) lastActiveTrigger = triggerEl;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('search-modal-active');
+      setTimeout(() => {
+        if (input) {
+          input.focus();
+          if (input.value) {
+            input.select();
+            performSearch(input.value);
+          }
+        }
+      }, 50);
+    }
+
+    function closeSearch() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('search-modal-active');
+      selectedIndex = -1;
+      if (lastActiveTrigger) {
+        lastActiveTrigger.focus();
+        lastActiveTrigger = null;
+      }
+    }
+
+    // Bind triggers across header & mobile menu
+    function bindTriggers() {
+      const triggers = document.querySelectorAll(
+        '#searchTrigger, #mobileSearchTrigger, #drawerSearchTrigger, [data-open-search]'
+      );
+      triggers.forEach((trigger) => {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          // If mobile menu is open, close it first
+          const menuToggle = document.getElementById('menuToggle');
+          const navMenu = document.getElementById('navMenu');
+          if (navMenu && navMenu.classList.contains('open') && menuToggle) {
+            menuToggle.click();
+          }
+          openSearch(trigger as HTMLElement);
+        });
+      });
+    }
+
+    bindTriggers();
+
+    if (backdrop) backdrop.addEventListener('click', closeSearch);
+    if (closeBtn) closeBtn.addEventListener('click', closeSearch);
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        if (input) {
+          input.value = '';
+          input.focus();
+          performSearch('');
+        }
+      });
+    }
+
+    // Suggested Pills Click
+    document.querySelectorAll('.search-pill').forEach((pill) => {
+      pill.addEventListener('click', () => {
+        const query = (pill as HTMLElement).dataset.search || pill.textContent?.trim() || '';
+        if (input) {
+          input.value = query;
+          performSearch(query);
+          input.focus();
+        }
+      });
+    });
+
+    // Tab switching
+    const tabButtons = [tabAll, tabProjects, tabPhotos].filter(Boolean) as HTMLElement[];
+    tabButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeTab = btn.dataset.tab || 'all';
+        applyTabVisibility();
+      });
+    });
+
+    function applyTabVisibility() {
+      if (!projectsGroup || !photosGroup) return;
+      if (activeTab === 'all') {
+        projectsGroup.style.display = projectsGroup.dataset.count === '0' ? 'none' : 'block';
+        photosGroup.style.display = photosGroup.dataset.count === '0' ? 'none' : 'block';
+      } else if (activeTab === 'projects') {
+        projectsGroup.style.display = projectsGroup.dataset.count === '0' ? 'none' : 'block';
+        photosGroup.style.display = 'none';
+      } else if (activeTab === 'photos') {
+        projectsGroup.style.display = 'none';
+        photosGroup.style.display = photosGroup.dataset.count === '0' ? 'none' : 'block';
+      }
+    }
+
+    function highlightText(text: string, queryWords: string[]): string {
+      if (!text) return '';
+      let escapedWords = queryWords
+        .filter((w) => w.length > 1)
+        .map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+      if (escapedWords.length === 0) return text;
+      const regex = new RegExp(`(${escapedWords.join('|')})`, 'gi');
+      return text.replace(regex, '<mark class="search-match">$1</mark>');
+    }
+
+    function performSearch(rawQuery: string) {
+      const q = normalize(rawQuery);
+      selectedIndex = -1;
+
+      if (!q) {
+        if (clearBtn) clearBtn.style.display = 'none';
+        if (tabs) tabs.style.display = 'none';
+        if (suggested) suggested.style.display = 'block';
+        if (resultsWrapper) resultsWrapper.style.display = 'none';
+        if (emptyState) emptyState.style.display = 'none';
+        return;
+      }
+
+      if (clearBtn) clearBtn.style.display = 'flex';
+      if (suggested) suggested.style.display = 'none';
+
+      const terms = q.split(/\s+/).filter(Boolean);
+
+      // Filter Projects
+      const matchedProjects = projectsData.filter((p) => {
+        const text = normalize(p.searchText);
+        return terms.every((t) => text.includes(t));
+      });
+
+      // Filter Photos
+      const matchedPhotos = photosData.filter((ph) => {
+        const text = normalize(ph.searchText);
+        return terms.every((t) => text.includes(t));
+      });
+
+      const totalMatches = matchedProjects.length + matchedPhotos.length;
+
+      if (tabs) tabs.style.display = totalMatches > 0 ? 'flex' : 'none';
+      if (countAll) countAll.textContent = String(totalMatches);
+      if (countProjects) countProjects.textContent = String(matchedProjects.length);
+      if (countPhotos) countPhotos.textContent = String(matchedPhotos.length);
+
+      if (totalMatches === 0) {
+        if (resultsWrapper) resultsWrapper.style.display = 'none';
+        if (emptyState) {
+          emptyState.style.display = 'flex';
+          if (emptyQueryHighlight) emptyQueryHighlight.textContent = rawQuery;
+        }
+        return;
+      }
+
+      if (emptyState) emptyState.style.display = 'none';
+      if (resultsWrapper) resultsWrapper.style.display = 'block';
+
+      // Render Projects
+      if (projectsGroup && projectsContainer && projectsCounter) {
+        projectsGroup.dataset.count = String(matchedProjects.length);
+        projectsCounter.textContent = String(matchedProjects.length);
+        if (matchedProjects.length > 0) {
+          projectsContainer.innerHTML = matchedProjects
+            .map((p, idx) => `
+              <a href="${p.url}" class="project-result-card" data-result-index="${idx}">
+                <div class="project-card-thumb-wrap">
+                  <img src="${p.cover}" alt="${p.title}" class="project-card-thumb" loading="lazy" />
+                </div>
+                <div class="project-card-info">
+                  <div class="project-card-badges">
+                    <span class="badge-loc">${p.location}</span>
+                    <span class="badge-cat">${p.category}</span>
+                  </div>
+                  <h4 class="project-card-title">${highlightText(p.title, terms)}</h4>
+                  <p class="project-card-sub">${highlightText(p.subtitle, terms)}</p>
+                  ${p.botanical ? `<p class="project-card-botanical">${highlightText(p.botanical, terms)}</p>` : ''}
+                </div>
+                <div class="project-card-arrow" aria-hidden="true">&rarr;</div>
+              </a>
+            `)
+            .join('');
+        } else {
+          projectsContainer.innerHTML = '';
+        }
+      }
+
+      // Render Photos
+      if (photosGroup && photosContainer && photosCounter) {
+        photosGroup.dataset.count = String(matchedPhotos.length);
+        photosCounter.textContent = String(matchedPhotos.length);
+        if (matchedPhotos.length > 0) {
+          photosContainer.innerHTML = matchedPhotos
+            .map((ph, idx) => `
+              <a href="${ph.url}" class="photo-result-card" data-result-index="${matchedProjects.length + idx}" title="${ph.projectTitle}">
+                <div class="photo-card-img-wrap">
+                  <img src="${ph.src}" alt="${ph.alt}" class="photo-card-img" loading="lazy" />
+                  <div class="photo-card-overlay">
+                    <span class="photo-card-project">${ph.projectTitle}</span>
+                    <span class="photo-card-action">View &rarr;</span>
+                  </div>
+                </div>
+              </a>
+            `)
+            .join('');
+        } else {
+          photosContainer.innerHTML = '';
+        }
+      }
+
+      applyTabVisibility();
+    }
+
+    // Input debounce
+    let debounceTimer: any = null;
+    input.addEventListener('input', () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        performSearch(input.value);
+      }, 40);
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      // Global shortcut: Cmd+K / Ctrl+K or / (when not focused on other inputs)
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        if (modal.classList.contains('open')) {
+          closeSearch();
+        } else {
+          openSearch();
+        }
+        return;
+      }
+
+      if (e.key === '/' && !modal.classList.contains('open')) {
+        const target = e.target as HTMLElement;
+        const isEditable = target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable;
+        if (!isEditable) {
+          e.preventDefault();
+          openSearch();
+          return;
+        }
+      }
+
+      if (!modal.classList.contains('open')) return;
+
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeSearch();
+        return;
+      }
+
+      // Arrow navigation
+      const resultCards = Array.from(
+        modal.querySelectorAll('.project-result-card, .photo-result-card')
+      ) as HTMLElement[];
+
+      if (resultCards.length === 0) return;
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        selectedIndex = (selectedIndex + 1) % resultCards.length;
+        updateSelectedResult(resultCards);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        selectedIndex = (selectedIndex - 1 + resultCards.length) % resultCards.length;
+        updateSelectedResult(resultCards);
+      } else if (e.key === 'Enter') {
+        if (selectedIndex >= 0 && selectedIndex < resultCards.length) {
+          e.preventDefault();
+          resultCards[selectedIndex].click();
+        }
+      }
+    });
+
+    function updateSelectedResult(cards: HTMLElement[]) {
+      cards.forEach((card, i) => {
+        if (i === selectedIndex) {
+          card.classList.add('selected');
+          card.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        } else {
+          card.classList.remove('selected');
+        }
+      });
+    }
+  })();
+</script>
+
+<style>
+  /* ==========================================================================
+     S'ESTEPA LUXURY SEARCH MODAL (SENIOR UX / ARCHITECTURAL MINIMALISM)
+     ========================================================================== */
+  .search-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2500;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 4.5rem 1.5rem 2rem 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .search-modal.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  :global(body.search-modal-active) {
+    overflow: hidden !important;
+  }
+
+  /* Backdrop Glass */
+  .search-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(23, 26, 24, 0.68);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  /* Main Dialog Container */
+  .search-dialog {
+    position: relative;
+    width: 100%;
+    max-width: 780px;
+    max-height: 82vh;
+    background-color: #FAF9F6;
+    border: 1px solid rgba(227, 221, 211, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 30px 70px -15px rgba(18, 22, 19, 0.28),
+                0 0 0 1px rgba(227, 221, 211, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(14px) scale(0.985);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 2;
+  }
+
+  .search-modal.open .search-dialog {
+    transform: translateY(0) scale(1);
+  }
+
+  /* Header Bar */
+  .search-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.4rem;
+    border-bottom: 1px solid rgba(227, 221, 211, 0.7);
+    gap: 1rem;
+    background-color: #FAF9F6;
+  }
+
+  .search-input-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .search-icon-input {
+    color: var(--color-olive, #606C38);
+    flex-shrink: 0;
+  }
+
+  .search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-family: var(--font-body, 'Jost', sans-serif);
+    font-size: 1.15rem;
+    color: var(--color-charcoal, #1F211F);
+    font-weight: 400;
+    outline: none;
+    padding: 0.2rem 0;
+  }
+
+  .search-input::placeholder {
+    color: #9A958A;
+    font-weight: 300;
+  }
+
+  .search-input::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  .search-clear-btn {
+    background: none;
+    border: none;
+    color: #8C877C;
+    cursor: pointer;
+    padding: 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .search-clear-btn:hover {
+    color: var(--color-charcoal, #1F211F);
+    background-color: rgba(227, 221, 211, 0.4);
+  }
+
+  .search-close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: #7A766C;
+    padding: 0.35rem 0.55rem;
+    border-radius: 6px;
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .search-close-btn:hover {
+    color: var(--color-charcoal, #1F211F);
+    background-color: rgba(227, 221, 211, 0.4);
+  }
+
+  .search-kbd-hint {
+    font-size: 0.7rem;
+    font-family: var(--font-body, 'Jost', sans-serif);
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    padding: 0.15rem 0.4rem;
+    background-color: rgba(227, 221, 211, 0.5);
+    border-radius: 4px;
+    color: #6A665D;
+  }
+
+  /* Filter Tabs */
+  .search-tabs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.4rem;
+    background-color: rgba(247, 245, 240, 0.7);
+    border-bottom: 1px solid rgba(227, 221, 211, 0.6);
+  }
+
+  .search-tab {
+    background: none;
+    border: 1px solid transparent;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-family: var(--font-body, 'Jost', sans-serif);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: #6C685E;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.2s ease;
+  }
+
+  .search-tab:hover {
+    color: var(--color-charcoal, #1F211F);
+    background-color: rgba(227, 221, 211, 0.4);
+  }
+
+  .search-tab.active {
+    background-color: #FFFFFF;
+    color: var(--color-olive, #606C38);
+    font-weight: 500;
+    border-color: rgba(227, 221, 211, 0.9);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+
+  .tab-badge {
+    font-size: 0.72rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 10px;
+    background-color: rgba(227, 221, 211, 0.6);
+    color: #4A463E;
+  }
+
+  .search-tab.active .tab-badge {
+    background-color: rgba(96, 108, 56, 0.12);
+    color: var(--color-olive, #606C38);
+  }
+
+  /* Content Body */
+  .search-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.35rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Custom Scrollbar */
+  .search-body::-webkit-scrollbar {
+    width: 6px;
+  }
+  .search-body::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .search-body::-webkit-scrollbar-thumb {
+    background: rgba(227, 221, 211, 0.8);
+    border-radius: 3px;
+  }
+
+  /* Suggested Discovery View */
+  .search-suggested {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+
+  .suggested-title {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-olive, #606C38);
+    margin-bottom: 0.65rem;
+  }
+
+  .pills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .search-pill {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(227, 221, 211, 0.85);
+    padding: 0.4rem 0.85rem;
+    border-radius: 20px;
+    font-family: var(--font-body, 'Jost', sans-serif);
+    font-size: 0.82rem;
+    color: var(--color-charcoal, #1F211F);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .search-pill:hover {
+    border-color: var(--color-olive, #606C38);
+    color: var(--color-olive, #606C38);
+    background-color: rgba(96, 108, 56, 0.05);
+    transform: translateY(-1px);
+  }
+
+  /* Results Groups */
+  .results-group {
+    margin-bottom: 1.6rem;
+  }
+
+  .group-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid rgba(227, 221, 211, 0.5);
+    margin-bottom: 0.85rem;
+  }
+
+  .group-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-charcoal, #1F211F);
+  }
+
+  .group-counter {
+    font-size: 0.72rem;
+    color: #8C877C;
+  }
+
+  /* Project Result Cards */
+  .projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .project-result-card {
+    display: flex;
+    align-items: center;
+    gap: 1.15rem;
+    padding: 0.85rem 1rem;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(227, 221, 211, 0.6);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .project-result-card:hover,
+  .project-result-card.selected {
+    background-color: rgba(96, 108, 56, 0.04);
+    border-color: var(--color-olive, #606C38);
+    transform: translateX(3px);
+  }
+
+  .project-card-thumb-wrap {
+    width: 90px;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background-color: #EEEAE2;
+  }
+
+  .project-card-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .project-result-card:hover .project-card-thumb {
+    transform: scale(1.05);
+  }
+
+  .project-card-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .project-card-badges {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .badge-loc {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-olive, #606C38);
+    font-weight: 500;
+  }
+
+  .badge-cat {
+    font-size: 0.68rem;
+    color: #8C877C;
+    letter-spacing: 0.04em;
+  }
+
+  .project-card-title {
+    margin: 0 0 0.15rem 0;
+    font-family: var(--font-heading, 'Cormorant Garamond', serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-charcoal, #1F211F);
+    line-height: 1.2;
+  }
+
+  .project-card-sub {
+    margin: 0;
+    font-size: 0.78rem;
+    color: #656157;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .project-card-botanical {
+    margin: 0.2rem 0 0 0;
+    font-size: 0.72rem;
+    font-style: italic;
+    color: #7A766C;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .project-card-arrow {
+    font-size: 1.1rem;
+    color: #B5AFA2;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .project-result-card:hover .project-card-arrow,
+  .project-result-card.selected .project-card-arrow {
+    color: var(--color-olive, #606C38);
+    transform: translateX(4px);
+  }
+
+  /* Photos Grid */
+  .photos-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.85rem;
+  }
+
+  .photo-result-card {
+    text-decoration: none;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.22s ease;
+  }
+
+  .photo-result-card.selected {
+    outline: 2px solid var(--color-olive, #606C38);
+    outline-offset: 2px;
+  }
+
+  .photo-card-img-wrap {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background-color: #EEEAE2;
+    overflow: hidden;
+    border-radius: 6px;
+  }
+
+  .photo-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .photo-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(23, 26, 24, 0.85) 0%, rgba(23, 26, 24, 0.15) 60%, transparent 100%);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0.75rem;
+    transition: opacity 0.25s ease;
+  }
+
+  .photo-result-card:hover .photo-card-overlay,
+  .photo-result-card.selected .photo-card-overlay {
+    opacity: 1;
+  }
+
+  .photo-result-card:hover .photo-card-img {
+    transform: scale(1.06);
+  }
+
+  .photo-card-project {
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 0.2rem;
+  }
+
+  .photo-card-action {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* Search Highlight */
+  :global(.search-match) {
+    background-color: rgba(96, 108, 56, 0.2);
+    color: var(--color-charcoal, #1F211F);
+    font-weight: 600;
+    border-radius: 2px;
+    padding: 0 0.15rem;
+  }
+
+  /* Empty State */
+  .search-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 1.5rem;
+  }
+
+  .empty-icon-box {
+    color: #9C968A;
+    margin-bottom: 1rem;
+  }
+
+  .empty-message {
+    font-size: 1.05rem;
+    color: var(--color-charcoal, #1F211F);
+    margin: 0 0 0.4rem 0;
+  }
+
+  .empty-subtext {
+    font-size: 0.82rem;
+    color: #7A766C;
+    max-width: 420px;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.5;
+  }
+
+  .empty-links {
+    display: flex;
+    gap: 0.85rem;
+  }
+
+  .empty-action-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    background-color: var(--color-olive, #606C38);
+    color: #FFFFFF;
+    transition: opacity 0.2s ease;
+  }
+
+  .empty-action-btn:hover {
+    opacity: 0.9;
+  }
+
+  .empty-action-secondary {
+    background-color: #FFFFFF;
+    color: var(--color-charcoal, #1F211F);
+    border: 1px solid rgba(227, 221, 211, 0.9);
+  }
+
+  .empty-action-secondary:hover {
+    border-color: var(--color-olive, #606C38);
+  }
+
+  /* Footer */
+  .search-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 1.4rem;
+    background-color: rgba(247, 245, 240, 0.85);
+    border-top: 1px solid rgba(227, 221, 211, 0.7);
+    font-size: 0.72rem;
+    color: #8C877C;
+  }
+
+  .footer-keyboard-shortcuts {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .kbd-key {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(227, 221, 211, 0.9);
+    border-radius: 3px;
+    padding: 0.1rem 0.35rem;
+    font-family: inherit;
+    font-size: 0.68rem;
+    margin-right: 0.2rem;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Responsive Mobile Layout */
+  @media (max-width: 768px) {
+    .search-modal {
+      padding: 0;
+      align-items: stretch;
+    }
+
+    .search-dialog {
+      max-width: 100vw;
+      max-height: 100vh;
+      height: 100dvh;
+      border-radius: 0;
+      border: none;
+    }
+
+    .search-header {
+      padding: 0.85rem 1rem;
+      padding-top: max(0.85rem, env(safe-area-inset-top));
+    }
+
+    .search-input {
+      font-size: 1rem;
+    }
+
+    .search-kbd-hint {
+      display: none;
+    }
+
+    .search-body {
+      padding: 1rem;
+    }
+
+    .photos-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.65rem;
+    }
+
+    .project-card-thumb-wrap {
+      width: 75px;
+      height: 52px;
+    }
+
+    .project-card-title {
+      font-size: 1.1rem;
+    }
+
+    .footer-keyboard-shortcuts {
+      display: none;
+    }
+  }
+</style>
