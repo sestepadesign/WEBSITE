@@ -1854,6 +1854,65 @@ export const projects: Project[] = [
     }
   },
   {
+    slug: "marratxi",
+    location: "Marratxí, Mallorca",
+    wikidataLocation: "https://www.wikidata.org/wiki/Q984291",
+    year: "2024",
+    architect: null,
+    video: null,
+    hidden: true,
+    cover: "/portfolio/marratxi/garden-design-mallorca-marratxi-sestepa-01.webp",
+    images: [
+      "/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-01.webp",
+      "/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-02.webp",
+      "/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-03.webp",
+      "/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-04.webp",
+      "/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-05.webp",
+      "/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-06.webp",
+      "/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-07.webp",
+      "/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-08.webp",
+      "/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-09.webp",
+      "/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-10.webp",
+      "/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-11.webp"
+    ],
+    en: {
+      title: "Marratxí",
+      subtitle: "We design with plants, but also with time — a living landscape that evolves with the seasons",
+      category: "Mediterranean Estate Garden",
+      botanical: "Olea europaea, Stipa tenuissima, Muhlenbergia capillaris, Euphorbia ingens, Cereus peruvianus, Lavandula angustifolia, Rosmarinus officinalis, Gaura lindheimeri",
+      description: [
+        "We design with plants, but also with time.",
+        "With the movement of grasses, the shade of trees, the texture of foliage, and the subtle changes each season brings.",
+        "A Mediterranean garden does not need to remain still to be beautiful. It grows, evolves, overlaps, and gradually finds its own balance.",
+        "Structure shapes the landscape; plants bring it to life. And over time, the garden begins to feel less like something designed, and more like something that has always belonged there."
+      ]
+    },
+    es: {
+      title: "Marratxí",
+      subtitle: "Diseñamos con plantas, pero también con el tiempo — un paisaje vivo que evoluciona con las estaciones",
+      category: "Jardín de Finca Mediterránea",
+      botanical: "Olea europaea, Stipa tenuissima, Muhlenbergia capillaris, Euphorbia ingens, Cereus peruvianus, Lavandula angustifolia, Rosmarinus officinalis, Gaura lindheimeri",
+      description: [
+        "Diseñamos con plantas, pero también con el tiempo.",
+        "Con el movimiento de las gramíneas, la sombra de los árboles, la textura del follaje y los cambios sutiles que trae cada estación.",
+        "Un jardín mediterráneo no necesita permanecer estático para ser bello. Crece, evoluciona, se entrelaza y gradualmente encuentra su propio equilibrio.",
+        "La estructura da forma al paisaje; las plantas le dan vida. Y con el tiempo, el jardín deja de sentirse como algo diseñado para convertirse en algo que siempre perteneció a este lugar."
+      ]
+    },
+    de: {
+      title: "Marratxí",
+      subtitle: "Wir gestalten mit Pflanzen, aber auch mit der Zeit — eine lebendige Landschaft im Wandel der Jahreszeiten",
+      category: "Mediterraner Fincagarten",
+      botanical: "Olea europaea, Stipa tenuissima, Muhlenbergia capillaris, Euphorbia ingens, Cereus peruvianus, Lavandula angustifolia, Rosmarinus officinalis, Gaura lindheimeri",
+      description: [
+        "Wir gestalten mit Pflanzen, aber auch mit der Zeit.",
+        "Mit der Bewegung der Gräser, dem Schatten der Bäume, der Textur des Blattwerks und den feinen Nuancen jeder Jahreszeit.",
+        "Ein mediterraner Garten muss nicht stillstehen, um schön zu sein. Er wächst, entwickelt sich, überlagert sich und findet allmählich sein eigenes Gleichgewicht.",
+        "Die Struktur formt die Landschaft; die Pflanzen erwecken sie zum Leben. Mit der Zeit fühlt sich der Garten weniger wie ein Entwurf an, sondern wie etwas, das schon immer hierher gehörte."
+      ]
+    }
+  },
+  {
     slug: "puerto-andratx",
     location: "Port d'Andratx, Mallorca",
     wikidataLocation: "https://www.wikidata.org/wiki/Q1002422",

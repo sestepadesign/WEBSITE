@@ -26,6 +26,7 @@ const puertoAndratx = 'puerto-andratx';
 const andratx = 'andratx';
 const terracePalma = 'terrace-garden-in-palma';
 const portalsNous = 'portals-nous';
+const marratxi = 'marratxi';
 
 /** Filename on disk (may include spaces — encode in HTML via normal paths). */
 function galleryPath(filename: string): string {
@@ -411,5 +412,21 @@ export const galleryImages: GalleryImageEntry[] = [
     src: '/portfolio/portals-nous/images/garden-design-mallorca-portals-nous-sestepa-03.webp',
     alt: 'PORTALS NOUS LUSH FOLIAGE TEXTURES AND STRELITZIA COMPOSITION SESTEPA DESIGN',
     projectSlug: portalsNous,
+  },
+  // 3 × Marratxí (Living Landscape with Time)
+  {
+    src: '/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-01.webp',
+    alt: 'MARRATXI MEDITERRANEAN ESTATE ANCIENT OLIVE TREE AND STONE PATHWAY SESTEPA DESIGN',
+    projectSlug: marratxi,
+  },
+  {
+    src: '/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-02.webp',
+    alt: 'MARRATXI FINCA ARCHITECTURE AND CURVED FLOWERING BORDERS SESTEPA DESIGN',
+    projectSlug: marratxi,
+  },
+  {
+    src: '/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-03.webp',
+    alt: 'MARRATXI SCULPTURAL CACTI AND MEDITERRANEAN COURTYARD SESTEPA DESIGN',
+    projectSlug: marratxi,
   },
 ];

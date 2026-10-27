@@ -17,6 +17,26 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-26] - Antigravity (Novo Projeto Marratxi, 3 Fotos na Galeria e Apresentação, PDFs 75 fotos) — publicado em master
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Não houve acesso a J: nesta tarefa. Originais processados diretamente a partir de `originais-grandes\marratxi\website-gallery\` em G:.
+- **Escopo:**
+  1. Novo Projeto Marratxí (Paisagem Viva e Evolução no Tempo):
+     - Slug canônico registrado em `site-urls.ts`, `projects.ts` e `portfolio-categories.ts`: `/marratxi/` (EN), `/es/marratxi/` (ES), `/de/marratxi/` (DE).
+     - Configurado com `hidden: true` e preservado fora de `PORTFOLIO_PROJECT_ORDER` atendendo à solicitação do operador ("não colocar ainda Marratxí na página de projetos").
+     - 11 imagens convertidas para WebP com nomenclatura SEO em `public/portfolio/marratxi/images/` e foto de capa `garden-design-mallorca-marratxi-sestepa-01.webp`.
+     - Texto autoral e botânico fornecido pelo operador incorporado fielmente em EN, ES e DE.
+  2. Galeria e Apresentação (Catálogo com 75 fotos = 25 projetos múltiplos de 3):
+     - Inclusão das 3 fotos de destaque de Marratxí (`01.webp`, `02.webp`, `03.webp`) na galeria e no catálogo do slideshow.
+     - Total: 75 fotos (múltiplo exato de 3), com contador atualizado para `01 / 75`.
+  3. Regeneração dos PDFs de Apresentação (Horizontal e Celular Vertical):
+     - 76 páginas geradas (75 fotos de projetos + lâmina 76 de cartão de visitas interativo com 4 links funcionais).
+     - Otimização aplicada (1440px / q76): arquivos finais com ~22 MB (< 25 MB limite Cloudflare).
+- **Validação:**
+  - Build local isolado com Astro (`preview_local.py build`) executado com sucesso: todas as rotas estáticas compiladas e sitemaps atualizados.
+- **Arquivos alterados:** `src/data/site-urls.ts`, `src/data/portfolio-categories.ts`, `src/data/projects.ts`, `src/data/gallery-images.ts`, `public/presentacion-proyectos.html`, `public/sitemap-images.xml`, `public/_redirects`, `scripts/generate_presentation_pdfs.py`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Horizontal.pdf`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Celular-Vertical.pdf`, `public/portfolio/marratxi/`, `STATUS.md`.
+
+
 ### [2026-10-26] - Antigravity (Novo Projeto Portals Nous, Fotos Terraza en Palma, Galeria/Apresentacao 72 fotos) — publicado em master
 - **Autor/agente:** Antigravity.
 - **Acesso à unidade J:** Declaração explícita de uso somente leitura (read-only). Cópia estrita dos 6 arquivos de Portals Nous de `J:\Meu Drive\S'ESTEPA 2026\MEDIA 2026\JARDINES\MEJORES FOTOS\1. MEJORES FOTOS PEDRO` para `originais-grandes\portals-nous\`. Nenhuma escrita, renomeação ou exclusão em J:.

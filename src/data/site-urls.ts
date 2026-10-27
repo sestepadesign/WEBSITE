@@ -171,6 +171,11 @@ export const PROJECT_PUBLIC_PATHS: Record<string, Record<SiteLocale, string>> = 
     es: '/es/portals-nous/',
     de: '/de/portals-nous/',
   },
+  marratxi: {
+    en: '/marratxi/',
+    es: '/es/marratxi/',
+    de: '/de/marratxi/',
+  },
 };
 
 export const PROJECT_PATH_ALIASES: Record<SiteLocale, Record<string, string>> = {

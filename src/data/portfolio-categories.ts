@@ -37,6 +37,7 @@ export const projectCategoryMap: Record<string, PortfolioFilterCategory> = {
   hotelcabotlasvelas: 'commercial',
   'vertical-gardens-in-mallorca': 'vertical',
   'portals-nous': 'residential',
+  marratxi: 'estate',
 };
 
 export function getProjectCategory(slug: string): PortfolioFilterCategory {
