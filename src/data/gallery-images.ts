@@ -193,7 +193,7 @@ export const galleryImages: GalleryImageEntry[] = [
     alt: 'GARDEN LANDSCAPE DESIGN BUNYOLA MALLORCA SESTEPA DESIGN',
     projectSlug: bunyola,
   },
-  // 3 × Son Vida
+  // 6 × Son Vida
   {
     src: '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-1.jpg',
     alt: 'GARDEN LANDSCAPE DESIGN SON VIDA MALLORCA SESTEPA DESIGN',
@@ -207,6 +207,21 @@ export const galleryImages: GalleryImageEntry[] = [
   {
     src: '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-5.jpg',
     alt: 'GARDEN LANDSCAPE DESIGN SON VIDA MALLORCA SESTEPA DESIGN',
+    projectSlug: sonVida,
+  },
+  {
+    src: '/portfolio/son-vida/garden-design-mallorca-son-vida-sestepa.jpg',
+    alt: 'GARDEN DESIGN MALLORCA SON VIDA VILLA ENTRANCE SESTEPA DESIGN',
+    projectSlug: sonVida,
+  },
+  {
+    src: '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-6.jpg',
+    alt: 'GARDEN DESIGN SON VIDA SWIMMING POOL AND CONTEMPORARY VILLA SESTEPA DESIGN',
+    projectSlug: sonVida,
+  },
+  {
+    src: '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-2.jpg',
+    alt: 'GARDEN DESIGN SON VIDA TERRACED LAWN AND MEDITERRANEAN PALMS SESTEPA DESIGN',
     projectSlug: sonVida,
   },
   // 3 × Crestatx

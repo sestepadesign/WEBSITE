@@ -17,6 +17,24 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-26] - Antigravity (Adição de 3 Fotos de Son Vida na Galeria e Apresentação) — publicado em master
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Não houve acesso a J:.
+- **Escopo:**
+  1. Catálogo de Son Vida expandido para 6 fotos:
+     - Adicionadas à galeria (`gallery-images.ts`) e apresentação (`presentacion-proyectos.html`):
+       - `/portfolio/son-vida/garden-design-mallorca-son-vida-sestepa.jpg`
+       - `/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-6.jpg`
+       - `/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-2.jpg`
+     - Total do catálogo da apresentação: 78 fotografias (exatamente 13 linhas completas de 6 fotos, múltiplo perfeito de 3 e 6). Contador inicial `01 / 78`.
+  2. Regeneração dos PDFs de Apresentação:
+     - 79 páginas geradas (78 lâminas de fotos + lâmina de encerramento de contatos).
+     - Tamanhos finais dentro do teto de 25 MB do Cloudflare Pages.
+- **Validação:**
+  - Build local isolado com Astro (`preview_local.py build`) executado com sucesso: código 0.
+- **Arquivos alterados:** `src/data/gallery-images.ts`, `public/presentacion-proyectos.html`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Horizontal.pdf`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Celular-Vertical.pdf`, `STATUS.md`.
+
+
 ### [2026-10-26] - Antigravity (Atualização da Seleção de 6 Fotos de Llubí na Galeria e Apresentação) — publicado em master
 - **Autor/agente:** Antigravity.
 - **Acesso à unidade J:** Não houve acesso a J: nesta tarefa.
