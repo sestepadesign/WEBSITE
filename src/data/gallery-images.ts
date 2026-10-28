@@ -320,17 +320,17 @@ export const galleryImages: GalleryImageEntry[] = [
   },
   // 3 × Santa Eugènia (terrace · pool · planting)
   {
-    src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-01.webp',
-    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA RESIDENTIAL VILLA SESTEPA DESIGN',
+    src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-03.webp',
+    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA RESIDENTIAL VILLA AGAPANTHUS SESTEPA DESIGN',
     projectSlug: santaEugenia,
   },
   {
-    src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-02.webp',
+    src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-01.webp',
     alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA LAWN AND ARCHITECTURAL PLANTING SESTEPA DESIGN',
     projectSlug: santaEugenia,
   },
   {
-    src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-03.webp',
+    src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-02.webp',
     alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA POOL TERRACE AND MEDITERRANEAN PERENNIALS SESTEPA DESIGN',
     projectSlug: santaEugenia,
   },
