@@ -1070,26 +1070,7 @@ export const projects: Project[] = [
     images: [
       "/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-01.webp",
       "/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-02.webp",
-      "/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-03.webp",
-      "/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-04.webp",
-      "/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-05.webp",
-      "/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-06.webp",
-      "garden design mallorca santa eugenia sestepa landscape design (1).jpg",
-      "garden design mallorca santa eugenia sestepa landscape design (3).jpg",
-      "garden design mallorca santa eugenia sestepa landscape design (2).jpg",
-      "garden design mallorca santa eugenia sestepa landscape design (4).jpg",
-      "garden design mallorca santa eugenia sestepa landscape design (6).jpg",
-      "garden design mallorca santa eugenia sestepa landscape design (7).jpg",
-      "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-10.jpg",
-      "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-12.jpg",
-      "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-2.jpg",
-      "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-4.jpg",
-      "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-5.jpg",
-      "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-6.jpg",
-      "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-7.jpg",
-      "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-8.jpg",
-      "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca-9.jpg",
-      "Terrace-Garden-Santa-Eugenia-SEstepa-Design-Mallorca.jpg"
+      "/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-03.webp"
     ],
     en: {
       title: "Santa Eugènia",

@@ -17,6 +17,48 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-28] - Antigravity (Curadoria Santa Eugènia: Substituição por Melhores Fotos e Purga de Ativos Não Editados) — Homologado
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Não houve acesso a J: nesta etapa.
+- **Escopo:**
+  1. Otimização e Conversão de Imagens:
+     - Geração de 3 novos WebP otimizados em 1920x1280 (e card 700x525 4:3) para `public/portfolio/terrace-garden-santa-eugenia/images/`:
+       - `garden-design-mallorca-santa-eugenia-sestepa-01.webp` (Capa/Hero em plena floração e iluminação viva).
+       - `garden-design-mallorca-santa-eugenia-sestepa-card.webp` (Crop 4:3 para cards da galeria).
+       - `garden-design-mallorca-santa-eugenia-sestepa-02.webp` (Gramado, árvore central e esferas escultóricas).
+       - `garden-design-mallorca-santa-eugenia-sestepa-03.webp` (Escadaria frontal com agapanthus floridos).
+  2. Atualização Estruturada de Dados:
+     - `codigo/src/data/projects.ts`: mantidas exclusivamente as 3 fotos principais de Santa Eugènia, removendo as versões não tratadas / secas (04, 05, 06) e fallbacks JPG brutos.
+     - `codigo/src/data/gallery-images.ts`: reduzido o conjunto de Santa Eugènia de 6 para as 3 melhores fotos.
+     - `codigo/public/presentacion-proyectos.html`: atualizada a galeria de Santa Eugènia para 3 fotos, ajustando os contadores de "Todos (78)" para "Todos (75)" e "Santa Eugènia (6)" para "Santa Eugènia (3)" em dropdown, barra de pesquisa e pílulas.
+  3. Sitemaps e Build:
+     - `public/sitemap-images.xml` regenerado via script mestre com 284 imagens indexadas.
+     - Validação estática executada com sucesso via Astro build local isolado (`preview_local.py build`, 157 páginas geradas sem erros).
+- **Pendências:** Integrar "Foto 4" (Pedro) e Sant Llorenç (Editadas) assim que os arquivos forem confirmados em disco local.
+
+### [2026-10-28] - Antigravity (Produção de Vídeos Remotion Studio Quality — Portals Nous) — Homologado
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Leitura estrita (read-only) em `J:\Meu Drive\S'ESTEPA 2026\MEDIA 2026\JARDINES\MEJORES FOTOS\1. MEJORES FOTOS PEDRO\PORTALS NOULS - SESTEPA DESIGN - ADRIA - MALLORCA - LANDSCAPE (2).jpeg`. Nenhum arquivo alterado, gravado ou excluído em J:.
+- **Escopo:**
+  1. Ingestão de Ativo Original:
+     - Foto original copiada de J: (leitura) para `originais-grandes/portals-nous/PORTALS NOULS - SESTEPA DESIGN - ADRIA - MALLORCA - LANDSCAPE (2).jpeg`.
+  2. Análise Geométrica e Orientação:
+     - Dimensões: 4000x1800 px (horizontal panorâmica ~20:9).
+     - Conforme regra estrita do protocolo: foto horizontal -> Template 3 Glide (Remotion Studio Quality).
+  3. Renderização de Vídeos (HQ):
+     - Executado via script mestre `C:\Users\inesg\remotion-projects\sestepa-remotion\render_portals_nous.py` a 30fps por 9s, formato vertical 9:16 (Stories/Reels), CRF 14, JPEG quality 100%, YUV420p, áudio mudo.
+     - Variações geradas em `videos/portals-nous/renders/`:
+       - `portals-nous-2-9x16-09s-glide-ltr-remotion-mallorca-sestepa-garden-design.mp4` (17.16 MB)
+       - `portals-nous-2-9x16-09s-glide-rtl-remotion-mallorca-sestepa-garden-design.mp4` (18.70 MB)
+  4. Homologação Final:
+     - Versão RTL aprovada pelo operador e copiada para entrega final em `videos/portals-nous/aprovados/portals-nous-2-9x16-09s-glide-rtl-remotion-mallorca-sestepa-garden-design.mp4`.
+- **Validação:**
+  - Arquivo final (18.70 MB) em estrito cumprimento da regra < 25 MB do Cloudflare/Git.
+  - Documentação atualizada em `videos/README.md`.
+- **Pendências:** Nenhuma.
+
+
+
 ### [2026-10-27] - Antigravity (Organização Alfabética dos Menus de Projetos na Apresentação) — publicado em master
 - **Autor/agente:** Antigravity.
 - **Acesso à unidade J:** Não houve acesso a J:.
