@@ -17,6 +17,34 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-28] - Antigravity (Atualização de Fotos de Alcanada: Originais, Processo, Galeria e Apresentação com 82 fotos) — publicado em master
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Não houve modificação em J: (100% isolamento estrito preservado).
+- **Escopo:**
+  1. Otimização e Conversão de Alcanada:
+     - 3 fotografias em alta resolução de `originais-grandes/alcanada` convertidas para WebP com nomes SEO de alto padrão:
+       - `garden-design-mallorca-seaside-house-alcudia-sestepa-01-panoramica.webp` (Capa principal e OG Image)
+       - `garden-design-mallorca-seaside-house-alcudia-sestepa-02-bancal-corten.webp`
+       - `garden-design-mallorca-seaside-house-alcudia-sestepa-03-plantas-banco.webp`
+       - Card 4:3 gerado: `garden-design-mallorca-seaside-house-alcudia-sestepa-card.webp`
+  2. Atualização Estruturada do Projeto em `src/data/projects.ts`:
+     - Incorporadas na galeria as 3 fotos principais, o render conceitual e as 15 fotos completas do processo de obra e evolução (totalizando 20 imagens).
+     - Adicionados `imageAlts` detalhados e ricos para SEO nos 3 idiomas (EN, ES, DE).
+  3. Galeria Oficial (`src/data/gallery-images.ts`):
+     - Adicionadas as 3 fotos de Alcanada no catálogo geral direcionando para o projeto canônico.
+  4. Apresentação Interativa (`public/presentacion-proyectos.html` e espelho na raiz):
+     - Adicionadas as 3 fotos de Alcanada ao deck interativo (`galleryItems`).
+     - Alcanada posicionado em 1º lugar alfabético nos menus (Dropdown e Carrossel de Pílulas) com contador `(3)`.
+     - Catálogo expandido de 79 para 82 fotos com contadores atualizados em toda a interface.
+  5. Regeneração dos PDFs de Apresentação:
+     - Gerados os 2 PDFs oficiais (`Sestepa-Design-Proyectos-Horizontal.pdf` e `Sestepa-Design-Proyectos-Celular-Vertical.pdf`) com 83 páginas (82 lâminas de fotos + lâmina de encerramento de contatos).
+     - Tamanho final dos arquivos preservado com folga dentro do limite de 25 MB do Cloudflare Pages.
+  6. Sitemaps:
+     - Sincronizado `public/sitemap-images.xml` com 63 URLs e 289 imagens únicas.
+- **Validação:**
+  - Build local isolado com Astro (`preview_local.py build`) executado com sucesso: 157 páginas compiladas com 0 erros, indexação Pagefind concluída.
+- **Arquivos alterados:** `src/data/projects.ts`, `src/data/gallery-images.ts`, `public/presentacion-proyectos.html`, `presentacion-proyectos.html`, `public/portfolio/seaside-house-alcudia/images/`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Horizontal.pdf`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Celular-Vertical.pdf`, `Presentacion Fotos/`, `public/sitemap-images.xml`, `scripts/generate_presentation_pdfs.py`, `scripts/optimize_project_images.py`, `STATUS.md`.
+
 ### [2026-10-27] - Antigravity (Organização Alfabética dos Menus de Projetos na Apresentação) — publicado em master
 - **Autor/agente:** Antigravity.
 - **Acesso à unidade J:** Não houve acesso a J:.

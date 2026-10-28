@@ -27,6 +27,7 @@ const andratx = 'andratx';
 const terracePalma = 'terrace-garden-in-palma';
 const portalsNous = 'portals-nous';
 const marratxi = 'marratxi';
+const alcanada = 'seaside-house-alcudia';
 
 /** Filename on disk (may include spaces — encode in HTML via normal paths). */
 function galleryPath(filename: string): string {
@@ -318,7 +319,7 @@ export const galleryImages: GalleryImageEntry[] = [
     alt: 'FINCA GARDEN CAMPOS MALLORCA VILLA ARCHITECTURE AND MEDITERRANEAN PERENNIALS SESTEPA DESIGN',
     projectSlug: campos,
   },
-  // 7 × Santa Eugènia (terrace · pool · planting)
+  // 3 × Santa Eugènia (terrace · pool · planting)
   {
     src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-01.webp',
     alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA RESIDENTIAL VILLA AGAPANTHUS SESTEPA DESIGN',
@@ -326,32 +327,12 @@ export const galleryImages: GalleryImageEntry[] = [
   },
   {
     src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-02.webp',
-    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA RESIDENTIAL VILLA FAÇADE SESTEPA DESIGN',
+    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA WALL CLIMBERS AND AGAPANTHUS SESTEPA DESIGN',
     projectSlug: santaEugenia,
   },
   {
     src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-03.webp',
     alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA LAWN AND ARCHITECTURAL PLANTING SESTEPA DESIGN',
-    projectSlug: santaEugenia,
-  },
-  {
-    src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-04.webp',
-    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA SWIMMING POOL TERRACE SESTEPA DESIGN',
-    projectSlug: santaEugenia,
-  },
-  {
-    src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-05.webp',
-    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA STONE STEPS AND PLANTING SESTEPA DESIGN',
-    projectSlug: santaEugenia,
-  },
-  {
-    src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-06.webp',
-    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA WOODEN STEPS AND AGAPANTHUS BORDERS SESTEPA DESIGN',
-    projectSlug: santaEugenia,
-  },
-  {
-    src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-07.webp',
-    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA CLIMBING PLANTS AND COURTYARD SESTEPA DESIGN',
     projectSlug: santaEugenia,
   },
   // 6 × Llubí
@@ -448,5 +429,21 @@ export const galleryImages: GalleryImageEntry[] = [
     src: '/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-03.webp',
     alt: 'MARRATXI SCULPTURAL CACTI AND MEDITERRANEAN COURTYARD SESTEPA DESIGN',
     projectSlug: marratxi,
+  },
+  // 3 × Alcanada (Seaside House Alcúdia)
+  {
+    src: '/portfolio/seaside-house-alcudia/images/garden-design-mallorca-seaside-house-alcudia-sestepa-01-panoramica.webp',
+    alt: 'ALCANADA RESIDENTIAL GARDEN SEASIDE VILLA PANORAMIC VIEW SESTEPA DESIGN',
+    projectSlug: alcanada,
+  },
+  {
+    src: '/portfolio/seaside-house-alcudia/images/garden-design-mallorca-seaside-house-alcudia-sestepa-02-bancal-corten.webp',
+    alt: 'ALCANADA RESIDENTIAL GARDEN CORTEN STEEL TERRACE BANCAL SESTEPA DESIGN',
+    projectSlug: alcanada,
+  },
+  {
+    src: '/portfolio/seaside-house-alcudia/images/garden-design-mallorca-seaside-house-alcudia-sestepa-03-plantas-banco.webp',
+    alt: 'ALCANADA MEDITERRANEAN COASTAL PLANTING AND BENCH COMPOSITION SESTEPA DESIGN',
+    projectSlug: alcanada,
   },
 ];
