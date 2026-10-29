@@ -9,12 +9,28 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Produção publicada em `master` com galeria de Sant Llorenç (41 fotos únicas de Outubro da Sofia + 17 fotos anteriores).
-- **Último commit técnico publicado:** `3c4d088` (`fix(sant-llorenc): keep exact 41 Sofia photos, remove duplicates 42-82`).
+- **Status:** Produção atualizada em `master` com nova foto de capa na galeria de 5 meses de Sant Llorenç e atualização completa das imagens e SEO de Portals Nous.
+- **Último commit técnico publicado:** a ser registrado após push.
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+
+### [2026-10-29] - Antigravity (Atualização de Portals Nous e Ajuste de Capa de 5 Meses em Sant Llorenç)
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Não houve modificação em J: (100% isolamento estrito preservado).
+- **Escopo:**
+  1. Sant Llorenç (Ajuste de Capa na Galeria de 5 Meses):
+     - Definida a foto `garden-design-mallorca-sant-llorenc-5-months-sofia-08-sestepa-design.webp` como foto inicial (`photos[0]`) do capítulo `2026-10-5-months` em `src/data/projects.ts`, definindo-a como miniatura/capa do card de estágio no navegador da galeria.
+  2. Portals Nous (Otimização Completa de Imagens e Galeria):
+     - Processadas 6 fotografias originais via `optimize_project_images.py` com suporte a HEIC e tratamento seguro de buffer.
+     - Sequência prioritária homologada: Foto destaque 01 (`LANDSCAPE (2).jpeg`) + Card 4:3, Segunda foto 02 (`MG_20260310_132927.jpg.jpeg`), Terceira importante 03 (`PORTAL NOUS IMG_7108.HEIC`), seguidas das fotos 04, 05 e 06.
+     - Atualizados `cover`, `ogImage`, `images` e descrições completas de `imageAlts` em EN, ES e DE em `src/data/projects.ts`.
+  3. Sitemaps e Build:
+     - Sincronizado `public/sitemap-images.xml` via `generate-image-sitemap.mjs`.
+     - Build de validação executado com sucesso (157 páginas compiladas com 0 erros, Pagefind indexado).
+- **Validação:** Build técnico validado via `preview_local.py build`.
+- **Arquivos alterados:** `src/data/projects.ts`, `scripts/optimize_project_images.py`, `public/portfolio/portals-nous/images/`, `public/sitemap-images.xml`, `STATUS.md`.
 
 ### [2026-10-29] - Antigravity (Correção e Remoção de Duplicatas: Sant Llorenç com 41 Fotos Exatas de Outubro) — publicado em master (`3c4d088`)
 - **Autor/agente:** Antigravity.

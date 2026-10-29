@@ -787,6 +787,7 @@ export const projects: Project[] = [
         // 5 months after planting: autumn evolution, consolidated shrubs, corten borders and gravel paths.
         dir: "2026-10-5-months",
         photos: [
+          "garden-design-mallorca-sant-llorenc-5-months-sofia-08-sestepa-design.webp",
           "garden-design-mallorca-sant-llorenc-5-months-sofia-01-portrait-sestepa-design.webp",
           "garden-design-mallorca-sant-llorenc-5-months-sofia-02-portrait-sestepa-design.webp",
           "garden-design-mallorca-sant-llorenc-5-months-sofia-03-portrait-sestepa-design.webp",
@@ -794,7 +795,6 @@ export const projects: Project[] = [
           "garden-design-mallorca-sant-llorenc-5-months-sofia-05-portrait-sestepa-design.webp",
           "garden-design-mallorca-sant-llorenc-5-months-sofia-06-sestepa-design.webp",
           "garden-design-mallorca-sant-llorenc-5-months-sofia-07-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-sofia-08-sestepa-design.webp",
           "garden-design-mallorca-sant-llorenc-5-months-sofia-09-sestepa-design.webp",
           "garden-design-mallorca-sant-llorenc-5-months-sofia-10-sestepa-design.webp",
           "garden-design-mallorca-sant-llorenc-5-months-sofia-11-sestepa-design.webp",
