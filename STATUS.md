@@ -9,15 +9,14 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Produção publicada em `master` com Binissalem Courtyard integrado. Auditoria Codex de governança, preview local, redirects, segurança dashboard/leads e classificação de assets enviada para `origin/master`.
-- **Último commit técnico publicado:** `3d013bb` (`fix(gallery): link Mar Llabres Puerto Andratx photos to dedicated hidden project instead of Bunyola`).
-- **Commits Codex publicados nesta sessão:** `5e23e7e`, `4efd6a0`, `6ae0173`. Não usar `git add -A` antes de classificar os untracked restantes.
+- **Status:** Produção publicada em `master` com atualização de Sant Llorenç (82 fotos de Outubro).
+- **Último commit técnico publicado:** `c192130` (`feat(sant-llorenc): add 82 October autumn photos by Sofia to gallery`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
-### [2026-10-29] - Antigravity (Atualização de Fotos de Outubro em Sant Llorenç: 82 Fotos Sofia Canva) — publicado em master
+### [2026-10-29] - Antigravity (Atualização de Fotos de Outubro em Sant Llorenç: 82 Fotos Sofia Canva) — publicado em master (`c192130`)
 - **Autor/agente:** Antigravity.
 - **Acesso à unidade J:** Não houve modificação em J: (100% isolamento estrito preservado).
 - **Escopo:**
