@@ -17,6 +17,23 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-10-29] - Antigravity (Atualização de Fotos de Outubro em Sant Llorenç: 82 Fotos Sofia Canva) — publicado em master
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Não houve modificação em J: (100% isolamento estrito preservado).
+- **Escopo:**
+  1. Ingestão e Otimização de Imagens:
+     - 82 fotografias de outono editadas pela Sofia (Canva) organizadas em `originais-grandes/sant-llorenc/Sant Llorenç Editadas Sofia Canva/`.
+     - Conversão WebP de alta qualidade (1920px max-width, q85) em `public/portfolio/sant-llorenc/images/2026-10-5-months/`.
+     - Nomenclatura SEO com tag `-portrait-` nas 10 fotos verticais e nomes padronizados nas 72 horizontais.
+     - Preservação estrita do hero cover e do card de Sant Llorenç.
+  2. Atualização Estruturada em `src/data/projects.ts`:
+     - As 82 fotos novas inseridas no topo da galeria de Outubro (`2026-10-5-months`), totalizando 99 fotografias no capítulo.
+  3. Sitemaps e Build:
+     - Sincronizado `public/sitemap-images.xml` com 374 imagens únicas.
+     - Build de homologação com Astro executado com sucesso (157 páginas compiladas com 0 erros, indexação Pagefind concluída).
+- **Validação:** Preview local homologado com sucesso em `http://localhost:4321/sant-llorenc/`.
+- **Arquivos alterados:** `src/data/projects.ts`, `scripts/optimize_project_images.py`, `public/portfolio/sant-llorenc/images/2026-10-5-months/`, `public/sitemap-images.xml`, `STATUS.md`.
+
 ### [2026-10-28] - Antigravity (Atualização de Fotos de Alcanada: Originais, Processo, Galeria e Apresentação com 82 fotos) — publicado em master
 - **Autor/agente:** Antigravity.
 - **Acesso à unidade J:** Não houve modificação em J: (100% isolamento estrito preservado).
