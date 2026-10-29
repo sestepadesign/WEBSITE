@@ -102,7 +102,7 @@ CURATED_PROJECTS = {
         "target_subdir": "2026-10-5-months",
         "file_prefix": "sant-llorenc-5-months",
         "skip_card": True,
-        "clean_extra": False,
+        "clean_extra": True,
     },
     "portals-nous": {
         "orig_dir": "portals-nous",
@@ -234,17 +234,11 @@ def process_dir(target_dir: Path, slug: str, src_dir: Path = None):
             make_card(f, dst_card)
             generated_files.add(dst_card.name)
 
-    if slug == "sant-llorenc":
-        for old_file in list(target_dir.iterdir()):
-            if old_file.is_file() and old_file.name.startswith("garden-design-mallorca-sant-llorenc-5-months-sofia-") and old_file.suffix.lower() == ".webp":
-                if old_file.name not in generated_files:
-                    print(f"[-] Removendo versao descontinuada: {old_file.name}")
-                    old_file.unlink()
-    elif curated and curated.get("clean_extra"):
+    if slug == "sant-llorenc" or (curated and curated.get("clean_extra")):
         for old_file in list(target_dir.iterdir()):
             if old_file.is_file() and old_file.suffix.lower() == ".webp":
                 if old_file.name not in generated_files:
-                    print(f"[-] Removendo versao descontinuada da galeria: {old_file.name}")
+                    print(f"[-] Removendo versao descontinuada: {old_file.name}")
                     old_file.unlink()
 
     print(f"[V] Concluida com sucesso a otimizacao para {slug}.")

@@ -9,12 +9,27 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Produção atualizada em `master` com nova foto de capa na galeria de 5 meses de Sant Llorenç e atualização completa das imagens e SEO de Portals Nous.
-- **Último commit técnico publicado:** `abc0016` (`feat(portfolio): update portals-nous gallery and set sant-llorenc 5-months cover`).
+- **Status:** Produção atualizada em `master` com rigorosa correção de Sant Llorenç (exatamente 41 fotos de Sofia, removidas todas as 17 versões antigas residuais).
+- **Último commit técnico publicado:** a ser registrado após push.
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+
+### [2026-10-29] - Antigravity (Correção Rigorosa: Sant Llorenç com Exatamente 41 Fotos da Pasta EDITADAS)
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Não houve modificação em J: (100% isolamento estrito preservado).
+- **Escopo:**
+  1. Sant Llorenç (Eliminação Definitiva de Sobras e Correção para 41 Fotos):
+     - Corrigida a lista `photos` em `src/data/projects.ts`: removidas todas as 17 fotos antigas que elevavam erroneamente a contagem para 58.
+     - A galeria do capítulo `2026-10-5-months` agora contém estritamente as 41 fotos originais da pasta `EDITADAS` da Sofia.
+     - Foto de capa do capítulo no navegador de estágios mantida na foto solicitada: `garden-design-mallorca-sant-llorenc-5-months-sofia-08-sestepa-design.webp`.
+     - Excluídos fisicamente do disco em `public/portfolio/sant-llorenc/images/2026-10-5-months/` todos os 32 arquivos descontinuados de versões anteriores.
+  2. Sitemaps e Build:
+     - Sincronizado `public/sitemap-images.xml` (316 imagens únicas).
+     - Build de validação executado com sucesso no espelho isolado (157 páginas compiladas com 0 erros, Pagefind indexado).
+- **Validação:** Build técnico validado via `preview_local.py build`.
+- **Arquivos alterados:** `src/data/projects.ts`, `scripts/optimize_project_images.py`, `public/portfolio/sant-llorenc/images/2026-10-5-months/`, `public/sitemap-images.xml`, `STATUS.md`.
 
 ### [2026-10-29] - Antigravity (Atualização de Portals Nous e Ajuste de Capa de 5 Meses em Sant Llorenç) — publicado em master (`abc0016`)
 - **Autor/agente:** Antigravity.

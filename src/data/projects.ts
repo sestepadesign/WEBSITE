@@ -827,93 +827,19 @@ export const projects: Project[] = [
           "garden-design-mallorca-sant-llorenc-5-months-sofia-38-sestepa-design.webp",
           "garden-design-mallorca-sant-llorenc-5-months-sofia-39-sestepa-design.webp",
           "garden-design-mallorca-sant-llorenc-5-months-sofia-40-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-sofia-41-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-01-corten-gravel-walk-destaque-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-02-panoramic-estate-vista-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-04-portrait-entrance-pathway-rosemary-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-05-portrait-cypress-dry-stone-facade-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-06-portrait-centenary-olive-meadow-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-11-portrait-delicate-autumn-blossoms-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-12-portrait-slender-cypress-architecture-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-13-portrait-cypress-punctuation-garriga-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-14-portrait-pathway-native-perennials-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-17-portrait-lush-groundcover-texture-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-18-portrait-cloud-pruned-wild-olive-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-08-dry-stone-finca-overview-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-15-mediterranean-botanical-detail-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-19-natural-stone-finca-architecture-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-10-country-house-pool-terrace-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-20-open-countryside-vista-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-09-rosemary-border-corten-edge-sestepa-design.webp"
+          "garden-design-mallorca-sant-llorenc-5-months-sofia-41-sestepa-design.webp"
         ],
         en: {
           label: "October 2026 · five months after planting",
-          note: "Autumn brings maturity to the planting: the massed rosemary and lavender have knit together, the corten steel borders define crisp architectural lines against the local gravel, and the centenary wild olive trees anchor the finca landscape.",
-          imageAlts: [
-            "Sant Llorenç estate garden five months after planting: entrance pathway and Mediterranean groundcovers - S'Estepa Design",
-            "Panoramic garden landscape overlooking the Mallorcan hills with pink muhly grass - S'Estepa Design",
-            "Entrance pathway lined with rosemary and Mediterranean groundcovers - S'Estepa Design",
-            "Cypress trees framing the traditional dry stone facade and clay rooflines - S'Estepa Design",
-            "Centenary olive tree and blossoming autumn perennial meadow - S'Estepa Design",
-            "Close-up detail of drought-tolerant Mediterranean foliage and delicate blossoms - S'Estepa Design",
-            "Slender cypress architecture guiding the eye across the estate grounds - S'Estepa Design",
-            "Cypress tree punctuation among wild grasses in the garriga - S'Estepa Design",
-            "Structured pathway bordered by robust native perennials - S'Estepa Design",
-            "Lush groundcover tapestry conserving soil moisture in autumn - S'Estepa Design",
-            "Sculptural wild olive tree pruned in cloud form as focal botanical element - S'Estepa Design",
-            "Sweeping view of the private country estate garden and native garriga integration - S'Estepa Design",
-            "Delicate Mediterranean botanical textures and aromatic herbs - S'Estepa Design",
-            "Natural dry stone finca architecture integrated with sustainable landscape - S'Estepa Design",
-            "Country house, natural stone terrace and pool surrounded by Mediterranean plantings - S'Estepa Design",
-            "Open countryside vista framed by sustainable native landscaping in Sant Llorenç - S'Estepa Design",
-            "Corten steel edging separating lush rosemary beds from crushed gravel pathways - S'Estepa Design"
-          ]
+          note: "Autumn brings maturity to the planting: the massed rosemary and lavender have knit together, the corten steel borders define crisp architectural lines against the local gravel, and the centenary wild olive trees anchor the finca landscape."
         },
         es: {
           label: "Octubre 2026 · cinco meses después de la plantación",
-          note: "El otoño consolida el crecimiento del jardín: los macizos de romero y lavanda cierran el terreno, las pletinas de acero corten definen líneas arquitectónicas precisas junto a la grava y los acebuches centenarios estructuran la finca.",
-          imageAlts: [
-            "Jardín de finca en Sant Llorenç cinco meses después de la plantación: camino de grava y pletina de corten - S'Estepa Design",
-            "Vista panorámica de la finca con Muhlenbergia capillaris rosada y acebuches - S'Estepa Design",
-            "Camino de entrada bordeado de romero y tapizantes mediterráneos - S'Estepa Design",
-            "Cipreses enmarcando la fachada de piedra tradicional y cubiertas de teja - S'Estepa Design",
-            "Olivo centenario y pradera de floración otoñal en Sant Llorenç - S'Estepa Design",
-            "Detalle de follaje mediterráneo resistente a la sequía y floración silvestre - S'Estepa Design",
-            "Alineación de cipreses estructurando el recorrido por la finca - S'Estepa Design",
-            "Ciprés puntuando el paisaje natural de garriga mallorquina - S'Estepa Design",
-            "Sendero con borduras de vivaces mediterráneas bien consolidadas - S'Estepa Design",
-            "Tapiz denso de cobertura vegetal conservando la humedad del suelo - S'Estepa Design",
-            "Acebuche escultórico podado en forma de nube como hito botánico - S'Estepa Design",
-            "Vista amplia del jardín de la finca integrada en la garriga autóctona - S'Estepa Design",
-            "Texturas botánicas y aromáticas de bajo consumo hídrico - S'Estepa Design",
-            "Arquitectura tradicional de piedra seca integrada en el jardín de secano - S'Estepa Design",
-            "Casa de campo, terraza de piedra natural y piscina rodeadas de vegetación mediterránea - S'Estepa Design",
-            "Vista panorámica del campo mallorquín enmarcada por paisajismo sostenible en Sant Llorenç - S'Estepa Design",
-            "Borde de acero corten separando macizos de romero y senderos de grava - S'Estepa Design"
-          ]
+          note: "El otoño consolida el crecimiento del jardín: los macizos de romero y lavanda cierran el terreno, las pletinas de acero corten definen líneas arquitectónicas precisas junto a la grava y los acebuches centenarios estructuran la finca."
         },
         de: {
           label: "Oktober 2026 · fünf Monate nach der Pflanzung",
-          note: "Der Herbst festigt das Wachstum des Gartens: Rosmarin- und Lavendelbeete schließen den Boden, Cortenstahlkanten zeichnen präzise Linien am Kiesweg und jahrhundertealte wilde Olivenbäume geben dem Anwesen Struktur.",
-          imageAlts: [
-            "Landhausgarten in Sant Llorenç fünf Monate nach der Pflanzung: Kiesweg und Cortenstahlkante - S'Estepa Design",
-            "Panoramalandschaft mit rosa Muhlenbergia-Gras und Olivenbäumen - S'Estepa Design",
-            "Eingangsweg gesäumt von Rosmarin und mediterranen Bodendeckern - S'Estepa Design",
-            "Zypressen rahmen die Natursteinfassade und traditionellen Ziegeldächer ein - S'Estepa Design",
-            "Uralter Olivenbaum und herbstliche Blütenwiese in Sant Llorenç - S'Estepa Design",
-            "Detail robuster mediterraner Trockenpflanzen und zarter Blüten - S'Estepa Design",
-            "Strukturierende Zypressenreihe entlang des Weges über das Anwesen - S'Estepa Design",
-            "Vertikale Zypressenakzente inmitten wilder mallorquinischer Gräser - S'Estepa Design",
-            "Gartenweg gesäumt von eingewachsenen mediterranen Stauden - S'Estepa Design",
-            "Dichter Bodendeckerteppich zur Feuchtigkeitsspeicherung im Herbst - S'Estepa Design",
-            "Skulpturaler wilder Olivenbaum im Formschnitt als botanischer Akzent - S'Estepa Design",
-            "Weitläufiger Blick über den Fincagarten und die native Garriga - S'Estepa Design",
-            "Aromatische Kräuter und trockenheitsresistente Pflanzendetails - S'Estepa Design",
-            "Traditionelle mallorquinische Natursteinarchitektur im Landschaftsgarten - S'Estepa Design",
-            "Landhaus, Natursteinterrasse und Pool umgeben von mediterraner Bepflanzung - S'Estepa Design",
-            "Offener Blick in die mallorquinische Landschaft mit nachhaltiger Gartengestaltung in Sant Llorenç - S'Estepa Design",
-            "Cortenstahlkante zwischen Rosmarinbeeten und Kieswegen - S'Estepa Design"
-          ]
+          note: "Der Herbst festigt das Wachstum des Gartens: Rosmarin- und Lavendelbeete schließen den Boden, Cortenstahlkanten zeichnen präzise Linien am Kiesweg und jahrhundertealte wilde Olivenbäume geben dem Anwesen Struktur."
         }
       }
     ],
