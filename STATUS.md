@@ -9,14 +9,14 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Produção atualizada em `master` com rigorosa correção de Sant Llorenç (exatamente 41 fotos de Sofia, removidas todas as 17 versões antigas residuais).
-- **Último commit técnico publicado:** a ser registrado após push.
+- **Status:** Produção atualizada em `master` com rigorosa correção de Sant Llorenç (exatamente 41 fotos de Sofia, removidas todas as versões antigas residuais).
+- **Último commit técnico publicado:** `c24078c` (`fix(sant-llorenc): keep strictly 41 Sofia photos in 5-months gallery and remove obsolete files`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
-### [2026-10-29] - Antigravity (Correção Rigorosa: Sant Llorenç com Exatamente 41 Fotos da Pasta EDITADAS)
+### [2026-10-29] - Antigravity (Correção Rigorosa: Sant Llorenç com Exatamente 41 Fotos da Pasta EDITADAS) — publicado em master (`c24078c`)
 - **Autor/agente:** Antigravity.
 - **Acesso à unidade J:** Não houve modificação em J: (100% isolamento estrito preservado).
 - **Escopo:**
