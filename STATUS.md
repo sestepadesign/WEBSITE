@@ -9,14 +9,14 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Produção publicada em `master` com atualização de Sant Llorenç (82 fotos de Outubro).
-- **Último commit técnico publicado:** `c192130` (`feat(sant-llorenc): add 82 October autumn photos by Sofia to gallery`).
+- **Status:** Produção publicada em `master` com galeria de Sant Llorenç (41 fotos únicas de Outubro da Sofia + 17 fotos anteriores).
+- **Último commit técnico publicado:** `3c4d088` (`fix(sant-llorenc): keep exact 41 Sofia photos, remove duplicates 42-82`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
-### [2026-10-29] - Antigravity (Correção e Remoção de Duplicatas: Sant Llorenç com 41 Fotos Exatas de Outubro) — publicado em master
+### [2026-10-29] - Antigravity (Correção e Remoção de Duplicatas: Sant Llorenç com 41 Fotos Exatas de Outubro) — publicado em master (`3c4d088`)
 - **Autor/agente:** Antigravity.
 - **Acesso à unidade J:** Não houve modificação em J: (100% isolamento estrito preservado).
 - **Escopo:**
