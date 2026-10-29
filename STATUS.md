@@ -10,13 +10,13 @@
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
 - **Status:** Produção atualizada em `master` com nova foto de capa na galeria de 5 meses de Sant Llorenç e atualização completa das imagens e SEO de Portals Nous.
-- **Último commit técnico publicado:** a ser registrado após push.
+- **Último commit técnico publicado:** `abc0016` (`feat(portfolio): update portals-nous gallery and set sant-llorenc 5-months cover`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
-### [2026-10-29] - Antigravity (Atualização de Portals Nous e Ajuste de Capa de 5 Meses em Sant Llorenç)
+### [2026-10-29] - Antigravity (Atualização de Portals Nous e Ajuste de Capa de 5 Meses em Sant Llorenç) — publicado em master (`abc0016`)
 - **Autor/agente:** Antigravity.
 - **Acesso à unidade J:** Não houve modificação em J: (100% isolamento estrito preservado).
 - **Escopo:**
