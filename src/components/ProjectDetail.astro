@@ -64,11 +64,12 @@ const splitLabel = (label: string) => {
 };
 type Stage = {
   id: string; label: string; date: string; title: string; note?: string; offset: number;
-  photos: { src: string; alt: string }[];
+  photos: { src: string; alt: string; isPortrait?: boolean }[];
 };
 const firstStagePhotos = project.images.slice(2).map((img, idx) => ({
   src: projectImageSrc(img),
   alt: translation.imageAlts?.[idx + 2] ?? `${translation.title} — Garden Design ${formattedLocation}, Image ${idx + 3}`,
+  isPortrait: /(?:^|[-_])(portrait|vertical)(?:[-_.]|$)/i.test(img) || img.endsWith('-v.webp'),
 }));
 
 const stages: Stage[] = galleryChapters.length === 0 ? [] : [
@@ -98,15 +99,88 @@ const stages: Stage[] = galleryChapters.length === 0 ? [] : [
 // Position in the shared lightbox sequence (feature + mid images come first).
 stages.reduce((offset, stage) => { stage.offset = offset; return offset + stage.photos.length; }, 2);
 
-// Editorial rhythm for stage grids: wide, pair, trio, repeated; a short tail never leaves a gap.
-const rhythm = (count: number) => {
-  const out: string[] = [];
-  for (let g = 0; out.length < count; g++) {
-    const size = Math.min([1, 2, 3][g % 3], count - out.length);
-    if (size === 1) out.push('r-wide');
-    else if (size === 2) out.push('r-half', 'r-half');
-    else out.push('r-third r-third-lead', 'r-third', 'r-third');
+// Senior UX Editorial Layout Engine:
+// Dynamically balances mixed portrait (~3:4) and landscape (~3:2 or 16:9) photographs
+// across a 6-column grid so that EVERY row completes 100% width with ZERO orphan gaps.
+// - 3 portraits group into an edge-to-edge triptych (2 + 2 + 2 = 6 cols)
+// - 2 portraits group into a balanced pair (3 + 3 = 6 cols)
+// - 1 solitary portrait pairs with adjacent landscape in an asymmetric height-matched duo (2 + 4 = 6 cols)
+// - Landscapes alternate harmoniously in hero wide (6 cols), pairs (3 + 3 = 6 cols), and trios (2 + 2 + 2 = 6 cols)
+const computeEditorialLayout = (
+  photos: { src: string; isPortrait?: boolean }[]
+): string[] => {
+  const n = photos.length;
+  const out: string[] = new Array(n).fill('');
+  let i = 0;
+  let rhythmStep = 0;
+
+  while (i < n) {
+    if (photos[i].isPortrait) {
+      let pCount = 0;
+      while (i + pCount < n && photos[i + pCount].isPortrait) {
+        pCount++;
+      }
+
+      while (pCount > 0) {
+        if (pCount >= 3 && (pCount % 3 === 0 || pCount === 5 || pCount >= 6)) {
+          out[i] = 'r-third r-third-lead is-portrait';
+          out[i + 1] = 'r-third is-portrait';
+          out[i + 2] = 'r-third is-portrait';
+          i += 3;
+          pCount -= 3;
+        } else if (pCount >= 2) {
+          out[i] = 'r-half is-portrait';
+          out[i + 1] = 'r-half is-portrait';
+          i += 2;
+          pCount -= 2;
+        } else {
+          // Solitary portrait (pCount === 1)
+          if (i + 1 < n && !photos[i + 1].isPortrait) {
+            out[i] = 'r-third is-portrait';
+            out[i + 1] = 'r-two-thirds is-landscape';
+            i += 2;
+            pCount = 0;
+          } else {
+            out[i] = 'r-half is-portrait';
+            i += 1;
+            pCount = 0;
+          }
+        }
+      }
+    } else {
+      let lCount = 0;
+      while (i + lCount < n && !photos[i + lCount].isPortrait) {
+        lCount++;
+      }
+
+      if (lCount === 1) {
+        out[i] = 'r-wide is-landscape';
+        i += 1;
+      } else if (lCount === 2) {
+        out[i] = 'r-half is-landscape';
+        out[i + 1] = 'r-half is-landscape';
+        i += 2;
+      } else {
+        const mode = rhythmStep % 3;
+        rhythmStep++;
+
+        if (mode === 0) {
+          out[i] = 'r-wide is-landscape';
+          i += 1;
+        } else if (mode === 1) {
+          out[i] = 'r-half is-landscape';
+          out[i + 1] = 'r-half is-landscape';
+          i += 2;
+        } else {
+          out[i] = 'r-third r-third-lead is-landscape';
+          out[i + 1] = 'r-third is-landscape';
+          out[i + 2] = 'r-third is-landscape';
+          i += 3;
+        }
+      }
+    }
   }
+
   return out;
 };
 ---
@@ -446,9 +520,10 @@ const rhythm = (count: number) => {
               const isLastItem = idx === remainingCount - 1;
               const isOddSlots = (remainingCount + (isFinca ? 1 : 0)) % 2 !== 0;
               const shouldSpan = isLastItem && isOddSlots;
+              const isPortrait = /(?:^|[-_])(portrait|vertical)(?:[-_.]|$)/i.test(img) || img.endsWith('-v.webp');
               return (
                 <button
-                  class={`gallery-item-btn ${shouldSpan ? 'full-width' : ''}`}
+                  class={`gallery-item-btn ${shouldSpan ? 'full-width' : ''} ${isPortrait ? 'is-portrait' : ''}`}
                   data-src={projectImageSrc(img)}
                   data-index={globalIdx}
                   data-chapter={galleryLabel}
@@ -470,7 +545,7 @@ const rhythm = (count: number) => {
       )}
 
       {stages.map((stage) => {
-        const layout = rhythm(stage.photos.length);
+        const layout = computeEditorialLayout(stage.photos);
         return (
           <section class="stage" id={stage.id}>
             <header class="stage-head">
@@ -481,23 +556,7 @@ const rhythm = (count: number) => {
             </header>
             <div class="stage-grid">
               {stage.photos.map((photo, idx) => {
-                let layoutClass = layout[idx];
-                if (stage.id === 'stage-2026-10-5-months') {
-                  if (photo.isPortrait) {
-                    layoutClass = 'r-third is-portrait';
-                  } else if (
-                    photo.src.includes('5-months-01') ||
-                    photo.src.includes('5-months-02') ||
-                    photo.src.includes('5-months-08') ||
-                    photo.src.includes('5-months-09')
-                  ) {
-                    layoutClass = 'r-wide is-landscape';
-                  } else {
-                    layoutClass = 'r-half is-landscape';
-                  }
-                } else if (photo.isPortrait) {
-                  layoutClass = `${layoutClass} is-portrait`;
-                }
+                const layoutClass = layout[idx];
                 return (
                   <button
                     class={`gallery-item-btn stage-item ${layoutClass}`}
@@ -1201,6 +1260,10 @@ const rhythm = (count: number) => {
     gap: 3rem;
   }
 
+  .gallery-item-btn.is-portrait .gallery-item {
+    aspect-ratio: 3 / 4;
+  }
+
   .gallery-item {
     position: relative;
     overflow: hidden;
@@ -1467,34 +1530,40 @@ const rhythm = (count: number) => {
     margin: 0;
   }
 
-  /* 6-column editorial rhythm: wide 16:9, then a pair, then a trio (see rhythm() above) */
+  /* 6-column editorial rhythm: dynamic balance of landscape and portrait frames */
   .stage-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: clamp(0.75rem, 1.2vw, 1.25rem);
+    grid-auto-flow: dense;
   }
 
   .stage-item.r-wide { grid-column: span 6; }
+  .stage-item.r-two-thirds { grid-column: span 4; }
   .stage-item.r-half { grid-column: span 3; }
   .stage-item.r-third { grid-column: span 2; }
 
   .stage-item.r-wide .gallery-item {
     aspect-ratio: 16 / 9;
   }
+  .stage-item.r-two-thirds .gallery-item {
+    aspect-ratio: 3 / 2;
+  }
+  .stage-item.r-half:not(.is-portrait) .gallery-item {
+    aspect-ratio: 3 / 2;
+  }
+  .stage-item.r-third:not(.is-portrait) .gallery-item {
+    aspect-ratio: 3 / 2;
+  }
 
   /* Portrait photos (phone shots and vertically-exported CGI, ~3:4 natural ratio)
      mixed in with this project's landscape ones — the default 3:2 crop would
      slice off most of each one, so the slots that hold them get a taller frame
-     instead, close to their real proportions. Renders: both portrait CGI shots
-     sit in the half slots. 3-years-growth: the 3 portrait photos are the last
-     3 items (2nd trio) — nth-child keeps the 1st trio (landscape) at 3:2. */
+     instead, close to their real proportions. */
   #stage-renders .stage-item.r-half .gallery-item,
   #stage-2026-3-years-growth .stage-item.r-third:nth-child(n+10) .gallery-item,
   .stage-item.is-portrait .gallery-item {
     aspect-ratio: 3 / 4 !important;
-  }
-  .stage-item.is-portrait.r-wide {
-    grid-column: span 3 !important;
   }
 
   @media (max-width: 768px) {
@@ -1516,12 +1585,13 @@ const rhythm = (count: number) => {
       margin-bottom: 1.75rem;
     }
 
-    /* 2 columns: the trio opens with a wide frame so rows always pair evenly */
+    /* 2 columns: pairs and wide heroes fit edge to edge */
     .stage-grid {
       grid-template-columns: repeat(2, 1fr);
     }
 
     .stage-item.r-wide,
+    .stage-item.r-two-thirds,
     .stage-item.r-third-lead {
       grid-column: span 2;
     }
@@ -1531,8 +1601,14 @@ const rhythm = (count: number) => {
       grid-column: span 1;
     }
 
-    .stage-item.r-third-lead .gallery-item {
+    .stage-item.r-wide .gallery-item,
+    .stage-item.r-two-thirds .gallery-item,
+    .stage-item.r-third-lead:not(.is-portrait) .gallery-item {
       aspect-ratio: 16 / 9;
+    }
+
+    .stage-item.is-portrait .gallery-item {
+      aspect-ratio: 3 / 4 !important;
     }
   }
 

@@ -9,12 +9,31 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Produção atualizada em `master` com rigorosa correção de Sant Llorenç (exatamente 41 fotos de Sofia, removidas todas as versões antigas residuais).
-- **Último commit técnico publicado:** `c24078c` (`fix(sant-llorenc): keep strictly 41 Sofia photos in 5-months gallery and remove obsolete files`).
+- **Status:** Produção atualizada em `master` com redesign sênior do layout de galerias e atualização das fotos de destaque de Sant Llorenç.
+- **Último commit técnico publicado:** pendente deploy (`fix(ux): universal editorial gallery grid and sant llorenc featured photos update`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+
+### [2026-10-29] - Antigravity (Redesign Universal do Layout de Galerias e Atualização de Fotos em Sant Llorenç)
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Não houve modificação em J: (100% isolamento estrito preservado).
+- **Escopo:**
+  1. Redesign Arquitetural de UX nas Galerias (`ProjectDetail.astro`):
+     - Substituição de lógicas condicionais estáticas pelo motor de layout universal `computeEditorialLayout`.
+     - Resolução definitiva de vazios laterais para fotos verticais (~3:4) e horizontais (~3:2 / 16:9) em 6 colunas completas (100% largura).
+     - Trípticos para 3 verticais (3 x 33,3%), pares para 2 verticais (2 x 50%) e duplas assimétricas com altura matemática alinhada ao pixel para verticais isoladas.
+     - Proteção anti-lacuna com `grid-auto-flow: dense` e preservação responsiva para dispositivos móveis.
+  2. Atualização Editorial em Sant Llorenç (`src/data/projects.ts` e `src/components/site/HomePage.astro`):
+     - Restabelecida a foto `garden-design-mallorca-sant-llorenc-5-months-sofia-08-sestepa-design.webp` como primeira foto do capítulo de 5 meses (capa no navegador de estágios).
+     - Atualizada a foto de destaque inicial da página de Sant Llorenç (`images[0]`) para a foto de outubro `2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-22-sestepa-design.webp`.
+     - Atualizada a miniatura inferior do card de Sant Llorenç na Home para `2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-08-sestepa-design.webp`.
+  3. Validação e Deploy:
+     - Build de validação executado no espelho isolado com 157 páginas estáticas compiladas com zero erros e Pagefind indexado.
+     - Deploy contínuo consolidado em `master` para Cloudflare Pages.
+- **Validação:** Build técnico validado via `preview_local.py build`.
+- **Arquivos alterados:** `src/components/ProjectDetail.astro`, `src/components/site/HomePage.astro`, `src/data/projects.ts`, `STATUS.md`.
 
 ### [2026-10-29] - Antigravity (Correção Rigorosa: Sant Llorenç com Exatamente 41 Fotos da Pasta EDITADAS) — publicado em master (`c24078c`)
 - **Autor/agente:** Antigravity.

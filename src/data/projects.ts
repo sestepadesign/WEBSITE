@@ -699,7 +699,7 @@ export const projects: Project[] = [
     cover: "/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp",
     ogImage: "/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp",
     images: [
-      "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-15.webp",
+      "2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-22-sestepa-design.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp",
       "garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp",
