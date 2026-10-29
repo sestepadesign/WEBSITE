@@ -10,13 +10,13 @@
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
 - **Status:** Produção atualizada em `master` com redesign sênior do layout de galerias e atualização das fotos de destaque de Sant Llorenç.
-- **Último commit técnico publicado:** pendente deploy (`fix(ux): universal editorial gallery grid and sant llorenc featured photos update`).
+- **Último commit técnico publicado:** `93de23c` (`fix(sant-llorenc): update featured photo to October shot and deploy universal gallery grid`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
-### [2026-10-29] - Antigravity (Redesign Universal do Layout de Galerias e Atualização de Fotos em Sant Llorenç)
+### [2026-10-29] - Antigravity (Redesign Universal do Layout de Galerias e Atualização de Fotos em Sant Llorenç) — publicado em master (`93de23c`)
 - **Autor/agente:** Antigravity.
 - **Acesso à unidade J:** Não houve modificação em J: (100% isolamento estrito preservado).
 - **Escopo:**
