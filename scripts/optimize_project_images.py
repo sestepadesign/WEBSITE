@@ -97,7 +97,7 @@ CURATED_PROJECTS = {
         "clean_extra": True,
     },
     "sant-llorenc": {
-        "orig_dir": "sant-llorenc/Sant Llorenç Editadas Sofia Canva",
+        "orig_dir": "sant-llorenc/Sant Llorenç Editadas Sofia Canva/EDITADAS",
         "gdrive_folder_id": "1BvozUtiiVubTIYZha-G0UuHb2cgw7VbQ",
         "target_subdir": "2026-10-5-months",
         "file_prefix": "sant-llorenc-5-months",
@@ -172,21 +172,14 @@ def process_dir(target_dir: Path, slug: str, src_dir: Path = None):
         search_dirs = [src_dir] if src_dir else [target_dir]
         for sdir in search_dirs:
             if sdir and sdir.exists():
-                print(f"[*] Arquivos presentes em {sdir.name}: {[p.name for p in sdir.iterdir()]}")
-                for f in list(sdir.iterdir()):
-                    if f.is_file() and f.suffix.lower() == '.zip':
-                        print(f"[*] Descompactando arquivo ZIP: {f.name}...")
-                        try:
-                            with zipfile.ZipFile(f, 'r') as z:
-                                z.extractall(sdir)
-                            print(f"[+] Descompactacao concluida para {f.name}.")
-                        except Exception as e:
-                            print(f"[!] Erro ao descompactar {f.name}: {e}")
-
                 found_files = []
-                for f in sorted(sdir.rglob("*")):
-                    if f.is_file() and f.suffix.lower() != '.zip' and (f.suffix.lower() in raw_exts or (sdir != target_dir and f.suffix.lower() == '.webp')):
-                        found_files.append(f)
+                direct_files = [f for f in sorted(sdir.iterdir()) if f.is_file() and f.suffix.lower() in raw_exts]
+                if direct_files:
+                    found_files = direct_files
+                else:
+                    for f in sorted(sdir.rglob("*")):
+                        if f.is_file() and f.suffix.lower() != '.zip' and (f.suffix.lower() in raw_exts or (sdir != target_dir and f.suffix.lower() == '.webp')):
+                            found_files.append(f)
 
                 if curated and "priority_files" in curated:
                     priority_matched = []
@@ -281,6 +274,12 @@ def main():
                         if "sofia" in sub.name.lower() or "canva" in sub.name.lower():
                             src_dir = sub
                             break
+
+    dup_folder = root.parent / "originais-grandes" / "sant-llorenc" / "Sant Llorenç Editadas Sofia Canva" / "EDITADAS-20261029T112930Z-1-001"
+    if dup_folder.exists():
+        import shutil
+        shutil.rmtree(dup_folder)
+        print(f"[*] Removida pasta duplicada: {dup_folder.name}")
 
     if not src_dir:
         orig_dirs = find_originais_dir(root, args.slug)

@@ -16,21 +16,21 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
-### [2026-10-29] - Antigravity (Atualização de Fotos de Outubro em Sant Llorenç: 82 Fotos Sofia Canva) — publicado em master (`c192130`)
+### [2026-10-29] - Antigravity (Correção e Remoção de Duplicatas: Sant Llorenç com 41 Fotos Exatas de Outubro) — publicado em master
 - **Autor/agente:** Antigravity.
 - **Acesso à unidade J:** Não houve modificação em J: (100% isolamento estrito preservado).
 - **Escopo:**
-  1. Ingestão e Otimização de Imagens:
-     - 82 fotografias de outono editadas pela Sofia (Canva) organizadas em `originais-grandes/sant-llorenc/Sant Llorenç Editadas Sofia Canva/`.
-     - Conversão WebP de alta qualidade (1920px max-width, q85) em `public/portfolio/sant-llorenc/images/2026-10-5-months/`.
-     - Nomenclatura SEO com tag `-portrait-` nas 10 fotos verticais e nomes padronizados nas 72 horizontais.
-     - Preservação estrita do hero cover e do card de Sant Llorenç.
-  2. Atualização Estruturada em `src/data/projects.ts`:
-     - As 82 fotos novas inseridas no topo da galeria de Outubro (`2026-10-5-months`), totalizando 99 fotografias no capítulo.
+  1. Correção de Imagens e Eliminação de Duplicatas:
+     - Identificado que o arquivo ZIP e a pasta descompactada já continham os 41 arquivos originais (sem necessidade de reextração).
+     - Removida a pasta duplicada `EDITADAS-20261029T112930Z-1-001` de `originais-grandes`.
+     - Excluídos os arquivos duplicados 42 a 82 de `public/portfolio/sant-llorenc/images/2026-10-5-months/`.
+     - Mantidas rigorosamente as 41 fotografias únicas da sessão de outubro da Sofia (fotos 01 a 05 verticais com `-portrait-`, fotos 06 a 41 horizontais).
+  2. Ajuste Estruturado em `src/data/projects.ts`:
+     - Galeria de Outubro (`2026-10-5-months`) corrigida para exatamente 41 novas fotos Sofia no topo + 17 fotos consolidadas anteriores (total de 58 fotos no capítulo).
   3. Sitemaps e Build:
-     - Sincronizado `public/sitemap-images.xml` com 374 imagens únicas.
+     - Sincronizado `public/sitemap-images.xml` com exatamente 333 imagens únicas.
      - Build de homologação com Astro executado com sucesso (157 páginas compiladas com 0 erros, indexação Pagefind concluída).
-- **Validação:** Preview local homologado com sucesso em `http://localhost:4321/sant-llorenc/`.
+- **Validação:** Preview local homologado com sucesso.
 - **Arquivos alterados:** `src/data/projects.ts`, `scripts/optimize_project_images.py`, `public/portfolio/sant-llorenc/images/2026-10-5-months/`, `public/sitemap-images.xml`, `STATUS.md`.
 
 ### [2026-10-28] - Antigravity (Atualização de Fotos de Alcanada: Originais, Processo, Galeria e Apresentação com 82 fotos) — publicado em master
