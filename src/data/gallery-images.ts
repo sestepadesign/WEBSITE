@@ -319,20 +319,20 @@ export const galleryImages: GalleryImageEntry[] = [
     alt: 'FINCA GARDEN CAMPOS MALLORCA VILLA ARCHITECTURE AND MEDITERRANEAN PERENNIALS SESTEPA DESIGN',
     projectSlug: campos,
   },
-  // 3 × Santa Eugènia (terrace · pool · planting)
+  // 3 × Santa Eugènia (Agapanthus · Escadaria · Gramado e Esferas)
   {
     src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-01.webp',
-    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA RESIDENTIAL VILLA AGAPANTHUS SESTEPA DESIGN',
+    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA FLOWERING AGAPANTHUS AND MEDITERRANEAN RESIDENCE SESTEPA DESIGN',
     projectSlug: santaEugenia,
   },
   {
     src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-02.webp',
-    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA WALL CLIMBERS AND AGAPANTHUS SESTEPA DESIGN',
+    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA STONE STAIRWAY AND ARCHITECTURAL GARDEN BORDERS SESTEPA DESIGN',
     projectSlug: santaEugenia,
   },
   {
     src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-03.webp',
-    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA LAWN AND ARCHITECTURAL PLANTING SESTEPA DESIGN',
+    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA LAWN SPHERICAL SHRUBS AND ARCHITECTURAL PLANTING SESTEPA DESIGN',
     projectSlug: santaEugenia,
   },
   // 6 × Llubí
