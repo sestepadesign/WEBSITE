@@ -335,17 +335,7 @@ export const galleryImages: GalleryImageEntry[] = [
     alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA LAWN SPHERICAL SHRUBS AND ARCHITECTURAL PLANTING SESTEPA DESIGN',
     projectSlug: santaEugenia,
   },
-  // 6 × Llubí
-  {
-    src: '/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design (1).webp',
-    alt: 'GARDEN DESIGN LLUBI FIRE PIT AND MEDITERRANEAN PERENNIALS SESTEPA DESIGN',
-    projectSlug: llubi,
-  },
-  {
-    src: '/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design (4).webp',
-    alt: 'GARDEN DESIGN LLUBI DRY STONE WALLS AND SUNBEDS SESTEPA DESIGN',
-    projectSlug: llubi,
-  },
+  // 3 × Llubí
   {
     src: '/portfolio/garden-design-llubi-mallorca/images/GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-5.png',
     alt: 'GARDEN DESIGN LLUBI COVERED TERRACE AND PERGOLA SESTEPA DESIGN',
@@ -359,11 +349,6 @@ export const galleryImages: GalleryImageEntry[] = [
   {
     src: '/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design (5).webp',
     alt: 'GARDEN DESIGN LLUBI ARCHITECTURAL POOL REFLECTION SESTEPA DESIGN',
-    projectSlug: llubi,
-  },
-  {
-    src: '/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design (2).webp',
-    alt: 'GARDEN DESIGN LLUBI STONE FIRE PIT AND LAVENDER MEADOW SESTEPA DESIGN',
     projectSlug: llubi,
   },
   // 3 × Vertical Gardens (3 Years Growth)
