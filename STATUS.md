@@ -10,13 +10,13 @@
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
 - **Status:** Produção atualizada em `master` com correção cirúrgica da galeria de Alcanada (eliminação de renders 3D duplicados e alts precisos).
-- **Último commit técnico publicado:** a registrar no deploy.
+- **Último commit técnico publicado:** `56f43ab` (`fix(alcanada): remove duplicate 3D renders and correct image alts`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
-### [2026-11-03] - Antigravity (Auditoria e Correção de Alcanada: Remoção de Renders Duplicados e Alts Precisos) — publicado em master
+### [2026-11-03] - Antigravity (Auditoria e Correção de Alcanada: Remoção de Renders Duplicados e Alts Precisos) — publicado em master (`56f43ab`)
 - **Autor/agente:** Antigravity.
 - **Acesso à unidade J:** Não houve acesso a J: (100% isolamento estrito preservado).
 - **Escopo:**
