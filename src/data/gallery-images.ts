@@ -51,20 +51,65 @@ export const galleryImages: GalleryImageEntry[] = [
     alt: 'GARDEN DESIGN SANTA PONSA MALLORCA ARCHITECTURAL SIDE WALKWAY SESTEPA DESIGN',
     projectSlug: santaPonsa,
   },
-  // 3 × Sant Llorenç (Segunda Linha da Galeria — 5 Meses & Hero Cover)
+  // 12 × Sant Llorenç (Estate Garden · 5 Meses & Hero Cover)
   {
     src: '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp',
     alt: 'SANT LLORENC ESTATE GARDEN MALLORCA MUHLENBERGIA HERO COVER SESTEPA DESIGN',
     projectSlug: santLlorenc,
   },
   {
-    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-01-corten-gravel-walk-destaque-sestepa-design.webp',
-    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA CORTEN GRAVEL WALK 5 MONTHS SESTEPA DESIGN',
+    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-45-img-4026-sestepa-design.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA MEDITERRANEAN COMPOSITION 5 MONTHS SESTEPA DESIGN',
     projectSlug: santLlorenc,
   },
   {
-    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-15-mediterranean-botanical-detail-sestepa-design.webp',
-    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA MEDITERRANEAN BOTANICAL DETAIL 5 MONTHS SESTEPA DESIGN',
+    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-44-img-4033-sestepa-design.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA BOTANICAL PATHWAY 5 MONTHS SESTEPA DESIGN',
+    projectSlug: santLlorenc,
+  },
+  {
+    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-42-img-4061-sestepa-design.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA STONEWORK AND OLIVE DETAIL 5 MONTHS SESTEPA DESIGN',
+    projectSlug: santLlorenc,
+  },
+  {
+    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-43-img-4070-sestepa-design.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA ARCHITECTURAL BORDERS 5 MONTHS SESTEPA DESIGN',
+    projectSlug: santLlorenc,
+  },
+  {
+    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-46-img-2536-sestepa-design.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA XERISCAPE GRAVEL AND SHRUBS 5 MONTHS SESTEPA DESIGN',
+    projectSlug: santLlorenc,
+  },
+  {
+    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-49-img-3718-sestepa-design.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA AUTUMN COLORS 5 MONTHS SESTEPA DESIGN',
+    projectSlug: santLlorenc,
+  },
+  {
+    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-48-img-3776-sestepa-design.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA PANORAMIC VISTA 5 MONTHS SESTEPA DESIGN',
+    projectSlug: santLlorenc,
+  },
+  {
+    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-47-img-3778-sestepa-design.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA GRASSES AND PERENNIALS 5 MONTHS SESTEPA DESIGN',
+    projectSlug: santLlorenc,
+  },
+  {
+    src: '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA SESTEPA DESIGN',
+    projectSlug: santLlorenc,
+  },
+  {
+    src: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA LANDSCAPE DESIGN 01 SESTEPA DESIGN',
+    projectSlug: santLlorenc,
+  },
+  {
+    src: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA LANDSCAPE DESIGN 18 SESTEPA DESIGN',
     projectSlug: santLlorenc,
   },
   // 3 × Binissalem Courtyard (New addition)
@@ -288,7 +333,7 @@ export const galleryImages: GalleryImageEntry[] = [
     alt: 'HOTEL CABOT LAS VELAS POOL VISTA AND WHITE APARTMENT TERRACES SESTEPA DESIGN',
     projectSlug: hotelCabot,
   },
-  // 6 × Campos
+  // 9 × Campos
   {
     src: galleryPath('GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CAMPOS (1).webp'),
     alt: 'GARDEN LANDSCAPE DESIGN CAMPOS MALLORCA SESTEPA DESIGN FINCA GARDEN',
@@ -312,6 +357,21 @@ export const galleryImages: GalleryImageEntry[] = [
   {
     src: '/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-01-master.webp',
     alt: 'FINCA GARDEN CAMPOS MALLORCA AERIAL MASTER PLAN VIEW SESTEPA DESIGN',
+    projectSlug: campos,
+  },
+  {
+    src: '/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-23.jpg',
+    alt: 'FINCA GARDEN CAMPOS MALLORCA MEDITERRANEAN RESIDENCE GARDEN TERRACE SESTEPA DESIGN',
+    projectSlug: campos,
+  },
+  {
+    src: '/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-29.jpg',
+    alt: 'FINCA GARDEN CAMPOS MALLORCA FLOWERING SHRUBS AND LAWN SESTEPA DESIGN',
+    projectSlug: campos,
+  },
+  {
+    src: '/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-34.jpg',
+    alt: 'FINCA GARDEN CAMPOS MALLORCA CYPRESS AND SUCCULENT WALKWAY SESTEPA DESIGN',
     projectSlug: campos,
   },
   {
