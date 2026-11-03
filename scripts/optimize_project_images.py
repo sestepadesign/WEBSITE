@@ -94,7 +94,7 @@ CURATED_PROJECTS = {
             "garden design mallorca santa eugenia sestepa landscape design (4).png",
             "garden design mallorca santa eugenia sestepa landscape design (2).png",
         ],
-        "clean_extra": True,
+        "clean_extra": False,
     },
     "sant-llorenc": {
         "orig_dir": "sant-llorenc/Sant Llorenç Editadas Sofia Canva/EDITADAS",
@@ -102,7 +102,7 @@ CURATED_PROJECTS = {
         "target_subdir": "2026-10-5-months",
         "file_prefix": "sant-llorenc-5-months",
         "skip_card": True,
-        "clean_extra": True,
+        "clean_extra": False,
     },
     "portals-nous": {
         "orig_dir": "portals-nous",
@@ -112,9 +112,68 @@ CURATED_PROJECTS = {
             "PORTALS NOULS - SESTEPA DESIGN - ADRIA - MALLORCA - MG_20260310_132927.jpg.jpeg",
             "PORTAL NOUS  IMG_7108.HEIC",
         ],
-        "clean_extra": True,
+        "clean_extra": False,
     },
 }
+
+def scan_j_drive_sant_llorenc():
+    j_root = Path("J:/")
+    if not j_root.exists():
+        print("[!] Unidade J: nao encontrada ou inacessivel.")
+        return None, []
+
+    print("[*] Escaneando unidade J: em busca de pastas de Sant Llorenç...")
+    found_folders = []
+    try:
+        for root_item in j_root.iterdir():
+            try:
+                if root_item.is_dir():
+                    # Check if root_item matches or look inside
+                    name_norm = root_item.name.lower().replace("ç", "c")
+                    if "llorenc" in name_norm or "sant llorenc" in name_norm:
+                        mtime = os.path.getmtime(root_item)
+                        found_folders.append((mtime, root_item))
+                    
+                    # Also search 2-3 levels deep inside main folders
+                    for depth1 in root_item.iterdir():
+                        if depth1.is_dir():
+                            d1_norm = depth1.name.lower().replace("ç", "c")
+                            if "llorenc" in d1_norm:
+                                mtime = os.path.getmtime(depth1)
+                                found_folders.append((mtime, depth1))
+                            for depth2 in depth1.iterdir():
+                                if depth2.is_dir():
+                                    d2_norm = depth2.name.lower().replace("ç", "c")
+                                    if "llorenc" in d2_norm:
+                                        mtime = os.path.getmtime(depth2)
+                                        found_folders.append((mtime, depth2))
+                                    for depth3 in depth2.iterdir():
+                                        if depth3.is_dir():
+                                            d3_norm = depth3.name.lower().replace("ç", "c")
+                                            if "llorenc" in d3_norm:
+                                                mtime = os.path.getmtime(depth3)
+                                                found_folders.append((mtime, depth3))
+            except Exception as e:
+                continue
+    except Exception as e:
+        print(f"[!] Erro ao listar raiz de J: {e}")
+
+    if not found_folders:
+        print("[!] Nenhuma pasta de Sant Llorenç localizada em J:")
+        return None, []
+
+    # Sort by mtime descending (most recent first)
+    found_folders.sort(key=lambda x: x[0], reverse=True)
+    import datetime
+    print(f"[*] Total de pastas encontradas com 'Sant Llorenç': {len(found_folders)}")
+    for mt, folder in found_folders[:10]:
+        dt_str = datetime.datetime.fromtimestamp(mt).strftime('%Y-%m-%d %H:%M:%S')
+        print(f"    - [{dt_str}] {folder}")
+
+    latest_folder = found_folders[0][1]
+    latest_dt = datetime.datetime.fromtimestamp(found_folders[0][0]).strftime('%Y-%m-%d %H:%M:%S')
+    print(f"[+] Pasta mais recente selecionada: {latest_folder} (Modificada em: {latest_dt})")
+    return latest_folder, found_folders
 
 def download_gdrive_folder(folder_id: str, dest_dir: Path):
     dest_dir.mkdir(parents=True, exist_ok=True)
@@ -234,7 +293,7 @@ def process_dir(target_dir: Path, slug: str, src_dir: Path = None):
             make_card(f, dst_card)
             generated_files.add(dst_card.name)
 
-    if slug == "sant-llorenc" or (curated and curated.get("clean_extra")):
+    if curated and curated.get("clean_extra"):
         for old_file in list(target_dir.iterdir()):
             if old_file.is_file() and old_file.suffix.lower() == ".webp":
                 if old_file.name not in generated_files:
@@ -243,9 +302,70 @@ def process_dir(target_dir: Path, slug: str, src_dir: Path = None):
 
     print(f"[V] Concluida com sucesso a otimizacao para {slug}.")
 
+def sync_sant_llorenc_from_j(root: Path):
+    latest_folder, all_folders = scan_j_drive_sant_llorenc()
+    if not latest_folder:
+        return []
+
+    target_numbers = ["4026", "4033", "4061", "4070", "2536", "3718", "3776", "3778"]
+    print(f"[*] Buscando arquivos com os codigos do bilhete: {target_numbers}")
+
+    # Search in subfolders, prioritizing newest dates like 26.10.2026, 19.10.2026, etc.
+    search_dirs = [latest_folder] + [f[1] for f in all_folders if f[1] != latest_folder]
+    
+    found_matches = {}
+    for sdir in search_dirs:
+        try:
+            # Collect all files first and sort by date descending
+            all_files = []
+            for item in sdir.rglob("*"):
+                if item.is_file() and item.suffix.lower() in ('.jpg', '.jpeg', '.png', '.heic', '.tif', '.tiff'):
+                    all_files.append(item)
+            # Sort files with preference for Canon/Camera images and recent dates
+            def file_score(f: Path):
+                score = 0
+                name_u = f.name.upper()
+                if name_u.startswith("IMG_") or name_u.startswith("_MG_") or "COPIA" in name_u:
+                    score += 10
+                if "26.10.2026" in str(f):
+                    score += 20
+                elif "19.10.2026" in str(f):
+                    score += 15
+                elif "08.09.2026" in str(f):
+                    score += 10
+                return score
+            all_files.sort(key=file_score, reverse=True)
+
+            for item in all_files:
+                for num in target_numbers:
+                    # Match exact 4-digit number not part of a longer number
+                    if re.search(rf'(?<!\d){num}(?!\d)', item.name, re.IGNORECASE):
+                        if num not in found_matches:
+                            found_matches[num] = item
+                            print(f"[+] Localizado arquivo para codigo {num}: {item}")
+        except Exception as e:
+            print(f"[!] Erro ao buscar em {sdir}: {e}")
+
+    # Originais destino
+    orig_dest = root.parent / "originais-grandes" / "sant-llorenc" / latest_folder.name
+    orig_dest.mkdir(parents=True, exist_ok=True)
+    print(f"[*] Destino em originais-grandes: {orig_dest}")
+
+    copied_files = []
+    for num, fpath in found_matches.items():
+        dest_file = orig_dest / fpath.name
+        try:
+            shutil.copy2(fpath, dest_file)
+            print(f"[+] Copiado para originais: {dest_file.name} ({dest_file.stat().st_size} bytes)")
+            copied_files.append(dest_file)
+        except Exception as e:
+            print(f"[!] Erro ao copiar {fpath.name}: {e}")
+
+    return copied_files
+
 def main():
     parser = argparse.ArgumentParser(description="Script Universal de Otimizacao e Conversao WebP (S'Estepa Design)")
-    parser.add_argument("--slug", required=True, help="Slug do portfolio")
+    parser.add_argument("--slug", default=None, help="Slug do portfolio")
     parser.add_argument("--dir", default=None, help="Caminho opcional do diretorio de imagens")
     args = parser.parse_args()
 
@@ -253,6 +373,43 @@ def main():
     target_dir = root / "public" / "portfolio" / args.slug / "images"
 
     src_dir = Path(args.dir) if args.dir else None
+    if args.slug == "sant-llorenc":
+        newly_copied = sync_sant_llorenc_from_j(root)
+        print(f"[*] Total de arquivos copiados de J: {len(newly_copied)}")
+        if newly_copied:
+            curated = CURATED_PROJECTS.get(args.slug)
+            actual_target_dir = target_dir / curated["target_subdir"] if curated and curated.get("target_subdir") else target_dir
+            actual_target_dir.mkdir(parents=True, exist_ok=True)
+            
+            # Remove any previous attempt >= 42 in this session
+            for f in list(actual_target_dir.iterdir()):
+                if f.suffix.lower() == ".webp":
+                    m = re.search(r'-(\d{2})(?:-portrait)?-', f.name)
+                    if m and int(m.group(1)) >= 42:
+                        f.unlink()
+            start_idx = 42
+            print(f"[*] Indice inicial para novas imagens: {start_idx}")
+            
+            new_webp_files = []
+            for idx, f in enumerate(newly_copied, start=start_idx):
+                num_str = f"{idx:02d}"
+                is_vert = False
+                try:
+                    with Image.open(f) as test_im:
+                        is_vert = test_im.height > test_im.width
+                except Exception:
+                    pass
+                vert_tag = "-portrait" if is_vert else ""
+                clean_code = re.sub(r'[^a-z0-9]+', '-', f.stem.lower()).strip('-')
+                dst_name = f"garden-design-mallorca-sant-llorenc-5-months-sofia-{num_str}{vert_tag}-{clean_code}-sestepa-design.webp"
+                dst_webp = actual_target_dir / dst_name
+                convert_webp(f, dst_webp)
+                new_webp_files.append(dst_name)
+            
+            print(f"[+] Total de novos WebP gerados: {len(new_webp_files)}")
+            for nwf in new_webp_files:
+                print(f"    - {nwf}")
+            return
     if not src_dir:
         curated = CURATED_PROJECTS.get(args.slug)
         if curated and "orig_dir" in curated:

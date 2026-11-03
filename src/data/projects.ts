@@ -827,7 +827,15 @@ export const projects: Project[] = [
           "garden-design-mallorca-sant-llorenc-5-months-sofia-38-sestepa-design.webp",
           "garden-design-mallorca-sant-llorenc-5-months-sofia-39-sestepa-design.webp",
           "garden-design-mallorca-sant-llorenc-5-months-sofia-40-sestepa-design.webp",
-          "garden-design-mallorca-sant-llorenc-5-months-sofia-41-sestepa-design.webp"
+          "garden-design-mallorca-sant-llorenc-5-months-sofia-41-sestepa-design.webp",
+          "garden-design-mallorca-sant-llorenc-5-months-sofia-42-img-4061-sestepa-design.webp",
+          "garden-design-mallorca-sant-llorenc-5-months-sofia-43-img-4070-sestepa-design.webp",
+          "garden-design-mallorca-sant-llorenc-5-months-sofia-44-img-4033-sestepa-design.webp",
+          "garden-design-mallorca-sant-llorenc-5-months-sofia-45-img-4026-sestepa-design.webp",
+          "garden-design-mallorca-sant-llorenc-5-months-sofia-46-img-2536-sestepa-design.webp",
+          "garden-design-mallorca-sant-llorenc-5-months-sofia-47-img-3778-sestepa-design.webp",
+          "garden-design-mallorca-sant-llorenc-5-months-sofia-48-img-3776-sestepa-design.webp",
+          "garden-design-mallorca-sant-llorenc-5-months-sofia-49-img-3718-sestepa-design.webp"
         ],
         en: {
           label: "October 2026 · five months after planting",
