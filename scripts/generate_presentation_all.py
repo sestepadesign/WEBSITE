@@ -335,7 +335,7 @@ def main():
         PDF_HORIZ,
         save_all=True,
         append_images=pdf_h_pages[1:],
-        quality=70,
+        quality=66,
         optimize=True
     )
     size_h_mb = PDF_HORIZ.stat().st_size / (1024 * 1024)
