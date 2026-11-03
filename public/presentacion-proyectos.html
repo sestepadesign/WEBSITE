@@ -2807,9 +2807,10 @@
         if (window.location.pathname.includes('/codigo/public/')) {
           return cleanPath;
         }
-        return 'codigo/public/' + cleanPath;
+        return 'https://design.sestepa.com/' + cleanPath;
       }
-      return '/' + cleanPath;
+      const isLiveDomain = location.hostname === 'design.sestepa.com' || location.hostname.endsWith('.pages.dev') || location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+      return isLiveDomain ? '/' + cleanPath : 'https://design.sestepa.com/' + cleanPath;
     }
 
     // Setup Fallback for Remote CDN
@@ -2822,7 +2823,7 @@
         } else if (this.dataset.triedFallback === '1') {
           this.dataset.triedFallback = '2';
           const clean = rawPath.startsWith('/') ? rawPath : '/' + rawPath;
-          this.src = 'https://www.sestepa.com' + encodeURI(clean);
+          this.src = 'https://design.sestepa.com' + (clean.startsWith('/') ? clean : '/' + clean);
         }
       });
     }

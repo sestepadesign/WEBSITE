@@ -118,6 +118,10 @@ def main():
             seq_filename = f"{i:02d}_{clean_title}_{src_file.name}"
             shutil.copy2(src_file, DST_TODOS / seq_filename)
             
+        # Copiar também o arquivo HTML da apresentação atualizado para a raiz da pasta em J:
+        shutil.copy2(SRC_HTML, DST_BASE / "presentacion-proyectos.html")
+        print(f"[+] HTML atualizado copiado para: {DST_BASE / 'presentacion-proyectos.html'}")
+
         print(f"[+] Pastas individuais e pasta 00 sincronizadas com as {total_valid} fotos.")
 
     # 3. Gerar PowerPoint (PPTX) 16:9 Widescreen
