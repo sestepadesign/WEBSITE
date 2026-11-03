@@ -9,12 +9,28 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Produção atualizada em `master` com redesign sênior do layout de galerias e atualização das fotos de destaque de Sant Llorenç.
-- **Último commit técnico publicado:** `93de23c` (`fix(sant-llorenc): update featured photo to October shot and deploy universal gallery grid`).
+- **Status:** Produção atualizada em `master` com correção cirúrgica da galeria de Alcanada (eliminação de renders 3D duplicados e alts precisos).
+- **Último commit técnico publicado:** a registrar no deploy.
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+
+### [2026-11-03] - Antigravity (Auditoria e Correção de Alcanada: Remoção de Renders Duplicados e Alts Precisos) — publicado em master
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Não houve acesso a J: (100% isolamento estrito preservado).
+- **Escopo:**
+  1. Auditoria e Correção Estrutural da Galeria de Alcanada (`src/data/projects.ts`):
+     - Identificada a causa raiz do defeito visual no mobile: as imagens `02.webp` e `03.webp` eram clones idênticos de `01.webp` (render 3D em planta da villa/piscina), inseridos consecutivamente no início da galeria junto com `01.webp`.
+     - Removidas as duas duplicatas `02.webp` e `03.webp` do array `images`, mantendo o render da planta mestre (`01.webp`) exatamente uma vez.
+     - Eliminadas as descrições fictícias de alts que alucinavam fases de obra ("movimento de terras", "construção de muros de pedra em seco") sobre renders 3D.
+     - Redigidos 18 `imageAlts` fidedignos e ricos para SEO nos 3 idiomas (EN, ES, DE), cobrindo com rigor botânico as 3 fotografias reais e as 15 perspectivas arquitetônicas 3D distintas.
+  2. Sitemaps:
+     - Sincronizado `public/sitemap-images.xml` nas 3 rotas (`/alcanada/`, `/es/alcanada/`, `/de/alcanada/`), removendo as URLs duplicadas.
+  3. Validação e Deploy:
+     - Build de validação e deploy contínuo em `origin/master`.
+- **Validação:** Build e integridade técnica validados.
+- **Arquivos alterados:** `src/data/projects.ts`, `public/sitemap-images.xml`, `STATUS.md`.
 
 ### [2026-10-29] - Antigravity (Redesign Universal do Layout de Galerias e Atualização de Fotos em Sant Llorenç) — publicado em master (`93de23c`)
 - **Autor/agente:** Antigravity.
