@@ -1,0 +1,711 @@
+---
+/**
+ * DevMobileSimulator.astro
+ * Exclusivo para ambiente de desenvolvimento (import.meta.env.DEV).
+ * Nao entra no build de producao (Cloudflare Pages).
+ *
+ * Funcionalidades no localhost:
+ * 1. Simulador Mobile interativo na propria pagina (iPhone SE 375x667, iPhone 15 Pro 390x844,
+ *    Android 360x800, iPad 768x1024 e Modo Duplo Lado a Lado).
+ * 2. Auditoria Automatica Mobile & iOS Safari WebKit (detecta elementos cortados fora da tela
+ *    como dropdowns/popovers com left < 0 ou right > viewport, overflow horizontal, inputs
+ *    espremidos por badges e excesso de camadas de GPU/imagens que causam crash no iOS).
+ */
+---
+
+<div class="dev-sim-root" id="devSimRoot" style="display:none;" data-nosnippet>
+  <!-- Floating Trigger Pill (Bottom Left on localhost) -->
+  <div class="dev-sim-launcher" id="devSimLauncher">
+    <button
+      type="button"
+      class="dev-sim-btn-main"
+      id="btnOpenDevSim"
+      title="Abrir Simulador Mobile e Auditoria (Alt+M)"
+    >
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+        <line x1="12" y1="18" x2="12.01" y2="18"></line>
+      </svg>
+      <span>Simulador Mobile</span>
+      <span class="dev-sim-badge" id="devSimQuickBadge">Audit</span>
+    </button>
+  </div>
+
+  <!-- Fullscreen Mobile Simulator & Audit Workspace -->
+  <div class="dev-sim-modal" id="devSimModal" aria-hidden="true">
+    <header class="dev-sim-header">
+      <div class="dev-sim-header-left">
+        <span class="dev-sim-brand">S'Estepa Dev QA</span>
+        <span class="dev-sim-sep">|</span>
+        <div class="dev-sim-device-group" role="group" aria-label="Device Presets">
+          <button type="button" class="dev-device-btn" data-w="360" data-h="800" data-mode="single">
+            Android (360x800)
+          </button>
+          <button type="button" class="dev-device-btn active" data-w="390" data-h="844" data-mode="single">
+            iPhone 15/16 (390x844)
+          </button>
+          <button type="button" class="dev-device-btn" data-w="375" data-h="667" data-mode="single">
+            iPhone SE (375x667)
+          </button>
+          <button type="button" class="dev-device-btn" data-w="768" data-h="1024" data-mode="single">
+            Tablet (768x1024)
+          </button>
+          <button type="button" class="dev-device-btn" data-w="390" data-h="844" data-mode="dual">
+            Lado a Lado (360 + 390)
+          </button>
+        </div>
+      </div>
+
+      <div class="dev-sim-header-right">
+        <button type="button" class="dev-action-btn" id="btnRunMobileAudit">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 11 12 14 22 4"></polyline>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+          </svg>
+          <span>Rodar Auditoria Mobile</span>
+        </button>
+        <button type="button" class="dev-action-btn dev-action-secondary" id="btnReloadSim">
+          Recarregar
+        </button>
+        <button type="button" class="dev-close-btn" id="btnCloseDevSim" title="Fechar Simulador (Esc)">
+          Fechar
+        </button>
+      </div>
+    </header>
+
+    <div class="dev-sim-body">
+      <!-- Device Stage -->
+      <div class="dev-sim-stage" id="devSimStage">
+        <!-- Primary Device Frame -->
+        <div class="dev-phone-unit" id="devPhonePrimary">
+          <div class="dev-phone-label" id="devPhoneLabelPrimary">iPhone 15/16 — 390 x 844 px</div>
+          <div class="dev-phone-bezel" id="devBezelPrimary" style="width: 390px; height: 844px;">
+            <iframe
+              id="devIframePrimary"
+              class="dev-phone-iframe"
+              title="Mobile Preview Primary"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Secondary Device Frame (Visible in Dual Mode: Android 360x800) -->
+        <div class="dev-phone-unit" id="devPhoneSecondary" style="display:none;">
+          <div class="dev-phone-label">Android Compacto — 360 x 800 px</div>
+          <div class="dev-phone-bezel" style="width: 360px; height: 800px;">
+            <iframe
+              id="devIframeSecondary"
+              class="dev-phone-iframe"
+              title="Mobile Preview Secondary"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Automated Audit Sidebar -->
+      <aside class="dev-audit-panel" id="devAuditPanel">
+        <div class="dev-audit-header">
+          <h2 class="dev-audit-title">Auditoria Mobile &amp; iOS WebKit</h2>
+          <p class="dev-audit-sub" id="devAuditSummary">
+            Inspeciona o DOM renderizado em 390px para detectar cortes laterais, sobreposicoes e limites de memoria do iOS Safari.
+          </p>
+        </div>
+        <div class="dev-audit-results" id="devAuditResults"></div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+(() => {
+  // Never mount inside the simulator's own iframe or outside localhost
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('dev_sim_iframe') === '1') return;
+
+  const isLocal =
+    window.location.hostname === 'localhost' ||
+    window.location.hostname === '127.0.0.1';
+  if (!isLocal) return;
+
+  const root = document.getElementById('devSimRoot');
+  const btnOpen = document.getElementById('btnOpenDevSim');
+  const btnClose = document.getElementById('btnCloseDevSim');
+  const btnReload = document.getElementById('btnReloadSim');
+  const btnAudit = document.getElementById('btnRunMobileAudit');
+  const modal = document.getElementById('devSimModal');
+  const bezelPrimary = document.getElementById('devBezelPrimary');
+  const labelPrimary = document.getElementById('devPhoneLabelPrimary');
+  const phoneSecondary = document.getElementById('devPhoneSecondary');
+  const iframePrimary = document.getElementById('devIframePrimary');
+  const iframeSecondary = document.getElementById('devIframeSecondary');
+  const auditResults = document.getElementById('devAuditResults');
+  const auditSummary = document.getElementById('devAuditSummary');
+  const quickBadge = document.getElementById('devSimQuickBadge');
+  const deviceBtns = document.querySelectorAll('.dev-device-btn');
+
+  if (!root || !modal || !iframePrimary) return;
+  root.style.display = 'block';
+
+  function buildSimUrl() {
+    const u = new URL(window.location.href);
+    u.searchParams.set('dev_sim_iframe', '1');
+    return u.toString();
+  }
+
+  function loadIframes(forceReload = false) {
+    const targetUrl = buildSimUrl();
+    if (!iframePrimary.src || forceReload) {
+      iframePrimary.src = targetUrl;
+    }
+    if (phoneSecondary && phoneSecondary.style.display !== 'none') {
+      if (!iframeSecondary.src || forceReload) {
+        iframeSecondary.src = targetUrl;
+      }
+    }
+  }
+
+  function openSimulator() {
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    loadIframes(false);
+  }
+
+  function closeSimulator() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  btnOpen?.addEventListener('click', openSimulator);
+  btnClose?.addEventListener('click', closeSimulator);
+  btnReload?.addEventListener('click', () => loadIframes(true));
+
+  // Keyboard shortcut Alt+M to toggle simulator, Esc to close
+  window.addEventListener('keydown', (e) => {
+    if (e.altKey && (e.key === 'm' || e.key === 'M')) {
+      e.preventDefault();
+      if (modal.classList.contains('open')) closeSimulator();
+      else openSimulator();
+    } else if (e.key === 'Escape' && modal.classList.contains('open')) {
+      closeSimulator();
+    }
+  });
+
+  deviceBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      deviceBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      const w = Number(btn.getAttribute('data-w') || 390);
+      const h = Number(btn.getAttribute('data-h') || 844);
+      const mode = btn.getAttribute('data-mode') || 'single';
+
+      if (bezelPrimary) {
+        bezelPrimary.style.width = `${w}px`;
+        bezelPrimary.style.height = `${h}px`;
+      }
+      if (labelPrimary) {
+        labelPrimary.textContent = `${btn.textContent.trim()} — ${w} x ${h} px`;
+      }
+      if (phoneSecondary) {
+        phoneSecondary.style.display = mode === 'dual' ? 'flex' : 'none';
+      }
+      loadIframes(false);
+      setTimeout(runAuditOnTarget, 350);
+    });
+  });
+
+  // =========================================================================
+  // AUTOMATED MOBILE LAYOUT & IOS WEBKIT MEMORY AUDITOR
+  // =========================================================================
+  function inspectDocument(doc, win) {
+    const findings = [];
+    const vw = win.innerWidth || 390;
+
+    // 1. Horizontal Overflow Check
+    const docScrollWidth = Math.max(
+      doc.documentElement.scrollWidth || 0,
+      doc.body ? doc.body.scrollWidth : 0
+    );
+    if (docScrollWidth > vw + 2) {
+      findings.push({
+        level: 'error',
+        title: `Overflow horizontal detectado (${docScrollWidth}px > ${vw}px)`,
+        detail: 'A pagina possui elementos vazando para a direita no mobile, gerando rolagem lateral indesejada.',
+      });
+    } else {
+      findings.push({
+        level: 'ok',
+        title: `Largura Mobile integra (${vw}px sem overflow horizontal)`,
+        detail: `scrollWidth = ${docScrollWidth}px dentro do limite da tela.`,
+      });
+    }
+
+    // 2. Popovers, Dropdowns & Visible Elements Clipped Off-Screen (left < 0 or right > vw)
+    const popovers = doc.querySelectorAll(
+      '[role="menu"], .project-dropdown-popover, [class*="dropdown"], [class*="popover"]'
+    );
+    let popoverClipCount = 0;
+
+    popovers.forEach((el) => {
+      const wasHidden = win.getComputedStyle(el).display === 'none';
+      const prevDisplay = el.style.display;
+      const prevVis = el.style.visibility;
+      if (wasHidden) {
+        el.style.display = 'flex';
+        el.style.visibility = 'hidden';
+      }
+      const rect = el.getBoundingClientRect();
+      if (wasHidden) {
+        el.style.display = prevDisplay;
+        el.style.visibility = prevVis;
+      }
+      if (rect.width > 0 && (rect.left < -2 || rect.right > vw + 2)) {
+        popoverClipCount++;
+        const idOrClass = el.id ? `#${el.id}` : `.${(el.className || '').toString().split(' ')[0]}`;
+        findings.push({
+          level: 'error',
+          title: `Menu/Popover cortado fora da tela: ${idOrClass}`,
+          detail: `Limites horizontais: left=${Math.round(rect.left)}px, right=${Math.round(rect.right)}px (tela: 0..${vw}px).`,
+        });
+      }
+    });
+
+    if (popoverClipCount === 0) {
+      findings.push({
+        level: 'ok',
+        title: 'Menus e Popovers 100% dentro da tela mobile',
+        detail: 'Nenhum menu suspenso ou seletor ultrapassa as bordas esquerda/direita.',
+      });
+    }
+
+    // 3. Search Inputs & Text Fields Squeezed on Mobile
+    const inputs = doc.querySelectorAll('input[type="search"], input[type="text"], input[type="email"]');
+    let squeezedInputs = 0;
+    inputs.forEach((inp) => {
+      const style = win.getComputedStyle(inp);
+      if (style.display === 'none' || style.visibility === 'hidden') return;
+      const rect = inp.getBoundingClientRect();
+      if (rect.width > 0 && rect.width < 160) {
+        squeezedInputs++;
+        findings.push({
+          level: 'warn',
+          title: `Campo de texto estreito no mobile (${Math.round(rect.width)}px)`,
+          detail: `Input #${inp.id || inp.name || 'search'} tem apenas ${Math.round(rect.width)}px de largura livre.`,
+        });
+      }
+    });
+    if (squeezedInputs === 0 && inputs.length > 0) {
+      findings.push({
+        level: 'ok',
+        title: 'Campos de busca e inputs com largura adequada',
+        detail: `${inputs.length} campo(s) verificado(s) sem sobreposicao de etiquetas.`,
+      });
+    }
+
+    // 4. iOS Safari / WebKit Memory & GPU Layer Audit
+    const allImgs = doc.querySelectorAll('img');
+    const eagerImgs = Array.from(allImgs).filter((img) => {
+      const loading = (img.getAttribute('loading') || '').toLowerCase();
+      const src = img.getAttribute('src') || '';
+      return loading !== 'lazy' && src && !src.startsWith('data:');
+    });
+
+    let willChangeCount = 0;
+    let backdropBlurCount = 0;
+    doc.querySelectorAll('*').forEach((el) => {
+      const cs = win.getComputedStyle(el);
+      if (cs.willChange && cs.willChange !== 'auto') willChangeCount++;
+      if (
+        (cs.backdropFilter && cs.backdropFilter !== 'none') ||
+        (cs.webkitBackdropFilter && cs.webkitBackdropFilter !== 'none')
+      ) {
+        backdropBlurCount++;
+      }
+    });
+
+    if (allImgs.length > 220 || eagerImgs.length > 25 || willChangeCount > 30) {
+      findings.push({
+        level: 'error',
+        title: 'Risco de Crash de Memoria no iOS Safari (WebKit Jetsam)',
+        detail: `Total <img>: ${allImgs.length} | Eager <img>: ${eagerImgs.length} | will-change: ${willChangeCount} | backdrop-filter: ${backdropBlurCount}.`,
+      });
+    } else {
+      findings.push({
+        level: 'ok',
+        title: 'Memoria GPU / iOS Safari Segura',
+        detail: `Total <img>: ${allImgs.length} | Eager: ${eagerImgs.length} | Camadas will-change: ${willChangeCount} | Blur: ${backdropBlurCount}.`,
+      });
+    }
+
+    return findings;
+  }
+
+  function renderFindings(findings) {
+    if (!auditResults || !auditSummary) return;
+    const errors = findings.filter((f) => f.level === 'error').length;
+    const warns = findings.filter((f) => f.level === 'warn').length;
+
+    if (quickBadge) {
+      if (errors > 0) {
+        quickBadge.textContent = `${errors} erro(s)`;
+        quickBadge.className = 'dev-sim-badge is-error';
+      } else if (warns > 0) {
+        quickBadge.textContent = `${warns} aviso(s)`;
+        quickBadge.className = 'dev-sim-badge is-warn';
+      } else {
+        quickBadge.textContent = 'OK';
+        quickBadge.className = 'dev-sim-badge is-ok';
+      }
+    }
+
+    auditSummary.textContent =
+      errors === 0 && warns === 0
+        ? 'Todos os testes de layout mobile e memoria iOS passaram sem erros.'
+        : `Encontrados: ${errors} erro(s) critico(s) e ${warns} aviso(s).`;
+
+    auditResults.innerHTML = findings
+      .map(
+        (f) => `
+        <div class="dev-audit-card dev-audit-${f.level}">
+          <div class="dev-audit-card-head">
+            <span class="dev-audit-status-dot"></span>
+            <strong>${f.title}</strong>
+          </div>
+          <p class="dev-audit-card-detail">${f.detail}</p>
+        </div>
+      `
+      )
+      .join('');
+  }
+
+  function runAuditOnTarget() {
+    try {
+      const iDoc = iframePrimary.contentDocument;
+      const iWin = iframePrimary.contentWindow;
+      if (iDoc && iWin && iDoc.body) {
+        const findings = inspectDocument(iDoc, iWin);
+        renderFindings(findings);
+        return;
+      }
+    } catch (_) {
+      // Fallback to current document
+    }
+    const findings = inspectDocument(document, window);
+    renderFindings(findings);
+  }
+
+  iframePrimary.addEventListener('load', () => {
+    setTimeout(runAuditOnTarget, 300);
+  });
+
+  btnAudit?.addEventListener('click', runAuditOnTarget);
+
+  // Run initial background check on page load so the floating badge shows OK / Error immediately
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const findings = inspectDocument(document, window);
+      renderFindings(findings);
+    }, 500);
+  });
+})();
+</script>
+
+<style is:global>
+  .dev-sim-launcher {
+    position: fixed;
+    bottom: 18px;
+    left: 18px;
+    z-index: 9990;
+    font-family: var(--font-sans, sans-serif);
+  }
+
+  .dev-sim-btn-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 38px;
+    padding: 0 14px;
+    border-radius: 20px;
+    background: #1F211F;
+    color: #FAF9F6;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .dev-sim-btn-main:hover {
+    background: #384234;
+    transform: translateY(-2px);
+  }
+
+  .dev-sim-badge {
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+  }
+
+  .dev-sim-badge.is-ok {
+    background: #2e6f40;
+    color: #ffffff;
+  }
+
+  .dev-sim-badge.is-warn {
+    background: #b7791f;
+    color: #ffffff;
+  }
+
+  .dev-sim-badge.is-error {
+    background: #c53030;
+    color: #ffffff;
+  }
+
+  .dev-sim-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: #141514;
+    color: #f2f0ec;
+    display: none;
+    flex-direction: column;
+    font-family: var(--font-sans, sans-serif);
+  }
+
+  .dev-sim-modal.open {
+    display: flex;
+  }
+
+  .dev-sim-header {
+    height: 58px;
+    padding: 0 20px;
+    background: #1c1e1c;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+
+  .dev-sim-header-left,
+  .dev-sim-header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .dev-sim-brand {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #c2cbbd;
+  }
+
+  .dev-sim-sep {
+    opacity: 0.3;
+  }
+
+  .dev-sim-device-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .dev-device-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #d6d3cd;
+    height: 32px;
+    padding: 0 12px;
+    border-radius: 16px;
+    font-size: 0.72rem;
+    cursor: pointer;
+    transition: all 0.18s ease;
+  }
+
+  .dev-device-btn:hover {
+    background: rgba(255, 255, 255, 0.14);
+  }
+
+  .dev-device-btn.active {
+    background: #FAF9F6;
+    color: #1F211F;
+    border-color: #FAF9F6;
+    font-weight: 600;
+  }
+
+  .dev-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 34px;
+    padding: 0 14px;
+    border-radius: 17px;
+    background: #5A6755;
+    color: #ffffff;
+    border: none;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .dev-action-btn:hover {
+    background: #485443;
+  }
+
+  .dev-action-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .dev-close-btn {
+    height: 34px;
+    padding: 0 14px;
+    border-radius: 17px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+  }
+
+  .dev-sim-body {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+  }
+
+  .dev-sim-stage {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 28px;
+    padding: 20px;
+    overflow: auto;
+    background: radial-gradient(circle at center, #222522 0%, #121312 100%);
+  }
+
+  .dev-phone-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .dev-phone-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #a9b2a4;
+  }
+
+  .dev-phone-bezel {
+    background: #FAF9F6;
+    border-radius: 28px;
+    border: 8px solid #2b2e2b;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+    overflow: hidden;
+    position: relative;
+    transition: width 0.25s ease, height 0.25s ease;
+  }
+
+  .dev-phone-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    background: #FAF9F6;
+  }
+
+  .dev-audit-panel {
+    width: 340px;
+    background: #1a1c1a;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 18px;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+
+  .dev-audit-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 6px;
+    color: #FAF9F6;
+  }
+
+  .dev-audit-sub {
+    font-size: 0.76rem;
+    line-height: 1.5;
+    color: #a0a69d;
+    margin: 0;
+  }
+
+  .dev-audit-results {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .dev-audit-card {
+    padding: 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .dev-audit-card-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    margin-bottom: 4px;
+  }
+
+  .dev-audit-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .dev-audit-ok .dev-audit-status-dot {
+    background: #38a169;
+  }
+
+  .dev-audit-warn .dev-audit-status-dot {
+    background: #dd6b20;
+  }
+
+  .dev-audit-error {
+    border-color: rgba(229, 62, 62, 0.5);
+    background: rgba(229, 62, 62, 0.1);
+  }
+
+  .dev-audit-error .dev-audit-status-dot {
+    background: #e53e3e;
+  }
+
+  .dev-audit-card-detail {
+    margin: 0;
+    font-size: 0.72rem;
+    line-height: 1.45;
+    color: #b8bdb5;
+  }
+</style>
