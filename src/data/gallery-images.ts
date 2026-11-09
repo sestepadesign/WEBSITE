@@ -1,5 +1,5 @@
 /**
- * Curated gallery — 97 SEO images synchronized with J: PRESENTACIÓN MEJORES JARDINES (01..19).
+ * Curated gallery — 96 SEO images synchronized with J: PRESENTACIÓN MEJORES JARDINES (01..19).
  */
 export interface GalleryImageEntry {
   /** Public URL path under /portfolio/ or /gallery/ */
@@ -35,47 +35,47 @@ function galleryPath(filename: string): string {
 export const galleryImages: GalleryImageEntry[] = [
   // 01. Santa Ponsa (9 photos)
   {
-    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-07-lateral-stone-corridor-planter-sestepa.webp',
+    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-01-pool-villa-stipa-sestepa.webp',
     alt: 'GARDEN DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN 01',
     projectSlug: santaPonsa,
   },
   {
-    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-05-infinity-edge-cascade-lower-lawn-sestepa.webp',
+    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-06-covered-terrace-pool-perspective-sestepa.webp',
     alt: 'GARDEN DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN 02',
     projectSlug: santaPonsa,
   },
   {
-    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-13-hillside-slope-rockery-strelitzia-cycas-sestepa.webp',
+    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-09-architectural-side-walkway-vista-sestepa.webp',
     alt: 'GARDEN DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN 03',
     projectSlug: santaPonsa,
   },
   {
-    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-img-3911-sestepa.webp',
+    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-07-lateral-stone-corridor-planter-sestepa.webp',
     alt: 'GARDEN DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN 04',
     projectSlug: santaPonsa,
   },
   {
-    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-17-limestone-boulders-cycas-slope-detail-sestepa.webp',
+    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-05-infinity-edge-cascade-lower-lawn-sestepa.webp',
     alt: 'GARDEN DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN 05',
     projectSlug: santaPonsa,
   },
   {
-    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-18-timber-sleeper-steps-hillside-vegetation-sestepa.webp',
+    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-13-hillside-slope-rockery-strelitzia-cycas-sestepa.webp',
     alt: 'GARDEN DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN 06',
     projectSlug: santaPonsa,
   },
   {
-    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-01-pool-villa-stipa-sestepa.webp',
+    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-img-3911-sestepa.webp',
     alt: 'GARDEN DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN 07',
     projectSlug: santaPonsa,
   },
   {
-    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-06-covered-terrace-pool-perspective-sestepa.webp',
+    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-17-limestone-boulders-cycas-slope-detail-sestepa.webp',
     alt: 'GARDEN DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN 08',
     projectSlug: santaPonsa,
   },
   {
-    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-09-architectural-side-walkway-vista-sestepa.webp',
+    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-18-timber-sleeper-steps-hillside-vegetation-sestepa.webp',
     alt: 'GARDEN DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN 09',
     projectSlug: santaPonsa,
   },
@@ -468,25 +468,20 @@ export const galleryImages: GalleryImageEntry[] = [
     alt: 'VERTICAL GARDENS IN MALLORCA OK MOBILITY SESTEPA DESIGN 06',
     projectSlug: vertical,
   },
-  // 16. Terraza en Palma (4 photos)
+  // 16. Terraza en Palma (3 photos)
   {
     src: '/portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp',
     alt: 'TERRACE GARDEN IN PALMA MALLORCA SESTEPA DESIGN 01',
     projectSlug: terracePalma,
   },
   {
-    src: '/portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-2.jpg',
+    src: '/portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-5.jpg',
     alt: 'TERRACE GARDEN IN PALMA MALLORCA SESTEPA DESIGN 02',
     projectSlug: terracePalma,
   },
   {
-    src: '/portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-5.jpg',
-    alt: 'TERRACE GARDEN IN PALMA MALLORCA SESTEPA DESIGN 03',
-    projectSlug: terracePalma,
-  },
-  {
     src: '/portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-6.jpg',
-    alt: 'TERRACE GARDEN IN PALMA MALLORCA SESTEPA DESIGN 04',
+    alt: 'TERRACE GARDEN IN PALMA MALLORCA SESTEPA DESIGN 03',
     projectSlug: terracePalma,
   },
   // 17. Portals Nous (3 photos)
