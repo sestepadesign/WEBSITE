@@ -4,22 +4,126 @@ import { ui } from '../../data/translations';
 import { getGalleryImages, galleryMeta } from '../../data/gallery';
 import { getProjectPath } from '../../lib/urls';
 
-interface Props { lang: 'en' | 'es' | 'de'; }
+interface Props {
+  lang: 'en' | 'es' | 'de';
+}
+
 const { lang } = Astro.props;
 const meta = galleryMeta[lang];
+
 const images = getGalleryImages(lang).map((img) => ({
   ...img,
   projectUrl: getProjectPath(img.projectSlug, lang),
 }));
 
-const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
-const coverImage = images[0]?.src ?? '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp';
+// Build ordered project list preserving the exact order in `images` (which follows PORTFOLIO_PROJECT_ORDER)
+interface ProjectFilterGroup {
+  slug: string;
+  title: string;
+  count: number;
+  firstSlideIndex: number;
+}
 
-const viewProjectLabel = {
-  en: 'View project',
-  es: 'Ver proyecto',
-  de: 'Projekt ansehen',
-};
+const projectGroups: ProjectFilterGroup[] = [];
+const projectGroupMap = new Map<string, ProjectFilterGroup>();
+
+images.forEach((img, index) => {
+  let group = projectGroupMap.get(img.projectSlug);
+  if (!group) {
+    group = {
+      slug: img.projectSlug,
+      title: img.projectTitle,
+      count: 0,
+      firstSlideIndex: index,
+    };
+    projectGroupMap.set(img.projectSlug, group);
+    projectGroups.push(group);
+  }
+  group.count += 1;
+});
+
+const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
+
+const i18n = {
+  en: {
+    searchPlaceholder: 'Search by garden, project or location (e.g. Sant Llorenç, Campos, Binissalem, Son Vida...)',
+    clearSearch: 'Clear search',
+    allProjects: 'All Projects',
+    allPill: 'All',
+    projectsLabel: 'Projects',
+    photosWord: 'photos',
+    ofWord: 'of',
+    playPresentation: 'Play Presentation',
+    playShort: 'PLAY',
+    pauseShort: 'PAUSE',
+    indexBtn: 'Index',
+    lightMode: 'Light Mode',
+    darkMode: 'Dark Mode',
+    fullscreen: 'Fullscreen',
+    exitFullscreen: 'Exit fullscreen (Esc)',
+    closePresentation: 'Close presentation (Esc)',
+    viewProject: 'View project',
+    openSlideTitle: 'Open in fullscreen presentation',
+    firstPhotoTitle: 'Jump to first photo (01)',
+    lastPhotoTitle: `Jump to last photo (${images.length})`,
+    noResults: 'No photographs match your search.',
+    resetFilter: 'Show all photographs',
+    scrollLeft: 'Scroll projects left',
+    scrollRight: 'Scroll projects right',
+  },
+  es: {
+    searchPlaceholder: 'Buscar por jardín, proyecto o ubicación (ej. Sant Llorenç, Campos, Binissalem, Son Vida...)',
+    clearSearch: 'Limpiar búsqueda',
+    allProjects: 'Todos los proyectos',
+    allPill: 'Todos',
+    projectsLabel: 'Proyectos',
+    photosWord: 'fotos',
+    ofWord: 'de',
+    playPresentation: 'Modo Presentación',
+    playShort: 'PLAY',
+    pauseShort: 'PAUSA',
+    indexBtn: 'Índice',
+    lightMode: 'Fondo Claro',
+    darkMode: 'Fondo Oscuro',
+    fullscreen: 'Pantalla Completa',
+    exitFullscreen: 'Salir de pantalla completa (Esc)',
+    closePresentation: 'Cerrar presentación (Esc)',
+    viewProject: 'Ver proyecto',
+    openSlideTitle: 'Abrir en modo presentación',
+    firstPhotoTitle: 'Ir a la primera foto (01)',
+    lastPhotoTitle: `Ir a la última foto (${images.length})`,
+    noResults: 'No se encontraron fotografías para esta búsqueda.',
+    resetFilter: 'Ver todas las fotografías',
+    scrollLeft: 'Desplazar proyectos a la izquierda',
+    scrollRight: 'Desplazar proyectos a la derecha',
+  },
+  de: {
+    searchPlaceholder: 'Suche nach Garten, Projekt oder Ort (z. B. Sant Llorenç, Campos, Binissalem, Son Vida...)',
+    clearSearch: 'Suche löschen',
+    allProjects: 'Alle Projekte',
+    allPill: 'Alle',
+    projectsLabel: 'Projekte',
+    photosWord: 'Fotos',
+    ofWord: 'von',
+    playPresentation: 'Präsentation starten',
+    playShort: 'PLAY',
+    pauseShort: 'PAUSE',
+    indexBtn: 'Index',
+    lightMode: 'Heller Modus',
+    darkMode: 'Dunkler Modus',
+    fullscreen: 'Vollbild',
+    exitFullscreen: 'Vollbild beenden (Esc)',
+    closePresentation: 'Präsentation schließen (Esc)',
+    viewProject: 'Projekt ansehen',
+    openSlideTitle: 'In Vollbild-Präsentation öffnen',
+    firstPhotoTitle: 'Zum ersten Foto (01)',
+    lastPhotoTitle: `Zum letzten Foto (${images.length})`,
+    noResults: 'Keine Fotos für diese Suche gefunden.',
+    resetFilter: 'Alle Fotos anzeigen',
+    scrollLeft: 'Projekte nach links scrollen',
+    scrollRight: 'Projekte nach rechts scrollen',
+  },
+}[lang];
 ---
 
 <Layout
@@ -36,179 +140,1017 @@ const viewProjectLabel = {
         <p class="page-desc">{meta.description}</p>
       </header>
 
-      <div class="gallery-grid">
-        {images.map((img, idx) => (
+      <!-- Interactive Search, Project Selector & Presentation Toolbar -->
+      <section class="gallery-toolbar" id="galleryToolbar" aria-label={meta.title}>
+        <div class="gallery-toolbar-row">
+          <!-- Search Bar -->
+          <div class="gallery-search-wrap">
+            <svg class="gallery-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7.5"></circle>
+              <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+            </svg>
+            <input
+              type="search"
+              id="gallerySearchInput"
+              class="gallery-search-input"
+              placeholder={i18n.searchPlaceholder}
+              aria-label={i18n.searchPlaceholder}
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button
+              type="button"
+              id="gallerySearchClear"
+              class="gallery-search-clear"
+              style="display:none;"
+              title={i18n.clearSearch}
+              aria-label={i18n.clearSearch}
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+            <span class="gallery-search-badge" id="gallerySearchCount">
+              {images.length} {i18n.photosWord}
+            </span>
+          </div>
+
+          <div class="gallery-toolbar-actions">
+            <!-- Project Selector Dropdown (ordered by Projects page) -->
+            <div class="project-selector-dropdown-wrap">
+              <button
+                type="button"
+                class="btn-project-dropdown"
+                id="btnProjectDropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                <span id="projectDropdownCurrentLabel" class="dropdown-label-text">{i18n.projectsLabel}</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </button>
+
+              <div class="project-dropdown-popover" id="projectDropdownPopover" role="menu">
+                <button
+                  type="button"
+                  class="dropdown-opt-btn active"
+                  data-filter-slug="all"
+                  data-filter-label={i18n.projectsLabel}
+                >
+                  <span>{i18n.allProjects}</span>
+                  <span class="dropdown-opt-count">{images.length}</span>
+                </button>
+                {projectGroups.map((group) => (
+                  <button
+                    type="button"
+                    class="dropdown-opt-btn"
+                    data-filter-slug={group.slug}
+                    data-filter-label={group.title}
+                    data-first-slide={group.firstSlideIndex}
+                  >
+                    <span>{group.title}</span>
+                    <span class="dropdown-opt-count">{group.count}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <!-- Play Presentation CTA -->
+            <button
+              type="button"
+              class="btn-play-presentation"
+              id="btnStartPresentation"
+              title={i18n.playPresentation}
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <span class="play-btn-label-desktop">{i18n.playPresentation}</span>
+              <span class="play-btn-label-mobile">{i18n.playShort}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Horizontal Quick-Filter Pills Carousel (ordered by Projects page) -->
+        <div class="pills-carousel-container">
           <button
             type="button"
-            class="gallery-item"
-            data-index={idx}
-            data-src={encodeURI(img.src)}
-            data-alt={img.alt}
-            data-project={img.projectTitle}
-            data-project-url={img.projectUrl}
-            aria-label={img.alt}
+            class="pills-arrow-btn"
+            id="btnPillsPrev"
+            aria-label={i18n.scrollLeft}
           >
-            <img src={encodeURI(img.src)} alt={img.alt} loading="lazy" decoding="async" class="gallery-img" />
+            &#8249;
           </button>
-        ))}
+          <div class="pills-track-mask" id="pillsTrackMask">
+            <div class="index-filter-pills-row" id="indexFilterPills">
+              <button
+                type="button"
+                class="idx-pill active"
+                data-filter-slug="all"
+                data-filter-label={i18n.projectsLabel}
+              >
+                {i18n.allPill} ({images.length})
+              </button>
+              {projectGroups.map((group) => (
+                <button
+                  type="button"
+                  class="idx-pill"
+                  data-filter-slug={group.slug}
+                  data-filter-label={group.title}
+                  data-first-slide={group.firstSlideIndex}
+                >
+                  {group.title} ({group.count})
+                </button>
+              ))}
+            </div>
+          </div>
+          <button
+            type="button"
+            class="pills-arrow-btn"
+            id="btnPillsNext"
+            aria-label={i18n.scrollRight}
+          >
+            &#8250;
+          </button>
+        </div>
+      </section>
+
+      <!-- Overview Grid View -->
+      <div class="gallery-overview-grid" id="overviewGrid">
+        {images.map((img, idx) => {
+          const numStr = String(idx + 1).padStart(2, '0');
+          return (
+            <article
+              class="overview-card"
+              data-index={idx}
+              data-slug={img.projectSlug}
+              data-title={img.projectTitle}
+              data-search={img.searchKeywords}
+            >
+              <button
+                type="button"
+                class="overview-thumb-btn"
+                data-open-slide={idx}
+                aria-label={`${numStr}. ${img.projectTitle} — ${i18n.openSlideTitle}`}
+              >
+                <img
+                  src={encodeURI(img.src)}
+                  alt={img.alt}
+                  loading={idx < 8 ? 'eager' : 'lazy'}
+                  decoding="async"
+                  class="overview-thumb"
+                />
+                <span class="overview-zoom-badge" aria-hidden="true">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <polyline points="9 21 3 21 3 15"></polyline>
+                    <line x1="21" y1="3" x2="14" y2="10"></line>
+                    <line x1="3" y1="21" x2="10" y2="14"></line>
+                  </svg>
+                </span>
+              </button>
+              <div class="overview-card-footer">
+                <button
+                  type="button"
+                  class="overview-caption-btn"
+                  data-open-slide={idx}
+                >
+                  <span class="overview-num">{numStr}.</span>
+                  <span class="overview-title">{img.projectTitle}</span>
+                </button>
+                <a
+                  href={img.projectUrl}
+                  class="overview-project-link"
+                  title={`${i18n.viewProject}: ${img.projectTitle}`}
+                >
+                  <span>{i18n.viewProject}</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      <!-- Empty Search State -->
+      <div class="gallery-empty-state" id="galleryEmptyState" style="display:none;">
+        <p class="empty-state-text">{i18n.noResults}</p>
+        <button type="button" class="btn-reset-filter" id="btnResetGalleryFilter">
+          {i18n.resetFilter}
+        </button>
       </div>
     </div>
   </article>
 
-  <!-- Luxe Immersive Fullscreen Lightbox -->
-  <div class="luxe-lightbox" id="galleryLightbox" aria-hidden="true" role="dialog" aria-label="Immersive gallery">
-    <div class="luxe-lightbox__overlay" id="galleryLightboxOverlay"></div>
-    <div class="luxe-lightbox__stage">
-      <img src="" alt="" class="luxe-lightbox__img" id="galleryLightboxImg" />
-    </div>
-    <div class="luxe-lightbox__controls" id="galleryLightboxControls">
-      <button class="luxe-lightbox__close" id="galleryLightboxClose" aria-label="Close">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
-      </button>
-      <div class="luxe-lightbox__footer">
-        <span class="luxe-lightbox__caption" id="galleryLightboxCaption"></span>
-        <a href="#" class="luxe-lightbox__link" id="galleryLightboxProjectLink">{viewProjectLabel[lang]} &rarr;</a>
+  <!-- ==========================================================================
+       IMMERSIVE PRESENTATION & SLIDESHOW OVERLAY (NO PDF EXPORT)
+       ========================================================================== -->
+  <div
+    class="pres-overlay"
+    id="presentationOverlay"
+    aria-hidden="true"
+    role="dialog"
+    aria-label={meta.title}
+  >
+    <!-- Persistent Top Bar inside Presentation -->
+    <header class="pres-top-bar" id="presTopBar">
+      <nav class="pres-brand-nav" aria-label="Presentation Navigation">
+        <a href={lang === 'en' ? '/' : `/${lang}/`} class="pres-brand-link">
+          <span class="brand-name-full">S'Estepa Design Studio</span>
+          <span class="brand-name-short">S'Estepa</span>
+        </a>
+        <span class="pres-brand-sep">|</span>
+        <button type="button" class="pres-brand-link pres-brand-btn" id="presBrandIndexBtn">
+          <span>{t('nav.gallery')}</span>
+        </button>
+        <span class="pres-brand-sep pres-brand-loc-sep">|</span>
+        <span class="pres-brand-location">Mallorca</span>
+      </nav>
+
+      <div class="pres-top-controls">
+        <!-- 1. Return to Index Grid (G) -->
+        <button type="button" class="pres-btn-icon" id="btnPresOverview" title={`${i18n.indexBtn} (G)`}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          <span class="pres-btn-label">{i18n.indexBtn}</span>
+        </button>
+
+        <!-- 2. PLAY / PAUSE Video Slideshow (Space) -->
+        <button type="button" class="pres-btn-icon" id="btnPresAutoPlay" title="Play / Pause (Space)">
+          <svg id="presPlayIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <span id="presAutoPlayText" class="pres-btn-label">{i18n.playShort}</span>
+        </button>
+
+        <!-- 3. Theme Toggle (Light Mediterranean Sand / Dark Cinema) -->
+        <button type="button" class="pres-btn-icon" id="btnPresThemeToggle" title={i18n.lightMode}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <span id="presThemeToggleText" class="pres-btn-label pres-hide-mobile">{i18n.lightMode}</span>
+        </button>
+
+        <!-- 4. Native Fullscreen Toggle (F) -->
+        <button type="button" class="pres-btn-icon" id="btnPresFullscreen" title={`${i18n.fullscreen} (F)`}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <polyline points="9 21 3 21 3 15"></polyline>
+            <line x1="21" y1="3" x2="14" y2="10"></line>
+            <line x1="3" y1="21" x2="10" y2="14"></line>
+          </svg>
+          <span class="pres-btn-label pres-hide-mobile">{i18n.fullscreen}</span>
+        </button>
+
+        <!-- 5. Close Presentation (Esc) -->
+        <button
+          type="button"
+          class="pres-btn-close"
+          id="btnPresClose"
+          title={i18n.closePresentation}
+          aria-label={i18n.closePresentation}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
       </div>
+    </header>
+
+    <!-- Floating Exit Fullscreen Button (Visible when in 100% Pure Fullscreen) -->
+    <button
+      type="button"
+      class="pres-fs-close-btn"
+      id="btnExitFs"
+      title={i18n.exitFullscreen}
+      aria-label={i18n.exitFullscreen}
+    >
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Slideshow Stage -->
+    <div class="pres-deck-container" id="deckContainer">
+      {images.map((img, idx) => (
+        <section
+          class={`pres-slide${idx === 0 ? ' active' : ''}`}
+          data-index={idx}
+          data-title={img.projectTitle}
+        >
+          <div class="pres-slide-figure">
+            <div class="pres-image-wrapper">
+              <img
+                src={encodeURI(img.src)}
+                alt={img.alt}
+                loading={idx < 3 ? 'eager' : 'lazy'}
+                decoding="async"
+                class="pres-slide-img"
+              />
+            </div>
+          </div>
+        </section>
+      ))}
     </div>
+
+    <!-- Bottom Navigation Bar & Interactive Filmstrip Drawer -->
+    <footer class="pres-bottom-bar" id="presBottomBar">
+      <div class="pres-bottom-bar-content">
+        <div class="pres-bottom-project-info" id="bottomProjectPill">
+          <a
+            href={images[0]?.projectUrl || '#'}
+            class="pres-bottom-project-name"
+            id="bottomProjectName"
+            title={i18n.viewProject}
+          >
+            {images[0]?.projectTitle || ''}
+          </a>
+          <span class="pres-bottom-counter" id="bottomCounter">
+            <button
+              type="button"
+              class="counter-num counter-current"
+              id="counterCurrent"
+              title={i18n.firstPhotoTitle}
+            >
+              01
+            </button>
+            <span class="counter-sep">/</span>
+            <button
+              type="button"
+              class="counter-num counter-total"
+              id="counterTotal"
+              title={i18n.lastPhotoTitle}
+            >
+              {String(images.length).padStart(2, '0')}
+            </button>
+          </span>
+        </div>
+
+        <!-- Luxury Interactive Filmstrip Carousel (Reveals on bottom hover / tap) -->
+        <div class="pres-bottom-filmstrip-drawer" id="bottomFilmstripDrawer">
+          <div class="filmstrip-scroll-mask" id="filmstripScrollMask">
+            <div class="filmstrip-track" id="filmstripTrack">
+              {images.map((img, idx) => (
+                <button
+                  type="button"
+                  class={`filmstrip-thumb-btn${idx === 0 ? ' active' : ''}`}
+                  data-index={idx}
+                  aria-label={`${img.projectTitle} (${idx + 1})`}
+                  title={`${idx + 1}. ${img.projectTitle}`}
+                >
+                  <img
+                    src={encodeURI(img.src)}
+                    alt={img.alt}
+                    loading="lazy"
+                    decoding="async"
+                    class="filmstrip-thumb-img"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 </Layout>
 
-<script define:vars={{ images, lang }}>
+<script define:vars={{ images, i18n }}>
 (() => {
-  const lightbox = document.getElementById('galleryLightbox');
-  const lightboxImg = document.getElementById('galleryLightboxImg');
-  const lightboxCaption = document.getElementById('galleryLightboxCaption');
-  const lightboxProjectLink = document.getElementById('galleryLightboxProjectLink');
-  const lightboxClose = document.getElementById('galleryLightboxClose');
-  const lightboxOverlay = document.getElementById('galleryLightboxOverlay');
-  const lightboxControls = document.getElementById('galleryLightboxControls');
-  const items = document.querySelectorAll('.gallery-item');
+  // Normalize strings (strip accents/diacritics and lowercase)
+  function normalizeStr(str) {
+    return (str || '')
+      .toString()
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .trim();
+  }
 
-  if (!lightbox || !lightboxImg || !lightboxCaption || !lightboxProjectLink) return;
+  // DOM Elements - Index / Overview
+  const searchInput = document.getElementById('gallerySearchInput');
+  const searchClear = document.getElementById('gallerySearchClear');
+  const searchCount = document.getElementById('gallerySearchCount');
+  const btnProjectDropdown = document.getElementById('btnProjectDropdown');
+  const projectDropdownPopover = document.getElementById('projectDropdownPopover');
+  const projectDropdownCurrentLabel = document.getElementById('projectDropdownCurrentLabel');
+  const dropdownOptBtns = document.querySelectorAll('.dropdown-opt-btn');
+  const pillBtns = document.querySelectorAll('.idx-pill');
+  const pillsTrackMask = document.getElementById('pillsTrackMask');
+  const btnPillsPrev = document.getElementById('btnPillsPrev');
+  const btnPillsNext = document.getElementById('btnPillsNext');
+  const overviewCards = document.querySelectorAll('.overview-card');
+  const emptyState = document.getElementById('galleryEmptyState');
+  const btnResetGalleryFilter = document.getElementById('btnResetGalleryFilter');
+  const btnStartPresentation = document.getElementById('btnStartPresentation');
 
-  let currentIndex = 0;
-  let idleTimer = null;
-  const IDLE_TIMEOUT = 2500;
+  // DOM Elements - Presentation Overlay
+  const presOverlay = document.getElementById('presentationOverlay');
+  const deckContainer = document.getElementById('deckContainer');
+  const slides = document.querySelectorAll('.pres-slide');
+  const totalSlides = slides.length;
+  const bottomProjectName = document.getElementById('bottomProjectName');
+  const counterCurrent = document.getElementById('counterCurrent');
+  const counterTotal = document.getElementById('counterTotal');
+  const filmstripThumbs = document.querySelectorAll('.filmstrip-thumb-btn');
+  const bottomFilmstripDrawer = document.getElementById('bottomFilmstripDrawer');
+  const bottomProjectPill = document.getElementById('bottomProjectPill');
 
-  const hideControls = () => {
-    if (lightboxControls) lightboxControls.classList.add('hidden');
-    lightbox.classList.add('cursor-hidden');
-  };
+  const btnPresOverview = document.getElementById('btnPresOverview');
+  const presBrandIndexBtn = document.getElementById('presBrandIndexBtn');
+  const btnPresAutoPlay = document.getElementById('btnPresAutoPlay');
+  const presAutoPlayText = document.getElementById('presAutoPlayText');
+  const presPlayIcon = document.getElementById('presPlayIcon');
+  const btnPresThemeToggle = document.getElementById('btnPresThemeToggle');
+  const presThemeToggleText = document.getElementById('presThemeToggleText');
+  const btnPresFullscreen = document.getElementById('btnPresFullscreen');
+  const btnPresClose = document.getElementById('btnPresClose');
+  const btnExitFs = document.getElementById('btnExitFs');
 
-  const showControls = () => {
-    if (lightboxControls) lightboxControls.classList.remove('hidden');
-    lightbox.classList.remove('cursor-hidden');
-    resetIdleTimer();
-  };
+  if (!presOverlay || !deckContainer) return;
 
-  const resetIdleTimer = () => {
-    clearTimeout(idleTimer);
-    if (lightbox.classList.contains('active')) {
-      idleTimer = setTimeout(hideControls, IDLE_TIMEOUT);
+  // Filter State
+  let activeSlugFilter = 'all';
+  let firstVisibleSlideIndex = 0;
+
+  function applyGalleryFilter({ slug = 'all', query = '', label = '' }) {
+    activeSlugFilter = slug;
+    const normQuery = normalizeStr(query);
+    let visibleCount = 0;
+    firstVisibleSlideIndex = -1;
+
+    if (searchClear) {
+      searchClear.style.display = normQuery || slug !== 'all' ? 'flex' : 'none';
     }
-  };
 
-  const showImage = (index, animate) => {
-    const total = images.length;
-    currentIndex = (index + total) % total;
-    const img = images[currentIndex];
+    // Update pills active state
+    pillBtns.forEach((pill) => {
+      const pillSlug = pill.getAttribute('data-filter-slug') || 'all';
+      const isMatch =
+        (slug !== 'all' && pillSlug === slug) ||
+        (slug === 'all' && !normQuery && pillSlug === 'all');
+      pill.classList.toggle('active', isMatch);
+    });
 
-    if (animate) {
-      lightboxImg.classList.add('transitioning');
-      setTimeout(() => {
-        lightboxImg.src = encodeURI(img.src);
-        lightboxImg.alt = img.alt;
-        lightboxCaption.textContent = img.projectTitle + '  \u00B7  ' + (currentIndex + 1) + ' / ' + total;
-        lightboxProjectLink.href = img.projectUrl;
-        setTimeout(() => lightboxImg.classList.remove('transitioning'), 40);
-      }, 280);
-    } else {
-      lightboxImg.src = encodeURI(img.src);
-      lightboxImg.alt = img.alt;
-      lightboxCaption.textContent = img.projectTitle + '  \u00B7  ' + (currentIndex + 1) + ' / ' + total;
-      lightboxProjectLink.href = img.projectUrl;
+    // Update dropdown options active state
+    dropdownOptBtns.forEach((opt) => {
+      const optSlug = opt.getAttribute('data-filter-slug') || 'all';
+      const isMatch =
+        (slug !== 'all' && optSlug === slug) ||
+        (slug === 'all' && !normQuery && optSlug === 'all');
+      opt.classList.toggle('active', isMatch);
+    });
+
+    // Update dropdown button text
+    if (projectDropdownCurrentLabel) {
+      if (slug !== 'all' && label) {
+        projectDropdownCurrentLabel.textContent = label;
+      } else if (normQuery) {
+        projectDropdownCurrentLabel.textContent = query;
+      } else {
+        projectDropdownCurrentLabel.textContent = i18n.projectsLabel;
+      }
     }
-  };
 
-  const openLightbox = (index) => {
-    lightboxImg.classList.remove('cover-mode');
-    showImage(index, false);
-    lightbox.classList.add('active');
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-    resetIdleTimer();
-  };
+    // Filter cards
+    overviewCards.forEach((card) => {
+      const cardIdx = Number(card.getAttribute('data-index') || 0);
+      const cardSlug = card.getAttribute('data-slug') || '';
+      const cardSearch = normalizeStr(card.getAttribute('data-search') || '');
 
-  const closeLightbox = () => {
-    clearTimeout(idleTimer);
-    lightbox.classList.remove('active', 'cursor-hidden');
-    lightbox.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    lightboxImg.src = '';
-    lightboxImg.classList.remove('cover-mode');
-    if (lightboxControls) lightboxControls.classList.remove('hidden');
-  };
+      let match = true;
+      if (slug !== 'all') {
+        match = cardSlug === slug;
+      } else if (normQuery) {
+        match = cardSearch.includes(normQuery);
+      }
 
-  items.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const idx = Number(btn.getAttribute('data-index') || 0);
-      openLightbox(idx);
+      card.style.display = match ? 'flex' : 'none';
+      if (match) {
+        if (firstVisibleSlideIndex === -1) firstVisibleSlideIndex = cardIdx;
+        visibleCount++;
+      }
+    });
+
+    if (firstVisibleSlideIndex === -1) firstVisibleSlideIndex = 0;
+
+    // Update count badge
+    if (searchCount) {
+      if (slug === 'all' && !normQuery) {
+        searchCount.textContent = `${images.length} ${i18n.photosWord}`;
+      } else if (visibleCount === 0) {
+        searchCount.textContent = `0 ${i18n.photosWord}`;
+      } else {
+        searchCount.textContent = `${visibleCount} ${i18n.ofWord} ${images.length} ${i18n.photosWord}`;
+      }
+    }
+
+    // Empty state visibility
+    if (emptyState) {
+      emptyState.style.display = visibleCount === 0 ? 'flex' : 'none';
+    }
+  }
+
+  // Search Input Handler
+  searchInput?.addEventListener('input', (e) => {
+    const val = e.target.value || '';
+    applyGalleryFilter({ slug: 'all', query: val });
+  });
+
+  // Clear Button Handler
+  searchClear?.addEventListener('click', () => {
+    if (searchInput) searchInput.value = '';
+    applyGalleryFilter({ slug: 'all', query: '' });
+    searchInput?.focus();
+  });
+
+  btnResetGalleryFilter?.addEventListener('click', () => {
+    if (searchInput) searchInput.value = '';
+    applyGalleryFilter({ slug: 'all', query: '' });
+  });
+
+  // Pills Click Handler
+  pillBtns.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      const slug = pill.getAttribute('data-filter-slug') || 'all';
+      const label = pill.getAttribute('data-filter-label') || '';
+      if (searchInput) searchInput.value = slug === 'all' ? '' : label;
+      applyGalleryFilter({ slug, query: '', label });
+      pill.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     });
   });
 
-  lightboxClose?.addEventListener('click', (e) => {
+  // Dropdown Toggle & Option Click
+  btnProjectDropdown?.addEventListener('click', (e) => {
     e.stopPropagation();
-    closeLightbox();
+    const isOpen = projectDropdownPopover?.classList.toggle('open');
+    btnProjectDropdown.classList.toggle('active', Boolean(isOpen));
+    btnProjectDropdown.setAttribute('aria-expanded', String(Boolean(isOpen)));
   });
 
-  lightboxOverlay?.addEventListener('click', (e) => {
-    e.stopPropagation();
-    closeLightbox();
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.project-selector-dropdown-wrap')) {
+      projectDropdownPopover?.classList.remove('open');
+      btnProjectDropdown?.classList.remove('active');
+      btnProjectDropdown?.setAttribute('aria-expanded', 'false');
+    }
   });
 
-  /* Click on screen half navigation */
-  lightbox.addEventListener('click', (e) => {
-    const target = e.target;
-    if (target.closest('button') || target.closest('a') || target.closest('.luxe-lightbox__footer')) return;
+  dropdownOptBtns.forEach((opt) => {
+    opt.addEventListener('click', () => {
+      const slug = opt.getAttribute('data-filter-slug') || 'all';
+      const label = opt.getAttribute('data-filter-label') || '';
+      projectDropdownPopover?.classList.remove('open');
+      btnProjectDropdown?.classList.remove('active');
+      btnProjectDropdown?.setAttribute('aria-expanded', 'false');
+      if (searchInput) searchInput.value = slug === 'all' ? '' : label;
+      applyGalleryFilter({ slug, query: '', label });
+    });
+  });
 
-    const width = window.innerWidth;
-    const clickX = e.clientX;
-    if (clickX < width / 2) {
-      showImage(currentIndex - 1, true);
+  // Pills Horizontal Carousel Arrows
+  btnPillsPrev?.addEventListener('click', () => {
+    pillsTrackMask?.scrollBy({ left: -240, behavior: 'smooth' });
+  });
+  btnPillsNext?.addEventListener('click', () => {
+    pillsTrackMask?.scrollBy({ left: 240, behavior: 'smooth' });
+  });
+
+  // =========================================================================
+  // PRESENTATION SLIDESHOW ENGINE
+  // =========================================================================
+  let currentSlide = 0;
+  let isPlaying = false;
+  let autoPlayTimer = null;
+  let autoResumeTimer = null;
+  let idleTimer = null;
+  const SLIDE_DURATION = 4200;
+  const AUTO_RESUME_DELAY = 20000;
+
+  function isPresentationActive() {
+    return presOverlay.classList.contains('active');
+  }
+
+  function goToSlide(index) {
+    if (index < 0 || index >= totalSlides) return;
+
+    const prevSlideEl = slides[currentSlide];
+    const nextSlideEl = slides[index];
+
+    if (index !== currentSlide) {
+      prevSlideEl.classList.remove('active');
+      prevSlideEl.classList.add('outgoing');
+      setTimeout(() => {
+        prevSlideEl.classList.remove('outgoing');
+      }, 900);
+      currentSlide = index;
+      nextSlideEl.classList.add('active');
+    } else if (!nextSlideEl.classList.contains('active')) {
+      nextSlideEl.classList.add('active');
+    }
+
+    const item = images[currentSlide];
+    if (bottomProjectName && item) {
+      bottomProjectName.textContent = item.projectTitle;
+      bottomProjectName.href = item.projectUrl || '#';
+    }
+    if (counterCurrent) {
+      counterCurrent.textContent = String(currentSlide + 1).padStart(2, '0');
+    }
+    if (counterTotal) {
+      counterTotal.textContent = String(totalSlides).padStart(2, '0');
+    }
+
+    // Sync active filmstrip thumbnail & center scroll
+    filmstripThumbs.forEach((btn, i) => {
+      if (i === currentSlide) {
+        btn.classList.add('active');
+        btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    // Eager preload adjacent images
+    [currentSlide + 1, currentSlide + 2].forEach((adjIdx) => {
+      if (adjIdx < totalSlides) {
+        const adjImg = slides[adjIdx].querySelector('.pres-slide-img');
+        if (adjImg && adjImg.loading === 'lazy') adjImg.loading = 'eager';
+      }
+    });
+  }
+
+  function nextSlide() {
+    goToSlide(currentSlide < totalSlides - 1 ? currentSlide + 1 : 0);
+  }
+
+  function prevSlide() {
+    goToSlide(currentSlide > 0 ? currentSlide - 1 : totalSlides - 1);
+  }
+
+  function openPresentation(index, startPlay = false) {
+    presOverlay.classList.add('active');
+    presOverlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    goToSlide(typeof index === 'number' ? index : 0);
+
+    if (startPlay) {
+      startAutoPlay();
     } else {
-      showImage(currentIndex + 1, true);
+      scheduleAutoResume();
     }
-    showControls();
+  }
+
+  function closePresentation() {
+    stopAutoPlay(true);
+    cancelAutoResume();
+    clearTimeout(idleTimer);
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+      if (document.exitFullscreen) document.exitFullscreen().catch(() => {});
+      else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+    }
+    presOverlay.classList.remove('active', 'is-fullscreen', 'hide-controls');
+    presOverlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // Idle auto-hide in fullscreen (900ms) -> 100% pure landscape photo
+  function resetIdleTimer() {
+    presOverlay.classList.remove('hide-controls');
+    clearTimeout(idleTimer);
+    if (
+      presOverlay.classList.contains('is-fullscreen') ||
+      document.fullscreenElement ||
+      document.webkitFullscreenElement
+    ) {
+      idleTimer = setTimeout(() => {
+        presOverlay.classList.add('hide-controls');
+      }, 900);
+    }
+  }
+
+  function scheduleAutoResume() {
+    clearTimeout(autoResumeTimer);
+    if (isPresentationActive() && !isPlaying) {
+      autoResumeTimer = setTimeout(() => {
+        if (isPresentationActive() && !isPlaying) {
+          startAutoPlay();
+        }
+      }, AUTO_RESUME_DELAY);
+    }
+  }
+
+  function cancelAutoResume() {
+    clearTimeout(autoResumeTimer);
+  }
+
+  function startAutoPlay() {
+    cancelAutoResume();
+    isPlaying = true;
+    if (!isPresentationActive()) {
+      openPresentation(firstVisibleSlideIndex, false);
+    }
+    enterFullscreen();
+    btnPresAutoPlay?.classList.add('active-mode');
+    if (presAutoPlayText) presAutoPlayText.textContent = i18n.pauseShort;
+    if (presPlayIcon) {
+      presPlayIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>';
+    }
+    clearInterval(autoPlayTimer);
+    autoPlayTimer = setInterval(nextSlide, SLIDE_DURATION);
+  }
+
+  function stopAutoPlay(preventResume = false) {
+    isPlaying = false;
+    btnPresAutoPlay?.classList.remove('active-mode');
+    if (presAutoPlayText) presAutoPlayText.textContent = i18n.playShort;
+    if (presPlayIcon) {
+      presPlayIcon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
+    }
+    clearInterval(autoPlayTimer);
+    if (!preventResume) {
+      scheduleAutoResume();
+    } else {
+      cancelAutoResume();
+    }
+  }
+
+  function toggleAutoPlay() {
+    if (isPlaying) {
+      stopAutoPlay();
+    } else {
+      startAutoPlay();
+    }
+  }
+
+  // Fullscreen helpers
+  function enterFullscreen() {
+    const docEl = document.documentElement;
+    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+      if (docEl.requestFullscreen) docEl.requestFullscreen().catch(() => {});
+      else if (docEl.webkitRequestFullscreen) docEl.webkitRequestFullscreen();
+    }
+    presOverlay.classList.add('is-fullscreen');
+    resetIdleTimer();
+  }
+
+  function exitFullscreenMode() {
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+      if (document.exitFullscreen) document.exitFullscreen().catch(() => {});
+      else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+    }
+    presOverlay.classList.remove('is-fullscreen', 'hide-controls');
+    stopAutoPlay();
+  }
+
+  function toggleFullscreen() {
+    if (!document.fullscreenElement && !document.webkitFullscreenElement && !presOverlay.classList.contains('is-fullscreen')) {
+      enterFullscreen();
+    } else {
+      exitFullscreenMode();
+    }
+  }
+
+  document.addEventListener('fullscreenchange', () => {
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+      presOverlay.classList.add('is-fullscreen');
+      resetIdleTimer();
+    } else {
+      presOverlay.classList.remove('is-fullscreen', 'hide-controls');
+      stopAutoPlay();
+    }
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('active')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') { showImage(currentIndex - 1, true); showControls(); }
-    if (e.key === 'ArrowRight') { showImage(currentIndex + 1, true); showControls(); }
+  // Wire Overview Card clicks to open Presentation at that slide
+  document.querySelectorAll('[data-open-slide]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const idx = Number(btn.getAttribute('data-open-slide') || 0);
+      openPresentation(idx, false);
+    });
   });
 
-  /* Idle detection â€” hide controls after 2.5s of inactivity */
-  lightbox.addEventListener('mousemove', showControls);
-  lightbox.addEventListener('touchstart', showControls, { passive: true });
+  // Wire Toolbar Play Presentation button
+  btnStartPresentation?.addEventListener('click', () => {
+    openPresentation(firstVisibleSlideIndex, true);
+  });
 
-  /* Touch swipe navigation */
+  // Wire Presentation Top Bar Controls
+  btnPresOverview?.addEventListener('click', closePresentation);
+  presBrandIndexBtn?.addEventListener('click', closePresentation);
+  btnPresClose?.addEventListener('click', closePresentation);
+  btnExitFs?.addEventListener('click', exitFullscreenMode);
+  btnPresAutoPlay?.addEventListener('click', toggleAutoPlay);
+  btnPresFullscreen?.addEventListener('click', toggleFullscreen);
+
+  // Theme Toggle inside Presentation (Dark Cinema vs Mediterranean Sand Light)
+  btnPresThemeToggle?.addEventListener('click', () => {
+    const isLight = presOverlay.classList.toggle('pres-light');
+    if (presThemeToggleText) {
+      presThemeToggleText.textContent = isLight ? i18n.darkMode : i18n.lightMode;
+    }
+  });
+
+  // Filmstrip Thumbnail Clicks
+  filmstripThumbs.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      stopAutoPlay();
+      const idx = Number(btn.getAttribute('data-index') || 0);
+      goToSlide(idx);
+    });
+  });
+
+  // Counter Jump to First / Last Photo
+  counterCurrent?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    stopAutoPlay();
+    goToSlide(0);
+  });
+
+  counterTotal?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    stopAutoPlay();
+    goToSlide(totalSlides - 1);
+  });
+
+  // Directional Cursor & Half-Screen Click Navigation
+  deckContainer.addEventListener('mousemove', (e) => {
+    const width = window.innerWidth;
+    if (e.clientX < width / 2) {
+      deckContainer.classList.add('cursor-prev');
+      deckContainer.classList.remove('cursor-next');
+    } else {
+      deckContainer.classList.add('cursor-next');
+      deckContainer.classList.remove('cursor-prev');
+    }
+  });
+
+  deckContainer.addEventListener('click', (e) => {
+    if (!isPresentationActive()) return;
+    stopAutoPlay();
+    const width = window.innerWidth;
+    if (e.clientX < width / 2) {
+      prevSlide();
+    } else {
+      nextSlide();
+    }
+  });
+
+  // Reveal Filmstrip when mouse approaches bottom 130px
+  presOverlay.addEventListener('mousemove', (e) => {
+    if (!isPresentationActive()) return;
+    resetIdleTimer();
+    scheduleAutoResume();
+    const distFromBottom = window.innerHeight - e.clientY;
+    if (distFromBottom < 130) {
+      bottomFilmstripDrawer?.classList.add('is-revealed');
+    } else if (!e.target.closest('#bottomFilmstripDrawer')) {
+      bottomFilmstripDrawer?.classList.remove('is-revealed');
+    }
+  });
+
+  // On touch devices: tapping bottom pill toggles filmstrip
+  bottomProjectPill?.addEventListener('click', (e) => {
+    if (!e.target.closest('a') && !e.target.closest('button')) {
+      e.stopPropagation();
+      bottomFilmstripDrawer?.classList.toggle('is-revealed');
+    }
+  });
+
+  // Touch Swipe Navigation in Presentation
   let touchStartX = 0;
-  lightbox.addEventListener('touchstart', (e) => {
+  let touchStartY = 0;
+  let touchStartTime = 0;
+
+  presOverlay.addEventListener('touchstart', (e) => {
+    if (!isPresentationActive()) return;
     touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+    touchStartTime = Date.now();
+    resetIdleTimer();
+    scheduleAutoResume();
   }, { passive: true });
-  lightbox.addEventListener('touchend', (e) => {
-    const diff = e.changedTouches[0].screenX - touchStartX;
-    if (Math.abs(diff) > 50) {
-      diff < 0 ? showImage(currentIndex + 1, true) : showImage(currentIndex - 1, true);
+
+  presOverlay.addEventListener('touchend', (e) => {
+    if (!isPresentationActive()) return;
+    if (
+      e.target.closest('button') ||
+      e.target.closest('a') ||
+      e.target.closest('.pres-top-bar') ||
+      e.target.closest('.pres-bottom-bar') ||
+      e.target.closest('.pres-fs-close-btn')
+    ) {
+      return;
+    }
+
+    const diffX = e.changedTouches[0].screenX - touchStartX;
+    const diffY = e.changedTouches[0].screenY - touchStartY;
+    const elapsed = Date.now() - touchStartTime;
+
+    if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+      stopAutoPlay();
+      if (diffX < 0) nextSlide();
+      else prevSlide();
+      return;
+    }
+
+    if (Math.abs(diffX) < 20 && Math.abs(diffY) < 20 && elapsed < 400) {
+      if (isPlaying) {
+        stopAutoPlay();
+        return;
+      }
+      const width = window.innerWidth;
+      const tapX = e.changedTouches[0].clientX;
+      if (tapX < width / 2) prevSlide();
+      else nextSlide();
     }
   }, { passive: true });
+
+  // Keyboard Shortcuts in Presentation
+  window.addEventListener('keydown', (e) => {
+    if (!isPresentationActive()) return;
+    resetIdleTimer();
+
+    switch (e.key) {
+      case 'ArrowRight':
+      case 'ArrowDown':
+      case 'PageDown':
+        e.preventDefault();
+        stopAutoPlay();
+        nextSlide();
+        break;
+      case 'ArrowLeft':
+      case 'ArrowUp':
+      case 'Backspace':
+      case 'PageUp':
+        e.preventDefault();
+        stopAutoPlay();
+        prevSlide();
+        break;
+      case ' ':
+        e.preventDefault();
+        toggleAutoPlay();
+        break;
+      case 'Home':
+        e.preventDefault();
+        stopAutoPlay();
+        goToSlide(0);
+        break;
+      case 'End':
+        e.preventDefault();
+        stopAutoPlay();
+        goToSlide(totalSlides - 1);
+        break;
+      case 'g':
+      case 'G':
+        e.preventDefault();
+        closePresentation();
+        break;
+      case 'f':
+      case 'F':
+        e.preventDefault();
+        toggleFullscreen();
+        break;
+      case 'Escape':
+        e.preventDefault();
+        if (document.fullscreenElement || document.webkitFullscreenElement || presOverlay.classList.contains('is-fullscreen')) {
+          exitFullscreenMode();
+        } else {
+          closePresentation();
+        }
+        break;
+    }
+  });
 })();
 </script>
 
 <style>
   .gallery-page {
     padding-top: 10rem;
+    background-color: var(--color-sand-light);
+    min-height: 100vh;
   }
 
   @media (max-width: 768px) {
@@ -217,37 +1159,385 @@ const viewProjectLabel = {
     }
   }
 
+  /* Page Editorial Header (Site Standard) */
   .page-header {
     max-width: 780px;
-    margin: 0 auto 3.5rem;
+    margin: 0 auto 3rem;
     text-align: center;
+  }
+
+  .section-tag {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-olive);
+    display: block;
+    margin-bottom: 0.75rem;
   }
 
   .page-title {
     font-family: var(--font-serif);
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
     font-weight: 300;
-    margin: 1rem 0;
+    color: var(--color-charcoal);
+    margin: 0.5rem 0 1rem;
   }
 
   .page-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--color-olive);
     margin-bottom: 1rem;
+    font-weight: 400;
   }
 
   .page-desc {
     line-height: 1.75;
     color: var(--color-charcoal-light);
+    font-size: 1rem;
   }
 
-  .gallery-grid {
+  /* ==========================================================================
+     INTERACTIVE GALLERY TOOLBAR (SEARCH + DROPDOWN + PLAY + PILLS)
+     ========================================================================== */
+  .gallery-toolbar {
+    margin: 0 auto 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-bottom: 1px solid var(--color-sand-dark);
+    padding-bottom: 1.75rem;
+  }
+
+  .gallery-toolbar-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    width: 100%;
+  }
+
+  .gallery-search-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: var(--color-white);
+    border: 1px solid var(--color-sand-dark);
+    border-radius: 30px;
+    padding: 0 1.15rem;
+    height: 48px;
+    box-shadow: 0 4px 18px rgba(31, 33, 31, 0.04);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .gallery-search-wrap:focus-within {
+    border-color: var(--color-olive);
+    box-shadow: 0 6px 24px rgba(90, 103, 85, 0.12);
+  }
+
+  .gallery-search-icon {
+    color: var(--color-olive);
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .gallery-search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    min-width: 0;
+  }
+
+  .gallery-search-input::placeholder {
+    color: var(--color-limestone);
+    font-weight: 300;
+  }
+
+  .gallery-search-input::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  .gallery-search-clear {
+    background: none;
+    border: none;
+    color: var(--color-limestone);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+    transition: color 0.2s ease;
+  }
+
+  .gallery-search-clear:hover {
+    color: var(--color-charcoal);
+  }
+
+  .gallery-search-badge {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-olive-dark);
+    background: var(--color-sand-base);
+    border: 1px solid var(--color-sand-dark);
+    padding: 4px 11px;
+    border-radius: 14px;
+    white-space: nowrap;
+    font-weight: 500;
+    user-select: none;
+  }
+
+  .gallery-toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  /* Project Selector Dropdown */
+  .project-selector-dropdown-wrap {
+    position: relative;
+  }
+
+  .btn-project-dropdown {
+    height: 48px;
+    padding: 0 1.2rem;
+    border-radius: 30px;
+    background: var(--color-white);
+    border: 1px solid var(--color-sand-dark);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(31, 33, 31, 0.04);
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+
+  .btn-project-dropdown:hover,
+  .btn-project-dropdown.active {
+    border-color: var(--color-olive);
+    background: var(--color-sand-base);
+  }
+
+  .project-dropdown-popover {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 320px;
+    max-height: 420px;
+    overflow-y: auto;
+    background: var(--color-white);
+    border: 1px solid var(--color-sand-dark);
+    border-radius: 12px;
+    padding: 0.5rem;
+    box-shadow: 0 20px 50px rgba(31, 33, 31, 0.16);
+    z-index: 120;
+    display: none;
+    flex-direction: column;
+    gap: 2px;
+    scrollbar-width: thin;
+  }
+
+  .project-dropdown-popover.open {
+    display: flex;
+  }
+
+  .dropdown-opt-btn {
+    background: none;
+    border: none;
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    padding: 0.6rem 0.85rem;
+    border-radius: 8px;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .dropdown-opt-btn:hover {
+    background: var(--color-sand-base);
+  }
+
+  .dropdown-opt-btn.active {
+    background: var(--color-charcoal);
+    color: var(--color-white);
+    font-weight: 500;
+  }
+
+  .dropdown-opt-count {
+    font-size: 0.72rem;
+    color: var(--color-limestone);
+    font-weight: 500;
+  }
+
+  .dropdown-opt-btn.active .dropdown-opt-count {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Play Presentation Button */
+  .btn-play-presentation {
+    height: 48px;
+    padding: 0 1.35rem;
+    border-radius: 30px;
+    background: var(--color-charcoal);
+    border: 1px solid var(--color-charcoal);
+    color: var(--color-white);
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(31, 33, 31, 0.14);
+    transition: all 0.25s ease;
+    white-space: nowrap;
+  }
+
+  .btn-play-presentation:hover {
+    background: var(--color-olive-dark);
+    border-color: var(--color-olive-dark);
+    transform: translateY(-1px);
+  }
+
+  .play-btn-label-mobile {
+    display: none;
+  }
+
+  /* Horizontal Quick-Filter Pills Carousel */
+  .pills-carousel-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .pills-track-mask {
+    flex: 1;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    mask-image: linear-gradient(to right, transparent 0%, black 18px, black calc(100% - 18px), transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 18px, black calc(100% - 18px), transparent 100%);
+    padding: 4px 14px;
+  }
+
+  .pills-track-mask::-webkit-scrollbar {
+    display: none;
+  }
+
+  .index-filter-pills-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    width: max-content;
+  }
+
+  .idx-pill {
+    background: var(--color-white);
+    border: 1px solid var(--color-sand-dark);
+    color: var(--color-charcoal-light);
+    border-radius: 20px;
+    padding: 0.42rem 0.95rem;
+    font-size: 0.75rem;
+    font-family: var(--font-sans);
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .idx-pill:hover {
+    color: var(--color-charcoal);
+    border-color: var(--color-olive);
+    background: var(--color-sand-base);
+    transform: translateY(-1px);
+  }
+
+  .idx-pill.active {
+    background: var(--color-charcoal);
+    color: var(--color-white);
+    border-color: var(--color-charcoal);
+    font-weight: 500;
+  }
+
+  .pills-arrow-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-white);
+    border: 1px solid var(--color-sand-dark);
+    color: var(--color-charcoal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: all 0.2s ease;
+  }
+
+  .pills-arrow-btn:hover {
+    background: var(--color-charcoal);
+    color: var(--color-white);
+    border-color: var(--color-charcoal);
+  }
+
+  /* ==========================================================================
+     OVERVIEW GRID VIEW (SITE DESIGN STANDARD + NUMBERED PROJECT CAPTIONS)
+     ========================================================================== */
+  .gallery-overview-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
+    gap: 2rem 1.5rem;
   }
 
-  .gallery-item {
+  .overview-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-sand-dark);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+                box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+                border-color 0.35s ease;
+  }
+
+  .overview-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-olive-light);
+    box-shadow: 0 14px 34px rgba(31, 33, 31, 0.08);
+  }
+
+  .overview-thumb-btn {
+    position: relative;
+    width: 100%;
     aspect-ratio: 4 / 3;
     overflow: hidden;
     background: var(--color-sand-base);
@@ -255,285 +1545,728 @@ const viewProjectLabel = {
     padding: 0;
     cursor: zoom-in;
     display: block;
-    width: 100%;
   }
 
-  .gallery-img {
+  .overview-thumb {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
-  .gallery-item:hover .gallery-img {
-    transform: scale(1.04);
+  .overview-card:hover .overview-thumb {
+    transform: scale(1.045);
   }
 
-  /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     LUXE IMMERSIVE FULLSCREEN LIGHTBOX
-     â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-  .luxe-lightbox {
+  .overview-zoom-badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(31, 33, 31, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  .overview-card:hover .overview-zoom-badge {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .overview-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    background: var(--color-white);
+    border-top: 1px solid var(--color-sand-base);
+  }
+
+  .overview-caption-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    text-align: left;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .overview-num {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--color-olive);
+    flex-shrink: 0;
+  }
+
+  .overview-title {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--color-charcoal);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .overview-project-link {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-olive);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-shrink: 0;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .overview-project-link:hover {
+    color: var(--color-charcoal);
+    transform: translateX(2px);
+  }
+
+  /* Empty Search State */
+  .gallery-empty-state {
+    padding: 4rem 1.5rem;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .empty-state-text {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--color-charcoal-light);
+  }
+
+  .btn-reset-filter {
+    background: var(--color-charcoal);
+    color: var(--color-white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 24px;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.25s ease;
+  }
+
+  .btn-reset-filter:hover {
+    background: var(--color-olive-dark);
+  }
+
+  /* ==========================================================================
+     IMMERSIVE PRESENTATION SLIDESHOW OVERLAY
+     ========================================================================== */
+  .pres-overlay {
+    --pres-bg: #0a0a0a;
+    --pres-text: #f0f0f0;
+    --pres-muted: #8e8e8e;
+    --pres-border: rgba(255, 255, 255, 0.14);
+    --pres-pill-bg: rgba(14, 14, 14, 0.78);
     position: fixed;
     inset: 0;
     z-index: 9999;
+    background-color: var(--pres-bg);
+    color: var(--pres-text);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-                visibility 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                visibility 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                background-color 0.3s ease,
+                color 0.3s ease;
+    user-select: none;
   }
 
-  .luxe-lightbox.active {
+  .pres-overlay.active {
     opacity: 1;
     visibility: visible;
-  }
-
-  .luxe-lightbox.cursor-hidden {
-    cursor: none;
-  }
-
-  .luxe-lightbox__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(160deg, #080a08 0%, #030403 50%, #050705 100%);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-  }
-
-  .luxe-lightbox__stage {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    overflow-y: auto;
-  }
-
-  .luxe-lightbox__img {
-    max-width: 95vw;
-    max-height: 92vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
-    border-radius: 2px;
-    margin: auto;
-  }
-
-  .luxe-lightbox__img.cover-mode {
-    max-width: 100%;
-    max-height: none;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 0;
-    margin: auto;
-  }
-
-  .luxe-lightbox__img.transitioning {
-    opacity: 0;
-    transform: scale(0.97);
-  }
-
-  /* Controls Layer â€” auto-hides on idle */
-  .luxe-lightbox__controls {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-    opacity: 1;
-    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .luxe-lightbox__controls.hidden {
-    opacity: 0;
-  }
-
-  .luxe-lightbox__controls > * {
     pointer-events: auto;
   }
 
-  /* Close Button */
-  .luxe-lightbox__close {
-    position: absolute;
-    top: 1.75rem;
-    right: 1.75rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: rgba(255, 255, 255, 0.75);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+  /* Light Mediterranean Sand Theme inside Presentation */
+  .pres-overlay.pres-light {
+    --pres-bg: #FAF9F6;
+    --pres-text: #1F211F;
+    --pres-muted: #5A6755;
+    --pres-border: rgba(31, 33, 31, 0.22);
+    --pres-pill-bg: rgba(255, 255, 255, 0.94);
   }
 
-  .luxe-lightbox__close:hover {
-    background: rgba(255, 255, 255, 0.12);
-    color: white;
+  /* Top Bar in Presentation */
+  .pres-top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    z-index: 100;
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.92) 0%, rgba(10, 10, 10, 0) 100%);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .pres-overlay.pres-light .pres-top-bar {
+    background: linear-gradient(180deg, rgba(250, 249, 246, 0.96) 0%, rgba(250, 249, 246, 0) 100%);
+  }
+
+  .pres-top-bar * {
+    pointer-events: auto;
+  }
+
+  .pres-brand-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 300;
+    white-space: nowrap;
+  }
+
+  .pres-brand-link {
+    color: var(--pres-text);
+    text-decoration: none;
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .pres-brand-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .pres-brand-sep {
+    color: var(--pres-muted);
+    opacity: 0.5;
+  }
+
+  .pres-brand-location {
+    color: var(--pres-muted);
+    font-size: 1.05rem;
+  }
+
+  .brand-name-short {
+    display: none;
+  }
+
+  .pres-top-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .pres-btn-icon {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--pres-border);
+    color: var(--pres-text);
+    height: 38px;
+    padding: 0 16px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-size: 0.72rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    font-family: var(--font-sans);
+    font-weight: 500;
+  }
+
+  .pres-overlay.pres-light .pres-btn-icon {
+    background: #ffffff;
+    border: 1.5px solid #1F211F;
+    color: #1F211F;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .pres-btn-icon:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .pres-overlay.pres-light .pres-btn-icon:hover {
+    background: #1F211F;
+    color: #ffffff;
+  }
+
+  .pres-btn-icon.active-mode {
+    background: var(--pres-text);
+    color: var(--pres-bg);
+    border-color: var(--pres-text);
+  }
+
+  .pres-btn-close {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--pres-border);
+    color: var(--pres-text);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .pres-overlay.pres-light .pres-btn-close {
+    background: #ffffff;
+    border: 1.5px solid #1F211F;
+    color: #1F211F;
+  }
+
+  .pres-btn-close:hover {
+    background: rgba(255, 255, 255, 0.18);
     transform: rotate(90deg);
-    border-color: rgba(255, 255, 255, 0.2);
   }
 
-  /* Navigation Arrows */
-  .luxe-lightbox__arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    color: rgba(255, 255, 255, 0.6);
-    width: 60px;
-    height: 60px;
+  .pres-overlay.pres-light .pres-btn-close:hover {
+    background: #1F211F;
+    color: #ffffff;
+  }
+
+  /* Floating Exit Fullscreen Button */
+  .pres-fs-close-btn {
+    position: fixed;
+    top: 24px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
+    background: rgba(10, 10, 10, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    display: none;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    z-index: 300;
+    transition: opacity 0.25s ease, transform 0.2s ease;
+  }
+
+  .pres-fs-close-btn:hover {
+    transform: scale(1.08);
+    border-color: #ffffff;
+  }
+
+  /* Slideshow Deck Stage */
+  .pres-deck-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    cursor: pointer;
+  }
+
+  .pres-deck-container.cursor-prev {
+    cursor: w-resize !important;
+  }
+
+  .pres-deck-container.cursor-next {
+    cursor: e-resize !important;
+  }
+
+  .pres-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1);
+    padding: 68px 32px 68px;
+    z-index: 1;
+  }
+
+  .pres-slide.outgoing {
+    opacity: 0;
+    z-index: 5;
+    pointer-events: none;
+    transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .pres-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 10;
+  }
+
+  .pres-slide-figure {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
   }
 
-  .luxe-lightbox__arrow:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border-color: rgba(255, 255, 255, 0.18);
-    transform: translateY(-50%) scale(1.06);
-  }
-
-  .luxe-lightbox__prev { left: 2rem; }
-  .luxe-lightbox__next { right: 2rem; }
-
-  /* Zoom / Immersive Toggle */
-  .luxe-lightbox__zoom {
-    position: absolute;
-    top: 1.75rem;
-    right: 5.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: rgba(255, 255, 255, 0.6);
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    cursor: pointer;
+  .pres-image-wrapper {
+    width: 100%;
+    height: calc(100vh - 146px);
+    height: calc(100dvh - 146px);
+    max-width: 1600px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
   }
 
-  .luxe-lightbox__zoom:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
+  .pres-slide-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
+    border-radius: 2px;
+    transform: scale(1);
+    transition: transform 5.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
   }
 
-  .luxe-lightbox__zoom.active {
-    background: rgba(255, 255, 255, 0.14);
-    border-color: rgba(255, 255, 255, 0.25);
-    color: white;
+  .pres-overlay.pres-light .pres-slide-img {
+    box-shadow: 0 12px 34px rgba(31, 33, 31, 0.14);
   }
 
-  /* Footer with gradient veil */
-  .luxe-lightbox__footer {
-    position: absolute;
+  .pres-slide.active .pres-slide-img {
+    transform: scale(1.032);
+  }
+
+  .pres-slide.outgoing .pres-slide-img {
+    transform: scale(1.038);
+  }
+
+  /* Fullscreen Pure Photo Mode */
+  .pres-overlay.is-fullscreen .pres-top-bar {
+    display: none !important;
+  }
+
+  .pres-overlay.is-fullscreen .pres-fs-close-btn {
+    display: flex;
+  }
+
+  .pres-overlay.is-fullscreen .pres-slide {
+    padding: 0 !important;
+  }
+
+  .pres-overlay.is-fullscreen .pres-image-wrapper {
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-width: 100vw !important;
+  }
+
+  .pres-overlay.is-fullscreen .pres-slide-img {
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    max-height: 100dvh !important;
+    box-shadow: none !important;
+  }
+
+  .pres-overlay.is-fullscreen.hide-controls,
+  .pres-overlay.is-fullscreen.hide-controls * {
+    cursor: none !important;
+  }
+
+  .pres-overlay.is-fullscreen.hide-controls .pres-bottom-bar,
+  .pres-overlay.is-fullscreen.hide-controls .pres-fs-close-btn {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* Bottom Bar & Filmstrip Drawer */
+  .pres-bottom-bar {
+    position: fixed;
     bottom: 0;
     left: 0;
-    right: 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.6rem;
-    padding: 3.5rem 2rem 2.25rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.12) 65%, transparent 100%);
+    justify-content: flex-end;
+    padding: 0 0 max(16px, env(safe-area-inset-bottom));
+    z-index: 100;
+    background: linear-gradient(0deg, rgba(10, 10, 10, 0.94) 0%, rgba(10, 10, 10, 0.5) 65%, rgba(10, 10, 10, 0) 100%);
     pointer-events: none;
+    transition: opacity 0.3s ease;
   }
 
-  .luxe-lightbox__footer > * {
+  .pres-overlay.pres-light .pres-bottom-bar {
+    background: linear-gradient(0deg, rgba(250, 249, 246, 0.96) 0%, rgba(250, 249, 246, 0.6) 65%, rgba(250, 249, 246, 0) 100%);
+  }
+
+  .pres-bottom-bar-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
     pointer-events: auto;
   }
 
-  .luxe-lightbox__caption {
-    font-family: var(--font-serif, Georgia, 'Times New Roman', serif);
-    font-size: 1rem;
-    font-weight: 300;
-    letter-spacing: 0.04em;
-    color: rgba(255, 255, 255, 0.85);
-    text-align: center;
-    max-width: min(88vw, 760px);
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    line-height: 1.45;
+  .pres-bottom-project-info {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 16px;
+    background: var(--pres-pill-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 8px 24px;
+    border-radius: 30px;
+    border: 1px solid var(--pres-border);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
+    transition: all 0.25s ease;
   }
 
-  .luxe-lightbox__link {
-    font-family: var(--font-sans, system-ui, sans-serif);
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
+  .pres-overlay.pres-light .pres-bottom-project-info {
+    border: 1.5px solid #1F211F;
+    box-shadow: 0 8px 24px rgba(31, 33, 31, 0.12);
+  }
+
+  .pres-bottom-project-name {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--pres-text);
     text-decoration: none;
-    transition: color 0.3s ease, border-color 0.3s ease;
-    padding-bottom: 2px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
-  .luxe-lightbox__link:hover {
-    color: rgba(255, 255, 255, 0.85);
-    border-bottom-color: rgba(255, 255, 255, 0.5);
+  .pres-bottom-project-name:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 
-  /* Responsive */
-  @media (max-width: 992px) {
-    .gallery-grid {
+  .pres-bottom-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    color: var(--pres-muted);
+    font-family: var(--font-sans);
+  }
+
+  .counter-num {
+    background: none;
+    border: none;
+    padding: 2px 5px;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 500;
+    letter-spacing: inherit;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+
+  .counter-num:hover {
+    color: var(--pres-text);
+    background: rgba(128, 128, 128, 0.2);
+  }
+
+  /* Filmstrip Drawer */
+  .pres-bottom-filmstrip-drawer {
+    width: 100%;
+    max-width: 1400px;
+    padding: 4px 24px;
+    opacity: 0;
+    transform: translateY(18px);
+    pointer-events: none;
+    transition: opacity 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+                transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .pres-bottom-bar:hover .pres-bottom-filmstrip-drawer,
+  .pres-bottom-filmstrip-drawer.is-revealed,
+  .pres-bottom-filmstrip-drawer:focus-within {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .filmstrip-scroll-mask {
+    width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    background: rgba(12, 12, 12, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--pres-border);
+    border-radius: 12px;
+    padding: 10px 14px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+  }
+
+  .pres-overlay.pres-light .filmstrip-scroll-mask {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1.5px solid #1F211F;
+    box-shadow: 0 16px 40px rgba(31, 33, 31, 0.16);
+  }
+
+  .filmstrip-track {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: max-content;
+  }
+
+  .filmstrip-thumb-btn {
+    width: 76px;
+    height: 50px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1.5px solid rgba(255, 255, 255, 0.18);
+    background: #000;
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    opacity: 0.6;
+    transition: all 0.22s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .filmstrip-thumb-btn:hover {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.05);
+  }
+
+  .filmstrip-thumb-btn.active {
+    opacity: 1;
+    border: 2px solid var(--pres-text);
+    transform: scale(1.08);
+  }
+
+  .filmstrip-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+  }
+
+  /* Responsive Breakpoints */
+  @media (max-width: 1024px) {
+    .gallery-overview-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-    .luxe-lightbox__prev { left: 1rem; }
-    .luxe-lightbox__next { right: 1rem; }
-    .luxe-lightbox__arrow { width: 48px; height: 48px; }
+    .pres-brand-location,
+    .pres-brand-loc-sep {
+      display: none;
+    }
   }
 
   @media (max-width: 768px) {
-    .luxe-lightbox__stage { padding: 0; }
-    .luxe-lightbox__img {
-      max-width: 100vw;
-      max-height: 85vh;
-      border-radius: 0;
+    .gallery-toolbar-row {
+      flex-wrap: wrap;
     }
-    .luxe-lightbox__close { top: 1rem; right: 1rem; width: 42px; height: 42px; }
-    .luxe-lightbox__zoom { top: 1rem; right: 4.25rem; width: 40px; height: 40px; }
-    .luxe-lightbox__arrow { width: 42px; height: 42px; }
-    .luxe-lightbox__prev { left: 0.6rem; }
-    .luxe-lightbox__next { right: 0.6rem; }
-    .luxe-lightbox__footer { 
-      padding: 2.5rem 1.5rem max(2rem, env(safe-area-inset-bottom, 2rem)); 
+    .gallery-search-wrap {
+      width: 100%;
+      flex: 1 1 100%;
+      height: 44px;
     }
-    .luxe-lightbox__caption { 
-      font-size: 0.85rem; 
-      letter-spacing: 0.03em;
-      max-width: 86vw;
-      padding: 0 1rem;
-      line-height: 1.4;
+    .gallery-toolbar-actions {
+      width: 100%;
+      justify-content: space-between;
+    }
+    .btn-project-dropdown,
+    .btn-play-presentation {
+      height: 42px;
+      flex: 1;
+      justify-content: center;
+    }
+    .play-btn-label-desktop {
+      display: none;
+    }
+    .play-btn-label-mobile {
+      display: inline;
+    }
+    .pills-arrow-btn {
+      display: none;
+    }
+    .pills-track-mask {
+      mask-image: none;
+      -webkit-mask-image: none;
+      padding: 2px 0;
+    }
+    .pres-top-bar {
+      height: 54px;
+      padding: 0 12px;
+    }
+    .pres-hide-mobile {
+      display: none;
+    }
+    .pres-btn-icon {
+      height: 34px;
+      padding: 0 10px;
+      font-size: 0.65rem;
+    }
+    .pres-slide {
+      padding: 56px 8px 64px;
+    }
+    .pres-bottom-project-name {
+      font-size: 1rem;
+    }
+    .filmstrip-thumb-btn {
+      width: 58px;
+      height: 38px;
     }
   }
 
   @media (max-width: 560px) {
-    .gallery-grid {
+    .gallery-overview-grid {
       grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .brand-name-full {
+      display: none;
+    }
+    .brand-name-short {
+      display: inline;
     }
   }
 </style>
-
-
-
