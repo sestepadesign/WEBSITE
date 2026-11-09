@@ -1,9 +1,8 @@
 /**
- * Curated gallery — 36 SEO images from 3-WEBSITE/gallery/ on Drive.
- * Sant Llorenç + Jardín Mediterráneo lead (flagship pair), then 6 Binissalem + 3 per project.
+ * Curated gallery — 97 SEO images synchronized with J: PRESENTACIÓN MEJORES JARDINES (01..19).
  */
 export interface GalleryImageEntry {
-  /** Public URL path under /gallery/ */
+  /** Public URL path under /portfolio/ or /gallery/ */
   src: string;
   alt: string;
   projectSlug: string;
@@ -29,450 +28,513 @@ const portalsNous = 'portals-nous';
 const marratxi = 'marratxi';
 const alcanada = 'seaside-house-alcudia';
 
-/** Filename on disk (may include spaces — encode in HTML via normal paths). */
 function galleryPath(filename: string): string {
   return `/gallery/${filename}`;
 }
 
 export const galleryImages: GalleryImageEntry[] = [
-  // 3 × Santa Ponsa (Primeira Linha da Galeria)
+  // 01. Santa Ponsa (9 photos)
+  {
+    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-07-lateral-stone-corridor-planter-sestepa.webp',
+    alt: 'GARDEN DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN 01',
+    projectSlug: santaPonsa,
+  },
+  {
+    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-05-infinity-edge-cascade-lower-lawn-sestepa.webp',
+    alt: 'GARDEN DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN 02',
+    projectSlug: santaPonsa,
+  },
+  {
+    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-13-hillside-slope-rockery-strelitzia-cycas-sestepa.webp',
+    alt: 'GARDEN DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN 03',
+    projectSlug: santaPonsa,
+  },
+  {
+    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-img-3911-sestepa.webp',
+    alt: 'GARDEN DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN 04',
+    projectSlug: santaPonsa,
+  },
+  {
+    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-17-limestone-boulders-cycas-slope-detail-sestepa.webp',
+    alt: 'GARDEN DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN 05',
+    projectSlug: santaPonsa,
+  },
+  {
+    src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-18-timber-sleeper-steps-hillside-vegetation-sestepa.webp',
+    alt: 'GARDEN DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN 06',
+    projectSlug: santaPonsa,
+  },
   {
     src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-01-pool-villa-stipa-sestepa.webp',
-    alt: 'GARDEN DESIGN SANTA PONSA MALLORCA POOL VILLA STIPA SESTEPA DESIGN',
+    alt: 'GARDEN DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN 07',
     projectSlug: santaPonsa,
   },
   {
     src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-06-covered-terrace-pool-perspective-sestepa.webp',
-    alt: 'GARDEN DESIGN SANTA PONSA MALLORCA COVERED TERRACE POOL SESTEPA DESIGN',
+    alt: 'GARDEN DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN 08',
     projectSlug: santaPonsa,
   },
   {
     src: '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-09-architectural-side-walkway-vista-sestepa.webp',
-    alt: 'GARDEN DESIGN SANTA PONSA MALLORCA ARCHITECTURAL SIDE WALKWAY SESTEPA DESIGN',
+    alt: 'GARDEN DESIGN SANTA PONSA MALLORCA SESTEPA DESIGN 09',
     projectSlug: santaPonsa,
   },
-  // 12 × Sant Llorenç (Estate Garden · 5 Meses & Hero Cover)
+  // 02. Sant Llorenç (12 photos)
   {
-    src: '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp',
-    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA MUHLENBERGIA HERO COVER SESTEPA DESIGN',
+    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-01-portrait-sestepa-design.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA SESTEPA DESIGN 01',
     projectSlug: santLlorenc,
   },
   {
-    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-45-img-4026-sestepa-design.webp',
-    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA MEDITERRANEAN COMPOSITION 5 MONTHS SESTEPA DESIGN',
+    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-05-portrait-sestepa-design.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA SESTEPA DESIGN 02',
     projectSlug: santLlorenc,
   },
   {
-    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-44-img-4033-sestepa-design.webp',
-    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA BOTANICAL PATHWAY 5 MONTHS SESTEPA DESIGN',
+    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-07-sestepa-design.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA SESTEPA DESIGN 03',
     projectSlug: santLlorenc,
   },
   {
-    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-42-img-4061-sestepa-design.webp',
-    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA STONEWORK AND OLIVE DETAIL 5 MONTHS SESTEPA DESIGN',
+    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-18-sestepa-design.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA SESTEPA DESIGN 04',
     projectSlug: santLlorenc,
   },
   {
-    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-43-img-4070-sestepa-design.webp',
-    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA ARCHITECTURAL BORDERS 5 MONTHS SESTEPA DESIGN',
+    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-27-sestepa-design.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA SESTEPA DESIGN 05',
+    projectSlug: santLlorenc,
+  },
+  {
+    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-31-sestepa-design.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA SESTEPA DESIGN 06',
+    projectSlug: santLlorenc,
+  },
+  {
+    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-36-sestepa-design.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA SESTEPA DESIGN 07',
     projectSlug: santLlorenc,
   },
   {
     src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-46-img-2536-sestepa-design.webp',
-    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA XERISCAPE GRAVEL AND SHRUBS 5 MONTHS SESTEPA DESIGN',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA SESTEPA DESIGN 08',
     projectSlug: santLlorenc,
   },
   {
-    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-49-img-3718-sestepa-design.webp',
-    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA AUTUMN COLORS 5 MONTHS SESTEPA DESIGN',
-    projectSlug: santLlorenc,
-  },
-  {
-    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-48-img-3776-sestepa-design.webp',
-    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA PANORAMIC VISTA 5 MONTHS SESTEPA DESIGN',
-    projectSlug: santLlorenc,
-  },
-  {
-    src: '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-47-img-3778-sestepa-design.webp',
-    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA GRASSES AND PERENNIALS 5 MONTHS SESTEPA DESIGN',
+    src: '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA SESTEPA DESIGN 09',
     projectSlug: santLlorenc,
   },
   {
     src: '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-sestepa.webp',
-    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA SESTEPA DESIGN',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA SESTEPA DESIGN 10',
     projectSlug: santLlorenc,
   },
   {
     src: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp',
-    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA LANDSCAPE DESIGN 01 SESTEPA DESIGN',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA SESTEPA DESIGN 11',
     projectSlug: santLlorenc,
   },
   {
     src: '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp',
-    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA LANDSCAPE DESIGN 18 SESTEPA DESIGN',
+    alt: 'SANT LLORENC ESTATE GARDEN MALLORCA SESTEPA DESIGN 12',
     projectSlug: santLlorenc,
   },
-  // 3 × Binissalem Courtyard (New addition)
+  // 03. Patio en Binissalem (3 photos)
   {
-    src: '/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-01-pool-terrace-lemon-tree-sestepa.webp',
-    alt: 'BINISSALEM COURTYARD MEDITERRANEAN SWIMMING POOL AND LEMON TREE SESTEPA DESIGN',
+    src: '/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-fotografo-uri-gershuni-8-sestepa.webp',
+    alt: 'BINISSALEM COURTYARD MEDITERRANEAN GARDEN SESTEPA DESIGN 01',
+    projectSlug: binissalemCourtyard,
+  },
+  {
+    src: '/portfolio/binissalem-courtyard/garden-design-mallorca-binissalem-courtyard-01-pool-terrace-lemon-tree-sestepa.webp',
+    alt: 'BINISSALEM COURTYARD MEDITERRANEAN GARDEN SESTEPA DESIGN 02',
     projectSlug: binissalemCourtyard,
   },
   {
     src: '/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-02-sculptural-agave-cactus-detail-sestepa.webp',
-    alt: 'BINISSALEM COURTYARD SCULPTURAL AGAVE AND CACTI COMPOSITION SESTEPA DESIGN',
+    alt: 'BINISSALEM COURTYARD MEDITERRANEAN GARDEN SESTEPA DESIGN 03',
     projectSlug: binissalemCourtyard,
   },
+  // 04. Andratx (3 photos)
   {
-    src: '/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-05-pool-terrace-yellow-chairs-sestepa.webp',
-    alt: 'BINISSALEM COURTYARD POOL TERRACE WITH YELLOW LOUNGERS AND SCULPTURAL SPECIES SESTEPA DESIGN',
-    projectSlug: binissalemCourtyard,
-  },
-  // 3 × Andratx (Camino en Mallorca)
-  {
-    src: '/portfolio/andratx/images/garden-design-mallorca-andratx-sestepa-01.webp',
-    alt: 'GARDEN DESIGN ANDRATX MALLORCA MEDITERRANEAN ESTATE PATHWAY AND TRAMUNTANA VISTA SESTEPA DESIGN',
+    src: '/portfolio/andratx/garden-design-mallorca-andratx-sestepa-01.webp',
+    alt: 'GARDEN DESIGN ANDRATX MALLORCA SESTEPA DESIGN 01',
     projectSlug: andratx,
   },
   {
     src: '/portfolio/andratx/images/garden-design-mallorca-andratx-sestepa-02.webp',
-    alt: 'GARDEN DESIGN ANDRATX MALLORCA MUHLENBERGIA AND FLOWERING BORDERS SESTEPA DESIGN',
+    alt: 'GARDEN DESIGN ANDRATX MALLORCA SESTEPA DESIGN 02',
     projectSlug: andratx,
   },
   {
     src: '/portfolio/andratx/images/garden-design-mallorca-andratx-sestepa-03.webp',
-    alt: 'GARDEN DESIGN ANDRATX MALLORCA GOLDEN HOUR STIPA AND PERENNIAL GRASSES SESTEPA DESIGN',
+    alt: 'GARDEN DESIGN ANDRATX MALLORCA SESTEPA DESIGN 03',
     projectSlug: andratx,
   },
-  // 3 × New Binissalem additions (First Row of Gallery)
-  {
-    src: '/portfolio/binissalem/images/LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-14.jpg',
-    alt: 'LANDSCAPE GARDEN DESIGN BINISSALEM MALLORCA SESTEPA DESIGN',
-    projectSlug: binissalem,
-  },
-  {
-    src: '/portfolio/binissalem/images/LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-15.jpg',
-    alt: 'LANDSCAPE GARDEN DESIGN BINISSALEM MALLORCA SESTEPA DESIGN',
-    projectSlug: binissalem,
-  },
-  {
-    src: '/portfolio/binissalem/images/LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-16.jpg',
-    alt: 'LANDSCAPE GARDEN DESIGN BINISSALEM MALLORCA SESTEPA DESIGN',
-    projectSlug: binissalem,
-  },
-  // 3 × Jardín Mediterráneo (aerial · house · pool render)
-  {
-    src: '/portfolio/jardin-mediterraneo/images/landscape-garden-malorca-jardin-mediterraneo-sestepa.webp',
-    alt: 'MEDITERRANEAN GARDEN ESTATE AERIAL MALLORCA SESTEPA DESIGN',
-    projectSlug: jardinMediterraneo,
-  },
-  {
-    src: '/portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-6-1.webp',
-    alt: 'MEDITERRANEAN GARDEN ESTATE HOUSE MALLORCA SESTEPA DESIGN',
-    projectSlug: jardinMediterraneo,
-  },
-  {
-    src: '/portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-10.webp',
-    alt: 'MEDITERRANEAN GARDEN ESTATE POOL MALLORCA SESTEPA DESIGN',
-    projectSlug: jardinMediterraneo,
-  },
-  // 6 × Binissalem
+  // 05. Jardín Binissalem (9 photos)
   {
     src: galleryPath('1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (1).avif'),
-    alt: 'LANDSCAPE GARDEN DESIGN BINISSALEM MALLORCA SESTEPA DESIGN',
-    projectSlug: binissalem,
-  },
-  {
-    src: galleryPath('1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (2).avif'),
-    alt: 'LANDSCAPE GARDEN DESIGN BINISSALEM MALLORCA SESTEPA DESIGN',
+    alt: 'LANDSCAPE GARDEN DESIGN BINISSALEM MALLORCA SESTEPA DESIGN 01',
     projectSlug: binissalem,
   },
   {
     src: galleryPath('1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (3).avif'),
-    alt: 'LANDSCAPE GARDEN DESIGN BINISSALEM MALLORCA SESTEPA DESIGN',
+    alt: 'LANDSCAPE GARDEN DESIGN BINISSALEM MALLORCA SESTEPA DESIGN 02',
     projectSlug: binissalem,
   },
   {
     src: galleryPath('1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (4).avif'),
-    alt: 'LANDSCAPE GARDEN DESIGN BINISSALEM MALLORCA SESTEPA DESIGN',
+    alt: 'LANDSCAPE GARDEN DESIGN BINISSALEM MALLORCA SESTEPA DESIGN 03',
     projectSlug: binissalem,
   },
   {
     src: galleryPath('1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (5).avif'),
-    alt: 'LANDSCAPE GARDEN DESIGN BINISSALEM MALLORCA SESTEPA DESIGN',
+    alt: 'LANDSCAPE GARDEN DESIGN BINISSALEM MALLORCA SESTEPA DESIGN 04',
     projectSlug: binissalem,
   },
   {
     src: galleryPath('1. LANDSCAPE-GARDEN-DESIGN-BINISSALEM-MALLORCA-SESTEPA-1-scaled (6).avif'),
-    alt: 'LANDSCAPE GARDEN DESIGN BINISSALEM MALLORCA SESTEPA DESIGN',
+    alt: 'LANDSCAPE GARDEN DESIGN BINISSALEM MALLORCA SESTEPA DESIGN 05',
     projectSlug: binissalem,
   },
-  // 3 × Bunyola
   {
-    src: '/portfolio/bunyola/garden-design-mallorca-bunyola-sestepa.jpg',
-    alt: 'GARDEN LANDSCAPE DESIGN BUNYOLA MALLORCA SESTEPA DESIGN',
-    projectSlug: bunyola,
+    src: '/portfolio/binissalem/images/garden-design-mallorca-binissalem-01.webp',
+    alt: 'LANDSCAPE GARDEN DESIGN BINISSALEM MALLORCA SESTEPA DESIGN 06',
+    projectSlug: binissalem,
   },
   {
+    src: '/portfolio/binissalem/images/garden-design-mallorca-binissalem-02.webp',
+    alt: 'LANDSCAPE GARDEN DESIGN BINISSALEM MALLORCA SESTEPA DESIGN 07',
+    projectSlug: binissalem,
+  },
+  {
+    src: '/portfolio/binissalem/images/garden-design-mallorca-binissalem-05.webp',
+    alt: 'LANDSCAPE GARDEN DESIGN BINISSALEM MALLORCA SESTEPA DESIGN 08',
+    projectSlug: binissalem,
+  },
+  {
+    src: '/portfolio/binissalem/images/LANDSCAPE-GARDEN-MALLORCA-SESTEPA-DESIGN-16.jpg',
+    alt: 'LANDSCAPE GARDEN DESIGN BINISSALEM MALLORCA SESTEPA DESIGN 09',
+    projectSlug: binissalem,
+  },
+  // 06. Jardín Mediterráneo (3 photos)
+  {
+    src: '/portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-6-1.webp',
+    alt: 'MEDITERRANEAN GARDEN ESTATE MALLORCA SESTEPA DESIGN 01',
+    projectSlug: jardinMediterraneo,
+  },
+  {
+    src: '/portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-10.webp',
+    alt: 'MEDITERRANEAN GARDEN ESTATE MALLORCA SESTEPA DESIGN 02',
+    projectSlug: jardinMediterraneo,
+  },
+  {
+    src: '/portfolio/jardin-mediterraneo/images/landscape-garden-malorca-jardin-mediterraneo-sestepa.webp',
+    alt: 'MEDITERRANEAN GARDEN ESTATE MALLORCA SESTEPA DESIGN 03',
+    projectSlug: jardinMediterraneo,
+  },
+  // 07. Bunyola (3 photos)
+  {
     src: galleryPath('BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-1.webp'),
-    alt: 'GARDEN LANDSCAPE DESIGN BUNYOLA MALLORCA SESTEPA DESIGN',
+    alt: 'GARDEN LANDSCAPE DESIGN BUNYOLA MALLORCA SESTEPA DESIGN 01',
     projectSlug: bunyola,
   },
   {
     src: '/portfolio/bunyola/images/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-2.jpg',
-    alt: 'GARDEN LANDSCAPE DESIGN BUNYOLA MALLORCA SESTEPA DESIGN',
+    alt: 'GARDEN LANDSCAPE DESIGN BUNYOLA MALLORCA SESTEPA DESIGN 02',
     projectSlug: bunyola,
   },
-  // 6 × Son Vida
   {
-    src: '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-1.jpg',
-    alt: 'GARDEN LANDSCAPE DESIGN SON VIDA MALLORCA SESTEPA DESIGN',
-    projectSlug: sonVida,
+    src: '/portfolio/bunyola/garden-design-mallorca-bunyola-sestepa.jpg',
+    alt: 'GARDEN LANDSCAPE DESIGN BUNYOLA MALLORCA SESTEPA DESIGN 03',
+    projectSlug: bunyola,
   },
-  {
-    src: '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-3.jpg',
-    alt: 'GARDEN LANDSCAPE DESIGN SON VIDA MALLORCA SESTEPA DESIGN',
-    projectSlug: sonVida,
-  },
-  {
-    src: '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-5.jpg',
-    alt: 'GARDEN LANDSCAPE DESIGN SON VIDA MALLORCA SESTEPA DESIGN',
-    projectSlug: sonVida,
-  },
+  // 08. Son Vida (6 photos)
   {
     src: '/portfolio/son-vida/garden-design-mallorca-son-vida-sestepa.jpg',
-    alt: 'GARDEN DESIGN MALLORCA SON VIDA VILLA ENTRANCE SESTEPA DESIGN',
+    alt: 'GARDEN LANDSCAPE DESIGN SON VIDA MALLORCA SESTEPA DESIGN 01',
     projectSlug: sonVida,
   },
   {
-    src: '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-6.jpg',
-    alt: 'GARDEN DESIGN SON VIDA SWIMMING POOL AND CONTEMPORARY VILLA SESTEPA DESIGN',
+    src: '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-1.jpg',
+    alt: 'GARDEN LANDSCAPE DESIGN SON VIDA MALLORCA SESTEPA DESIGN 02',
     projectSlug: sonVida,
   },
   {
     src: '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-2.jpg',
-    alt: 'GARDEN DESIGN SON VIDA TERRACED LAWN AND MEDITERRANEAN PALMS SESTEPA DESIGN',
+    alt: 'GARDEN LANDSCAPE DESIGN SON VIDA MALLORCA SESTEPA DESIGN 03',
     projectSlug: sonVida,
   },
-  // 3 × Crestatx
   {
-    src: '/portfolio/crestatx-garden-design/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.webp',
-    alt: 'GARDEN LANDSCAPE DESIGN CRESTATX MALLORCA SESTEPA DESIGN COURTYARD GRAVEL',
+    src: '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-3.jpg',
+    alt: 'GARDEN LANDSCAPE DESIGN SON VIDA MALLORCA SESTEPA DESIGN 04',
+    projectSlug: sonVida,
+  },
+  {
+    src: '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-5.jpg',
+    alt: 'GARDEN LANDSCAPE DESIGN SON VIDA MALLORCA SESTEPA DESIGN 05',
+    projectSlug: sonVida,
+  },
+  {
+    src: '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-6.jpg',
+    alt: 'GARDEN LANDSCAPE DESIGN SON VIDA MALLORCA SESTEPA DESIGN 06',
+    projectSlug: sonVida,
+  },
+  // 09. Crestatx (3 photos)
+  {
+    src: '/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-4.jpg',
+    alt: 'GARDEN LANDSCAPE DESIGN CRESTATX MALLORCA SESTEPA DESIGN 01',
     projectSlug: crestatx,
   },
   {
     src: '/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-22.jpg',
-    alt: 'GARDEN DESIGN CRESTATX MALLORCA LANDSCAPE PERSPECTIVE SESTEPA DESIGN',
+    alt: 'GARDEN LANDSCAPE DESIGN CRESTATX MALLORCA SESTEPA DESIGN 02',
     projectSlug: crestatx,
   },
   {
-    src: '/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-4.jpg',
-    alt: 'GARDEN DESIGN CRESTATX MALLORCA PENNISETUM ORNAMENTAL GRASSES SESTEPA DESIGN',
+    src: '/portfolio/crestatx-garden-design/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.webp',
+    alt: 'GARDEN LANDSCAPE DESIGN CRESTATX MALLORCA SESTEPA DESIGN 03',
     projectSlug: crestatx,
   },
-  // Puerto Andratx / Mar Llabres collab (3)
+  // 10. Puerto Andratx (3 photos)
   {
     src: galleryPath('GARDEN-DESIGN-MALLORCA-PUERTO-ANDRATX-SESTEPA-DESIGN-MAR-LLABRES-_1_.webp'),
-    alt: 'GARDEN DESIGN MALLORCA PUERTO ANDRATX SESTEPA DESIGN MAR LLABRES',
+    alt: 'GARDEN DESIGN MALLORCA PUERTO ANDRATX SESTEPA DESIGN MAR LLABRES 01',
     projectSlug: puertoAndratx,
   },
   {
     src: galleryPath('GARDEN-DESIGN-MALLORCA-PUERTO-ANDRATX-SESTEPA-DESIGN-MAR-LLABRES-_2_.webp'),
-    alt: 'GARDEN DESIGN MALLORCA PUERTO ANDRATX SESTEPA DESIGN MAR LLABRES',
+    alt: 'GARDEN DESIGN MALLORCA PUERTO ANDRATX SESTEPA DESIGN MAR LLABRES 02',
     projectSlug: puertoAndratx,
   },
   {
     src: galleryPath('garden-design-mar-llabres-collab-mallorca-sestepa.jpg'),
-    alt: 'GARDEN DESIGN MAR LLABRES COLLABORATION MALLORCA SESTEPA DESIGN',
+    alt: 'GARDEN DESIGN MALLORCA PUERTO ANDRATX SESTEPA DESIGN MAR LLABRES 03',
     projectSlug: puertoAndratx,
   },
-  // 6 × Hotel Cabot
-  {
-    src: '/portfolio/hotelcabotlasvelas/garden-design-mallorca-hotelcabotlasvelas-sestepa.webp',
-    alt: 'HOTEL CABOT LAS VELAS SWIMMING POOL AND MEDITERRANEAN OASIS SESTEPA DESIGN',
-    projectSlug: hotelCabot,
-  },
+  // 11. Hotel Cabot Las Velas (6 photos)
   {
     src: '/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-HOTEL-SESTEPA-DESIGN-MALLORCA-2.webp',
-    alt: 'HOTEL CABOT LAS VELAS APARTMENTS VOLCANIC GRAVEL AND PERENNIAL BEDS SESTEPA DESIGN',
-    projectSlug: hotelCabot,
-  },
-  {
-    src: '/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-11.jpg',
-    alt: 'HOTEL CABOT LAS VELAS RESORT GARDEN DESIGN MALLORCA SESTEPA DESIGN',
-    projectSlug: hotelCabot,
-  },
-  {
-    src: '/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-3.jpg',
-    alt: 'HOTEL CABOT LAS VELAS POOL DECK AND BAMBOO PLANTERS SESTEPA DESIGN',
-    projectSlug: hotelCabot,
-  },
-  {
-    src: '/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-8.jpg',
-    alt: 'HOTEL CABOT LAS VELAS VOLCANIC GRAVEL AND CYCAD COMPOSITION SESTEPA DESIGN',
+    alt: 'HOTEL CABOT LAS VELAS GARDEN DESIGN MALLORCA SESTEPA DESIGN 01',
     projectSlug: hotelCabot,
   },
   {
     src: '/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-HOTEL-SESTEPA-DESIGN-MALLORCA-_4_.webp',
-    alt: 'HOTEL CABOT LAS VELAS POOL VISTA AND WHITE APARTMENT TERRACES SESTEPA DESIGN',
+    alt: 'HOTEL CABOT LAS VELAS GARDEN DESIGN MALLORCA SESTEPA DESIGN 02',
     projectSlug: hotelCabot,
   },
-  // 9 × Campos
   {
-    src: galleryPath('GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CAMPOS (1).webp'),
-    alt: 'GARDEN LANDSCAPE DESIGN CAMPOS MALLORCA SESTEPA DESIGN FINCA GARDEN',
-    projectSlug: campos,
+    src: '/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-3.jpg',
+    alt: 'HOTEL CABOT LAS VELAS GARDEN DESIGN MALLORCA SESTEPA DESIGN 03',
+    projectSlug: hotelCabot,
   },
   {
-    src: galleryPath('GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CAMPOS (2).webp'),
-    alt: 'GARDEN LANDSCAPE DESIGN CAMPOS MALLORCA SESTEPA DESIGN FINCA GARDEN',
-    projectSlug: campos,
+    src: '/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-8.jpg',
+    alt: 'HOTEL CABOT LAS VELAS GARDEN DESIGN MALLORCA SESTEPA DESIGN 04',
+    projectSlug: hotelCabot,
   },
   {
-    src: galleryPath('GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CAMPOS (1).avif'),
-    alt: 'GARDEN LANDSCAPE DESIGN CAMPOS MALLORCA SESTEPA DESIGN FINCA GARDEN',
-    projectSlug: campos,
+    src: '/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-11.jpg',
+    alt: 'HOTEL CABOT LAS VELAS GARDEN DESIGN MALLORCA SESTEPA DESIGN 05',
+    projectSlug: hotelCabot,
   },
   {
-    src: '/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-33.jpg',
-    alt: 'FINCA GARDEN CAMPOS MALLORCA OLIVE TREE AND PURPLE OSTEOSPERMUM SESTEPA DESIGN',
-    projectSlug: campos,
+    src: '/portfolio/hotelcabotlasvelas/garden-design-mallorca-hotelcabotlasvelas-sestepa.webp',
+    alt: 'HOTEL CABOT LAS VELAS GARDEN DESIGN MALLORCA SESTEPA DESIGN 06',
+    projectSlug: hotelCabot,
   },
+  // 12. Finca Jardín Campos (9 photos)
   {
     src: '/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-01-master.webp',
-    alt: 'FINCA GARDEN CAMPOS MALLORCA AERIAL MASTER PLAN VIEW SESTEPA DESIGN',
+    alt: 'FINCA GARDEN CAMPOS MALLORCA SESTEPA DESIGN 01',
     projectSlug: campos,
   },
   {
     src: '/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-23.jpg',
-    alt: 'FINCA GARDEN CAMPOS MALLORCA MEDITERRANEAN RESIDENCE GARDEN TERRACE SESTEPA DESIGN',
+    alt: 'FINCA GARDEN CAMPOS MALLORCA SESTEPA DESIGN 02',
     projectSlug: campos,
   },
   {
     src: '/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-29.jpg',
-    alt: 'FINCA GARDEN CAMPOS MALLORCA FLOWERING SHRUBS AND LAWN SESTEPA DESIGN',
+    alt: 'FINCA GARDEN CAMPOS MALLORCA SESTEPA DESIGN 03',
+    projectSlug: campos,
+  },
+  {
+    src: '/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-33.jpg',
+    alt: 'FINCA GARDEN CAMPOS MALLORCA SESTEPA DESIGN 04',
     projectSlug: campos,
   },
   {
     src: '/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-34.jpg',
-    alt: 'FINCA GARDEN CAMPOS MALLORCA CYPRESS AND SUCCULENT WALKWAY SESTEPA DESIGN',
+    alt: 'FINCA GARDEN CAMPOS MALLORCA SESTEPA DESIGN 05',
     projectSlug: campos,
   },
   {
     src: '/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-38.jpg',
-    alt: 'FINCA GARDEN CAMPOS MALLORCA VILLA ARCHITECTURE AND MEDITERRANEAN PERENNIALS SESTEPA DESIGN',
+    alt: 'FINCA GARDEN CAMPOS MALLORCA SESTEPA DESIGN 06',
     projectSlug: campos,
   },
-  // 3 × Santa Eugènia (Agapanthus · Escadaria · Gramado e Esferas)
+  {
+    src: galleryPath('GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CAMPOS (1).webp'),
+    alt: 'FINCA GARDEN CAMPOS MALLORCA SESTEPA DESIGN 07',
+    projectSlug: campos,
+  },
+  {
+    src: galleryPath('GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-CAMPOS (2).webp'),
+    alt: 'FINCA GARDEN CAMPOS MALLORCA SESTEPA DESIGN 08',
+    projectSlug: campos,
+  },
+  {
+    src: '/portfolio/finca-garden-campos-mallorca/images/garden-design-mallorca-finca-garden-campos-mallorca-img-1333-sestepa.webp',
+    alt: 'FINCA GARDEN CAMPOS MALLORCA SESTEPA DESIGN 09',
+    projectSlug: campos,
+  },
+  // 13. Santa Eugènia (6 photos)
   {
     src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-01.webp',
-    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA FLOWERING AGAPANTHUS AND MEDITERRANEAN RESIDENCE SESTEPA DESIGN',
+    alt: 'TERRACE GARDEN SANTA EUGENIA MALLORCA SESTEPA DESIGN 01',
     projectSlug: santaEugenia,
   },
   {
     src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-02.webp',
-    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA STONE STAIRWAY AND ARCHITECTURAL GARDEN BORDERS SESTEPA DESIGN',
+    alt: 'TERRACE GARDEN SANTA EUGENIA MALLORCA SESTEPA DESIGN 02',
     projectSlug: santaEugenia,
   },
   {
     src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-03.webp',
-    alt: 'TERRACE GARDEN SANTA EUGÈNIA MALLORCA LAWN SPHERICAL SHRUBS AND ARCHITECTURAL PLANTING SESTEPA DESIGN',
+    alt: 'TERRACE GARDEN SANTA EUGENIA MALLORCA SESTEPA DESIGN 03',
     projectSlug: santaEugenia,
   },
-  // 3 × Llubí
   {
-    src: '/portfolio/garden-design-llubi-mallorca/images/GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-5.png',
-    alt: 'GARDEN DESIGN LLUBI COVERED TERRACE AND PERGOLA SESTEPA DESIGN',
-    projectSlug: llubi,
+    src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-04.webp',
+    alt: 'TERRACE GARDEN SANTA EUGENIA MALLORCA SESTEPA DESIGN 04',
+    projectSlug: santaEugenia,
   },
   {
-    src: '/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design (9).webp',
-    alt: 'GARDEN DESIGN LLUBI MEDITERRANEAN SHRUB GRAVEL COMPOSITION SESTEPA DESIGN',
+    src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-06.webp',
+    alt: 'TERRACE GARDEN SANTA EUGENIA MALLORCA SESTEPA DESIGN 05',
+    projectSlug: santaEugenia,
+  },
+  {
+    src: '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-07.webp',
+    alt: 'TERRACE GARDEN SANTA EUGENIA MALLORCA SESTEPA DESIGN 06',
+    projectSlug: santaEugenia,
+  },
+  // 14. Llubí (3 photos)
+  {
+    src: '/portfolio/garden-design-llubi-mallorca/images/GARDEN-DESIGN-MALLORCA-LLUBI-SESTEPA-LANDSCAPE-DESIGN-5.png',
+    alt: 'GARDEN DESIGN LLUBI MALLORCA SESTEPA DESIGN 01',
     projectSlug: llubi,
   },
   {
     src: '/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design (5).webp',
-    alt: 'GARDEN DESIGN LLUBI ARCHITECTURAL POOL REFLECTION SESTEPA DESIGN',
+    alt: 'GARDEN DESIGN LLUBI MALLORCA SESTEPA DESIGN 02',
     projectSlug: llubi,
   },
-  // 3 × Vertical Gardens (3 Years Growth)
   {
-    src: '/portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-05.webp',
-    alt: 'VERTICAL GARDENS IN MALLORCA OK MOBILITY 3 YEARS GROWTH LUSH FAÇADE SESTEPA DESIGN',
+    src: '/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design (9).webp',
+    alt: 'GARDEN DESIGN LLUBI MALLORCA SESTEPA DESIGN 03',
+    projectSlug: llubi,
+  },
+  // 15. Jardines Verticales en Mallorca (6 photos)
+  {
+    src: '/portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-01.webp',
+    alt: 'VERTICAL GARDENS IN MALLORCA OK MOBILITY SESTEPA DESIGN 01',
+    projectSlug: vertical,
+  },
+  {
+    src: '/portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-02.webp',
+    alt: 'VERTICAL GARDENS IN MALLORCA OK MOBILITY SESTEPA DESIGN 02',
+    projectSlug: vertical,
+  },
+  {
+    src: '/portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-03.webp',
+    alt: 'VERTICAL GARDENS IN MALLORCA OK MOBILITY SESTEPA DESIGN 03',
+    projectSlug: vertical,
+  },
+  {
+    src: '/portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-06.webp',
+    alt: 'VERTICAL GARDENS IN MALLORCA OK MOBILITY SESTEPA DESIGN 04',
     projectSlug: vertical,
   },
   {
     src: '/portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-08.webp',
-    alt: 'VERTICAL GARDENS IN MALLORCA OK MOBILITY 3 YEARS MATURE VEGETATION SESTEPA DESIGN',
+    alt: 'VERTICAL GARDENS IN MALLORCA OK MOBILITY SESTEPA DESIGN 05',
     projectSlug: vertical,
   },
   {
     src: '/portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-11-bougainvillea-mesh.webp',
-    alt: 'VERTICAL GARDENS IN MALLORCA OK MOBILITY FLOWERING BOUGAINVILLEA ON ARCHITECTURAL PLANTERS SESTEPA DESIGN',
+    alt: 'VERTICAL GARDENS IN MALLORCA OK MOBILITY SESTEPA DESIGN 06',
     projectSlug: vertical,
   },
-  // 3 × Terrace Garden in Palma
+  // 16. Terraza en Palma (4 photos)
   {
     src: '/portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp',
-    alt: 'TERRACE GARDEN IN PALMA LUXURY ROOFTOP LOUNGE AND MEDITERRANEAN SEA VISTA SESTEPA DESIGN',
+    alt: 'TERRACE GARDEN IN PALMA MALLORCA SESTEPA DESIGN 01',
     projectSlug: terracePalma,
   },
   {
-    src: '/portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-6.jpg',
-    alt: 'TERRACE GARDEN IN PALMA CONTEMPORARY OUTDOOR SOFAS AND PLANTERS SESTEPA DESIGN',
+    src: '/portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-2.jpg',
+    alt: 'TERRACE GARDEN IN PALMA MALLORCA SESTEPA DESIGN 02',
     projectSlug: terracePalma,
   },
   {
     src: '/portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-5.jpg',
-    alt: 'TERRACE GARDEN IN PALMA RESILIENT MEDITERRANEAN BOTANICAL SPECIES AND CITY SKYLINE SESTEPA DESIGN',
+    alt: 'TERRACE GARDEN IN PALMA MALLORCA SESTEPA DESIGN 03',
     projectSlug: terracePalma,
   },
-  // 3 × Portals Nous (Tropical Oasis)
   {
-    src: '/portfolio/portals-nous/images/garden-design-mallorca-portals-nous-sestepa-01.webp',
-    alt: 'PORTALS NOUS RESIDENTIAL GARDEN WALKWAY PAVING AND ARCHITECTURAL PLANTERS SESTEPA DESIGN',
+    src: '/portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-6.jpg',
+    alt: 'TERRACE GARDEN IN PALMA MALLORCA SESTEPA DESIGN 04',
+    projectSlug: terracePalma,
+  },
+  // 17. Portals Nous (3 photos)
+  {
+    src: '/portfolio/portals-nous/garden-design-mallorca-portals-nous-sestepa-01.webp',
+    alt: 'PORTALS NOUS GARDEN DESIGN MALLORCA SESTEPA DESIGN 01',
     projectSlug: portalsNous,
   },
   {
     src: '/portfolio/portals-nous/images/garden-design-mallorca-portals-nous-sestepa-02.webp',
-    alt: 'PORTALS NOUS LUSH TROPICAL PALM TERRACE CYCAS REVOLUTA AND ARCHITECTURAL PLANTING SESTEPA DESIGN',
+    alt: 'PORTALS NOUS GARDEN DESIGN MALLORCA SESTEPA DESIGN 02',
     projectSlug: portalsNous,
   },
   {
     src: '/portfolio/portals-nous/images/garden-design-mallorca-portals-nous-sestepa-03.webp',
-    alt: 'PORTALS NOUS SUNLIT GARDEN PATHWAY MATURE PALMS AND CLASSICAL BALUSTRADE SESTEPA DESIGN',
+    alt: 'PORTALS NOUS GARDEN DESIGN MALLORCA SESTEPA DESIGN 03',
     projectSlug: portalsNous,
   },
-  // 3 × Marratxí (Living Landscape with Time)
+  // 18. Marratxí (3 photos)
   {
-    src: '/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-01.webp',
-    alt: 'MARRATXI MEDITERRANEAN ESTATE ANCIENT OLIVE TREE AND STONE PATHWAY SESTEPA DESIGN',
+    src: '/portfolio/marratxi/garden-design-mallorca-marratxi-sestepa-01.webp',
+    alt: 'MARRATXI MEDITERRANEAN ESTATE GARDEN SESTEPA DESIGN 01',
     projectSlug: marratxi,
   },
   {
     src: '/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-02.webp',
-    alt: 'MARRATXI FINCA ARCHITECTURE AND CURVED FLOWERING BORDERS SESTEPA DESIGN',
+    alt: 'MARRATXI MEDITERRANEAN ESTATE GARDEN SESTEPA DESIGN 02',
     projectSlug: marratxi,
   },
   {
     src: '/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-03.webp',
-    alt: 'MARRATXI SCULPTURAL CACTI AND MEDITERRANEAN COURTYARD SESTEPA DESIGN',
+    alt: 'MARRATXI MEDITERRANEAN ESTATE GARDEN SESTEPA DESIGN 03',
     projectSlug: marratxi,
   },
-  // 3 × Alcanada (Seaside House Alcúdia)
+  // 19. Alcanada (3 photos)
   {
     src: '/portfolio/seaside-house-alcudia/images/garden-design-mallorca-seaside-house-alcudia-sestepa-01-panoramica.webp',
-    alt: 'ALCANADA RESIDENTIAL GARDEN SEASIDE VILLA PANORAMIC VIEW SESTEPA DESIGN',
+    alt: 'ALCANADA SEASIDE HOUSE ALCUDIA GARDEN DESIGN SESTEPA DESIGN 01',
     projectSlug: alcanada,
   },
   {
     src: '/portfolio/seaside-house-alcudia/images/garden-design-mallorca-seaside-house-alcudia-sestepa-02-bancal-corten.webp',
-    alt: 'ALCANADA RESIDENTIAL GARDEN CORTEN STEEL TERRACE BANCAL SESTEPA DESIGN',
+    alt: 'ALCANADA SEASIDE HOUSE ALCUDIA GARDEN DESIGN SESTEPA DESIGN 02',
     projectSlug: alcanada,
   },
   {
     src: '/portfolio/seaside-house-alcudia/images/garden-design-mallorca-seaside-house-alcudia-sestepa-03-plantas-banco.webp',
-    alt: 'ALCANADA MEDITERRANEAN COASTAL PLANTING AND BENCH COMPOSITION SESTEPA DESIGN',
+    alt: 'ALCANADA SEASIDE HOUSE ALCUDIA GARDEN DESIGN SESTEPA DESIGN 03',
     projectSlug: alcanada,
   },
 ];

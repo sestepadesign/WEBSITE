@@ -9,12 +9,31 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Produção atualizada em `master` com correção cirúrgica da galeria de Alcanada (eliminação de renders 3D duplicados e alts precisos).
-- **Último commit técnico publicado:** `56f43ab` (`fix(alcanada): remove duplicate 3D renders and correct image alts`).
+- **Status:** Produção atualizada em `master` com sincronização das 97 fotos curadas nas pastas `01` a `19` para a galeria (`/gallery`), apresentação interativa (`presentacion-proyectos.html`), apresentação PowerPoint (`Presentacion_Mejores_Jardines_Sestepa.pptx`), pasta `00 - TODAS LAS FOTOS JUNTAS` e PDFs horizontal/vertical.
+- **Último commit técnico anterior:** `56f43ab` (`fix(alcanada): remove duplicate 3D renders and correct image alts`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+
+### [2026-11-09] - Antigravity (Sincronização das 97 Fotos Curadas: PPTX, Pasta 00, Galeria, Apresentação Interativa e PDFs) — publicado em master
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Leitura das pastas `01 - Santa Ponsa` até `19 - Alcanada` e gravação solicitada explicitamente pelo operador em `J:\Meu Drive\S'ESTEPA 2026\MEDIA 2026\PRESENTACIÓN MEJORES JARDINES\` (`00 - TODAS LAS FOTOS JUNTAS`, `Presentacion_Mejores_Jardines_Sestepa.pptx`, `presentacion-proyectos.html` e PDFs horizontal e vertical).
+- **Escopo:**
+  1. Atualização da Apresentação PowerPoint e Pasta `00 - TODAS LAS FOTOS JUNTAS` em `J:`:
+     - Consolidação das 97 fotografias revisadas das pastas `01` a `19` na pasta `00 - TODAS LAS FOTOS JUNTAS` (`01_Santa_Ponsa_...` até `97_Alcanada_...`).
+     - Geração de `Presentacion_Mejores_Jardines_Sestepa.pptx` com 99 slides (capa com logo, 97 slides de fotos e fechamento com logo), títulos dos projetos centralizados na barra inferior sem setas e contadores `01  /  97` a `97  /  97` em `#A5A5A5`.
+  2. Ingestão de 3 Novas Fotos e Conversão WebP:
+     - Cópia dos originais de `J:` para `G:\Meu Drive\1. WEBSITES\sestepa-design\originais-grandes\<slug>\` e conversão para WebP em `codigo/public/portfolio/<slug>/images/`:
+       - `public/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-img-3911-sestepa.webp`
+       - `public/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-fotografo-uri-gershuni-8-sestepa.webp`
+       - `public/portfolio/finca-garden-campos-mallorca/images/garden-design-mallorca-finca-garden-campos-mallorca-img-1333-sestepa.webp`
+  3. Sincronização da Galeria (`/gallery`), Apresentação Web (`presentacion-proyectos.html`) e PDFs:
+     - Atualizado `src/data/gallery-images.ts` com os 97 itens curados.
+     - Atualizado `presentacion-proyectos.html` (`public/presentacion-proyectos.html`, raiz do workspace, `Presentacion Fotos/` e `J:`) com os 97 itens, filtros alfabéticos e contadores `97 fotos` / `01 / 97`.
+     - Regenerados os PDFs de 98 páginas (`Sestepa-Design-Proyectos-Horizontal.pdf` com `23.20 MB` e `Sestepa-Design-Proyectos-Celular-Vertical.pdf` com `23.22 MB`, ambos abaixo do limite de 25 MB do Cloudflare Pages) em `public/Presentacion Fotos/`, `Presentacion Fotos/` e `J:`.
+- **Validação:** Verificação de 97 assets WebP/JPG existentes em `codigo/public/`, limites de tamanho < 25 MB nos PDFs e deploy em `origin/master`.
+- **Arquivos alterados:** `src/data/gallery-images.ts`, `public/presentacion-proyectos.html`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Horizontal.pdf`, `public/Presentacion Fotos/Sestepa-Design-Proyectos-Celular-Vertical.pdf`, 3 novos WebP em `public/portfolio/`, `STATUS.md`.
 
 ### [2026-11-03] - Antigravity (Auditoria e Correção de Alcanada: Remoção de Renders Duplicados e Alts Precisos) — publicado em master (`56f43ab`)
 - **Autor/agente:** Antigravity.
