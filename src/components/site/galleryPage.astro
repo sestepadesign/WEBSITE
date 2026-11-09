@@ -304,7 +304,7 @@ const i18n = {
                 <img
                   src={encodeURI(img.src)}
                   alt={img.alt}
-                  loading={idx < 8 ? 'eager' : 'lazy'}
+                  loading={idx < 4 ? 'eager' : 'lazy'}
                   decoding="async"
                   class="overview-thumb"
                 />
@@ -351,7 +351,7 @@ const i18n = {
   </article>
 
   <!-- ==========================================================================
-       IMMERSIVE PRESENTATION & SLIDESHOW OVERLAY (NO PDF EXPORT)
+       IMMERSIVE PRESENTATION & SLIDESHOW OVERLAY (DUAL-BUFFER GPU SAFE FOR IOS)
        ========================================================================== -->
   <div
     class="pres-overlay"
@@ -452,27 +452,22 @@ const i18n = {
       </svg>
     </button>
 
-    <!-- Slideshow Stage -->
+    <!-- Dual-Buffer Slideshow Stage (Only 2 DOM slides instead of 96 to prevent iOS Safari GPU crashes) -->
     <div class="pres-deck-container" id="deckContainer">
-      {images.map((img, idx) => (
-        <section
-          class={`pres-slide${idx === 0 ? ' active' : ''}`}
-          data-index={idx}
-          data-title={img.projectTitle}
-        >
-          <div class="pres-slide-figure">
-            <div class="pres-image-wrapper">
-              <img
-                src={encodeURI(img.src)}
-                alt={img.alt}
-                loading={idx < 3 ? 'eager' : 'lazy'}
-                decoding="async"
-                class="pres-slide-img"
-              />
-            </div>
+      <section class="pres-slide active" id="presSlideA">
+        <div class="pres-slide-figure">
+          <div class="pres-image-wrapper">
+            <img src="" alt="" decoding="async" class="pres-slide-img" id="presImgA" />
           </div>
-        </section>
-      ))}
+        </div>
+      </section>
+      <section class="pres-slide" id="presSlideB">
+        <div class="pres-slide-figure">
+          <div class="pres-image-wrapper">
+            <img src="" alt="" decoding="async" class="pres-slide-img" id="presImgB" />
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- Bottom Navigation Bar & Interactive Filmstrip Drawer -->
@@ -508,7 +503,7 @@ const i18n = {
           </span>
         </div>
 
-        <!-- Luxury Interactive Filmstrip Carousel (Reveals on bottom hover / tap) -->
+        <!-- Luxury Interactive Filmstrip Carousel (Hydrated on-demand when revealed) -->
         <div class="pres-bottom-filmstrip-drawer" id="bottomFilmstripDrawer">
           <div class="filmstrip-scroll-mask" id="filmstripScrollMask">
             <div class="filmstrip-track" id="filmstripTrack">
@@ -517,11 +512,12 @@ const i18n = {
                   type="button"
                   class={`filmstrip-thumb-btn${idx === 0 ? ' active' : ''}`}
                   data-index={idx}
+                  data-thumb-src={encodeURI(img.src)}
                   aria-label={`${img.projectTitle} (${idx + 1})`}
                   title={`${idx + 1}. ${img.projectTitle}`}
                 >
                   <img
-                    src={encodeURI(img.src)}
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                     alt={img.alt}
                     loading="lazy"
                     decoding="async"
@@ -566,11 +562,16 @@ const i18n = {
   const btnResetGalleryFilter = document.getElementById('btnResetGalleryFilter');
   const btnStartPresentation = document.getElementById('btnStartPresentation');
 
-  // DOM Elements - Presentation Overlay
+  // DOM Elements - Presentation Overlay (Dual-Buffer Stage)
   const presOverlay = document.getElementById('presentationOverlay');
   const deckContainer = document.getElementById('deckContainer');
-  const slides = document.querySelectorAll('.pres-slide');
-  const totalSlides = slides.length;
+  const slideBuffers = [
+    { slide: document.getElementById('presSlideA'), img: document.getElementById('presImgA') },
+    { slide: document.getElementById('presSlideB'), img: document.getElementById('presImgB') },
+  ];
+  let activeBufferIdx = 0;
+
+  const totalSlides = images.length;
   const bottomProjectName = document.getElementById('bottomProjectName');
   const counterCurrent = document.getElementById('counterCurrent');
   const counterTotal = document.getElementById('counterTotal');
@@ -591,12 +592,24 @@ const i18n = {
 
   if (!presOverlay || !deckContainer) return;
 
+  // Hydrate filmstrip thumbnails only when needed (protects iOS Safari memory)
+  let filmstripHydrated = false;
+  function hydrateFilmstrip() {
+    if (filmstripHydrated) return;
+    filmstripHydrated = true;
+    filmstripThumbs.forEach((btn) => {
+      const thumbSrc = btn.getAttribute('data-thumb-src');
+      const imgEl = btn.querySelector('img');
+      if (thumbSrc && imgEl) {
+        imgEl.src = thumbSrc;
+      }
+    });
+  }
+
   // Filter State
-  let activeSlugFilter = 'all';
   let firstVisibleSlideIndex = 0;
 
   function applyGalleryFilter({ slug = 'all', query = '', label = '' }) {
-    activeSlugFilter = slug;
     const normQuery = normalizeStr(query);
     let visibleCount = 0;
     firstVisibleSlideIndex = -1;
@@ -739,40 +752,63 @@ const i18n = {
   });
 
   // =========================================================================
-  // PRESENTATION SLIDESHOW ENGINE
+  // PRESENTATION SLIDESHOW ENGINE (DUAL-BUFFER, MEMORY-SAFE)
   // =========================================================================
   let currentSlide = 0;
   let isPlaying = false;
   let autoPlayTimer = null;
   let autoResumeTimer = null;
   let idleTimer = null;
+  let outgoingTimeout = null;
   const SLIDE_DURATION = 4200;
   const AUTO_RESUME_DELAY = 20000;
+  const preloader = new Image();
 
   function isPresentationActive() {
     return presOverlay.classList.contains('active');
   }
 
-  function goToSlide(index) {
+  function goToSlide(index, animate = true) {
     if (index < 0 || index >= totalSlides) return;
+    const item = images[index];
+    if (!item) return;
 
-    const prevSlideEl = slides[currentSlide];
-    const nextSlideEl = slides[index];
+    const encodedSrc = encodeURI(item.src);
 
-    if (index !== currentSlide) {
-      prevSlideEl.classList.remove('active');
-      prevSlideEl.classList.add('outgoing');
-      setTimeout(() => {
-        prevSlideEl.classList.remove('outgoing');
+    if (!animate) {
+      const currentBuf = slideBuffers[activeBufferIdx];
+      const otherBuf = slideBuffers[1 - activeBufferIdx];
+      otherBuf.slide?.classList.remove('active', 'outgoing');
+      if (currentBuf.img) {
+        currentBuf.img.src = encodedSrc;
+        currentBuf.img.alt = item.alt;
+      }
+      currentBuf.slide?.classList.remove('outgoing');
+      currentBuf.slide?.classList.add('active');
+    } else if (index !== currentSlide) {
+      const prevBuf = slideBuffers[activeBufferIdx];
+      activeBufferIdx = 1 - activeBufferIdx;
+      const nextBuf = slideBuffers[activeBufferIdx];
+
+      clearTimeout(outgoingTimeout);
+      if (nextBuf.img) {
+        nextBuf.img.src = encodedSrc;
+        nextBuf.img.alt = item.alt;
+      }
+
+      prevBuf.slide?.classList.remove('active');
+      prevBuf.slide?.classList.add('outgoing');
+      nextBuf.slide?.classList.remove('outgoing');
+      nextBuf.slide?.classList.add('active');
+
+      outgoingTimeout = setTimeout(() => {
+        prevBuf.slide?.classList.remove('outgoing');
       }, 900);
-      currentSlide = index;
-      nextSlideEl.classList.add('active');
-    } else if (!nextSlideEl.classList.contains('active')) {
-      nextSlideEl.classList.add('active');
     }
 
-    const item = images[currentSlide];
-    if (bottomProjectName && item) {
+    currentSlide = index;
+
+    if (bottomProjectName) {
       bottomProjectName.textContent = item.projectTitle;
       bottomProjectName.href = item.projectUrl || '#';
     }
@@ -783,38 +819,42 @@ const i18n = {
       counterTotal.textContent = String(totalSlides).padStart(2, '0');
     }
 
-    // Sync active filmstrip thumbnail & center scroll
+    // Sync active filmstrip thumbnail & center scroll if filmstrip is hydrated
     filmstripThumbs.forEach((btn, i) => {
       if (i === currentSlide) {
         btn.classList.add('active');
-        btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        if (filmstripHydrated) {
+          btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
       } else {
         btn.classList.remove('active');
       }
     });
 
-    // Eager preload adjacent images
-    [currentSlide + 1, currentSlide + 2].forEach((adjIdx) => {
-      if (adjIdx < totalSlides) {
-        const adjImg = slides[adjIdx].querySelector('.pres-slide-img');
-        if (adjImg && adjImg.loading === 'lazy') adjImg.loading = 'eager';
-      }
-    });
+    // Preload only the single next slide image
+    const nextIdx = (currentSlide + 1) % totalSlides;
+    if (images[nextIdx]) {
+      preloader.src = encodeURI(images[nextIdx].src);
+    }
   }
 
   function nextSlide() {
-    goToSlide(currentSlide < totalSlides - 1 ? currentSlide + 1 : 0);
+    goToSlide(currentSlide < totalSlides - 1 ? currentSlide + 1 : 0, true);
   }
 
   function prevSlide() {
-    goToSlide(currentSlide > 0 ? currentSlide - 1 : totalSlides - 1);
+    goToSlide(currentSlide > 0 ? currentSlide - 1 : totalSlides - 1, true);
   }
 
   function openPresentation(index, startPlay = false) {
-    presOverlay.classList.add('active');
-    presOverlay.setAttribute('aria-hidden', 'false');
+    presOverlay.classList.add('is-mounted');
+    goToSlide(typeof index === 'number' ? index : 0, false);
+
+    requestAnimationFrame(() => {
+      presOverlay.classList.add('active');
+      presOverlay.setAttribute('aria-hidden', 'false');
+    });
     document.body.style.overflow = 'hidden';
-    goToSlide(typeof index === 'number' ? index : 0);
 
     if (startPlay) {
       startAutoPlay();
@@ -834,6 +874,11 @@ const i18n = {
     presOverlay.classList.remove('active', 'is-fullscreen', 'hide-controls');
     presOverlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    setTimeout(() => {
+      if (!presOverlay.classList.contains('active')) {
+        presOverlay.classList.remove('is-mounted');
+      }
+    }, 450);
   }
 
   // Idle auto-hide in fullscreen (900ms) -> 100% pure landscape photo
@@ -978,7 +1023,7 @@ const i18n = {
       e.stopPropagation();
       stopAutoPlay();
       const idx = Number(btn.getAttribute('data-index') || 0);
-      goToSlide(idx);
+      goToSlide(idx, true);
     });
   });
 
@@ -986,13 +1031,13 @@ const i18n = {
   counterCurrent?.addEventListener('click', (e) => {
     e.stopPropagation();
     stopAutoPlay();
-    goToSlide(0);
+    goToSlide(0, true);
   });
 
   counterTotal?.addEventListener('click', (e) => {
     e.stopPropagation();
     stopAutoPlay();
-    goToSlide(totalSlides - 1);
+    goToSlide(totalSlides - 1, true);
   });
 
   // Directional Cursor & Half-Screen Click Navigation
@@ -1025,6 +1070,7 @@ const i18n = {
     scheduleAutoResume();
     const distFromBottom = window.innerHeight - e.clientY;
     if (distFromBottom < 130) {
+      hydrateFilmstrip();
       bottomFilmstripDrawer?.classList.add('is-revealed');
     } else if (!e.target.closest('#bottomFilmstripDrawer')) {
       bottomFilmstripDrawer?.classList.remove('is-revealed');
@@ -1035,6 +1081,7 @@ const i18n = {
   bottomProjectPill?.addEventListener('click', (e) => {
     if (!e.target.closest('a') && !e.target.closest('button')) {
       e.stopPropagation();
+      hydrateFilmstrip();
       bottomFilmstripDrawer?.classList.toggle('is-revealed');
     }
   });
@@ -1116,12 +1163,12 @@ const i18n = {
       case 'Home':
         e.preventDefault();
         stopAutoPlay();
-        goToSlide(0);
+        goToSlide(0, true);
         break;
       case 'End':
         e.preventDefault();
         stopAutoPlay();
-        goToSlide(totalSlides - 1);
+        goToSlide(totalSlides - 1, true);
         break;
       case 'g':
       case 'G':
@@ -1565,9 +1612,7 @@ const i18n = {
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background: rgba(31, 33, 31, 0.65);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(31, 33, 31, 0.78);
     color: var(--color-white);
     display: flex;
     align-items: center;
@@ -1686,20 +1731,25 @@ const i18n = {
     --pres-text: #f0f0f0;
     --pres-muted: #8e8e8e;
     --pres-border: rgba(255, 255, 255, 0.14);
-    --pres-pill-bg: rgba(14, 14, 14, 0.78);
+    --pres-pill-bg: rgba(14, 14, 14, 0.85);
     position: fixed;
     inset: 0;
     z-index: 9999;
     background-color: var(--pres-bg);
     color: var(--pres-text);
+    display: none;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-                visibility 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                visibility 0.4s cubic-bezier(0.22, 1, 0.36, 1),
                 background-color 0.3s ease,
                 color 0.3s ease;
     user-select: none;
+  }
+
+  .pres-overlay.is-mounted {
+    display: block;
   }
 
   .pres-overlay.active {
@@ -1873,9 +1923,7 @@ const i18n = {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: rgba(10, 10, 10, 0.75);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(10, 10, 10, 0.78);
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: #ffffff;
     display: none;
@@ -1961,7 +2009,6 @@ const i18n = {
     border-radius: 2px;
     transform: scale(1);
     transition: transform 5.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    will-change: transform;
   }
 
   .pres-overlay.pres-light .pres-slide-img {
@@ -2050,8 +2097,6 @@ const i18n = {
     justify-content: center;
     gap: 16px;
     background: var(--pres-pill-bg);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
     padding: 8px 24px;
     border-radius: 30px;
     border: 1px solid var(--pres-border);
@@ -2134,9 +2179,7 @@ const i18n = {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
-    background: rgba(12, 12, 12, 0.88);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    background: rgba(12, 12, 12, 0.92);
     border: 1px solid var(--pres-border);
     border-radius: 12px;
     padding: 10px 14px;
