@@ -171,9 +171,6 @@ const i18n = {
                 <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
             </button>
-            <span class="gallery-search-badge" id="gallerySearchCount">
-              {images.length} {i18n.photosWord}
-            </span>
           </div>
 
           <div class="gallery-toolbar-actions">
@@ -206,7 +203,6 @@ const i18n = {
                   data-filter-label={i18n.projectsLabel}
                 >
                   <span>{i18n.allProjects}</span>
-                  <span class="dropdown-opt-count">{images.length}</span>
                 </button>
                 {projectGroups.map((group) => (
                   <button
@@ -257,7 +253,7 @@ const i18n = {
                 data-filter-slug="all"
                 data-filter-label={i18n.projectsLabel}
               >
-                {i18n.allPill} ({images.length})
+                {i18n.allPill}
               </button>
               {projectGroups.map((group) => (
                 <button
@@ -548,7 +544,6 @@ const i18n = {
   // DOM Elements - Index / Overview
   const searchInput = document.getElementById('gallerySearchInput');
   const searchClear = document.getElementById('gallerySearchClear');
-  const searchCount = document.getElementById('gallerySearchCount');
   const btnProjectDropdown = document.getElementById('btnProjectDropdown');
   const projectDropdownPopover = document.getElementById('projectDropdownPopover');
   const projectDropdownCurrentLabel = document.getElementById('projectDropdownCurrentLabel');
@@ -668,17 +663,6 @@ const i18n = {
     });
 
     if (firstVisibleSlideIndex === -1) firstVisibleSlideIndex = 0;
-
-    // Update count badge
-    if (searchCount) {
-      if (slug === 'all' && !normQuery) {
-        searchCount.textContent = `${images.length} ${i18n.photosWord}`;
-      } else if (visibleCount === 0) {
-        searchCount.textContent = `0 ${i18n.photosWord}`;
-      } else {
-        searchCount.textContent = `${visibleCount} ${i18n.ofWord} ${images.length} ${i18n.photosWord}`;
-      }
-    }
 
     // Empty state visibility
     if (emptyState) {
@@ -1318,26 +1302,11 @@ const i18n = {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 0.5rem;
     transition: color 0.2s ease;
   }
 
   .gallery-search-clear:hover {
     color: var(--color-charcoal);
-  }
-
-  .gallery-search-badge {
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-olive-dark);
-    background: var(--color-sand-base);
-    border: 1px solid var(--color-sand-dark);
-    padding: 4px 11px;
-    border-radius: 14px;
-    white-space: nowrap;
-    font-weight: 500;
-    user-select: none;
   }
 
   .gallery-toolbar-actions {
