@@ -150,37 +150,48 @@ const t = (key: keyof typeof ui[typeof lang]) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ type: "contact", payload: data })
       })
-      .then(() => {
+      .then(async (res) => {
+        const result = await res.json().catch(() => ({}));
+        if (!res.ok || !result.ok) {
+          throw new Error(result.error || `HTTP ${res.status}`);
+        }
+
         statusDiv.textContent = "Thank you. Your message has been sent successfully.";
+        statusDiv.classList.remove('error');
         statusDiv.classList.add('success');
-        
-        // Dispara a conversão no Google Ads apenas para leads humanos reais
-        if (typeof window !== 'undefined' && (window as any).gtag) {
+
+        const txId = `lead_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+        const pathname = window.location.pathname;
+
+        // Dispara a conversão no Google Ads apenas após confirmação HTTP 200 do servidor (/api/leads)
+        if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
           (window as any).gtag('event', 'conversion', {
             'send_to': 'AW-795871100/dv-kCJrn0YoaEPyOwPsC',
             'value': 1.0,
-            'currency': 'EUR'
+            'currency': 'EUR',
+            'transaction_id': txId
+          });
+          (window as any).gtag('event', 'generate_lead', {
+            'currency': 'EUR',
+            'value': 1.0,
+            'event_label': pathname
           });
         }
-        
+        if (typeof window !== 'undefined' && Array.isArray((window as any).dataLayer)) {
+          (window as any).dataLayer.push({
+            event: 'generate_lead',
+            page: pathname,
+            transaction_id: txId
+          });
+        }
+
         form.reset();
       })
       .catch(err => {
         console.error("Transmission error:", err);
-        // Fallback success feedback as it may fail CORS but succeeds in transmitting
-        statusDiv.textContent = "Thank you. Your message has been sent successfully.";
-        statusDiv.classList.add('success');
-        
-        // Dispara a conversão no Google Ads (fallback) apenas para leads humanos reais
-        if (typeof window !== 'undefined' && (window as any).gtag) {
-          (window as any).gtag('event', 'conversion', {
-            'send_to': 'AW-795871100/dv-kCJrn0YoaEPyOwPsC',
-            'value': 1.0,
-            'currency': 'EUR'
-          });
-        }
-        
-        form.reset();
+        statusDiv.textContent = "We could not send your message at this moment. Please try again or contact us directly via WhatsApp or sofia@sestepa.com.";
+        statusDiv.classList.remove('success');
+        statusDiv.classList.add('error');
       })
       .finally(() => {
         submitBtn.innerHTML = originalText;
@@ -275,5 +286,9 @@ const t = (key: keyof typeof ui[typeof lang]) => {
 
   .form-status.success {
     color: var(--color-olive-dark);
+  }
+
+  .form-status.error {
+    color: #b33939;
   }
 </style>

@@ -193,30 +193,41 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
             const anchor = e.target.closest('a');
             if (anchor && anchor.href && anchor.href.includes('wa.me')) {
               const pathname = window.location.pathname;
-              if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-                window.gtag('event', 'whatsapp_click', {
-                  event_category: 'engagement',
-                  event_label: pathname
-                });
+              const waSessionKey = 'sestepa_wa_logged';
+              let alreadyLogged = false;
+              try {
+                alreadyLogged = sessionStorage.getItem(waSessionKey) === '1';
+                if (!alreadyLogged) {
+                  sessionStorage.setItem(waSessionKey, '1');
+                }
+              } catch (_) {}
+
+              if (!alreadyLogged) {
+                if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+                  window.gtag('event', 'whatsapp_click', {
+                    event_category: 'engagement',
+                    event_label: pathname
+                  });
+                }
+                if (window.dataLayer) {
+                  window.dataLayer.push({
+                    event: 'whatsapp_click',
+                    page: pathname
+                  });
+                }
+                const payload = {
+                  name: "WhatsApp Click",
+                  email: "---",
+                  subject: "WhatsApp",
+                  message: `Click en el botón de WhatsApp desde: ${pathname}`
+                };
+                fetch("/api/leads", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ type: "whatsapp", payload }),
+                  keepalive: true
+                }).catch(err => console.error("WhatsApp click logging failed:", err));
               }
-              if (window.dataLayer) {
-                window.dataLayer.push({
-                  event: 'whatsapp_click',
-                  page: pathname
-                });
-              }
-              const payload = {
-                name: "WhatsApp Click",
-                email: "---",
-                subject: "WhatsApp",
-                message: `Click en el botón de WhatsApp desde: ${pathname}`
-              };
-              fetch("/api/leads", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ type: "whatsapp", payload }),
-                keepalive: true
-              }).catch(err => console.error("WhatsApp click logging failed:", err));
             }
           });
         });

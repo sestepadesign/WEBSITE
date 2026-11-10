@@ -9,12 +9,28 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Produção atualizada em `master` com sincronização das 96 fotos curadas (múltiplo de 3) para a galeria (`/gallery`), apresentação interativa (`presentacion-proyectos.html`) e PDFs horizontal/vertical, iniciando com as 3 fotos principais de Santa Ponsa e removendo `landscape-garden-design-terrace-palma-mallorca-sestepa-design-2.jpg` do site e dos PDFs.
+- **Status:** Produção atualizada em `master` com blindagem do disparo de conversão do formulário (`ContactForm.astro`) condicionado à resposta HTTP 200 (`res.ok && result.ok`) de `/api/leads`, adição de `transaction_id` único, emissão de evento `generate_lead` para GA4/dataLayer, remoção do disparo falso no bloco `.catch()` e deduplicação por sessão (`sessionStorage`) no rastreamento de cliques de WhatsApp (`Layout.astro`).
 - **Último commit técnico anterior:** `32d6d92` (`feat(gallery,presentacion): sync 97 curated photos across gallery, presentation and PDFs`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+
+### [2026-11-10] - Antigravity (Blindagem de Conversão em ContactForm.astro e Deduplicação de Sessão WhatsApp em Layout.astro) — publicado em master
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Não houve acesso a J: (100% isolamento estrito preservado).
+- **Escopo:**
+  1. Correção de Conversão de Formulário (`src/components/ContactForm.astro`):
+     - Validação explícita da resposta HTTP (`res.ok`) e do payload JSON (`result.ok === true`) do endpoint Cloudflare `/api/leads` antes de acionar a conversão do Google Ads (`AW-795871100/dv-kCJrn0YoaEPyOwPsC`).
+     - Inclusão de `transaction_id` único por envio para evitar contagem duplicada no Google Ads.
+     - Emissão do evento `generate_lead` para `window.gtag` e `window.dataLayer` na confirmação de entrega.
+     - Remoção do disparo falso de conversão de dentro do bloco `.catch()`, mantendo os dados digitados pelo usuário no formulário e exibindo mensagem de erro caso ocorra falha real de transmissão.
+  2. Deduplicação de Cliques de WhatsApp por Sessão (`src/layouts/Layout.astro`):
+     - Adicionada trava em `sessionStorage` (`sestepa_wa_logged`) no listener de links `wa.me` para registrar apenas um evento/notificação por sessão de usuário, preservando o contador `WA Clicks` do painel `/dashboard` e a planilha Google Sheets sem inundar a caixa de e-mail com cliques repetidos da mesma sessão.
+  3. Documentação Técnica (`docs/ANALYTICS.md`):
+     - Atualizada a tabela de telemetria e o histórico de correções de rastreamento.
+- **Validação:** Revisão estática de integridade e compatibilidade total com `functions/api/leads.js`, `functions/api/dashboard-leads.js` e `dashboardPage.astro`.
+- **Arquivos alterados:** `src/components/ContactForm.astro`, `src/layouts/Layout.astro`, `docs/ANALYTICS.md`, `STATUS.md`.
 
 ### [2026-11-09] - Antigravity (Sincronização das 96 Fotos Curadas: PPTX, Pasta 00, Galeria, Apresentação Interativa e PDFs) — publicado em master
 - **Autor/agente:** Antigravity.
