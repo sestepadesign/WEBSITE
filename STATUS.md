@@ -9,12 +9,21 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Produção atualizada em `master` com o novo vídeo real de Sant Llorenç no Hero desktop (`public/videos/sant_llorenc_hero.mp4`, `10,6 MB`, `1920×1080`, `28,4 s` em loop contínuo abrindo e fechando nas *Muhlenbergia* sob a oliveira), mantendo o poster `sant_llorenc_poster.webp` intacto.
-- **Último commit técnico anterior:** `12b326b` (`feat(ux): refine homepage testimonials, portfolio filters above hero, and press editorial layout`).
+- **Status:** Produção atualizada em `master` com a nova secção partilhada `NonResidentOwners.astro` ("For Non-Resident Owners" em EN/ES/DE) integrada na Homepage e em `/services/`.
+- **Último commit técnico anterior:** `7eee690` (`feat(hero): replace desktop hero video with real Sant Llorenc 28.4s seamless loop`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+
+### [2026-11-13] - Antigravity (Secção "For Non-Resident Owners" na Homepage e em Serviços) — publicado em master
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Não houve acesso a `J:` (100% isolamento estrito preservado).
+- **Escopo:**
+  - Criado o componente partilhado `src/components/NonResidentOwners.astro` nos 3 idiomas (EN/ES/DE) com os 3 pilares já validados no FAQ: interlocutor único em EN/ES/DE (sem menção a nome pessoal), atualizações por foto/vídeo/chamada e orçamento transparente por fases sem sobretaxa internacional.
+  - Integrado em `src/components/site/HomePage.astro` (após a secção de processo) e em `src/components/site/servicesPage.astro` (antes do CTA final).
+- **Validação:** Build de produção isolado (`scripts/preview_local.py build`) concluído com 0 erros (`157` páginas compiladas, Pagefind indexado com `162` páginas) e aprovação em `localhost:4321`.
+- **Arquivos alterados:** `src/components/NonResidentOwners.astro`, `src/components/site/HomePage.astro`, `src/components/site/servicesPage.astro`, `STATUS.md`.
 
 ### [2026-11-13] - Antigravity (Novo Vídeo Real de Sant Llorenç em Loop no Hero Desktop) — publicado em master
 - **Autor/agente:** Antigravity.

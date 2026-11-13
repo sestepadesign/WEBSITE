@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ContactForm from '../ContactForm.astro';
+import NonResidentOwners from '../NonResidentOwners.astro';
 import { ui } from '../../data/translations';
 import { projects, getProjectLocation } from '../../data/projects';
 import { testimonials } from '../../data/testimonials';
@@ -646,6 +647,8 @@ const currentTestimonials = testimonialsCopy[lang];
       </div>
     </div>
   </section>
+
+  <NonResidentOwners lang={lang} />
 
   <!-- Testimonials Section -->
   <section class="testimonials-section section-padding">

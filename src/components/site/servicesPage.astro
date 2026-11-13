@@ -5,6 +5,7 @@ import { servicesContent } from '../../data/services';
 import { getPagePath } from '../../lib/urls';
 import { projects, getProjectLocation } from '../../data/projects';
 import ProjectCard from '../ProjectCard.astro';
+import NonResidentOwners from '../NonResidentOwners.astro';
 import type { SitePageId } from '../../data/site-urls';
 
 interface Props { lang: 'en' | 'es' | 'de'; }
@@ -198,6 +199,8 @@ const heroCta = {
           )}
         </ul>
       </section>
+
+      <NonResidentOwners lang={lang} />
 
       <div class="cta-panel">
         <p>

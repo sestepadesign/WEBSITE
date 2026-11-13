@@ -1,0 +1,164 @@
+---
+interface Props {
+  lang: 'en' | 'es' | 'de';
+}
+
+const { lang } = Astro.props;
+
+const copy = {
+  en: {
+    tag: 'Remote Management',
+    title: 'For Non-Resident Owners',
+    lead: 'Most of our clients manage their Mallorca garden project from abroad. Physical presence on the island is not required to stay informed and in full control of every decision.',
+    items: [
+      {
+        title: 'Single Point of Contact',
+        text: 'One dedicated point of contact coordinates every stage from first consultation to final planting, communicating directly in English, Spanish, and German.',
+      },
+      {
+        title: 'Photo, Video & Call Updates',
+        text: 'Regular on-site progress reports with photos and video, complemented by scheduled video calls whenever decisions are needed.',
+      },
+      {
+        title: 'Transparent Phase Budgeting',
+        text: 'Itemized quotes broken down by design, materials, construction, and planting — with no hidden fees and no surcharge for international clients.',
+      },
+    ],
+  },
+  es: {
+    tag: 'Gestión a Distancia',
+    title: 'Para Propietarios No Residentes',
+    lead: 'La mayoría de nuestros clientes gestionan su proyecto en Mallorca desde el extranjero. No es necesario estar físicamente en la isla para mantenerse informado y al mando de cada decisión.',
+    items: [
+      {
+        title: 'Interlocutor Único',
+        text: 'Un único interlocutor coordina cada etapa desde la primera consulta hasta la plantación final, comunicándose directamente en español, inglés y alemán.',
+      },
+      {
+        title: 'Seguimiento por Foto y Vídeo',
+        text: 'Informes periódicos desde la obra con fotografías y vídeos, complementados con videollamadas concertadas siempre que sea necesario.',
+      },
+      {
+        title: 'Presupuesto Desglosado por Fases',
+        text: 'Presupuestos detallados por diseño, materiales, construcción y plantación, sin costes ocultos ni recargos para clientes internacionales.',
+      },
+    ],
+  },
+  de: {
+    tag: 'Projektbetreuung aus der Ferne',
+    title: 'Für Internationale Eigentümer',
+    lead: 'Die meisten unserer Kunden steuern ihr Gartenprojekt auf Mallorca aus dem Ausland. Ihre Anwesenheit vor Ort ist nicht erforderlich, um jederzeit informiert und entscheidungsfähig zu bleiben.',
+    items: [
+      {
+        title: 'Ein Fester Ansprechpartner',
+        text: 'Ein fester Ansprechpartner koordiniert jede Phase vom ersten Gespräch bis zur finalen Bepflanzung — direkt auf Deutsch, Englisch und Spanisch.',
+      },
+      {
+        title: 'Foto-, Video- & Call-Updates',
+        text: 'Regelmäßige Baustellenberichte mit Fotos und Videos sowie abgestimmte Videocalls, wann immer Entscheidungen anstehen.',
+      },
+      {
+        title: 'Transparente Phasenbudgets',
+        text: 'Aufgeschlüsselte Angebote für Design, Materialien, Bau und Bepflanzung — ohne versteckte Gebühren oder Aufschläge für internationale Kunden.',
+      },
+    ],
+  },
+}[lang];
+---
+
+<section class="non-resident-section">
+  <div class="container">
+    <div class="non-resident-header">
+      <span class="section-tag">{copy.tag}</span>
+      <h2 class="non-resident-title">{copy.title}</h2>
+      <p class="non-resident-lead">{copy.lead}</p>
+    </div>
+
+    <div class="non-resident-grid">
+      {copy.items.map((item) => (
+        <div class="non-resident-item">
+          <h3 class="non-resident-item-title">{item.title}</h3>
+          <p class="non-resident-item-text">{item.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .non-resident-section {
+    background-color: var(--color-sand-light);
+    border-top: 1px solid var(--color-sand-dark);
+    padding: 5.5rem 0;
+  }
+
+  .non-resident-header {
+    max-width: 720px;
+    margin-bottom: 3.25rem;
+  }
+
+  .non-resident-section .section-tag {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-olive);
+    display: block;
+    margin-bottom: 0.85rem;
+  }
+
+  .non-resident-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-charcoal);
+    margin: 0 0 1rem;
+  }
+
+  .non-resident-lead {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--color-charcoal-light);
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .non-resident-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    border-top: 1px solid var(--color-sand-dark);
+    padding-top: 2.5rem;
+  }
+
+  .non-resident-item-title {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--color-charcoal);
+    margin: 0 0 0.75rem;
+  }
+
+  .non-resident-item-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-charcoal-light);
+    font-weight: 400;
+    margin: 0;
+  }
+
+  @media (max-width: 992px) {
+    .non-resident-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .non-resident-section {
+      padding: 4rem 0;
+    }
+  }
+</style>
