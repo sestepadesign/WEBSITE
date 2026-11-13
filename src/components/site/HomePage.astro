@@ -468,6 +468,23 @@ const currentTestimonials = testimonialsCopy[lang];
     </div>
   </section>
 
+  <!-- Discreet Press Strip -->
+  <section class="press-strip">
+    <div class="container press-strip-inner">
+      <span class="press-strip-label">
+        {lang === 'es' ? 'Publicado en' : lang === 'de' ? 'Veröffentlicht in' : 'Featured in'}
+      </span>
+      <ul class="press-strip-list" aria-label={lang === 'es' ? 'Medios' : lang === 'de' ? 'Medien' : 'Publications'}>
+        <li>abcMallorca</li>
+        <li>Helen Cummins</li>
+        <li>Spend In</li>
+      </ul>
+      <a href={getPagePath('press', lang)} class="press-strip-link">
+        {lang === 'es' ? 'Ver prensa' : lang === 'de' ? 'Presse ansehen' : 'Press archive'} &rarr;
+      </a>
+    </div>
+  </section>
+
   <!-- Featured Portfolio Grid Section -->
   <section class="featured section-padding">
     <div class="container">
@@ -1630,6 +1647,58 @@ const currentTestimonials = testimonialsCopy[lang];
     .contact-info-panel {
       padding: 3rem;
     }
+  }
+
+  .press-strip {
+    background-color: var(--color-sand-base);
+    border-top: 1px solid var(--color-sand-dark);
+    border-bottom: 1px solid var(--color-sand-dark);
+    padding: 1.5rem 0;
+  }
+
+  .press-strip-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+  }
+
+  .press-strip-label {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-olive);
+  }
+
+  .press-strip-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--color-charcoal);
+  }
+
+  .press-strip-link {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-olive);
+    text-decoration: none;
+    transition: var(--transition-fast);
+  }
+
+  .press-strip-link:hover {
+    color: var(--color-charcoal);
   }
 
   @media (max-width: 768px) {

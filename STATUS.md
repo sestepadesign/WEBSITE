@@ -9,12 +9,21 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Produção atualizada em `master` com a nova secção partilhada `NonResidentOwners.astro` ("For Non-Resident Owners" em EN/ES/DE) integrada na Homepage e em `/services/`.
-- **Último commit técnico anterior:** `7eee690` (`feat(hero): replace desktop hero video with real Sant Llorenc 28.4s seamless loop`).
+- **Status:** Produção atualizada em `master` com bloco de consulta privada no fim das páginas de projeto (`ProjectDetail.astro`) e faixa discreta de imprensa na Homepage (`HomePage.astro`).
+- **Último commit técnico anterior:** `69ca30a` (`feat(ux): add For Non-Resident Owners section to homepage and services`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+
+### [2026-11-13] - Antigravity (CTA Discreto no Fim dos Projetos e Faixa de Imprensa na Homepage) — publicado em master
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Não houve acesso a `J:` (100% isolamento estrito preservado).
+- **Escopo:**
+  - `src/components/ProjectDetail.astro`: adicionado bloco sóbrio de consulta privada (*"Discuss a garden of this scale"* em EN/ES/DE) com botão para `/contact/` antes do banner *Next Project*.
+  - `src/components/site/HomePage.astro`: adicionada faixa editorial discreta (*Featured in: abcMallorca · Helen Cummins · Spend In*) com link para `/press/` logo após a secção de posicionamento.
+- **Validação:** Build de produção isolado (`scripts/preview_local.py build`) concluído com 0 erros (`157` páginas compiladas, Pagefind indexado com `162` páginas).
+- **Arquivos alterados:** `src/components/ProjectDetail.astro`, `src/components/site/HomePage.astro`, `STATUS.md`.
 
 ### [2026-11-13] - Antigravity (Secção "For Non-Resident Owners" na Homepage e em Serviços) — publicado em master
 - **Autor/agente:** Antigravity.

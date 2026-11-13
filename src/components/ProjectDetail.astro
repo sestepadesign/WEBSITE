@@ -598,6 +598,28 @@ const computeEditorialLayout = (
       )}
     </div>
 
+    <!-- Discreet Project Enquiry Block -->
+    <section class="project-enquiry">
+      <div class="project-enquiry-inner">
+        <span class="project-enquiry-tag">
+          {lang === 'es' ? 'Consulta Privada' : lang === 'de' ? 'Private Anfrage' : 'Private Consultation'}
+        </span>
+        <h2 class="project-enquiry-title">
+          {lang === 'es' ? 'Hablemos de un jardín a esta escala' : lang === 'de' ? 'Ein Garten dieser Größenordnung' : 'Discuss a garden of this scale'}
+        </h2>
+        <p class="project-enquiry-text">
+          {lang === 'es'
+            ? 'Cada finca y villa se proyecta y ejecuta a medida por nuestro equipo en Mallorca, con un único interlocutor en español, inglés o alemán.'
+            : lang === 'de'
+            ? 'Jedes Anwesen und jede Villa wird von unserem Team auf Mallorca individuell entworfen und umgesetzt — mit einem festen Ansprechpartner auf Deutsch, Englisch oder Spanisch.'
+            : 'Every finca and villa is designed and built to measure by our team in Mallorca, with a single point of contact in English, Spanish, or German.'}
+        </p>
+        <a href={getPagePath('contact', lang)} class="project-enquiry-cta">
+          {lang === 'es' ? 'Solicitar consulta' : lang === 'de' ? 'Beratung anfragen' : 'Request a consultation'} &rarr;
+        </a>
+      </div>
+    </section>
+
     <!-- Next Project Hero Banner -->
     <section class="next-project-hero">
       <a href={getProjectPath(nextProject.slug, lang)} class="next-project-link">
@@ -2078,5 +2100,65 @@ const computeEditorialLayout = (
     .footer-upcoming-card {
       height: 210px;
     }
+  }
+
+  /* Discreet Project Enquiry Block */
+  .project-enquiry {
+    background-color: var(--color-sand-base);
+    border-top: 1px solid var(--color-sand-dark);
+    padding: 5.5rem var(--spacing-md);
+  }
+
+  .project-enquiry-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .project-enquiry-tag {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-olive);
+    display: block;
+    margin-bottom: 0.85rem;
+  }
+
+  .project-enquiry-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-charcoal);
+    margin: 0 0 1rem;
+  }
+
+  .project-enquiry-text {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-charcoal-light);
+    font-weight: 400;
+    margin: 0 auto 2rem;
+    max-width: 58ch;
+  }
+
+  .project-enquiry-cta {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-white);
+    background-color: var(--color-charcoal);
+    padding: 1rem 2.25rem;
+    text-decoration: none;
+    transition: var(--transition-medium);
+  }
+
+  .project-enquiry-cta:hover {
+    background-color: var(--color-olive);
   }
 </style>
