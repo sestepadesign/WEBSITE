@@ -40,7 +40,7 @@ const heroProjects = [...projects].filter(p => !p.hidden && p.cover).sort((a, b)
         
         <div class="hero-content container">
           <span class="hero-subtitle">{project[lang].category}</span>
-          <h2 class="hero-title">{project[lang].title}</h2>
+          <p class="hero-title">{project[lang].title}</p>
           <a href={getProjectPath(project.slug, lang)} class="hero-btn">
             {lang === 'en' && "View Project"}
             {lang === 'es' && "Ver Proyecto"}
@@ -158,8 +158,10 @@ const heroProjects = [...projects].filter(p => !p.hidden && p.cover).sort((a, b)
   }
 
   .hero-title {
+    font-family: var(--font-serif);
+    letter-spacing: normal;
     font-size: clamp(3rem, 6vw, 5rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.1;
     margin-bottom: 2rem;
     color: #d1d1cc !important;

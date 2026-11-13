@@ -133,9 +133,9 @@ const findUsText = {
               <a href="mailto:sofia@sestepa.com" class="aside-link">sofia@sestepa.com</a>
             </p>
             <p class="aside-detail">
-              <a href={whatsappUrl} class="aside-link" target="_blank" rel="noopener noreferrer">
-                +34 681 272 252
-              </a>
+              <a href="tel:+34681272252" class="aside-link">+34 681 272 252</a>
+              {' · '}
+              <a href={whatsappUrl} class="aside-link" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             </p>
             <p class="aside-detail aside-address">{aside.address}</p>
           </div>
@@ -187,7 +187,7 @@ const findUsText = {
 
   .contact-title {
     font-size: clamp(3rem, 6vw, 4.5rem);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.1;
     color: var(--color-charcoal);
     margin-bottom: 1.5rem;
@@ -198,7 +198,7 @@ const findUsText = {
     font-size: 1.25rem;
     color: var(--color-charcoal-light);
     line-height: 1.7;
-    font-weight: 300;
+    font-weight: 400;
     font-style: italic;
   }
 
@@ -326,7 +326,7 @@ const findUsText = {
   .aside-greeting {
     font-family: var(--font-serif);
     font-size: clamp(1.35rem, 2.5vw, 1.65rem);
-    font-weight: 300;
+    font-weight: 400;
     font-style: italic;
     line-height: 1.35;
     color: var(--color-charcoal);

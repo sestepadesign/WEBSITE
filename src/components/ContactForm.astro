@@ -22,17 +22,17 @@ const t = (key: keyof typeof ui[typeof lang]) => {
 
   <div class="form-group">
     <label for="name">{t('contact.form.name')}</label>
-    <input type="text" id="name" name="name" required placeholder=" " />
+    <input type="text" id="name" name="name" autocomplete="name" required placeholder=" " />
   </div>
 
   <div class="form-group">
     <label for="email">{t('contact.form.email')}</label>
-    <input type="email" id="email" name="email" required placeholder=" " />
+    <input type="email" id="email" name="email" autocomplete="email" required placeholder=" " />
   </div>
 
   <div class="form-group">
     <label for="phone">{t('contact.form.phone')}</label>
-    <input type="tel" id="phone" name="phone" placeholder=" " />
+    <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder=" " />
   </div>
 
   <div class="form-group">

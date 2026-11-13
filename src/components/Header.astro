@@ -203,6 +203,7 @@ const menuItems = [
   .logo {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
     transition: var(--transition-fast);
   }
 
@@ -368,7 +369,9 @@ const menuItems = [
     transition: var(--transition-fast);
   }
 
-  @media (max-width: 768px) {
+  /* Compact menu up to 1280px: the desktop nav needs ~1190px, so tablets
+     and small laptops get the drawer instead of a collapsed logo. */
+  @media (max-width: 1280px) {
     .search-trigger-desktop {
       display: none;
     }
@@ -389,6 +392,8 @@ const menuItems = [
       justify-content: center;
       color: var(--color-charcoal);
       padding: 0.5rem;
+      min-width: 44px;
+      min-height: 44px;
       transition: color 0.2s ease, transform 0.2s ease;
     }
 
@@ -463,6 +468,10 @@ const menuItems = [
 
     .nav-toggle {
       display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      min-height: 44px;
       z-index: 1200;
     }
 
@@ -494,14 +503,14 @@ const menuItems = [
 
     .nav-links {
       flex-direction: column;
-      gap: 1.15rem;
+      gap: 0.5rem;
       width: 100%;
     }
 
     .nav-link {
       font-size: 0.95rem;
       letter-spacing: 0.12em;
-      padding: 0.2rem 0;
+      padding: 0.55rem 0;
       width: 100%;
       display: block;
     }
@@ -530,7 +539,7 @@ const menuItems = [
     .lang-link {
       font-size: 0.85rem;
       letter-spacing: 0.1em;
-      padding: 0.35rem 0.15rem;
+      padding: 0.6rem 0.4rem;
     }
 
     .lang-separator {

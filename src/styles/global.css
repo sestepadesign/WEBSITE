@@ -94,14 +94,14 @@ html, body {
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--color-charcoal);
   line-height: 1.2;
 }
 
 p, li, a, span {
   font-family: var(--font-sans);
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0.03em;
 }
 
@@ -223,3 +223,9 @@ img, video {
   color: var(--color-limestone) !important;
 }
 
+/* CookieYes injects a 1x1px blocked-content placeholder straight into
+   <body>; its message text overflowed the box and showed, clipped, over
+   the footer once cookies were rejected. Clip it to its own 1x1 box. */
+body > .video-placeholder-normal {
+  overflow: hidden !important;
+}

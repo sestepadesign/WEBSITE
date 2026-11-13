@@ -9,12 +9,28 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Produção atualizada em `master` com blindagem do disparo de conversão do formulário (`ContactForm.astro`) condicionado à resposta HTTP 200 (`res.ok && result.ok`) de `/api/leads`, adição de `transaction_id` único, emissão de evento `generate_lead` para GA4/dataLayer, remoção do disparo falso no bloco `.catch()` e deduplicação por sessão (`sessionStorage`) no rastreamento de cliques de WhatsApp (`Layout.astro`).
-- **Último commit técnico anterior:** `32d6d92` (`feat(gallery,presentacion): sync 97 curated photos across gallery, presentation and PDFs`).
+- **Status:** Produção atualizada em `master` com as correções P0 da auditoria UX (`Header.astro`, `global.css`, `ContactForm.astro`, `HomePage.astro`, `ProjectDetail.astro`, `PortfolioHero.astro`, `tel:` links, `font-weight: 400` em 24 ficheiros).
+- **Último commit técnico anterior:** `0023431` (`fix(tracking): validate /api/leads response before Ads conversion and deduplicate WhatsApp clicks`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+
+### [2026-11-13] - Claude-Code + Antigravity (Correções P0 da auditoria UX — publicado em master)
+- Autor/agente: Claude-Code (implementação e verificação em localhost) + Antigravity (build de produção isolado e publicação em `master`). Disco J: não acedido. Base: `0023431` (`master`).
+- Relatório de origem: `../Auditorias/auditoria_ux.md` (fora do repo).
+- Escopo:
+  1. `Header.astro`: menu compacto passa de ≤768px para ≤1280px (a navegação de secretária precisa de ~1190px EN / ~1240px DE; entre 769 e ~1200px o logótipo colapsava para 0px). `.logo` com `flex-shrink: 0`. Alvos de toque: botão de menu e lupa 44×44, itens do drawer 45px, idiomas 44px.
+  2. `global.css`: `body > .video-placeholder-normal { overflow: hidden }` — marcador 1×1 do CookieYes cujo texto transbordava sobre o rodapé após rejeitar cookies. Só verificável em produção (o CookieYes não corre em localhost).
+  3. `font-weight: 300` → `400` em 24 ficheiros (96 ocorrências). Sem alteração visual: só existem ficheiros de fonte 400/500/600, o navegador já resolvia 300 para 400.
+  4. `ContactForm.astro`: `autocomplete` em nome, email e telefone.
+  5. Ligação `tel:` no número (Home, Contact, Footer); a ligação WhatsApp mantém-se ao lado como palavra "WhatsApp" (tracking `wa.me` inalterado).
+  6. `HomePage.astro`: morada do bloco de contacto igual à do rodapé e da página de contacto (Carrer dels Menestrals, 5, 07300 Inca), nos 3 idiomas.
+  7. `ProjectDetail.astro`: parágrafos da descrição com `max-width: 68ch` (de ~95 para ~74 caracteres por linha a 1440px).
+  8. `PortfolioHero.astro`: título dos diapositivos de `<h2>` para `<p class="hero-title">` (mesmo estilo), para o `<h1>` ser o primeiro título da página.
+- Verificado em localhost:4321 a 375, 820, 1024, 1280, 1300 e 1440px (EN, ES, DE no cabeçalho). Build de produção isolado (`scripts/preview_local.py build`) validado com 157 páginas compiladas sem erros e Pagefind indexado (162 páginas).
+- Não feito: botão flutuante do CookieYes (configuração no painel do CookieYes, não no código).
+
 
 ### [2026-11-10] - Antigravity (Blindagem de Conversão em ContactForm.astro e Deduplicação de Sessão WhatsApp em Layout.astro) — publicado em master
 - **Autor/agente:** Antigravity.
