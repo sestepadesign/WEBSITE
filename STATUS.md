@@ -20,7 +20,7 @@
 - **Autor/agente:** Antigravity.
 - **Acesso à unidade J:** Não houve acesso a `J:` (100% isolamento estrito preservado).
 - **Escopo:**
-  - `src/components/ProjectDetail.astro`: adicionado bloco sóbrio de consulta privada (*"Discuss a garden of this scale"* em EN/ES/DE) com botão para `/contact/` antes do banner *Next Project*.
+  - `src/components/ProjectDetail.astro`: adicionado bloco sóbrio de consulta privada (*"Discuss your garden"* em EN/ES/DE) com botão para `/contact/` antes do banner *Next Project*.
   - `src/components/site/HomePage.astro`: adicionada faixa editorial discreta (*Featured in: abcMallorca · Helen Cummins · Spend In*) com link para `/press/` logo após a secção de posicionamento.
 - **Validação:** Build de produção isolado (`scripts/preview_local.py build`) concluído com 0 erros (`157` páginas compiladas, Pagefind indexado com `162` páginas).
 - **Arquivos alterados:** `src/components/ProjectDetail.astro`, `src/components/site/HomePage.astro`, `STATUS.md`.
