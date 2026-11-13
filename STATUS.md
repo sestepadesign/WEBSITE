@@ -9,12 +9,22 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Produção atualizada em `master` com refinamentos de UX/UI P2 em `HomePage.astro`, `PortfolioPage.astro` e `pressPage.astro` (avaliações fixas em grade 2x2 sem estrelas com link para o Google, remoção dos ícones na Homepage, filtros do portfólio no topo acima do carrossel, reescrita editorial de `/press/` e `loading="lazy"` nas miniaturas de imprensa).
-- **Último commit técnico anterior:** `c20b842` (`fix(ux): apply P0 UX audit fixes across header, contact, portfolio and typography`).
+- **Status:** Produção atualizada em `master` com o novo vídeo real de Sant Llorenç no Hero desktop (`public/videos/sant_llorenc_hero.mp4`, `10,6 MB`, `1920×1080`, `28,4 s` em loop contínuo abrindo e fechando nas *Muhlenbergia* sob a oliveira), mantendo o poster `sant_llorenc_poster.webp` intacto.
+- **Último commit técnico anterior:** `12b326b` (`feat(ux): refine homepage testimonials, portfolio filters above hero, and press editorial layout`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+
+### [2026-11-13] - Antigravity (Novo Vídeo Real de Sant Llorenç em Loop no Hero Desktop) — publicado em master
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Não houve acesso a `J:` (100% isolamento estrito preservado).
+- **Escopo:**
+  - Origem: `originais-grandes/sant-llorenc/19-10-26 video/IMG_2533.MOV` (`3840×2160`, `54,4 MB`, `29,43 s`).
+  - Codificação em `videos/sant_llorenc_hero_29s_loop.mp4` (`1920×1080`, H.264 `yuv420p`, sem áudio, `faststart`, `3,1 Mbps`, **`10,6 MB`** < 25 MB Cloudflare Pages), iniciando e encerrando exatamente no enquadramento das *Muhlenbergia* (`t=00:25`) com *crossfade* de 1 s na emenda interna (`28,4 s` em loop contínuo).
+  - Substituição de `codigo/public/videos/sant_llorenc_hero.mp4`, preservando `sant_llorenc_poster.webp` intacto.
+- **Validação:** Build de produção isolado (`scripts/preview_local.py build`) concluído com 0 erros (`157` páginas compiladas, Pagefind indexado com `162` páginas).
+- **Arquivos alterados:** `public/videos/sant_llorenc_hero.mp4`, `STATUS.md`.
 
 ### [2026-11-13] - Antigravity (Refinamentos UX/UI P2 em Homepage, Portfólio e Imprensa) — publicado em master
 - **Autor/agente:** Antigravity.
