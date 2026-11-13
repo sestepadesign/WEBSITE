@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { canonicalPath } = Astro.props;
-const currentLocale = (Astro.currentLocale || 'es') as 'es' | 'en' | 'de';
+const currentLocale = (Astro.currentLocale || 'en') as 'es' | 'en' | 'de';
 const path = canonicalPath ?? Astro.url.pathname;
 const currentUrl = new URL(path, Astro.url.origin).href;
 

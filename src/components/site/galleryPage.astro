@@ -3,6 +3,10 @@ import Layout from '../../layouts/Layout.astro';
 import { ui } from '../../data/translations';
 import { getGalleryImages, galleryMeta } from '../../data/gallery';
 import { getProjectPath } from '../../lib/urls';
+import imageDimensions from '../../data/image-dimensions.json';
+
+type ImageDims = { w?: number; h?: number; thumb?: string; tw?: number; th?: number };
+const dimsMap = imageDimensions as Record<string, ImageDims>;
 
 interface Props {
   lang: 'en' | 'es' | 'de';
@@ -282,6 +286,7 @@ const i18n = {
       <div class="gallery-overview-grid" id="overviewGrid">
         {images.map((img, idx) => {
           const numStr = String(idx + 1).padStart(2, '0');
+          const d = dimsMap[img.src];
           return (
             <article
               class="overview-card"
@@ -297,8 +302,10 @@ const i18n = {
                 aria-label={`${numStr}. ${img.projectTitle} — ${i18n.openSlideTitle}`}
               >
                 <img
-                  src={encodeURI(img.src)}
+                  src={d?.thumb || encodeURI(img.src)}
                   alt={img.alt}
+                  width={d?.tw || 480}
+                  height={d?.th || 320}
                   loading={idx < 4 ? 'eager' : 'lazy'}
                   decoding="async"
                   class="overview-thumb"
@@ -502,24 +509,29 @@ const i18n = {
         <div class="pres-bottom-filmstrip-drawer" id="bottomFilmstripDrawer">
           <div class="filmstrip-scroll-mask" id="filmstripScrollMask">
             <div class="filmstrip-track" id="filmstripTrack">
-              {images.map((img, idx) => (
+              {images.map((img, idx) => {
+                const d = dimsMap[img.src];
+                return (
                 <button
                   type="button"
                   class={`filmstrip-thumb-btn${idx === 0 ? ' active' : ''}`}
                   data-index={idx}
-                  data-thumb-src={encodeURI(img.src)}
+                  data-thumb-src={d?.thumb || encodeURI(img.src)}
                   aria-label={`${img.projectTitle} (${idx + 1})`}
                   title={`${idx + 1}. ${img.projectTitle}`}
                 >
                   <img
                     src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                     alt={img.alt}
+                    width={d?.tw || 480}
+                    height={d?.th || 320}
                     loading="lazy"
                     decoding="async"
                     class="filmstrip-thumb-img"
                   />
                 </button>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
@@ -528,8 +540,13 @@ const i18n = {
   </div>
 </Layout>
 
-<script define:vars={{ images, i18n }}>
+<script type="application/json" id="galleryBootstrapData" set:html={JSON.stringify({ images, i18n })} />
+
+<script>
 (() => {
+  const bootstrapEl = document.getElementById('galleryBootstrapData');
+  if (!bootstrapEl?.textContent) return;
+  const { images, i18n } = JSON.parse(bootstrapEl.textContent);
   // Normalize strings (strip accents/diacritics and lowercase)
   function normalizeStr(str) {
     return (str || '')

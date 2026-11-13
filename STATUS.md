@@ -9,12 +9,33 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Produção atualizada em `master` com as correções P0 da auditoria UX (`Header.astro`, `global.css`, `ContactForm.astro`, `HomePage.astro`, `ProjectDetail.astro`, `PortfolioHero.astro`, `tel:` links, `font-weight: 400` em 24 ficheiros).
+- **Status:** Produção atualizada em `master` com fontes variáveis reais e hierarquia de pesos tipográficos (`Cormorant Garamond` + `Jost` 300–700), correções P0 de LCP (`Layout.astro`, `HomePage.astro`, `Header.astro`, `PortfolioHero.astro`), miniaturas WebP na galeria e cartões do portfólio sem alterar URLs ranqueados no Google Images, `public/_routes.json`, `inlineStylesheets: 'auto'`, JS da galeria empacotado e melhorias em `ContactForm.astro` / `Schema.astro`.
 - **Último commit técnico anterior:** `0023431` (`fix(tracking): validate /api/leads response before Ads conversion and deduplicate WhatsApp clicks`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+
+### [2026-11-13] - Antigravity (Tipografia Variável Real, LCP P0, Miniaturas WebP, _routes.json e Modularidade) — publicado em master
+- **Autor/agente:** Antigravity (Gemini 4 Hydrogen Medium). Disco `J:` não acedido. Base: `0023431` (`master`) + correções P0 UX.
+- **Escopo:**
+  1. **Tipografia e Pesos Reais (`public/fonts/`, `src/styles/global.css`, `src/layouts/Layout.astro`):**
+     - Substituídos os 6 WOFF2 duplicados por 2 fontes variáveis reais (`cormorant-garamond-variable.woff2` 36,8 KB e `jost-variable.woff2` 26,0 KB, pesos `300..700`) via `scripts/setup_fonts.mjs`.
+     - Aplicada hierarquia tipográfica real em `global.css`: `h1` (400), `h2` (500), `h3` (500), `h4..h6` (600), `p, li` (300), `a, span` (400), `strong, b` (500).
+  2. **LCP P0 (`Layout.astro`, `HomePage.astro`, `Header.astro`, `PortfolioHero.astro`):**
+     - Gerada variante mobile dedicada do hero (`...-mobile.webp`, 98,1 KB) e preloads com `media` alinhada ao `<picture>` na homepage.
+     - Removidos preloads e `fetchpriority="high"` do logótipo (`Header.astro`, `Layout.astro`).
+     - Adicionado `fetchpriority="high"` e dimensões no 1.º slide de `PortfolioHero.astro` + preload da capa em `PortfolioPage.astro`.
+     - Vídeo de hero em `HomePage.astro` diferido para `window.load` respeitando `prefers-reduced-motion` e `navigator.connection.saveData`.
+  3. **Miniaturas WebP e Preservação de SEO (`scripts/prepare_responsive_assets.py`, `src/data/image-dimensions.json`, `galleryPage.astro`, `PortfolioPage.astro`):**
+     - Geradas 96 miniaturas WebP de `480px` em `public/thumbs/gallery/` (3,69 MB no total vs. 47,6 MB anteriores) e 23 cartões `700x525` em `public/thumbs/cards/`, mantendo intactos todos os URLs canónicos de imagens já ranqueadas no Google Images.
+     - Adicionados `width` e `height` nas imagens da grelha e filmstrip de `galleryPage.astro` e passado `coverSrcset` em `PortfolioPage.astro`.
+     - Extraídos os dados do `define:vars` de `galleryPage.astro` para `<script type="application/json" id="galleryBootstrapData">` com `<script>` empacotado.
+  4. **Cloudflare, CSS, Acessibilidade e Schema (`public/_routes.json`, `astro.config.mjs`, `Layout.astro`, `Header.astro`, `Schema.astro`, `ContactForm.astro`):**
+     - Criado `public/_routes.json` para excluir assets estáticos, vídeos, fontes e `/Presentacion Fotos/*` do middleware.
+     - Alterado `inlineStylesheets: 'auto'` em `astro.config.mjs`, import dinâmico de `DevMobileSimulator.astro`, `viewport` com `initial-scale=1` e dimensões reais em `og:image:width`/`height`.
+     - Corrigido `aria-label` do menu mobile em `Header.astro`, idioma padrão `'en'` em `Schema.astro` e suporte multi-instância + mensagens localizadas (EN/ES/DE) em `ContactForm.astro`.
+- **Validação:** Build de produção isolado (`python scripts/preview_local.py build`) concluído com 157 páginas compiladas sem erros, `sitemap-images.xml` atualizado (63 URLs, 322 imagens) e Pagefind indexado (162 páginas).
 
 ### [2026-11-13] - Claude-Code + Antigravity (Correções P0 da auditoria UX — publicado em master)
 - Autor/agente: Claude-Code (implementação e verificação em localhost) + Antigravity (build de produção isolado e publicação em `master`). Disco J: não acedido. Base: `0023431` (`master`).

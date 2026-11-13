@@ -324,20 +324,34 @@ const testimonialsCopy = {
 const currentTestimonials = testimonialsCopy[lang];
 ---
 
-<Layout title={seoTitles[lang]} description={pageDescription} lang={lang}>
+<Layout
+  title={seoTitles[lang]}
+  description={pageDescription}
+  lang={lang}
+  preloadImages={[
+    {
+      href: '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design-mobile.webp',
+      media: '(max-width: 768px)',
+    },
+    {
+      href: '/videos/sant_llorenc_poster.webp',
+      media: '(min-width: 769px)',
+    },
+  ]}
+>
   <!-- Hero Section with Background Video -->
   <section class="hero" id="hero-section">
     <div class="video-container">
       <picture class="hero-poster-picture">
         <source
           media="(max-width: 768px)"
-          srcset="/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp"
+          srcset="/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design-mobile.webp"
         />
         <img
           src="/videos/sant_llorenc_poster.webp"
           class="hero-poster-img"
           fetchpriority="high"
-          alt="S'Estepa Design"
+          alt={lang === 'es' ? 'Jardín mediterráneo sostenible en Sant Llorenç, Mallorca — S\'Estepa Design' : lang === 'de' ? 'Nachhaltiger mediterraner Garten in Sant Llorenç, Mallorca — S\'Estepa Design' : 'Sustainable Mediterranean estate garden in Sant Llorenç, Mallorca — S\'Estepa Design'}
           width="1920"
           height="1080"
         />
@@ -347,13 +361,17 @@ const currentTestimonials = testimonialsCopy[lang];
       <div class="hero-overlay"></div>
     </div>
     <script is:inline>
-      document.addEventListener('DOMContentLoaded', function() {
-        if (window.matchMedia('(min-width: 768px)').matches) {
+      window.addEventListener('load', function() {
+        var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var saveData = navigator.connection && navigator.connection.saveData;
+        if (!reducedMotion && !saveData && window.matchMedia('(min-width: 768px)').matches) {
           var video = document.getElementById('heroVideo');
-          var source = document.createElement('source');
-          source.src = video.getAttribute('data-src');
-          source.type = 'video/mp4';
-          video.appendChild(source);
+          if (video && !video.querySelector('source')) {
+            var source = document.createElement('source');
+            source.src = video.getAttribute('data-src');
+            source.type = 'video/mp4';
+            video.appendChild(source);
+          }
         }
       });
     </script>

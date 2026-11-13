@@ -10,6 +10,7 @@ import {
 } from '../../data/portfolio-categories';
 import ProjectCard from '../ProjectCard.astro';
 import PortfolioHero from './PortfolioHero.astro';
+import imageDimensions from '../../data/image-dimensions.json';
 
 interface Props { lang: 'en' | 'es' | 'de'; }
 const { lang } = Astro.props;
@@ -52,7 +53,13 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
 };
 ---
 
-<Layout title={lang === 'en' ? "Premium Landscape Portfolio Mallorca | Fincas & Villas" : lang === 'es' ? "Portafolio de Paisajismo Exclusivo Mallorca | Fincas y Villas" : "Exklusives Landschaftsportfolio Mallorca | Fincas & Villen"} description={pageDescription} lang={lang} image="/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp">
+<Layout
+  title={lang === 'en' ? "Premium Landscape Portfolio Mallorca | Fincas & Villas" : lang === 'es' ? "Portafolio de Paisajismo Exclusivo Mallorca | Fincas y Villas" : "Exklusives Landschaftsportfolio Mallorca | Fincas & Villen"}
+  description={pageDescription}
+  lang={lang}
+  image="/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp"
+  preloadImages={portfolioProjects[0]?.cover ? [{ href: portfolioProjects[0].cover }] : []}
+>
   <PortfolioHero lang={lang} />
   <div class="portfolio-page section-padding">
     <div class="container">
@@ -82,6 +89,7 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
                 category={project[lang].category}
                 location={getProjectLocation(project, lang)}
                 cover={project.cover}
+                coverSrcset={(imageDimensions as Record<string, { card?: string }>)[project.cover]?.card}
                 lang={lang}
                 size={project.size}
               />

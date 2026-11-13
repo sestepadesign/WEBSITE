@@ -53,7 +53,6 @@ const menuItems = [
           class="logo-img" 
           width="344" 
           height="48" 
-          fetchpriority="high" 
         />
       </picture>
     </a>
@@ -66,7 +65,12 @@ const menuItems = [
         </svg>
       </button>
 
-      <button class="nav-toggle" aria-label="Toggle navigationMenu" aria-expanded="false" id="menuToggle">
+      <button
+        class="nav-toggle"
+        aria-label={lang === 'es' ? 'Abrir menú de navegación' : lang === 'de' ? 'Navigationsmenü öffnen' : 'Toggle navigation menu'}
+        aria-expanded="false"
+        id="menuToggle"
+      >
         <span class="bar"></span>
         <span class="bar"></span>
       </button>

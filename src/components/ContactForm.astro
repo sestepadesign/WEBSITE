@@ -11,58 +11,88 @@ const { lang, id = 'inquiryForm' } = Astro.props;
 const t = (key: keyof typeof ui[typeof lang]) => {
   return ui[lang][key] || key;
 };
+
+const statusMessages = {
+  en: {
+    sending: 'Sending...',
+    success: 'Thank you. Your message has been sent successfully.',
+    error: 'We could not send your message at this moment. Please try again or contact us directly via WhatsApp or sofia@sestepa.com.',
+  },
+  es: {
+    sending: 'Enviando...',
+    success: 'Gracias. Su mensaje ha sido enviado correctamente.',
+    error: 'No pudimos enviar su mensaje en este momento. Por favor, inténtelo de nuevo o contáctenos por WhatsApp o sofia@sestepa.com.',
+  },
+  de: {
+    sending: 'Wird gesendet...',
+    success: 'Vielen Dank. Ihre Nachricht wurde erfolgreich gesendet.',
+    error: 'Ihre Nachricht konnte derzeit nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns per WhatsApp oder sofia@sestepa.com.',
+  },
+}[lang];
 ---
 
-<form class="contact-form" action="#" method="POST" id={id}>
+<form
+  class="contact-form"
+  action="#"
+  method="POST"
+  id={id}
+  data-msg-sending={statusMessages.sending}
+  data-msg-success={statusMessages.success}
+  data-msg-error={statusMessages.error}
+>
   <!-- Anti-bot honeypot trap field (hidden from human visitors & assistive technologies) -->
   <div class="ohnohoney" aria-hidden="true">
-    <label for="company_website">Please leave this field empty</label>
-    <input type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="new-password" value="" />
+    <label for={`${id}_company_website`}>Please leave this field empty</label>
+    <input type="text" id={`${id}_company_website`} name="company_website" tabindex="-1" autocomplete="new-password" value="" />
   </div>
 
   <div class="form-group">
-    <label for="name">{t('contact.form.name')}</label>
-    <input type="text" id="name" name="name" autocomplete="name" required placeholder=" " />
+    <label for={`${id}_name`}>{t('contact.form.name')}</label>
+    <input type="text" id={`${id}_name`} name="name" autocomplete="name" required placeholder=" " />
   </div>
 
   <div class="form-group">
-    <label for="email">{t('contact.form.email')}</label>
-    <input type="email" id="email" name="email" autocomplete="email" required placeholder=" " />
+    <label for={`${id}_email`}>{t('contact.form.email')}</label>
+    <input type="email" id={`${id}_email`} name="email" autocomplete="email" required placeholder=" " />
   </div>
 
   <div class="form-group">
-    <label for="phone">{t('contact.form.phone')}</label>
-    <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder=" " />
+    <label for={`${id}_phone`}>{t('contact.form.phone')}</label>
+    <input type="tel" id={`${id}_phone`} name="phone" autocomplete="tel" placeholder=" " />
   </div>
 
   <div class="form-group">
-    <label for="subject">{t('contact.form.location')}</label>
-    <input type="text" id="subject" name="subject" required placeholder={t('contact.form.location_placeholder')} />
+    <label for={`${id}_subject`}>{t('contact.form.location')}</label>
+    <input type="text" id={`${id}_subject`} name="subject" required placeholder={t('contact.form.location_placeholder')} />
   </div>
 
   <div class="form-group">
-    <label for="garden_size">{t('contact.form.size')}</label>
-    <input type="text" id="garden_size" name="garden_size" placeholder={t('contact.form.size_placeholder')} />
+    <label for={`${id}_garden_size`}>{t('contact.form.size')}</label>
+    <input type="text" id={`${id}_garden_size`} name="garden_size" placeholder={t('contact.form.size_placeholder')} />
   </div>
 
   <div class="form-group">
-    <label for="message">{t('contact.form.message')}</label>
-    <textarea id="message" name="message" rows="6" required placeholder=" "></textarea>
+    <label for={`${id}_message`}>{t('contact.form.message')}</label>
+    <textarea id={`${id}_message`} name="message" rows="6" required placeholder=" "></textarea>
   </div>
 
   <button type="submit" class="submit-btn">
     {t('contact.form.submit')} &rarr;
   </button>
   
-  <div class="form-status" id="formStatus" aria-live="polite"></div>
+  <div class="form-status" id={`${id}_status`} aria-live="polite"></div>
 </form>
 
 <script>
   // Google Apps Script Web App Integration with Multi-Layer Anti-Bot Protection & Google Ads Telemetry
-  const form = document.querySelector('.contact-form') as HTMLFormElement;
-  const statusDiv = form?.querySelector('.form-status') as HTMLElement;
+  document.querySelectorAll<HTMLFormElement>('.contact-form').forEach((form) => {
+    const statusDiv = form.querySelector('.form-status') as HTMLElement | null;
+    if (!statusDiv) return;
 
-  if (form && statusDiv) {
+    const msgSending = form.dataset.msgSending || 'Sending...';
+    const msgSuccess = form.dataset.msgSuccess || 'Thank you. Your message has been sent successfully.';
+    const msgError = form.dataset.msgError || 'We could not send your message at this moment.';
+
     const pageRenderTime = Date.now();
     let hasUserInteracted = false;
     let firstInteractionTime = 0;
@@ -84,7 +114,7 @@ const t = (key: keyof typeof ui[typeof lang]) => {
       
       const submitBtn = form.querySelector('.submit-btn') as HTMLButtonElement;
       const originalText = submitBtn.innerHTML;
-      submitBtn.textContent = "Sending...";
+      submitBtn.textContent = msgSending;
       submitBtn.disabled = true;
       
       const formData = new FormData(form);
@@ -115,7 +145,7 @@ const t = (key: keyof typeof ui[typeof lang]) => {
       if (isBot) {
         // SILENT DROP: Simulate successful response to deceive the bot, but NEVER invoke Google Apps Script or Google Ads conversion
         setTimeout(() => {
-          statusDiv.textContent = "Thank you. Your message has been sent successfully.";
+          statusDiv.textContent = msgSuccess;
           statusDiv.classList.add('success');
           form.reset();
           submitBtn.innerHTML = originalText;
@@ -156,7 +186,7 @@ const t = (key: keyof typeof ui[typeof lang]) => {
           throw new Error(result.error || `HTTP ${res.status}`);
         }
 
-        statusDiv.textContent = "Thank you. Your message has been sent successfully.";
+        statusDiv.textContent = msgSuccess;
         statusDiv.classList.remove('error');
         statusDiv.classList.add('success');
 
@@ -189,7 +219,7 @@ const t = (key: keyof typeof ui[typeof lang]) => {
       })
       .catch(err => {
         console.error("Transmission error:", err);
-        statusDiv.textContent = "We could not send your message at this moment. Please try again or contact us directly via WhatsApp or sofia@sestepa.com.";
+        statusDiv.textContent = msgError;
         statusDiv.classList.remove('success');
         statusDiv.classList.add('error');
       })
@@ -198,7 +228,7 @@ const t = (key: keyof typeof ui[typeof lang]) => {
         submitBtn.disabled = false;
       });
     });
-  }
+  });
 </script>
 
 <style>

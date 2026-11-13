@@ -33,7 +33,10 @@ const heroProjects = [...projects].filter(p => !p.hidden && p.cover).sort((a, b)
             alt={project[lang].title} 
             class="hero-image"
             loading={index === 0 ? "eager" : "lazy"}
+            fetchpriority={index === 0 ? "high" : "low"}
             decoding="async"
+            width="1920"
+            height="1080"
           />
           <div class="hero-overlay"></div>
         </div>

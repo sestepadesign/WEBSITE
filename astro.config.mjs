@@ -35,7 +35,7 @@ const pathOf = (url) => new URL(url).pathname;
 export default defineConfig({
   site: SITE,
   build: {
-    inlineStylesheets: 'always',
+    inlineStylesheets: 'auto',
   },
   integrations: [
     sitemap({
