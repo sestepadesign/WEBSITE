@@ -60,8 +60,7 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
   image="/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp"
   preloadImages={portfolioProjects[0]?.cover ? [{ href: portfolioProjects[0].cover }] : []}
 >
-  <PortfolioHero lang={lang} />
-  <div class="portfolio-page section-padding">
+  <div class="portfolio-intro">
     <div class="container">
       <header class="portfolio-header">
         <span class="section-tag">{t('nav.portfolio')}</span>
@@ -77,6 +76,15 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
           </button>
         ))}
       </div>
+    </div>
+  </div>
+
+  <div class="portfolio-hero-wrapper" id="portfolioHeroWrapper">
+    <PortfolioHero lang={lang} />
+  </div>
+
+  <div class="portfolio-page section-padding">
+    <div class="container">
 
       <div class="projects-grid" id="projectsGrid">
         {portfolioProjects.map((project) => {
@@ -116,7 +124,12 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
     }
   };
 
+  const heroWrapper = document.getElementById('portfolioHeroWrapper');
+
   const applyFilter = (filterValue: string) => {
+    if (heroWrapper) {
+      heroWrapper.style.display = filterValue === 'all' ? '' : 'none';
+    }
     projectItems.forEach(item => {
       const itemCategory = item.getAttribute('data-category');
       if (filterValue === 'all' || itemCategory === filterValue) {
@@ -160,13 +173,18 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
 </script>
 
 <style>
+  .portfolio-intro {
+    background-color: var(--color-sand-light);
+    padding: 8.5rem 0 0;
+  }
+
   .portfolio-page {
     background-color: var(--color-sand-light);
     padding-top: 5rem;
   }
 
   .portfolio-header {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     max-width: 800px;
   }
 
@@ -201,7 +219,7 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
     justify-content: center;
     flex-wrap: wrap;
     gap: 1.5rem 3rem;
-    margin-bottom: 5rem;
+    margin-bottom: 0;
     border-bottom: 1px solid var(--color-sand-dark);
     padding-bottom: 2rem;
   }
@@ -283,12 +301,16 @@ const filterLabels: Record<PortfolioFilterCategory, keyof typeof ui.en> = {
   }
 
   @media (max-width: 768px) {
+    .portfolio-intro {
+      padding: 6.5rem 0 0;
+    }
+
     .portfolio-page {
-      padding-top: 4rem;
+      padding-top: 3.5rem;
     }
 
     .portfolio-header {
-      margin-bottom: 3rem;
+      margin-bottom: 2.25rem;
     }
 
     .portfolio-filter {

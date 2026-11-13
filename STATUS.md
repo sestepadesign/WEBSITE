@@ -9,12 +9,28 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Produção atualizada em `master` com fontes variáveis reais e hierarquia de pesos tipográficos (`Cormorant Garamond` + `Jost` 300–700), correções P0 de LCP (`Layout.astro`, `HomePage.astro`, `Header.astro`, `PortfolioHero.astro`), miniaturas WebP na galeria e cartões do portfólio sem alterar URLs ranqueados no Google Images, `public/_routes.json`, `inlineStylesheets: 'auto'`, JS da galeria empacotado e melhorias em `ContactForm.astro` / `Schema.astro`.
-- **Último commit técnico anterior:** `0023431` (`fix(tracking): validate /api/leads response before Ads conversion and deduplicate WhatsApp clicks`).
+- **Status:** Produção atualizada em `master` com refinamentos de UX/UI P2 em `HomePage.astro`, `PortfolioPage.astro` e `pressPage.astro` (avaliações fixas em grade 2x2 sem estrelas com link para o Google, remoção dos ícones na Homepage, filtros do portfólio no topo acima do carrossel, reescrita editorial de `/press/` e `loading="lazy"` nas miniaturas de imprensa).
+- **Último commit técnico anterior:** `c20b842` (`fix(ux): apply P0 UX audit fixes across header, contact, portfolio and typography`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+
+### [2026-11-13] - Antigravity (Refinamentos UX/UI P2 em Homepage, Portfólio e Imprensa) — publicado em master
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Não houve acesso a `J:` (100% isolamento estrito preservado).
+- **Escopo:**
+  1. `src/components/site/HomePage.astro`:
+     - Mantido o bloco estatístico `100% Mediterranean Soul` (EN/ES/DE).
+     - Removidos os 4 ícones SVG dos cartões de serviços na Homepage (mantidos em `/services/`).
+     - Secção de depoimentos convertida de carrossel com estrelas para grade fixa 2x2 com 4 avaliações reais do Google Business (`Jaume R.`, `Sean Z.`, `Sibylle M.`, `A. K.`) e link discreto `Verified reviews on Google` abaixo.
+  2. `src/components/site/PortfolioPage.astro`:
+     - Cabeçalho `Our Gardens` e barra dos 6 filtros (`All Gardens`, `Estate`, `Residential`, `Terrace`, `Commercial`, `Vertical`) movidos para o topo, acima de `PortfolioHero.astro`, ocultando o carrossel quando um filtro específico está ativo.
+  3. `src/components/site/pressPage.astro`:
+     - `H1` simplificado para `Press` / `Prensa` / `Presse` (preservando palavras-chave na meta `description` para SEO) e resumos reescritos em tom factual/editorial.
+     - Adicionado `loading="lazy" decoding="async"` nas miniaturas da galeria de imprensa (mantendo apenas a primeira em `eager`), eliminando o alerta `WebKit Jetsam` no iOS Safari.
+- **Validação:** Build de produção isolado (`scripts/preview_local.py build`) concluído com 0 erros (`157` páginas compiladas, Pagefind indexado com `162` páginas) e aprovação em `localhost:4321`.
+- **Arquivos alterados:** `src/components/site/HomePage.astro`, `src/components/site/PortfolioPage.astro`, `src/components/site/pressPage.astro`, `STATUS.md`.
 
 ### [2026-11-13] - Antigravity (Tipografia Variável Real, LCP P0, Miniaturas WebP, _routes.json e Modularidade) — publicado em master
 - **Autor/agente:** Antigravity (Gemini 4 Hydrogen Medium). Disco `J:` não acedido. Base: `0023431` (`master`) + correções P0 UX.
