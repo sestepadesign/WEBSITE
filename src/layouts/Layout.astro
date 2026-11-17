@@ -184,10 +184,14 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
     ))}
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    {!import.meta.env.DEV && (
+      <>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+      </>
+    )}
     {redirectTo ? (
       <p style="display:none">Redirecting to <a href={redirectTo}>{redirectTo}</a></p>
     ) : (
@@ -218,33 +222,37 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
               } catch (_) {}
 
               if (!alreadyLogged) {
-                if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-                  window.gtag('event', 'conversion', {
-                    send_to: GOOGLE_ADS_CONVERSION_WHATSAPP
-                  });
-                  window.gtag('event', 'whatsapp_click', {
-                    event_category: 'engagement',
-                    event_label: pathname
-                  });
+                const host = window.location.hostname;
+                const isProdHost = host === 'design.sestepa.com' || host === 'www.design.sestepa.com';
+                if (isProdHost) {
+                  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+                    window.gtag('event', 'conversion', {
+                      send_to: GOOGLE_ADS_CONVERSION_WHATSAPP
+                    });
+                    window.gtag('event', 'whatsapp_click', {
+                      event_category: 'engagement',
+                      event_label: pathname
+                    });
+                  }
+                  if (window.dataLayer) {
+                    window.dataLayer.push({
+                      event: 'whatsapp_click',
+                      page: pathname
+                    });
+                  }
+                  const payload = {
+                    name: "WhatsApp Click",
+                    email: "---",
+                    subject: "WhatsApp",
+                    message: `Click en el botón de WhatsApp desde: ${pathname}`
+                  };
+                  fetch("/api/leads", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ type: "whatsapp", payload }),
+                    keepalive: true
+                  }).catch(err => console.error("WhatsApp click logging failed:", err));
                 }
-                if (window.dataLayer) {
-                  window.dataLayer.push({
-                    event: 'whatsapp_click',
-                    page: pathname
-                  });
-                }
-                const payload = {
-                  name: "WhatsApp Click",
-                  email: "---",
-                  subject: "WhatsApp",
-                  message: `Click en el botón de WhatsApp desde: ${pathname}`
-                };
-                fetch("/api/leads", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({ type: "whatsapp", payload }),
-                  keepalive: true
-                }).catch(err => console.error("WhatsApp click logging failed:", err));
               }
             }
           });
@@ -252,53 +260,58 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
       </script>
     )}
 
-    <!-- Google Consent Mode v2 Default State -->
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'analytics_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'personalization_storage': 'denied',
-        'functionality_storage': 'denied',
-        'security_storage': 'granted',
-        'wait_for_update': 500
-      });
-      gtag('set', 'ads_data_redaction', true);
+    <!-- Production-only Analytics, Consent Mode v2, CookieYes & GTM (skip localhost / preview hosts) -->
+    <script is:inline define:vars={{ GTM_ID, GTAG_ID, COOKIEYES_CLIENT_ID }}>
+      (function () {
+        var host = window.location.hostname;
+        if (host !== 'design.sestepa.com' && host !== 'www.design.sestepa.com') {
+          return;
+        }
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+
+        // Google Consent Mode v2 Default State
+        window.gtag('consent', 'default', {
+          'ad_storage': 'denied',
+          'analytics_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied',
+          'personalization_storage': 'denied',
+          'functionality_storage': 'denied',
+          'security_storage': 'granted',
+          'wait_for_update': 500
+        });
+        window.gtag('set', 'ads_data_redaction', true);
+
+        // CookieYes banner
+        var cyScript = document.createElement('script');
+        cyScript.id = 'cookieyes';
+        cyScript.async = true;
+        cyScript.src = 'https://cdn-cookieyes.com/client_data/' + COOKIEYES_CLIENT_ID + '/script.js';
+        document.head.appendChild(cyScript);
+
+        // Google tag (gtag.js) — GT-WKTZS5C routes to GA4 (G-DZ9ZSG3VH0) and Ads (AW-795871100)
+        var gtagScript = document.createElement('script');
+        gtagScript.async = true;
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + GTAG_ID;
+        document.head.appendChild(gtagScript);
+        window.gtag('js', new Date());
+        window.gtag('config', GTAG_ID);
+
+        // Google Tag Manager
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+          var f = d.getElementsByTagName(s)[0];
+          var dl = l != 'dataLayer' ? '&l=' + l : '';
+          var scr = d.createElement(s);
+          scr.async = true;
+          scr.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(scr, f);
+        })(window, document, 'script', 'dataLayer', GTM_ID);
+      })();
     </script>
-
-    <!-- Start cookieyes banner -->
-    <script id="cookieyes" is:inline async src={`https://cdn-cookieyes.com/client_data/${COOKIEYES_CLIENT_ID}/script.js`}></script>
-    <!-- End cookieyes banner -->
-
-    <!-- Google tag (gtag.js) -->
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}></script>
-    <script is:inline define:vars={{ GTAG_ID, GOOGLE_ADS_ID, GA4_ID }}>
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = window.gtag || function(){window.dataLayer.push(arguments);}
-      window.gtag('js', new Date());
-
-      // Only the unified Google tag is configured here. GT-WKTZS5C already
-      // routes to GA4 (G-DZ9ZSG3VH0) and Ads (AW-795871100) — see
-      // docs/ANALYTICS.md — and the GTM container carries the same
-      // destinations, so configuring them again sent every page_view twice to
-      // both. Conversions keep working: they fire with an explicit
-      // `send_to: AW-795871100/<label>`, which resolves through this tag.
-      window.gtag('config', GTAG_ID);
-    </script>
-
-    <!-- Google Tag Manager -->
-    <script is:inline define:vars={{ GTM_ID }}>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';var scr=d.createElement(s);
-      scr.async=true;scr.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(scr,f);
-      })(window,document,'script','dataLayer',GTM_ID);
-    </script>
-    <!-- End Google Tag Manager -->
   </body>
 </html>
 

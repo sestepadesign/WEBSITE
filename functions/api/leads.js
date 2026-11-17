@@ -57,6 +57,11 @@ export const onRequestPost = async ({ request, env }) => {
     return jsonResponse({ ok: false, error: 'unsupported_or_missing_type' }, { status: 400 });
   }
 
+  const reqHost = new URL(request.url).hostname;
+  if (reqHost !== 'design.sestepa.com' && reqHost !== 'www.design.sestepa.com') {
+    return jsonResponse({ ok: true, skipped: 'non_prod_host' });
+  }
+
   const scriptUrl = env.SHEETS_SCRIPT_URL || LEGACY_SHEETS_SCRIPT_URL;
   const token = env.SHEETS_API_TOKEN || LEGACY_SHEETS_API_TOKEN;
 

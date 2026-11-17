@@ -175,6 +175,20 @@ const statusMessages = {
 
       data.lang = document.documentElement.lang || "en";
 
+      const host = window.location.hostname;
+      const isProdHost = host === 'design.sestepa.com' || host === 'www.design.sestepa.com';
+
+      if (!isProdHost) {
+        console.info(`[ContactForm] Non-production host (${host}): skipping /api/leads and analytics events.`);
+        statusDiv.textContent = msgSuccess;
+        statusDiv.classList.remove('error');
+        statusDiv.classList.add('success');
+        form.reset();
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        return;
+      }
+
       fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -193,8 +207,8 @@ const statusMessages = {
         const txId = `lead_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
         const pathname = window.location.pathname;
 
-        // Dispara a conversão no Google Ads apenas após confirmação HTTP 200 do servidor (/api/leads)
-        if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+        // Dispara a conversão no Google Ads apenas em produção e após confirmação HTTP 200 do servidor (/api/leads)
+        if (isProdHost && typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
           const userEmail = (data.email || '').trim().toLowerCase();
           const userPhone = (data.phone || '').trim();
           const userData: Record<string, string> = {};
@@ -216,7 +230,7 @@ const statusMessages = {
             'event_label': pathname
           });
         }
-        if (typeof window !== 'undefined' && Array.isArray((window as any).dataLayer)) {
+        if (isProdHost && typeof window !== 'undefined' && Array.isArray((window as any).dataLayer)) {
           (window as any).dataLayer.push({
             event: 'generate_lead',
             page: pathname,
