@@ -93,6 +93,7 @@
 # These five now hit a plain 404 — locale-less project slugs and an old contact
 # slug that need a direct 301.
 /benissalem/  /binissalem/  301
+/index.php  /  301
 /puig-na-morisca/  /santa-ponsa/  301
 /es/puig-na-morisca/  /es/santa-ponsa/  301
 /de/puig-na-morisca/  /de/santa-ponsa/  301
