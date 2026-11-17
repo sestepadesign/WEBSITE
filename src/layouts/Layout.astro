@@ -17,6 +17,7 @@ import {
   GTM_ID,
   GTAG_ID,
   GOOGLE_ADS_ID,
+  GOOGLE_ADS_CONVERSION_WHATSAPP,
   GA4_ID,
   COOKIEYES_CLIENT_ID
 } from '../lib/seo';
@@ -201,7 +202,7 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
       </div>
     )}
     {!redirectTo && (
-      <script is:inline>
+      <script is:inline define:vars={{ GOOGLE_ADS_CONVERSION_WHATSAPP }}>
         document.addEventListener('DOMContentLoaded', () => {
           document.body.addEventListener('click', (e) => {
             const anchor = e.target.closest('a');
@@ -218,6 +219,9 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
 
               if (!alreadyLogged) {
                 if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+                  window.gtag('event', 'conversion', {
+                    send_to: GOOGLE_ADS_CONVERSION_WHATSAPP
+                  });
                   window.gtag('event', 'whatsapp_click', {
                     event_category: 'engagement',
                     event_label: pathname

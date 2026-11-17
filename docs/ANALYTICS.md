@@ -10,6 +10,7 @@ Este documento registra as credenciais e identificadores oficiais de acompanhame
 | **Google Analytics 4 (GA4) ID** | GA4 S'EstepaDesign | `G-DZ9ZSG3VH0` | ID de Métrica associado diretamente à propriedade GA4 (`368818608`). |
 | **Google Ads ID** | S'Estepa | `AW-795871100` | ID de conversão e remarketing configurado. |
 | **Google Ads Conversion (Form)** | Form \| Design S'Estepa | `AW-795871100/dv-kCJrn0YoaEPyOwPsC` | Ação de conversão primária de envio de formulário de contato. |
+| **Google Ads Conversion (WhatsApp)** | Boton Whatsapp \| Design S'Estepa | `AW-795871100/3a-ICMu_2ooaEPyOwPsC` | Ação de conversão de clique em link WhatsApp (`wa.me`). |
 | **Google Tag Manager (GTM)** | S'Estepa Design | `GTM-K6MSRJX9` | Contêiner para gestão avançada de tags via script. |
 
 ## 2. EVENTOS E TELEMETRIA PERSONALIZADA
@@ -18,7 +19,7 @@ Este documento registra as credenciais e identificadores oficiais de acompanhame
 | :--- | :--- | :--- |
 | `conversion` | Envio de formulário confirmado com HTTP 200 (`res.ok && result.ok`) em `/api/leads` | `AW-795871100/dv-kCJrn0YoaEPyOwPsC` + `transaction_id` único (Google Ads) |
 | `generate_lead` | Envio de formulário confirmado com HTTP 200 (`res.ok && result.ok`) em `/api/leads` | `currency: 'EUR'`, `value: 1.0`, `event_label: pathname` (GA4 & dataLayer) |
-| `whatsapp_click` | Primeiro clique em link `wa.me` na sessão (`sessionStorage`) | `event_category: 'engagement'`, `event_label: pathname` (GA4, dataLayer & `/api/leads`) |
+| `whatsapp_click` | Primeiro clique em link `wa.me` na sessão (`sessionStorage`) | `AW-795871100/3a-ICMu_2ooaEPyOwPsC` (Google Ads `conversion`), `event_category: 'engagement'`, `event_label: pathname` (GA4, dataLayer & `/api/leads`) |
 
 ## 3. OUTROS RASTREADORES
 
@@ -28,6 +29,8 @@ Este documento registra as credenciais e identificadores oficiais de acompanhame
 | **Metricool** | `4514d2b6d34c58b6a0b6a1c1649df7b` | Hash de rastreamento de métricas de rede social e tráfego. |
 
 ## 4. HISTÓRICO DE CORREÇÕES
+
+* **17 de Novembro de 2026**: Adicionado disparo direto de conversão Google Ads (`AW-795871100/3a-ICMu_2ooaEPyOwPsC`, `GOOGLE_ADS_CONVERSION_WHATSAPP`) no listener de cliques `wa.me` em `Layout.astro` e registrado em `seo.ts`. O acionador `Apenas links` no GTM (`GTM-K6MSRJX9`) estava configurado como `Evento personalizado` (`click`) em vez de `Just Links` ou `whatsapp_click`, impedindo os pings de conversão para `Boton Whatsapp | Design S'Estepa`.
 
 * **10 de Novembro de 2026**: Blindagem do disparo de conversão em `ContactForm.astro`: validação estrita de `res.ok` e `result.ok` do endpoint `/api/leads` antes de acionar `AW-795871100/dv-kCJrn0YoaEPyOwPsC`, adição de `transaction_id` único contra duplicidade, emissão do evento `generate_lead` para GA4/dataLayer e remoção do disparo falso de conversão dentro do bloco `.catch()`. Adicionada deduplicação por sessão (`sessionStorage`) no listener de `wa.me` em `Layout.astro`.
 * **04 de Setembro de 2026**: Atualização cirúrgica do rótulo de conversão de formulário no código (`contactPage.astro`, `HomePage.astro`, `seo.ts`). Substituição do placeholder genérico `AW-795871100/contact_form_lead` pela string alfanumérica oficial do Google Ads: `AW-795871100/dv-kCJrn0YoaEPyOwPsC`. Adição de telemetria de evento `whatsapp_click` via `window.gtag` e `dataLayer` em `Layout.astro`.
