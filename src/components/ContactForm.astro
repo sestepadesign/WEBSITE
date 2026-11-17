@@ -195,6 +195,15 @@ const statusMessages = {
 
         // Dispara a conversão no Google Ads apenas após confirmação HTTP 200 do servidor (/api/leads)
         if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+          const userEmail = (data.email || '').trim().toLowerCase();
+          const userPhone = (data.phone || '').trim();
+          const userData: Record<string, string> = {};
+          if (userEmail) userData.email = userEmail;
+          if (userPhone) userData.phone_number = userPhone;
+          if (Object.keys(userData).length > 0) {
+            (window as any).gtag('set', 'user_data', userData);
+          }
+
           (window as any).gtag('event', 'conversion', {
             'send_to': 'AW-795871100/dv-kCJrn0YoaEPyOwPsC',
             'value': 1.0,

@@ -30,6 +30,7 @@ Este documento registra as credenciais e identificadores oficiais de acompanhame
 
 ## 4. HISTÓRICO DE CORREÇÕES
 
+* **17 de Novembro de 2026 (Auditoria GA4/GTM)**: Adicionado envio de `gtag('set', 'user_data', { email, phone_number })` em `ContactForm.astro` após confirmação HTTP 200 de `/api/leads` para alimentar o UPD (User-Provided Data) no GA4/Ads. Limpeza de Key Events no GA4 (`G-DZ9ZSG3VH0`) e pausa de tags redundantes no GTM (`GTM-K6MSRJX9`).
 * **17 de Novembro de 2026**: Adicionado disparo direto de conversão Google Ads (`AW-795871100/3a-ICMu_2ooaEPyOwPsC`, `GOOGLE_ADS_CONVERSION_WHATSAPP`) no listener de cliques `wa.me` em `Layout.astro` e registrado em `seo.ts`. O acionador `Apenas links` no GTM (`GTM-K6MSRJX9`) estava configurado como `Evento personalizado` (`click`) em vez de `Just Links` ou `whatsapp_click`, impedindo os pings de conversão para `Boton Whatsapp | Design S'Estepa`.
 
 * **10 de Novembro de 2026**: Blindagem do disparo de conversão em `ContactForm.astro`: validação estrita de `res.ok` e `result.ok` do endpoint `/api/leads` antes de acionar `AW-795871100/dv-kCJrn0YoaEPyOwPsC`, adição de `transaction_id` único contra duplicidade, emissão do evento `generate_lead` para GA4/dataLayer e remoção do disparo falso de conversão dentro do bloco `.catch()`. Adicionada deduplicação por sessão (`sessionStorage`) no listener de `wa.me` em `Layout.astro`.
