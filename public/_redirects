@@ -94,8 +94,13 @@
 # slug that need a direct 301.
 /benissalem/  /binissalem/  301
 /puig-na-morisca/  /santa-ponsa/  301
+/es/puig-na-morisca/  /es/santa-ponsa/  301
+/de/puig-na-morisca/  /de/santa-ponsa/  301
 /crestatx/  /crestatx-garden-design/  301
 /es/contacte-con/  /es/contacto/  301
+/es/contacto  /es/contacto/  301
+/es/tag/diseno-de-jardines/  /es/portfolio/  301
+/2023/08/  /blog/  301
 /de/finca-garden-campos-mallorca/  /de/finca-garten-campos/  301
 
 

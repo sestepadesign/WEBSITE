@@ -12,7 +12,7 @@ const translations = {
       { name: "Renders 3D de Jardines", description: "Visualizaciones en 3D fotorrealistas del diseño del jardín propuesto antes de la construcción." },
       { name: "Construcción de Jardines", description: "Instalación y construcción completa de jardines diseñados en Mallorca, desde terrazas hasta fincas." },
       { name: "Mantenimiento de Jardines", description: "Mantenimiento continuo de jardines establecidos, incluyendo poda, riego y control fitosanitario." },
-      { name: "Consulta Inicial Gratuita", description: "Primera reunión de cortesía para discutir los objetivos del pródigo, condiciones del sitio y presupuesto." }
+      { name: "Consulta Inicial Gratuita", description: "Primera reunión de cortesía para discutir los objetivos del proyecto, condiciones del sitio y presupuesto." }
     ]
   },
   en: {
