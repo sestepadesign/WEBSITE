@@ -2,6 +2,11 @@
 
 Este documento registra as credenciais e identificadores oficiais de acompanhamento, analytics e anúncios de S'Estepa Design para referência técnica e auditorias.
 
+## 0. ESCOPO DE MARCA (DESIGN vs. JARDINAGEM)
+
+* **`design.sestepa.com` (este repositório / `sestepa-design`):** Projetos de paisagismo e design para público ultra-high income, com Instagram próprio, campanhas próprias e foco atual de investimento em Ads. Todos os identificadores abaixo (`GTM-K6MSRJX9`, `GT-WKTZS5C`, `G-DZ9ZSG3VH0` e conversões `| Design S'Estepa`) pertencem exclusivamente a esta frente.
+* **`sestepa.com` (pasta `sestepa` separada):** Jardinagem integral com equipe própria, Instagram próprio e campanhas separadas. Como compartilha a mesma conta Google Ads (`AW-795871100` / `S'Estepa`), **não alterar nem auditar** conversões ou campanhas exclusivas de jardinagem ao trabalhar neste projeto.
+
 ## 1. IDENTIFICADORES DO GOOGLE
 
 | Ferramenta / Destino | Nome da Propriedade / Recurso | ID Oficial | Descrição / Função |
