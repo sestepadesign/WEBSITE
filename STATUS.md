@@ -16,6 +16,14 @@
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
 
+### [2026-11-18] - Antigravity (Publicação da Proposta Editorial Instagram Nov-Dez 2026 sem Links Públicos) — publicado em master
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Não houve acesso a `J:` nesta etapa.
+- **Escopo:**
+  - Publicada a página estática `public/propuesta-instagram-2026.html` (`noindex, nofollow, noarchive`) com a proposta visual de 30 posts (18 nov – 31 dez 2026, 4–5/semana), sem qualquer link no menu, rodapé, páginas ou sitemaps do site.
+  - Caminhos das imagens ajustados para raiz absoluta (`/portfolio/...`) para apresentação remota à equipe em Mallorca via `https://design.sestepa.com/propuesta-instagram-2026.html`.
+- **Arquivos alterados:** `public/propuesta-instagram-2026.html`, `STATUS.md`.
+
 ### [2026-11-13] - Antigravity (CTA Discreto no Fim dos Projetos e Faixa de Imprensa na Homepage) — publicado em master
 - **Autor/agente:** Antigravity.
 - **Acesso à unidade J:** Não houve acesso a `J:` (100% isolamento estrito preservado).

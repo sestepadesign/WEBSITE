@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>S'Estepa Design — Propuesta Editorial Instagram (Nov–Dic 2026)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --surface: #ffffff;
+      --surface-alt: #efece4;
+      --ink: #1a1a18;
+      --ink-muted: #5c5b55;
+      --olive: #565e43;
+      --olive-soft: #e6e9de;
+      --border: #ddd8cc;
+      --accent: #2f3326;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --radius: 6px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 400;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    .topbar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+    .topbar-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-title {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .brand-sub {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.55rem 0.95rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .btn:hover { border-color: var(--ink); }
+    .btn.active {
+      background: var(--ink);
+      color: var(--surface);
+      border-color: var(--ink);
+    }
+    .btn-primary {
+      background: var(--olive);
+      color: #fff;
+      border-color: var(--olive);
+    }
+    .btn-primary:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* Executive Summary */
+    .hero-summary {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .hero-kicker {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--olive);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .hero-summary h1 {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 3vw, 2.7rem);
+      font-weight: 500;
+      line-height: 1.15;
+      margin-bottom: 0.85rem;
+    }
+    .hero-lead {
+      color: var(--ink-muted);
+      max-width: 78ch;
+      font-size: 0.96rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .kpi-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.15rem;
+    }
+    .kpi-value {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    .kpi-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      margin-top: 0.25rem;
+    }
+
+    .audit-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+    .audit-item h3 {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--olive);
+      margin-bottom: 0.3rem;
+    }
+    .audit-item p {
+      font-size: 0.86rem;
+      color: var(--ink-muted);
+    }
+
+    /* Filters */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      padding: 1rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+    .filter-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      margin-right: 0.25rem;
+    }
+    select {
+      font-family: var(--sans);
+      font-size: 0.84rem;
+      padding: 0.42rem 0.7rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg);
+      color: var(--ink);
+    }
+    .count-pill {
+      margin-left: auto;
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+    }
+
+    /* Week Section */
+    .week-block {
+      margin-bottom: 2.75rem;
+    }
+    .week-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.65rem;
+      margin-bottom: 1.25rem;
+    }
+    .week-title {
+      font-family: var(--serif);
+      font-size: 1.65rem;
+      font-weight: 500;
+    }
+    .week-meta {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--olive);
+      font-weight: 500;
+    }
+
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .post-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.16s ease;
+    }
+    .post-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(26, 26, 24, 0.08);
+    }
+
+    .post-media {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      background: var(--surface-alt);
+      overflow: hidden;
+    }
+    .post-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .post-badges {
+      position: absolute;
+      top: 0.65rem;
+      left: 0.65rem;
+      right: 0.65rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.4rem;
+      pointer-events: none;
+    }
+    .badge {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.55rem;
+      border-radius: 3px;
+      background: rgba(26, 26, 24, 0.84);
+      color: #fff;
+      backdrop-filter: blur(4px);
+    }
+    .badge-source {
+      background: rgba(86, 94, 67, 0.92);
+    }
+    .badge-new {
+      background: #8b4a2b;
+    }
+
+    .post-body {
+      padding: 1rem 1.1rem 1.15rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .post-date-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      margin-bottom: 0.35rem;
+    }
+    .post-project {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 0.35rem;
+      color: var(--ink);
+    }
+    .post-angle {
+      font-size: 0.84rem;
+      color: var(--olive);
+      font-weight: 500;
+      margin-bottom: 0.55rem;
+    }
+    .post-hook {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 0.85rem;
+    }
+    .post-footer {
+      margin-top: auto;
+      padding-top: 0.65rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.76rem;
+      color: var(--ink-muted);
+    }
+    .read-more {
+      color: var(--ink);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* Instagram Grid View */
+    .ig-shell {
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    .ig-profile-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .ig-handle {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    .ig-bio {
+      font-size: 0.84rem;
+      color: var(--ink-muted);
+    }
+    .ig-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+    .ig-tile {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      background: var(--surface-alt);
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .ig-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+    .ig-tile:hover img { transform: scale(1.03); }
+    .ig-tile-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(20, 20, 18, 0.78) 0%, transparent 55%);
+      color: #fff;
+      padding: 0.65rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      opacity: 0.92;
+    }
+    .ig-tile-num {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+    .ig-tile-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      line-height: 1.15;
+    }
+    .ig-tile-type {
+      position: absolute;
+      top: 0.45rem;
+      right: 0.45rem;
+      background: rgba(20, 20, 18, 0.72);
+      color: #fff;
+      font-size: 0.64rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.18rem 0.4rem;
+      border-radius: 3px;
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 20, 18, 0.72);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal-panel {
+      background: var(--surface);
+      border-radius: var(--radius);
+      max-width: 1040px;
+      width: 100%;
+      max-height: 92vh;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      border: 1px solid var(--border);
+    }
+    @media (max-width: 820px) {
+      .modal-panel { grid-template-columns: 1fr; }
+    }
+    .modal-left {
+      background: #141412;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.85rem;
+    }
+    .modal-main-frame {
+      width: 100%;
+      max-width: 390px;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: 4px;
+      background: #222;
+    }
+    .modal-main-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .modal-thumbs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+    .modal-thumb {
+      width: 52px;
+      height: 65px;
+      object-fit: cover;
+      border-radius: 3px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      opacity: 0.7;
+    }
+    .modal-thumb.active {
+      border-color: #fff;
+      opacity: 1;
+    }
+
+    .modal-right {
+      padding: 1.65rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .modal-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.85rem;
+    }
+    .modal-kicker {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--olive);
+      font-weight: 600;
+    }
+    .modal-title {
+      font-family: var(--serif);
+      font-size: 1.7rem;
+      font-weight: 500;
+      line-height: 1.15;
+    }
+    .close-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.35rem 0.65rem;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+    .caption-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.95rem 1.05rem;
+    }
+    .caption-lang {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--olive);
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+    .caption-text {
+      font-size: 0.9rem;
+      white-space: pre-line;
+    }
+    .hashtags-box {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      font-family: monospace;
+      background: var(--surface-alt);
+      padding: 0.55rem 0.75rem;
+      border-radius: var(--radius);
+    }
+    .tech-meta {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 0.75rem;
+    }
+    .tech-meta code {
+      font-size: 0.75rem;
+      background: var(--surface-alt);
+      padding: 0.1rem 0.3rem;
+      border-radius: 3px;
+      word-break: break-all;
+    }
+    .modal-nav {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .hidden { display: none !important; }
+
+    /* Print View */
+    @media print {
+      .topbar, .filter-bar, .modal-backdrop { display: none !important; }
+      body { background: #fff; }
+      .container { padding: 0; max-width: 100%; }
+      .post-card { break-inside: avoid; box-shadow: none; }
+      .week-block { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-title">S'Estepa Design</span>
+        <span class="brand-sub">Propuesta Editorial Instagram · 18 Nov – 31 Dic 2026</span>
+      </div>
+      <div class="controls-bar">
+        <button class="btn active" id="btnViewCalendar" type="button">Vista Semanal (30)</button>
+        <button class="btn" id="btnViewGrid" type="button">Simulación Feed 3x10</button>
+        <button class="btn btn-primary" id="btnPrint" type="button">Exportar / Imprimir PDF</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero-summary">
+      <div class="hero-kicker">Propuesta Homologada para Cliente · @sestepadesign</div>
+      <h1>Calendario de Instagram: Fin de Año 2026 en Mallorca</h1>
+      <p class="hero-lead">
+        Planificación práctica de <strong>4 a 5 publicaciones por semana</strong> (30 publicaciones en 7 semanas, del 18 de noviembre al 31 de diciembre de 2026), diseñada a partir de la auditoría de los cuatro estudios referentes en Mallorca (<strong>@mashambadesign</strong>, <strong>@mallorcagardendesign</strong>, <strong>@studioterraforma</strong> y <strong>@jardinstramuntana</strong>) y del cruce completo entre los <strong>23 proyectos del website</strong> y las <strong>96 fotos de la presentación</strong>.
+      </p>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-value">30 Posts</div>
+          <div class="kpi-label">4–5 / semana · 7 semanas</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">22 Proyectos</div>
+          <div class="kpi-label">19 de presentación + 3 inéditos web</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">20 / 5 / 5</div>
+          <div class="kpi-label">Carruseles · Reels · Fotos únicas</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">EN + ES</div>
+          <div class="kpi-label">Bilingüe · Tono arquitectónico</div>
+        </div>
+      </div>
+
+      <div class="audit-strip">
+        <div class="audit-item">
+          <h3>Por qué funciona en Nov–Dic</h3>
+          <p>En la auditoría 2025–2026 de los 4 competidores, ninguno publica clichés navideños. El mayor alcance viene de evolución en el tiempo, luz baja de otoño, gramíneas (Muhlenbergia) y preparación de proyectos para el verano 2027.</p>
+        </div>
+        <div class="audit-item">
+          <h3>Cruce Web vs. Presentación</h3>
+          <p>Además de las 96 fotos de la presentación, integramos 3 proyectos ausentes en ella (<strong>Campanet</strong>, <strong>Costa de la Calma</strong> y renders de <strong>Sa Cabaneta</strong>) y archivos inéditos de evolución en <strong>Sant Llorenç</strong> y <strong>Jardines Verticales</strong>.</p>
+        </div>
+        <div class="audit-item">
+          <h3>Voz S'Estepa Design</h3>
+          <p>Sobriedad boutique (est. 1999): apertura sensorial con localización real en Mallorca, dato botánico o constructivo verificable, cierre de principio de diseño y 4–5 hashtags precisos sin emojis.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="filter-bar">
+      <div class="filter-group">
+        <span class="filter-label">Semana:</span>
+        <select id="filterWeek">
+          <option value="all">Todas las semanas (1–7)</option>
+          <option value="1">Semana 1 (18–22 Nov · 4 posts)</option>
+          <option value="2">Semana 2 (24–29 Nov · 5 posts)</option>
+          <option value="3">Semana 3 (1–6 Dic · 4 posts)</option>
+          <option value="4">Semana 4 (8–13 Dic · 4 posts)</option>
+          <option value="5">Semana 5 (15–20 Dic · 5 posts)</option>
+          <option value="6">Semana 6 (22–27 Dic · 4 posts)</option>
+          <option value="7">Semana 7 (29–31 Dic · 4 posts)</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Formato:</span>
+        <select id="filterFormat">
+          <option value="all">Todos los formatos</option>
+          <option value="Carrusel">Carrusel</option>
+          <option value="Reel">Reel</option>
+          <option value="Foto única">Foto única</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Origen Material:</span>
+        <select id="filterSource">
+          <option value="all">Todo el material</option>
+          <option value="Presentación 96">Presentación 96</option>
+          <option value="Web Extra">Inédito Web (fuera de las 96)</option>
+          <option value="Mixto">Mixto (Presentación + Web)</option>
+        </select>
+      </div>
+      <span class="count-pill" id="visibleCount">Mostrando 30 de 30 publicaciones</span>
+    </section>
+
+    <section id="calendarView"></section>
+    <section id="gridView" class="hidden"></section>
+  </main>
+
+  <div class="modal-backdrop" id="postModal" role="dialog" aria-modal="true">
+    <div class="modal-panel">
+      <div class="modal-left">
+        <div class="modal-main-frame">
+          <img id="modalMainImg" src="" alt="" />
+        </div>
+        <div class="modal-thumbs" id="modalThumbs"></div>
+      </div>
+      <div class="modal-right">
+        <div class="modal-top">
+          <div>
+            <div class="modal-kicker" id="modalKicker"></div>
+            <h2 class="modal-title" id="modalTitle"></h2>
+          </div>
+          <button class="close-btn" id="modalClose" type="button">Cerrar</button>
+        </div>
+
+        <div class="caption-box">
+          <div class="caption-lang">Copy Inglés (EN)</div>
+          <div class="caption-text" id="modalEn"></div>
+        </div>
+
+        <div class="caption-box">
+          <div class="caption-lang">Copy Español (ES)</div>
+          <div class="caption-text" id="modalEs"></div>
+        </div>
+
+        <div class="hashtags-box" id="modalTags"></div>
+
+        <div class="tech-meta" id="modalTech"></div>
+
+        <div class="modal-nav">
+          <button class="btn" id="modalPrev" type="button">Anterior</button>
+          <button class="btn btn-primary" id="modalCopy" type="button">Copiar EN + ES + Hashtags</button>
+          <button class="btn" id="modalNext" type="button">Siguiente</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const BASE = '';
+
+    const WEEKS = [
+      { id: 1, label: 'Semana 1 · 18–22 Noviembre (4 posts)', theme: 'Otoño vivo en Mallorca: Muhlenbergia y flora endémica' },
+      { id: 2, label: 'Semana 2 · 24–29 Noviembre (5 posts)', theme: 'Época real de plantación y proyectos inéditos de la web' },
+      { id: 3, label: 'Semana 3 · 1–6 Diciembre (4 posts)', theme: 'Jardines sin césped, baja demanda hídrica y materiales' },
+      { id: 4, label: 'Semana 4 · 8–13 Diciembre (4 posts)', theme: 'Estructura de invierno y diseño para 2027' },
+      { id: 5, label: 'Semana 5 · 15–20 Diciembre (5 posts)', theme: 'Patios, terrazas habitadas todo el año y piedra caliza' },
+      { id: 6, label: 'Semana 6 · 22–27 Diciembre (4 posts)', theme: 'Planificar en invierno, cítricos y microclimas costeros' },
+      { id: 7, label: 'Semana 7 · 29–31 Diciembre (4 posts)', theme: 'Prueba de maduración en el tiempo y balance 2026' }
+    ];
+
+    const POSTS = [
+      {
+        id: 1, week: 1, date: 'Mié 18 Nov', format: 'Carrusel', project: 'Sant Llorenç',
+        source: 'Mixto', isNewProject: false,
+        angle: 'Floración de otoño a los 5 meses de plantar',
+        images: [
+          '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-01-portrait-sestepa-design.webp',
+          '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-07-sestepa-design.webp',
+          '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-18-sestepa-design.webp',
+          '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-08-sestepa-design.webp',
+          '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp'
+        ],
+        en: "Garden design Mallorca: late autumn, and the Muhlenbergia is at its peak.\n\nFive months after planting in Sant Llorenç, the ornamental grasses catch the low November light against wild olive trees and dry-stone walls. Mediterranean gardens do not fade in autumn; they deepen.",
+        es: "Diseño de jardines en Mallorca: finales de otoño y la Muhlenbergia en su momento más pleno.\n\nCinco meses después de plantar en Sant Llorenç, las gramíneas recogen la luz baja de noviembre junto a acebuches y muros de piedra seca. El jardín mediterráneo no se apaga en otoño; gana profundidad.",
+        tags: '#gardendesignmallorca #muhlenbergia #santllorenc #mediterraneangarden #sestepadesign',
+        note: 'Combina fotos de la Presentación 96 con sofia-08 (extra del website). Validar que las 5 láminas se recorten en 4:5 sin cortar la copa de los acebuches.'
+      },
+      {
+        id: 2, week: 1, date: 'Jue 19 Nov', format: 'Reel', project: 'Sant Llorenç',
+        source: 'Presentación 96', isNewProject: false,
+        angle: 'Viento en las gramíneas y luz de noviembre (Video Hero)',
+        images: [
+          '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp',
+          '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-05-portrait-sestepa-design.webp'
+        ],
+        en: "Five months after planting. Sant Llorenç, November.\n\nNo filters, only afternoon wind through Stipa tenuissima, Muhlenbergia capillaris, and limestone gravel across an 18,000 m2 estate.",
+        es: "Cinco meses después de plantar. Sant Llorenç, noviembre.\n\nSin artificios, solo el viento de la tarde entre Stipa tenuissima, Muhlenbergia capillaris y grava caliza en una finca de 18.000 m2.",
+        tags: '#landscapedesignmallorca #santllorenc #ornamentalgrasses #fincagarden #sestepadesign',
+        note: 'Usar el vídeo real ya codificado /videos/sant_llorenc_hero.mp4 (o recorte vertical 9:16 del original 4K en originais-grandes/sant-llorenc/).'
+      },
+      {
+        id: 3, week: 1, date: 'Sáb 21 Nov', format: 'Foto única', project: 'Andratx',
+        source: 'Presentación 96', isNewProject: false,
+        angle: 'Eje visual de grava entre olivos',
+        images: [
+          '/portfolio/andratx/garden-design-mallorca-andratx-sestepa-01.webp'
+        ],
+        en: "An estate garden in Andratx, in November light.\n\nA gravel axis framed by Olea europaea, Pittosporum tobira 'Nana', and soft grasses draws the eye straight toward the Tramuntana.",
+        es: "Un jardín de finca en Andratx bajo la luz de noviembre.\n\nUn eje de grava enmarcado por Olea europaea, Pittosporum tobira 'Nana' y gramíneas dirige la mirada hacia la Serra de Tramuntana.",
+        tags: '#andratx #gardendesignmallorca #olivegrove #mediterraneanlandscape #sestepadesign',
+        note: 'Foto 01 de Andratx de la presentación de 96 fotos.'
+      },
+      {
+        id: 4, week: 1, date: 'Dom 22 Nov', format: 'Carrusel', project: 'Campanet',
+        source: 'Web Extra', isNewProject: true,
+        angle: 'Proyecto inédito en presentación: flora endémica y piedra seca',
+        images: [
+          '/portfolio/campanet-garden/garden-design-mallorca-campanet-garden-sestepa.jpg',
+          '/portfolio/campanet-garden/images/garden-design-mallorca-landscape-design-sestepa-campanet-1.jpg',
+          '/portfolio/campanet-garden/images/garden-design-mallorca-landscape-design-sestepa-campanet-2.jpg',
+          '/portfolio/campanet-garden/images/garden-design-mallorca-landscape-design-sestepa-campanet-4.jpg'
+        ],
+        en: "From our portfolio in Campanet: wild drought-tolerant textures rooted in local stone.\n\nOlea europaea, Rosmarinus officinalis, Lavandula dentata, and Stipa tenuissima integrated with traditional dry-stone walls so the garden belongs to the valley.",
+        es: "De nuestro portafolio en Campanet: texturas silvestres de baja demanda hídrica arraigadas en la piedra local.\n\nOlea europaea, Rosmarinus officinalis, Lavandula dentata y Stipa tenuissima integradas con muros de piedra seca para que el jardín pertenezca al valle.",
+        tags: '#campanet #drystonewall #nativeplants #mallorcagardens #sestepadesign',
+        note: 'Proyecto completo ausente de la presentación de 96 fotos (6 fotos disponibles en projects.ts).'
+      },
+      {
+        id: 5, week: 2, date: 'Mar 24 Nov', format: 'Carrusel', project: 'Finca Campos + Sant Llorenç',
+        source: 'Presentación 96', isNewProject: false,
+        angle: 'Carrusel educativo: por qué plantamos en otoño en Mallorca',
+        images: [
+          '/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-23.jpg',
+          '/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-33.jpg',
+          '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-01.webp',
+          '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-18.webp'
+        ],
+        en: "Why we plant Mediterranean gardens in autumn.\n\nIn Mallorca, November brings the rain while the soil is still warm. Roots establish deep through winter before facing their first dry summer, cutting irrigation needs from year one.",
+        es: "Por qué plantamos los jardines mediterráneos en otoño.\n\nEn Mallorca, noviembre trae la lluvia mientras el suelo conserva el calor. Las raíces se establecen en profundidad durante el invierno antes de afrontar su primer verano seco.",
+        tags: '#autumnplanting #xeriscaping #mallorcagardendesign #sustainablelandscaping #sestepadesign',
+        note: 'Formato educativo altamente guardado según auditoría de @mallorcagardendesign.'
+      },
+      {
+        id: 6, week: 2, date: 'Mié 25 Nov', format: 'Foto única', project: 'Llubí',
+        source: 'Presentación 96', isNewProject: false,
+        angle: 'Plantación adaptada al atardecer con grava estabilizada',
+        images: [
+          '/portfolio/garden-design-llubi-mallorca/images/landscape-architecture-mallorca-llubi-sestepa-design (5).webp'
+        ],
+        en: "Planted in autumn, carried by winter rain. Llubí.\n\nFive low-water plots of rosemary, lavender, and gravel paths designed around a central gathering hearth.",
+        es: "Plantado en otoño, sostenido por la lluvia de invierno. Llubí.\n\nCinco parcelas de baja demanda hídrica con romero, lavanda y caminos de grava articulados en torno a un hogar central.",
+        tags: '#llubi #drygarden #lowwatergarden #landscapearchitecturemallorca #sestepadesign',
+        note: 'Foto de la presentación de 96 imágenes.'
+      },
+      {
+        id: 7, week: 2, date: 'Jue 26 Nov', format: 'Carrusel', project: 'Marratxí',
+        source: 'Mixto', isNewProject: false,
+        angle: 'Caminos con bordillo de piedra y estructura mediterránea',
+        images: [
+          '/portfolio/marratxi/garden-design-mallorca-marratxi-sestepa-01.webp',
+          '/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-02.webp',
+          '/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-03.webp',
+          '/portfolio/marratxi/images/garden-design-mallorca-marratxi-sestepa-04.webp'
+        ],
+        en: "Finca garden in Marratxí, built for the island's climate.\n\nStone-edged gravel paths weave between Olea europaea, Euphorbia ingens, and soft drifts of Muhlenbergia and Stipa.",
+        es: "Jardín de finca en Marratxí, diseñado para el clima de la isla.\n\nCaminos de grava con bordillos de piedra conectan ejemplares de Olea europaea y Euphorbia ingens con masas de Muhlenbergia y Stipa.",
+        tags: '#marratxi #fincamallorca #mediterraneangarden #gardendesign #sestepadesign',
+        note: 'Incluye la foto extra 04.webp del website además de las 3 de la presentación.'
+      },
+      {
+        id: 8, week: 2, date: 'Sáb 28 Nov', format: 'Reel', project: 'Finca Jardín Campos',
+        source: 'Mixto', isNewProject: false,
+        angle: 'Del plano maestro a 14.000 m2 consolidados',
+        images: [
+          '/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-01-master.webp',
+          '/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-29.jpg',
+          '/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-38.jpg'
+        ],
+        en: "From plan to planting: 14,000 m2 in Campos.\n\nA rural estate anchored by an elevated gravel bed, shrub tunnels, and drought-tolerant perennials that thrive without formal lawns.",
+        es: "Del plano a la plantación: 14.000 m2 en Campos.\n\nUna finca rural articulada con un parterre elevado en grava, túneles vegetales y vivaces resistentes a la sequía.",
+        tags: '#campos #fincagarden #landscapearchitecture #mallorcagardens #sestepadesign',
+        note: 'Reel por fotogramas (Remotion) partiendo del plano maestro 01-master.webp hasta las fotos consolidadas.'
+      },
+      {
+        id: 9, week: 2, date: 'Dom 29 Nov', format: 'Carrusel', project: 'Costa de la Calma',
+        source: 'Web Extra', isNewProject: true,
+        angle: 'Proyecto inédito en presentación: privacidad y jardín costero en Calvià',
+        images: [
+          '/portfolio/costadelacalma/LANDSCAPE-GARDEN-DESIGN-MALLORCA-COSTA-DE-LA-CALMA-SESTEPA-DESIGN.webp',
+          '/portfolio/costadelacalma/images/LANDSCAPE-GARDEN-DESIGN-MALLORCA-COSTA-DE-LA-CALMA-SESTEPA-DESIGN-1-1.webp',
+          '/portfolio/costadelacalma/images/LANDSCAPE-GARDEN-DESIGN-MALLORCA-COSTA-DE-LA-CALMA-SESTEPA-DESIGN-1-2.webp',
+          '/portfolio/costadelacalma/images/LANDSCAPE-GARDEN-DESIGN-MALLORCA-COSTA-DE-LA-CALMA-SESTEPA-DESIGN-1-4.webp'
+        ],
+        en: "Privacy and architectural foliage in Costa de la Calma, Calvià.\n\nBambusa vulgaris screens frame Strelitzia nicolai and Phormium tenax, creating a sheltered coastal garden with minimal maintenance.",
+        es: "Privacidad y follaje arquitectónico en Costa de la Calma, Calvià.\n\nPantallas de Bambusa vulgaris enmarcan ejemplares de Strelitzia nicolai y Phormium tenax en un jardín costero resguardado y de bajo mantenimiento.",
+        tags: '#costadelacalma #calvia #coastalGarden #gardendesignmallorca #sestepadesign',
+        note: 'Segundo proyecto completo ausente de la presentación de 96 fotos (6 fotos disponibles en projects.ts).'
+      },
+      {
+        id: 10, week: 3, date: 'Mar 1 Dic', format: 'Reel', project: 'Crestatx',
+        source: 'Web Extra', isNewProject: false,
+        angle: 'Jardín sostenible sin césped (Video Hero Crestatx)',
+        images: [
+          '/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-4.jpg',
+          '/portfolio/crestatx-garden-design/images/GARDEN-DESIGN-MALLORCA-CRESTATX-SESTEPA-LANDSCAPE-DESIGN-22.jpg'
+        ],
+        en: "A sustainable garden in Mallorca, without a lawn.\n\nIn Crestatx, mini river stones and corten steel replace high-water turf, letting Cycas, Strelitzia, rosemary, and ornamental grasses breathe.",
+        es: "Un jardín sostenible en Mallorca, sin césped.\n\nEn Crestatx, el canto rodado fino y el acero corten sustituyen al césped de alto consumo hídrico para dar protagonismo a Cycas, Strelitzia, romero y gramíneas.",
+        tags: '#crestatx #sustainablegarden #nolawn #xeriscape #sestepadesign',
+        note: 'Usar /videos/crestatx_hero.mp4 (activo exclusivo del website, no presente en las 96 fotos).'
+      },
+      {
+        id: 11, week: 3, date: 'Jue 3 Dic', format: 'Foto única', project: 'Finca Jardín Campos',
+        source: 'Presentación 96', isNewProject: false,
+        angle: 'Stipa en tono dorado de invierno',
+        images: [
+          '/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-38.jpg'
+        ],
+        en: "Stipa in winter gold. Finca garden, Campos.\n\nA landscape shaped to look intentional in December without relying on August irrigation.",
+        es: "Stipa en tono dorado de invierno. Finca en Campos.\n\nUn paisaje pensado para mantener su fuerza visual en diciembre sin depender del riego intensivo de agosto.",
+        tags: '#stipa #wintergarden #camposmallorca #drygarden #sestepadesign',
+        note: 'Foto única de alto impacto visual de la presentación 96.'
+      },
+      {
+        id: 12, week: 3, date: 'Sáb 5 Dic', format: 'Carrusel', project: 'Hotel Cabot Las Velas',
+        source: 'Mixto', isNewProject: false,
+        angle: 'Paisajismo comercial de baja demanda hídrica en Puerto Pollença',
+        images: [
+          '/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-HOTEL-SESTEPA-DESIGN-MALLORCA-2.webp',
+          '/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-HOTEL-SESTEPA-DESIGN-MALLORCA-_4_.webp',
+          '/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-3.jpg',
+          '/portfolio/hotelcabotlasvelas/images/CABOT-LAS-VELAS-SESTEPA-LANDSCAPE-DESIGN-MALLORCA-1500-1.jpg',
+          '/portfolio/hotelcabotlasvelas/garden-design-mallorca-hotelcabotlasvelas-sestepa.webp'
+        ],
+        en: "Low-water commercial landscape design for Hotel Cabot Las Velas in Puerto Pollença.\n\nChamaerops humilis, Agave attenuata, Pistacia lentiscus, and volcanic gravel stay structured year-round with minimal maintenance.",
+        es: "Paisajismo comercial de bajo consumo hídrico para Hotel Cabot Las Velas en Puerto Pollença.\n\nChamaerops humilis, Agave attenuata, Pistacia lentiscus y grava volcánica mantienen su estructura todo el año.",
+        tags: '#puertopollenca #hotellandscaping #commerciallandscape #mallorca #sestepadesign',
+        note: 'Combina fotos de la presentación con CABOT-LAS-VELAS-...-1500-1.jpg del website.'
+      },
+      {
+        id: 13, week: 3, date: 'Dom 6 Dic', format: 'Carrusel', project: 'Materiales del Jardín Seco',
+        source: 'Presentación 96', isNewProject: false,
+        angle: 'Grava, piedra caliza, piedra seca y acero corten',
+        images: [
+          '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-07-lateral-stone-corridor-planter-sestepa.webp',
+          '/portfolio/seaside-house-alcudia/images/garden-design-mallorca-seaside-house-alcudia-sestepa-02-bancal-corten.webp',
+          '/portfolio/bunyola/images/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-2.jpg',
+          '/portfolio/crestatx-garden-design/images/GARDEN-LANDSCAPE-DESIGN-MALLORCA-SESTEPA-DESIGN-JARDINES-1.webp'
+        ],
+        en: "Gravel, limestone, dry-stone, and corten: the honest materials of a Mallorcan dry garden.\n\nWhen winter thins out the perennials, material quality holds the architecture together.",
+        es: "Grava, piedra caliza, piedra seca y acero corten: los materiales honestos de un jardín seco en Mallorca.\n\nCuando el invierno reduce la floración, la calidad del material sostiene la arquitectura del jardín.",
+        tags: '#cortensteel #drystone #landscapematerials #gardendesignmallorca #sestepadesign',
+        note: 'Carrusel transversal de 4 proyectos de la presentación 96.'
+      },
+      {
+        id: 14, week: 4, date: 'Mar 8 Dic', format: 'Carrusel', project: 'Bunyola',
+        source: 'Mixto', isNewProject: false,
+        angle: 'Estructura invernal y plano 2D en terreno en pendiente',
+        images: [
+          '/portfolio/bunyola/garden-design-mallorca-bunyola-sestepa.jpg',
+          '/portfolio/bunyola/images/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-2.jpg',
+          '/portfolio/bunyola/images/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-4.jpg',
+          '/portfolio/bunyola/images/BUNYOLA-MALLORCA-SESTEPA-LANDSCAPE-GARDEN-DESIGN-2D.png'
+        ],
+        en: "In winter, a garden reveals its true structure. Bunyola.\n\nNatural stone retaining walls, stepped terraces, Pittosporum tobira 'Nana', and Festuca glauca turn a steep plot into walkable architecture.",
+        es: "En invierno, el jardín muestra su verdadera estructura. Bunyola.\n\nMuros de contención en piedra natural, bancales escalonados, Pittosporum tobira 'Nana' y Festuca glauca convierten una parcela en pendiente en arquitectura habitable.",
+        tags: '#bunyola #slopegarden #stonework #landscapearchitecture #sestepadesign',
+        note: 'Incluye foto 4.jpg y plano 2D.png exclusivos del website.'
+      },
+      {
+        id: 15, week: 4, date: 'Jue 10 Dic', format: 'Foto única', project: 'Son Vida',
+        source: 'Presentación 96', isNewProject: false,
+        angle: 'Cipreses, piedra seca y geometría limpia',
+        images: [
+          '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-6.jpg'
+        ],
+        en: "Cypresses and dry-stone geometry. Son Vida, Palma.\n\nEvergreen structure built to read with clarity in every season.",
+        es: "Cipreses y geometría en piedra seca. Son Vida, Palma.\n\nEstructura perenne diseñada para leerse con claridad en cualquier estación del año.",
+        tags: '#sonvida #palma #evergreengarden #minimalistgarden #sestepadesign',
+        note: 'Foto de Son Vida de la presentación 96.'
+      },
+      {
+        id: 16, week: 4, date: 'Sáb 12 Dic', format: 'Carrusel', project: 'Son Vida',
+        source: 'Presentación 96', isNewProject: false,
+        angle: 'Jardín residencial maduro, verde todo el año',
+        images: [
+          '/portfolio/son-vida/garden-design-mallorca-son-vida-sestepa.jpg',
+          '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-1.jpg',
+          '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-2.jpg',
+          '/portfolio/son-vida/images/garden-design-son-vida-mallorca-sestepa-design-landscape-architecture-5.jpg'
+        ],
+        en: "An established garden in Son Vida, green through December.\n\nOlea europaea, topiary Buxus, and Pittosporum spheres frame white stone facades with quiet permanence.",
+        es: "Un jardín maduro en Son Vida, verde durante todo diciembre.\n\nOlea europaea, esferas de Buxus y Pittosporum enmarcan fachadas de piedra blanca con sobriedad atemporal.",
+        tags: '#sonvidamallorca #villagarden #landscapedesign #mediterraneanarchitecture #sestepadesign',
+        note: 'Selección de 4 fotos de Son Vida.'
+      },
+      {
+        id: 17, week: 4, date: 'Dom 13 Dic', format: 'Carrusel', project: 'Sa Cabaneta (Renders 3D)',
+        source: 'Web Extra', isNewProject: true,
+        angle: 'Proyecto inédito en presentación: invierno como época de diseño',
+        images: [
+          '/portfolio/sacabaneta/images/landscape design render mallorca sa cabaneta sestepa design (1).webp',
+          '/portfolio/sacabaneta/images/landscape design render mallorca sa cabaneta sestepa design (3).webp',
+          '/portfolio/sacabaneta/images/landscape design render mallorca sa cabaneta sestepa design (5).webp'
+        ],
+        en: "Winter is design season. 3D landscape visualisations for Sa Cabaneta, Marratxí.\n\nDesigning now allows us to define soil preparation, Grevillea robusta, Arbutus unedo, and Perovskia beds ahead of spring planting.",
+        es: "El invierno es época de proyectar. Visualizaciones 3D de paisajismo para Sa Cabaneta, Marratxí.\n\nDiseñar ahora permite preparar el terreno y definir las masas de Grevillea robusta, Arbutus unedo y Perovskia antes de la primavera.",
+        tags: '#3dlandscapedesign #sacabaneta #gardendesignmallorca #gardenplanning #sestepadesign',
+        note: 'Tercer proyecto completo ausente de la presentación 96 (declarar explícitamente que son renders 3D).'
+      },
+      {
+        id: 18, week: 5, date: 'Mar 15 Dic', format: 'Carrusel', project: 'Terraza en Palma',
+        source: 'Mixto', isNewProject: false,
+        angle: 'Terraza urbana habitada los 12 meses del año',
+        images: [
+          '/portfolio/terrace-garden-in-palma/garden-design-mallorca-terrace-garden-in-palma-sestepa.webp',
+          '/portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-5.jpg',
+          '/portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-6.jpg',
+          '/portfolio/terrace-garden-in-palma/images/landscape-garden-design-terrace-palma-mallorca-sestepa-design-3.jpg'
+        ],
+        en: "A terrace garden in Palma, used twelve months a year.\n\nLinear planters with Strelitzia nicolai, Chamaerops humilis, and columnar cacti turn an urban rooftop into an outdoor living room under winter sun.",
+        es: "Una terraza ajardinada en Palma, pensada para vivirla los doce meses del año.\n\nJardineras lineales con Strelitzia nicolai, Chamaerops humilis y cactus columnares convierten un ático urbano en un salón exterior bajo el sol de invierno.",
+        tags: '#palmademallorca #terracegarden #rooftopgarden #urbanlandscaping #sestepadesign',
+        note: 'Incluye la foto extra design-3.jpg del website.'
+      },
+      {
+        id: 19, week: 5, date: 'Mié 16 Dic', format: 'Foto única', project: 'Patio en Binissalem',
+        source: 'Presentación 96', isNewProject: false,
+        angle: 'Patio mineral de pueblo bajo luz de diciembre',
+        images: [
+          '/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-fotografo-uri-gershuni-8-sestepa.webp'
+        ],
+        en: "A mineral townhouse courtyard in Binissalem.\n\nStone textures, sculptural succulents, and sheltered microclimate proportions.",
+        es: "Un patio mineral entre medianeras en Binissalem.\n\nTexturas de piedra, suculentas escultóricas y proporciones protegidas del viento.",
+        tags: '#binissalem #courtyardgarden #townhousemallorca #mineralgarden #sestepadesign',
+        note: 'Confirmar crédito de fotografía con Uri Gershuni antes de publicar.'
+      },
+      {
+        id: 20, week: 5, date: 'Jue 17 Dic', format: 'Carrusel', project: 'Patio en Binissalem',
+        source: 'Mixto', isNewProject: false,
+        angle: 'Cítricos y cactáceas al abrigo de la tramuntana',
+        images: [
+          '/portfolio/binissalem-courtyard/garden-design-mallorca-binissalem-courtyard-01-pool-terrace-lemon-tree-sestepa.webp',
+          '/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-02-sculptural-agave-cactus-detail-sestepa.webp',
+          '/portfolio/binissalem-courtyard/images/garden-design-mallorca-binissalem-courtyard-05-pool-terrace-yellow-chairs-sestepa.webp'
+        ],
+        en: "Sheltered from the tramuntana: a courtyard garden in Binissalem.\n\nCitrus limon, Agave attenuata, Pachycereus, and Yucca rostrata thrive in stone-walled microclimates around the pool terrace.",
+        es: "Al abrigo de la tramuntana: un patio en Binissalem.\n\nCitrus limon, Agave attenuata, Pachycereus y Yucca rostrata prosperan en microclimas protegidos por muros de piedra junto a la piscina.",
+        tags: '#binissalemcourtyard #citruslimon #agave #mallorcagardens #sestepadesign',
+        note: 'Incorpora la foto 05 (piscina con tumbonas amarillas) del website.'
+      },
+      {
+        id: 21, week: 5, date: 'Sáb 19 Dic', format: 'Carrusel', project: 'Santa Eugènia',
+        source: 'Presentación 96', isNewProject: false,
+        angle: 'Del plano de plantación a la obra ejecutada',
+        images: [
+          '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-06.webp',
+          '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-07.webp',
+          '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-04.webp',
+          '/portfolio/terrace-garden-santa-eugenia/images/garden-design-mallorca-santa-eugenia-sestepa-01.webp'
+        ],
+        en: "From planting plan to built terrace. Santa Eugènia.\n\nMulti-height architectural concrete planters and custom 3-metre iron trellises ready for climbing Trachelospermum jasminoides and Bougainvillea.",
+        es: "Del plano de plantación a la terraza construida. Santa Eugènia.\n\nJardineras de hormigón visto a distintas alturas y celosías metálicas de 3 metros diseñadas para guiar Trachelospermum jasminoides y Bougainvillea.",
+        tags: '#santaeugenia #plantingplan #terracearchitecture #mallorca #sestepadesign',
+        note: 'Muestra el plano técnico y la ejecución real en la presentación 96.'
+      },
+      {
+        id: 22, week: 5, date: 'Dom 20 Dic', format: 'Carrusel', project: 'Jardín Mediterráneo',
+        source: 'Presentación 96', isNewProject: false,
+        angle: 'Olivos centenarios y finca en suelo calizo sin césped',
+        images: [
+          '/portfolio/jardin-mediterraneo/images/garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-6-1.webp',
+          '/portfolio/jardin-mediterraneo/images/landscape-garden-design-mallorca-sestepa-landscape-design-jardin-mediterraneo-10.webp',
+          '/portfolio/jardin-mediterraneo/images/landscape-garden-malorca-jardin-mediterraneo-sestepa.webp'
+        ],
+        en: "Centenary olive trees, cypresses, and limestone soil with zero lawn.\n\nFounded in Mallorca in 1999, our studio designs estates where rosemary, lavender, and Teucrium fruticans age gracefully alongside the architecture.",
+        es: "Olivos centenarios, cipreses y suelo calizo sin césped.\n\nFundado en Mallorca en 1999, nuestro estudio diseña fincas donde el romero, la lavanda y el Teucrium fruticans envejecen con naturalidad junto a la arquitectura.",
+        tags: '#mediterraneangarden #ancientolivetrees #mallorca1999 #estatedesign #sestepadesign',
+        note: 'Refuerza la autoridad de marca (fundación en 1999) con las 3 fotos de la presentación.'
+      },
+      {
+        id: 23, week: 6, date: 'Mar 22 Dic', format: 'Carrusel', project: 'Santa Ponsa',
+        source: 'Mixto', isNewProject: false,
+        angle: 'Un jardín listo para el verano 2027 empieza en invierno',
+        images: [
+          '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-01-pool-villa-stipa-sestepa.webp',
+          '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-06-covered-terrace-pool-perspective-sestepa.webp',
+          '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-09-architectural-side-walkway-vista-sestepa.webp',
+          '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-17-limestone-boulders-cycas-slope-detail-sestepa.webp',
+          '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-05-infinity-edge-cascade-lower-lawn-sestepa.webp'
+        ],
+        en: "A garden ready for summer starts in winter. Santa Ponsa.\n\nRed-limestone rockeries, infinity pool perspectives, and Stipa tenacissima establish far better when designed and planted during the cool months.",
+        es: "Un jardín listo para el verano empieza en invierno. Santa Ponsa.\n\nRocallas de piedra caliza roja, perspectivas sobre la piscina desbordante y Stipa tenacissima arraigan mucho mejor cuando se proyectan y plantan en los meses fríos.",
+        tags: '#santaponsa #calvia #poolgarden #villalandscaping #sestepadesign',
+        note: 'CTA sutil para propietarios no residentes que planifican la temporada 2027.'
+      },
+      {
+        id: 24, week: 6, date: 'Jue 24 Dic', format: 'Foto única', project: 'Jardín Binissalem',
+        source: 'Presentación 96', isNewProject: false,
+        angle: 'Temporada de cítricos en Binissalem (felicitación sobria)',
+        images: [
+          '/portfolio/binissalem/images/garden-design-mallorca-binissalem-01.webp'
+        ],
+        en: "Citrus season in Binissalem.\n\nWishing our clients, collaborators, and friends across Mallorca a peaceful end of year from all of us at S'Estepa Design.",
+        es: "Temporada de cítricos en Binissalem.\n\nDeseamos a nuestros clientes, colaboradores y amigos en Mallorca un cierre de año sereno desde todo el equipo de S'Estepa Design.",
+        tags: '#binissalem #citrusgarden #mallorcawinter #sestepadesign',
+        note: 'Saludo de Nochebuena sobrio, alineado con el tono de los referentes (sin decoración artificial).'
+      },
+      {
+        id: 25, week: 6, date: 'Sáb 26 Dic', format: 'Carrusel', project: 'Portals Nous',
+        source: 'Mixto', isNewProject: false,
+        angle: 'Microclima costero tropical adaptado al Mediterráneo',
+        images: [
+          '/portfolio/portals-nous/garden-design-mallorca-portals-nous-sestepa-01.webp',
+          '/portfolio/portals-nous/images/garden-design-mallorca-portals-nous-sestepa-02.webp',
+          '/portfolio/portals-nous/images/garden-design-mallorca-portals-nous-sestepa-03.webp',
+          '/portfolio/portals-nous/images/garden-design-mallorca-portals-nous-sestepa-04.webp'
+        ],
+        en: "A sheltered coastal microclimate in Portals Nous.\n\nStrelitzia nicolai, Alocasia odora, and Philodendron framed by stone steps and gravel borders, proving how tropical foliage adapts to coastal Mallorca.",
+        es: "Un microclima costero resguardado en Portals Nous.\n\nStrelitzia nicolai, Alocasia odora y Philodendron enmarcados por peldaños de piedra y grava en una composición tropical adaptada a la costa de Mallorca.",
+        tags: '#portalsnous #tropicalmediterranean #coastaldesign #mallorca #sestepadesign',
+        note: 'Incluye la foto 04.webp extra del website.'
+      },
+      {
+        id: 26, week: 6, date: 'Dom 27 Dic', format: 'Carrusel', project: 'Alcanada (Alcúdia)',
+        source: 'Mixto', isNewProject: false,
+        angle: 'Obra terminada junto al mar + renders 3D del proceso',
+        images: [
+          '/portfolio/seaside-house-alcudia/images/garden-design-mallorca-seaside-house-alcudia-sestepa-01-panoramica.webp',
+          '/portfolio/seaside-house-alcudia/images/garden-design-mallorca-seaside-house-alcudia-sestepa-02-bancal-corten.webp',
+          '/portfolio/seaside-house-alcudia/images/garden-design-mallorca-seaside-house-alcudia-sestepa-03-plantas-banco.webp',
+          '/portfolio/seaside-house-alcudia/images/garden-design-mallorca-seaside-house-alcudia-sestepa-04.webp'
+        ],
+        en: "Garden design by the sea. Alcanada, Alcúdia.\n\nCorten steel terraced planters, stone steps, and salt-tolerant coastal species overlooking the bay — from 3D concept (slide 4) to built reality.",
+        es: "Diseño de jardines frente al mar. Alcanada, Alcúdia.\n\nBancales aterrazados en acero corten, escalones de piedra y especies resistentes al ambiente marino sobre la bahía: del concepto 3D (lámina 4) a la obra ejecutada.",
+        tags: '#alcanada #alcudia #seasidegarden #corten #sestepadesign',
+        note: 'Combina las 3 fotos reales de la presentación con 1 render 3D del website.'
+      },
+      {
+        id: 27, week: 7, date: 'Mar 29 Dic', format: 'Carrusel', project: 'Jardines Verticales (Palma)',
+        source: 'Mixto', isNewProject: false,
+        angle: 'Prueba en el tiempo: render -> instalación 2023 -> 3 años en 2026',
+        images: [
+          '/portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-01.webp',
+          '/portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-06.webp',
+          '/portfolio/vertical-gardens-in-mallorca/images/2023-installation/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-2023-01.webp',
+          '/portfolio/vertical-gardens-in-mallorca/images/renders/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-render-interior-atrium.webp',
+          '/portfolio/vertical-gardens-in-mallorca/images/2026-3-years-growth/garden-design-mallorca-vertical-garden-ok-mobility-palma-sestepa-3-years-11-bougainvillea-mesh.webp'
+        ],
+        en: "Three years of growth: living walls in Palma.\n\nFrom 3D architectural concept and 2023 installation to full botanical maturity in 2026, with Bougainvillea and tropical climbers softening the facade.",
+        es: "Tres años de evolución: jardines verticales en Palma.\n\nDesde el concepto arquitectónico en 3D y la instalación en 2023 hasta su madurez botánica en 2026, con buganvilla y trepadoras vistiendo la celosía.",
+        tags: '#verticalgarden #livingwall #palma #mallorcaarchitecture #sestepadesign',
+        note: 'Confirmar mención a OK Mobility con Vertical Garden Mallorca antes de publicar.'
+      },
+      {
+        id: 28, week: 7, date: 'Mié 30 Dic', format: 'Foto única', project: 'Finca Jardín Campos',
+        source: 'Presentación 96', isNewProject: false,
+        angle: 'Contexto estacional: plantado en otoño, en flor en primavera',
+        images: [
+          '/portfolio/finca-garden-campos-mallorca/images/finca-garden-campos-sestepa-design-landscaper-mallorca-34.jpg'
+        ],
+        en: "Planted in autumn. In flower by spring.\n\nA reminder as the year closes: what we plant in Campos during the quiet winter months becomes this living tapestry by May.",
+        es: "Plantado en otoño. En flor en primavera.\n\nUn recordatorio al cerrar el año: lo que plantamos en Campos durante los meses tranquilos de invierno se convierte en este tapiz vivo en mayo.",
+        tags: '#campos #springbloom #mediterraneangarden #landscapedesign #sestepadesign',
+        note: 'Foto con floración primaveral enmarcada explícitamente en su contexto temporal.'
+      },
+      {
+        id: 29, week: 7, date: 'Jue 31 Dic (AM)', format: 'Carrusel', project: 'Sant Llorenç (Evolución 2026)',
+        source: 'Web Extra', isNewProject: false,
+        angle: 'Un jardín en un año: julio -> 4 meses (sep) -> 5 meses (oct)',
+        images: [
+          '/portfolio/sant-llorenc/images/garden-design-mallorca-sestepa-landscape-design-sant-llorenc-02.webp',
+          '/portfolio/sant-llorenc/images/2026-09-4-months/garden-design-mallorca-sant-llorenc-4-months-01-sestepa-design.webp',
+          '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-22-sestepa-design.webp',
+          '/portfolio/sant-llorenc/images/2026-10-5-months/garden-design-mallorca-sant-llorenc-5-months-sofia-07-sestepa-design.webp'
+        ],
+        en: "One garden, one year. Sant Llorenç 2026.\n\nSlide through the transformation from early planting in July to four months in September and full autumn maturity in October.",
+        es: "Un jardín en un año. Sant Llorenç 2026.\n\nDesliza para ver la evolución desde la plantación inicial en julio hasta los cuatro meses en septiembre y su plenitud otoñal en octubre.",
+        tags: '#beforeandafter #santllorenc #gardentransformation #mallorca #sestepadesign',
+        note: 'Aprovecha las sesiones de julio, septiembre (4 meses) y octubre (5 meses) exclusivas del website.'
+      },
+      {
+        id: 30, week: 7, date: 'Jue 31 Dic (PM)', format: 'Reel', project: "Resumen Anual S'Estepa 2026",
+        source: 'Presentación 96', isNewProject: false,
+        angle: 'Retrospectiva de fin de año con los proyectos del estudio',
+        images: [
+          '/portfolio/santa-ponsa/images/garden-design-mallorca-santa-ponsa-01-pool-villa-stipa-sestepa.webp',
+          '/portfolio/sant-llorenc/images/garden-design-mallorca-sant-llorenc-hero-cover-muhlenbergia-sestepa-design.webp',
+          '/portfolio/binissalem-courtyard/garden-design-mallorca-binissalem-courtyard-01-pool-terrace-lemon-tree-sestepa.webp',
+          '/portfolio/seaside-house-alcudia/images/garden-design-mallorca-seaside-house-alcudia-sestepa-01-panoramica.webp'
+        ],
+        en: "Garden design Mallorca, 2026.\n\nFrom coastal terraces in Calvià and Alcúdia to 18,000 m2 fincas in the interior, thank you to every client and craftsman who shaped these landscapes with us. Ready for 2027.",
+        es: "Diseño de jardines en Mallorca, 2026.\n\nDesde terrazas costeras en Calvià y Alcúdia hasta fincas de 18.000 m2 en el interior, gracias a cada cliente y artesano que ha dado forma a estos paisajes con nosotros. Listos para 2027.",
+        tags: '#sestepadesign #gardendesignmallorca #landscapearchitecture #mallorca2026',
+        note: 'Reel de cierre de año (15–20 segundos en Remotion combinando 1 foto por proyecto de la presentación).'
+      }
+    ];
+
+    let currentView = 'calendar';
+    let currentModalIdx = 0;
+    let filteredPosts = [...POSTS];
+
+    const elCalendar = document.getElementById('calendarView');
+    const elGrid = document.getElementById('gridView');
+    const elCount = document.getElementById('visibleCount');
+    const fWeek = document.getElementById('filterWeek');
+    const fFormat = document.getElementById('filterFormat');
+    const fSource = document.getElementById('filterSource');
+
+    function applyFilters() {
+      const w = fWeek.value;
+      const fmt = fFormat.value;
+      const src = fSource.value;
+      filteredPosts = POSTS.filter(p => {
+        if (w !== 'all' && String(p.week) !== w) return false;
+        if (fmt !== 'all' && p.format !== fmt) return false;
+        if (src !== 'all' && p.source !== src) return false;
+        return true;
+      });
+      elCount.textContent = `Mostrando ${filteredPosts.length} de ${POSTS.length} publicaciones`;
+      render();
+    }
+
+    function render() {
+      if (currentView === 'calendar') {
+        elCalendar.classList.remove('hidden');
+        elGrid.classList.add('hidden');
+        renderCalendar();
+      } else {
+        elCalendar.classList.add('hidden');
+        elGrid.classList.remove('hidden');
+        renderGrid();
+      }
+    }
+
+    function renderCalendar() {
+      const grouped = WEEKS.map(w => ({
+        week: w,
+        posts: filteredPosts.filter(p => p.week === w.id)
+      })).filter(g => g.posts.length > 0);
+
+      if (grouped.length === 0) {
+        elCalendar.innerHTML = '<p style="color:var(--ink-muted)">No hay publicaciones que coincidan con los filtros seleccionados.</p>';
+        return;
+      }
+
+      elCalendar.innerHTML = grouped.map(g => `
+        <div class="week-block">
+          <div class="week-header">
+            <h2 class="week-title">${g.week.label}</h2>
+            <span class="week-meta">${g.week.theme}</span>
+          </div>
+          <div class="posts-grid">
+            ${g.posts.map(p => `
+              <article class="post-card" data-id="${p.id}">
+                <div class="post-media">
+                  <img src="${BASE}${p.images[0]}" alt="${p.project}" loading="lazy" />
+                  <div class="post-badges">
+                    <span class="badge">${p.format}${p.images.length > 1 ? ` · ${p.images.length} img` : ''}</span>
+                    <span class="badge ${p.isNewProject ? 'badge-new' : 'badge-source'}">${p.isNewProject ? 'Inédito Web' : p.source}</span>
+                  </div>
+                </div>
+                <div class="post-body">
+                  <div class="post-date-row">
+                    <span>Post #${String(p.id).padStart(2, '0')}</span>
+                    <span>${p.date}</span>
+                  </div>
+                  <h3 class="post-project">${p.project}</h3>
+                  <div class="post-angle">${p.angle}</div>
+                  <p class="post-hook">${p.es.replace(/\n/g, ' ')}</p>
+                  <div class="post-footer">
+                    <span>EN + ES · 5 hashtags</span>
+                    <span class="read-more">Ver detalle</span>
+                  </div>
+                </div>
+              </article>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+
+      document.querySelectorAll('.post-card').forEach(card => {
+        card.addEventListener('click', () => openModal(Number(card.dataset.id)));
+      });
+    }
+
+    function renderGrid() {
+      const ordered = [...filteredPosts].reverse();
+      elGrid.innerHTML = `
+        <div class="ig-shell">
+          <div class="ig-profile-bar">
+            <div>
+              <div class="ig-handle">@sestepadesign · Simulación visual de feed (del más reciente arriba al primero abajo)</div>
+              <div class="ig-bio">S'Estepa Design — Boutique Landscape Architecture Studio in Mallorca · Est. 1999</div>
+            </div>
+            <div style="font-size:0.8rem;color:var(--ink-muted)">${ordered.length} publicaciones en vista</div>
+          </div>
+          <div class="ig-grid">
+            ${ordered.map(p => `
+              <div class="ig-tile" data-id="${p.id}">
+                <img src="${BASE}${p.images[0]}" alt="${p.project}" loading="lazy" />
+                <span class="ig-tile-type">${p.format}</span>
+                <div class="ig-tile-overlay">
+                  <span class="ig-tile-num">#${String(p.id).padStart(2, '0')} · ${p.date}</span>
+                  <div class="ig-tile-title">${p.project}</div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      document.querySelectorAll('.ig-tile').forEach(tile => {
+        tile.addEventListener('click', () => openModal(Number(tile.dataset.id)));
+      });
+    }
+
+    const modal = document.getElementById('postModal');
+    const modalMainImg = document.getElementById('modalMainImg');
+    const modalThumbs = document.getElementById('modalThumbs');
+    const modalKicker = document.getElementById('modalKicker');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalEn = document.getElementById('modalEn');
+    const modalEs = document.getElementById('modalEs');
+    const modalTags = document.getElementById('modalTags');
+    const modalTech = document.getElementById('modalTech');
+
+    function openModal(postId) {
+      const idx = POSTS.findIndex(p => p.id === postId);
+      if (idx === -1) return;
+      currentModalIdx = idx;
+      const p = POSTS[idx];
+
+      modalKicker.textContent = `Post #${String(p.id).padStart(2, '0')} · ${p.date} · Semana ${p.week} · ${p.format} · ${p.source}`;
+      modalTitle.textContent = `${p.project} — ${p.angle}`;
+      modalEn.textContent = p.en;
+      modalEs.textContent = p.es;
+      modalTags.textContent = p.tags;
+      modalTech.innerHTML = `<strong>Nota editorial:</strong> ${p.note}<br /><strong>Activos (${p.images.length}):</strong> ${p.images.map(i => `<code>${i}</code>`).join(' ')}`;
+
+      modalMainImg.src = `${BASE}${p.images[0]}`;
+      modalThumbs.innerHTML = p.images.map((src, i) => `
+        <img class="modal-thumb ${i === 0 ? 'active' : ''}" src="${BASE}${src}" alt="Slide ${i + 1}" data-src="${BASE}${src}" />
+      `).join('');
+
+      modalThumbs.querySelectorAll('.modal-thumb').forEach(t => {
+        t.addEventListener('click', () => {
+          modalMainImg.src = t.dataset.src;
+          modalThumbs.querySelectorAll('.modal-thumb').forEach(x => x.classList.remove('active'));
+          t.classList.add('active');
+        });
+      });
+
+      modal.classList.add('open');
+    }
+
+    document.getElementById('modalClose').addEventListener('click', () => modal.classList.remove('open'));
+    modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
+    document.addEventListener('keydown', e => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'Escape') modal.classList.remove('open');
+      if (e.key === 'ArrowRight') document.getElementById('modalNext').click();
+      if (e.key === 'ArrowLeft') document.getElementById('modalPrev').click();
+    });
+
+    document.getElementById('modalPrev').addEventListener('click', () => {
+      const prev = (currentModalIdx - 1 + POSTS.length) % POSTS.length;
+      openModal(POSTS[prev].id);
+    });
+    document.getElementById('modalNext').addEventListener('click', () => {
+      const next = (currentModalIdx + 1) % POSTS.length;
+      openModal(POSTS[next].id);
+    });
+    document.getElementById('modalCopy').addEventListener('click', async () => {
+      const p = POSTS[currentModalIdx];
+      const text = `${p.en}\n\n---\n\n${p.es}\n\n${p.tags}`;
+      try {
+        await navigator.clipboard.writeText(text);
+        const btn = document.getElementById('modalCopy');
+        btn.textContent = 'Copiado';
+        setTimeout(() => { btn.textContent = 'Copiar EN + ES + Hashtags'; }, 1500);
+      } catch {
+        alert('No se pudo copiar automáticamente al portapapeles.');
+      }
+    });
+
+    document.getElementById('btnViewCalendar').addEventListener('click', () => {
+      currentView = 'calendar';
+      document.getElementById('btnViewCalendar').classList.add('active');
+      document.getElementById('btnViewGrid').classList.remove('active');
+      render();
+    });
+    document.getElementById('btnViewGrid').addEventListener('click', () => {
+      currentView = 'grid';
+      document.getElementById('btnViewGrid').classList.add('active');
+      document.getElementById('btnViewCalendar').classList.remove('active');
+      render();
+    });
+    document.getElementById('btnPrint').addEventListener('click', () => window.print());
+
+    [fWeek, fFormat, fSource].forEach(el => el.addEventListener('change', applyFilters));
+
+    render();
+  </script>
+</body>
+</html>
