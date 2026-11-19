@@ -180,15 +180,18 @@ export const PROJECT_PUBLIC_PATHS: Record<string, Record<SiteLocale, string>> = 
 
 export const PROJECT_PATH_ALIASES: Record<SiteLocale, Record<string, string>> = {
   en: {
+    crestatx: '/crestatx-garden-design/',
     'finca-garden-campos-mallorca': '/finca-garden-campos/',
     'seaside-house-alcudia': '/alcanada/',
   },
   es: {
+    'crestatx-garden-design': '/es/crestatx/',
     'finca-garden-campos-mallorca': '/es/finca-garden-campos/',
     'casa-de-mar-alcudia': '/es/alcanada/',
     'paisajista-fincas-lujo-son-vida': '/es/sant-llorenc/',
   },
   de: {
+    'crestatx-garden-design': '/de/crestatx/',
     'finca-garten-campos-mallorca': '/de/finca-garten-campos/',
     'haus-am-meer-alcudia': '/de/alcanada/',
     'finca-gartengestaltung-mallorca-campos': '/de/finca-garten-campos/',

@@ -15,11 +15,14 @@ const { noindex: noindexBlog, lastmod: blogLastmod, alternates: blogAlternates, 
  * entries go. Keep in sync if PROJECT_PATH_ALIASES changes.
  */
 const ALIAS_PATHS = [
+  '/crestatx/',
   '/finca-garden-campos-mallorca/',
   '/seaside-house-alcudia/',
+  '/es/crestatx-garden-design/',
   '/es/finca-garden-campos-mallorca/',
   '/es/casa-de-mar-alcudia/',
   '/es/paisajista-fincas-lujo-son-vida/',
+  '/de/crestatx-garden-design/',
   '/de/finca-garten-campos-mallorca/',
   '/de/haus-am-meer-alcudia/',
   '/de/finca-gartengestaltung-mallorca-campos/',

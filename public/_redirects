@@ -98,6 +98,11 @@
 /es/puig-na-morisca/  /es/santa-ponsa/  301
 /de/puig-na-morisca/  /de/santa-ponsa/  301
 /crestatx/  /crestatx-garden-design/  301
+/crestatx  /crestatx-garden-design/  301
+/es/crestatx-garden-design/  /es/crestatx/  301
+/es/crestatx-garden-design  /es/crestatx/  301
+/de/crestatx-garden-design/  /de/crestatx/  301
+/de/crestatx-garden-design  /de/crestatx/  301
 /es/contacte-con/  /es/contacto/  301
 /es/contacto  /es/contacto/  301
 /es/tag/diseno-de-jardines/  /es/portfolio/  301
@@ -179,6 +184,8 @@
 
 # --- project-url-redirects (auto-generated) ---
 # Internal Astro slugs → design.sestepa.com canonical URLs
+/crestatx/  /crestatx-garden-design/  301
+/de/crestatx-garden-design/  /de/crestatx/  301
 /de/finca-garten-campos-mallorca/  /de/finca-garten-campos/  301
 /de/finca-gartengestaltung-mallorca-campos/  /de/finca-garten-campos/  301
 /de/haus-am-meer-alcudia/  /de/alcanada/  301
@@ -234,6 +241,7 @@
 /en/portfolio/terrace-garden-santa-eugenia/  /terrace-garden-santa-eugenia/  301
 /en/portfolio/vertical-gardens-in-mallorca/  /vertical-gardens-in-mallorca/  301
 /es/casa-de-mar-alcudia/  /es/alcanada/  301
+/es/crestatx-garden-design/  /es/crestatx/  301
 /es/finca-garden-campos-mallorca/  /es/finca-garden-campos/  301
 /es/paisajista-fincas-lujo-son-vida/  /es/sant-llorenc/  301
 /es/portfolio/andratx/  /es/andratx/  301
@@ -262,6 +270,7 @@
 /es/portfolio/terrace-garden-santa-eugenia/  /es/terraza-jardin-santa-eugenia/  301
 /es/portfolio/vertical-gardens-in-mallorca/  /es/jardines-verticales-en-mallorca/  301
 /finca-garden-campos-mallorca/  /finca-garden-campos/  301
+/portfolio/crestatx/  /crestatx-garden-design/  301
 /portfolio/finca-garden-campos-mallorca/  /finca-garden-campos/  301
 /portfolio/seaside-house-alcudia/  /alcanada/  301
 /seaside-house-alcudia/  /alcanada/  301
