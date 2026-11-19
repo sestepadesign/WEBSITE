@@ -19,7 +19,9 @@ import {
   GOOGLE_ADS_ID,
   GOOGLE_ADS_CONVERSION_WHATSAPP,
   GA4_ID,
-  COOKIEYES_CLIENT_ID
+  COOKIEYES_CLIENT_ID,
+  META_PIXEL_ID,
+  META_DOMAIN_VERIFICATION
 } from '../lib/seo';
 import { PAGE_OG_IMAGES } from '../data/site-urls';
 import { resolvePageIdFromPath } from '../lib/urls';
@@ -122,6 +124,7 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
   <head>
     <meta charset="utf-8" />
     <Fragment set:html={'<meta name="p:domain_verify" content="8e8392b25f273ca4c1953774b5e0363f"/>'} />
+    <meta name="facebook-domain-verification" content={META_DOMAIN_VERIFICATION} />
 
     <link rel="preload" as="font" href="/fonts/jost-variable.woff2" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" as="font" href="/fonts/cormorant-garamond-variable.woff2" type="font/woff2" crossorigin="anonymous" />
@@ -225,6 +228,7 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
                 const host = window.location.hostname;
                 const isProdHost = host === 'design.sestepa.com' || host === 'www.design.sestepa.com';
                 if (isProdHost) {
+                  const waEventId = `wa_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
                   if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
                     window.gtag('event', 'conversion', {
                       send_to: GOOGLE_ADS_CONVERSION_WHATSAPP
@@ -234,10 +238,17 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
                       event_label: pathname
                     });
                   }
+                  if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+                    window.fbq('track', 'Contact', {
+                      content_name: pathname,
+                      content_category: 'whatsapp'
+                    }, { eventID: waEventId });
+                  }
                   if (window.dataLayer) {
                     window.dataLayer.push({
                       event: 'whatsapp_click',
-                      page: pathname
+                      page: pathname,
+                      event_id: waEventId
                     });
                   }
                   const payload = {
@@ -249,7 +260,7 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
                   fetch("/api/leads", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ type: "whatsapp", payload }),
+                    body: JSON.stringify({ type: "whatsapp", payload, event_id: waEventId }),
                     keepalive: true
                   }).catch(err => console.error("WhatsApp click logging failed:", err));
                 }
@@ -260,8 +271,8 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
       </script>
     )}
 
-    <!-- Production-only Analytics, Consent Mode v2, CookieYes & GTM (skip localhost / preview hosts) -->
-    <script is:inline define:vars={{ GTM_ID, GTAG_ID, COOKIEYES_CLIENT_ID }}>
+    <!-- Production-only Analytics, Consent Mode v2, CookieYes, GTM & Meta Pixel (skip localhost / preview hosts) -->
+    <script is:inline define:vars={{ GTM_ID, GTAG_ID, COOKIEYES_CLIENT_ID, META_PIXEL_ID }}>
       (function () {
         var host = window.location.hostname;
         if (host !== 'design.sestepa.com' && host !== 'www.design.sestepa.com') {
@@ -310,6 +321,42 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
           scr.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
           f.parentNode.insertBefore(scr, f);
         })(window, document, 'script', 'dataLayer', GTM_ID);
+
+        // Meta Pixel (S'Estepa Design — 1185880420805434) with CookieYes GDPR synchronization
+        if (META_PIXEL_ID) {
+          !(function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+              n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+          })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+          var hasCookieYesAdConsent = /(?:^|;\s*)cookieyes-consent=[^;]*advertisement:yes/i.test(document.cookie || '');
+          window.fbq('consent', hasCookieYesAdConsent ? 'grant' : 'revoke');
+          window.fbq('init', META_PIXEL_ID);
+          window.fbq('track', 'PageView');
+
+          document.addEventListener('cookieyes_consent_update', function (event) {
+            var detail = (event && event.detail) || {};
+            var accepted = Array.isArray(detail.accepted) ? detail.accepted : [];
+            if (accepted.indexOf('advertisement') !== -1) {
+              window.fbq('consent', 'grant');
+              window.fbq('track', 'PageView');
+            } else {
+              window.fbq('consent', 'revoke');
+            }
+          });
+        }
       })();
     </script>
   </body>

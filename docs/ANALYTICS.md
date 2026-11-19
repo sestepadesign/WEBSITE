@@ -24,16 +24,23 @@ Este documento registra as credenciais e identificadores oficiais de acompanhame
 | :--- | :--- | :--- |
 | `conversion` | Envio de formulário confirmado com HTTP 200 (`res.ok && result.ok`) em `/api/leads` | `AW-795871100/dv-kCJrn0YoaEPyOwPsC` + `transaction_id` único (Google Ads) |
 | `generate_lead` | Envio de formulário confirmado com HTTP 200 (`res.ok && result.ok`) em `/api/leads` | `currency: 'EUR'`, `value: 1.0`, `event_label: pathname` (GA4 & dataLayer) |
-| `whatsapp_click` | Primeiro clique em link `wa.me` na sessão (`sessionStorage`) | `AW-795871100/3a-ICMu_2ooaEPyOwPsC` (Google Ads `conversion`), `event_category: 'engagement'`, `event_label: pathname` (GA4, dataLayer & `/api/leads`) |
+| `Lead` (Meta Pixel & CAPI) | Envio de formulário confirmado com HTTP 200 (`res.ok && result.ok`) em `/api/leads` | `1185880420805434` (`fbq('track', 'Lead')` + CAPI deduplicado por `eventID: txId`) |
+| `whatsapp_click` / `Contact` | Primeiro clique em link `wa.me` na sessão (`sessionStorage`) | `AW-795871100/3a-ICMu_2ooaEPyOwPsC` (Google Ads `conversion`), `fbq('track', 'Contact')` + CAPI (`1185880420805434`), GA4, dataLayer & `/api/leads` |
 
-## 3. OUTROS RASTREADORES
+## 3. META ADS & OUTROS RASTREADORES
 
 | Ferramenta | Identificador | Função |
 | :--- | :--- | :--- |
+| **Meta Business Portfolio** | `925336572067280` (`sestepadesign`) | Portfólio empresarial oficial da S'Estepa Design. |
+| **Meta Ads Account** | `1450159125790416` | Conta oficial `Cuenta Anuncios S'Estepa Design`. |
+| **Meta Pixel / Dataset** | `1185880420805434` | Conjunto de dados `S'Estepa Design - design.sestepa.com` sincronizado com consentimento CookieYes (`advertisement`). |
+| **Meta Domain Verification** | `n3kyf9z9ovyhv4kez1adjixiwt2l5f` | Meta tag `facebook-domain-verification` em `Layout.astro` para `design.sestepa.com`. |
 | **CookieYes** | `f292b5d0baace10a4365b956` | Banner de consentimento de cookies em conformidade com GDPR. |
 | **Metricool** | `4514d2b6d34c58b6a0b6a1c1649df7b` | Hash de rastreamento de métricas de rede social e tráfego. |
 
 ## 4. HISTÓRICO DE CORREÇÕES
+
+* **19 de Novembro de 2026 (Meta Pixel, Verificação de Domínio e Públicos de Remarketing/B2B)**: Criação e instalação do Meta Pixel oficial (`1185880420805434` — `S'Estepa Design - design.sestepa.com`) e meta tag de verificação de domínio (`n3kyf9z9ovyhv4kez1adjixiwt2l5f`) em `Layout.astro` e `seo.ts`, estritamente restritos ao host de produção (`design.sestepa.com` / `www.design.sestepa.com`) e sincronizados com o consentimento GDPR do CookieYes (`advertisement`). Adicionado disparo deduplicado por `eventID` dos eventos `Lead` em `ContactForm.astro` e `Contact` no listener de WhatsApp em `Layout.astro`, com suporte server-side CAPI em `functions/api/leads.js`. Criados 5 Públicos Personalizados de Remarketing (`RMKT_IG_Engagers_365d_sestepadesign`, `RMKT_IG_Hot_90d_sestepadesign`, `RMKT_FB_Engagers_365d_SestepaDesign`, `RMKT_WEB_All_Visitors_180d`, `RMKT_WEB_Estate_Fincas_180d`) e 3 Públicos Salvos B2B por idioma (EN/DE/ES) na conta `1450159125790416`.
 
 * **17 de Novembro de 2026 (Bloqueio de Localhost/Preview)**: Adicionada verificação de hostname (`design.sestepa.com` / `www.design.sestepa.com`) em `Layout.astro` (incluindo omissão do `<noscript>` do GTM em `import.meta.env.DEV`), `ContactForm.astro` (bloqueio de `gtag('set', 'user_data')`, `conversion`, `generate_lead`, `dataLayer.push` e `/api/leads` fora de produção) e `functions/api/leads.js` (proteção server-side contra envio ao Google Sheets a partir de previews `.pages.dev` ou hosts não produtivos), impedindo carregamento/contabilização de `CookieYes`, `gtag.js` (`GT-WKTZS5C`), `GTM-K6MSRJX9`, `Metricool` (via GTM) e cliques WhatsApp em `localhost`, `127.0.0.1` e previews `.pages.dev`.
 * **17 de Novembro de 2026 (Auditoria GA4/GTM)**: Adicionado envio de `gtag('set', 'user_data', { email, phone_number })` em `ContactForm.astro` após confirmação HTTP 200 de `/api/leads` para alimentar o UPD (User-Provided Data) no GA4/Ads. Limpeza de Key Events no GA4 (`G-DZ9ZSG3VH0`) e pausa de tags redundantes no GTM (`GTM-K6MSRJX9`).

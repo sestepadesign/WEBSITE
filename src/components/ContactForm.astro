@@ -189,10 +189,12 @@ const statusMessages = {
         return;
       }
 
+      const txId = `lead_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+
       fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ type: "contact", payload: data })
+        body: JSON.stringify({ type: "contact", payload: data, event_id: txId })
       })
       .then(async (res) => {
         const result = await res.json().catch(() => ({}));
@@ -204,10 +206,9 @@ const statusMessages = {
         statusDiv.classList.remove('error');
         statusDiv.classList.add('success');
 
-        const txId = `lead_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
         const pathname = window.location.pathname;
 
-        // Dispara a conversão no Google Ads apenas em produção e após confirmação HTTP 200 do servidor (/api/leads)
+        // Dispara a conversão no Google Ads e Meta Pixel apenas em produção e após confirmação HTTP 200 do servidor (/api/leads)
         if (isProdHost && typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
           const userEmail = (data.email || '').trim().toLowerCase();
           const userPhone = (data.phone || '').trim();
@@ -229,6 +230,14 @@ const statusMessages = {
             'value': 1.0,
             'event_label': pathname
           });
+        }
+        if (isProdHost && typeof window !== 'undefined' && typeof (window as any).fbq === 'function') {
+          (window as any).fbq('track', 'Lead', {
+            currency: 'EUR',
+            value: 1.0,
+            content_name: pathname,
+            language: data.lang || 'en'
+          }, { eventID: txId });
         }
         if (isProdHost && typeof window !== 'undefined' && Array.isArray((window as any).dataLayer)) {
           (window as any).dataLayer.push({

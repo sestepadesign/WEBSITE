@@ -10,6 +10,8 @@ export const GTAG_ID = 'GT-WKTZS5C';
 export const GA4_ID = 'G-DZ9ZSG3VH0';
 export const COOKIEYES_CLIENT_ID = 'f292b5d0baace10a4365b956';
 export const METRICOOL_HASH = '4514d2b6d34c58b6a0b6a1c1649df7b';
+export const META_PIXEL_ID = '1185880420805434';
+export const META_DOMAIN_VERIFICATION = 'n3kyf9z9ovyhv4kez1adjixiwt2l5f';
 
 export const SITE_NAME = "S'Estepa Design";
 export { SITE_URL_PRODUCTION } from './locale';
