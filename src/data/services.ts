@@ -23,7 +23,7 @@ export interface ServicesContent {
 export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
   en: {
     tag: 'Our Studio',
-    seoTitle: "Garden Design & Landscaping Services in Mallorca | S'Estepa Design",
+    seoTitle: "Landscape Architecture & Garden Design Services in Mallorca | S'Estepa Design",
     heroHeadline: 'The garden becomes the favourite room of the house.',
     heroLead:
       'We stay with you for the whole of it — design, construction, irrigation and care — carried out by our own team. Nearly three decades shaping Mediterranean gardens with a Mallorcan hand.',
@@ -31,7 +31,7 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
     subtitle:
       'Specialist landscape design and garden design studio in Mallorca. We create and maintain living Mediterranean ecosystems for private villas, fincas and holiday residences — from concept to completion.',
     metaDescription:
-      'Boutique garden design, construction and ecological care for private villas, fincas and estates in Mallorca. Founded in Mallorca in 1999 · nearly three decades of Mediterranean garden design.',
+      'Turnkey landscape architecture, bespoke 2D/3D garden design, full construction and xeriscaping for private estates, fincas and luxury villas in Mallorca since 1999.',
     intro:
       'Our team oversees the entire process—from design and construction to technical irrigation and planting. We ensure a seamless experience, managing every detail in English, Spanish, and German.',
     items: [
@@ -63,14 +63,14 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
   },
   es: {
     tag: 'Nuestro Estudio',
-    seoTitle: "Servicios de Diseño de Jardines y Paisajismo en Mallorca | S'Estepa Design",
+    seoTitle: "Arquitectura Paisajística y Diseño de Jardines en Mallorca — Servicios | S'Estepa Design",
     heroHeadline: 'El jardín se convierte en el lugar favorito de la casa.',
     heroLead:
       'Te acompañamos en todo el proceso —diseño, construcción, riego y cuidado— con equipo propio. Casi tres décadas dando forma a jardines mediterráneos con mano mallorquina.',
     title: 'Nuestros Servicios de Diseño de Jardines y Paisajismo en Mallorca',
     subtitle: '',
     metaDescription:
-      'Estudio boutique de paisajismo y diseño de jardines en Mallorca — de Palma a fincas y villas de la isla. Fundado en Mallorca en 1999 · casi tres décadas de diseño mediterráneo.',
+      'Estudio de arquitectura paisajística y diseño de jardines llave en mano en Mallorca para fincas históricas, villas y hoteles boutique. Obra integral, paret seca y xerojardinería desde 1999.',
     intro:
       'Nuestro equipo supervisa todo el proceso, desde el diseño y la construcción hasta el riego técnico y la plantación. Garantizamos una experiencia sin fisuras, gestionando cada detalle en inglés, español y alemán.',
     items: [
@@ -102,7 +102,7 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
   },
   de: {
     tag: 'Unser Studio',
-    seoTitle: "Gartengestaltung und Pflege auf Mallorca — Leistungen | S'Estepa Design",
+    seoTitle: "Landschaftsarchitektur & Exklusive Gartengestaltung auf Mallorca — Leistungen | S'Estepa Design",
     heroHeadline: 'Der Garten wird zum Lieblingsort des Hauses.',
     heroLead:
       'Wir begleiten Sie durch den gesamten Prozess — Entwurf, Bau, Bewässerung und Pflege — mit unserem eigenen Team. Fast drei Jahrzehnte mediterrane Gärten mit mallorquinischer Handschrift.',
@@ -110,13 +110,13 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
     subtitle:
       'Wir bieten einen umfassenden Ansatz für die Landschaftsgestaltung auf Mallorca, mit Schwerpunkt auf der Schaffung und langfristigen Pflege lebendiger Ökosysteme für Villen und Feriendomizile.',
     metaDescription:
-      'Boutique-Gartengestaltung und Landschaftsarchitektur auf Mallorca für private Fincas und Villen. 1999 auf Mallorca gegründet · fast drei Jahrzehnte mediterrane Gartengestaltung. Planung, Bau und ökologische Pflege.',
+      'Schlüsselfertige Landschaftsarchitektur, Finca-Gartengestaltung und hochwertiger Gartenbau auf Mallorca für private Landgüter und Luxusvillen. Planung 2D/3D, Trockenmauern und Bau seit 1999.',
     intro:
       'Unser Team überwacht den gesamten Prozess – vom Entwurf und Bau bis hin zur technischen Bewässerung und Bepflanzung. Wir garantieren einen reibungslosen Ablauf und regeln jedes Detail auf Englisch, Spanisch und Deutsch.',
     items: [
       {
-        title: 'Villen & Feriendomizile',
-        text: 'Exklusive, maßgeschneiderte botanische Umgebungen, die anspruchsvolle Residenzen, Feriendomizile und Fincas auf ganz Mallorca bereichern.',
+        title: 'Fincas, Landgüter & Exklusive Villen',
+        text: 'Exklusive, maßgeschneiderte botanische Umgebungen, die anspruchsvolle Residenzen, Landgüter und Fincas auf ganz Mallorca bereichern.',
         linkText: 'Projekte Ansehen',
         linkUrl: 'portfolio',
       },
@@ -127,14 +127,14 @@ export const servicesContent: Record<'en' | 'es' | 'de', ServicesContent> = {
         linkUrl: 'about',
       },
       {
-        title: 'Bauausführung',
-        text: 'Präzise Erschließung des Geländes, strukturierte Erdarbeiten und Bepflanzung, ausgeführt von unserem engagierten lokalen Team.',
+        title: 'Schlüsselfertiger Gartenbau',
+        text: 'Präzise Erschließung des Geländes, strukturierte Erdarbeiten, Trockensteinmauern und Bepflanzung, ausgeführt von unserem engagierten lokalen Team.',
         linkText: 'Team Kennenlernen',
         linkUrl: 'about',
       },
       {
-        title: 'Ökologische Pflege',
-        text: 'Xeriscape-Bepflanzungspläne, Wasserressourcenplanung und Tröpfchenbewässerungssysteme für höchste Nachhaltigkeit.',
+        title: 'Ökologische Wassereffizienz',
+        text: 'Xeriscape-Bepflanzungspläne, Wasserressourcenplanung und unterirdische Tröpfchenbewässerungssysteme für höchste Nachhaltigkeit.',
         linkText: 'Beratung Anfragen',
         linkUrl: 'contact',
       },

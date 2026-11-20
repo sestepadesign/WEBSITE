@@ -1,8 +1,8 @@
 ---
 import { getLocalizedSchema, getVideoObjectSchema, getFAQSchema } from '../utils/schema';
-import { resolvePageIdFromPath, resolveProjectSlugFromPath } from '../lib/urls';
+import { resolvePageIdFromPath, resolveProjectSlugFromPath, localeFromPath } from '../lib/urls';
 import { projects } from '../data/projects';
-import { faqs } from '../data/faq';
+import { faqsByLocale } from '../data/faq';
 import { SITE_URL_PRODUCTION } from '../lib/locale';
 
 interface Props {
@@ -10,8 +10,8 @@ interface Props {
 }
 
 const { canonicalPath } = Astro.props;
-const currentLocale = (Astro.currentLocale || 'en') as 'es' | 'en' | 'de';
 const path = canonicalPath ?? Astro.url.pathname;
+const currentLocale = (Astro.currentLocale || localeFromPath(path) || 'en') as 'es' | 'en' | 'de';
 const currentUrl = new URL(path, Astro.url.origin).href;
 
 const pageId = resolvePageIdFromPath(path);
@@ -27,7 +27,7 @@ const isServiceOrPortfolio =
 const schemas = getLocalizedSchema(currentLocale, currentUrl, isHome, isServiceOrPortfolio);
 
 if (pageId === 'faq') {
-  schemas.push(getFAQSchema(faqs));
+  schemas.push(getFAQSchema(faqsByLocale[currentLocale] ?? faqsByLocale.en));
 }
 
 const project = projectSlug ? projects.find((p) => p.slug === projectSlug) : null;

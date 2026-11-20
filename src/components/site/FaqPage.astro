@@ -1,22 +1,46 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { faqs } from '../../data/faq';
+import { faqsByLocale } from '../../data/faq';
 
-const pageTitle = "Frequently asked questions";
-const pageSubtitle = "Everything you need to know before starting your garden — pricing, timelines, remote management, sustainability, and who's behind the studio.";
+interface Props {
+  lang?: 'en' | 'es' | 'de';
+}
+
+const { lang = 'en' } = Astro.props;
+const faqs = faqsByLocale[lang];
+
+const copy = {
+  en: {
+    metaTitle: "Frequently Asked Questions | S'Estepa Design",
+    metaDescription: "Answers to common questions about pricing, timelines, remote project management, sustainability, and the studio behind S'Estepa Design in Mallorca.",
+    pageTitle: "Frequently asked questions",
+    pageSubtitle: "Everything you need to know before starting your garden — pricing, timelines, remote management, sustainability, and who's behind the studio.",
+  },
+  es: {
+    metaTitle: "Preguntas Frecuentes sobre Paisajismo en Mallorca | S'Estepa Design",
+    metaDescription: "Respuestas detalladas sobre presupuestos por fases, plazos de obra, gestión a distancia para no residentes, xerojardinería y ejecución llave en mano en Mallorca.",
+    pageTitle: "Preguntas frecuentes",
+    pageSubtitle: "Todo lo que necesita saber antes de comenzar su jardín en Mallorca — presupuestos, plazos, gestión a distancia, eficiencia hídrica y nuestro equipo.",
+  },
+  de: {
+    metaTitle: "Häufig Gestellte Fragen zur Gartengestaltung auf Mallorca | S'Estepa Design",
+    metaDescription: "Antworten zu Phasenbudgets, Bauzeiten, Projektbetreuung aus der Ferne für internationale Eigentümer, Xeriscaping und schlüsselfertigem Gartenbau auf Mallorca.",
+    pageTitle: "Häufig gestellte Fragen",
+    pageSubtitle: "Alles, was Sie vor Beginn Ihres Gartenprojekts auf Mallorca wissen sollten — Budgets, Zeitpläne, Fernbetreuung, Wassereffizienz und unser Studio.",
+  },
+}[lang];
 ---
 
 <Layout
-  title="Frequently Asked Questions | S'Estepa Design"
-  description="Answers to common questions about pricing, timelines, remote project management, sustainability, and the studio behind S'Estepa Design."
-  lang="en"
-  hreflangLocales={['en']}
+  title={copy.metaTitle}
+  description={copy.metaDescription}
+  lang={lang}
 >
   <section class="faq-section section-padding">
     <div class="container faq-container">
       <header class="page-header">
-        <h1 class="page-title">{pageTitle}</h1>
-        <p class="page-subtitle">{pageSubtitle}</p>
+        <h1 class="page-title">{copy.pageTitle}</h1>
+        <p class="page-subtitle">{copy.pageSubtitle}</p>
       </header>
 
       <div class="faq-list">

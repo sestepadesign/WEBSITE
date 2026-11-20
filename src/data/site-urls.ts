@@ -42,7 +42,7 @@ export const SITE_PAGES: Record<SitePageId, Record<SiteLocale, string>> = {
   },
   cookies: { en: '/cookies/', es: '/es/cookies/', de: '/de/cookies/' },
   blog: { en: '/blog/', es: '/es/blog/', de: '/de/blog/' },
-  faq: { en: '/faq/', es: '/faq/', de: '/faq/' },
+  faq: { en: '/faq/', es: '/es/faq/', de: '/de/faq/' },
   'botanical-expertise': {
     en: '/mediterranean-plants-soil-mallorca/',
     es: '/es/plantas-y-suelo-mallorca/',

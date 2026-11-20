@@ -32,9 +32,9 @@ const pageSubtitle = {
 };
 
 const introText = {
-  en: "Some gardens are a single terrace; others are a working estate. For projects at this scale, S'Estepa manages the entire process in-house — conceptual design, terrain and soil preparation, dry-stone construction, irrigation engineering and planting — with one Mallorcan team and one point of contact from first meeting to finished landscape. Below are three of our estate-scale projects, with the real detail behind each.",
-  es: "Algunos jardines son una simple terraza; otros son una finca en pleno funcionamiento. Para proyectos de esta escala, S'Estepa gestiona todo el proceso internamente — diseño conceptual, preparación del terreno y del suelo, construcción en piedra seca, ingeniería de riego y plantación — con un único equipo mallorquín y un único punto de contacto desde la primera reunión hasta el jardín terminado. A continuación, tres de nuestros proyectos a escala de finca, con el detalle real de cada uno.",
-  de: "Manche Gärten sind eine einzelne Terrasse; andere ein funktionierendes Anwesen. Bei Projekten dieser Größenordnung übernimmt S'Estepa den gesamten Prozess im eigenen Haus — Konzeptentwurf, Gelände- und Bodenvorbereitung, Trockenmauerbau, Bewässerungstechnik und Bepflanzung — mit einem mallorquinischen Team und einer Ansprechperson vom ersten Treffen bis zur fertigen Landschaft. Im Folgenden drei unserer Projekte im Anwesensmaßstab, mit den realen Details zu jedem.",
+  en: "Some gardens are a single terrace; others are a working estate. For projects at this scale, S'Estepa manages the entire process in-house — conceptual design, terrain and soil preparation, dry-stone construction, irrigation engineering and planting — with one Mallorcan team and one point of contact from first meeting to finished landscape. Below are our featured estate-scale projects across Mallorca, with the real detail behind each.",
+  es: "Algunos jardines son una simple terraza; otros son una finca en pleno funcionamiento. Para proyectos de esta escala, S'Estepa gestiona todo el proceso internamente — diseño conceptual, preparación del terreno y del suelo, construcción en piedra seca, ingeniería de riego y plantación — con un único equipo mallorquín y un único punto de contacto desde la primera reunión hasta el jardín terminado. A continuación, nuestros proyectos destacados a escala de finca en Mallorca, con el detalle real de cada uno.",
+  de: "Manche Gärten sind eine einzelne Terrasse; andere ein funktionierendes Anwesen. Bei Projekten dieser Größenordnung übernimmt S'Estepa den gesamten Prozess im eigenen Haus — Konzeptentwurf, Gelände- und Bodenvorbereitung, Trockenmauerbau, Bewässerungstechnik und Bepflanzung — mit einem mallorquinischen Team und einer Ansprechperson vom ersten Treffen bis zur fertigen Landschaft. Im Folgenden unsere ausgewählten Projekte im Anwesensmaßstab auf Mallorca, mit den realen Details zu jedem.",
 };
 
 const estates = {
@@ -74,6 +74,29 @@ const estates = {
         'Planting scheme built for Mallorca’s calcareous soil and dry summers, requiring a fraction of conventional irrigation',
       ],
     },
+    {
+      slug: 'andratx',
+      title: 'Andratx Estate Path',
+      subtitle: 'A pathway towards the sky and mountains, creating a visual tunnel into nature',
+      locationLabel: 'Andratx, Serra de Tramuntana, Mallorca',
+      botanical: "Muhlenbergia capillaris, Stipa tenuissima, Pittosporum tobira 'Nana', Gaura lindheimeri, Olea europaea",
+      notes: [
+        'Naturalistic estate promenade integrated directly into the wild Tramuntana foothills',
+        'Wind-responsive grasses and resilient Mediterranean perennials framing the gravel walkway',
+        'Full site preparation, gravel stabilization, and planting executed in-house by S’Estepa',
+      ],
+    },
+    {
+      slug: 'marratxi',
+      title: 'Marratxí Estate',
+      subtitle: 'Designing with plants and time — a living landscape that evolves with the seasons',
+      locationLabel: 'Marratxí, Mallorca',
+      botanical: 'Olea europaea, Stipa tenuissima, Muhlenbergia capillaris, Euphorbia ingens, Cereus peruvianus, Lavandula angustifolia, Rosmarinus officinalis, Gaura lindheimeri',
+      notes: [
+        'Multi-layered estate composition combining mature olive trees, sculptural cacti, and movement-rich ornamental grasses',
+        'Low-water xeriscape palette engineered to mature and self-balance across all four Mediterranean seasons',
+      ],
+    },
   ],
   es: [
     {
@@ -111,6 +134,29 @@ const estates = {
         'Esquema de plantación pensado para el suelo calcáreo y los veranos secos de Mallorca, con una fracción del riego convencional',
       ],
     },
+    {
+      slug: 'andratx',
+      title: 'Finca en Andratx',
+      subtitle: 'Un camino hacia el cielo y las montañas, un túnel visual hacia la naturaleza',
+      locationLabel: 'Andratx, Serra de Tramuntana, Mallorca',
+      botanical: "Muhlenbergia capillaris, Stipa tenuissima, Pittosporum tobira 'Nana', Gaura lindheimeri, Olea europaea",
+      notes: [
+        'Paseo paisajístico integrado directamente en la topografía salvaje de la Serra de Tramuntana',
+        'Gramíneas en movimiento y vivaces mediterráneas resilientes que acompañan el sendero de grava',
+        'Preparación del terreno, estabilización de áridos y plantación ejecutadas íntegramente por S’Estepa',
+      ],
+    },
+    {
+      slug: 'marratxi',
+      title: 'Finca en Marratxí',
+      subtitle: 'Diseñamos con plantas, pero también con el tiempo — un paisaje vivo que evoluciona con las estaciones',
+      locationLabel: 'Marratxí, Mallorca',
+      botanical: 'Olea europaea, Stipa tenuissima, Muhlenbergia capillaris, Euphorbia ingens, Cereus peruvianus, Lavandula angustifolia, Rosmarinus officinalis, Gaura lindheimeri',
+      notes: [
+        'Composición de finca en múltiples estratos que combina olivos maduros, ejemplares escultóricos y praderas de gramíneas',
+        'Paleta de xerojardinería de bajo consumo hídrico diseñada para madurar con equilibrio propio en las cuatro estaciones',
+      ],
+    },
   ],
   de: [
     {
@@ -146,6 +192,29 @@ const estates = {
       notes: [
         'Jahrhundertealte Olivenbäume und unregelmäßige Zypressen als strukturelle Anker anstelle von Rasen',
         'Pflanzkonzept für Mallorcas kalkhaltigen Boden und trockene Sommer, mit einem Bruchteil der üblichen Bewässerung',
+      ],
+    },
+    {
+      slug: 'andratx',
+      title: 'Finca-Anwesen Andratx',
+      subtitle: 'Ein Weg zum Himmel und zu den Bergen, ein visueller Tunnel in die Natur',
+      locationLabel: 'Andratx, Serra de Tramuntana, Mallorca',
+      botanical: "Muhlenbergia capillaris, Stipa tenuissima, Pittosporum tobira 'Nana', Gaura lindheimeri, Olea europaea",
+      notes: [
+        'Naturnahe Finca-Allee, harmonisch eingebettet in die wilde Topografie der Serra de Tramuntana',
+        'Windbewegte Ziergräser und trockenheitsresistente mediterrane Stauden entlang des Kieswegs',
+        'Geländeerschließung, Wegebau und Bepflanzung vollständig durch S’Estepa realisiert',
+      ],
+    },
+    {
+      slug: 'marratxi',
+      title: 'Finca-Garten Marratxí',
+      subtitle: 'Wir gestalten mit Pflanzen, aber auch mit der Zeit — eine lebendige Landschaft im Wandel der Jahreszeiten',
+      locationLabel: 'Marratxí, Mallorca',
+      botanical: 'Olea europaea, Stipa tenuissima, Muhlenbergia capillaris, Euphorbia ingens, Cereus peruvianus, Lavandula angustifolia, Rosmarinus officinalis, Gaura lindheimeri',
+      notes: [
+        'Mehrschichtige Finca-Komposition aus alten Olivenbäumen, skulpturalen Sukkulenten und sanft wiegenden Gräsern',
+        'Wassersparendes Xeriscape-Konzept, das sich über alle vier Jahreszeiten im natürlichen Gleichgewicht entfaltet',
       ],
     },
   ],

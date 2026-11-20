@@ -56,14 +56,16 @@ export const PORTFOLIO_PROJECT_ORDER: string[] = [
   'crestatx-garden-design',
   'bunyola',
   'son-vida',
+  'portals-nous',
+  'andratx',
+  'puerto-andratx',
+  'marratxi',
   'terrace-garden-in-palma',
   'campanet-garden',
   'costadelacalma',
   'finca-garden-inca',
   'hotelcabotlasvelas',
   'vertical-gardens-in-mallorca',
-  'portals-nous',
-  'andratx',
   'sacabaneta',
   'seaside-house-alcudia'
 ];

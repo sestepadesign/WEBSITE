@@ -18,29 +18,6 @@ const t = (key: keyof (typeof ui)[typeof lang]) => ui[lang][key] || key;
 const heroImage =
   '/portfolio/crestatx-garden-design/garden-design-mallorca-crestatx-garden-design-sestepa.webp';
 
-// Projects strip — a broad spread across the island, different mix from the homepage grid.
-const stripSlugs = [
-  'sant-llorenc',
-  'finca-garden-campos-mallorca',
-  'jardin-mediterraneo',
-  'hotelcabotlasvelas',
-  'costadelacalma',
-  'terrace-garden-in-palma',
-];
-const stripProjects = stripSlugs
-  .map((slug) => projects.find((p) => p.slug === slug))
-  .filter((p): p is NonNullable<typeof p> => Boolean(p));
-
-const stripHeading = {
-  en: 'Gardens we have designed and built across Mallorca',
-  es: 'Jardines que hemos diseñado y construido por Mallorca',
-  de: 'Gärten, die wir auf ganz Mallorca entworfen und gebaut haben',
-}[lang];
-const stripLink = {
-  en: 'View all gardens',
-  es: 'Ver todos los jardines',
-  de: 'Alle Gärten ansehen',
-}[lang];
 const heroCta = {
   en: 'Start a conversation',
   es: 'Empecemos a hablar',
@@ -66,30 +43,6 @@ const heroCta = {
 
   <article class="services-page section-padding">
     <div class="container">
-      {stripProjects.length > 0 && (
-        <section class="svc-strip">
-          <div class="svc-strip-head">
-            <h2 class="svc-strip-heading">{stripHeading}</h2>
-            <a href={getPagePath('portfolio', lang)} class="svc-strip-link">{stripLink} &rarr;</a>
-          </div>
-          <div class="svc-strip-scroll">
-            {stripProjects.map((project) => (
-              <div class="svc-strip-item">
-                <ProjectCard
-                  slug={project.slug}
-                  title={project[lang].title}
-                  category={project[lang].category}
-                  location={getProjectLocation(project, lang)}
-                  cover={project.cover}
-                  lang={lang}
-                  size={project.size}
-                />
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
       <header class="page-header">
         <h2 class="page-title">{content.title}</h2>
         {content.subtitle && <p class="page-subtitle">{content.subtitle}</p>}
@@ -151,53 +104,82 @@ const heroCta = {
         <ul class="services-bullets">
           {lang === 'es' && (
             <>
-              <li>Concepción, ejecución y mantenimiento de jardines y terrazas.</li>
-              <li>Análisis previo del terreno y sus condicionantes.</li>
-              <li>Propuesta conceptual, compositiva y técnica del jardín.</li>
-              <li>Definición del trazado general del jardín y su zonificación.</li>
-              <li>Selección y composición de las plantaciones.</li>
-              <li>Sugerencia de elementos ornamentales de plantación.</li>
-              <li>Evaluación de sostenibilidad y eficiencia hídrica del jardín.</li>
-              <li>Proyecto y dimensionado de los sistemas de riego.</li>
-              <li>Desarrollo de la documentación gráfica del proyecto.</li>
-              <li>Elaboración de presupuestos.</li>
-              <li>Dirección de obra.</li>
-              <li>Consultoría.</li>
+              <li>Concepción, ejecución llave en mano y mantenimiento de jardines, fincas y terrazas.</li>
+              <li>Análisis previo del terreno, topografía y composición del suelo calcáreo.</li>
+              <li>Propuesta conceptual, planos a escala 2D y visualización arquitectónica 3D.</li>
+              <li>Definición del trazado general del jardín, zonificación e integración de terrazas y piscinas.</li>
+              <li>Selección botánica mediterránea y composición de plantaciones resilientes.</li>
+              <li>Suministro y plantación de ejemplares monumentales y árboles centenarios (olivos, algarrobos, cipreses).</li>
+              <li>Construcción tradicional en piedra seca mallorquina (marges de pedra en sec) y obra civil de paisaje.</li>
+              <li>Xerojardinería mediterránea, hidro-zonificación y sistemas inteligentes de riego por goteo subterráneo.</li>
+              <li>Desarrollo de la documentación técnica y constructiva del proyecto.</li>
+              <li>Elaboración de presupuestos desglosados por fases.</li>
+              <li>Dirección de obra integral con equipo propio en Mallorca.</li>
+              <li>Colaboración técnica con estudios de arquitectura, project managers, hoteles boutique y family offices.</li>
             </>
           )}
           {lang === 'en' && (
             <>
-              <li>Design, execution, and maintenance of gardens and terraces.</li>
-              <li>Prior study of the site and its conditions.</li>
-              <li>Conceptual, compositional, and technical garden proposal.</li>
-              <li>Design of the general garden layout and zoning.</li>
-              <li>Planting design: selection and composition.</li>
-              <li>Proposal for ornamental planting elements.</li>
-              <li>Sustainability and water-efficiency assessment of the garden.</li>
-              <li>Design and calculation of irrigation systems.</li>
-              <li>Graphic proposal elaboration.</li>
-              <li>Budget preparation.</li>
-              <li>Project management and site direction.</li>
-              <li>Consulting.</li>
+              <li>Turnkey design, full construction, and ecological care of estate gardens, villas, and terraces.</li>
+              <li>Prior site analysis, topography, and calcareous soil assessment.</li>
+              <li>Conceptual masterplans, 2D scaled technical layouts, and 3D architectural renders.</li>
+              <li>General landscape zoning and seamless integration with pool terraces, pergolas, and outdoor living areas.</li>
+              <li>Mediterranean botanical curation and drought-resilient planting composition.</li>
+              <li>Sourcing and installation of mature and centenary specimen trees (ancient olives, carobs, cypresses).</li>
+              <li>Traditional Mallorcan dry-stone walling (pedra en sec) and structural hardscaping.</li>
+              <li>Mediterranean xeriscaping, hydro-zoning, and sub-surface drip irrigation engineering.</li>
+              <li>Comprehensive technical and constructive documentation.</li>
+              <li>Transparent, phase-by-phase budget preparation.</li>
+              <li>In-house site direction and full project management.</li>
+              <li>Direct technical collaboration with architects, project managers, boutique hotels, and family offices.</li>
             </>
           )}
           {lang === 'de' && (
             <>
-              <li>Entwurf, Ausführung und Pflege von Gärten und Terrassen.</li>
-              <li>Voruntersuchung des Standorts und seiner Bedingungen.</li>
-              <li>Konzeptioneller, gestalterischer und technischer Gartenentwurf.</li>
-              <li>Entwurf der allgemeinen Gartenaufteilung und Zonierung.</li>
-              <li>Pflanzplanung: Auswahl und Komposition.</li>
-              <li>Vorschlag für ornamentale Pflanzenelemente.</li>
-              <li>Bewertung der Nachhaltigkeit und Wassereffizienz des Gartens.</li>
-              <li>Planung und Berechnung von Bewässerungssystemen.</li>
-              <li>Erstellung von grafischen Vorschlägen.</li>
-              <li>Budgeterstellung.</li>
-              <li>Bauleitung.</li>
-              <li>Beratung.</li>
+              <li>Schlüsselfertige Planung, Bauausführung und Pflege von Finca-Gärten, Villen und Dachterrassen.</li>
+              <li>Standortanalyse, Topografie und Untersuchung der kalkhaltigen Bodenbeschaffenheit.</li>
+              <li>Konzeptionelle Masterpläne, maßstabsgetreue 2D-Pläne und 3D-Architekturvisualisierungen.</li>
+              <li>Zonierung der Außenanlagen und nahtlose Integration von Poolterrassen und Pergolen.</li>
+              <li>Mediterrane Pflanzplanung: Auswahl und Komposition trockenheitsresistenter Flora.</li>
+              <li>Beschaffung und Pflanzung jahrhundertealter Solitärbäume (alte Olivenbäume, Johannisbrotbäume, Zypressen).</li>
+              <li>Traditioneller mallorquinischer Trockensteinmauerbau (Pedra en sec) und Erdarbeiten.</li>
+              <li>Mediterranes Xeriscaping, Hydro-Zonierung und unterirdische Tropfbewässerungssysteme.</li>
+              <li>Erstellung der vollständigen technischen Ausführungsunterlagen.</li>
+              <li>Transparente, nach Bauphasen aufgeschlüsselte Budgeterstellung.</li>
+              <li>Komplette Bauleitung vor Ort durch unser eigenes mallorquinisches Team.</li>
+              <li>Direkte Fachkooperation mit Architekten, Projektmanagern, Boutique-Hotels und Family Offices.</li>
             </>
           )}
         </ul>
+
+        <div class="expertise-hub-links">
+          <a href={getPagePath('large-scale-projects', lang)} class="expertise-hub-card">
+            <span class="expertise-hub-tag">
+              {lang === 'en' && 'Estate-Scale Work'}
+              {lang === 'es' && 'Proyectos a Escala de Finca'}
+              {lang === 'de' && 'Arbeiten im Anwesensmaßstab'}
+            </span>
+            <h3 class="expertise-hub-title">{t('nav.largeScaleProjects')} &rarr;</h3>
+            <p class="expertise-hub-desc">
+              {lang === 'en' && 'Explore how we design, build and plant multi-hectare fincas and private estates across Mallorca end-to-end.'}
+              {lang === 'es' && 'Descubra cómo diseñamos, construimos y plantamos fincas de varias hectáreas y grandes propiedades privadas en Mallorca.'}
+              {lang === 'de' && 'Erfahren Sie, wie wir weitläufige Fincas und private Landgüter auf Mallorca schlüsselfertig planen, bauen und bepflanzen.'}
+            </p>
+          </a>
+          <a href={getPagePath('botanical-expertise', lang)} class="expertise-hub-card">
+            <span class="expertise-hub-tag">
+              {lang === 'en' && 'Botanical & Soil Engineering'}
+              {lang === 'es' && 'Ingeniería Botánica y Suelo'}
+              {lang === 'de' && 'Botanik & Bodenexpertise'}
+            </span>
+            <h3 class="expertise-hub-title">{t('nav.botanicalExpertise')} &rarr;</h3>
+            <p class="expertise-hub-desc">
+              {lang === 'en' && 'Calcareous ground, Call Vermell clay, Tramuntana windbreaks and sub-surface drip irrigation tailored to the island.'}
+              {lang === 'es' && 'Terreno calcáreo, arcilla Call Vermell, cortavientos para la Tramuntana y riego subterráneo adaptado a la isla.'}
+              {lang === 'de' && 'Kalkhaltiger Boden, Call-Vermell-Lehm, Tramuntana-Windschutz und wassersparende Unterflurbewässerung.'}
+            </p>
+          </a>
+        </div>
       </section>
 
       <NonResidentOwners lang={lang} />
@@ -516,6 +498,61 @@ const heroCta = {
     left: 0;
     color: var(--color-olive);
     font-size: 1.25rem;
+  }
+
+  .expertise-hub-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--color-sand-dark);
+  }
+
+  .expertise-hub-card {
+    display: block;
+    padding: 2.25rem 2rem;
+    background: var(--color-sand-light);
+    border: 1px solid var(--color-sand-dark);
+    transition: var(--transition-fast);
+  }
+
+  .expertise-hub-card:hover {
+    border-color: var(--color-olive);
+    transform: translateY(-2px);
+  }
+
+  .expertise-hub-tag {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--color-olive);
+    margin-bottom: 0.6rem;
+  }
+
+  .expertise-hub-title {
+    font-family: var(--font-serif);
+    font-size: 1.45rem;
+    font-weight: 400;
+    color: var(--color-charcoal);
+    margin: 0 0 0.75rem;
+  }
+
+  .expertise-hub-desc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-charcoal-light);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .expertise-hub-links {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
   }
 </style>
 

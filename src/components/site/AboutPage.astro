@@ -228,6 +228,68 @@ const team = [
     </div>
   </section>
 
+  <!-- Team Section -->
+  <section class="team section-padding">
+    <div class="container">
+      <header class="team-header">
+        <span class="section-tag">{t('nav.about')}</span>
+        <h2 class="team-title">{teamSectionTitle[lang]}</h2>
+        <p class="team-subtitle">{teamSectionSubtitle[lang]}</p>
+      </header>
+
+      <!-- Row 1: Pedro Campaner, Blanca González, Sofia Grimaux -->
+      <div class="team-grid team-grid-top">
+        {team.slice(0, 3).map((member) => (
+          <article class="team-card">
+            <div class="team-card-header">
+              <div class="team-avatar-wrapper">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  class="team-avatar"
+                  width="88"
+                  height="88"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="team-meta">
+                <span class="team-role">{member.role[lang]}</span>
+                <h3 class="team-name">{member.name}</h3>
+              </div>
+            </div>
+            <p class="team-bio">{member.bio[lang]}</p>
+          </article>
+        ))}
+      </div>
+
+      <!-- Row 2: Iulia Oleg Miron & Miguel Llabres -->
+      <div class="team-grid team-grid-bottom">
+        {team.slice(3).map((member) => (
+          <article class="team-card">
+            <div class="team-card-header">
+              <div class="team-avatar-wrapper">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  class="team-avatar"
+                  width="88"
+                  height="88"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="team-meta">
+                <span class="team-role">{member.role[lang]}</span>
+                <h3 class="team-name">{member.name}</h3>
+              </div>
+            </div>
+            <p class="team-bio">{member.bio[lang]}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
 
 </Layout>
 
@@ -436,66 +498,15 @@ const team = [
     transform: translateX(4px);
   }
 
-  /* Founder Section */
-  .founder {
-    background-color: var(--color-white);
-  }
-
-  .founder-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  .founder-image-wrapper {
-    overflow: hidden;
-  }
-
-  .founder-image {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    object-position: center 18%;
-    display: block;
-  }
-
-  .founder-name {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 3.5vw, 2.75rem);
-    font-weight: 400;
-    color: var(--color-charcoal);
-    margin: 0 0 0.5rem;
-  }
-
-  .founder-role {
-    font-family: var(--font-sans);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-olive);
-    margin-bottom: 1.75rem;
-  }
-
-  .founder-bio {
-    font-size: 1.05rem;
-    line-height: 1.85;
-    color: var(--color-charcoal-light);
-    font-weight: 400;
-  }
-
-  @media (max-width: 900px) {
-    .founder-grid {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-  }
-
   /* Team Section */
   .team {
     background-color: var(--color-sand-light);
     border-top: 1px solid var(--color-sand-dark);
+  }
+
+  .team-header {
+    max-width: 720px;
+    margin-bottom: 3.5rem;
   }
 
   .team-title {
@@ -507,106 +518,116 @@ const team = [
   .team-subtitle {
     font-size: 1.1rem;
     color: var(--color-charcoal-light);
-    max-width: 700px;
     line-height: 1.6;
-    margin-bottom: 5rem;
     font-weight: 400;
+    margin: 0;
   }
 
   .team-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 2.5rem 2rem;
+    gap: 1.75rem;
     align-items: stretch;
+  }
+
+  .team-grid-top {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-bottom: 1.75rem;
+  }
+
+  .team-grid-bottom {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .team-card {
     background-color: var(--color-white);
-    border: 1px solid rgba(227, 221, 211, 0.4);
+    border: 1px solid var(--color-sand-dark);
+    padding: 2rem;
     transition: var(--transition-medium);
     display: flex;
     flex-direction: column;
+    gap: 1.25rem;
     height: 100%;
   }
 
   .team-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+    border-color: var(--color-olive);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.03);
   }
 
-  .team-img-wrapper {
-    aspect-ratio: 4 / 5;
+  .team-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.15rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-sand-dark);
+  }
+
+  .team-avatar-wrapper {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
     overflow: hidden;
     background-color: var(--color-sand-base);
+    border: 1px solid var(--color-sand-dark);
     flex-shrink: 0;
   }
 
-  .team-img {
+  .team-avatar {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center 18%;
     display: block;
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    filter: contrast(1.03);
   }
 
-  .team-card:hover .team-img {
-    transform: scale(1.05);
-  }
-
-  .team-info {
-    padding: 2rem 2rem 2.25rem;
+  .team-meta {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    flex: 1;
+    gap: 0.25rem;
+    min-width: 0;
   }
 
   .team-role {
     font-family: var(--font-sans);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     color: var(--color-olive);
     text-transform: uppercase;
+    line-height: 1.35;
   }
 
   .team-name {
     font-family: var(--font-serif);
-    font-size: 1.6rem;
+    font-size: 1.45rem;
     font-weight: 400;
     color: var(--color-charcoal);
+    margin: 0;
+    line-height: 1.2;
   }
 
   .team-bio {
-    font-size: 0.95rem;
-    line-height: 1.7;
+    font-size: 0.93rem;
+    line-height: 1.72;
     color: var(--color-charcoal-light);
+    margin: 0;
   }
 
   @media (max-width: 1024px) {
-    .team-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 3rem 2rem;
+    .team-grid-top,
+    .team-grid-bottom {
+      grid-template-columns: 1fr;
     }
   }
 
   @media (max-width: 768px) {
-    .team-grid {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-    
-    .team-img-wrapper {
-      aspect-ratio: 4 / 5;
-    }
-
     .ethos-panel {
       padding: 2.5rem 1.75rem;
     }
 
-    .team-info {
-      padding: 2rem;
+    .team-card {
+      padding: 1.5rem;
     }
   }
 </style>
