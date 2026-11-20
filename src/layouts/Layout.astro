@@ -272,8 +272,9 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
               }
             }
 
-            // 2. E-mail (mailto:) click conversion
+            // 2. E-mail (mailto:) click conversion (defer mailto: navigation until event_callback so browser does not abort 1p-conversion ping)
             if (anchor.href.toLowerCase().startsWith('mailto:')) {
+              const mailtoHref = anchor.href;
               const emailSessionKey = 'sestepa_email_logged';
               let emailAlreadyLogged = false;
               try {
@@ -284,18 +285,17 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
               } catch (_) {}
 
               if (!emailAlreadyLogged && isProdHost) {
+                e.preventDefault();
+                let navigated = false;
+                const openMailClient = () => {
+                  if (!navigated) {
+                    navigated = true;
+                    window.location.href = mailtoHref;
+                  }
+                };
+                const fallbackTimer = setTimeout(openMailClient, 450);
+
                 const emailEventId = `em_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
-                if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-                  window.gtag('event', 'conversion', {
-                    send_to: GOOGLE_ADS_CONVERSION_EMAIL,
-                    transport_type: 'beacon'
-                  });
-                  window.gtag('event', 'email_click', {
-                    event_category: 'engagement',
-                    event_label: pathname,
-                    transport_type: 'beacon'
-                  });
-                }
                 if (window.dataLayer) {
                   window.dataLayer.push({
                     event: 'email_click',
@@ -303,11 +303,30 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
                     event_id: emailEventId
                   });
                 }
+                if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+                  window.gtag('event', 'email_click', {
+                    event_category: 'engagement',
+                    event_label: pathname,
+                    transport_type: 'beacon'
+                  });
+                  window.gtag('event', 'conversion', {
+                    send_to: GOOGLE_ADS_CONVERSION_EMAIL,
+                    transport_type: 'beacon',
+                    event_callback: () => {
+                      clearTimeout(fallbackTimer);
+                      openMailClient();
+                    }
+                  });
+                } else {
+                  clearTimeout(fallbackTimer);
+                  openMailClient();
+                }
               }
             }
 
-            // 3. Phone (tel:) click telemetry
+            // 3. Phone (tel:) click telemetry (defer tel: navigation briefly so beacon completes)
             if (anchor.href.toLowerCase().startsWith('tel:')) {
+              const telHref = anchor.href;
               const telSessionKey = 'sestepa_tel_logged';
               let telAlreadyLogged = false;
               try {
@@ -318,20 +337,37 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
               } catch (_) {}
 
               if (!telAlreadyLogged && isProdHost) {
+                e.preventDefault();
+                let telNavigated = false;
+                const openTelClient = () => {
+                  if (!telNavigated) {
+                    telNavigated = true;
+                    window.location.href = telHref;
+                  }
+                };
+                const telTimer = setTimeout(openTelClient, 350);
+
                 const telEventId = `tel_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
-                if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-                  window.gtag('event', 'phone_click', {
-                    event_category: 'engagement',
-                    event_label: pathname,
-                    transport_type: 'beacon'
-                  });
-                }
                 if (window.dataLayer) {
                   window.dataLayer.push({
                     event: 'phone_click',
                     page: pathname,
                     event_id: telEventId
                   });
+                }
+                if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+                  window.gtag('event', 'phone_click', {
+                    event_category: 'engagement',
+                    event_label: pathname,
+                    transport_type: 'beacon',
+                    event_callback: () => {
+                      clearTimeout(telTimer);
+                      openTelClient();
+                    }
+                  });
+                } else {
+                  clearTimeout(telTimer);
+                  openTelClient();
                 }
               }
             }
