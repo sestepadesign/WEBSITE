@@ -9,12 +9,30 @@
 ---
 
 ## CONTEXTO ATUAL (Estado da Aplicação)
-- **Status:** Produção atualizada em `master` com bloco de consulta privada no fim das páginas de projeto (`ProjectDetail.astro`) e faixa discreta de imprensa na Homepage (`HomePage.astro`).
+- **Status:** Produção atualizada em `master` com auditoria e aprimoramento das tags do Google Ads (`AW-795871100`), GTM (`GTM-K6MSRJX9`) e `gtag.js` (`GT-WKTZS5C`) em `Layout.astro` e `seo.ts`.
 - **Último commit técnico anterior:** `69ca30a` (`feat(ux): add For Non-Resident Owners section to homepage and services`).
 
 ---
 
 ## HISTÓRICO DE SESSÕES (Ordem Cronológica Reversa)
+
+### [2026-11-20] - Antigravity (Auditoria e Melhoria de Tags Google Ads, GTM e Telemetria de Conversão em Produção) — publicado em master
+- **Autor/agente:** Antigravity.
+- **Acesso à unidade J:** Não houve acesso a `J:` (100% isolamento estrito preservado).
+- **Escopo:**
+  1. **Diagnóstico das 6 Tags "Inativa / Vinculado incorretamente" no Google Ads (`AW-795871100`):**
+     - **4 pertencem a `Sestepa Jardinería` (`sestepa.com`, intocadas conforme Regra 10):** `GA4 Sestepa (web) Formulario GA4`, `S'estepa Jardineria – GA4 (web) formulario_de_contacto`, `FORM | SESTEPA JARDINERIA`, `EMAIL | SESTEPA JARDINERIA`.
+     - **2 pertencem a `Design S'Estepa` (`design.sestepa.com`):** `Boton Whatsapp | Design S'Estepa` (`AW-795871100/3a-ICMu_2ooaEPyOwPsC`) e `E-mail | Design S'Estepa` (`AW-795871100/aw8GCKXL0YoaEPyOwPsC`). A conversão primária `Form | Design S'Estepa` (`AW-795871100/dv-kCJrn0YoaEPyOwPsC`) já encontra-se **Ativa** com conversões registradas.
+  2. **Melhorias no Código (`src/lib/seo.ts`, `src/layouts/Layout.astro`, `docs/ANALYTICS.md`):**
+     - Exportado `GOOGLE_ADS_CONVERSION_EMAIL = 'AW-795871100/aw8GCKXL0YoaEPyOwPsC'` em `src/lib/seo.ts`.
+     - Adicionado listener delegado com deduplicação por sessão (`sessionStorage`) e `transport_type: 'beacon'` para cliques em links `mailto:` (disparando a conversão `AW-795871100/aw8GCKXL0YoaEPyOwPsC` e o evento `email_click`), links `wa.me` (`transport_type: 'beacon'` na conversão `AW-795871100/3a-ICMu_2ooaEPyOwPsC` e `whatsapp_click`) e links `tel:` (`phone_click`).
+     - Adicionada configuração explícita `window.gtag('config', GOOGLE_ADS_ID, { 'allow_enhanced_conversions': true })`, `window.gtag('config', GA4_ID)` e `window.gtag('set', 'url_passthrough', true)` no bloco de inicialização do Google Tag em `src/layouts/Layout.astro`.
+  3. **Correções no GTM (`GTM-K6MSRJX9`) e Google Ads (`Design S'Estepa`):**
+     - Corrigido o acionador `Apenas links` (`wa.me`) no GTM de `Evento personalizado` (`click`) para `Clique - Apenas links`.
+     - Pausada a tag redundante `Boton E-mail | Design S'Estepa` no GTM para centralizar todos os disparos no `gtag.js` direto (Versão publicada no GTM), mantendo `Vinculador de conversões` ativo.
+     - Ativadas as **Conversões Otimizadas** (*Enhanced Conversions*) na ação `Boton Whatsapp | Design S'Estepa` no Google Ads.
+- **Validação:** Build de produção isolado (`python scripts/preview_local.py build`) concluído com 0 erros e deploy em `origin/master`.
+- **Arquivos alterados:** `src/lib/seo.ts`, `src/layouts/Layout.astro`, `docs/ANALYTICS.md`, `STATUS.md`.
 
 ### [2026-11-18] - Antigravity (Publicação da Proposta Editorial Instagram Nov-Dez 2026 sem Links Públicos) — publicado em master
 - **Autor/agente:** Antigravity.

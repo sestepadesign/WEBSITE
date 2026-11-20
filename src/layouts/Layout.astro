@@ -18,6 +18,7 @@ import {
   GTAG_ID,
   GOOGLE_ADS_ID,
   GOOGLE_ADS_CONVERSION_WHATSAPP,
+  GOOGLE_ADS_CONVERSION_EMAIL,
   GA4_ID,
   COOKIEYES_CLIENT_ID,
   META_PIXEL_ID,
@@ -209,12 +210,18 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
       </div>
     )}
     {!redirectTo && (
-      <script is:inline define:vars={{ GOOGLE_ADS_CONVERSION_WHATSAPP }}>
+      <script is:inline define:vars={{ GOOGLE_ADS_CONVERSION_WHATSAPP, GOOGLE_ADS_CONVERSION_EMAIL }}>
         document.addEventListener('DOMContentLoaded', () => {
           document.body.addEventListener('click', (e) => {
             const anchor = e.target.closest('a');
-            if (anchor && anchor.href && anchor.href.includes('wa.me')) {
-              const pathname = window.location.pathname;
+            if (!anchor || !anchor.href) return;
+
+            const pathname = window.location.pathname;
+            const host = window.location.hostname;
+            const isProdHost = host === 'design.sestepa.com' || host === 'www.design.sestepa.com';
+
+            // 1. WhatsApp click conversion & lead logging
+            if (anchor.href.includes('wa.me')) {
               const waSessionKey = 'sestepa_wa_logged';
               let alreadyLogged = false;
               try {
@@ -224,45 +231,107 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
                 }
               } catch (_) {}
 
-              if (!alreadyLogged) {
-                const host = window.location.hostname;
-                const isProdHost = host === 'design.sestepa.com' || host === 'www.design.sestepa.com';
-                if (isProdHost) {
-                  const waEventId = `wa_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
-                  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-                    window.gtag('event', 'conversion', {
-                      send_to: GOOGLE_ADS_CONVERSION_WHATSAPP
-                    });
-                    window.gtag('event', 'whatsapp_click', {
-                      event_category: 'engagement',
-                      event_label: pathname
-                    });
-                  }
-                  if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
-                    window.fbq('track', 'Contact', {
-                      content_name: pathname,
-                      content_category: 'whatsapp'
-                    }, { eventID: waEventId });
-                  }
-                  if (window.dataLayer) {
-                    window.dataLayer.push({
-                      event: 'whatsapp_click',
-                      page: pathname,
-                      event_id: waEventId
-                    });
-                  }
-                  const payload = {
-                    name: "WhatsApp Click",
-                    email: "---",
-                    subject: "WhatsApp",
-                    message: `Click en el botón de WhatsApp desde: ${pathname}`
-                  };
-                  fetch("/api/leads", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ type: "whatsapp", payload, event_id: waEventId }),
-                    keepalive: true
-                  }).catch(err => console.error("WhatsApp click logging failed:", err));
+              if (!alreadyLogged && isProdHost) {
+                const waEventId = `wa_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+                if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+                  window.gtag('event', 'conversion', {
+                    send_to: GOOGLE_ADS_CONVERSION_WHATSAPP,
+                    transport_type: 'beacon'
+                  });
+                  window.gtag('event', 'whatsapp_click', {
+                    event_category: 'engagement',
+                    event_label: pathname,
+                    transport_type: 'beacon'
+                  });
+                }
+                if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+                  window.fbq('track', 'Contact', {
+                    content_name: pathname,
+                    content_category: 'whatsapp'
+                  }, { eventID: waEventId });
+                }
+                if (window.dataLayer) {
+                  window.dataLayer.push({
+                    event: 'whatsapp_click',
+                    page: pathname,
+                    event_id: waEventId
+                  });
+                }
+                const payload = {
+                  name: "WhatsApp Click",
+                  email: "---",
+                  subject: "WhatsApp",
+                  message: `Click en el botón de WhatsApp desde: ${pathname}`
+                };
+                fetch("/api/leads", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ type: "whatsapp", payload, event_id: waEventId }),
+                  keepalive: true
+                }).catch(err => console.error("WhatsApp click logging failed:", err));
+              }
+            }
+
+            // 2. E-mail (mailto:) click conversion
+            if (anchor.href.toLowerCase().startsWith('mailto:')) {
+              const emailSessionKey = 'sestepa_email_logged';
+              let emailAlreadyLogged = false;
+              try {
+                emailAlreadyLogged = sessionStorage.getItem(emailSessionKey) === '1';
+                if (!emailAlreadyLogged) {
+                  sessionStorage.setItem(emailSessionKey, '1');
+                }
+              } catch (_) {}
+
+              if (!emailAlreadyLogged && isProdHost) {
+                const emailEventId = `em_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+                if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+                  window.gtag('event', 'conversion', {
+                    send_to: GOOGLE_ADS_CONVERSION_EMAIL,
+                    transport_type: 'beacon'
+                  });
+                  window.gtag('event', 'email_click', {
+                    event_category: 'engagement',
+                    event_label: pathname,
+                    transport_type: 'beacon'
+                  });
+                }
+                if (window.dataLayer) {
+                  window.dataLayer.push({
+                    event: 'email_click',
+                    page: pathname,
+                    event_id: emailEventId
+                  });
+                }
+              }
+            }
+
+            // 3. Phone (tel:) click telemetry
+            if (anchor.href.toLowerCase().startsWith('tel:')) {
+              const telSessionKey = 'sestepa_tel_logged';
+              let telAlreadyLogged = false;
+              try {
+                telAlreadyLogged = sessionStorage.getItem(telSessionKey) === '1';
+                if (!telAlreadyLogged) {
+                  sessionStorage.setItem(telSessionKey, '1');
+                }
+              } catch (_) {}
+
+              if (!telAlreadyLogged && isProdHost) {
+                const telEventId = `tel_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+                if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+                  window.gtag('event', 'phone_click', {
+                    event_category: 'engagement',
+                    event_label: pathname,
+                    transport_type: 'beacon'
+                  });
+                }
+                if (window.dataLayer) {
+                  window.dataLayer.push({
+                    event: 'phone_click',
+                    page: pathname,
+                    event_id: telEventId
+                  });
                 }
               }
             }
@@ -272,7 +341,7 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
     )}
 
     <!-- Production-only Analytics, Consent Mode v2, CookieYes, GTM & Meta Pixel (skip localhost / preview hosts) -->
-    <script is:inline define:vars={{ GTM_ID, GTAG_ID, COOKIEYES_CLIENT_ID, META_PIXEL_ID }}>
+    <script is:inline define:vars={{ GTM_ID, GTAG_ID, GOOGLE_ADS_ID, GA4_ID, COOKIEYES_CLIENT_ID, META_PIXEL_ID }}>
       (function () {
         var host = window.location.hostname;
         if (host !== 'design.sestepa.com' && host !== 'www.design.sestepa.com') {
@@ -282,7 +351,7 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
         window.dataLayer = window.dataLayer || [];
         window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
 
-        // Google Consent Mode v2 Default State
+        // Google Consent Mode v2 Default State (with url_passthrough for ad click attribution)
         window.gtag('consent', 'default', {
           'ad_storage': 'denied',
           'analytics_storage': 'denied',
@@ -294,6 +363,7 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
           'wait_for_update': 500
         });
         window.gtag('set', 'ads_data_redaction', true);
+        window.gtag('set', 'url_passthrough', true);
 
         // CookieYes banner
         var cyScript = document.createElement('script');
@@ -302,13 +372,15 @@ const headerLangAlternates = hreflangAlternates && hreflangAlternates.length
         cyScript.src = 'https://cdn-cookieyes.com/client_data/' + COOKIEYES_CLIENT_ID + '/script.js';
         document.head.appendChild(cyScript);
 
-        // Google tag (gtag.js) — GT-WKTZS5C routes to GA4 (G-DZ9ZSG3VH0) and Ads (AW-795871100)
+        // Google tag (gtag.js) — GT-WKTZS5C routes to GA4 (G-DZ9ZSG3VH0) and Ads (AW-795871100) with Enhanced Conversions
         var gtagScript = document.createElement('script');
         gtagScript.async = true;
         gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + GTAG_ID;
         document.head.appendChild(gtagScript);
         window.gtag('js', new Date());
         window.gtag('config', GTAG_ID);
+        window.gtag('config', GA4_ID);
+        window.gtag('config', GOOGLE_ADS_ID, { 'allow_enhanced_conversions': true });
 
         // Google Tag Manager
         (function (w, d, s, l, i) {

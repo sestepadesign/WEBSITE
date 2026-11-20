@@ -16,16 +16,19 @@ Este documento registra as credenciais e identificadores oficiais de acompanhame
 | **Google Ads ID** | S'Estepa | `AW-795871100` | ID de conversão e remarketing configurado. |
 | **Google Ads Conversion (Form)** | Form \| Design S'Estepa | `AW-795871100/dv-kCJrn0YoaEPyOwPsC` | Ação de conversão primária de envio de formulário de contato. |
 | **Google Ads Conversion (WhatsApp)** | Boton Whatsapp \| Design S'Estepa | `AW-795871100/3a-ICMu_2ooaEPyOwPsC` | Ação de conversão de clique em link WhatsApp (`wa.me`). |
+| **Google Ads Conversion (E-mail)** | E-mail \| Design S'Estepa | `AW-795871100/aw8GCKXL0YoaEPyOwPsC` | Ação de conversão de clique em link de e-mail (`mailto:`). |
 | **Google Tag Manager (GTM)** | S'Estepa Design | `GTM-K6MSRJX9` | Contêiner para gestão avançada de tags via script. |
 
 ## 2. EVENTOS E TELEMETRIA PERSONALIZADA
 
 | Evento | Disparo | Payload / Destino |
 | :--- | :--- | :--- |
-| `conversion` | Envio de formulário confirmado com HTTP 200 (`res.ok && result.ok`) em `/api/leads` | `AW-795871100/dv-kCJrn0YoaEPyOwPsC` + `transaction_id` único (Google Ads) |
+| `conversion` (Form) | Envio de formulário confirmado com HTTP 200 (`res.ok && result.ok`) em `/api/leads` | `AW-795871100/dv-kCJrn0YoaEPyOwPsC` + `transaction_id` único (Google Ads) |
 | `generate_lead` | Envio de formulário confirmado com HTTP 200 (`res.ok && result.ok`) em `/api/leads` | `currency: 'EUR'`, `value: 1.0`, `event_label: pathname` (GA4 & dataLayer) |
 | `Lead` (Meta Pixel & CAPI) | Envio de formulário confirmado com HTTP 200 (`res.ok && result.ok`) em `/api/leads` | `1185880420805434` (`fbq('track', 'Lead')` + CAPI deduplicado por `eventID: txId`) |
-| `whatsapp_click` / `Contact` | Primeiro clique em link `wa.me` na sessão (`sessionStorage`) | `AW-795871100/3a-ICMu_2ooaEPyOwPsC` (Google Ads `conversion`), `fbq('track', 'Contact')` + CAPI (`1185880420805434`), GA4, dataLayer & `/api/leads` |
+| `whatsapp_click` / `Contact` | Primeiro clique em link `wa.me` na sessão (`sessionStorage`) | `AW-795871100/3a-ICMu_2ooaEPyOwPsC` (Google Ads `conversion`, `transport_type: 'beacon'`), `fbq('track', 'Contact')` + CAPI (`1185880420805434`), GA4, dataLayer & `/api/leads` |
+| `email_click` / `conversion` (E-mail) | Primeiro clique em link `mailto:` na sessão (`sessionStorage`) | `AW-795871100/aw8GCKXL0YoaEPyOwPsC` (Google Ads `conversion`, `transport_type: 'beacon'`), GA4 (`email_click`) & dataLayer |
+| `phone_click` | Primeiro clique em link `tel:` na sessão (`sessionStorage`) | GA4 (`phone_click`, `transport_type: 'beacon'`) & dataLayer |
 
 ## 3. META ADS & OUTROS RASTREADORES
 
@@ -39,6 +42,12 @@ Este documento registra as credenciais e identificadores oficiais de acompanhame
 | **Metricool** | `4514d2b6d34c58b6a0b6a1c1649df7b` | Hash de rastreamento de métricas de rede social e tráfego. |
 
 ## 4. HISTÓRICO DE CORREÇÕES
+
+* **20 de Novembro de 2026 (Auditoria de Tags Google Ads, E-mail Conversion, Enhanced Conversions & GTM)**:
+  - Exportado `GOOGLE_ADS_CONVERSION_EMAIL = 'AW-795871100/aw8GCKXL0YoaEPyOwPsC'` (`E-mail | Design S'Estepa`) em `src/lib/seo.ts`.
+  - Adicionado disparo direto de conversão de clique em e-mail (`mailto:`) e telemetria de telefone (`tel:`) em `src/layouts/Layout.astro`, com `transport_type: 'beacon'` e deduplicação por sessão (`sessionStorage`), garantindo envio confiável de `Boton Whatsapp | Design S'Estepa` (`AW-795871100/3a-ICMu_2ooaEPyOwPsC`) e `E-mail | Design S'Estepa` (`AW-795871100/aw8GCKXL0YoaEPyOwPsC`) mesmo em troca imediata de janela/aplicativo.
+  - Adicionada configuração explícita `gtag('config', GOOGLE_ADS_ID, { 'allow_enhanced_conversions': true })`, `gtag('config', GA4_ID)` e `gtag('set', 'url_passthrough', true)` em `Layout.astro`.
+  - No GTM (`GTM-K6MSRJX9`), corrigido o acionador `Apenas links` (`wa.me`) de `Evento personalizado` (`click`) para `Clique - Apenas links`, pausada a tag redundante `Boton E-mail | Design S'Estepa` para evitar contagem dupla com o `gtag` direto e ativadas as Conversões Otimizadas em `Boton Whatsapp | Design S'Estepa` no Google Ads.
 
 * **19 de Novembro de 2026 (Meta Pixel, Verificação de Domínio e Públicos de Remarketing/B2B)**: Criação e instalação do Meta Pixel oficial (`1185880420805434` — `S'Estepa Design - design.sestepa.com`) e meta tag de verificação de domínio (`n3kyf9z9ovyhv4kez1adjixiwt2l5f`) em `Layout.astro` e `seo.ts`, estritamente restritos ao host de produção (`design.sestepa.com` / `www.design.sestepa.com`) e sincronizados com o consentimento GDPR do CookieYes (`advertisement`). Adicionado disparo deduplicado por `eventID` dos eventos `Lead` em `ContactForm.astro` e `Contact` no listener de WhatsApp em `Layout.astro`, com suporte server-side CAPI em `functions/api/leads.js`. Criados 5 Públicos Personalizados de Remarketing (`RMKT_IG_Engagers_365d_sestepadesign`, `RMKT_IG_Hot_90d_sestepadesign`, `RMKT_FB_Engagers_365d_SestepaDesign`, `RMKT_WEB_All_Visitors_180d`, `RMKT_WEB_Estate_Fincas_180d`) e 3 Públicos Salvos B2B por idioma (EN/DE/ES) na conta `1450159125790416`.
 
